@@ -1,5 +1,5 @@
 ---
-title: "Yazılım dağıtım araçları kullanarak Azure Site Recovery Mobility hizmeti yüklemesi otomatikleştirmek | Microsoft Docs"
+title: "yazılım dağıtım araçları kullanarak mobilite hizmeti yükleme Azure Site kurtarma aaaAutomate | Microsoft Docs"
 description: "Bu makalede, System Center Configuration Manager gibi yazılım dağıtım araçları kullanarak Mobility hizmetinin yüklenmesini otomatikleştirmek yardımcı olur."
 services: site-recovery
 documentationcenter: 
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: 49b72cd306aa91f114af7688f02d95db6f6eca05
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6c883c6d5308dcec6e0628b0c2196b3a12e08ebe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a><span data-ttu-id="63465-103">Yazılım dağıtım araçları kullanarak mobilite hizmeti yükleme otomatikleştirme</span><span class="sxs-lookup"><span data-stu-id="63465-103">Automate Mobility Service installation by using software deployment tools</span></span>
+# <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a><span data-ttu-id="cee10-103">Yazılım dağıtım araçları kullanarak mobilite hizmeti yükleme otomatikleştirme</span><span class="sxs-lookup"><span data-stu-id="cee10-103">Automate Mobility Service installation by using software deployment tools</span></span>
 
 >[!IMPORTANT]
-<span data-ttu-id="63465-104">Bu belge sürümü kullandığınız varsayılır **9.9.4510.1** ya da daha yüksek.</span><span class="sxs-lookup"><span data-stu-id="63465-104">This document assumes you are using version **9.9.4510.1** or higher.</span></span>
+<span data-ttu-id="cee10-104">Bu belge sürümü kullandığınız varsayılır **9.9.4510.1** ya da daha yüksek.</span><span class="sxs-lookup"><span data-stu-id="cee10-104">This document assumes you are using version **9.9.4510.1** or higher.</span></span>
 
-<span data-ttu-id="63465-105">Bu makalede, Azure Site Recovery Mobility hizmeti, veri merkezinizde dağıtmak için System Center Configuration Manager nasıl kullanabileceğinize bir örnek sağlar.</span><span class="sxs-lookup"><span data-stu-id="63465-105">This article provides you an example of how you can use System Center Configuration Manager to deploy the Azure Site Recovery Mobility Service in your datacenter.</span></span> <span data-ttu-id="63465-106">Configuration Manager'ı aşağıdaki avantajlara sahip gibi bir yazılım dağıtım aracını kullanma:</span><span class="sxs-lookup"><span data-stu-id="63465-106">Using a software deployment tool like Configuration Manager has the following advantages:</span></span>
-* <span data-ttu-id="63465-107">Yazılım güncelleştirmeleri için planlanan bakım penceresi sırasında yeni yüklemeleri ve yükseltmeleri, dağıtımını planlama</span><span class="sxs-lookup"><span data-stu-id="63465-107">Scheduling deployment of fresh installations and upgrades, during your planned maintenance window for software updates</span></span>
-* <span data-ttu-id="63465-108">Yüzlerce dağıtımına aynı anda ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="63465-108">Scaling deployment to hundreds of servers simultaneously</span></span>
+<span data-ttu-id="cee10-105">Bu makalede, System Center Configuration Manager toodeploy hello Azure Site Recovery Mobility hizmeti, veri merkezinizde nasıl kullanabileceğinize bir örnek sağlar.</span><span class="sxs-lookup"><span data-stu-id="cee10-105">This article provides you an example of how you can use System Center Configuration Manager toodeploy hello Azure Site Recovery Mobility Service in your datacenter.</span></span> <span data-ttu-id="cee10-106">Configuration Manager gibi yazılım dağıtım aracını kullanarak hello aşağıdaki avantajları vardır:</span><span class="sxs-lookup"><span data-stu-id="cee10-106">Using a software deployment tool like Configuration Manager has hello following advantages:</span></span>
+* <span data-ttu-id="cee10-107">Yazılım güncelleştirmeleri için planlanan bakım penceresi sırasında yeni yüklemeleri ve yükseltmeleri, dağıtımını planlama</span><span class="sxs-lookup"><span data-stu-id="cee10-107">Scheduling deployment of fresh installations and upgrades, during your planned maintenance window for software updates</span></span>
+* <span data-ttu-id="cee10-108">Dağıtım toohundreds sunucularının aynı anda ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="cee10-108">Scaling deployment toohundreds of servers simultaneously</span></span>
 
 
 > [!NOTE]
-> <span data-ttu-id="63465-109">Bu makalede, bir dağıtım etkinliğiyle göstermek için System Center Configuration Manager 2012 R2 kullanır.</span><span class="sxs-lookup"><span data-stu-id="63465-109">This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity.</span></span> <span data-ttu-id="63465-110">Mobility hizmeti yükleme kullanarak da otomatikleştirmek [Azure Automation ve istenen durum Yapılandırması](site-recovery-automate-mobility-service-install.md).</span><span class="sxs-lookup"><span data-stu-id="63465-110">You could also automate Mobility Service installation by using [Azure Automation and Desired State Configuration](site-recovery-automate-mobility-service-install.md).</span></span>
+> <span data-ttu-id="cee10-109">Bu makalede, System Center Configuration Manager 2012 R2 toodemonstrate hello dağıtım aktivitesi kullanır.</span><span class="sxs-lookup"><span data-stu-id="cee10-109">This article uses System Center Configuration Manager 2012 R2 toodemonstrate hello deployment activity.</span></span> <span data-ttu-id="cee10-110">Mobility hizmeti yükleme kullanarak da otomatikleştirmek [Azure Automation ve istenen durum Yapılandırması](site-recovery-automate-mobility-service-install.md).</span><span class="sxs-lookup"><span data-stu-id="cee10-110">You could also automate Mobility Service installation by using [Azure Automation and Desired State Configuration](site-recovery-automate-mobility-service-install.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="63465-111">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="63465-111">Prerequisites</span></span>
-1. <span data-ttu-id="63465-112">Yazılım dağıtım aracı, yapılandırma, ortamınızda dağıtılmış Manager gibi.</span><span class="sxs-lookup"><span data-stu-id="63465-112">A software deployment tool, like Configuration Manager, that is already deployed in your environment.</span></span>
-  <span data-ttu-id="63465-113">İki oluşturmak [cihaz koleksiyonları](https://technet.microsoft.com/library/gg682169.aspx), tüm için bir tane **Windows sunucuları**, diğeri tüm **Linux sunucuları**, Site Recovery kullanarak korumak istediğiniz.</span><span class="sxs-lookup"><span data-stu-id="63465-113">Create two [device collections](https://technet.microsoft.com/library/gg682169.aspx), one for all **Windows servers**, and another for all **Linux servers**, that you want to protect by using Site Recovery.</span></span>
-3. <span data-ttu-id="63465-114">Site Recovery ile zaten kayıtlı bir yapılandırma sunucusu.</span><span class="sxs-lookup"><span data-stu-id="63465-114">A configuration server that is already registered with Site Recovery.</span></span>
-4. <span data-ttu-id="63465-115">Configuration Manager sunucusu tarafından erişilebilecek güvenli bir ağ dosya paylaşımına (sunucu ileti bloğu paylaşım).</span><span class="sxs-lookup"><span data-stu-id="63465-115">A secure network file share (Server Message Block share) that can be accessed by the Configuration Manager server.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="cee10-111">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="cee10-111">Prerequisites</span></span>
+1. <span data-ttu-id="cee10-112">Yazılım dağıtım aracı, yapılandırma, ortamınızda dağıtılmış Manager gibi.</span><span class="sxs-lookup"><span data-stu-id="cee10-112">A software deployment tool, like Configuration Manager, that is already deployed in your environment.</span></span>
+  <span data-ttu-id="cee10-113">İki oluşturmak [cihaz koleksiyonları](https://technet.microsoft.com/library/gg682169.aspx), tüm için bir tane **Windows sunucuları**, tüm için başka bir **Linux sunucuları**, Site Recovery kullanarak tooprotect istiyor.</span><span class="sxs-lookup"><span data-stu-id="cee10-113">Create two [device collections](https://technet.microsoft.com/library/gg682169.aspx), one for all **Windows servers**, and another for all **Linux servers**, that you want tooprotect by using Site Recovery.</span></span>
+3. <span data-ttu-id="cee10-114">Site Recovery ile zaten kayıtlı bir yapılandırma sunucusu.</span><span class="sxs-lookup"><span data-stu-id="cee10-114">A configuration server that is already registered with Site Recovery.</span></span>
+4. <span data-ttu-id="cee10-115">Merhaba Configuration Manager sunucusu tarafından erişilebilecek güvenli bir ağ dosya paylaşımına (sunucu ileti bloğu paylaşım).</span><span class="sxs-lookup"><span data-stu-id="cee10-115">A secure network file share (Server Message Block share) that can be accessed by hello Configuration Manager server.</span></span>
 
-## <a name="deploy-mobility-service-on-computers-running-windows"></a><span data-ttu-id="63465-116">Mobility hizmetinin Windows çalıştıran bilgisayarlara dağıtma</span><span class="sxs-lookup"><span data-stu-id="63465-116">Deploy Mobility Service on computers running Windows</span></span>
+## <a name="deploy-mobility-service-on-computers-running-windows"></a><span data-ttu-id="cee10-116">Mobility hizmetinin Windows çalıştıran bilgisayarlara dağıtma</span><span class="sxs-lookup"><span data-stu-id="cee10-116">Deploy Mobility Service on computers running Windows</span></span>
 > [!NOTE]
-> <span data-ttu-id="63465-117">Bu makalede yapılandırma sunucusu IP adresini 192.168.3.121 olduğunu ve güvenli bir ağ dosya paylaşımına olduğunu varsayar \\\ContosoSecureFS\MobilityServiceInstallers.</span><span class="sxs-lookup"><span data-stu-id="63465-117">This article assumes that the IP address of the configuration server is 192.168.3.121, and that the secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers.</span></span>
+> <span data-ttu-id="cee10-117">Bu makalede hello yapılandırma sunucusu IP adresi hello 192.168.3.121 olacak ve bu hello güvenli ağ dosya paylaşımı varsayılmaktadır \\\ContosoSecureFS\MobilityServiceInstallers.</span><span class="sxs-lookup"><span data-stu-id="cee10-117">This article assumes that hello IP address of hello configuration server is 192.168.3.121, and that hello secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers.</span></span>
 
-### <a name="step-1-prepare-for-deployment"></a><span data-ttu-id="63465-118">Adım 1: dağıtıma Hazırlan</span><span class="sxs-lookup"><span data-stu-id="63465-118">Step 1: Prepare for deployment</span></span>
-1. <span data-ttu-id="63465-119">Ağ paylaşımında bir klasör oluşturun ve adlandırın **MobSvcWindows**.</span><span class="sxs-lookup"><span data-stu-id="63465-119">Create a folder on the network share, and name it **MobSvcWindows**.</span></span>
-2. <span data-ttu-id="63465-120">Yapılandırma sunucunuza oturum açın ve bir yönetici komut istemi açın.</span><span class="sxs-lookup"><span data-stu-id="63465-120">Sign in to your configuration server, and open an administrative command prompt.</span></span>
-3. <span data-ttu-id="63465-121">Bir parola dosyası oluşturmak için aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="63465-121">Run the following commands to generate a passphrase file:</span></span>
+### <a name="step-1-prepare-for-deployment"></a><span data-ttu-id="cee10-118">Adım 1: dağıtıma Hazırlan</span><span class="sxs-lookup"><span data-stu-id="cee10-118">Step 1: Prepare for deployment</span></span>
+1. <span data-ttu-id="cee10-119">Merhaba ağ paylaşımında bir klasör oluşturun ve adlandırın **MobSvcWindows**.</span><span class="sxs-lookup"><span data-stu-id="cee10-119">Create a folder on hello network share, and name it **MobSvcWindows**.</span></span>
+2. <span data-ttu-id="cee10-120">Tooyour yapılandırma sunucusunda oturum açın ve bir yönetici komut istemi açın.</span><span class="sxs-lookup"><span data-stu-id="cee10-120">Sign in tooyour configuration server, and open an administrative command prompt.</span></span>
+3. <span data-ttu-id="cee10-121">Aşağıdaki komutları toogenerate parola dosya hello çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="cee10-121">Run hello following commands toogenerate a passphrase file:</span></span>
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-4. <span data-ttu-id="63465-122">Kopya **MobSvc.passphrase** içine dosya **MobSvcWindows** klasör, ağ paylaşımında.</span><span class="sxs-lookup"><span data-stu-id="63465-122">Copy the **MobSvc.passphrase** file into the **MobSvcWindows** folder on your network share.</span></span>
-5. <span data-ttu-id="63465-123">Yapılandırma sunucusundaki yükleyici deposu için aşağıdaki komutu çalıştırarak göz atın:</span><span class="sxs-lookup"><span data-stu-id="63465-123">Browse to the installer repository on the configuration server by running the following command:</span></span>
+4. <span data-ttu-id="cee10-122">Kopya hello **MobSvc.passphrase** hello dosyasına **MobSvcWindows** klasör, ağ paylaşımında.</span><span class="sxs-lookup"><span data-stu-id="cee10-122">Copy hello **MobSvc.passphrase** file into hello **MobSvcWindows** folder on your network share.</span></span>
+5. <span data-ttu-id="cee10-123">Merhaba yapılandırma sunucusu üzerindeki toohello yükleyici repository hello aşağıdaki komutu çalıştırarak göz atın:</span><span class="sxs-lookup"><span data-stu-id="cee10-123">Browse toohello installer repository on hello configuration server by running hello following command:</span></span>
 
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
-6. <span data-ttu-id="63465-124">Kopya  **Microsoft ASR\_UA\_*sürüm*\_Windows\_GA\_*tarih* \_İçin Release.exe** **MobSvcWindows** klasör, ağ paylaşımında.</span><span class="sxs-lookup"><span data-stu-id="63465-124">Copy the **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** to the **MobSvcWindows** folder on your network share.</span></span>
-7. <span data-ttu-id="63465-125">Aşağıdaki kodu kopyalayın ve kaydedileceği **install.bat** içine **MobSvcWindows** klasör.</span><span class="sxs-lookup"><span data-stu-id="63465-125">Copy the following code, and save it as **install.bat** into the **MobSvcWindows** folder.</span></span>
+6. <span data-ttu-id="cee10-124">Kopya hello  **Microsoft ASR\_UA\_*sürüm*\_Windows\_GA\_*tarih* \_ Release.exe** toohello **MobSvcWindows** klasör, ağ paylaşımında.</span><span class="sxs-lookup"><span data-stu-id="cee10-124">Copy hello **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** toohello **MobSvcWindows** folder on your network share.</span></span>
+7. <span data-ttu-id="cee10-125">Hello aşağıdaki kodu kopyalayın ve olarak kaydedin **install.bat** hello içine **MobSvcWindows** klasör.</span><span class="sxs-lookup"><span data-stu-id="cee10-125">Copy hello following code, and save it as **install.bat** into hello **MobSvcWindows** folder.</span></span>
 
    > [!NOTE]
-   > <span data-ttu-id="63465-126">Bu komut dosyasındaki [CSIP] yer tutucuları yapılandırma sunucunuzun IP adresini gerçek değerlerle değiştirin.</span><span class="sxs-lookup"><span data-stu-id="63465-126">Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.</span></span>
+   > <span data-ttu-id="cee10-126">Bu komut dosyası Hello [CSIP] yer tutucuları hello gerçek başlangıç IP adresi yapılandırması sunucunuzun değerlerle değiştirin.</span><span class="sxs-lookup"><span data-stu-id="cee10-126">Replace hello [CSIP] placeholders in this script with hello actual values of hello IP address of your configuration server.</span></span>
 
 ```DOS
 Time /t >> C:\Temp\logfile.log
 REM ==================================================
-REM ==== Clean up the folders ========================
+REM ==== Clean up hello folders ========================
 RMDIR /S /q %temp%\MobSvc
 MKDIR %Temp%\MobSvc
 MKDIR C:\Temp
@@ -77,9 +77,9 @@ CD %Temp%\MobSvc
 REN Micro*.exe MobSvcInstaller.exe
 REM ==================================================
 
-REM ==== Extract the installer =======================
+REM ==== Extract hello installer =======================
 MobSvcInstaller.exe /q /x:%Temp%\MobSvc\Extracted
-REM ==== Wait 10s for extraction to complete =========
+REM ==== Wait 10s for extraction toocomplete =========
 TIMEOUT /t 10
 REM =================================================
 
@@ -159,96 +159,96 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ```
 
-### <a name="step-2-create-a-package"></a><span data-ttu-id="63465-127">2. adım: bir paket oluşturun</span><span class="sxs-lookup"><span data-stu-id="63465-127">Step 2: Create a package</span></span>
+### <a name="step-2-create-a-package"></a><span data-ttu-id="cee10-127">2. adım: bir paket oluşturun</span><span class="sxs-lookup"><span data-stu-id="cee10-127">Step 2: Create a package</span></span>
 
-1. <span data-ttu-id="63465-128">Configuration Manager konsolunuza oturum açın.</span><span class="sxs-lookup"><span data-stu-id="63465-128">Sign in to your Configuration Manager console.</span></span>
-2. <span data-ttu-id="63465-129">Gözat **yazılım Kitaplığı** > **Uygulama Yönetimi** > **paketleri**.</span><span class="sxs-lookup"><span data-stu-id="63465-129">Browse to **Software Library** > **Application Management** > **Packages**.</span></span>
-3. <span data-ttu-id="63465-130">Sağ **paketleri**seçip **Paket Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="63465-130">Right-click **Packages**, and select **Create Package**.</span></span>
-4. <span data-ttu-id="63465-131">Ad, açıklama, üreticisi, dil ve sürüm için değerler sağlayın.</span><span class="sxs-lookup"><span data-stu-id="63465-131">Provide values for the name, description, manufacturer, language, and version.</span></span>
-5. <span data-ttu-id="63465-132">Seçin **bu paket kaynak dosyalarını içeren** onay kutusu.</span><span class="sxs-lookup"><span data-stu-id="63465-132">Select the **This package contains source files** check box.</span></span>
-6. <span data-ttu-id="63465-133">Tıklatın **Gözat**, yükleyici depolandığı ağ paylaşımı seçin (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).</span><span class="sxs-lookup"><span data-stu-id="63465-133">Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).</span></span>
+1. <span data-ttu-id="cee10-128">Tooyour Configuration Manager konsolunda oturum açın.</span><span class="sxs-lookup"><span data-stu-id="cee10-128">Sign in tooyour Configuration Manager console.</span></span>
+2. <span data-ttu-id="cee10-129">Çok Gözat**yazılım Kitaplığı** > **Uygulama Yönetimi** > **paketleri**.</span><span class="sxs-lookup"><span data-stu-id="cee10-129">Browse too**Software Library** > **Application Management** > **Packages**.</span></span>
+3. <span data-ttu-id="cee10-130">Sağ **paketleri**seçip **Paket Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="cee10-130">Right-click **Packages**, and select **Create Package**.</span></span>
+4. <span data-ttu-id="cee10-131">Merhaba adı, açıklama, üreticisi, dil ve sürümü için değerler sağlayın.</span><span class="sxs-lookup"><span data-stu-id="cee10-131">Provide values for hello name, description, manufacturer, language, and version.</span></span>
+5. <span data-ttu-id="cee10-132">Select hello **bu paket kaynak dosyalarını içeren** onay kutusu.</span><span class="sxs-lookup"><span data-stu-id="cee10-132">Select hello **This package contains source files** check box.</span></span>
+6. <span data-ttu-id="cee10-133">Tıklatın **Gözat**ve hello yükleyici depolandığı select hello ağ paylaşımı (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).</span><span class="sxs-lookup"><span data-stu-id="cee10-133">Click **Browse**, and select hello network share where hello installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).</span></span>
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
 
-7. <span data-ttu-id="63465-135">Üzerinde **oluşturmak istediğiniz program türünü seçin** sayfasında, **standart Program**, tıklatıp **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="63465-135">On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.</span></span>
+7. <span data-ttu-id="cee10-135">Merhaba üzerinde **toocreate istediğiniz Seç hello program türü** sayfasında, **standart Program**, tıklatıp **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="cee10-135">On hello **Choose hello program type that you want toocreate** page, select **Standard Program**, and click **Next**.</span></span>
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-8. <span data-ttu-id="63465-137">Üzerinde **bu standart programla ilgili bilgiler belirt** sayfasında, aşağıdaki girişleri yapın ve tıklayın **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="63465-137">On the **Specify information about this standard program** page, provide the following inputs, and click **Next**.</span></span> <span data-ttu-id="63465-138">(Diğer girişleri varsayılan değerleri kullanabilirsiniz.)</span><span class="sxs-lookup"><span data-stu-id="63465-138">(The other inputs can use their default values.)</span></span>
+8. <span data-ttu-id="cee10-137">Merhaba üzerinde **bu standart programla ilgili bilgiler belirt** sayfasında girişleri aşağıdaki hello sağlamak ve tıklayın **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="cee10-137">On hello **Specify information about this standard program** page, provide hello following inputs, and click **Next**.</span></span> <span data-ttu-id="cee10-138">(Merhaba diğer girişleri varsayılan değerleri kullanabilirsiniz.)</span><span class="sxs-lookup"><span data-stu-id="cee10-138">(hello other inputs can use their default values.)</span></span>
 
-  | <span data-ttu-id="63465-139">**Parametre adı**</span><span class="sxs-lookup"><span data-stu-id="63465-139">**Parameter name**</span></span> | <span data-ttu-id="63465-140">**Değer**</span><span class="sxs-lookup"><span data-stu-id="63465-140">**Value**</span></span> |
+  | <span data-ttu-id="cee10-139">**Parametre adı**</span><span class="sxs-lookup"><span data-stu-id="cee10-139">**Parameter name**</span></span> | <span data-ttu-id="cee10-140">**Değer**</span><span class="sxs-lookup"><span data-stu-id="cee10-140">**Value**</span></span> |
   |--|--|
-  | <span data-ttu-id="63465-141">Ad</span><span class="sxs-lookup"><span data-stu-id="63465-141">Name</span></span> | <span data-ttu-id="63465-142">Microsoft Azure Mobility hizmetini (Windows) yükleme</span><span class="sxs-lookup"><span data-stu-id="63465-142">Install Microsoft Azure Mobility Service (Windows)</span></span> |
-  | <span data-ttu-id="63465-143">Komut satırı</span><span class="sxs-lookup"><span data-stu-id="63465-143">Command line</span></span> | <span data-ttu-id="63465-144">install.bat</span><span class="sxs-lookup"><span data-stu-id="63465-144">install.bat</span></span> |
-  | <span data-ttu-id="63465-145">Program çalışabilir</span><span class="sxs-lookup"><span data-stu-id="63465-145">Program can run</span></span> | <span data-ttu-id="63465-146">Bir kullanıcı olup olmadığına oturum</span><span class="sxs-lookup"><span data-stu-id="63465-146">Whether or not a user is logged on</span></span> |
+  | <span data-ttu-id="cee10-141">Ad</span><span class="sxs-lookup"><span data-stu-id="cee10-141">Name</span></span> | <span data-ttu-id="cee10-142">Microsoft Azure Mobility hizmetini (Windows) yükleme</span><span class="sxs-lookup"><span data-stu-id="cee10-142">Install Microsoft Azure Mobility Service (Windows)</span></span> |
+  | <span data-ttu-id="cee10-143">Komut satırı</span><span class="sxs-lookup"><span data-stu-id="cee10-143">Command line</span></span> | <span data-ttu-id="cee10-144">install.bat</span><span class="sxs-lookup"><span data-stu-id="cee10-144">install.bat</span></span> |
+  | <span data-ttu-id="cee10-145">Program çalışabilir</span><span class="sxs-lookup"><span data-stu-id="cee10-145">Program can run</span></span> | <span data-ttu-id="cee10-146">Bir kullanıcı olup olmadığına oturum</span><span class="sxs-lookup"><span data-stu-id="cee10-146">Whether or not a user is logged on</span></span> |
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
 
-9. <span data-ttu-id="63465-148">Sonraki sayfada, hedef işletim sistemlerini seçin.</span><span class="sxs-lookup"><span data-stu-id="63465-148">On the next page, select the target operating systems.</span></span> <span data-ttu-id="63465-149">Mobility hizmeti, yalnızca Windows Server 2012 R2, Windows Server 2012 ve Windows Server 2008 R2 üzerinde yüklenebilir.</span><span class="sxs-lookup"><span data-stu-id="63465-149">Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.</span></span>
+9. <span data-ttu-id="cee10-148">Merhaba sonraki sayfada hello hedef işletim sistemlerini seçin.</span><span class="sxs-lookup"><span data-stu-id="cee10-148">On hello next page, select hello target operating systems.</span></span> <span data-ttu-id="cee10-149">Mobility hizmeti, yalnızca Windows Server 2012 R2, Windows Server 2012 ve Windows Server 2008 R2 üzerinde yüklenebilir.</span><span class="sxs-lookup"><span data-stu-id="cee10-149">Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.</span></span>
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)
 
-10. <span data-ttu-id="63465-151">Sihirbazı tamamlamak için tıklatın **sonraki** iki kez.</span><span class="sxs-lookup"><span data-stu-id="63465-151">To complete the wizard, click **Next** twice.</span></span>
+10. <span data-ttu-id="cee10-151">toocomplete hello Sihirbazı'nı tıklatın **sonraki** iki kez.</span><span class="sxs-lookup"><span data-stu-id="cee10-151">toocomplete hello wizard, click **Next** twice.</span></span>
 
 
 > [!NOTE]
-> <span data-ttu-id="63465-152">Komut dosyası Mobility hizmeti aracısı ve yüklü olan aracıları güncelleştirmeleri hem yeni yüklemeleri destekler.</span><span class="sxs-lookup"><span data-stu-id="63465-152">The script supports both new installations of Mobility Service agents and updates to agents that are already installed.</span></span>
+> <span data-ttu-id="cee10-152">Merhaba betik her iki yeni yüklemeler Mobility hizmeti destekler ve yüklü olan tooagents güncelleştirir.</span><span class="sxs-lookup"><span data-stu-id="cee10-152">hello script supports both new installations of Mobility Service agents and updates tooagents that are already installed.</span></span>
 
-### <a name="step-3-deploy-the-package"></a><span data-ttu-id="63465-153">Adım 3: Paket dağıtma</span><span class="sxs-lookup"><span data-stu-id="63465-153">Step 3: Deploy the package</span></span>
-1. <span data-ttu-id="63465-154">Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.</span><span class="sxs-lookup"><span data-stu-id="63465-154">In the Configuration Manager console, right-click your package, and select **Distribute Content**.</span></span>
-  <span data-ttu-id="63465-155">![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)</span><span class="sxs-lookup"><span data-stu-id="63465-155">![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)</span></span>
-2. <span data-ttu-id="63465-156">Seçin  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  paketleri kopyalanmalıdır açın.</span><span class="sxs-lookup"><span data-stu-id="63465-156">Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.</span></span>
-3. <span data-ttu-id="63465-157">Sihirbazı tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="63465-157">Complete the wizard.</span></span> <span data-ttu-id="63465-158">Paket sonra belirtilen dağıtım noktalarına çoğaltmaya başlar.</span><span class="sxs-lookup"><span data-stu-id="63465-158">The package then starts replicating to the specified distribution points.</span></span>
-4. <span data-ttu-id="63465-159">Paket dağıtımı yapıldıktan sonra pakete sağ tıklayın ve seçin **dağıtma**.</span><span class="sxs-lookup"><span data-stu-id="63465-159">After the package distribution is done, right-click the package, and select **Deploy**.</span></span>
-  <span data-ttu-id="63465-160">![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)</span><span class="sxs-lookup"><span data-stu-id="63465-160">![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)</span></span>
-5. <span data-ttu-id="63465-161">Dağıtımı için hedef koleksiyonu olarak önkoşullar bölümünde oluşturduğunuz Windows Server cihaz koleksiyonunu seçin.</span><span class="sxs-lookup"><span data-stu-id="63465-161">Select the Windows Server device collection you created in the prerequisites section as the target collection for deployment.</span></span>
+### <a name="step-3-deploy-hello-package"></a><span data-ttu-id="cee10-153">Adım 3: hello paketini dağıtma</span><span class="sxs-lookup"><span data-stu-id="cee10-153">Step 3: Deploy hello package</span></span>
+1. <span data-ttu-id="cee10-154">Merhaba Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.</span><span class="sxs-lookup"><span data-stu-id="cee10-154">In hello Configuration Manager console, right-click your package, and select **Distribute Content**.</span></span>
+  <span data-ttu-id="cee10-155">![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)</span><span class="sxs-lookup"><span data-stu-id="cee10-155">![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)</span></span>
+2. <span data-ttu-id="cee10-156">Select hello  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  toowhich üzerinde hello paketleri kopyalanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="cee10-156">Select hello **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on toowhich hello packages should be copied.</span></span>
+3. <span data-ttu-id="cee10-157">Tam hello Sihirbazı.</span><span class="sxs-lookup"><span data-stu-id="cee10-157">Complete hello wizard.</span></span> <span data-ttu-id="cee10-158">Merhaba paket sonra toohello çoğaltmaya başlar dağıtım noktaları belirtilmiş.</span><span class="sxs-lookup"><span data-stu-id="cee10-158">hello package then starts replicating toohello specified distribution points.</span></span>
+4. <span data-ttu-id="cee10-159">Merhaba paket dağıtımı yapıldıktan sonra hello paketini sağ tıklatın ve seçin **dağıtma**.</span><span class="sxs-lookup"><span data-stu-id="cee10-159">After hello package distribution is done, right-click hello package, and select **Deploy**.</span></span>
+  <span data-ttu-id="cee10-160">![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)</span><span class="sxs-lookup"><span data-stu-id="cee10-160">![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)</span></span>
+5. <span data-ttu-id="cee10-161">Merhaba dağıtımı için hedef koleksiyonu olarak hello önkoşullar bölümünde oluşturduğunuz hello Windows Server cihaz koleksiyonunu seçin.</span><span class="sxs-lookup"><span data-stu-id="cee10-161">Select hello Windows Server device collection you created in hello prerequisites section as hello target collection for deployment.</span></span>
 
   ![Ekran görüntüsü, yazılımı Dağıt Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
 
-6. <span data-ttu-id="63465-163">Üzerinde **içerik hedefini belirt** sayfasında, sizin **dağıtım noktaları**.</span><span class="sxs-lookup"><span data-stu-id="63465-163">On the **Specify the content destination** page, select your **Distribution Points**.</span></span>
-7. <span data-ttu-id="63465-164">Üzerinde **bu yazılımın nasıl dağıtılacağını denetlemek için ayarları belirtin** sayfasında, amacı olduğundan emin olun **gerekli**.</span><span class="sxs-lookup"><span data-stu-id="63465-164">On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.</span></span>
+6. <span data-ttu-id="cee10-163">Merhaba üzerinde **hello içerik hedefini belirtin** sayfasında, sizin **dağıtım noktaları**.</span><span class="sxs-lookup"><span data-stu-id="cee10-163">On hello **Specify hello content destination** page, select your **Distribution Points**.</span></span>
+7. <span data-ttu-id="cee10-164">Merhaba üzerinde **bu yazılımın nasıl dağıtılacağını belirtin ayarları toocontrol** sayfasında, hello amacı olduğundan emin olun **gerekli**.</span><span class="sxs-lookup"><span data-stu-id="cee10-164">On hello **Specify settings toocontrol how this software is deployed** page, ensure that hello purpose is **Required**.</span></span>
 
   ![Ekran görüntüsü, yazılımı Dağıt Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
-8. <span data-ttu-id="63465-166">Üzerinde **bu dağıtım için zamanlamayı belirtin** sayfasında, bir zamanlama belirtin.</span><span class="sxs-lookup"><span data-stu-id="63465-166">On the **Specify the schedule for this deployment** page, specify a schedule.</span></span> <span data-ttu-id="63465-167">Daha fazla bilgi için bkz: [paketleri zamanlama](https://technet.microsoft.com/library/gg682178.aspx).</span><span class="sxs-lookup"><span data-stu-id="63465-167">For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).</span></span>
-9. <span data-ttu-id="63465-168">Üzerinde **dağıtım noktaları** sayfasında, veri merkeziniz gereksinimlerine göre özelliklerini yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="63465-168">On the **Distribution Points** page, configure the properties according to the needs of your datacenter.</span></span> <span data-ttu-id="63465-169">Sihirbazı tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="63465-169">Then complete the wizard.</span></span>
+8. <span data-ttu-id="cee10-166">Merhaba üzerinde **bu dağıtım için belirt hello zamanlamayı** sayfasında, bir zamanlama belirtin.</span><span class="sxs-lookup"><span data-stu-id="cee10-166">On hello **Specify hello schedule for this deployment** page, specify a schedule.</span></span> <span data-ttu-id="cee10-167">Daha fazla bilgi için bkz: [paketleri zamanlama](https://technet.microsoft.com/library/gg682178.aspx).</span><span class="sxs-lookup"><span data-stu-id="cee10-167">For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).</span></span>
+9. <span data-ttu-id="cee10-168">Merhaba üzerinde **dağıtım noktaları** sayfasında, veri merkeziniz toohello gereksinimlerine göre hello özelliklerini yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="cee10-168">On hello **Distribution Points** page, configure hello properties according toohello needs of your datacenter.</span></span> <span data-ttu-id="cee10-169">Başlangıç Sihirbazı'nı tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="cee10-169">Then complete hello wizard.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="63465-170">Gereksiz yeniden başlatmalardan önlemek için paket yükleme aylık bakım penceresi veya yazılım güncelleştirmeleri penceresi sırasında zamanlayın.</span><span class="sxs-lookup"><span data-stu-id="63465-170">To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or software updates window.</span></span>
+> <span data-ttu-id="cee10-170">tooavoid gereksiz yeniden başlatır, zamanlama hello paket yükleme sırasında aylık bakım penceresi veya yazılım güncelleştirmeleri penceresi.</span><span class="sxs-lookup"><span data-stu-id="cee10-170">tooavoid unnecessary reboots, schedule hello package installation during your monthly maintenance window or software updates window.</span></span>
 
-<span data-ttu-id="63465-171">Configuration Manager konsolunu kullanarak dağıtımının ilerleme durumunu izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="63465-171">You can monitor the deployment progress by using the Configuration Manager console.</span></span> <span data-ttu-id="63465-172">Git **izleme** > **dağıtımları** > *[paket adınız]*.</span><span class="sxs-lookup"><span data-stu-id="63465-172">Go to **Monitoring** > **Deployments** > *[your package name]*.</span></span>
+<span data-ttu-id="cee10-171">Merhaba Configuration Manager konsolunu kullanarak hello dağıtımının ilerleme durumunu izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cee10-171">You can monitor hello deployment progress by using hello Configuration Manager console.</span></span> <span data-ttu-id="cee10-172">Çok Git**izleme** > **dağıtımları** > *[paket adınız]*.</span><span class="sxs-lookup"><span data-stu-id="cee10-172">Go too**Monitoring** > **Deployments** > *[your package name]*.</span></span>
 
-  ![Dağıtımlarını izlemek için Configuration Manager ekran seçeneği](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
+  ![Configuration Manager ekran seçeneği toomonitor dağıtımları](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
 
-## <a name="deploy-mobility-service-on-computers-running-linux"></a><span data-ttu-id="63465-174">Mobility hizmeti Linux çalıştıran bilgisayarlara dağıtma</span><span class="sxs-lookup"><span data-stu-id="63465-174">Deploy Mobility Service on computers running Linux</span></span>
+## <a name="deploy-mobility-service-on-computers-running-linux"></a><span data-ttu-id="cee10-174">Mobility hizmeti Linux çalıştıran bilgisayarlara dağıtma</span><span class="sxs-lookup"><span data-stu-id="cee10-174">Deploy Mobility Service on computers running Linux</span></span>
 > [!NOTE]
-> <span data-ttu-id="63465-175">Bu makalede yapılandırma sunucusu IP adresini 192.168.3.121 olduğunu ve güvenli bir ağ dosya paylaşımına olduğunu varsayar \\\ContosoSecureFS\MobilityServiceInstallers.</span><span class="sxs-lookup"><span data-stu-id="63465-175">This article assumes that the IP address of the configuration server is 192.168.3.121, and that the secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers.</span></span>
+> <span data-ttu-id="cee10-175">Bu makalede hello yapılandırma sunucusu IP adresi hello 192.168.3.121 olacak ve bu hello güvenli ağ dosya paylaşımı varsayılmaktadır \\\ContosoSecureFS\MobilityServiceInstallers.</span><span class="sxs-lookup"><span data-stu-id="cee10-175">This article assumes that hello IP address of hello configuration server is 192.168.3.121, and that hello secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers.</span></span>
 
-### <a name="step-1-prepare-for-deployment"></a><span data-ttu-id="63465-176">Adım 1: dağıtıma Hazırlan</span><span class="sxs-lookup"><span data-stu-id="63465-176">Step 1: Prepare for deployment</span></span>
-1. <span data-ttu-id="63465-177">Ağ paylaşımında bir klasör oluşturun ve olarak adlandırın **MobSvcLinux**.</span><span class="sxs-lookup"><span data-stu-id="63465-177">Create a folder on the network share, and name it as **MobSvcLinux**.</span></span>
-2. <span data-ttu-id="63465-178">Yapılandırma sunucunuza oturum açın ve bir yönetici komut istemi açın.</span><span class="sxs-lookup"><span data-stu-id="63465-178">Sign in to your configuration server, and open an administrative command prompt.</span></span>
-3. <span data-ttu-id="63465-179">Bir parola dosyası oluşturmak için aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="63465-179">Run the following commands to generate a passphrase file:</span></span>
+### <a name="step-1-prepare-for-deployment"></a><span data-ttu-id="cee10-176">Adım 1: dağıtıma Hazırlan</span><span class="sxs-lookup"><span data-stu-id="cee10-176">Step 1: Prepare for deployment</span></span>
+1. <span data-ttu-id="cee10-177">Merhaba ağ paylaşımında bir klasör oluşturun ve olarak adlandırın **MobSvcLinux**.</span><span class="sxs-lookup"><span data-stu-id="cee10-177">Create a folder on hello network share, and name it as **MobSvcLinux**.</span></span>
+2. <span data-ttu-id="cee10-178">Tooyour yapılandırma sunucusunda oturum açın ve bir yönetici komut istemi açın.</span><span class="sxs-lookup"><span data-stu-id="cee10-178">Sign in tooyour configuration server, and open an administrative command prompt.</span></span>
+3. <span data-ttu-id="cee10-179">Aşağıdaki komutları toogenerate parola dosya hello çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="cee10-179">Run hello following commands toogenerate a passphrase file:</span></span>
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-4. <span data-ttu-id="63465-180">Kopya **MobSvc.passphrase** içine dosya **MobSvcLinux** klasör, ağ paylaşımında.</span><span class="sxs-lookup"><span data-stu-id="63465-180">Copy the **MobSvc.passphrase** file into the **MobSvcLinux** folder on your network share.</span></span>
-5. <span data-ttu-id="63465-181">Yapılandırma sunucusundaki yükleyici deponuza komutunu çalıştırarak göz atın:</span><span class="sxs-lookup"><span data-stu-id="63465-181">Browse to the installer repository on the configuration server by running the command:</span></span>
+4. <span data-ttu-id="cee10-180">Kopya hello **MobSvc.passphrase** hello dosyasına **MobSvcLinux** klasör, ağ paylaşımında.</span><span class="sxs-lookup"><span data-stu-id="cee10-180">Copy hello **MobSvc.passphrase** file into hello **MobSvcLinux** folder on your network share.</span></span>
+5. <span data-ttu-id="cee10-181">Merhaba yapılandırma sunucusu üzerindeki toohello yükleyici repository hello komutu çalıştırarak göz atın:</span><span class="sxs-lookup"><span data-stu-id="cee10-181">Browse toohello installer repository on hello configuration server by running hello command:</span></span>
 
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
-6. <span data-ttu-id="63465-182">Aşağıdaki dosyaları kopyalayın **MobSvcLinux** ağ paylaşımınızda klasörü:</span><span class="sxs-lookup"><span data-stu-id="63465-182">Copy the following files to the **MobSvcLinux** folder on your network share:</span></span>
-   * <span data-ttu-id="63465-183">Microsoft ASR\_UA\*RHEL6 64*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="63465-183">Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz</span></span>
-   * <span data-ttu-id="63465-184">Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="63465-184">Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz</span></span>
-   * <span data-ttu-id="63465-185">Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="63465-185">Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz</span></span>
-   * <span data-ttu-id="63465-186">Microsoft ASR\_UA\*SLES11 SP4 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="63465-186">Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz</span></span>
-   * <span data-ttu-id="63465-187">Microsoft ASR\_UA\*OL6 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="63465-187">Microsoft-ASR\_UA\*OL6-64\*release.tar.gz</span></span>
-   * <span data-ttu-id="63465-188">Microsoft ASR\_UA\*UBUNTU 14.04 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="63465-188">Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz</span></span>
+6. <span data-ttu-id="cee10-182">Kopya hello aşağıdaki dosyaları toohello **MobSvcLinux** ağ paylaşımınızda klasörü:</span><span class="sxs-lookup"><span data-stu-id="cee10-182">Copy hello following files toohello **MobSvcLinux** folder on your network share:</span></span>
+   * <span data-ttu-id="cee10-183">Microsoft ASR\_UA\*RHEL6 64*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="cee10-183">Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz</span></span>
+   * <span data-ttu-id="cee10-184">Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="cee10-184">Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz</span></span>
+   * <span data-ttu-id="cee10-185">Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="cee10-185">Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz</span></span>
+   * <span data-ttu-id="cee10-186">Microsoft ASR\_UA\*SLES11 SP4 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="cee10-186">Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz</span></span>
+   * <span data-ttu-id="cee10-187">Microsoft ASR\_UA\*OL6 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="cee10-187">Microsoft-ASR\_UA\*OL6-64\*release.tar.gz</span></span>
+   * <span data-ttu-id="cee10-188">Microsoft ASR\_UA\*UBUNTU 14.04 64\*release.tar.gz</span><span class="sxs-lookup"><span data-stu-id="cee10-188">Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz</span></span>
 
 
-7. <span data-ttu-id="63465-189">Aşağıdaki kodu kopyalayın ve kaydedileceği **install_linux.sh** içine **MobSvcLinux** klasör.</span><span class="sxs-lookup"><span data-stu-id="63465-189">Copy the following code, and save it as **install_linux.sh** into the **MobSvcLinux** folder.</span></span>
+7. <span data-ttu-id="cee10-189">Hello aşağıdaki kodu kopyalayın ve olarak kaydedin **install_linux.sh** hello içine **MobSvcLinux** klasör.</span><span class="sxs-lookup"><span data-stu-id="cee10-189">Copy hello following code, and save it as **install_linux.sh** into hello **MobSvcLinux** folder.</span></span>
    > [!NOTE]
-   > <span data-ttu-id="63465-190">Bu komut dosyasındaki [CSIP] yer tutucuları yapılandırma sunucunuzun IP adresini gerçek değerlerle değiştirin.</span><span class="sxs-lookup"><span data-stu-id="63465-190">Replace the [CSIP] placeholders in this script with the actual values of the IP address of your configuration server.</span></span>
+   > <span data-ttu-id="cee10-190">Bu komut dosyası Hello [CSIP] yer tutucuları hello gerçek başlangıç IP adresi yapılandırması sunucunuzun değerlerle değiştirin.</span><span class="sxs-lookup"><span data-stu-id="cee10-190">Replace hello [CSIP] placeholders in this script with hello actual values of hello IP address of your configuration server.</span></span>
 
 ```Bash
 #!/usr/bin/env bash
@@ -324,7 +324,7 @@ Install()
     RET_VAL=$?
     echo "Installation Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
     if [ $RET_VAL -eq 0 ]; then
-        echo "Installation has succeeded. Proceed to configuration." >> /tmp/MobSvc/sccm.log
+        echo "Installation has succeeded. Proceed tooconfiguration." >> /tmp/MobSvc/sccm.log
         Configure
     else
         echo "Installation has failed." >> /tmp/MobSvc/sccm.log
@@ -370,10 +370,10 @@ if [ -e ${VX_VERSION_FILE} ]; then
     agent_configuration=$(grep ^AGENT_CONFIGURATION_STATUS "${VX_VERSION_FILE}" | cut -d"=" -f2 | tr -d " ")
     echo "agent_configuration=$agent_configuration" >> /tmp/MobSvc/sccm.log
      if [ "$agent_configuration" == "Succeeded" ]; then
-        echo "Agent is already configured. Proceed to Upgrade." >> /tmp/MobSvc/sccm.log
+        echo "Agent is already configured. Proceed tooUpgrade." >> /tmp/MobSvc/sccm.log
         Upgrade
     else
-        echo "Agent is not configured. Proceed to Configure." >> /tmp/MobSvc/sccm.log
+        echo "Agent is not configured. Proceed tooConfigure." >> /tmp/MobSvc/sccm.log
         Configure
     fi
 else
@@ -384,69 +384,69 @@ cd /tmp
 
 ```
 
-### <a name="step-2-create-a-package"></a><span data-ttu-id="63465-191">2. adım: bir paket oluşturun</span><span class="sxs-lookup"><span data-stu-id="63465-191">Step 2: Create a package</span></span>
+### <a name="step-2-create-a-package"></a><span data-ttu-id="cee10-191">2. adım: bir paket oluşturun</span><span class="sxs-lookup"><span data-stu-id="cee10-191">Step 2: Create a package</span></span>
 
-1. <span data-ttu-id="63465-192">Configuration Manager konsolunuza oturum açın.</span><span class="sxs-lookup"><span data-stu-id="63465-192">Sign in  to your Configuration Manager console.</span></span>
-2. <span data-ttu-id="63465-193">Gözat **yazılım Kitaplığı** > **Uygulama Yönetimi** > **paketleri**.</span><span class="sxs-lookup"><span data-stu-id="63465-193">Browse to **Software Library** > **Application Management** > **Packages**.</span></span>
-3. <span data-ttu-id="63465-194">Sağ **paketleri**seçip **Paket Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="63465-194">Right-click **Packages**, and select **Create Package**.</span></span>
-4. <span data-ttu-id="63465-195">Ad, açıklama, üreticisi, dil ve sürüm için değerler sağlayın.</span><span class="sxs-lookup"><span data-stu-id="63465-195">Provide values for the name, description, manufacturer, language, and version.</span></span>
-5. <span data-ttu-id="63465-196">Seçin **bu paket kaynak dosyalarını içeren** onay kutusu.</span><span class="sxs-lookup"><span data-stu-id="63465-196">Select the **This package contains source files** check box.</span></span>
-6. <span data-ttu-id="63465-197">Tıklatın **Gözat**, yükleyici depolandığı ağ paylaşımı seçin (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).</span><span class="sxs-lookup"><span data-stu-id="63465-197">Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).</span></span>
+1. <span data-ttu-id="cee10-192">Tooyour Configuration Manager konsolunda oturum açın.</span><span class="sxs-lookup"><span data-stu-id="cee10-192">Sign in  tooyour Configuration Manager console.</span></span>
+2. <span data-ttu-id="cee10-193">Çok Gözat**yazılım Kitaplığı** > **Uygulama Yönetimi** > **paketleri**.</span><span class="sxs-lookup"><span data-stu-id="cee10-193">Browse too**Software Library** > **Application Management** > **Packages**.</span></span>
+3. <span data-ttu-id="cee10-194">Sağ **paketleri**seçip **Paket Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="cee10-194">Right-click **Packages**, and select **Create Package**.</span></span>
+4. <span data-ttu-id="cee10-195">Merhaba adı, açıklama, üreticisi, dil ve sürümü için değerler sağlayın.</span><span class="sxs-lookup"><span data-stu-id="cee10-195">Provide values for hello name, description, manufacturer, language, and version.</span></span>
+5. <span data-ttu-id="cee10-196">Select hello **bu paket kaynak dosyalarını içeren** onay kutusu.</span><span class="sxs-lookup"><span data-stu-id="cee10-196">Select hello **This package contains source files** check box.</span></span>
+6. <span data-ttu-id="cee10-197">Tıklatın **Gözat**ve hello yükleyici depolandığı select hello ağ paylaşımı (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).</span><span class="sxs-lookup"><span data-stu-id="cee10-197">Click **Browse**, and select hello network share where hello installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).</span></span>
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
 
-7. <span data-ttu-id="63465-199">Üzerinde **oluşturmak istediğiniz program türünü seçin** sayfasında, **standart Program**, tıklatıp **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="63465-199">On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.</span></span>
+7. <span data-ttu-id="cee10-199">Merhaba üzerinde **toocreate istediğiniz Seç hello program türü** sayfasında, **standart Program**, tıklatıp **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="cee10-199">On hello **Choose hello program type that you want toocreate** page, select **Standard Program**, and click **Next**.</span></span>
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-8. <span data-ttu-id="63465-201">Üzerinde **bu standart programla ilgili bilgiler belirt** sayfasında, aşağıdaki girişleri yapın ve tıklayın **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="63465-201">On the **Specify information about this standard program** page, provide the following inputs, and click **Next**.</span></span> <span data-ttu-id="63465-202">(Diğer girişleri varsayılan değerleri kullanabilirsiniz.)</span><span class="sxs-lookup"><span data-stu-id="63465-202">(The other inputs can use their default values.)</span></span>
+8. <span data-ttu-id="cee10-201">Merhaba üzerinde **bu standart programla ilgili bilgiler belirt** sayfasında girişleri aşağıdaki hello sağlamak ve tıklayın **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="cee10-201">On hello **Specify information about this standard program** page, provide hello following inputs, and click **Next**.</span></span> <span data-ttu-id="cee10-202">(Merhaba diğer girişleri varsayılan değerleri kullanabilirsiniz.)</span><span class="sxs-lookup"><span data-stu-id="cee10-202">(hello other inputs can use their default values.)</span></span>
 
-    | <span data-ttu-id="63465-203">**Parametre adı**</span><span class="sxs-lookup"><span data-stu-id="63465-203">**Parameter name**</span></span> | <span data-ttu-id="63465-204">**Değer**</span><span class="sxs-lookup"><span data-stu-id="63465-204">**Value**</span></span> |
+    | <span data-ttu-id="cee10-203">**Parametre adı**</span><span class="sxs-lookup"><span data-stu-id="cee10-203">**Parameter name**</span></span> | <span data-ttu-id="cee10-204">**Değer**</span><span class="sxs-lookup"><span data-stu-id="cee10-204">**Value**</span></span> |
   |--|--|
-  | <span data-ttu-id="63465-205">Ad</span><span class="sxs-lookup"><span data-stu-id="63465-205">Name</span></span> | <span data-ttu-id="63465-206">Microsoft Azure Mobility hizmetini (Linux) yükleme</span><span class="sxs-lookup"><span data-stu-id="63465-206">Install Microsoft Azure Mobility Service (Linux)</span></span> |
-  | <span data-ttu-id="63465-207">Komut satırı</span><span class="sxs-lookup"><span data-stu-id="63465-207">Command line</span></span> | <span data-ttu-id="63465-208">./install_linux.sh</span><span class="sxs-lookup"><span data-stu-id="63465-208">./install_linux.sh</span></span> |
-  | <span data-ttu-id="63465-209">Program çalışabilir</span><span class="sxs-lookup"><span data-stu-id="63465-209">Program can run</span></span> | <span data-ttu-id="63465-210">Bir kullanıcı olup olmadığına oturum</span><span class="sxs-lookup"><span data-stu-id="63465-210">Whether or not a user is logged on</span></span> |
+  | <span data-ttu-id="cee10-205">Ad</span><span class="sxs-lookup"><span data-stu-id="cee10-205">Name</span></span> | <span data-ttu-id="cee10-206">Microsoft Azure Mobility hizmetini (Linux) yükleme</span><span class="sxs-lookup"><span data-stu-id="cee10-206">Install Microsoft Azure Mobility Service (Linux)</span></span> |
+  | <span data-ttu-id="cee10-207">Komut satırı</span><span class="sxs-lookup"><span data-stu-id="cee10-207">Command line</span></span> | <span data-ttu-id="cee10-208">./install_linux.sh</span><span class="sxs-lookup"><span data-stu-id="cee10-208">./install_linux.sh</span></span> |
+  | <span data-ttu-id="cee10-209">Program çalışabilir</span><span class="sxs-lookup"><span data-stu-id="cee10-209">Program can run</span></span> | <span data-ttu-id="cee10-210">Bir kullanıcı olup olmadığına oturum</span><span class="sxs-lookup"><span data-stu-id="cee10-210">Whether or not a user is logged on</span></span> |
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
 
-9. <span data-ttu-id="63465-212">Sonraki sayfada seçin **Bu program herhangi bir platformda çalışabilir**.</span><span class="sxs-lookup"><span data-stu-id="63465-212">On the next page, select **This program can run on any platform**.</span></span>
-  <span data-ttu-id="63465-213">![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)</span><span class="sxs-lookup"><span data-stu-id="63465-213">![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)</span></span>
+9. <span data-ttu-id="cee10-212">Merhaba sonraki sayfada seçin **Bu program herhangi bir platformda çalışabilir**.</span><span class="sxs-lookup"><span data-stu-id="cee10-212">On hello next page, select **This program can run on any platform**.</span></span>
+  <span data-ttu-id="cee10-213">![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)</span><span class="sxs-lookup"><span data-stu-id="cee10-213">![Screenshot of Create Package and Program wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)</span></span>
 
-10. <span data-ttu-id="63465-214">Sihirbazı tamamlamak için tıklatın **sonraki** iki kez.</span><span class="sxs-lookup"><span data-stu-id="63465-214">To complete the wizard, click **Next** twice.</span></span>
+10. <span data-ttu-id="cee10-214">toocomplete hello Sihirbazı'nı tıklatın **sonraki** iki kez.</span><span class="sxs-lookup"><span data-stu-id="cee10-214">toocomplete hello wizard, click **Next** twice.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="63465-215">Komut dosyası Mobility hizmeti aracısı ve yüklü olan aracıları güncelleştirmeleri hem yeni yüklemeleri destekler.</span><span class="sxs-lookup"><span data-stu-id="63465-215">The script supports both new installations of Mobility Service agents and updates to agents that are already installed.</span></span>
+> <span data-ttu-id="cee10-215">Merhaba betik her iki yeni yüklemeler Mobility hizmeti destekler ve yüklü olan tooagents güncelleştirir.</span><span class="sxs-lookup"><span data-stu-id="cee10-215">hello script supports both new installations of Mobility Service agents and updates tooagents that are already installed.</span></span>
 
-### <a name="step-3-deploy-the-package"></a><span data-ttu-id="63465-216">Adım 3: Paket dağıtma</span><span class="sxs-lookup"><span data-stu-id="63465-216">Step 3: Deploy the package</span></span>
-1. <span data-ttu-id="63465-217">Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.</span><span class="sxs-lookup"><span data-stu-id="63465-217">In the Configuration Manager console, right-click your package, and select **Distribute Content**.</span></span>
-  <span data-ttu-id="63465-218">![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)</span><span class="sxs-lookup"><span data-stu-id="63465-218">![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)</span></span>
-2. <span data-ttu-id="63465-219">Seçin  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  paketleri kopyalanmalıdır açın.</span><span class="sxs-lookup"><span data-stu-id="63465-219">Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.</span></span>
-3. <span data-ttu-id="63465-220">Sihirbazı tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="63465-220">Complete the wizard.</span></span> <span data-ttu-id="63465-221">Paket sonra belirtilen dağıtım noktalarına çoğaltmaya başlar.</span><span class="sxs-lookup"><span data-stu-id="63465-221">The package then starts replicating to the specified distribution points.</span></span>
-4. <span data-ttu-id="63465-222">Paket dağıtımı yapıldıktan sonra pakete sağ tıklayın ve seçin **dağıtma**.</span><span class="sxs-lookup"><span data-stu-id="63465-222">After the package distribution is done, right-click the package, and select **Deploy**.</span></span>
-  <span data-ttu-id="63465-223">![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)</span><span class="sxs-lookup"><span data-stu-id="63465-223">![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)</span></span>
-5. <span data-ttu-id="63465-224">Dağıtımı için hedef koleksiyonu olarak önkoşullar bölümünde oluşturduğunuz Linux sunucusu cihaz koleksiyonunu seçin.</span><span class="sxs-lookup"><span data-stu-id="63465-224">Select the Linux Server device collection you created in the prerequisites section as the target collection for deployment.</span></span>
+### <a name="step-3-deploy-hello-package"></a><span data-ttu-id="cee10-216">Adım 3: hello paketini dağıtma</span><span class="sxs-lookup"><span data-stu-id="cee10-216">Step 3: Deploy hello package</span></span>
+1. <span data-ttu-id="cee10-217">Merhaba Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.</span><span class="sxs-lookup"><span data-stu-id="cee10-217">In hello Configuration Manager console, right-click your package, and select **Distribute Content**.</span></span>
+  <span data-ttu-id="cee10-218">![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)</span><span class="sxs-lookup"><span data-stu-id="cee10-218">![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)</span></span>
+2. <span data-ttu-id="cee10-219">Select hello  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  toowhich üzerinde hello paketleri kopyalanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="cee10-219">Select hello **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on toowhich hello packages should be copied.</span></span>
+3. <span data-ttu-id="cee10-220">Tam hello Sihirbazı.</span><span class="sxs-lookup"><span data-stu-id="cee10-220">Complete hello wizard.</span></span> <span data-ttu-id="cee10-221">Merhaba paket sonra toohello çoğaltmaya başlar dağıtım noktaları belirtilmiş.</span><span class="sxs-lookup"><span data-stu-id="cee10-221">hello package then starts replicating toohello specified distribution points.</span></span>
+4. <span data-ttu-id="cee10-222">Merhaba paket dağıtımı yapıldıktan sonra hello paketini sağ tıklatın ve seçin **dağıtma**.</span><span class="sxs-lookup"><span data-stu-id="cee10-222">After hello package distribution is done, right-click hello package, and select **Deploy**.</span></span>
+  <span data-ttu-id="cee10-223">![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)</span><span class="sxs-lookup"><span data-stu-id="cee10-223">![Screenshot of Configuration Manager console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)</span></span>
+5. <span data-ttu-id="cee10-224">Merhaba hello dağıtımı için hedef koleksiyonu olarak hello önkoşullar bölümünde oluşturduğunuz Linux sunucusu cihaz koleksiyonunu seçin.</span><span class="sxs-lookup"><span data-stu-id="cee10-224">Select hello Linux Server device collection you created in hello prerequisites section as hello target collection for deployment.</span></span>
 
   ![Ekran görüntüsü, yazılımı Dağıt Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
 
-6. <span data-ttu-id="63465-226">Üzerinde **içerik hedefini belirt** sayfasında, sizin **dağıtım noktaları**.</span><span class="sxs-lookup"><span data-stu-id="63465-226">On the **Specify the content destination** page, select your **Distribution Points**.</span></span>
-7. <span data-ttu-id="63465-227">Üzerinde **bu yazılımın nasıl dağıtılacağını denetlemek için ayarları belirtin** sayfasında, amacı olduğundan emin olun **gerekli**.</span><span class="sxs-lookup"><span data-stu-id="63465-227">On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.</span></span>
+6. <span data-ttu-id="cee10-226">Merhaba üzerinde **hello içerik hedefini belirtin** sayfasında, sizin **dağıtım noktaları**.</span><span class="sxs-lookup"><span data-stu-id="cee10-226">On hello **Specify hello content destination** page, select your **Distribution Points**.</span></span>
+7. <span data-ttu-id="cee10-227">Merhaba üzerinde **bu yazılımın nasıl dağıtılacağını belirtin ayarları toocontrol** sayfasında, hello amacı olduğundan emin olun **gerekli**.</span><span class="sxs-lookup"><span data-stu-id="cee10-227">On hello **Specify settings toocontrol how this software is deployed** page, ensure that hello purpose is **Required**.</span></span>
 
   ![Ekran görüntüsü, yazılımı Dağıt Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
-8. <span data-ttu-id="63465-229">Üzerinde **bu dağıtım için zamanlamayı belirtin** sayfasında, bir zamanlama belirtin.</span><span class="sxs-lookup"><span data-stu-id="63465-229">On the **Specify the schedule for this deployment** page, specify a schedule.</span></span> <span data-ttu-id="63465-230">Daha fazla bilgi için bkz: [paketleri zamanlama](https://technet.microsoft.com/library/gg682178.aspx).</span><span class="sxs-lookup"><span data-stu-id="63465-230">For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).</span></span>
-9. <span data-ttu-id="63465-231">Üzerinde **dağıtım noktaları** sayfasında, veri merkeziniz gereksinimlerine göre özelliklerini yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="63465-231">On the **Distribution Points** page, configure the properties according to the needs of your datacenter.</span></span> <span data-ttu-id="63465-232">Sihirbazı tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="63465-232">Then complete the wizard.</span></span>
+8. <span data-ttu-id="cee10-229">Merhaba üzerinde **bu dağıtım için belirt hello zamanlamayı** sayfasında, bir zamanlama belirtin.</span><span class="sxs-lookup"><span data-stu-id="cee10-229">On hello **Specify hello schedule for this deployment** page, specify a schedule.</span></span> <span data-ttu-id="cee10-230">Daha fazla bilgi için bkz: [paketleri zamanlama](https://technet.microsoft.com/library/gg682178.aspx).</span><span class="sxs-lookup"><span data-stu-id="cee10-230">For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).</span></span>
+9. <span data-ttu-id="cee10-231">Merhaba üzerinde **dağıtım noktaları** sayfasında, veri merkeziniz toohello gereksinimlerine göre hello özelliklerini yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="cee10-231">On hello **Distribution Points** page, configure hello properties according toohello needs of your datacenter.</span></span> <span data-ttu-id="cee10-232">Başlangıç Sihirbazı'nı tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="cee10-232">Then complete hello wizard.</span></span>
 
-<span data-ttu-id="63465-233">Mobility hizmeti Linux sunucusu cihaz koleksiyonunda, yapılandırdığınız zamanlamaya göre yüklü.</span><span class="sxs-lookup"><span data-stu-id="63465-233">Mobility Service gets installed on the Linux Server Device Collection, according to the schedule you configured.</span></span>
+<span data-ttu-id="cee10-233">Mobility hizmeti yapılandırdığınız toohello zamanlamaya göre Linux Server Aygıt koleksiyonu hello üzerinde yüklü.</span><span class="sxs-lookup"><span data-stu-id="cee10-233">Mobility Service gets installed on hello Linux Server Device Collection, according toohello schedule you configured.</span></span>
 
-## <a name="other-methods-to-install-mobility-service"></a><span data-ttu-id="63465-234">Mobilite hizmetinin yüklenmesi için diğer yöntemleri</span><span class="sxs-lookup"><span data-stu-id="63465-234">Other methods to install Mobility Service</span></span>
-<span data-ttu-id="63465-235">Mobility hizmetinin yüklenmesi için diğer bazı seçenekleri şunlardır:</span><span class="sxs-lookup"><span data-stu-id="63465-235">Here are some other options for installing Mobility Service:</span></span>
-* [<span data-ttu-id="63465-236">GUI kullanarak el ile yükleme</span><span class="sxs-lookup"><span data-stu-id="63465-236">Manual Installation using GUI</span></span>](http://aka.ms/mobsvcmanualinstall)
-* [<span data-ttu-id="63465-237">Komut satırı kullanarak el ile yükleme</span><span class="sxs-lookup"><span data-stu-id="63465-237">Manual Installation using command-line</span></span>](http://aka.ms/mobsvcmanualinstallcli)
-* [<span data-ttu-id="63465-238">Yapılandırma sunucusu kullanarak yükleme</span><span class="sxs-lookup"><span data-stu-id="63465-238">Push Installation using configuration server </span></span>](http://aka.ms/pushinstall)
-* [<span data-ttu-id="63465-239">Azure Otomasyonu & istenen durum Yapılandırması'nı kullanarak otomatik yükleme</span><span class="sxs-lookup"><span data-stu-id="63465-239">Automated Installation using Azure Automation & Desired State Configuration </span></span>](http://aka.ms/mobsvcdscinstall)
+## <a name="other-methods-tooinstall-mobility-service"></a><span data-ttu-id="cee10-234">Diğer yöntemleri tooinstall Mobility hizmeti</span><span class="sxs-lookup"><span data-stu-id="cee10-234">Other methods tooinstall Mobility Service</span></span>
+<span data-ttu-id="cee10-235">Mobility hizmetinin yüklenmesi için diğer bazı seçenekleri şunlardır:</span><span class="sxs-lookup"><span data-stu-id="cee10-235">Here are some other options for installing Mobility Service:</span></span>
+* [<span data-ttu-id="cee10-236">GUI kullanarak el ile yükleme</span><span class="sxs-lookup"><span data-stu-id="cee10-236">Manual Installation using GUI</span></span>](http://aka.ms/mobsvcmanualinstall)
+* [<span data-ttu-id="cee10-237">Komut satırı kullanarak el ile yükleme</span><span class="sxs-lookup"><span data-stu-id="cee10-237">Manual Installation using command-line</span></span>](http://aka.ms/mobsvcmanualinstallcli)
+* [<span data-ttu-id="cee10-238">Yapılandırma sunucusu kullanarak yükleme</span><span class="sxs-lookup"><span data-stu-id="cee10-238">Push Installation using configuration server </span></span>](http://aka.ms/pushinstall)
+* [<span data-ttu-id="cee10-239">Azure Otomasyonu & istenen durum Yapılandırması'nı kullanarak otomatik yükleme</span><span class="sxs-lookup"><span data-stu-id="cee10-239">Automated Installation using Azure Automation & Desired State Configuration </span></span>](http://aka.ms/mobsvcdscinstall)
 
-## <a name="uninstall-mobility-service"></a><span data-ttu-id="63465-240">Mobility hizmetini kaldırma</span><span class="sxs-lookup"><span data-stu-id="63465-240">Uninstall Mobility Service</span></span>
-<span data-ttu-id="63465-241">Mobility hizmetini kaldırmak için Configuration Manager paketler oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="63465-241">You can create Configuration Manager packages to uninstall Mobility Service.</span></span> <span data-ttu-id="63465-242">Bunu yapmak için aşağıdaki komut dosyasını kullanın:</span><span class="sxs-lookup"><span data-stu-id="63465-242">Use the following script to do so:</span></span>
+## <a name="uninstall-mobility-service"></a><span data-ttu-id="cee10-240">Mobility hizmetini kaldırma</span><span class="sxs-lookup"><span data-stu-id="cee10-240">Uninstall Mobility Service</span></span>
+<span data-ttu-id="cee10-241">Configuration Manager paketlerini toouninstall Mobility hizmeti oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cee10-241">You can create Configuration Manager packages toouninstall Mobility Service.</span></span> <span data-ttu-id="cee10-242">Komut dosyası toodo şekilde aşağıdaki hello kullan:</span><span class="sxs-lookup"><span data-stu-id="cee10-242">Use hello following script toodo so:</span></span>
 
 ```
 Time /t >> C:\logfile.log
@@ -469,5 +469,5 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="63465-243">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="63465-243">Next steps</span></span>
-<span data-ttu-id="63465-244">Artık hazırsınız [korumayı etkinleştir](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) , sanal makineleriniz için.</span><span class="sxs-lookup"><span data-stu-id="63465-244">You are now ready to [enable protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="cee10-243">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="cee10-243">Next steps</span></span>
+<span data-ttu-id="cee10-244">Artık çok hazırsınız[korumayı etkinleştir](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) , sanal makineleriniz için.</span><span class="sxs-lookup"><span data-stu-id="cee10-244">You are now ready too[enable protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.</span></span>

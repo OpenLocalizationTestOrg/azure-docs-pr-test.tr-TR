@@ -1,6 +1,6 @@
 ---
-title: "Arka uç hizmetlerini kullanan istemci güvenli sertifika kimlik doğrulaması - Azure API Management | Microsoft Docs"
-description: "Azure API Management'te istemci sertifikası kimlik doğrulaması kullanarak arka uç hizmetlerini güvence altına alma hakkında bilgi edinin."
+title: "İstemci sertifikası kimlik doğrulaması - Azure API Management kullanarak aaaSecure arka uç hizmetlerini | Microsoft Docs"
+description: "Nasıl toosecure arka uç hizmetlerini kullanan istemci sertifikası kimlik Azure API Management hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,101 +14,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 2ebe71c96fd9076a48f689041634dbd23d3d8414
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 565bb61044fed1158944202c36e8abe30edf5729
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a><span data-ttu-id="d94e4-103">Arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması Azure API Management'te güvenliğini sağlama</span><span class="sxs-lookup"><span data-stu-id="d94e4-103">How to secure back-end services using client certificate authentication in Azure API Management</span></span>
-<span data-ttu-id="d94e4-104">API Management istemci sertifikalarını kullanan güvenli bir API'nin arka uç hizmetine erişim olanağı sağlar.</span><span class="sxs-lookup"><span data-stu-id="d94e4-104">API Management provides the capability to secure access to the back-end service of an API using client certificates.</span></span> <span data-ttu-id="d94e4-105">Bu kılavuz, API yayımcı portalına sertifikaları yönetme ve arka uç hizmetine erişmek için bir sertifika kullanmak üzere bir API yapılandırma gösterir.</span><span class="sxs-lookup"><span data-stu-id="d94e4-105">This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.</span></span>
+# <a name="how-toosecure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a><span data-ttu-id="7232d-103">Nasıl toosecure arka uç hizmetlerini kullanan istemci sertifikası kimlik Azure API Management</span><span class="sxs-lookup"><span data-stu-id="7232d-103">How toosecure back-end services using client certificate authentication in Azure API Management</span></span>
+<span data-ttu-id="7232d-104">API Management istemci sertifikalarını kullanan hello yetenek toosecure erişim toohello arka uç hizmetine bir API sağlar.</span><span class="sxs-lookup"><span data-stu-id="7232d-104">API Management provides hello capability toosecure access toohello back-end service of an API using client certificates.</span></span> <span data-ttu-id="7232d-105">Bu kılavuz toomanage hello API yayımcı portalında sertifikaları nasıl ve nasıl gösterir tooconfigure bir API toouse sertifika tooaccess onun arka uç hizmeti.</span><span class="sxs-lookup"><span data-stu-id="7232d-105">This guide shows how toomanage certificates in hello API publisher portal, and how tooconfigure an API toouse a certificate tooaccess its back-end service.</span></span>
 
-<span data-ttu-id="d94e4-106">API Management REST API kullanarak sertifikaların yönetilmesi hakkında daha fazla bilgi için bkz: [Azure API Management REST API sertifikası varlık][Azure API Management REST API Certificate entity].</span><span class="sxs-lookup"><span data-stu-id="d94e4-106">For information about managing certificates using the API Management REST API, see [Azure API Management REST API Certificate entity][Azure API Management REST API Certificate entity].</span></span>
+<span data-ttu-id="7232d-106">Merhaba API Management REST API kullanarak sertifikaların yönetilmesi hakkında daha fazla bilgi için bkz: [Azure API Management REST API sertifikası varlık][Azure API Management REST API Certificate entity].</span><span class="sxs-lookup"><span data-stu-id="7232d-106">For information about managing certificates using hello API Management REST API, see [Azure API Management REST API Certificate entity][Azure API Management REST API Certificate entity].</span></span>
 
-## <span data-ttu-id="d94e4-107"><a name="prerequisites"></a>Önkoşulları</span><span class="sxs-lookup"><span data-stu-id="d94e4-107"><a name="prerequisites"> </a>Prerequisites</span></span>
-<span data-ttu-id="d94e4-108">Bu kılavuz bir API arka uç hizmetine erişim için istemci sertifikası kimlik doğrulamasını kullanmak için API Management hizmet örneği yapılandırmak nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="d94e4-108">This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API.</span></span> <span data-ttu-id="d94e4-109">Bu konudaki adımları izlemeden önce arka uç hizmeti istemci sertifikası kimlik doğrulaması için yapılandırılmış olması gerekir ([Azure Web siteleri sertifika kimlik doğrulaması yapılandırmak için bu makalesine başvurun][to configure certificate authentication in Azure WebSites refer to this article]), ve sertifika ve parola için API Management yayımcı Portalı'nda yüklemeyle sertifikanın erişebilir.</span><span class="sxs-lookup"><span data-stu-id="d94e4-109">Before following the steps in this topic, you should have your back-end service configured for client certificate authentication ([to configure certificate authentication in Azure WebSites refer to this article][to configure certificate authentication in Azure WebSites refer to this article]), and have access to the certificate and the password for the certificate for uploading in the API Management publisher portal.</span></span>
+## <span data-ttu-id="7232d-107"><a name="prerequisites"></a>Önkoşulları</span><span class="sxs-lookup"><span data-stu-id="7232d-107"><a name="prerequisites"> </a>Prerequisites</span></span>
+<span data-ttu-id="7232d-108">Bu kılavuz size nasıl tooconfigure için arka uç hizmeti, API Management hizmet örneği toouse istemci sertifikası kimlik doğrulaması tooaccess hello gösterir. bir API.</span><span class="sxs-lookup"><span data-stu-id="7232d-108">This guide shows you how tooconfigure your API Management service instance toouse client certificate authentication tooaccess hello back-end service for an API.</span></span> <span data-ttu-id="7232d-109">Bu konuda aşağıdaki hello adımları önce istemci sertifikası kimlik doğrulaması için yapılandırılmış, arka uç hizmetine sahip olmanız gerekir ([tooconfigure sertifika kimlik doğrulaması Azure Web sitelerine bakın toothis makale] [ tooconfigure certificate authentication in Azure WebSites refer toothis article]), ve erişim toohello sertifika ve hello hello API Management yayımcı portalında yüklemeyle hello sertifikanın parolasını sahiptir.</span><span class="sxs-lookup"><span data-stu-id="7232d-109">Before following hello steps in this topic, you should have your back-end service configured for client certificate authentication ([tooconfigure certificate authentication in Azure WebSites refer toothis article][tooconfigure certificate authentication in Azure WebSites refer toothis article]), and have access toohello certificate and hello password for hello certificate for uploading in hello API Management publisher portal.</span></span>
 
-## <span data-ttu-id="d94e4-110"><a name="step1"></a>Bir istemci sertifikasını karşıya yükle</span><span class="sxs-lookup"><span data-stu-id="d94e4-110"><a name="step1"> </a>Upload a client certificate</span></span>
-<span data-ttu-id="d94e4-111">Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yayımcı portalı**’na tıklayın.</span><span class="sxs-lookup"><span data-stu-id="d94e4-111">To get started, click **Publisher portal** in the Azure Portal for your API Management service.</span></span> <span data-ttu-id="d94e4-112">Bu sizi API Management yayımcı portalına götürür.</span><span class="sxs-lookup"><span data-stu-id="d94e4-112">This takes you to the API Management publisher portal.</span></span>
+## <span data-ttu-id="7232d-110"><a name="step1"></a>Bir istemci sertifikasını karşıya yükle</span><span class="sxs-lookup"><span data-stu-id="7232d-110"><a name="step1"> </a>Upload a client certificate</span></span>
+<span data-ttu-id="7232d-111">başlatıldı, tooget tıklatın **yayımcı portalına** API Management hizmetiniz için hello Azure Portalı'nda.</span><span class="sxs-lookup"><span data-stu-id="7232d-111">tooget started, click **Publisher portal** in hello Azure Portal for your API Management service.</span></span> <span data-ttu-id="7232d-112">Bu toohello API Management yayımcı portalına götürür.</span><span class="sxs-lookup"><span data-stu-id="7232d-112">This takes you toohello API Management publisher portal.</span></span>
 
 ![API yayımcı portalı][api-management-management-console]
 
-> <span data-ttu-id="d94e4-114">Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.</span><span class="sxs-lookup"><span data-stu-id="d94e4-114">If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.</span></span>
+> <span data-ttu-id="7232d-114">Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="7232d-114">If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in hello [Get started with Azure API Management][Get started with Azure API Management] tutorial.</span></span>
 > 
 > 
 
-<span data-ttu-id="d94e4-115">Tıklatın **güvenlik** gelen **API Management** sol ve tıklatın menüsünde **istemci sertifikalarını**.</span><span class="sxs-lookup"><span data-stu-id="d94e4-115">Click **Security** from the **API Management** menu on the left, and click **Client certificates**.</span></span>
+<span data-ttu-id="7232d-115">Tıklatın **güvenlik** hello gelen **API Management** hello sol ve tıklatın menüsünde **istemci sertifikalarını**.</span><span class="sxs-lookup"><span data-stu-id="7232d-115">Click **Security** from hello **API Management** menu on hello left, and click **Client certificates**.</span></span>
 
 ![İstemci sertifikaları][api-management-security-client-certificates]
 
-<span data-ttu-id="d94e4-117">Yeni sertifikayı karşıya yüklemek için tıklayın **karşıya yükleme sertifika**.</span><span class="sxs-lookup"><span data-stu-id="d94e4-117">To upload a new certificate, click **Upload certificate**.</span></span>
+<span data-ttu-id="7232d-117">Yeni bir sertifika tooupload tıklatın **karşıya yükleme sertifika**.</span><span class="sxs-lookup"><span data-stu-id="7232d-117">tooupload a new certificate, click **Upload certificate**.</span></span>
 
 ![Sertifikayı karşıya yükleme][api-management-upload-certificate]
 
-<span data-ttu-id="d94e4-119">Sertifikanızı göz atın ve sonra sertifikanın parolasını girin.</span><span class="sxs-lookup"><span data-stu-id="d94e4-119">Browse to your certificate, and then enter the password for the certificate.</span></span>
+<span data-ttu-id="7232d-119">Tooyour sertifika göz atın ve sonra hello sertifikanın hello parola girin.</span><span class="sxs-lookup"><span data-stu-id="7232d-119">Browse tooyour certificate, and then enter hello password for hello certificate.</span></span>
 
-> <span data-ttu-id="d94e4-120">Sertifika olmalıdır **.pfx** biçimi.</span><span class="sxs-lookup"><span data-stu-id="d94e4-120">The certificate must be in **.pfx** format.</span></span> <span data-ttu-id="d94e4-121">Otomatik olarak imzalanan sertifikalar izin verilir.</span><span class="sxs-lookup"><span data-stu-id="d94e4-121">Self-signed certificates are allowed.</span></span>
+> <span data-ttu-id="7232d-120">Merhaba sertifika bulunmalıdır **.pfx** biçimi.</span><span class="sxs-lookup"><span data-stu-id="7232d-120">hello certificate must be in **.pfx** format.</span></span> <span data-ttu-id="7232d-121">Otomatik olarak imzalanan sertifikalar izin verilir.</span><span class="sxs-lookup"><span data-stu-id="7232d-121">Self-signed certificates are allowed.</span></span>
 > 
 > 
 
 ![Sertifikayı karşıya yükleme][api-management-upload-certificate-form]
 
-<span data-ttu-id="d94e4-123">Tıklatın **karşıya** sertifikayı karşıya yüklemek için.</span><span class="sxs-lookup"><span data-stu-id="d94e4-123">Click **Upload** to upload the certificate.</span></span>
+<span data-ttu-id="7232d-123">Tıklatın **karşıya** tooupload hello sertifika.</span><span class="sxs-lookup"><span data-stu-id="7232d-123">Click **Upload** tooupload hello certificate.</span></span>
 
-> <span data-ttu-id="d94e4-124">Sertifika parolası şu anda doğrulanır.</span><span class="sxs-lookup"><span data-stu-id="d94e4-124">The certificate password is validated at this time.</span></span> <span data-ttu-id="d94e4-125">Yanlış ise, bir hata iletisi görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="d94e4-125">If it is incorrect an error message is displayed.</span></span>
+> <span data-ttu-id="7232d-124">Merhaba sertifika parolası şu anda doğrulanır.</span><span class="sxs-lookup"><span data-stu-id="7232d-124">hello certificate password is validated at this time.</span></span> <span data-ttu-id="7232d-125">Yanlış ise, bir hata iletisi görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="7232d-125">If it is incorrect an error message is displayed.</span></span>
 > 
 > 
 
 ![Karşıya sertifika][api-management-certificate-uploaded]
 
-<span data-ttu-id="d94e4-127">Sertifika yüklendikten sonra göründüğü **istemci sertifikalarını** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="d94e4-127">Once the certificate is uploaded, it appears on the **Client certificates** tab.</span></span> <span data-ttu-id="d94e4-128">Birden fazla sertifika varsa, konu not ya da parmak izi sertifikalarını kullanmak için bir API aşağıdakileri anlatıldığı gibi yapılandırırken sertifikayı seçmek için kullanılan son dört karakterini olun [bir API Ağ Geçidi kimlik doğrulaması için bir istemci sertifikası kullanacak şekilde yapılandırma] [ Configure an API to use a client certificate for gateway authentication] bölümü.</span><span class="sxs-lookup"><span data-stu-id="d94e4-128">If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication] section.</span></span>
+<span data-ttu-id="7232d-127">Merhaba sertifika yüklendikten sonra üzerinde hello göründüğü **istemci sertifikalarını** sekmesi. Birden fazla sertifika varsa, hello konu not edin veya bir API toouse yapılandırma sertifikaları, olan kullanılan tooselect hello sertifika hello aşağıdakileri anlatıldığı gibi son dört karakterini hello parmak izi, hello [yapılandırma bir API toouse Ağ Geçidi kimlik doğrulaması için bir istemci sertifikası] [ Configure an API toouse a client certificate for gateway authentication] bölümü.</span><span class="sxs-lookup"><span data-stu-id="7232d-127">Once hello certificate is uploaded, it appears on hello **Client certificates** tab. If you have multiple certificates, make a note of hello subject, or hello last four characters of hello thumbprint, which are used tooselect hello certificate when configuring an API toouse certificates, as covered in hello following [Configure an API toouse a client certificate for gateway authentication][Configure an API toouse a client certificate for gateway authentication] section.</span></span>
 
-> <span data-ttu-id="d94e4-129">Sertifika zinciri doğrulamasını devre dışı, örneğin, kullanırken otomatik olarak imzalanan bir sertifika açmak için bu SSS bölümünde açıklanan adımları izleyin [öğesi](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).</span><span class="sxs-lookup"><span data-stu-id="d94e4-129">To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).</span></span>
+> <span data-ttu-id="7232d-128">Örneğin, kendinden imzalı bir sertifika kullanırken, sertifika zinciri doğrulamasını devre dışı tooturn olarak bu SSS'de açıklanan hello adımları izleyin [öğesi](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).</span><span class="sxs-lookup"><span data-stu-id="7232d-128">tooturn off certificate chain validation when using, for example, a self-signed certificate, follow hello steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).</span></span>
 > 
 > 
 
-## <span data-ttu-id="d94e4-130"><a name="step1a"></a>Bir istemci sertifikası silme</span><span class="sxs-lookup"><span data-stu-id="d94e4-130"><a name="step1a"> </a>Delete a client certificate</span></span>
-<span data-ttu-id="d94e4-131">Bir sertifikayı silmek için tıklatın **silmek** istenen sertifikanın yanındaki.</span><span class="sxs-lookup"><span data-stu-id="d94e4-131">To delete a certificate, click **Delete** beside the desired certificate.</span></span>
+## <span data-ttu-id="7232d-129"><a name="step1a"></a>Bir istemci sertifikası silme</span><span class="sxs-lookup"><span data-stu-id="7232d-129"><a name="step1a"> </a>Delete a client certificate</span></span>
+<span data-ttu-id="7232d-130">bir sertifika toodelete tıklatın **silmek** hello istenen sertifika yanında.</span><span class="sxs-lookup"><span data-stu-id="7232d-130">toodelete a certificate, click **Delete** beside hello desired certificate.</span></span>
 
 ![Sertifikayı Sil][api-management-certificate-delete]
 
-<span data-ttu-id="d94e4-133">Tıklatın **Evet, silmeden** onaylamak için.</span><span class="sxs-lookup"><span data-stu-id="d94e4-133">Click **Yes, delete it** to confirm.</span></span>
+<span data-ttu-id="7232d-132">Tıklatın **Evet, silmeden** tooconfirm.</span><span class="sxs-lookup"><span data-stu-id="7232d-132">Click **Yes, delete it** tooconfirm.</span></span>
 
 ![Silmeyi onayla][api-management-confirm-delete]
 
-<span data-ttu-id="d94e4-135">Sertifika bir API tarafından kullanılıyorsa, bir uyarı ekranı görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="d94e4-135">If the certificate is in use by an API, then a warning screen is displayed.</span></span> <span data-ttu-id="d94e4-136">Sertifikayı silmek için sertifika kullanmak üzere yapılandırılmış tüm API'lerinin kaldırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="d94e4-136">To delete the certificate you must first remove the certificate from any APIs that are configured to use it.</span></span>
+<span data-ttu-id="7232d-134">Merhaba sertifika bir API tarafından kullanılıyorsa, bir uyarı ekranı görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="7232d-134">If hello certificate is in use by an API, then a warning screen is displayed.</span></span> <span data-ttu-id="7232d-135">Merhaba önce kaldırmalısınız toodelete hello sertifika sertifika yapılandırılmış toouse olan tüm API'lerinin bu.</span><span class="sxs-lookup"><span data-stu-id="7232d-135">toodelete hello certificate you must first remove hello certificate from any APIs that are configured toouse it.</span></span>
 
 ![Silmeyi onayla][api-management-confirm-delete-policy]
 
-## <span data-ttu-id="d94e4-138"><a name="step2"></a>Bir API Ağ Geçidi kimlik doğrulaması için bir istemci sertifikası kullanacak şekilde yapılandırma</span><span class="sxs-lookup"><span data-stu-id="d94e4-138"><a name="step2"> </a>Configure an API to use a client certificate for gateway authentication</span></span>
-<span data-ttu-id="d94e4-139">Tıklatın **API'leri** gelen **API Management** , soldaki menüde istenen API adına tıklayın ve'ı tıklatın **güvenlik** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="d94e4-139">Click **APIs** from the **API Management** menu on the left, click the name of the desired API, and click the **Security** tab.</span></span>
+## <span data-ttu-id="7232d-137"><a name="step2"></a>API toouse Ağ Geçidi kimlik doğrulaması için bir istemci sertifikası yapılandırma</span><span class="sxs-lookup"><span data-stu-id="7232d-137"><a name="step2"> </a>Configure an API toouse a client certificate for gateway authentication</span></span>
+<span data-ttu-id="7232d-138">Tıklatın **API'leri** hello gelen **API Management** hello menüsünde sol, istenen hello API hello adına tıklayın ve hello tıklatın **güvenlik** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="7232d-138">Click **APIs** from hello **API Management** menu on hello left, click hello name of hello desired API, and click hello **Security** tab.</span></span>
 
 ![API Güvenlik][api-management-api-security]
 
-<span data-ttu-id="d94e4-141">Seçin **istemci sertifikalarını** gelen **kimlik bilgileriyle** aşağı açılan liste.</span><span class="sxs-lookup"><span data-stu-id="d94e4-141">Select **Client certificates** from the **With credentials** drop-down list.</span></span>
+<span data-ttu-id="7232d-140">Seçin **istemci sertifikalarını** hello gelen **kimlik bilgileriyle** aşağı açılan liste.</span><span class="sxs-lookup"><span data-stu-id="7232d-140">Select **Client certificates** from hello **With credentials** drop-down list.</span></span>
 
 ![İstemci sertifikaları][api-management-mutual-certificates]
 
-<span data-ttu-id="d94e4-143">İstediğiniz sertifikayı seçin **istemci sertifikası** aşağı açılan liste.</span><span class="sxs-lookup"><span data-stu-id="d94e4-143">Select the desired certificate from the **Client certificate** drop-down list.</span></span> <span data-ttu-id="d94e4-144">Birden fazla sertifika varsa doğru sertifikayı belirlemek için konu veya önceki bölümünde belirtildiği gibi parmak izi son dört karakterini bakabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d94e4-144">If there are multiple certificates you can look at the subject or the last four characters of the thumbprint as noted in the previous section to determine the correct certificate.</span></span>
+<span data-ttu-id="7232d-142">Select hello hello istenen sertifika **istemci sertifikası** aşağı açılan liste.</span><span class="sxs-lookup"><span data-stu-id="7232d-142">Select hello desired certificate from hello **Client certificate** drop-down list.</span></span> <span data-ttu-id="7232d-143">Birden fazla sertifika varsa hello önceki bölümde toodetermine hello doğru sertifikaya belirtildiği gibi hello parmak izi son dört karakterini hello veya hello konu arayın.</span><span class="sxs-lookup"><span data-stu-id="7232d-143">If there are multiple certificates you can look at hello subject or hello last four characters of hello thumbprint as noted in hello previous section toodetermine hello correct certificate.</span></span>
 
 ![Sertifika Seç][api-management-select-certificate]
 
-<span data-ttu-id="d94e4-146">Tıklatın **kaydetmek** API için yapılandırma değişikliği kaydetmek için.</span><span class="sxs-lookup"><span data-stu-id="d94e4-146">Click **Save** to save the configuration change to the API.</span></span>
+<span data-ttu-id="7232d-145">Tıklatın **kaydetmek** toosave hello yapılandırma değişikliği toohello API.</span><span class="sxs-lookup"><span data-stu-id="7232d-145">Click **Save** toosave hello configuration change toohello API.</span></span>
 
-> <span data-ttu-id="d94e4-147">Bu değişikliği hemen etkili olur ve bu API'nin işlemlerini çağrıları arka uç sunucusunda kimlik doğrulaması için sertifika kullanır.</span><span class="sxs-lookup"><span data-stu-id="d94e4-147">This change is effective immediately, and calls to operations of that API will use the certificate to authenticate on the back-end server.</span></span>
+> <span data-ttu-id="7232d-146">Bu değişikliği hemen etkili olur ve bu API toooperations kullanacağı çağrıları sertifika tooauthenticate hello arka uç sunucusunda hello.</span><span class="sxs-lookup"><span data-stu-id="7232d-146">This change is effective immediately, and calls toooperations of that API will use hello certificate tooauthenticate on hello back-end server.</span></span>
 > 
 > 
 
 ![API Değişiklikleri Kaydet][api-management-save-api]
 
-> <span data-ttu-id="d94e4-149">Ağ Geçidi kimlik doğrulaması bir API için arka uç hizmeti için bir sertifika belirtildiğinde, bu API için ilkesinin bir parçası olur ve İlke Düzenleyicisi'nde görüntülenebilir.</span><span class="sxs-lookup"><span data-stu-id="d94e4-149">When a certificate is specified for gateway authentication for the back-end service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.</span></span>
+> <span data-ttu-id="7232d-148">Ağ Geçidi kimlik doğrulaması bir API için hello arka uç hizmeti için bir sertifika belirtildiğinde, bu API için hello ilkesinin bir parçası olur ve hello İlkesi Düzenleyicisi'nde görüntülenebilir.</span><span class="sxs-lookup"><span data-stu-id="7232d-148">When a certificate is specified for gateway authentication for hello back-end service of an API, it becomes part of hello policy for that API, and can be viewed in hello policy editor.</span></span>
 > 
 > 
 
 ![Sertifika İlkesi][api-management-certificate-policy]
 
-## <a name="next-steps"></a><span data-ttu-id="d94e4-151">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d94e4-151">Next steps</span></span>
-<span data-ttu-id="d94e4-152">HTTP temel veya paylaşılan gizli kimlik doğrulaması gibi arka uç hizmetinizin güvenliğini sağlamak için diğer yöntemler hakkında daha fazla bilgi için aşağıdaki videoya bakın.</span><span class="sxs-lookup"><span data-stu-id="d94e4-152">For more information on other ways to secure your backend service, such as HTTP basic or shared secret authentication, see the following video.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="7232d-150">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="7232d-150">Next steps</span></span>
+<span data-ttu-id="7232d-151">HTTP temel veya paylaşılan gizli kimlik doğrulaması gibi arka uç hizmetinizin diğer yolları toosecure hakkında daha fazla bilgi için aşağıdaki videoyu hello bakın.</span><span class="sxs-lookup"><span data-stu-id="7232d-151">For more information on other ways toosecure your backend service, such as HTTP basic or shared secret authentication, see hello following video.</span></span>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
 > 
@@ -130,10 +130,10 @@ ms.lasthandoff: 07/11/2017
 
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How tooadd and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
@@ -142,13 +142,13 @@ ms.lasthandoff: 07/11/2017
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[tooconfigure certificate authentication in Azure WebSites refer toothis article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configure an API to use a client certificate for gateway authentication]: #step2
-[Test the configuration by calling an operation in the Developer Portal]: #step3
+[Configure an API toouse a client certificate for gateway authentication]: #step2
+[Test hello configuration by calling an operation in hello Developer Portal]: #step3
 [Next steps]: #next-steps
 
 

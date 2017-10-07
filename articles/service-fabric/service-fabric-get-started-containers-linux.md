@@ -1,6 +1,6 @@
 ---
-title: "Linux üzerinde Azure Service Fabric kapsayıcı uygulaması oluşturma | Microsoft Docs"
-description: "Azure Service Fabric üzerinde ilk Linux kapsayıcı uygulamanızı oluşturun.  Uygulamanızla bir Docker görüntüsü oluşturun, görüntüyü bir kapsayıcı kayıt defterine iletin, bir Service Fabric kapsayıcı uygulaması oluşturup dağıtın."
+title: "Azure Service Fabric kapsayıcı uygulamanın Linux'ta aaaCreate | Microsoft Docs"
+description: "Azure Service Fabric üzerinde ilk Linux kapsayıcı uygulamanızı oluşturun.  Uygulamanızı Docker görüntüsüyle, hello görüntü tooa kapsayıcı kayıt defteri itme, yapı ve Service Fabric kapsayıcı uygulaması dağıtacak."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 348dbcbaa1a534fb2808450e4c2d5f9acc7c7b35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-your-first-service-fabric-container-application-on-linux"></a><span data-ttu-id="d4b9a-104">Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma</span><span class="sxs-lookup"><span data-stu-id="d4b9a-104">Create your first Service Fabric container application on Linux</span></span>
+# <a name="create-your-first-service-fabric-container-application-on-linux"></a><span data-ttu-id="29a23-104">Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma</span><span class="sxs-lookup"><span data-stu-id="29a23-104">Create your first Service Fabric container application on Linux</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="d4b9a-105">Windows</span><span class="sxs-lookup"><span data-stu-id="d4b9a-105">Windows</span></span>](service-fabric-get-started-containers.md)
-> * [<span data-ttu-id="d4b9a-106">Linux</span><span class="sxs-lookup"><span data-stu-id="d4b9a-106">Linux</span></span>](service-fabric-get-started-containers-linux.md)
+> * [<span data-ttu-id="29a23-105">Windows</span><span class="sxs-lookup"><span data-stu-id="29a23-105">Windows</span></span>](service-fabric-get-started-containers.md)
+> * [<span data-ttu-id="29a23-106">Linux</span><span class="sxs-lookup"><span data-stu-id="29a23-106">Linux</span></span>](service-fabric-get-started-containers-linux.md)
 
-<span data-ttu-id="d4b9a-107">Bir Service Fabric kümesindeki Linux kapsayıcısında mevcut olan bir uygulamayı çalıştırmak için uygulamanızda herhangi bir değişiklik yapılması gerekmez.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-107">Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application.</span></span> <span data-ttu-id="d4b9a-108">Bu makalede, Python [Flask](http://flask.pocoo.org/) web uygulaması içeren bir Docker görüntüsü oluşturma ve bunu Service Fabric kümesine dağıtma işlemlerinde size yol gösterilir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-108">This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster.</span></span>  <span data-ttu-id="d4b9a-109">Ayrıca, kapsayıcıya alınmış uygulamanızı [Azure Container Registry](/azure/container-registry/) aracılığıyla paylaşırsınız.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-109">You will also share your containerized application through [Azure Container Registry](/azure/container-registry/).</span></span>  <span data-ttu-id="d4b9a-110">Bu makale Docker hakkında temel bir anlayışınızın olduğunu varsayar.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-110">This article assumes a basic understanding of Docker.</span></span> <span data-ttu-id="d4b9a-111">[Docker’a Genel Bakış](https://docs.docker.com/engine/understanding-docker/) makalesini okuyarak Docker hakkında bilgi edinebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-111">You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).</span></span>
+<span data-ttu-id="29a23-107">Varolan bir uygulama bir Linux kapsayıcısında Service Fabric kümesi üzerinde çalışan herhangi bir değişiklik tooyour uygulama gerektirmez.</span><span class="sxs-lookup"><span data-stu-id="29a23-107">Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes tooyour application.</span></span> <span data-ttu-id="29a23-108">Bu makalede, bir Python içeren bir Docker görüntüsü oluşturmada size yol gösterilir [Flask](http://flask.pocoo.org/) web uygulama ve tooa Service Fabric kümesi dağıtma.</span><span class="sxs-lookup"><span data-stu-id="29a23-108">This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it tooa Service Fabric cluster.</span></span>  <span data-ttu-id="29a23-109">Ayrıca, kapsayıcıya alınmış uygulamanızı [Azure Container Registry](/azure/container-registry/) aracılığıyla paylaşırsınız.</span><span class="sxs-lookup"><span data-stu-id="29a23-109">You will also share your containerized application through [Azure Container Registry](/azure/container-registry/).</span></span>  <span data-ttu-id="29a23-110">Bu makale Docker hakkında temel bir anlayışınızın olduğunu varsayar.</span><span class="sxs-lookup"><span data-stu-id="29a23-110">This article assumes a basic understanding of Docker.</span></span> <span data-ttu-id="29a23-111">Okuma hello tarafından Docker hakkında bilgi edinebilirsiniz [Docker genel bakış](https://docs.docker.com/engine/understanding-docker/).</span><span class="sxs-lookup"><span data-stu-id="29a23-111">You can learn about Docker by reading hello [Docker Overview](https://docs.docker.com/engine/understanding-docker/).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="d4b9a-112">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="d4b9a-112">Prerequisites</span></span>
-* <span data-ttu-id="d4b9a-113">Şunları çalıştıran bir geliştirme bilgisayarı:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-113">A development computer running:</span></span>
-  * <span data-ttu-id="d4b9a-114">[Service Fabric SDK’sı ve araçları](service-fabric-get-started-linux.md).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-114">[Service Fabric SDK and tools](service-fabric-get-started-linux.md).</span></span>
-  * <span data-ttu-id="d4b9a-115">[Linux için Docker CE](https://docs.docker.com/engine/installation/#prior-releases).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-115">[Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases).</span></span> 
-  * [<span data-ttu-id="d4b9a-116">Service Fabric CLI</span><span class="sxs-lookup"><span data-stu-id="d4b9a-116">Service Fabric CLI</span></span>](service-fabric-cli.md)
+## <a name="prerequisites"></a><span data-ttu-id="29a23-112">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="29a23-112">Prerequisites</span></span>
+* <span data-ttu-id="29a23-113">Şunları çalıştıran bir geliştirme bilgisayarı:</span><span class="sxs-lookup"><span data-stu-id="29a23-113">A development computer running:</span></span>
+  * <span data-ttu-id="29a23-114">[Service Fabric SDK’sı ve araçları](service-fabric-get-started-linux.md).</span><span class="sxs-lookup"><span data-stu-id="29a23-114">[Service Fabric SDK and tools](service-fabric-get-started-linux.md).</span></span>
+  * <span data-ttu-id="29a23-115">[Linux için Docker CE](https://docs.docker.com/engine/installation/#prior-releases).</span><span class="sxs-lookup"><span data-stu-id="29a23-115">[Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases).</span></span> 
+  * [<span data-ttu-id="29a23-116">Service Fabric CLI</span><span class="sxs-lookup"><span data-stu-id="29a23-116">Service Fabric CLI</span></span>](service-fabric-cli.md)
 
-* <span data-ttu-id="d4b9a-117">Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-117">A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.</span></span> 
+* <span data-ttu-id="29a23-117">Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md).</span><span class="sxs-lookup"><span data-stu-id="29a23-117">A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.</span></span> 
 
-## <a name="define-the-docker-container"></a><span data-ttu-id="d4b9a-118">Docker kapsayıcısını tanımlama</span><span class="sxs-lookup"><span data-stu-id="d4b9a-118">Define the Docker container</span></span>
-<span data-ttu-id="d4b9a-119">Docker Hub’ında bulunan [Python görüntüsünü](https://hub.docker.com/_/python/) temel alan bir görüntü oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-119">Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub.</span></span> 
+## <a name="define-hello-docker-container"></a><span data-ttu-id="29a23-118">Merhaba Docker kapsayıcısı tanımlayın</span><span class="sxs-lookup"><span data-stu-id="29a23-118">Define hello Docker container</span></span>
+<span data-ttu-id="29a23-119">Bir resim üzerinde Hello tabanlı derleme [Python görüntü](https://hub.docker.com/_/python/) Docker hub'ına bulunur.</span><span class="sxs-lookup"><span data-stu-id="29a23-119">Build an image based on hello [Python image](https://hub.docker.com/_/python/) located on Docker Hub.</span></span> 
 
-<span data-ttu-id="d4b9a-120">Docker kapsayıcınızı bir Dockerfile içinde tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-120">Define your Docker container in a Dockerfile.</span></span> <span data-ttu-id="d4b9a-121">Dockerfile, kapsayıcınızın içindeki ortamı ayarlama, çalıştırmak istediğiniz uygulamayı yükleme ve bağlantı noktalarını eşleme yönergelerini içerir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-121">The Dockerfile contains instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports.</span></span> <span data-ttu-id="d4b9a-122">Dockerfile, görüntüyü oluşturan `docker build` komutunun girdisidir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-122">The Dockerfile is the input to the `docker build` command, which creates the image.</span></span> 
+<span data-ttu-id="29a23-120">Docker kapsayıcınızı bir Dockerfile içinde tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="29a23-120">Define your Docker container in a Dockerfile.</span></span> <span data-ttu-id="29a23-121">Merhaba Dockerfile, kapsayıcı içinde hello ortamı kurma, toorun istediğiniz hello uygulamasını yükleme ve bağlantı noktası eşleme için yönergeler içerir.</span><span class="sxs-lookup"><span data-stu-id="29a23-121">hello Dockerfile contains instructions for setting up hello environment inside your container, loading hello application you want toorun, and mapping ports.</span></span> <span data-ttu-id="29a23-122">Merhaba Dockerfile olan hello giriş toohello `docker build` hello görüntüsünü oluşturur komutu.</span><span class="sxs-lookup"><span data-stu-id="29a23-122">hello Dockerfile is hello input toohello `docker build` command, which creates hello image.</span></span> 
 
-<span data-ttu-id="d4b9a-123">Boş bir dizin oluşturun ve *Dockerfile* dosyasını oluşturun (dosya uzantısı kullanmayın).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-123">Create an empty directory and create the file *Dockerfile* (with no file extension).</span></span> <span data-ttu-id="d4b9a-124">Aşağıdakini *Dockerfile* dosyasına ekleyin ve değişikliklerinizi kaydedin:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-124">Add the following to *Dockerfile* and save your changes:</span></span>
+<span data-ttu-id="29a23-123">Boş bir dizin oluşturun ve hello dosyası oluşturma *Dockerfile* (hiçbir dosya uzantılı).</span><span class="sxs-lookup"><span data-stu-id="29a23-123">Create an empty directory and create hello file *Dockerfile* (with no file extension).</span></span> <span data-ttu-id="29a23-124">Çok Hello ekleyin*Dockerfile* ve değişikliklerinizi kaydedin:</span><span class="sxs-lookup"><span data-stu-id="29a23-124">Add hello following too*Dockerfile* and save your changes:</span></span>
 
 ```
 # Use an official Python runtime as a base image
 FROM python:2.7-slim
 
-# Set the working directory to /app
+# Set hello working directory too/app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copy hello current directory contents into hello container at /app
 ADD . /app
 
 # Install any needed packages specified in requirements.txt
@@ -61,19 +61,19 @@ EXPOSE 80
 # Define environment variable
 ENV NAME World
 
-# Run app.py when the container launches
+# Run app.py when hello container launches
 CMD ["python", "app.py"]
 ```
 
-<span data-ttu-id="d4b9a-125">Daha fazla bilgi için [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) okuyun.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-125">Read the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for more information.</span></span>
+<span data-ttu-id="29a23-125">Okuma hello [Dockerfile başvuru](https://docs.docker.com/engine/reference/builder/) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="29a23-125">Read hello [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for more information.</span></span>
 
-## <a name="create-a-simple-web-application"></a><span data-ttu-id="d4b9a-126">Basit web uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="d4b9a-126">Create a simple web application</span></span>
-<span data-ttu-id="d4b9a-127">Bağlantı noktası 80 üzerinden dinleyen ve "Merhaba Dünya!" başlığını döndüren bir Flask web uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-127">Create a Flask web application listening on port 80 that returns "Hello World!".</span></span>  <span data-ttu-id="d4b9a-128">Aynı dizinde, *requirements.txt* dosyasını oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-128">In the same directory, create the file *requirements.txt*.</span></span>  <span data-ttu-id="d4b9a-129">Aşağıdakini dosyaya ekleyin ve değişikliklerinizi kaydedin:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-129">Add the following and save your changes:</span></span>
+## <a name="create-a-simple-web-application"></a><span data-ttu-id="29a23-126">Basit web uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="29a23-126">Create a simple web application</span></span>
+<span data-ttu-id="29a23-127">Bağlantı noktası 80 üzerinden dinleyen ve "Merhaba Dünya!" başlığını döndüren bir Flask web uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="29a23-127">Create a Flask web application listening on port 80 that returns "Hello World!".</span></span>  <span data-ttu-id="29a23-128">Buna Merhaba aynı dizinde, hello dosyası oluşturma *requirements.txt*.</span><span class="sxs-lookup"><span data-stu-id="29a23-128">In hello same directory, create hello file *requirements.txt*.</span></span>  <span data-ttu-id="29a23-129">Merhaba aşağıdakileri ekleyin ve değişikliklerinizi kaydedin:</span><span class="sxs-lookup"><span data-stu-id="29a23-129">Add hello following and save your changes:</span></span>
 ```
 Flask
 ```
 
-<span data-ttu-id="d4b9a-130">Ayrıca, *app.py* dosyasını da oluşturun ve aşağıdakini ekleyin:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-130">Also create the *app.py* file and add the following:</span></span>
+<span data-ttu-id="29a23-130">Merhaba oluşturabilir *app.py* dosya ve hello aşağıdakileri ekleyin:</span><span class="sxs-lookup"><span data-stu-id="29a23-130">Also create hello *app.py* file and add hello following:</span></span>
 
 ```python
 from flask import Flask
@@ -89,16 +89,16 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
-## <a name="build-the-image"></a><span data-ttu-id="d4b9a-131">Görüntü oluşturma</span><span class="sxs-lookup"><span data-stu-id="d4b9a-131">Build the image</span></span>
-<span data-ttu-id="d4b9a-132">Web uygulamanızı çalıştıran görüntüyü oluşturmak için `docker build` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-132">Run the `docker build` command to create the image that runs your web application.</span></span> <span data-ttu-id="d4b9a-133">Bir PowerShell penceresi açıp *c:\temp\helloworldapp* dizinine gidin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-133">Open a PowerShell window and navigate to *c:\temp\helloworldapp*.</span></span> <span data-ttu-id="d4b9a-134">Şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-134">Run the following command:</span></span>
+## <a name="build-hello-image"></a><span data-ttu-id="29a23-131">Merhaba yansıması oluştur</span><span class="sxs-lookup"><span data-stu-id="29a23-131">Build hello image</span></span>
+<span data-ttu-id="29a23-132">Merhaba çalıştırmak `docker build` web uygulamanızı çalıştıran komutu toocreate hello görüntüsü.</span><span class="sxs-lookup"><span data-stu-id="29a23-132">Run hello `docker build` command toocreate hello image that runs your web application.</span></span> <span data-ttu-id="29a23-133">Bir PowerShell penceresi açın ve çok gidin*c:\temp\helloworldapp*.</span><span class="sxs-lookup"><span data-stu-id="29a23-133">Open a PowerShell window and navigate too*c:\temp\helloworldapp*.</span></span> <span data-ttu-id="29a23-134">Merhaba aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="29a23-134">Run hello following command:</span></span>
 
 ```bash
 docker build -t helloworldapp .
 ```
 
-<span data-ttu-id="d4b9a-135">Bu komut Dockerfile içindeki yönergeleri kullanarak yeni görüntüyü oluşturur ve "helloworldapp" olarak adlandırır (-t etiketi).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-135">This command builds the new image using the instructions in your Dockerfile, naming (-t tagging) the image "helloworldapp".</span></span> <span data-ttu-id="d4b9a-136">Görüntü oluşturulduğunda, temel görüntü Docker Hub’ından alınır ve uygulamanızı temel görüntünün üstüne ekleyen yeni bir görüntü oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-136">Building an image pulls the base image down from Docker Hub and creates a new image that adds your application on top of the base image.</span></span>  
+<span data-ttu-id="29a23-135">Bu komut derlemeleri Merhaba, Dockerfile içinde hello yönergeleri kullanarak yeni görüntüsü adlandırma (-t etiketleme) hello görüntü "helloworldapp".</span><span class="sxs-lookup"><span data-stu-id="29a23-135">This command builds hello new image using hello instructions in your Dockerfile, naming (-t tagging) hello image "helloworldapp".</span></span> <span data-ttu-id="29a23-136">Bir görüntü oluşturma hello temel görüntü Docker hub'dan çeker ve uygulamanızı hello temel görüntü üstünde ekler yeni bir görüntü oluşturur.</span><span class="sxs-lookup"><span data-stu-id="29a23-136">Building an image pulls hello base image down from Docker Hub and creates a new image that adds your application on top of hello base image.</span></span>  
 
-<span data-ttu-id="d4b9a-137">Oluşturma komutu tamamlandıktan sonra, yeni görüntü üzerindeki bilgileri görmek için `docker images` komutunu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-137">Once the build command completes, run the `docker images` command to see information on the new image:</span></span>
+<span data-ttu-id="29a23-137">Merhaba yapı komutu tamamlandığında hello çalıştırmak `docker images` komutu hello yeni görüntüsü toosee bilgi:</span><span class="sxs-lookup"><span data-stu-id="29a23-137">Once hello build command completes, run hello `docker images` command toosee information on hello new image:</span></span>
 
 ```bash
 $ docker images
@@ -107,80 +107,80 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
 
-## <a name="run-the-application-locally"></a><span data-ttu-id="d4b9a-138">Uygulamayı yerel olarak çalıştırma</span><span class="sxs-lookup"><span data-stu-id="d4b9a-138">Run the application locally</span></span>
-<span data-ttu-id="d4b9a-139">Kapsayıcıya alınmış uygulamanızı kapsayıcı kayıt defterine göndermeden önce uygulamanın yerel olarak çalıştığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-139">Verify that your containerized application runs locally before pushing it the container registry.</span></span>  
+## <a name="run-hello-application-locally"></a><span data-ttu-id="29a23-138">Merhaba uygulama yerel olarak çalıştırma</span><span class="sxs-lookup"><span data-stu-id="29a23-138">Run hello application locally</span></span>
+<span data-ttu-id="29a23-139">Kapsayıcılı uygulamanız bu hello kapsayıcı kayıt defteri yerel olarak göndermeden önce çalıştığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="29a23-139">Verify that your containerized application runs locally before pushing it hello container registry.</span></span>  
 
-<span data-ttu-id="d4b9a-140">Bilgisayarınızın 4000 numaralı bağlantı noktasını kapsayıcının ortaya konan 80 numaralı bağlantı noktasına eşleyerek uygulamayı çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-140">Run the application, mapping your computer's port 4000 to the container's exposed port 80:</span></span>
+<span data-ttu-id="29a23-140">Merhaba uygulamayı çalıştırın, bilgisayarınızın 4000 numaralı bağlantı noktasını toohello kapsayıcının eşleme 80 kullanıma sunulan bağlantı noktası:</span><span class="sxs-lookup"><span data-stu-id="29a23-140">Run hello application, mapping your computer's port 4000 toohello container's exposed port 80:</span></span>
 
 ```bash
 docker run -d -p 4000:80 --name my-web-site helloworldapp
 ```
 
-<span data-ttu-id="d4b9a-141">*name*, çalışan kapsayıcıya bir ad verir (kapsayıcı kimliği yerine).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-141">*name* gives a name to the running container (instead of the container ID).</span></span>
+<span data-ttu-id="29a23-141">*ad* kapsayıcı (yerine hello kapsayıcı kimliği) çalıştıran bir ad toohello sağlar.</span><span class="sxs-lookup"><span data-stu-id="29a23-141">*name* gives a name toohello running container (instead of hello container ID).</span></span>
 
-<span data-ttu-id="d4b9a-142">Çalışan kapsayıcıya bağlanın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-142">Connect to the running container.</span></span>  <span data-ttu-id="d4b9a-143">4000 numaralı bağlantı noktasında döndürülen IP adresine işaret eden bir web tarayıcısı açın (örneğin, "http://localhost:4000").</span><span class="sxs-lookup"><span data-stu-id="d4b9a-143">Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000".</span></span> <span data-ttu-id="d4b9a-144">"Hello World!" başlığının</span><span class="sxs-lookup"><span data-stu-id="d4b9a-144">You should see the heading "Hello World!"</span></span> <span data-ttu-id="d4b9a-145">tarayıcıda gösterildiğini görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-145">display in the browser.</span></span>
+<span data-ttu-id="29a23-142">Kapsayıcı çalıştıran toohello bağlayın.</span><span class="sxs-lookup"><span data-stu-id="29a23-142">Connect toohello running container.</span></span>  <span data-ttu-id="29a23-143">Bağlantı 4000, örneğin "http://localhost:4000" döndürülen toohello IP adresini işaret eden bir web tarayıcısı açın.</span><span class="sxs-lookup"><span data-stu-id="29a23-143">Open a web browser pointing toohello IP address returned on port 4000, for example "http://localhost:4000".</span></span> <span data-ttu-id="29a23-144">"Hello World!" Başlık hello görmeniz gerekir</span><span class="sxs-lookup"><span data-stu-id="29a23-144">You should see hello heading "Hello World!"</span></span> <span data-ttu-id="29a23-145">Merhaba tarayıcıda görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="29a23-145">display in hello browser.</span></span>
 
 ![Merhaba Dünya!][hello-world]
 
-<span data-ttu-id="d4b9a-147">Kapsayıcınızı durdurmak için şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-147">To stop your container, run:</span></span>
+<span data-ttu-id="29a23-147">toostop çalıştırmak, kapsayıcı:</span><span class="sxs-lookup"><span data-stu-id="29a23-147">toostop your container, run:</span></span>
 
 ```bash
 docker stop my-web-site
 ```
 
-<span data-ttu-id="d4b9a-148">Kapsayıcıyı geliştirme makinenizden silin:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-148">Delete the container from your development machine:</span></span>
+<span data-ttu-id="29a23-148">Merhaba kapsayıcı geliştirme makinenizden Sil:</span><span class="sxs-lookup"><span data-stu-id="29a23-148">Delete hello container from your development machine:</span></span>
 
 ```bash
 docker rm my-web-site
 ```
 
-## <a name="push-the-image-to-the-container-registry"></a><span data-ttu-id="d4b9a-149">Görüntüyü kapsayıcı kayıt defterine gönderme</span><span class="sxs-lookup"><span data-stu-id="d4b9a-149">Push the image to the container registry</span></span>
-<span data-ttu-id="d4b9a-150">Uygulamanın Docker'da çalıştığını doğruladıktan sonra, görüntüyü Azure Container Registry'de kayıt defterine gönderin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-150">After you verify that the application runs in Docker, push the image to your registry in Azure Container Registry.</span></span>
+## <a name="push-hello-image-toohello-container-registry"></a><span data-ttu-id="29a23-149">Anında iletme hello görüntü toohello kapsayıcı kayıt defteri</span><span class="sxs-lookup"><span data-stu-id="29a23-149">Push hello image toohello container registry</span></span>
+<span data-ttu-id="29a23-150">Merhaba uygulaması Docker içinde çalıştığını doğruladıktan sonra Azure kapsayıcı kayıt defterinde hello görüntü tooyour kayıt defteri iletin.</span><span class="sxs-lookup"><span data-stu-id="29a23-150">After you verify that hello application runs in Docker, push hello image tooyour registry in Azure Container Registry.</span></span>
 
-<span data-ttu-id="d4b9a-151">Kapsayıcı kayıt defterinizde [kayıt defteri kimlik bilgileriniz](../container-registry/container-registry-authentication.md) ile oturum açmak için `docker login` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-151">Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).</span></span>
+<span data-ttu-id="29a23-151">Çalıştırma `docker login` ile tooyour kapsayıcı defterinde toolog, [kayıt defteri kimlik](../container-registry/container-registry-authentication.md).</span><span class="sxs-lookup"><span data-stu-id="29a23-151">Run `docker login` toolog in tooyour container registry with your [registry credentials](../container-registry/container-registry-authentication.md).</span></span>
 
-<span data-ttu-id="d4b9a-152">Aşağıdaki örnekte, bir Azure Active Directory [hizmet sorumlusunun](../active-directory/active-directory-application-objects.md) kimliği ve parolası geçirilmiştir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-152">The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md).</span></span> <span data-ttu-id="d4b9a-153">Örneğin, bir otomasyon senaryosu için kayıt defterinize bir hizmet sorumlusu atamış olabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-153">For example, you might have assigned a service principal to your registry for an automation scenario.</span></span>  <span data-ttu-id="d4b9a-154">İsterseniz, kayıt defteri kullanıcı kimliğiniz ve parolanızı kullanarak oturum açabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-154">Or, you could login using your registry username and password.</span></span>
+<span data-ttu-id="29a23-152">Merhaba aşağıdaki örnek hello kimliği ve parolası bir Azure Active Directory geçirir [hizmet sorumlusu](../active-directory/active-directory-application-objects.md).</span><span class="sxs-lookup"><span data-stu-id="29a23-152">hello following example passes hello ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md).</span></span> <span data-ttu-id="29a23-153">Örneğin, bir hizmet asıl tooyour kayıt defteri bir Otomasyon senaryosu için atanmış.</span><span class="sxs-lookup"><span data-stu-id="29a23-153">For example, you might have assigned a service principal tooyour registry for an automation scenario.</span></span>  <span data-ttu-id="29a23-154">İsterseniz, kayıt defteri kullanıcı kimliğiniz ve parolanızı kullanarak oturum açabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="29a23-154">Or, you could login using your registry username and password.</span></span>
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-<span data-ttu-id="d4b9a-155">Aşağıdaki komut, görüntünün kayıt defterinize ait tam yolu içeren bir etiketini veya diğer adını oluşturur.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-155">The following command creates a tag, or alias, of the image, with a fully qualified path to your registry.</span></span> <span data-ttu-id="d4b9a-156">Bu örnek, kayıt defterinin kökünde dağınıklığı önlemek için `samples` ad alanına görüntüyü yerleştirir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-156">This example places the image in the `samples` namespace to avoid clutter in the root of the registry.</span></span>
+<span data-ttu-id="29a23-155">Merhaba aşağıdaki komutu bir etiket veya hello görüntünün diğer tam nitelenmiş bir yol tooyour kayıt defteri ile oluşturur.</span><span class="sxs-lookup"><span data-stu-id="29a23-155">hello following command creates a tag, or alias, of hello image, with a fully qualified path tooyour registry.</span></span> <span data-ttu-id="29a23-156">Yerler hello hello görüntüde Bu örnek `samples` hello kayıt defteri hello kök ad alanı tooavoid dağınıklığı.</span><span class="sxs-lookup"><span data-stu-id="29a23-156">This example places hello image in hello `samples` namespace tooavoid clutter in hello root of hello registry.</span></span>
 
 ```bash
 docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
 ```
 
-<span data-ttu-id="d4b9a-157">Görüntüyü kapsayıcı kayıt defterinize gönderin:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-157">Push the image to your container registry:</span></span>
+<span data-ttu-id="29a23-157">Merhaba görüntü tooyour kapsayıcı kayıt defteri gönderin:</span><span class="sxs-lookup"><span data-stu-id="29a23-157">Push hello image tooyour container registry:</span></span>
 
 ```bash
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="package-the-docker-image-with-yeoman"></a><span data-ttu-id="d4b9a-158">Docker görüntüsünü Yeoman ile paketleme</span><span class="sxs-lookup"><span data-stu-id="d4b9a-158">Package the Docker image with Yeoman</span></span>
-<span data-ttu-id="d4b9a-159">Linux için Service Fabric SDK’sı uygulamanızı oluşturmayı ve kapsayıcı görüntüsü eklemeyi kolaylaştıran bir [Yeoman](http://yeoman.io/) oluşturucu içerir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-159">The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image.</span></span> <span data-ttu-id="d4b9a-160">Şimdi Yeoman kullanarak *SimpleContainerApp* adlı tek bir Docker kapsayıcısı olan bir uygulama oluşturalım.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-160">Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.</span></span>
+## <a name="package-hello-docker-image-with-yeoman"></a><span data-ttu-id="29a23-158">Paket hello Docker Yeoman görüntüsüyle</span><span class="sxs-lookup"><span data-stu-id="29a23-158">Package hello Docker image with Yeoman</span></span>
+<span data-ttu-id="29a23-159">Merhaba Linux için Service Fabric SDK içerir bir [Yeoman](http://yeoman.io/) kolay toocreate kolaylaştırır Oluşturucu uygulamanız ve kapsayıcı görüntü ekleyin.</span><span class="sxs-lookup"><span data-stu-id="29a23-159">hello Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy toocreate your application and add a container image.</span></span> <span data-ttu-id="29a23-160">Yeoman tek bir Docker kapsayıcısı uygulamayla adlı toocreate kullanalım *SimpleContainerApp*.</span><span class="sxs-lookup"><span data-stu-id="29a23-160">Let's use Yeoman toocreate an application with a single Docker container called *SimpleContainerApp*.</span></span>
 
-<span data-ttu-id="d4b9a-161">Service Fabric kapsayıcı uygulaması oluşturmak için, terminal penceresini açın ve `yo azuresfcontainer` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-161">To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.</span></span>  
+<span data-ttu-id="29a23-161">toocreate Service Fabric kapsayıcı uygulaması, bir terminal penceresi açın ve Çalıştır `yo azuresfcontainer`.</span><span class="sxs-lookup"><span data-stu-id="29a23-161">toocreate a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.</span></span>  
 
-<span data-ttu-id="d4b9a-162">Uygulamanızı adlandırın (örneğin, "mycontainer").</span><span class="sxs-lookup"><span data-stu-id="d4b9a-162">Name your application (for example, "mycontainer").</span></span> 
+<span data-ttu-id="29a23-162">Uygulamanızı adlandırın (örneğin, "mycontainer").</span><span class="sxs-lookup"><span data-stu-id="29a23-162">Name your application (for example, "mycontainer").</span></span> 
 
-<span data-ttu-id="d4b9a-163">Kapsayıcı kayıt defterindeki kapsayıcı görüntüsünün URL'sini sağlayın (örneğin, "").</span><span class="sxs-lookup"><span data-stu-id="d4b9a-163">Provide the URL for the container image in a container registry (for example, "").</span></span> 
+<span data-ttu-id="29a23-163">Bir kapsayıcı kayıt defterindeki hello kapsayıcı görüntüsü için Hello URL'si girin (örneğin, "").</span><span class="sxs-lookup"><span data-stu-id="29a23-163">Provide hello URL for hello container image in a container registry (for example, "").</span></span> 
 
-<span data-ttu-id="d4b9a-164">Bu görüntüde iş yükü giriş noktası tanımlanmış olduğundan, giriş komutlarının açıkça belirtilmesi gerekir (komutlar kapsayıcının içinde çalıştırılır ve bu da başlatma sonrasında kapsayıcıyı çalışır durumda tutar).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-164">This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup).</span></span> 
+<span data-ttu-id="29a23-164">Bu resimle bir iş yükü giriş tanımlanmış noktası, tooexplicitly belirtin giriş komutları (başlatma işleminden sonra çalışan hello kapsayıcı tutar hello kapsayıcı içinde çalıştırma komutları).</span><span class="sxs-lookup"><span data-stu-id="29a23-164">This image has a workload entry-point defined, so need tooexplicitly specify input commands (commands run inside hello container, which will keep hello container running after startup).</span></span> 
 
-<span data-ttu-id="d4b9a-165">"1" örnek sayısı belirtin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-165">Specify an instance count of "1".</span></span>
+<span data-ttu-id="29a23-165">"1" örnek sayısı belirtin.</span><span class="sxs-lookup"><span data-stu-id="29a23-165">Specify an instance count of "1".</span></span>
 
 ![Kapsayıcılar için Service Fabric Yeoman oluşturucusu][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a><span data-ttu-id="d4b9a-167">Bağlantı noktası eşlemesini ve kapsayıcı deposu kimlik doğrulamasını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="d4b9a-167">Configure port mapping and container repository authentication</span></span>
-<span data-ttu-id="d4b9a-168">Kapsayıcı içinde alınmış hizmetinize iletişim için bir uç nokta gerekir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-168">Your containerized service needs an endpoint for communication.</span></span>  <span data-ttu-id="d4b9a-169">Şimdi ServiceManifest.xml dosyasındaki `Endpoint` öğesine protokol, bağlantı noktası ve tür ekleyin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-169">Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file.</span></span> <span data-ttu-id="d4b9a-170">Bu makalede kapsayıcı hizmeti 4000 numaralı bağlantı noktasında dinler:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-170">For this article, the containerized service listens on port 4000:</span></span> 
+## <a name="configure-port-mapping-and-container-repository-authentication"></a><span data-ttu-id="29a23-167">Bağlantı noktası eşlemesini ve kapsayıcı deposu kimlik doğrulamasını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="29a23-167">Configure port mapping and container repository authentication</span></span>
+<span data-ttu-id="29a23-168">Kapsayıcı içinde alınmış hizmetinize iletişim için bir uç nokta gerekir.</span><span class="sxs-lookup"><span data-stu-id="29a23-168">Your containerized service needs an endpoint for communication.</span></span>  <span data-ttu-id="29a23-169">Şimdi hello protokolü, bağlantı noktası ve tür ekleyin tooan `Endpoint` hello ServiceManifest.xml dosyasında.</span><span class="sxs-lookup"><span data-stu-id="29a23-169">Now add hello protocol, port, and type tooan `Endpoint` in hello ServiceManifest.xml file.</span></span> <span data-ttu-id="29a23-170">Bu makalede, kapsayıcılı hello hizmet 4000 bağlantı noktasını dinler:</span><span class="sxs-lookup"><span data-stu-id="29a23-170">For this article, hello containerized service listens on port 4000:</span></span> 
 
 ```xml
 <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
 ```
-<span data-ttu-id="d4b9a-171">`UriScheme` değerinin sağlanması, kapsayıcı uç noktasını bulunabilirlik için Service Fabric Adlandırma hizmetine otomatik olarak kaydeder.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-171">Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability.</span></span> <span data-ttu-id="d4b9a-172">Bu makalenin sonunda tam bir ServiceManifest.xml örnek dosyası verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-172">A full ServiceManifest.xml example file is provided at the end of this article.</span></span> 
+<span data-ttu-id="29a23-171">Merhaba sağlama `UriScheme` otomatik olarak kapsayıcı uç nokta hello bulunabilirlik için Service Fabric adlandırma hizmeti ile hello kaydeder.</span><span class="sxs-lookup"><span data-stu-id="29a23-171">Providing hello `UriScheme` automatically registers hello container endpoint with hello Service Fabric Naming service for discoverability.</span></span> <span data-ttu-id="29a23-172">Bir tam ServiceManifest.xml örnek dosya hello bu makalenin sonundaki sağlanır.</span><span class="sxs-lookup"><span data-stu-id="29a23-172">A full ServiceManifest.xml example file is provided at hello end of this article.</span></span> 
 
-<span data-ttu-id="d4b9a-173">ApplicationManifest.xml dosyasının `ContainerHostPolicies` kısmında bir `PortBinding` ilkesi belirterek kapsayıcı bağlantı noktasından ana bilgisayar bağlantı noktasına eşleme yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-173">Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.</span></span>  <span data-ttu-id="d4b9a-174">Bu makalede `ContainerPort` değeri 80 (Dockerfile içinde belirtildiği gibi kapsayıcı 80 numaralı bağlantı noktasını gösterir) ve `EndpointRef` değeri "myserviceTypeEndpoint"’tir (hizmet bildiriminde tanımlanan uç nokta).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-174">For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint defined in the service manifest).</span></span>  <span data-ttu-id="d4b9a-175">4000 numaralı bağlantı noktasında hizmete gelen istekler, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-175">Incoming requests to the service on port 4000 are mapped to port 80 on the container.</span></span>  <span data-ttu-id="d4b9a-176">Kapsayıcınızın özel bir depoda kimlik doğrulaması yapması gerekiyorsa, `RepositoryCredentials` öğesini ekleyin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-176">If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.</span></span>  <span data-ttu-id="d4b9a-177">Bu makale için, myregistry.azurecr.io kapsayıcı kayıt defterine ait hesap adını ve parolayı ekleyin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-177">For this article, add the account name and password for the myregistry.azurecr.io container registry.</span></span> 
+<span data-ttu-id="29a23-173">Merhaba kapsayıcı bağlantı noktası ana bilgisayar bağlantı noktası eşleme belirterek yapılandırma bir `PortBinding` ilkesinde `ContainerHostPolicies` hello ApplicationManifest.xml dosyasının.</span><span class="sxs-lookup"><span data-stu-id="29a23-173">Configure hello container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of hello ApplicationManifest.xml file.</span></span>  <span data-ttu-id="29a23-174">Bu makale için `ContainerPort` 80'dir (Merhaba kapsayıcı sunan bağlantı noktası 80, belirtilen hello Dockerfile) ve `EndpointRef` olan "myserviceTypeEndpoint" (Merhaba uç noktası hello hizmet bildiriminde tanımlanan).</span><span class="sxs-lookup"><span data-stu-id="29a23-174">For this article, `ContainerPort` is 80 (hello container exposes port 80, as specified in hello Dockerfile) and `EndpointRef` is "myserviceTypeEndpoint" (hello endpoint defined in hello service manifest).</span></span>  <span data-ttu-id="29a23-175">Gelen istekleri toohello hizmet bağlantı noktası 4000 tooport 80 hello kapsayıcısı üzerinde eşlenmiş.</span><span class="sxs-lookup"><span data-stu-id="29a23-175">Incoming requests toohello service on port 4000 are mapped tooport 80 on hello container.</span></span>  <span data-ttu-id="29a23-176">Ardından, kapsayıcı bir özel deposu ile tooauthenticate gerekirse, ekleyin `RepositoryCredentials`.</span><span class="sxs-lookup"><span data-stu-id="29a23-176">If your container needs tooauthenticate with a private repository, then add `RepositoryCredentials`.</span></span>  <span data-ttu-id="29a23-177">Bu makalede, hello hesap adı ve parola hello myregistry.azurecr.io kapsayıcı kayıt defteri ekleyin.</span><span class="sxs-lookup"><span data-stu-id="29a23-177">For this article, add hello account name and password for hello myregistry.azurecr.io container registry.</span></span> 
 
 ```xml
 <Policies>
@@ -191,53 +191,53 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 </Policies>
 ```
 
-## <a name="build-and-package-the-service-fabric-application"></a><span data-ttu-id="d4b9a-178">Service Fabric uygulamasını oluşturma ve paketleme</span><span class="sxs-lookup"><span data-stu-id="d4b9a-178">Build and package the Service Fabric application</span></span>
-<span data-ttu-id="d4b9a-179">Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak için kullanabileceğiniz bir [Gradle](https://gradle.org/) derleme betiği içerir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-179">The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal.</span></span> <span data-ttu-id="d4b9a-180">Uygulamayı derlemek ve paketlemek için şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-180">To build and package the application, run the following:</span></span>
+## <a name="build-and-package-hello-service-fabric-application"></a><span data-ttu-id="29a23-178">Derleme ve paket Merhaba Service Fabric uygulaması</span><span class="sxs-lookup"><span data-stu-id="29a23-178">Build and package hello Service Fabric application</span></span>
+<span data-ttu-id="29a23-179">Merhaba Service Fabric Yeoman şablonları içerir bir yapı komut dosyası için [Gradle](https://gradle.org/), hangi toobuild hello hello terminal uygulamasından kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="29a23-179">hello Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use toobuild hello application from hello terminal.</span></span> <span data-ttu-id="29a23-180">Merhaba aşağıdaki çalıştırma toobuild ve paket hello uygulaması:</span><span class="sxs-lookup"><span data-stu-id="29a23-180">toobuild and package hello application, run hello following:</span></span>
 
 ```bash
 cd mycontainer
 gradle
 ```
 
-## <a name="deploy-the-application"></a><span data-ttu-id="d4b9a-181">Uygulamayı dağıtma</span><span class="sxs-lookup"><span data-stu-id="d4b9a-181">Deploy the application</span></span>
-<span data-ttu-id="d4b9a-182">Uygulama oluşturulduktan sonra Service Fabric CLI kullanarak yerel kümeye dağıtabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-182">Once the application is built, you can deploy it to the local cluster using the Service Fabric CLI.</span></span>
+## <a name="deploy-hello-application"></a><span data-ttu-id="29a23-181">Merhaba uygulaması dağıtma</span><span class="sxs-lookup"><span data-stu-id="29a23-181">Deploy hello application</span></span>
+<span data-ttu-id="29a23-182">Merhaba uygulama oluşturulduktan sonra toohello yerel küme hello Service Fabric CLI kullanarak dağıtabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="29a23-182">Once hello application is built, you can deploy it toohello local cluster using hello Service Fabric CLI.</span></span>
 
-<span data-ttu-id="d4b9a-183">Yerel Service Fabric kümesine bağlanın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-183">Connect to the local Service Fabric cluster.</span></span>
+<span data-ttu-id="29a23-183">Toohello yerel Service Fabric kümesi bağlayın.</span><span class="sxs-lookup"><span data-stu-id="29a23-183">Connect toohello local Service Fabric cluster.</span></span>
 
 ```bash
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-<span data-ttu-id="d4b9a-184">Uygulama paketini kümenin görüntü deposuna kopyalamak, uygulama türünü kaydetmek ve uygulamanın bir örneğini oluşturmak için şablonda verilen yükleme betiğini kullanın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-184">Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.</span></span>
+<span data-ttu-id="29a23-184">Kullanım hello hello şablonu toocopy Merhaba uygulaması toohello kümenin görüntü deposu paketini, hello uygulama türünü kaydetme ve hello uygulama örneğini oluşturmak sağlanan komut dosyası yükleyin.</span><span class="sxs-lookup"><span data-stu-id="29a23-184">Use hello install script provided in hello template toocopy hello application package toohello cluster's image store, register hello application type, and create an instance of hello application.</span></span>
 
 ```bash
 ./install.sh
 ```
 
-<span data-ttu-id="d4b9a-185">Bir tarayıcı açın ve http://localhost:19080/Explorer adresindeki Service Fabric Explorer’a gidin (Vagrant’ı Mac OS X üzerinde kullanıyorsanız localhost ifadesini sanal makinenin özel IP’si ile değiştirin).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-185">Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).</span></span> <span data-ttu-id="d4b9a-186">Uygulamalar düğümünü genişletin ve şu anda uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-186">Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.</span></span>
+<span data-ttu-id="29a23-185">Bir tarayıcı açın ve http://localhost: 19080/Explorer (Merhaba Vagrant Mac OS X kullanıyorsanız VM hello özel IP ile değiştir localhost) konumunda tooService Fabric Gezgini'ne gidin.</span><span class="sxs-lookup"><span data-stu-id="29a23-185">Open a browser and navigate tooService Fabric Explorer at http://localhost:19080/Explorer (replace localhost with hello private IP of hello VM if using Vagrant on Mac OS X).</span></span> <span data-ttu-id="29a23-186">Merhaba uygulamaları düğümünü genişletin ve şimdi uygulama türü için bir giriş ve hello bu türünün ilk örneği için başka bir yoktur.</span><span class="sxs-lookup"><span data-stu-id="29a23-186">Expand hello Applications node and note that there is now an entry for your application type and another for hello first instance of that type.</span></span>
 
-<span data-ttu-id="d4b9a-187">Çalışan kapsayıcıya bağlanın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-187">Connect to the running container.</span></span>  <span data-ttu-id="d4b9a-188">4000 numaralı bağlantı noktasında döndürülen IP adresine işaret eden bir web tarayıcısı açın (örneğin, "http://localhost:4000").</span><span class="sxs-lookup"><span data-stu-id="d4b9a-188">Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000".</span></span> <span data-ttu-id="d4b9a-189">"Hello World!" başlığının</span><span class="sxs-lookup"><span data-stu-id="d4b9a-189">You should see the heading "Hello World!"</span></span> <span data-ttu-id="d4b9a-190">tarayıcıda gösterildiğini görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-190">display in the browser.</span></span>
+<span data-ttu-id="29a23-187">Kapsayıcı çalıştıran toohello bağlayın.</span><span class="sxs-lookup"><span data-stu-id="29a23-187">Connect toohello running container.</span></span>  <span data-ttu-id="29a23-188">Bağlantı 4000, örneğin "http://localhost:4000" döndürülen toohello IP adresini işaret eden bir web tarayıcısı açın.</span><span class="sxs-lookup"><span data-stu-id="29a23-188">Open a web browser pointing toohello IP address returned on port 4000, for example "http://localhost:4000".</span></span> <span data-ttu-id="29a23-189">"Hello World!" Başlık hello görmeniz gerekir</span><span class="sxs-lookup"><span data-stu-id="29a23-189">You should see hello heading "Hello World!"</span></span> <span data-ttu-id="29a23-190">Merhaba tarayıcıda görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="29a23-190">display in hello browser.</span></span>
 
 ![Merhaba Dünya!][hello-world]
 
-## <a name="clean-up"></a><span data-ttu-id="d4b9a-192">Temizleme</span><span class="sxs-lookup"><span data-stu-id="d4b9a-192">Clean up</span></span>
-<span data-ttu-id="d4b9a-193">Yerel dağıtım kümesinden uygulama örneğini silmek ve uygulama türünün kaydını silmek için şablonda sağlanan kaldırma betiğini kullanın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-193">Use the uninstall script provided in the template to delete the application instance from the local development cluster and unregister the application type.</span></span>
+## <a name="clean-up"></a><span data-ttu-id="29a23-192">Temizleme</span><span class="sxs-lookup"><span data-stu-id="29a23-192">Clean up</span></span>
+<span data-ttu-id="29a23-193">Merhaba kaldırma komut dosyası kullan hello şablon toodelete hello uygulama örneği hello yerel geliştirme kümeden sağlanan ve hello uygulama türü kaydını silin.</span><span class="sxs-lookup"><span data-stu-id="29a23-193">Use hello uninstall script provided in hello template toodelete hello application instance from hello local development cluster and unregister hello application type.</span></span>
 
 ```bash
 ./uninstall.sh
 ```
 
-<span data-ttu-id="d4b9a-194">Görüntüyü kapsayıcı kayıt defterine gönderdikten sonra yerel görüntüyü geliştirme bilgisayarınızdan silebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-194">After you push the image to the container registry you can delete the local image from your development computer:</span></span>
+<span data-ttu-id="29a23-194">Merhaba görüntü toohello kapsayıcı kayıt defteri itme sonra hello yerel görüntü Geliştirme bilgisayarınızdan silebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="29a23-194">After you push hello image toohello container registry you can delete hello local image from your development computer:</span></span>
 
 ```
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a><span data-ttu-id="d4b9a-195">Tam Service Fabric uygulaması ve hizmet bildirimleri örneği</span><span class="sxs-lookup"><span data-stu-id="d4b9a-195">Complete example Service Fabric application and service manifests</span></span>
-<span data-ttu-id="d4b9a-196">Bu makalede kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-196">Here are the complete service and application manifests used in this article.</span></span>
+## <a name="complete-example-service-fabric-application-and-service-manifests"></a><span data-ttu-id="29a23-195">Tam Service Fabric uygulaması ve hizmet bildirimleri örneği</span><span class="sxs-lookup"><span data-stu-id="29a23-195">Complete example Service Fabric application and service manifests</span></span>
+<span data-ttu-id="29a23-196">Merhaba tüm hizmet ve bu makalede kullanılan uygulama bildirimleri aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="29a23-196">Here are hello complete service and application manifests used in this article.</span></span>
 
-### <a name="servicemanifestxml"></a><span data-ttu-id="d4b9a-197">ServiceManifest.xml</span><span class="sxs-lookup"><span data-stu-id="d4b9a-197">ServiceManifest.xml</span></span>
+### <a name="servicemanifestxml"></a><span data-ttu-id="29a23-197">ServiceManifest.xml</span><span class="sxs-lookup"><span data-stu-id="29a23-197">ServiceManifest.xml</span></span>
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="myservicePkg"
@@ -246,8 +246,8 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
-    <!-- This is the name of your ServiceType.
-         The UseImplicitHost attribute indicates this is a guest service. -->
+    <!-- This is hello name of your ServiceType.
+         hello UseImplicitHost attribute indicates this is a guest service. -->
     <StatelessServiceType ServiceTypeName="myserviceType" UseImplicitHost="true" />
   </ServiceTypes>
 
@@ -255,13 +255,13 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
   <CodePackage Name="Code" Version="1.0.0">
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers 
-      to Service Fabric: https://aka.ms/sfguestcontainers -->
+      tooService Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
         <Commands></Commands>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables to your container: -->
+    <!-- Pass environment variables tooyour container: -->
     
     <EnvironmentVariables>
       <!--
@@ -273,7 +273,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+      <!-- This endpoint is used by hello communication listener tooobtain hello port on which too
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
@@ -281,7 +281,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
   </Resources>
 </ServiceManifest>
 ```
-### <a name="applicationmanifestxml"></a><span data-ttu-id="d4b9a-198">ApplicationManifest.xml</span><span class="sxs-lookup"><span data-stu-id="d4b9a-198">ApplicationManifest.xml</span></span>
+### <a name="applicationmanifestxml"></a><span data-ttu-id="29a23-198">ApplicationManifest.xml</span><span class="sxs-lookup"><span data-stu-id="29a23-198">ApplicationManifest.xml</span></span>
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest ApplicationTypeName="mycontainerType"
@@ -289,8 +289,8 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
-       should match the Name and Version attributes of the ServiceManifest element defined in the 
+  <!-- Import hello ServiceManifest from hello ServicePackage. hello ServiceManifestName and ServiceManifestVersion 
+       should match hello Name and Version attributes of hello ServiceManifest element defined in hello 
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="myservicePkg" ServiceManifestVersion="1.0.0" />
@@ -303,15 +303,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types, when an instance of this 
-         application type is created. You can also create one or more instances of service type using the 
+    <!-- hello section below creates instances of service types, when an instance of this 
+         application type is created. You can also create one or more instances of service type using hello 
          ServiceFabric PowerShell module.
          
-         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+         hello attribute ServiceTypeName below must match hello name defined in hello imported ServiceManifest.xml file. -->
     <Service Name="myservice">
-      <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
-      cluster, set InstanceCount to -1 for the container service to run on every node in 
-      the cluster.
+      <!-- On a local development cluster, set InstanceCount too1.  On a multi-node production 
+      cluster, set InstanceCount too-1 for hello container service toorun on every node in 
+      hello cluster.
       -->
       <StatelessService ServiceTypeName="myserviceType" InstanceCount="1">
         <SingletonPartition />
@@ -320,19 +320,19 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
   </DefaultServices>
 </ApplicationManifest>
 ```
-## <a name="adding-more-services-to-an-existing-application"></a><span data-ttu-id="d4b9a-199">Mevcut bir uygulamaya daha fazla hizmet ekleme</span><span class="sxs-lookup"><span data-stu-id="d4b9a-199">Adding more services to an existing application</span></span>
+## <a name="adding-more-services-tooan-existing-application"></a><span data-ttu-id="29a23-199">Daha fazla Hizmetleri tooan varolan uygulama ekleme</span><span class="sxs-lookup"><span data-stu-id="29a23-199">Adding more services tooan existing application</span></span>
 
-<span data-ttu-id="d4b9a-200">Yeoman kullanılarak zaten oluşturulmuş bir uygulamaya başka bir kapsayıcı hizmeti eklemek için aşağıdaki adımları uygulayın:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-200">To add another container service to an application already created using yeoman, perform the following steps:</span></span>
+<span data-ttu-id="29a23-200">başka bir kapsayıcı hizmeti tooan uygulaması zaten yeoman, kullanılarak oluşturulan tooadd gerçekleştirmek hello adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="29a23-200">tooadd another container service tooan application already created using yeoman, perform hello following steps:</span></span>
 
-1. <span data-ttu-id="d4b9a-201">Dizini mevcut uygulamanın kök dizinine değiştirin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-201">Change directory to the root of the existing application.</span></span>  <span data-ttu-id="d4b9a-202">Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-202">For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.</span></span>
-2. <span data-ttu-id="d4b9a-203">`yo azuresfcontainer:AddService` öğesini çalıştırın</span><span class="sxs-lookup"><span data-stu-id="d4b9a-203">Run `yo azuresfcontainer:AddService`</span></span>
+1. <span data-ttu-id="29a23-201">Merhaba var olan uygulamanın toohello kök dizini değiştirin.</span><span class="sxs-lookup"><span data-stu-id="29a23-201">Change directory toohello root of hello existing application.</span></span>  <span data-ttu-id="29a23-202">Örneğin, `cd ~/YeomanSamples/MyApplication`, `MyApplication` Yeoman tarafından oluşturulan hello uygulamasıdır.</span><span class="sxs-lookup"><span data-stu-id="29a23-202">For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is hello application created by Yeoman.</span></span>
+2. <span data-ttu-id="29a23-203">`yo azuresfcontainer:AddService` öğesini çalıştırın</span><span class="sxs-lookup"><span data-stu-id="29a23-203">Run `yo azuresfcontainer:AddService`</span></span>
 
 <a id="manually"></a>
 
 
-## <a name="configure-time-interval-before-container-is-force-terminated"></a><span data-ttu-id="d4b9a-204">Kapsayıcı zorla sonlandırılmadan önceki zaman aralığını yapılandırın</span><span class="sxs-lookup"><span data-stu-id="d4b9a-204">Configure time interval before container is force terminated</span></span>
+## <a name="configure-time-interval-before-container-is-force-terminated"></a><span data-ttu-id="29a23-204">Kapsayıcı zorla sonlandırılmadan önceki zaman aralığını yapılandırın</span><span class="sxs-lookup"><span data-stu-id="29a23-204">Configure time interval before container is force terminated</span></span>
 
-<span data-ttu-id="d4b9a-205">Hizmet silme (veya başka bir düğüme taşıma) başladıktan sonra, çalışma zamanının kapsayıcı kaldırılmadan önce ne kadar bekleyeceğine ilişkin bir zaman aralığı yapılandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-205">You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started.</span></span> <span data-ttu-id="d4b9a-206">Zaman aralığını yapılandırma, kapsayıcıya `docker stop <time in seconds>` komutunu gönderir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-206">Configuring the time interval sends the `docker stop <time in seconds>` command to the container.</span></span>   <span data-ttu-id="d4b9a-207">Daha ayrıntılı bilgi için bkz. [docker durdurma](https://docs.docker.com/engine/reference/commandline/stop/).</span><span class="sxs-lookup"><span data-stu-id="d4b9a-207">For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/).</span></span> <span data-ttu-id="d4b9a-208">Beklenecek zaman aralığı, `Hosting` bölümünde belirtilir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-208">The time interval to wait is specified under the `Hosting` section.</span></span> <span data-ttu-id="d4b9a-209">Aşağıdaki küme bildirimi kod parçacığı, bekleme aralığının nasıl ayarlandığını gösterir:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-209">The following cluster manifest snippet shows how to set the wait interval:</span></span>
+<span data-ttu-id="29a23-205">Merhaba kapsayıcı Hello hizmet silme (veya bir taşıma tooanother düğümü) başlatıldıktan sonra kaldırılmadan önce hello çalışma zamanı toowait için bir zaman aralığı yapılandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="29a23-205">You can configure a time interval for hello runtime toowait before hello container is removed after hello service deletion (or a move tooanother node) has started.</span></span> <span data-ttu-id="29a23-206">Yapılandırma hello zaman aralığı gönderir hello `docker stop <time in seconds>` komutu toohello kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="29a23-206">Configuring hello time interval sends hello `docker stop <time in seconds>` command toohello container.</span></span>   <span data-ttu-id="29a23-207">Daha ayrıntılı bilgi için bkz. [docker durdurma](https://docs.docker.com/engine/reference/commandline/stop/).</span><span class="sxs-lookup"><span data-stu-id="29a23-207">For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/).</span></span> <span data-ttu-id="29a23-208">Merhaba zaman aralığı toowait hello altında belirtilen `Hosting` bölümü.</span><span class="sxs-lookup"><span data-stu-id="29a23-208">hello time interval toowait is specified under hello `Hosting` section.</span></span> <span data-ttu-id="29a23-209">Küme bildirimi parçacığını aşağıdaki hello nasıl tooset hello bekleme aralığı gösterir:</span><span class="sxs-lookup"><span data-stu-id="29a23-209">hello following cluster manifest snippet shows how tooset hello wait interval:</span></span>
 
 ```xml
 {
@@ -345,12 +345,12 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
         ]
 }
 ```
-<span data-ttu-id="d4b9a-210">Varsayılan zaman aralığı 10 saniye olarak ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-210">The default time interval is set to 10 seconds.</span></span> <span data-ttu-id="d4b9a-211">Bu yapılandırma dinamik olduğundan, kümedeki yalnızca yapılandırmaya yönelik bir güncelleştirme zaman aşımını güncelleştirir.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-211">Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout.</span></span> 
+<span data-ttu-id="29a23-210">Merhaba varsayılan zaman aralığı ayarlanır too10 saniye.</span><span class="sxs-lookup"><span data-stu-id="29a23-210">hello default time interval is set too10 seconds.</span></span> <span data-ttu-id="29a23-211">Bu yapılandırma dinamik olduğundan, bir yapılandırma yalnızca yükseltme hello küme güncelleştirmelerini hello zaman aşımı süresi.</span><span class="sxs-lookup"><span data-stu-id="29a23-211">Since this configuration is dynamic, a config only upgrade on hello cluster updates hello timeout.</span></span> 
 
 
-## <a name="configure-the-runtime-to-remove-unused-container-images"></a><span data-ttu-id="d4b9a-212">Kullanılmayan kapsayıcı görüntülerini kaldırmak için çalışma zamanını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="d4b9a-212">Configure the runtime to remove unused container images</span></span>
+## <a name="configure-hello-runtime-tooremove-unused-container-images"></a><span data-ttu-id="29a23-212">Merhaba çalışma zamanı tooremove yapılandırma kullanılmayan kapsayıcı görüntüleri</span><span class="sxs-lookup"><span data-stu-id="29a23-212">Configure hello runtime tooremove unused container images</span></span>
 
-<span data-ttu-id="d4b9a-213">Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden kaldıracak şekilde yapılandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-213">You can configure the Service Fabric cluster to remove unused container images from the node.</span></span> <span data-ttu-id="d4b9a-214">Bu yapılandırma, düğümde çok fazla kapsayıcı görüntüsü varsa yeniden disk alanı elde edilmesine imkan tanır.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-214">This configuration allows disk space to be recaptured if too many container images are present on the node.</span></span>  <span data-ttu-id="d4b9a-215">Bu özelliği etkinleştirmek için küme bildirimindeki `Hosting` bölümünü aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin:</span><span class="sxs-lookup"><span data-stu-id="d4b9a-215">To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet:</span></span> 
+<span data-ttu-id="29a23-213">Merhaba Service Fabric kümesi tooremove yapılandırabilirsiniz hello düğümünden kullanılmayan kapsayıcı görüntüler.</span><span class="sxs-lookup"><span data-stu-id="29a23-213">You can configure hello Service Fabric cluster tooremove unused container images from hello node.</span></span> <span data-ttu-id="29a23-214">Bu yapılandırma, disk alanı toobe hello düğüm üzerinde çok fazla sayıda kapsayıcı görüntüler varsa yeniden yakalanmadan sağlar.</span><span class="sxs-lookup"><span data-stu-id="29a23-214">This configuration allows disk space toobe recaptured if too many container images are present on hello node.</span></span>  <span data-ttu-id="29a23-215">tooenable bu özellik, güncelleştirme hello `Hosting` hello aşağıdaki kod parçacığında gösterildiği gibi hello küme bildiriminde bölümünde:</span><span class="sxs-lookup"><span data-stu-id="29a23-215">tooenable this feature, update hello `Hosting` section in hello cluster manifest as shown in hello following snippet:</span></span> 
 
 
 ```xml
@@ -366,14 +366,14 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 } 
 ```
 
-<span data-ttu-id="d4b9a-216">Silinmemesi gereken görüntüleri `ContainerImagesToSkip` parametresi altında belirtebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-216">For images that should not be deleted, you can specify them under the `ContainerImagesToSkip` parameter.</span></span> 
+<span data-ttu-id="29a23-216">Silinmemelidir görüntüler için bunları altında hello belirtebilirsiniz `ContainerImagesToSkip` parametresi.</span><span class="sxs-lookup"><span data-stu-id="29a23-216">For images that should not be deleted, you can specify them under hello `ContainerImagesToSkip` parameter.</span></span> 
 
 
-## <a name="next-steps"></a><span data-ttu-id="d4b9a-217">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d4b9a-217">Next steps</span></span>
-* <span data-ttu-id="d4b9a-218">[Service Fabric’te kapsayıcı](service-fabric-containers-overview.md) çalıştırma hakkında daha fazla bilgi edinin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-218">Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).</span></span>
-* <span data-ttu-id="d4b9a-219">[Kapsayıcı içinde .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md) öğreticisini okuyun.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-219">Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.</span></span>
-* <span data-ttu-id="d4b9a-220">Service Fabric [uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) hakkında bilgi edinin.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-220">Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).</span></span>
-* <span data-ttu-id="d4b9a-221">GitHub’da [Service Fabric kapsayıcı kod örneklerine](https://github.com/Azure-Samples/service-fabric-dotnet-containers) bakın.</span><span class="sxs-lookup"><span data-stu-id="d4b9a-221">Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="29a23-217">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="29a23-217">Next steps</span></span>
+* <span data-ttu-id="29a23-218">[Service Fabric’te kapsayıcı](service-fabric-containers-overview.md) çalıştırma hakkında daha fazla bilgi edinin.</span><span class="sxs-lookup"><span data-stu-id="29a23-218">Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).</span></span>
+* <span data-ttu-id="29a23-219">Okuma hello [bir kapsayıcıda .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md) Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="29a23-219">Read hello [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.</span></span>
+* <span data-ttu-id="29a23-220">Service Fabric Hello hakkında bilgi edinin [uygulama yaşam döngüsü](service-fabric-application-lifecycle.md).</span><span class="sxs-lookup"><span data-stu-id="29a23-220">Learn about hello Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).</span></span>
+* <span data-ttu-id="29a23-221">Checkout hello [Service Fabric kapsayıcı kod örnekleri](https://github.com/Azure-Samples/service-fabric-dotnet-containers) github'da.</span><span class="sxs-lookup"><span data-stu-id="29a23-221">Checkout hello [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.</span></span>
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png

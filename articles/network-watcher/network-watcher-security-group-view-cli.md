@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 2.0 ile ağ güvenliği çözümleme | Microsoft Docs"
-description: "Bu makalede, Azure CLI 2.0 güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır."
+title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 2.0 ile aaaAnalyze ağ güvenliği | Microsoft Docs"
+description: "Bu makalede, Azure CLI 2.0 toouse tooanalyze sanal bir güvenlik grubu görünümü ile güvenliği nasıl makineleri anlatmaktadır."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,60 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 1756e14819e3b7c79361c193413a1fcd7f24a4e6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 31a4cd628f54d7548f495251fd275f099e79a060
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a><span data-ttu-id="d88b9-103">Güvenlik grubu Azure CLI 2.0 kullanarak görünümü ile sanal makine güvenliğinizi Çözümle</span><span class="sxs-lookup"><span data-stu-id="d88b9-103">Analyze your Virtual Machine security with Security Group View using Azure CLI 2.0</span></span>
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a><span data-ttu-id="fc51a-103">Güvenlik grubu Azure CLI 2.0 kullanarak görünümü ile sanal makine güvenliğinizi Çözümle</span><span class="sxs-lookup"><span data-stu-id="fc51a-103">Analyze your Virtual Machine security with Security Group View using Azure CLI 2.0</span></span>
 
 > [!div class="op_single_selector"]
-> - [<span data-ttu-id="d88b9-104">PowerShell</span><span class="sxs-lookup"><span data-stu-id="d88b9-104">PowerShell</span></span>](network-watcher-security-group-view-powershell.md)
-> - [<span data-ttu-id="d88b9-105">CLI 1.0</span><span class="sxs-lookup"><span data-stu-id="d88b9-105">CLI 1.0</span></span>](network-watcher-security-group-view-cli-nodejs.md)
-> - [<span data-ttu-id="d88b9-106">CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="d88b9-106">CLI 2.0</span></span>](network-watcher-security-group-view-cli.md)
-> - [<span data-ttu-id="d88b9-107">REST API</span><span class="sxs-lookup"><span data-stu-id="d88b9-107">REST API</span></span>](network-watcher-security-group-view-rest.md)
+> - [<span data-ttu-id="fc51a-104">PowerShell</span><span class="sxs-lookup"><span data-stu-id="fc51a-104">PowerShell</span></span>](network-watcher-security-group-view-powershell.md)
+> - [<span data-ttu-id="fc51a-105">CLI 1.0</span><span class="sxs-lookup"><span data-stu-id="fc51a-105">CLI 1.0</span></span>](network-watcher-security-group-view-cli-nodejs.md)
+> - [<span data-ttu-id="fc51a-106">CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="fc51a-106">CLI 2.0</span></span>](network-watcher-security-group-view-cli.md)
+> - [<span data-ttu-id="fc51a-107">REST API</span><span class="sxs-lookup"><span data-stu-id="fc51a-107">REST API</span></span>](network-watcher-security-group-view-rest.md)
 
-<span data-ttu-id="d88b9-108">Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkili ağ güvenlik kuralları döndürür.</span><span class="sxs-lookup"><span data-stu-id="d88b9-108">Security group view returns configured and effective network security rules that are applied to a virtual machine.</span></span> <span data-ttu-id="d88b9-109">Bu denetim ve ağ güvenlik grupları ve trafik yükleniyor emin olmak için bir VM üzerinde yapılandırılmış kurallarını tanılamak yararlı bir yetenektir doğru şekilde izin verilen veya reddedilen.</span><span class="sxs-lookup"><span data-stu-id="d88b9-109">This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied.</span></span> <span data-ttu-id="d88b9-110">Bu makalede, Azure CLI kullanarak bir sanal makine için yapılandırılmış ve etkili güvenlik kuralları almak nasıl gösteriyoruz</span><span class="sxs-lookup"><span data-stu-id="d88b9-110">In this article, we show you how to retrieve the configured and effective security rules to a virtual machine using Azure CLI</span></span>
+<span data-ttu-id="fc51a-108">Güvenlik grubu görünümü uygulanan tooa sanal makine yapılandırılmış ve etkili ağ güvenlik kuralları döndürür.</span><span class="sxs-lookup"><span data-stu-id="fc51a-108">Security group view returns configured and effective network security rules that are applied tooa virtual machine.</span></span> <span data-ttu-id="fc51a-109">Bu özellik kullanışlı tooaudit ve ağ güvenlik grupları tanılama ve bir VM tooensure trafiğinde yapılandırılmış kuralları yükleniyor doğru şekilde izin verilen veya reddedilen.</span><span class="sxs-lookup"><span data-stu-id="fc51a-109">This capability is useful tooaudit and diagnose Network Security Groups and rules that are configured on a VM tooensure traffic is being correctly allowed or denied.</span></span> <span data-ttu-id="fc51a-110">Bu makalede, tooretrieve hello nasıl yapılandırılacağı ve Azure CLI kullanarak etkin güvenlik kuralları tooa sanal makine gösteriyoruz</span><span class="sxs-lookup"><span data-stu-id="fc51a-110">In this article, we show you how tooretrieve hello configured and effective security rules tooa virtual machine using Azure CLI</span></span>
 
 
-<span data-ttu-id="d88b9-111">Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu, kaynak yönetimi için dağıtım modelini, Azure CLI 2.0 bizim nesil CLI kullanılmaktadır.</span><span class="sxs-lookup"><span data-stu-id="d88b9-111">This article uses our next generation CLI for the resource management deployment model, Azure CLI 2.0, which is available for Windows, Mac and Linux.</span></span>
+<span data-ttu-id="fc51a-111">Bu makalede bizim nesil CLI hello kaynak yönetimi dağıtım modeli için Azure CLI 2.0, Windows, Mac ve Linux için kullanılabilir olduğu kullanır.</span><span class="sxs-lookup"><span data-stu-id="fc51a-111">This article uses our next generation CLI for hello resource management deployment model, Azure CLI 2.0, which is available for Windows, Mac and Linux.</span></span>
 
-<span data-ttu-id="d88b9-112">Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).</span><span class="sxs-lookup"><span data-stu-id="d88b9-112">To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).</span></span>
+<span data-ttu-id="fc51a-112">Bu makaledeki adımları tooperform Merhaba, çok ihtiyacınız[hello Azure komut satırı arabirimi Mac, Linux ve Windows (Azure CLI) için yükleme](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).</span><span class="sxs-lookup"><span data-stu-id="fc51a-112">tooperform hello steps in this article, you need too[install hello Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="d88b9-113">Başlamadan önce</span><span class="sxs-lookup"><span data-stu-id="d88b9-113">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="fc51a-113">Başlamadan önce</span><span class="sxs-lookup"><span data-stu-id="fc51a-113">Before you begin</span></span>
 
-<span data-ttu-id="d88b9-114">Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="d88b9-114">This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.</span></span>
+<span data-ttu-id="fc51a-114">Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi.</span><span class="sxs-lookup"><span data-stu-id="fc51a-114">This scenario assumes you have already followed hello steps in [Create a Network Watcher](network-watcher-create.md) toocreate a Network Watcher.</span></span>
 
-## <a name="scenario"></a><span data-ttu-id="d88b9-115">Senaryo</span><span class="sxs-lookup"><span data-stu-id="d88b9-115">Scenario</span></span>
+## <a name="scenario"></a><span data-ttu-id="fc51a-115">Senaryo</span><span class="sxs-lookup"><span data-stu-id="fc51a-115">Scenario</span></span>
 
-<span data-ttu-id="d88b9-116">Bu makalede ele alınan senaryo, belirli bir sanal makine için yapılandırılmış ve etkili güvenlik kurallarını alır.</span><span class="sxs-lookup"><span data-stu-id="d88b9-116">The scenario covered in this article retrieves the configured and effective security rules for a given virtual machine.</span></span>
+<span data-ttu-id="fc51a-116">Bu makalede ele alınan hello senaryo yapılandırılmış hello ve belirli bir sanal makine için etkili güvenlik kurallarını alır.</span><span class="sxs-lookup"><span data-stu-id="fc51a-116">hello scenario covered in this article retrieves hello configured and effective security rules for a given virtual machine.</span></span>
 
-## <a name="get-a-vm"></a><span data-ttu-id="d88b9-117">VM Al</span><span class="sxs-lookup"><span data-stu-id="d88b9-117">Get a VM</span></span>
+## <a name="get-a-vm"></a><span data-ttu-id="fc51a-117">VM Al</span><span class="sxs-lookup"><span data-stu-id="fc51a-117">Get a VM</span></span>
 
-<span data-ttu-id="d88b9-118">Bir sanal makineyi çalıştırmak için gerekli `vm list` cmdlet'i.</span><span class="sxs-lookup"><span data-stu-id="d88b9-118">A virtual machine is required to run the `vm list` cmdlet.</span></span> <span data-ttu-id="d88b9-119">Aşağıdaki komut bir kaynak grubunda sanal makineleri listeler:</span><span class="sxs-lookup"><span data-stu-id="d88b9-119">The following command lists the virtual machines in a resource group:</span></span>
+<span data-ttu-id="fc51a-118">Gerekli toorun hello bir sanal makinedir `vm list` cmdlet'i.</span><span class="sxs-lookup"><span data-stu-id="fc51a-118">A virtual machine is required toorun hello `vm list` cmdlet.</span></span> <span data-ttu-id="fc51a-119">Merhaba aşağıdaki komut bir kaynak grubunda hello sanal makineleri listeler:</span><span class="sxs-lookup"><span data-stu-id="fc51a-119">hello following command lists hello virtual machines in a resource group:</span></span>
 
 ```azurecli
 az vm list -resource-group resourceGroupName
 ```
 
-<span data-ttu-id="d88b9-120">Sanal makine öğrendikten sonra kullanabileceğiniz `vm show` kendi kaynak kimliği almak için cmdlet:</span><span class="sxs-lookup"><span data-stu-id="d88b9-120">Once you know the virtual machine, you can use the `vm show` cmdlet to get its resource Id:</span></span>
+<span data-ttu-id="fc51a-120">Merhaba sanal makine öğrendikten sonra hello kullanabilirsiniz `vm show` cmdlet tooget kendi kaynak kimliği:</span><span class="sxs-lookup"><span data-stu-id="fc51a-120">Once you know hello virtual machine, you can use hello `vm show` cmdlet tooget its resource Id:</span></span>
 
 ```azurecli
 az vm show -resource-group resourceGroupName -name virtualMachineName
 ```
 
-## <a name="retrieve-security-group-view"></a><span data-ttu-id="d88b9-121">Güvenlik grubu görünümü alma</span><span class="sxs-lookup"><span data-stu-id="d88b9-121">Retrieve security group view</span></span>
+## <a name="retrieve-security-group-view"></a><span data-ttu-id="fc51a-121">Güvenlik grubu görünümü alma</span><span class="sxs-lookup"><span data-stu-id="fc51a-121">Retrieve security group view</span></span>
 
-<span data-ttu-id="d88b9-122">Güvenlik grubu Görünüm sonucu almak için sonraki adımdır bakın.</span><span class="sxs-lookup"><span data-stu-id="d88b9-122">The next step is to retrieve the security group view result.</span></span>
+<span data-ttu-id="fc51a-122">Merhaba sonraki tooretrieve hello güvenlik grubu Görünüm sonucu adımdır.</span><span class="sxs-lookup"><span data-stu-id="fc51a-122">hello next step is tooretrieve hello security group view result.</span></span>
 
 ```azurecli
 az network watcher show-security-group-view --resource-group resourceGroupName --vm vmName
 ```
 
-## <a name="viewing-the-results"></a><span data-ttu-id="d88b9-123">Sonuçları görüntüleme</span><span class="sxs-lookup"><span data-stu-id="d88b9-123">Viewing the results</span></span>
+## <a name="viewing-hello-results"></a><span data-ttu-id="fc51a-123">Merhaba sonuçları görüntüleme</span><span class="sxs-lookup"><span data-stu-id="fc51a-123">Viewing hello results</span></span>
 
-<span data-ttu-id="d88b9-124">Döndürülen sonuçlar kısaltılmış yanıtın örnektir.</span><span class="sxs-lookup"><span data-stu-id="d88b9-124">The following example is a shortened response of the results returned.</span></span> <span data-ttu-id="d88b9-125">Gruplar halinde ayrılmış sanal makine üzerinde etkili ve uygulanan güvenlik kuralları sonuçları göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve **EffectiveSecurityRules**.</span><span class="sxs-lookup"><span data-stu-id="d88b9-125">The results show all the effective and applied security rules on the virtual machine broken down in groups of **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, and **EffectiveSecurityRules**.</span></span>
+<span data-ttu-id="fc51a-124">Merhaba aşağıdaki kısaltılmış bir yanıt döndürdü hello sonuçlarının bir örnektir.</span><span class="sxs-lookup"><span data-stu-id="fc51a-124">hello following example is a shortened response of hello results returned.</span></span> <span data-ttu-id="fc51a-125">Merhaba sonuçları tüm hello etkili ve uygulanan güvenlik kuralları hello sanal makineye gruplar halinde ayrıntılarıyla Göster **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, ve  **EffectiveSecurityRules**.</span><span class="sxs-lookup"><span data-stu-id="fc51a-125">hello results show all hello effective and applied security rules on hello virtual machine broken down in groups of **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, and **EffectiveSecurityRules**.</span></span>
 
 ```json
 {
@@ -157,8 +157,8 @@ az network watcher show-security-group-view --resource-group resourceGroupName -
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="d88b9-126">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d88b9-126">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="fc51a-126">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="fc51a-126">Next steps</span></span>
 
-<span data-ttu-id="d88b9-127">Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md) ağ güvenlik grupları doğrulanması otomatikleştirmek öğrenmek için.</span><span class="sxs-lookup"><span data-stu-id="d88b9-127">Visit [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-nsg-auditing-powershell.md) to learn how to automate validation of Network Security Groups.</span></span>
+<span data-ttu-id="fc51a-127">Ziyaret [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md) toolearn nasıl tooautomate doğrulama ağ güvenlik grupları.</span><span class="sxs-lookup"><span data-stu-id="fc51a-127">Visit [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-nsg-auditing-powershell.md) toolearn how tooautomate validation of Network Security Groups.</span></span>
 
-<span data-ttu-id="d88b9-128">Ağ kaynaklarınıza ziyaret ederek uygulanan güvenlik kuralları hakkında daha fazla bilgi [güvenlik grubu Görünümü'ne genel bakış](network-watcher-security-group-view-overview.md)</span><span class="sxs-lookup"><span data-stu-id="d88b9-128">Learn more about the security rules that are applied to your network resources by visiting [Security group view overview](network-watcher-security-group-view-overview.md)</span></span>
+<span data-ttu-id="fc51a-128">Şu adresi ziyaret ederek uygulanan tooyour ağ kaynaklarına olan hello güvenlik kuralları hakkında daha fazla bilgi [güvenlik grubu Görünümü'ne genel bakış](network-watcher-security-group-view-overview.md)</span><span class="sxs-lookup"><span data-stu-id="fc51a-128">Learn more about hello security rules that are applied tooyour network resources by visiting [Security group view overview](network-watcher-security-group-view-overview.md)</span></span>

@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service web uygulamasını Memcache protokolü aracılığıyla Redis’e bağlama - Azure | Microsoft Docs"
-description: "Azure App service’te Memcache protokolünü kullanarak bir web uygulamasını Redis Cache’e bağlama"
+title: "bir App Service web uygulaması tooRedis hello Memcache Protokolü - Azure aracılığıyla aaaConnect | Microsoft Docs"
+description: "Bir web uygulamasını Azure App service tooRedis önbellek bağlanmak hello Memcache protokolünü kullanarak"
 services: app-service\web
 documentationcenter: php
 author: SyntaxC4
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: windows
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
-ms.openlocfilehash: 0eea1d64a50bec8fb7da155e2088ddfc36b377f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 48036d60fbbced59eb1e37584f507fffffff753d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# Azure App Service’te Memcache protokolü aracılığıyla bir web uygulamasını Redis Cache’e bağlama
-Bu makalede, [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)'te [Memcache][13] protokolünü kullanarak bir WordPress web uygulamasını [Azure Redis Cache][12]’e nasıl bağlayacağınızı öğreneceksiniz. Bellek içi önbelleğe alma işlemi için Memcached sunucusu kullanan mevcut bir web uygulamanız varsa, bu web uygulamasını Azure App Service’e taşıyabilir ve uygulama kodlarınızda çok az değişiklikle veya hiç değişiklik yapmadan Microsoft Azure’daki birinci taraf önbelleğe alma çözümünü kullanabilirsiniz. Ayrıca, Memcache uzmanlığınızdan yararlanarak bir yandan Azure Redis Cache’i kullanarak Azure App Service’te bellek içi önbelleğe alma işlemi için son derece ölçeklenebilir, dağıtılmış uygulamalar oluşturabilir, diğer yandan NET, PHP, Node.js, Java ve Python gibi popüler uygulama çerçevelerini kullanabilirsiniz.  
+# Bir web uygulamasını Azure App Service tooRedis önbellek hello Memcache protokolü aracılığıyla bağlanma
+Bu makalede, nasıl tooconnect bir WordPress web uygulamasında öğreneceksiniz [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) çok[Azure Redis önbelleği] [ 12] hello kullanarak [Memcache] [ 13] protokolü. Bellek içi önbelleğe alma işlemi için Memcached sunucusu kullanan mevcut bir web uygulaması varsa, tooAzure uygulama hizmeti ve kullanım hello birinci taraf önbelleğe alma çözümünü Microsoft Azure'un çok az kayıpla veya hiç değişiklik tooyour uygulama kodu ile geçirebilirsiniz. Ayrıca, mevcut Memcache UZMANLIĞINIZDAN toocreate düzeyde ölçeklenebilir, dağıtılmış uygulamalarınızı Azure Redis önbelleği ile Azure App Service'te bellek içi, .NET, PHP, Node.js, Java ve Python gibi popüler uygulama çerçevelerini kullanırken önbelleğe alma için kullanabilirsiniz.  
 
-App Service Web Apps, Azure Redis Cache’e gelen önbelleğe alma çağrıları için bir Memcache ara sunucusu olarak görev yapan yerel bir Memcached sunucusu olan Web Apps Memcache dolgusu ile bu uygulama senaryosuna olanak sağlar. Bu, Memcache protokolünü kullanarak iletişim kuran tüm uygulamaların Redis Cache ile verileri önbelleğe almasını sağlar. Bu Memcache dolgusu protokol düzeyinde çalışır. Bu nedenle, Memcache protokolünü kullanarak iletişim kurdukları sürece tüm uygulamalar veya uygulama çerçeveleri tarafından kullanılabilir.
+App Service Web Apps çağrıları tooAzure Redis önbelleği önbelleğe alma işlemi için bir Memcache Ara sunucusu olarak davranan yerel bir Memcached sunucusu olan hello Web Apps Memcache dolgusu ile bu uygulama senaryosuna sağlar. Redis önbelleği ile Merhaba Memcache Protokolü toocache verileri kullanarak iletişim kuran herhangi bir uygulama sağlar. Merhaba Memcache protokolünü kullanarak iletişim kurdukları sürece, herhangi bir uygulama veya uygulama çerçevesi tarafından kullanılabilmesi için bu Memcache dolgusu hello protokol düzeyinde çalışır.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Önkoşullar
-Web Apps Memcache dolgusu, Memcache protokolünü kullanarak iletişim kurmaları şartıyla tüm uygulamalar ile kullanılabilir. Söz konusu örnekte, başvuru uygulaması Azure Marketi’nden sağlanabilecek bir Ölçeklenebilir WordPress sitesidir.
+## Ön koşullar
+Merhaba Memcache protokolünü kullanarak iletişim sağlanan hello Web Apps Memcache dolgusunu herhangi bir uygulama ile kullanılabilir. Söz konusu örnekte hello Azure Marketi sağlanabilir bir ölçeklenebilir WordPress sitesi hello başvuru uygulamasıdır.
 
-Aşağıdaki makalelerde açıklanan adımları izleyin:
+Aşağıdaki makalelerde açıklanan başlangıç adımları izleyin:
 
-* [Azure Redis Cache Hizmetinin bir örneğini sağlama][0]
+* [Hello Azure Redis önbelleği hizmeti örneği sağlama][0]
 * [Azure'da Ölçeklenebilir WordPress sitesi dağıtma][1]
 
-Ölçeklenebilir WordPress sitesini dağıttıktan ve Redis Cache örneği sağladıktan sonra, Azure App Service Web Apps’de Memcache dolgusunu etkinleştirme işlemiyle devam edebilirsiniz.
+Dağıtılan hello ölçeklenebilir WordPress sitesini ve sağlanan bir Redis önbelleği örneğine sahip olduktan sonra hello Azure App Service Web Apps Memcache dolgusunu etkinleştirme ile hazır tooproceed olacaktır.
 
-## Web Apps Memcache dolgusunu etkinleştirme
-Memcache dolgusunu yapılandırmak için üç uygulama ayarı oluşturmanız gerekir. Bu işlemi, [Azure portalı](http://go.microsoft.com/fwlink/?LinkId=529715), [klasik portal][3], [Azure PowerShell Cmdlet'leri][5] veya [Azure Komut Satırı Arabirimi][5] gibi birçok farklı yöntemle gerçekleştirebilirsiniz. Bu gönderinin amacı doğrultusunda, uygulama ayarlarını belirlemek üzere [Azure portalını][4] kullanacağım. Aşağıdaki değerler, Redis Cache örneğinizin **Ayarlar** dikey penceresinden alınabilir.
+## Merhaba Web Apps Memcache dolgusunu etkinleştirme
+Sipariş tooconfigure Memcache dolgusunu üç uygulama ayarı oluşturmanız gerekir. Bu yapılabilir çeşitli hello dahil olmak üzere yöntemler kullanarak [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), hello [Klasik portal][3], hello [Azure PowerShell cmdlet'leri] [ 5] veya hello [Azure komut satırı arabirimi][5]. Bu post Hello amaçlarla toouse hello yapacağım [Azure Portal] [ 4] tooset hello uygulaması ayarları. Merhaba aşağıdaki değerleri penceresinden alınabilir **ayarları** Redis önbelleği örneğinizi dikey.
 
 ![Azure Redis Cache Ayarları Dikey Penceresi](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
 ### REDIS_HOST uygulama ayarı ekleme
-Oluşturmanız gereken ilk uygulama ayarı **REDIS\_HOST** uygulama ayarıdır. Bu ayar, dolgunun önbellek bilgilerini ilettiği hedefi belirler. REDIS_HOST uygulama ayarı için gereken değer Redis Cache örneğinizin **Özellikler** dikey penceresinden alınabilir.
+Merhaba ilk uygulama ayarı toocreate olan hello **REDIS\_KONAK** uygulama ayarı. Bu ayar hello hedef toowhich hello dolgusu ileten hello önbellek bilgilerini ayarlar. Merhaba hello redıs_host uygulama ayarı hello alınabilir için gereken değer **özellikleri** Redis önbelleği örneğinizi dikey.
 
 ![Azure Redis Cache Ana Bilgisayar Adı](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
-Uygulama ayarının anahtarını **REDIS\_HOST** olarak belirleyin ve uygulama ayarının değerini Redis Cache örneğinin **ana bilgisayar adı** olarak belirleyin.
+Merhaba uygulama çok ayar kümesi hello anahtar**REDIS\_KONAK** ve hello uygulama ayarı toohello hello değerini **ana bilgisayar adı** hello Redis önbelleği örneğinin.
 
 ![Web Uygulaması Uygulama Ayarı REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
 ### REDIS_KEY uygulama ayarı ekleme
-Oluşturmanız gereken ikinci uygulama ayarı **REDIS\_KEY** uygulama ayarıdır. Bu ayar, Redis Cache örneğine güvenli erişim sağlamak için gereken kimlik doğrulama belirtecini sağlar. REDIS_KEY uygulama ayarı için gereken değeri Redis Cache örneğinin **Erişim tuşları** dikey penceresinden alabilirsiniz.
+Merhaba ikinci uygulama ayarı toocreate olan hello **REDIS\_anahtar** uygulama ayarı. Bu ayar hello kimlik doğrulama belirteci gerekli toosecurely erişim hello Redis önbelleği örneği sağlar. Merhaba değer hello hello redıs_key uygulama ayarı için gerekli alabilir **erişim anahtarları** dikey penceresinde hello Redis önbelleği örneğinin.
 
 ![Azure Redis Cache Birincil Anahtarı](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
-Uygulama ayarının anahtarını **REDIS\_KEY** olarak belirleyin ve uygulama ayarının değerini Redis Cache örneğinin **Birincil Anahtar** olarak belirleyin.
+Merhaba uygulama çok ayar kümesi hello anahtar**REDIS\_anahtar** ve hello uygulama ayarı toohello hello değerini **birincil anahtar** hello Redis önbelleği örneğinin.
 
 ![Azure Web Sitesi Uygulama Ayarı REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
 ### MEMCACHESHIM_REDIS_ENABLE uygulama ayarı ekleme
-Azure Redis Cache’e bağlanmak için ve önbellek çağrılarını iletmek için REDIS_HOST ve REDIS_KEY uygulama ayarını kullanan son uygulama ayarı, Web Apps’de Memcache Dolgusunu etkinleştirmek için kullanılır. Uygulama ayarının anahtarını **MEMCACHESHIM\_REDIS\_ENABLE** ve değeri **true** olarak ayarlayın.
+Merhaba son uygulama ayarı redıs_host ve redıs_key tooconnect toohello Azure Redis önbelleği ve iletme hello önbellek çağrıları kullanan hello Web Apps Memcache dolgusunu kullanılan tooenable hello ' dir. Merhaba uygulama çok ayar kümesi hello anahtar**MEMCACHESHIM\_REDIS\_etkinleştirmek** ve değeri çok hello**doğru**.
 
 ![Web Uygulaması Uygulama Ayarı MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
-Bu üç (3) uygulama ayarını ekledikten sonra **Kaydet**’e tıklayın.
+Ekleme hello üç (3) uygulama ayarları tamamladıktan sonra tıklatın **kaydetmek**.
 
 ## PHP için Memcache uzantısını etkinleştirme
-Uygulamanın Memcache protokolü ile iletişim kurması için WordPress sitenizin dil çerçevesi olan PHP’ye Memcache uzantısını yüklemeniz gerekir.
+Merhaba uygulama toospeak hello Memcache protokolü için sırayla gerekli tooinstall hello Memcache uzantısını tooPHP--hello WordPress sitenizin dil çerçevesi olan.
 
-### php_memcache Uzantısını İndirme
-[PECL][6]'ye göz atın. Önbelleğe alma kategorisi altında [memcache][7] seçeneğine tıklayın. İndirilenler sütununun altında DLL bağlantısına tıklayın.
+### Merhaba php_memcache uzantısını indirme
+Çok Gözat[PECL][6]. Kategori önbelleğe alma hello altında tıklatın [memcache][7]. Merhaba yüklemeleri sütunu altında hello DLL bağlantısına tıklayın.
 
 ![PHP PECL Web Sitesi](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
-Web Apps’de etkin PHP sürümü için İş Parçacığı Güvenli Olmayan (NTS) x86 bağlantısını indirin. (Varsayılan PHP 5.4 sürümüdür)
+Merhaba olmayan iş parçacığı güvenli (NTS) x86 bağlantı hello Web Apps'de etkin PHP sürümü için indirin. (Varsayılan PHP 5.4 sürümüdür)
 
 ![PHP PECL Web Sitesi Memcache Paketi](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### php_memcache uzantısını etkinleştirme
-Dosyayı indirdikten sonra **php\_memcache.dll** sıkıştırmasını **d:\\home\\site\\wwwroot\\bin\\ext\\** dizininde açın. php_memcache.dll web uygulamasına yüklendikten sonra, PHP Çalışma Zamanı için uzantıyı etkinleştirmeniz gerekir. Memcache uzantısını Azure Portal’da etkinleştirmek için web uygulamasının **Uygulama Ayarları** dikey penceresini açın ve **PHP\_EXTENSIONS** anahtarı ve **bin\\ext\\php_memcache.dll** değeri ile yeni uygulama ayarını ekleyin.
+### Merhaba php_memcache uzantısını etkinleştirme
+Merhaba dosyasını indirdikten sonra sıkıştırmasını açın ve hello karşıya **php\_memcache.dll** hello içine **d:\\ev\\site\\wwwroot\\bin\\ext\\**  dizini. Merhaba php_memcache.dll hello web uygulamasına yüklendikten sonra tooenable hello uzantısı toohello PHP çalışma zamanı gerekir. tooenable hello hello Azure Portal, açık hello Memcache uzantısını **uygulama ayarları** hello web uygulaması dikey penceresinde hello anahtarıyla sonra yeni bir uygulama ayarı Ekle **PHP\_UZANTILARI** ve hello değer **bin\\ext\\php_memcache.dll**.
 
 > [!NOTE]
-> Web uygulamasının birden fazla PHP uzantısı yüklemesi gerekirse, PHP_EXTENSIONS değeri, ilgili DLL dosyaları yollarının virgülle ayrılmış bir listesi olmalıdır.
+> Hello web uygulaması birden fazla PHP uzantısı tooload gerekirse, php_extensıons hello değerini göreli yollar tooDLL dosyaları virgülle ayrılmış listesi olmalıdır.
 > 
 > 
 
@@ -93,29 +93,29 @@ Dosyayı indirdikten sonra **php\_memcache.dll** sıkıştırmasını **d:\\home
 
 ## Memcache WordPress eklentisini yükleme
 > [!NOTE]
-> Ayrıca, WordPress.org adresinden [Memcached Nesne Önbelleği Eklentisi](https://wordpress.org/plugins/memcached/)’ni indirebilirsiniz.
+> Merhaba de indirebilirsiniz [Memcached nesne önbelleği eklentisi](https://wordpress.org/plugins/memcached/) WordPress.org gelen.
 > 
 > 
 
-WordPress eklentileri sayfasında **Yeni Ekle**’ye tıklayın.
+Merhaba WordPress eklentileri sayfasında, tıklatın **yeni Ekle**.
 
 ![WordPress Eklenti Sayfası](./media/web-sites-connect-to-redis-using-memcache-protocol/10-wordpress-plugin.png)
 
-Arama kutusuna **memcached** yazın ve **Enter**’a basın.
+Merhaba arama kutusuna yazın **memcached** ve basın **Enter**.
 
 ![WordPress Yeni Eklenti Ekleme](./media/web-sites-connect-to-redis-using-memcache-protocol/11-wordpress-add-new-plugin.png)
 
-Listede **Memcached Nesne Önbelleği**’ni bulun ve **Şimdi Yükle**’ye tıklayın.
+Bul **Memcached nesne önbelleği** hello listesinde, ardından **Şimdi Yükle**.
 
 ![WordPress Memcache Eklentisini Yükleme](./media/web-sites-connect-to-redis-using-memcache-protocol/12-wordpress-install-memcache-plugin.png)
 
-### Memcache WordPress eklentisini etkinleştirme
+### Merhaba Memcache WordPress eklentisini etkinleştirme
 > [!NOTE]
-> Visual Studio Team Services'ı yüklemek için bu blog'daki [Web Apps'de Site Uzantısı'nı etkinleştirme][8] bölümünde bulunan yönergeleri izleyin.
+> Bu Web günlüğündeki Hello yönergelerini izleyin [nasıl tooenable Site uzantısı Web uygulamaları '] [ 8] tooinstall Visual Studio Team Services.
 > 
 > 
 
-`wp-config.php` dosyasında, aşağıdaki kodu dosyanın sonlarında yer alan düzenlemeyi durdur yorumu üzerine ekleyin.
+Merhaba, `wp-config.php` dosya, hello Dur düzenleme yorum hello dosya hello sona yukarıdaki kodu aşağıdaki hello ekleyin.
 
 ```php
 $memcached_servers = array(
@@ -123,30 +123,30 @@ $memcached_servers = array(
 );
 ```
 
-Bu kod yapıştırıldıktan sonra, monaco belgeyi otomatik olarak kaydeder.
+Bu kod yapıştırıldıktan sonra monaco hello belgeyi otomatik olarak kaydedin.
 
-Sonraki adım, nesne önbelleği eklentisini etkinleştirmektir. Memcache Nesne Önbelleği işlevini etkinleştirmek için **wp-content/plugins/memcached** klasöründeki **object-cache.php** dosyasını **wp-content** klasörüne sürükleyip bırakabilirsiniz.
+Merhaba sonraki tooenable hello nesne önbelleği eklentisini adımdır. Bu sürükleme ve bırakma yapılır **object-cache.php** gelen **wp-içerik/plugins/memcached** klasörü toohello **wp-content** klasörü tooenable hello Memcache nesne Önbellek işlevselliği.
 
-![memcache object-cache.php eklentisini bulma](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
+![Merhaba memcache object-cache.php eklentisini bulma](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
-**object-cache.php** dosyası **wp-content** klasöründe yer aldığından, Memcached Nesne Önbelleği şimdi etkinleştirilir.
+Şimdi bu hello **object-cache.php** dosyasıdır hello **wp-content** klasörü, hello Memcached nesne önbelleği şimdi etkinleştirildi.
 
-![memcache object-cache.php eklentisini etkinleştirme](./media/web-sites-connect-to-redis-using-memcache-protocol/14-enable-memcache-object-cache-plugin.png)
+![Merhaba memcache object-cache.php eklentisini etkinleştirme](./media/web-sites-connect-to-redis-using-memcache-protocol/14-enable-memcache-object-cache-plugin.png)
 
-## Memcache Nesne Önbelleği uzantısının çalıştığını doğrulama
-Web Apps Memcache dolgusunu etkinleştirmek üzere uygulanması gereken tüm adımlar tamamlandı. Yapılması gereken tek şey verilerin Redis Cache örneğinizi doldurduğunu doğrulamaktır.
+## Merhaba Memcache nesne önbelleği uzantısının çalıştığını doğrulayın
+Tüm hello adımları tooenable hello Web Apps Memcache dolgusunu şimdi tamamlandı. Merhaba tek şey hello veri Redis önbelleği örneğinizi doldurduğunu tooverify ' dir.
 
-### Azure Redis Cache’te SSL olmayan bağlantı noktası desteğini etkinleştirme
+### Azure Redis önbelleği Hello SSL olmayan bağlantı noktası desteğini etkinleştir
 > [!NOTE]
-> Bu makale yazıldığı sırada, Redis CLI SSL bağlantısını desteklemiyordu. Bu nedenle, aşağıdaki adımlar gereklidir.
+> Bu makale yazıldığı hello zaman hello Redis CLI SSL bağlantısını desteklemez, dolayısıyla hello aşağıdaki adımlar gereklidir.
 > 
 > 
 
-Azure Portal'da, bu web uygulaması için oluşturduğunuz Redis Cache örneğine gidin. Önbelleğin dikey penceresi açıldıktan sonra, **Ayarlar** simgesine tıklayın.
+Hello Azure portalı, bu web uygulaması için oluşturduğunuz toohello Redis önbelleği örneğine göz atın. Merhaba önbelleğin dikey penceresi açıldıktan sonra hello tıklatın **ayarları** simgesi.
 
 ![Azure Redis Cache Ayarları Düğmesi](./media/web-sites-connect-to-redis-using-memcache-protocol/15-azure-redis-cache-settings-button.png)
 
-Listeden **Erişim Bağlantı Noktaları**’nı seçin.
+Seçin **erişim bağlantı noktaları** hello listeden.
 
 ![Azure Redis Cache Erişim Bağlantı Noktası](./media/web-sites-connect-to-redis-using-memcache-protocol/16-azure-redis-cache-access-port.png)
 
@@ -154,38 +154,38 @@ Listeden **Erişim Bağlantı Noktaları**’nı seçin.
 
 ![Azure Redis Cache Erişim Bağlantı Noktası Yalnızca SSL](./media/web-sites-connect-to-redis-using-memcache-protocol/17-azure-redis-cache-access-port-ssl-only.png)
 
-SSL OLMAYAN bağlantı noktasının şimdi ayarlandığını görürsünüz. **Kaydet** düğmesine tıklayın.
+Merhaba SSL olmayan bağlantı noktasının şimdi ayarlandığını görürsünüz. **Kaydet** düğmesine tıklayın.
 
 ![Azure Redis Cache Redis Erişim Portalı SSL Olmayan](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### redis-cli arabiriminde Azure Redis Cache’e bağlanma
+### TooAzure Redis önbelleği redis-cli Bağlan
 > [!NOTE]
 > Bu adım için redis’in geliştirme makinenizde yerel olarak yüklendiği varsayılır. [Bu yönergeleri kullanarak Redis’i yerel olarak yükleme][9].
 > 
 > 
 
-İstediğiniz komut satırı konsolunu açın ve aşağıdaki komutu yazın:
+Seçim ve türü hello komutu aşağıdaki komut satırı konsolunu açın:
 
 ```shell
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-**&lt;hostname-for-redis-cache&gt;** değerini gerçek xxxxx.redis.cache.windows.net ana bilgisayar adıyla ve **&lt;primary-key-for-redis-cache&gt;** değerini önbelleğin erişim tuşuyla değiştirin ve **Enter**’a basın. CLI ve Redis Cache örneği arasında bağlantı kurulduktan sonra, herhangi bir redis komutu yürütün. Aşağıdaki ekran görüntüsünde, anahtarların listelenmesini tercih ettim.
+Hello yerine  **&lt;ana bilgisayar adı için redis önbelleği&gt;**  hello gerçek xxxxx.redis.cache.windows.net ana bilgisayar adı ve hello  **&lt;birincil-anahtar-için-redis-cache&gt;**  hello önbelleği için hello erişim anahtarı ile tuşuna **Enter**. Merhaba CLI toohello Redis önbelleği örneğine bağlandığında, herhangi bir redis komutu gönderin. Merhaba ekran görüntüsünde, t toolist hello anahtarları seçtiniz.
 
-![Terminal’de Redis CLI arabiriminden Azure Redis Cache’e bağlanma](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
+![TooAzure Redis önbelleği Redis CLI Terminal bağlayın](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
-Anahtarların listelenmesi çağrısı bir değer döndürmelidir. Döndürmezse, web uygulamasına gidin ve yeniden deneyin.
+Merhaba çağrısı toolist hello anahtarları bir değer döndürmelidir. Aksi durumda, toohello web uygulamasına gidin ve yeniden deneyin.
 
 ## Sonuç
-Tebrikler! WordPress uygulamasında artık işlemenin artırılmasına yardımcı olmak üzere merkezi bir bellek içi önbellek bulunur. Web Apps Memcache Dolgusu’nun programlama dili veya uygulama çerçevesinden bağımsız olarak Memcache istemcisi ile kullanılabileceğini unutmayın. Web Apps Memcache dolgusu hakkında geri bildirimlerinizi veya sorularınızı [MSDN Forumları][10]'na veya [Stackoverflow][11]'na gönderin.
+Tebrikler! Merhaba WordPress uygulaması artık işlemenin artırılmasına içinde merkezi bellek içi önbellek tooaid sahiptir. Unutmayın, hello Web Apps Memcache Dolgusu'nun programlama dili veya uygulama framework bağımsız olarak Memcache istemcisi ile kullanılabilir. tooprovide geri bildirim veya tooask hello Web Apps Memcache dolgusu hakkında sorularınızı çok[MSDN Forumları] [ 10] veya [Stackoverflow][11].
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service ile başlatılan tooget istiyorsanız, çok Git[App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
 ## Yapılan değişiklikler
-* Web Sitelerinden App Service’e kadar değiştirme kılavuzu için bkz. [Azure App Service ve mevcut Azure Hizmetlerine etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Web siteleri tooApp hizmet değişikliği Kılavuzu toohello için bkz: [Azure App Service ve mevcut Azure hizmetlerine etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ

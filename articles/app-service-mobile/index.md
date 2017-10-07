@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Apps Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Azure App Service’teki Mobile Apps hizmeti ile Xamarin veya Cordova’yı kullanarak yerel iOS, Android veya Windows uygulamaları ya da platformlar arası uygulamalar oluşturma ve barındırma hakkında bilgi edinin."
+title: "aaaAzure Mobile Apps belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Bilgi nasıl Azure App Service toobuild ve ana bilgisayar yerel iOS, Android veya Windows Mobile Apps toouse uygulamaları veya Xamarin veya Cordova kullanarak platformlar arası uygulamalar."
 services: app-service\mobile
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09b103b274c66f515d9a34bbdcb54cf0ff3a035a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="mobile-apps-documentation"></a>Mobile Apps Belgeleri
 
-Azure App Service’teki Mobile Apps hizmeti ile Xamarin veya Cordova’yı kullanarak yerel iOS, Android veya Windows uygulamaları ya da platformlar arası uygulamalar oluşturma hakkında bilgi edinin. Öğreticiler, videolar, istemci SDK belgeleri ve diğer kaynaklar, mobil uygulamalara yönelik arka uç oluşturma ve barındırma konularına ilişkin bilgiler içerir.
+Bilgi nasıl Azure App Service toobuild yerel iOS, Android veya Windows Mobile Apps toouse uygulamaları veya Xamarin veya Cordova kullanarak platformlar arası uygulamalar. Öğreticiler, videolar, istemci SDK Belgeleri ve daha fazlasını nasıl toobuild ve ana bilgisayar için herhangi bir mobil uygulama arka uç hello gösterir.
 
 <ul class="panelContent cardsFTitle">
     <li>

@@ -1,6 +1,6 @@
 ---
-title: "Azure Devtest Labs Belgeleri - Öğreticileri | Microsoft Docs"
-description: "Yeniden kullanılabilir yapıtlar kullanarak hızlı bir şekilde uygulama test ortamları oluşturmayı öğrenin. Öğreticiler, videolar ve diğer kaynaklarda laboratuvarları oluşturma, yönetme ve güvenli hale getirme hakkında bilgi sağlanmıştır."
+title: "aaaAzure Devtest Labs belgeleri - öğreticileri | Microsoft Docs"
+description: "Tooquickly yeniden kullanılabilir yapılar kullanarak uygulamayı test ortamları nasıl oluşturacağınızı öğrenin. Öğreticiler, videolar ve daha fazlasını nasıl toocreate, yönetmek ve labs güvenli gösterir."
 services: devtest-lab
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3c54e0f89529fb159c3940f5792c4c0e095ee3fb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b403eeda791425bc8f74ee4430224479e39d727c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="devtest-labs-documentation"></a>DevTest Labs Belgeleri
 
-Devtest Labs ile yeniden kullanılabilir yapılar kullanarak hızlı bir şekilde uygulama test ortamları oluşturmayı öğrenin. Öğreticiler, videolar ve diğer belgeler, laboratuvarlarınızı oluşturma, yönetme ve güvenli hale getirme işlemlerini açıklamanın yanı sıra yapıtları yönetme ile ilgili bilgiler içerir.
+Toouse Devtest Labs tooquickly yeniden kullanılabilir yapılar kullanarak uygulamayı test ortamları nasıl oluşturacağınızı öğrenin. Öğreticiler, videolar ve diğer belgeleri nasıl toocreate, Yönet'i labs, güvenli ve ekleme ve yapıları yönetme gösterir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Devtest Labs ile yeniden kullanılabilir yapılar kullanarak hızlı bir şekild
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure portal ile Azure DevTest Labs’i kullanmaya başlama</h3>
+                        <h3>Hello Azure portal kullanarak Azure DevTest Labs ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>

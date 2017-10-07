@@ -1,6 +1,6 @@
 ---
-title: "Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama | Microsoft Docs"
-description: "Visual Studio bağlantılı hizmetler kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure blob storage kullanarak nereden başlayacaksınız"
+title: "aaaGet başlatılan Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) | Microsoft Docs"
+description: "Visual Studio bağlantılı hizmetler kullanarak tooa depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure blob storage kullanarak tooget nasıl başlatılacağını"
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraig
-ms.openlocfilehash: e953c7978705379a28581213e8f1c665473ddd60
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7b3e160da5bb95967ca4650b124afb8e867c03d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a><span data-ttu-id="d28f0-103">Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="d28f0-103">Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)</span></span>
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a><span data-ttu-id="ff5b1-103">Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="ff5b1-103">Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)</span></span>
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a><span data-ttu-id="d28f0-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="d28f0-104">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="ff5b1-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="ff5b1-104">Overview</span></span>
 
-<span data-ttu-id="d28f0-105">Azure blob depolama bulutta nesne/BLOB olarak yapılandırılmamış veri depolayan bir hizmettir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-105">Azure blob storage is a service that stores unstructured data in the cloud as objects/blobs.</span></span> <span data-ttu-id="d28f0-106">Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-106">Blob storage can store any type of text or binary data, such as a document, media file, or application installer.</span></span> <span data-ttu-id="d28f0-107">Blob Storage aynı zamanda nesne depolama olarak adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="d28f0-107">Blob storage is also referred to as object storage.</span></span>
+<span data-ttu-id="ff5b1-105">Azure blob depolama hello bulutta nesne/BLOB olarak yapılandırılmamış veri depolayan bir hizmettir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-105">Azure blob storage is a service that stores unstructured data in hello cloud as objects/blobs.</span></span> <span data-ttu-id="ff5b1-106">Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-106">Blob storage can store any type of text or binary data, such as a document, media file, or application installer.</span></span> <span data-ttu-id="ff5b1-107">BLOB Depolama başvurulan tooas nesne depolama de olabilir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-107">Blob storage is also referred tooas object storage.</span></span>
 
-<span data-ttu-id="d28f0-108">Bu öğretici, Azure blob storage kullanarak bazı genel senaryolar için ASP.NET kodunun nasıl yazılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-108">This tutorial shows how to write ASP.NET code for some common scenarios using Azure blob storage.</span></span> <span data-ttu-id="d28f0-109">Bir blob kapsayıcısını oluşturma ve karşıya yükleme, listeleme, indirme ve BLOB'ları silme senaryolar içerir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-109">Scenarios include creating a blob container, and uploading, listing, downloading, and deleting blobs.</span></span>
+<span data-ttu-id="ff5b1-108">Bu öğretici, Azure blob storage kullanarak bazı genel senaryolar için toowrite ASP.NET kodu nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-108">This tutorial shows how toowrite ASP.NET code for some common scenarios using Azure blob storage.</span></span> <span data-ttu-id="ff5b1-109">Bir blob kapsayıcısını oluşturma ve karşıya yükleme, listeleme, indirme ve BLOB'ları silme senaryolar içerir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-109">Scenarios include creating a blob container, and uploading, listing, downloading, and deleting blobs.</span></span>
 
-##<a name="prerequisites"></a><span data-ttu-id="d28f0-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="d28f0-110">Prerequisites</span></span>
+##<a name="prerequisites"></a><span data-ttu-id="ff5b1-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="ff5b1-110">Prerequisites</span></span>
 
-* [<span data-ttu-id="d28f0-111">Microsoft Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d28f0-111">Microsoft Visual Studio</span></span>](https://www.visualstudio.com/downloads/)
-* [<span data-ttu-id="d28f0-112">Azure depolama hesabı</span><span class="sxs-lookup"><span data-stu-id="d28f0-112">Azure storage account</span></span>](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [<span data-ttu-id="ff5b1-111">Microsoft Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ff5b1-111">Microsoft Visual Studio</span></span>](https://www.visualstudio.com/downloads/)
+* [<span data-ttu-id="ff5b1-112">Azure depolama hesabı</span><span class="sxs-lookup"><span data-stu-id="ff5b1-112">Azure storage account</span></span>](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -40,21 +40,21 @@ ms.lasthandoff: 08/29/2017
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a><span data-ttu-id="d28f0-113">Bir MVC denetleyicisi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d28f0-113">Create an MVC controller</span></span> 
+### <a name="create-an-mvc-controller"></a><span data-ttu-id="ff5b1-113">Bir MVC denetleyicisi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-113">Create an MVC controller</span></span> 
 
-1. <span data-ttu-id="d28f0-114">İçinde **Çözüm Gezgini**, sağ **denetleyicileri**ve bağlam menüsünden seçin **Ekle -> denetleyicisi**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-114">In the **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add->Controller**.</span></span>
+1. <span data-ttu-id="ff5b1-114">Merhaba, **Çözüm Gezgini**, sağ **denetleyicileri**ve hello bağlam menüsünden seçin **Ekle -> denetleyicisi**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-114">In hello **Solution Explorer**, right-click **Controllers**, and, from hello context menu, select **Add->Controller**.</span></span>
 
-    ![Bir ASP.NET MVC uygulamasına denetleyici ekleme](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
+    ![Bir ASP.NET MVC uygulama denetleyicisi tooan Ekle](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
 
-1. <span data-ttu-id="d28f0-116">Üzerinde **İskele Ekle** iletişim kutusunda **MVC 5 denetleyici - boş**seçip **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-116">On the **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.</span></span>
+1. <span data-ttu-id="ff5b1-116">Merhaba üzerinde **İskele Ekle** iletişim kutusunda **MVC 5 denetleyici - boş**seçip **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-116">On hello **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.</span></span>
 
     ![MVC denetleyicisi türünü belirtin](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
 
-1. <span data-ttu-id="d28f0-118">Üzerinde **denetleyici Ekle** iletişim kutusunda, denetleyici adı *BlobsController*seçip **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-118">On the **Add Controller** dialog, name the controller *BlobsController*, and select **Add**.</span></span>
+1. <span data-ttu-id="ff5b1-118">Merhaba üzerinde **denetleyici Ekle** iletişim, ad hello denetleyicisi *BlobsController*seçip **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-118">On hello **Add Controller** dialog, name hello controller *BlobsController*, and select **Add**.</span></span>
 
-    ![MVC Denetleyici adı](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
+    ![Ad hello MVC denetleyicisi](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
-1. <span data-ttu-id="d28f0-120">Aşağıdakileri ekleyin *kullanarak* yönergeleri `BlobsController.cs` dosyası:</span><span class="sxs-lookup"><span data-stu-id="d28f0-120">Add the following *using* directives to the `BlobsController.cs` file:</span></span>
+1. <span data-ttu-id="ff5b1-120">Merhaba aşağıdakileri ekleyin *kullanarak* yönergeleri toohello `BlobsController.cs` dosyası:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-120">Add hello following *using* directives toohello `BlobsController.cs` file:</span></span>
 
     ```csharp
     using Microsoft.Azure;
@@ -63,63 +63,63 @@ ms.lasthandoff: 08/29/2017
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-## <a name="create-a-blob-container"></a><span data-ttu-id="d28f0-121">Bir blob kapsayıcı oluşturun</span><span class="sxs-lookup"><span data-stu-id="d28f0-121">Create a blob container</span></span>
+## <a name="create-a-blob-container"></a><span data-ttu-id="ff5b1-121">Bir blob kapsayıcı oluşturun</span><span class="sxs-lookup"><span data-stu-id="ff5b1-121">Create a blob container</span></span>
 
-<span data-ttu-id="d28f0-122">Bir blob kapsayıcı, BLOB'ları ve klasörleri iç içe geçmiş bir hiyerarşisidir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-122">A blob container is a nested hierarchy of blobs and folders.</span></span> <span data-ttu-id="d28f0-123">Aşağıdaki adımları bir blob kapsayıcı oluşturulacağını gösterir:</span><span class="sxs-lookup"><span data-stu-id="d28f0-123">The following steps illustrate how to create a blob container:</span></span>
+<span data-ttu-id="ff5b1-122">Bir blob kapsayıcı, BLOB'ları ve klasörleri iç içe geçmiş bir hiyerarşisidir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-122">A blob container is a nested hierarchy of blobs and folders.</span></span> <span data-ttu-id="ff5b1-123">Merhaba aşağıdaki adımları göstermek nasıl toocreate bir blob kapsayıcı:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-123">hello following steps illustrate how toocreate a blob container:</span></span>
 
 > [!NOTE]
 > 
-> <span data-ttu-id="d28f0-124">Bu bölümdeki kod bölümündeki adımları tamamladınız varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="d28f0-124">The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="ff5b1-124">Merhaba kod bu bölümdeki hello bölümdeki hello adımları tamamladınız varsayar [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ff5b1-124">hello code in this section assumes that you have completed hello steps in hello section, [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="d28f0-125">`BlobsController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="d28f0-125">Open the `BlobsController.cs` file.</span></span>
+1. <span data-ttu-id="ff5b1-125">Açık hello `BlobsController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-125">Open hello `BlobsController.cs` file.</span></span>
 
-1. <span data-ttu-id="d28f0-126">Adlı bir yöntem ekleyin **CreateBlobContainer** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-126">Add a method called **CreateBlobContainer** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="ff5b1-126">Adlı bir yöntem ekleyin **CreateBlobContainer** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-126">Add a method called **CreateBlobContainer** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult CreateBlobContainer()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="d28f0-127">İçinde **CreateBlobContainer** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-127">Within the **CreateBlobContainer** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="d28f0-128">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın.</span><span class="sxs-lookup"><span data-stu-id="d28f0-128">Use the following code to get the storage connection string and storage account information from the Azure service configuration.</span></span> <span data-ttu-id="d28f0-129">(Değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-129">(Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="ff5b1-127">Merhaba içinde **CreateBlobContainer** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-127">Within hello **CreateBlobContainer** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ff5b1-128">Kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgilerini hello Azure hizmet yapılandırmasından aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-128">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration.</span></span> <span data-ttu-id="ff5b1-129">(Değişiklik  *&lt;depolama hesabı adı >* hello erişme Azure depolama hesabı adını toohello.)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-129">(Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="d28f0-130">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="d28f0-130">Get a **CloudBlobClient** object represents a blob service client.</span></span>
+1. <span data-ttu-id="ff5b1-130">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-130">Get a **CloudBlobClient** object represents a blob service client.</span></span>
    
     ```csharp
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. <span data-ttu-id="d28f0-131">Alma bir **CloudBlobContainer** istenen blob kapsayıcı adı için başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-131">Get a **CloudBlobContainer** object that represents a reference to the desired blob container name.</span></span> <span data-ttu-id="d28f0-132">**CloudBlobClient.GetContainerReference** yöntemi blob Storage'a karşı istek yapmaz.</span><span class="sxs-lookup"><span data-stu-id="d28f0-132">The **CloudBlobClient.GetContainerReference** method does not make a request against blob storage.</span></span> <span data-ttu-id="d28f0-133">Blob kapsayıcısı mevcut olup olmadığına bakılmaksızın başvuru döndürülür.</span><span class="sxs-lookup"><span data-stu-id="d28f0-133">The reference is returned whether or not the blob container exists.</span></span> 
+1. <span data-ttu-id="ff5b1-131">Alma bir **CloudBlobContainer** bir başvuru toohello istenen blob kapsayıcı adı temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-131">Get a **CloudBlobContainer** object that represents a reference toohello desired blob container name.</span></span> <span data-ttu-id="ff5b1-132">Merhaba **CloudBlobClient.GetContainerReference** yöntemi blob Storage'a karşı istek yapmaz.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-132">hello **CloudBlobClient.GetContainerReference** method does not make a request against blob storage.</span></span> <span data-ttu-id="ff5b1-133">Merhaba blob kapsayıcısı mevcut olup olmadığına bakılmaksızın hello başvuru döndürülür.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-133">hello reference is returned whether or not hello blob container exists.</span></span> 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. <span data-ttu-id="d28f0-134">Çağrı **CloudBlobContainer.CreateIfNotExists** yöntemi henüz yoksa kapsayıcıyı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d28f0-134">Call the **CloudBlobContainer.CreateIfNotExists** method to create the container if it does not yet exist.</span></span> <span data-ttu-id="d28f0-135">**CloudBlobContainer.CreateIfNotExists** yöntemi döndürür **true** kapsayıcı yok ve başarıyla oluşturuldu.</span><span class="sxs-lookup"><span data-stu-id="d28f0-135">The **CloudBlobContainer.CreateIfNotExists** method returns **true** if the container does not exist, and is successfully created.</span></span> <span data-ttu-id="d28f0-136">Aksi takdirde, **false** döndürülür.</span><span class="sxs-lookup"><span data-stu-id="d28f0-136">Otherwise, **false** is returned.</span></span>    
+1. <span data-ttu-id="ff5b1-134">Merhaba çağrısı **CloudBlobContainer.CreateIfNotExists** henüz yoksa, yöntem toocreate hello kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-134">Call hello **CloudBlobContainer.CreateIfNotExists** method toocreate hello container if it does not yet exist.</span></span> <span data-ttu-id="ff5b1-135">Merhaba **CloudBlobContainer.CreateIfNotExists** yöntemi döndürür **true** hello kapsayıcısı yok ve başarıyla oluşturuldu.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-135">hello **CloudBlobContainer.CreateIfNotExists** method returns **true** if hello container does not exist, and is successfully created.</span></span> <span data-ttu-id="ff5b1-136">Aksi takdirde, **false** döndürülür.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-136">Otherwise, **false** is returned.</span></span>    
 
     ```csharp
     ViewBag.Success = container.CreateIfNotExists();
     ```
 
-1. <span data-ttu-id="d28f0-137">Güncelleştirme **ViewBag** blob kapsayıcı adı.</span><span class="sxs-lookup"><span data-stu-id="d28f0-137">Update the **ViewBag** with the name of the blob container.</span></span>
+1. <span data-ttu-id="ff5b1-137">Güncelleştirme hello **ViewBag** hello blob kapsayıcısının hello ada sahip.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-137">Update hello **ViewBag** with hello name of hello blob container.</span></span>
 
     ```csharp
     ViewBag.BlobContainerName = container.Name;
     ```
 
-1. <span data-ttu-id="d28f0-138">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-138">In the **Solution Explorer**, expand the **Views** folder, right-click **Blobs**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="ff5b1-138">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-138">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Blobs**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="d28f0-139">Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **CreateBlobContainer** Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-139">On the **Add View** dialog, enter **CreateBlobContainer** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="ff5b1-139">Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **CreateBlobContainer** hello Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-139">On hello **Add View** dialog, enter **CreateBlobContainer** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="d28f0-140">Açık `CreateBlobContainer.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="d28f0-140">Open `CreateBlobContainer.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="ff5b1-140">Açık `CreateBlobContainer.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-140">Open `CreateBlobContainer.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -131,67 +131,67 @@ ms.lasthandoff: 08/29/2017
     Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. <span data-ttu-id="d28f0-141">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="d28f0-141">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="ff5b1-141">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-141">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="d28f0-142">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="d28f0-142">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="ff5b1-142">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-142">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
     ```
 
-1. <span data-ttu-id="d28f0-143">Uygulamayı çalıştırmak ve seçmek **Blob kapsayıcısı oluşturmak** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:</span><span class="sxs-lookup"><span data-stu-id="d28f0-143">Run the application, and select **Create Blob Container** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="ff5b1-143">Merhaba uygulamayı çalıştırın ve seçin **Blob kapsayıcısı oluşturmak** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-143">Run hello application, and select **Create Blob Container** toosee results similar toohello following screen shot:</span></span>
   
     ![BLOB kapsayıcı oluşturun](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
-    <span data-ttu-id="d28f0-145">Daha önce belirtildiği gibi **CloudBlobContainer.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca kapsayıcı yok ve oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="d28f0-145">As mentioned previously, the **CloudBlobContainer.CreateIfNotExists** method returns **true** only when the container doesn't exist and is created.</span></span> <span data-ttu-id="d28f0-146">Bu nedenle, kapsayıcı mevcut olduğunda uygulama çalıştırırsanız, yöntem **false**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-146">Therefore, if you run the app when the container exists, the method returns **false**.</span></span> <span data-ttu-id="d28f0-147">Birden çok kez uygulamayı çalıştırmak için uygulamayı yeniden çalıştırmadan önce kapsayıcı silmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-147">To run the app multiple times, you must delete the container before running the app again.</span></span> <span data-ttu-id="d28f0-148">Aracılığıyla kapsayıcı silme yapılabilir **CloudBlobContainer.Delete** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-148">Deleting the container can be done via the **CloudBlobContainer.Delete** method.</span></span> <span data-ttu-id="d28f0-149">Bir kapsayıcı kullanılarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span><span class="sxs-lookup"><span data-stu-id="d28f0-149">You can also delete the container using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span></span>  
+    <span data-ttu-id="ff5b1-145">Daha önce belirtildiği gibi hello **CloudBlobContainer.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca hello kapsayıcısı yok ve oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-145">As mentioned previously, hello **CloudBlobContainer.CreateIfNotExists** method returns **true** only when hello container doesn't exist and is created.</span></span> <span data-ttu-id="ff5b1-146">Bu nedenle, hello kapsayıcı mevcut olduğunda hello uygulama çalıştırırsanız, hello yöntemi döndürür **false**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-146">Therefore, if you run hello app when hello container exists, hello method returns **false**.</span></span> <span data-ttu-id="ff5b1-147">toorun hello uygulama birden çok kez, hello kapsayıcı hello uygulama yeniden çalıştırmadan önce silmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-147">toorun hello app multiple times, you must delete hello container before running hello app again.</span></span> <span data-ttu-id="ff5b1-148">Silme hello kapsayıcı hello yapılabilir **CloudBlobContainer.Delete** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-148">Deleting hello container can be done via hello **CloudBlobContainer.Delete** method.</span></span> <span data-ttu-id="ff5b1-149">Merhaba kapsayıcı hello kullanarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya hello [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span><span class="sxs-lookup"><span data-stu-id="ff5b1-149">You can also delete hello container using hello [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or hello [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span></span>  
 
-## <a name="upload-a-blob-into-a-blob-container"></a><span data-ttu-id="d28f0-150">Bir blob kapsayıcıya bir blob karşıya yükleme</span><span class="sxs-lookup"><span data-stu-id="d28f0-150">Upload a blob into a blob container</span></span>
+## <a name="upload-a-blob-into-a-blob-container"></a><span data-ttu-id="ff5b1-150">Bir blob kapsayıcıya bir blob karşıya yükleme</span><span class="sxs-lookup"><span data-stu-id="ff5b1-150">Upload a blob into a blob container</span></span>
 
-<span data-ttu-id="d28f0-151">Seçtiğiniz sonra [bir blob kapsayıcısını oluşturulan](#create-a-blob-container), bu kapsayıcıya dosyaları karşıya yükleyebilir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-151">Once you've [created a blob container](#create-a-blob-container), you can upload files into that container.</span></span> <span data-ttu-id="d28f0-152">Bu bölümde, bir blob kapsayıcısına bir yerel dosya karşıya yükleme aracılığıyla açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="d28f0-152">This section walks you through uploading a local file to a blob container.</span></span> <span data-ttu-id="d28f0-153">Adlı bir blob kapsayıcı oluşturduğunuz adımlarda varsayılır *test blob kapsayıcısı*.</span><span class="sxs-lookup"><span data-stu-id="d28f0-153">The steps assume you've created a blob container named *test-blob-container*.</span></span> 
+<span data-ttu-id="ff5b1-151">Seçtiğiniz sonra [bir blob kapsayıcısını oluşturulan](#create-a-blob-container), bu kapsayıcıya dosyaları karşıya yükleyebilir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-151">Once you've [created a blob container](#create-a-blob-container), you can upload files into that container.</span></span> <span data-ttu-id="ff5b1-152">Bu bölümde, bir yerel dosya tooa blob kapsayıcısı karşıya aracılığıyla açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-152">This section walks you through uploading a local file tooa blob container.</span></span> <span data-ttu-id="ff5b1-153">Merhaba adımlar varsayar adlı bir blob kapsayıcı oluşturduğunuz *test blob kapsayıcısı*.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-153">hello steps assume you've created a blob container named *test-blob-container*.</span></span> 
 
 > [!NOTE]
 > 
-> <span data-ttu-id="d28f0-154">Bu bölümdeki kod bölümündeki adımları tamamladınız varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="d28f0-154">The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="ff5b1-154">Merhaba kod bu bölümdeki hello bölümdeki hello adımları tamamladınız varsayar [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ff5b1-154">hello code in this section assumes that you have completed hello steps in hello section, [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="d28f0-155">`BlobsController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="d28f0-155">Open the `BlobsController.cs` file.</span></span>
+1. <span data-ttu-id="ff5b1-155">Açık hello `BlobsController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-155">Open hello `BlobsController.cs` file.</span></span>
 
-1. <span data-ttu-id="d28f0-156">Adlı bir yöntem ekleyin **UploadBlob** döndüren bir **EmptyResult**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-156">Add a method called **UploadBlob** that returns an **EmptyResult**.</span></span>
+1. <span data-ttu-id="ff5b1-156">Adlı bir yöntem ekleyin **UploadBlob** döndüren bir **EmptyResult**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-156">Add a method called **UploadBlob** that returns an **EmptyResult**.</span></span>
 
     ```csharp
     public EmptyResult UploadBlob()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return new EmptyResult();
     }
     ```
  
-1. <span data-ttu-id="d28f0-157">İçinde **UploadBlob** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-157">Within the **UploadBlob** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="d28f0-158">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-158">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="ff5b1-157">Merhaba içinde **UploadBlob** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-157">Within hello **UploadBlob** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ff5b1-158">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-158">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="d28f0-159">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="d28f0-159">Get a **CloudBlobClient** object represents a blob service client.</span></span>
+1. <span data-ttu-id="ff5b1-159">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-159">Get a **CloudBlobClient** object represents a blob service client.</span></span>
    
     ```csharp
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. <span data-ttu-id="d28f0-160">Alma bir **CloudBlobContainer** blob kapsayıcı adı için başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-160">Get a **CloudBlobContainer** object that represents a reference to the blob container name.</span></span> 
+1. <span data-ttu-id="ff5b1-160">Alma bir **CloudBlobContainer** bir başvuru toohello blob kapsayıcı adı temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-160">Get a **CloudBlobContainer** object that represents a reference toohello blob container name.</span></span> 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. <span data-ttu-id="d28f0-161">Daha önce açıklandığı gibi Azure depolama farklı blob türlerini destekler.</span><span class="sxs-lookup"><span data-stu-id="d28f0-161">As explained earlier, Azure storage supports different blob types.</span></span> <span data-ttu-id="d28f0-162">Bir sayfa blob'u için bir başvuru almak için arama **CloudBlobContainer.GetPageBlobReference** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-162">To retrieve a reference to a page blob, call the **CloudBlobContainer.GetPageBlobReference** method.</span></span> <span data-ttu-id="d28f0-163">Bir blok blob başvurusu almak için arama **CloudBlobContainer.GetBlockBlobReference** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-163">To retrieve a reference to a block blob, call the **CloudBlobContainer.GetBlockBlobReference** method.</span></span> <span data-ttu-id="d28f0-164">Genellikle, blok blobu kullanmak için önerilen türüdür.</span><span class="sxs-lookup"><span data-stu-id="d28f0-164">Usually, block blob is the recommended type to use.</span></span> <span data-ttu-id="d28f0-165">(Değiştir < blob-adı > * kez karşıya blob vermek istediğiniz ad.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-165">(Change <blob-name>* to the name you want to give the blob once uploaded.)</span></span>
+1. <span data-ttu-id="ff5b1-161">Daha önce açıklandığı gibi Azure depolama farklı blob türlerini destekler.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-161">As explained earlier, Azure storage supports different blob types.</span></span> <span data-ttu-id="ff5b1-162">tooretrieve bir başvuru tooa sayfa blob'u çağrısı hello **CloudBlobContainer.GetPageBlobReference** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-162">tooretrieve a reference tooa page blob, call hello **CloudBlobContainer.GetPageBlobReference** method.</span></span> <span data-ttu-id="ff5b1-163">tooretrieve bir başvuru tooa blok blobu çağrısı hello **CloudBlobContainer.GetBlockBlobReference** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-163">tooretrieve a reference tooa block blob, call hello **CloudBlobContainer.GetBlockBlobReference** method.</span></span> <span data-ttu-id="ff5b1-164">Genellikle, blok blob türü toouse önerilen hello olur.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-164">Usually, block blob is hello recommended type toouse.</span></span> <span data-ttu-id="ff5b1-165">(Değiştir < blob-adı > * kez karşıya toogive hello blob istediğiniz toohello ad.)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-165">(Change <blob-name>* toohello name you want toogive hello blob once uploaded.)</span></span>
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
     ```
 
-1. <span data-ttu-id="d28f0-166">Bir blob başvurusu edindiğinizde, tüm veri akışı için blob başvurusu nesnenin çağırarak karşıya yükleyebilirsiniz **UploadFromStream** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-166">Once you have a blob reference, you can upload any data stream to it by calling the blob reference object's **UploadFromStream** method.</span></span> <span data-ttu-id="d28f0-167">**UploadFromStream** yöntemi, mevcut değil veya mevcut değilse bu raporun üzerine blob oluşturur.</span><span class="sxs-lookup"><span data-stu-id="d28f0-167">The **UploadFromStream** method creates the blob if it doesn't exist, or overwrites it if it does exist.</span></span> <span data-ttu-id="d28f0-168">(Değişiklik  *&lt;dosya karşıya yükleme >* karşıya yüklemek istediğiniz dosyasının tam yolunu için.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-168">(Change *&lt;file-to-upload>* to a fully qualified path to the file you want to upload.)</span></span>
+1. <span data-ttu-id="ff5b1-166">Bir blob başvurusu edindiğinizde hello blob başvurusu nesnenin çağırarak tüm veri akışı tooit yükleyebilirsiniz **UploadFromStream** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-166">Once you have a blob reference, you can upload any data stream tooit by calling hello blob reference object's **UploadFromStream** method.</span></span> <span data-ttu-id="ff5b1-167">Merhaba **UploadFromStream** yöntemi, mevcut değil veya mevcut değilse bu raporun üzerine hello blob oluşturur.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-167">hello **UploadFromStream** method creates hello blob if it doesn't exist, or overwrites it if it does exist.</span></span> <span data-ttu-id="ff5b1-168">(Değişiklik  *&lt;dosya karşıya yükleme >* tooa tooupload istediğiniz yolun toohello dosyasını tam.)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-168">(Change *&lt;file-to-upload>* tooa fully qualified path toohello file you want tooupload.)</span></span>
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(<file-to-upload>))
@@ -200,61 +200,61 @@ ms.lasthandoff: 08/29/2017
     }
     ```
 
-1. <span data-ttu-id="d28f0-169">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-169">In the **Solution Explorer**, expand the **Views** folder, right-click **Blobs**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="ff5b1-169">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-169">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Blobs**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="d28f0-170">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="d28f0-170">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="ff5b1-170">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-170">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="d28f0-171">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="d28f0-171">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="ff5b1-171">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-171">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
     ```
 
-1. <span data-ttu-id="d28f0-172">Uygulamayı çalıştırmak ve seçmek **karşıya yükleme blob**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-172">Run the application, and select **Upload blob**.</span></span>  
+1. <span data-ttu-id="ff5b1-172">Merhaba uygulamayı çalıştırın ve seçin **karşıya yükleme blob**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-172">Run hello application, and select **Upload blob**.</span></span>  
   
-<span data-ttu-id="d28f0-173">Bölüm - [blob kapsayıcısı içinde BLOB'ları listesi](#list-the-blobs-in-a-blob-container) -blob kapsayıcısı içinde BLOB'ları listesi verilmektedir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-173">The section - [List the blobs in a blob container](#list-the-blobs-in-a-blob-container) - illustrates how to list the blobs in a blob container.</span></span>    
+<span data-ttu-id="ff5b1-173">Merhaba bölüm - [listesinde bir blob kapsayıcısında hello BLOB'lar](#list-the-blobs-in-a-blob-container) -toolist hello bir blob kapsayıcısında nasıl BLOB'gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-173">hello section - [List hello blobs in a blob container](#list-the-blobs-in-a-blob-container) - illustrates how toolist hello blobs in a blob container.</span></span>  
 
-## <a name="list-the-blobs-in-a-blob-container"></a><span data-ttu-id="d28f0-174">Blob kapsayıcısı içinde BLOB'ları Listele</span><span class="sxs-lookup"><span data-stu-id="d28f0-174">List the blobs in a blob container</span></span>
+## <a name="list-hello-blobs-in-a-blob-container"></a><span data-ttu-id="ff5b1-174">Bir blob kapsayıcısında listesi hello BLOB'ları</span><span class="sxs-lookup"><span data-stu-id="ff5b1-174">List hello blobs in a blob container</span></span>
 
-<span data-ttu-id="d28f0-175">Bu bölümde, bir blob kapsayıcısı içinde BLOB'ları listesi göstermektedir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-175">This section illustrates how to list the blobs in a blob container.</span></span> <span data-ttu-id="d28f0-176">Örnek kod başvurularını *test blob kapsayıcısı* bölümünde oluşturduğunuz [bir blob kapsayıcı oluşturun](#create-a-blob-container).</span><span class="sxs-lookup"><span data-stu-id="d28f0-176">The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).</span></span>
+<span data-ttu-id="ff5b1-175">Bu bölümde, nasıl bir blob kapsayıcısında toolist hello BLOB gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-175">This section illustrates how toolist hello blobs in a blob container.</span></span> <span data-ttu-id="ff5b1-176">Merhaba örnek kod başvuran hello *test blob kapsayıcısı* hello bölümünde oluşturduğunuz [bir blob kapsayıcı oluşturun](#create-a-blob-container).</span><span class="sxs-lookup"><span data-stu-id="ff5b1-176">hello sample code references hello *test-blob-container* created in hello section, [Create a blob container](#create-a-blob-container).</span></span>
 
 > [!NOTE]
 > 
-> <span data-ttu-id="d28f0-177">Bu bölümdeki kod bölümündeki adımları tamamladınız varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="d28f0-177">The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="ff5b1-177">Merhaba kod bu bölümdeki hello bölümdeki hello adımları tamamladınız varsayar [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ff5b1-177">hello code in this section assumes that you have completed hello steps in hello section, [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="d28f0-178">`BlobsController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="d28f0-178">Open the `BlobsController.cs` file.</span></span>
+1. <span data-ttu-id="ff5b1-178">Açık hello `BlobsController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-178">Open hello `BlobsController.cs` file.</span></span>
 
-1. <span data-ttu-id="d28f0-179">Adlı bir yöntem ekleyin **ListBlobs** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-179">Add a method called **ListBlobs** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="ff5b1-179">Adlı bir yöntem ekleyin **ListBlobs** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-179">Add a method called **ListBlobs** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult ListBlobs()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="d28f0-180">İçinde **ListBlobs** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-180">Within the **ListBlobs** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="d28f0-181">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-181">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="ff5b1-180">Merhaba içinde **ListBlobs** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-180">Within hello **ListBlobs** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ff5b1-181">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-181">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="d28f0-182">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="d28f0-182">Get a **CloudBlobClient** object represents a blob service client.</span></span>
+1. <span data-ttu-id="ff5b1-182">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-182">Get a **CloudBlobClient** object represents a blob service client.</span></span>
    
     ```csharp
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. <span data-ttu-id="d28f0-183">Alma bir **CloudBlobContainer** blob kapsayıcı adı için başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-183">Get a **CloudBlobContainer** object that represents a reference to the blob container name.</span></span> 
+1. <span data-ttu-id="ff5b1-183">Alma bir **CloudBlobContainer** bir başvuru toohello blob kapsayıcı adı temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-183">Get a **CloudBlobContainer** object that represents a reference toohello blob container name.</span></span> 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. <span data-ttu-id="d28f0-184">Blob kapsayıcısı içinde BLOB'ları listelemek için kullanın **CloudBlobContainer.ListBlobs** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-184">To list the blobs in a blob container, use the **CloudBlobContainer.ListBlobs** method.</span></span> <span data-ttu-id="d28f0-185">**CloudBlobContainer.ListBlobs** yöntemi döndürür bir **Ilistblobıtem** için cast nesnesi bir **CloudBlockBlob**, **CloudPageBlob**, veya **CloudBlobDirectory** nesnesi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-185">The **CloudBlobContainer.ListBlobs** method returns an **IListBlobItem** object that you cast to a **CloudBlockBlob**, **CloudPageBlob**, or **CloudBlobDirectory** object.</span></span> <span data-ttu-id="d28f0-186">Aşağıdaki kod parçacığını bir blob kapsayıcıdaki tüm blob'lara numaralandırır.</span><span class="sxs-lookup"><span data-stu-id="d28f0-186">The following code snippet enumerates all the blobs in a blob container.</span></span> <span data-ttu-id="d28f0-187">Her bir blob türü ve onun adına göre uygun nesnesine cast (veya URI durumunda bir **CloudBlobDirectory**) bir listesine eklenir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-187">Each blob is cast to the appropriate object based on its type, and its name (or URI in the case of a **CloudBlobDirectory**) is added to a list.</span></span>
+1. <span data-ttu-id="ff5b1-184">bir blob kapsayıcısında toolist hello BLOB'ları kullanmak hello **CloudBlobContainer.ListBlobs** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-184">toolist hello blobs in a blob container, use hello **CloudBlobContainer.ListBlobs** method.</span></span> <span data-ttu-id="ff5b1-185">Merhaba **CloudBlobContainer.ListBlobs** yöntemi döndürür bir **Ilistblobıtem** tooa cast nesne **CloudBlockBlob**, **CloudPageBlob**, veya **CloudBlobDirectory** nesnesi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-185">hello **CloudBlobContainer.ListBlobs** method returns an **IListBlobItem** object that you cast tooa **CloudBlockBlob**, **CloudPageBlob**, or **CloudBlobDirectory** object.</span></span> <span data-ttu-id="ff5b1-186">Merhaba aşağıdaki kod parçacığını bir blob kapsayıcısında tüm hello BLOB'lar numaralandırır.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-186">hello following code snippet enumerates all hello blobs in a blob container.</span></span> <span data-ttu-id="ff5b1-187">Cast toohello uygun nesne türünü ve onun adına göre her bir blob olduğunu (veya URI hello durumda bir **CloudBlobDirectory**) tooa listesine eklenir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-187">Each blob is cast toohello appropriate object based on its type, and its name (or URI in hello case of a **CloudBlobDirectory**) is added tooa list.</span></span>
 
     ```csharp
     List<string> blobs = new List<string>();
@@ -281,19 +281,19 @@ ms.lasthandoff: 08/29/2017
     return View(blobs);
     ```
 
-    <span data-ttu-id="d28f0-188">BLOB'ları yanı sıra blob kapsayıcıları dizinleri içerebilir.</span><span class="sxs-lookup"><span data-stu-id="d28f0-188">In addition to blobs, blob containers can contain directories.</span></span> <span data-ttu-id="d28f0-189">Şimdi adlı bir blob kapsayıcıya sahip varsayalım *test blob kapsayıcısı* aşağıdaki hiyerarşi ile:</span><span class="sxs-lookup"><span data-stu-id="d28f0-189">Let's suppose you have a blob container called *test-blob-container* with the following hierarchy:</span></span>
+    <span data-ttu-id="ff5b1-188">Toplama tooblobs içinde blob kapsayıcıları dizinleri içerebilir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-188">In addition tooblobs, blob containers can contain directories.</span></span> <span data-ttu-id="ff5b1-189">Şimdi adlı bir blob kapsayıcıya sahip varsayalım *test blob kapsayıcısı* hiyerarşi aşağıdaki hello ile:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-189">Let's suppose you have a blob container called *test-blob-container* with hello following hierarchy:</span></span>
 
         foo.png
         dir1/bar.png
         dir2/baz.png
 
-    <span data-ttu-id="d28f0-190">Önceki kod örneğinde kullanarak **BLOB'lar** dize listesi aşağıdakine benzer değerleri içerir:</span><span class="sxs-lookup"><span data-stu-id="d28f0-190">Using the preceding code example, the **blobs** string list contains values similar to the following:</span></span>
+    <span data-ttu-id="ff5b1-190">Önceki kod örneğinde hello kullanarak hello **BLOB'lar** dize liste değerleri benzer toohello aşağıdakileri içerir:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-190">Using hello preceding code example, hello **blobs** string list contains values similar toohello following:</span></span>
 
         foo.png
         <storage-account-url>/test-blob-container/dir1
         <storage-account-url>/test-blob-container/dir2
 
-    <span data-ttu-id="d28f0-191">Gördüğünüz gibi yalnızca üst düzey varlıklar listesi içerir; iç içe geçmiş olanlar (*bar.png* ve *baz.png*).</span><span class="sxs-lookup"><span data-stu-id="d28f0-191">As you can see, the list includes only the top-level entities; not the nested ones (*bar.png* and *baz.png*).</span></span> <span data-ttu-id="d28f0-192">Bir blob kapsayıcı içindeki tüm varlıkları listelemek için çağırmalısınız **CloudBlobContainer.ListBlobs** yöntemi ve geçişi **true** için **Listblobs** parametresi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-192">To list all the entities within a blob container, you must call the **CloudBlobContainer.ListBlobs** method and pass **true** for the **useFlatBlobListing** parameter.</span></span>    
+    <span data-ttu-id="ff5b1-191">Gördüğünüz gibi hello listesi yalnızca hello en üst düzey varlıkları içerir; değil hello olanları iç içe (*bar.png* ve *baz.png*).</span><span class="sxs-lookup"><span data-stu-id="ff5b1-191">As you can see, hello list includes only hello top-level entities; not hello nested ones (*bar.png* and *baz.png*).</span></span> <span data-ttu-id="ff5b1-192">toolist tüm varlıkları bir blob kapsayıcı içindeki Merhaba, hello çağırmalısınız **CloudBlobContainer.ListBlobs** yöntemi ve geçişi **true** hello için **Listblobs** parametre.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-192">toolist all hello entities within a blob container, you must call hello **CloudBlobContainer.ListBlobs** method and pass **true** for hello **useFlatBlobListing** parameter.</span></span>    
 
     ```csharp
     ...
@@ -301,17 +301,17 @@ ms.lasthandoff: 08/29/2017
     ...
     ```
 
-    <span data-ttu-id="d28f0-193">Ayarı **Listblobs** parametresi **true** blob kapsayıcısında tüm varlıkların düz bir liste döndürür ve aşağıdaki sonuçları verir:</span><span class="sxs-lookup"><span data-stu-id="d28f0-193">Setting the **useFlatBlobListing** parameter to **true** returns a flat listing of all entities in the blob container, and yields the following results:</span></span>
+    <span data-ttu-id="ff5b1-193">Ayar hello **Listblobs** parametresi çok**true** hello blob kapsayıcısında tüm varlıkların düz bir liste döndürür ve sonuçları aşağıdaki hello verir:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-193">Setting hello **useFlatBlobListing** parameter too**true** returns a flat listing of all entities in hello blob container, and yields hello following results:</span></span>
 
         foo.png
         dir1/bar.png
         dir2/baz.png
 
-1. <span data-ttu-id="d28f0-194">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-194">In the **Solution Explorer**, expand the **Views** folder, right-click **Blobs**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="ff5b1-194">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **BLOB'lar**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-194">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Blobs**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="d28f0-195">Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **ListBlobs** Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-195">On the **Add View** dialog, enter **ListBlobs** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="ff5b1-195">Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **ListBlobs** hello Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-195">On hello **Add View** dialog, enter **ListBlobs** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="d28f0-196">Açık `ListBlobs.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="d28f0-196">Open `ListBlobs.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="ff5b1-196">Açık `ListBlobs.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-196">Open `ListBlobs.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```html
     @model List<string>
@@ -329,61 +329,61 @@ ms.lasthandoff: 08/29/2017
     </ul>
     ```
 
-1. <span data-ttu-id="d28f0-197">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="d28f0-197">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="ff5b1-197">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-197">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="d28f0-198">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="d28f0-198">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="ff5b1-198">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-198">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
     ```
 
-1. <span data-ttu-id="d28f0-199">Uygulamayı çalıştırmak ve seçmek **listesinde BLOB'lar** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:</span><span class="sxs-lookup"><span data-stu-id="d28f0-199">Run the application, and select **List blobs** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="ff5b1-199">Merhaba uygulamayı çalıştırın ve seçin **listesinde BLOB'lar** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-199">Run hello application, and select **List blobs** toosee results similar toohello following screen shot:</span></span>
   
     ![BLOB listeleme](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
-## <a name="download-blobs"></a><span data-ttu-id="d28f0-201">Blob’ları indirme</span><span class="sxs-lookup"><span data-stu-id="d28f0-201">Download blobs</span></span>
+## <a name="download-blobs"></a><span data-ttu-id="ff5b1-201">Blob’ları indirme</span><span class="sxs-lookup"><span data-stu-id="ff5b1-201">Download blobs</span></span>
 
-<span data-ttu-id="d28f0-202">Bu bölümde bir blob indirmek nasıl gösterir ve yerel depolama alanına ya da kalıcı olması veya bir dizeye içeriği okuyun.</span><span class="sxs-lookup"><span data-stu-id="d28f0-202">This section illustrates how to download a blob and either persist it to local storage or read the contents into a string.</span></span> <span data-ttu-id="d28f0-203">Örnek kod başvurularını *test blob kapsayıcısı* bölümünde oluşturduğunuz [bir blob kapsayıcı oluşturun](#create-a-blob-container).</span><span class="sxs-lookup"><span data-stu-id="d28f0-203">The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).</span></span>
+<span data-ttu-id="ff5b1-202">Bu bölümde, nasıl toodownload blob ve ya da onu toolocal depolama veya okuma hello içeriği bir dizeye kalıcı olmasını gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-202">This section illustrates how toodownload a blob and either persist it toolocal storage or read hello contents into a string.</span></span> <span data-ttu-id="ff5b1-203">Merhaba örnek kod başvuran hello *test blob kapsayıcısı* hello bölümünde oluşturduğunuz [bir blob kapsayıcı oluşturun](#create-a-blob-container).</span><span class="sxs-lookup"><span data-stu-id="ff5b1-203">hello sample code references hello *test-blob-container* created in hello section, [Create a blob container](#create-a-blob-container).</span></span>
 
-1. <span data-ttu-id="d28f0-204">`BlobsController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="d28f0-204">Open the `BlobsController.cs` file.</span></span>
+1. <span data-ttu-id="ff5b1-204">Açık hello `BlobsController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-204">Open hello `BlobsController.cs` file.</span></span>
 
-1. <span data-ttu-id="d28f0-205">Adlı bir yöntem ekleyin **DownloadBlob** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-205">Add a method called **DownloadBlob** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="ff5b1-205">Adlı bir yöntem ekleyin **DownloadBlob** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-205">Add a method called **DownloadBlob** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public EmptyResult DownloadBlob()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return new EmptyResult();
     }
     ```
  
-1. <span data-ttu-id="d28f0-206">İçinde **DownloadBlob** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-206">Within the **DownloadBlob** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="d28f0-207">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-207">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="ff5b1-206">Merhaba içinde **DownloadBlob** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-206">Within hello **DownloadBlob** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ff5b1-207">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-207">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="d28f0-208">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="d28f0-208">Get a **CloudBlobClient** object represents a blob service client.</span></span>
+1. <span data-ttu-id="ff5b1-208">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-208">Get a **CloudBlobClient** object represents a blob service client.</span></span>
    
     ```csharp
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. <span data-ttu-id="d28f0-209">Alma bir **CloudBlobContainer** blob kapsayıcı adı için başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-209">Get a **CloudBlobContainer** object that represents a reference to the blob container name.</span></span> 
+1. <span data-ttu-id="ff5b1-209">Alma bir **CloudBlobContainer** bir başvuru toohello blob kapsayıcı adı temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-209">Get a **CloudBlobContainer** object that represents a reference toohello blob container name.</span></span> 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. <span data-ttu-id="d28f0-210">Bir blob başvurusu nesnesi çağırarak alma **CloudBlobContainer.GetBlockBlobReference** veya **CloudBlobContainer.GetPageBlobReference** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-210">Get a blob reference object by calling **CloudBlobContainer.GetBlockBlobReference** or **CloudBlobContainer.GetPageBlobReference** method.</span></span> <span data-ttu-id="d28f0-211">(Değişiklik  *&lt;blob adı >* blob adını karşıdan yükleniyor.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-211">(Change *&lt;blob-name>* to the name of the blob you are downloading.)</span></span>
+1. <span data-ttu-id="ff5b1-210">Bir blob başvurusu nesnesi çağırarak alma **CloudBlobContainer.GetBlockBlobReference** veya **CloudBlobContainer.GetPageBlobReference** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-210">Get a blob reference object by calling **CloudBlobContainer.GetBlockBlobReference** or **CloudBlobContainer.GetPageBlobReference** method.</span></span> <span data-ttu-id="ff5b1-211">(Değişiklik  *&lt;blob adı >* indirme hello blob adını toohello.)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-211">(Change *&lt;blob-name>* toohello name of hello blob you are downloading.)</span></span>
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
     ```
 
-1. <span data-ttu-id="d28f0-212">Bir blob indirmek için kullanacağınız **CloudBlockBlob.DownloadToStream** veya **CloudPageBlob.DownloadToStream** blob türüne bağlı olarak yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-212">To download a blob, use the **CloudBlockBlob.DownloadToStream** or **CloudPageBlob.DownloadToStream** method, depending on the blob type.</span></span> <span data-ttu-id="d28f0-213">Aşağıdaki kod parçacığını kullanır **CloudBlockBlob.DownloadToStream** yöntemi bir blob'un içeriği sonra yerel bir dosyaya kalıcı bir akış nesnesine aktarmak için: (değişiklik  *&lt;yerel dosya adı >* tam dosya adı blob istediğiniz temsil eden indirilen.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-213">The following code snippet uses the **CloudBlockBlob.DownloadToStream** method to transfer a blob's contents to a stream object that is then persisted to a local file: (Change *&lt;local-file-name>* to the fully qualified file name representing where you want the blob downloaded.)</span></span> 
+1. <span data-ttu-id="ff5b1-212">toodownload bir blob kullanmak hello **CloudBlockBlob.DownloadToStream** veya **CloudPageBlob.DownloadToStream** hello blob türüne bağlı olarak yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-212">toodownload a blob, use hello **CloudBlockBlob.DownloadToStream** or **CloudPageBlob.DownloadToStream** method, depending on hello blob type.</span></span> <span data-ttu-id="ff5b1-213">Merhaba aşağıdaki kod parçacığını kullanan hello **CloudBlockBlob.DownloadToStream** yöntemi tootransfer bir blob'un içeriği tooa akış nesnesi başka bir deyişle, ardından tooa yerel dosya kalıcı: (değişiklik  *&lt;yerel dosya adı >* toohello tam indirilen hello blob istediğiniz dosya adını temsil eden.)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-213">hello following code snippet uses hello **CloudBlockBlob.DownloadToStream** method tootransfer a blob's contents tooa stream object that is then persisted tooa local file: (Change *&lt;local-file-name>* toohello fully qualified file name representing where you want hello blob downloaded.)</span></span> 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -392,80 +392,80 @@ ms.lasthandoff: 08/29/2017
     }
     ```
 
-1. <span data-ttu-id="d28f0-214">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="d28f0-214">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="ff5b1-214">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-214">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="d28f0-215">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="d28f0-215">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="ff5b1-215">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-215">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
     ```
 
-1. <span data-ttu-id="d28f0-216">Uygulamayı çalıştırmak ve seçmek **indirme blob** blob indirmek için.</span><span class="sxs-lookup"><span data-stu-id="d28f0-216">Run the application, and select **Download blob** to download the blob.</span></span> <span data-ttu-id="d28f0-217">Belirtilen blob **CloudBlobContainer.GetBlockBlobReference** yöntem çağrısı indirir, belirttiğiniz konuma **File.OpenWrite** yöntem çağrısı.</span><span class="sxs-lookup"><span data-stu-id="d28f0-217">The blob specified in the **CloudBlobContainer.GetBlockBlobReference** method call downloads to the location you specify in the **File.OpenWrite** method call.</span></span> 
+1. <span data-ttu-id="ff5b1-216">Merhaba uygulamayı çalıştırın ve seçin **indirme blob** toodownload hello blob.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-216">Run hello application, and select **Download blob** toodownload hello blob.</span></span> <span data-ttu-id="ff5b1-217">Hello belirtilen hello blob **CloudBlobContainer.GetBlockBlobReference** yöntem çağrısı indirmeleri hello belirttiğiniz toohello konumu **File.OpenWrite** yöntem çağrısı.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-217">hello blob specified in hello **CloudBlobContainer.GetBlockBlobReference** method call downloads toohello location you specify in hello **File.OpenWrite** method call.</span></span> 
 
-## <a name="delete-blobs"></a><span data-ttu-id="d28f0-218">Blob’ları silme</span><span class="sxs-lookup"><span data-stu-id="d28f0-218">Delete blobs</span></span>
+## <a name="delete-blobs"></a><span data-ttu-id="ff5b1-218">Blob’ları silme</span><span class="sxs-lookup"><span data-stu-id="ff5b1-218">Delete blobs</span></span>
 
-<span data-ttu-id="d28f0-219">Aşağıdaki adımlar bir blobu silmek nasıl gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="d28f0-219">The following steps illustrate how to delete a blob:</span></span>
+<span data-ttu-id="ff5b1-219">Merhaba aşağıdaki adımları göstermek nasıl toodelete blob:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-219">hello following steps illustrate how toodelete a blob:</span></span>
 
 > [!NOTE]
 > 
-> <span data-ttu-id="d28f0-220">Bu bölümdeki kod bölümündeki adımları tamamladınız varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="d28f0-220">The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="ff5b1-220">Merhaba kod bu bölümdeki hello bölümdeki hello adımları tamamladınız varsayar [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ff5b1-220">hello code in this section assumes that you have completed hello steps in hello section, [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="d28f0-221">`BlobsController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="d28f0-221">Open the `BlobsController.cs` file.</span></span>
+1. <span data-ttu-id="ff5b1-221">Açık hello `BlobsController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-221">Open hello `BlobsController.cs` file.</span></span>
 
-1. <span data-ttu-id="d28f0-222">Adlı bir yöntem ekleyin **DeleteBlob** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="d28f0-222">Add a method called **DeleteBlob** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="ff5b1-222">Adlı bir yöntem ekleyin **DeleteBlob** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-222">Add a method called **DeleteBlob** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public EmptyResult DeleteBlob()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return new EmptyResult();
     }
     ```
 
-1. <span data-ttu-id="d28f0-223">Alma bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-223">Get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="d28f0-224">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-224">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="ff5b1-223">Alma bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-223">Get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ff5b1-224">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-224">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="d28f0-225">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="d28f0-225">Get a **CloudBlobClient** object represents a blob service client.</span></span>
+1. <span data-ttu-id="ff5b1-225">Alma bir **CloudBlobClient** nesnesi, bir blob hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-225">Get a **CloudBlobClient** object represents a blob service client.</span></span>
    
     ```csharp
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
     ```
 
-1. <span data-ttu-id="d28f0-226">Alma bir **CloudBlobContainer** blob kapsayıcı adı için başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="d28f0-226">Get a **CloudBlobContainer** object that represents a reference to the blob container name.</span></span> 
+1. <span data-ttu-id="ff5b1-226">Alma bir **CloudBlobContainer** bir başvuru toohello blob kapsayıcı adı temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-226">Get a **CloudBlobContainer** object that represents a reference toohello blob container name.</span></span> 
    
     ```csharp
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. <span data-ttu-id="d28f0-227">Bir blob başvurusu nesnesi çağırarak alma **CloudBlobContainer.GetBlockBlobReference** veya **CloudBlobContainer.GetPageBlobReference** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d28f0-227">Get a blob reference object by calling **CloudBlobContainer.GetBlockBlobReference** or **CloudBlobContainer.GetPageBlobReference** method.</span></span> <span data-ttu-id="d28f0-228">(Değişiklik  *&lt;blob adı >* blob adını silmekte olduğunuz.)</span><span class="sxs-lookup"><span data-stu-id="d28f0-228">(Change *&lt;blob-name>* to the name of the blob you are deleting.)</span></span>
+1. <span data-ttu-id="ff5b1-227">Bir blob başvurusu nesnesi çağırarak alma **CloudBlobContainer.GetBlockBlobReference** veya **CloudBlobContainer.GetPageBlobReference** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-227">Get a blob reference object by calling **CloudBlobContainer.GetBlockBlobReference** or **CloudBlobContainer.GetPageBlobReference** method.</span></span> <span data-ttu-id="ff5b1-228">(Değişiklik  *&lt;blob adı >* silmekte hello blob adını toohello.)</span><span class="sxs-lookup"><span data-stu-id="ff5b1-228">(Change *&lt;blob-name>* toohello name of hello blob you are deleting.)</span></span>
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
         ```
 
-1. To delete a blob, use the **Delete** method.
+1. toodelete a blob, use hello **Delete** method.
 
     ```csharp
     blob.Delete();
     ```
 
-1. <span data-ttu-id="d28f0-229">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="d28f0-229">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="ff5b1-229">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-229">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="d28f0-230">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="d28f0-230">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="ff5b1-230">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ff5b1-230">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
     ```
 
-1. <span data-ttu-id="d28f0-231">Uygulamayı çalıştırmak ve seçmek **Delete blob** belirtilen blobu silmek için **CloudBlobContainer.GetBlockBlobReference** yöntem çağrısı.</span><span class="sxs-lookup"><span data-stu-id="d28f0-231">Run the application, and select **Delete blob** to delete the blob specified in the **CloudBlobContainer.GetBlockBlobReference** method call.</span></span> 
+1. <span data-ttu-id="ff5b1-231">Merhaba uygulamayı çalıştırın ve seçin **Delete blob** toodelete hello blob hello belirtilen **CloudBlobContainer.GetBlockBlobReference** yöntem çağrısı.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-231">Run hello application, and select **Delete blob** toodelete hello blob specified in hello **CloudBlobContainer.GetBlockBlobReference** method call.</span></span> 
 
-## <a name="next-steps"></a><span data-ttu-id="d28f0-232">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d28f0-232">Next steps</span></span>
-<span data-ttu-id="d28f0-233">Azure’da veri depolama ile ilgili ek seçenekler hakkında daha fazla bilgi edinmek için daha fazla özellik kılavuzu görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="d28f0-233">View more feature guides to learn about additional options for storing data in Azure.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="ff5b1-232">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="ff5b1-232">Next steps</span></span>
+<span data-ttu-id="ff5b1-233">Veri depolama için ek seçenekleri hakkında daha fazla özellik kılavuzları toolearn görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="ff5b1-233">View more feature guides toolearn about additional options for storing data in Azure.</span></span>
 
-  * [<span data-ttu-id="d28f0-234">Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="d28f0-234">Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)</span></span>](vs-storage-aspnet-getting-started-tables.md)
-  * [<span data-ttu-id="d28f0-235">Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="d28f0-235">Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)</span></span>](vs-storage-aspnet-getting-started-queues.md)
+  * [<span data-ttu-id="ff5b1-234">Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="ff5b1-234">Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)</span></span>](vs-storage-aspnet-getting-started-tables.md)
+  * [<span data-ttu-id="ff5b1-235">Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="ff5b1-235">Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)</span></span>](vs-storage-aspnet-getting-started-queues.md)

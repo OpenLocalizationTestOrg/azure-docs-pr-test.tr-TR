@@ -1,5 +1,5 @@
 ---
-title: "SQL veri ambarı seçeneklerinde grupla | Microsoft Docs"
+title: "SQL veri ambarı seçeneklerinde tarafından aaaGroup | Microsoft Docs"
 description: "Çözümleri geliştirme için Azure SQL Data Warehouse seçeneklerinde tarafından Grup uygulamak için ipuçları."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,25 +15,25 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc443c2af4e3ef2babd74d78aa6fb57bb3c1c7ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="group-by-options-in-sql-data-warehouse"></a><span data-ttu-id="036d8-103">SQL veri ambarı seçeneklerinde göre gruplandırmak</span><span class="sxs-lookup"><span data-stu-id="036d8-103">Group by options in SQL Data Warehouse</span></span>
-<span data-ttu-id="036d8-104">[GROUP BY] [ GROUP BY] yan tümcesi Özet bir satır kümesi için veri toplama için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="036d8-104">The [GROUP BY][GROUP BY] clause is used to aggregate data to a summary set of rows.</span></span> <span data-ttu-id="036d8-105">Ayrıca, geçici doğrudan Azure SQL Data Warehouse tarafından desteklenmiyor olarak çalışması için gereken kendi işlevselliğini genişleten birkaç seçenek vardır.</span><span class="sxs-lookup"><span data-stu-id="036d8-105">It also has a few options that extend it's functionality that need to be worked around as they are not directly supported by Azure SQL Data Warehouse.</span></span>
+# <a name="group-by-options-in-sql-data-warehouse"></a><span data-ttu-id="fec95-103">SQL veri ambarı seçeneklerinde göre gruplandırmak</span><span class="sxs-lookup"><span data-stu-id="fec95-103">Group by options in SQL Data Warehouse</span></span>
+<span data-ttu-id="fec95-104">Merhaba [GROUP BY] [ GROUP BY] yan tümcesinde kullanılan tooaggregate veri tooa Özet satır kümesi.</span><span class="sxs-lookup"><span data-stu-id="fec95-104">hello [GROUP BY][GROUP BY] clause is used tooaggregate data tooa summary set of rows.</span></span> <span data-ttu-id="fec95-105">Ayrıca, geçici doğrudan Azure SQL Data Warehouse tarafından desteklenmiyor gibi çalıştığını bu gereksinimi toobe cihazın işlevselliğini genişleten birkaç seçenek vardır.</span><span class="sxs-lookup"><span data-stu-id="fec95-105">It also has a few options that extend it's functionality that need toobe worked around as they are not directly supported by Azure SQL Data Warehouse.</span></span>
 
-<span data-ttu-id="036d8-106">Bu seçenekler</span><span class="sxs-lookup"><span data-stu-id="036d8-106">These options are</span></span>
+<span data-ttu-id="fec95-106">Bu seçenekler</span><span class="sxs-lookup"><span data-stu-id="fec95-106">These options are</span></span>
 
-* <span data-ttu-id="036d8-107">GROUP BY ile dökümü</span><span class="sxs-lookup"><span data-stu-id="036d8-107">GROUP BY with ROLLUP</span></span>
-* <span data-ttu-id="036d8-108">GRUPLANDIRMA KÜMELERİ</span><span class="sxs-lookup"><span data-stu-id="036d8-108">GROUPING SETS</span></span>
-* <span data-ttu-id="036d8-109">GROUP BY ile KÜPÜ</span><span class="sxs-lookup"><span data-stu-id="036d8-109">GROUP BY with CUBE</span></span>
+* <span data-ttu-id="fec95-107">GROUP BY ile dökümü</span><span class="sxs-lookup"><span data-stu-id="fec95-107">GROUP BY with ROLLUP</span></span>
+* <span data-ttu-id="fec95-108">GRUPLANDIRMA KÜMELERİ</span><span class="sxs-lookup"><span data-stu-id="fec95-108">GROUPING SETS</span></span>
+* <span data-ttu-id="fec95-109">GROUP BY ile KÜPÜ</span><span class="sxs-lookup"><span data-stu-id="fec95-109">GROUP BY with CUBE</span></span>
 
-## <a name="rollup-and-grouping-sets-options"></a><span data-ttu-id="036d8-110">Toplama ve gruplandırma kümeleri seçenekleri</span><span class="sxs-lookup"><span data-stu-id="036d8-110">Rollup and grouping sets options</span></span>
-<span data-ttu-id="036d8-111">Burada en basit seçenek kullanmaktır `UNION ALL` yerine toplama gerçekleştirmek için açık sözdizimi, bağlı olan yerine.</span><span class="sxs-lookup"><span data-stu-id="036d8-111">The simplest option here is to use `UNION ALL` instead to perform the rollup rather than relying on the explicit syntax.</span></span> <span data-ttu-id="036d8-112">Tam olarak aynı sonucudur</span><span class="sxs-lookup"><span data-stu-id="036d8-112">The result is exactly the same</span></span>
+## <a name="rollup-and-grouping-sets-options"></a><span data-ttu-id="fec95-110">Toplama ve gruplandırma kümeleri seçenekleri</span><span class="sxs-lookup"><span data-stu-id="fec95-110">Rollup and grouping sets options</span></span>
+<span data-ttu-id="fec95-111">Merhaba burada en basit seçenek olan toouse `UNION ALL` güvenmek yerine tooperform hello toplaması açık sözdizimi yerine hello.</span><span class="sxs-lookup"><span data-stu-id="fec95-111">hello simplest option here is toouse `UNION ALL` instead tooperform hello rollup rather than relying on hello explicit syntax.</span></span> <span data-ttu-id="fec95-112">Merhaba sonucu olan tam olarak hello aynı</span><span class="sxs-lookup"><span data-stu-id="fec95-112">hello result is exactly hello same</span></span>
 
-<span data-ttu-id="036d8-113">Aşağıda, bir gruba deyimi kullanılarak örneğidir `ROLLUP` seçeneği:</span><span class="sxs-lookup"><span data-stu-id="036d8-113">Below is an example of a group by statement using the `ROLLUP` option:</span></span>
+<span data-ttu-id="fec95-113">Aşağıda, bir grubu hello kullanarak deyimi tarafından örneğidir `ROLLUP` seçeneği:</span><span class="sxs-lookup"><span data-stu-id="fec95-113">Below is an example of a group by statement using hello `ROLLUP` option:</span></span>
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -48,13 +48,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-<span data-ttu-id="036d8-114">Toplama kullanarak aşağıdaki toplamalar istediniz:</span><span class="sxs-lookup"><span data-stu-id="036d8-114">By using ROLLUP we have requested the following aggregations:</span></span>
+<span data-ttu-id="fec95-114">Toplama kullanarak toplamalar aşağıdaki hello istediniz:</span><span class="sxs-lookup"><span data-stu-id="fec95-114">By using ROLLUP we have requested hello following aggregations:</span></span>
 
-* <span data-ttu-id="036d8-115">Ülke ve bölgeye</span><span class="sxs-lookup"><span data-stu-id="036d8-115">Country and Region</span></span>
-* <span data-ttu-id="036d8-116">Ülke</span><span class="sxs-lookup"><span data-stu-id="036d8-116">Country</span></span>
-* <span data-ttu-id="036d8-117">Genel toplam</span><span class="sxs-lookup"><span data-stu-id="036d8-117">Grand Total</span></span>
+* <span data-ttu-id="fec95-115">Ülke ve bölgeye</span><span class="sxs-lookup"><span data-stu-id="fec95-115">Country and Region</span></span>
+* <span data-ttu-id="fec95-116">Ülke</span><span class="sxs-lookup"><span data-stu-id="fec95-116">Country</span></span>
+* <span data-ttu-id="fec95-117">Genel toplam</span><span class="sxs-lookup"><span data-stu-id="fec95-117">Grand Total</span></span>
 
-<span data-ttu-id="036d8-118">Bu kullanması gerekecektir değiştirmek için `UNION ALL`; aynı sonuçları döndürmek için açıkça gerekli toplamalar belirtme:</span><span class="sxs-lookup"><span data-stu-id="036d8-118">To replace this you will need to use `UNION ALL`; specifying the aggregations required explicitly to return the same results:</span></span>
+<span data-ttu-id="fec95-118">tooreplace bu toouse gerekir `UNION ALL`; açıkça gerekli hello toplamalar belirtme tooreturn hello aynı sonuçları:</span><span class="sxs-lookup"><span data-stu-id="fec95-118">tooreplace this you will need toouse `UNION ALL`; specifying hello aggregations required explicitly tooreturn hello same results:</span></span>
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,14 +81,14 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-<span data-ttu-id="036d8-119">GRUPLANDIRMA yapmamız gereken ayarlar tüm için aynı asıl adı benimsemeyi ancak yalnızca görmeyi istiyoruz toplama düzeyleri için UNION ALL bölümler oluşturma</span><span class="sxs-lookup"><span data-stu-id="036d8-119">For GROUPING SETS all we need to do is adopt the same principal but only create UNION ALL sections for the aggregation levels we want to see</span></span>
+<span data-ttu-id="fec95-119">Tüm toodo ihtiyacımız olan benimsemeyi GROUPING SETS asıl aynı hello ancak yalnızca toplama düzeyleri hello için UNION ALL bölümler oluşturma toosee istiyoruz.</span><span class="sxs-lookup"><span data-stu-id="fec95-119">For GROUPING SETS all we need toodo is adopt hello same principal but only create UNION ALL sections for hello aggregation levels we want toosee</span></span>
 
-## <a name="cube-options"></a><span data-ttu-id="036d8-120">Küp seçenekleri</span><span class="sxs-lookup"><span data-stu-id="036d8-120">Cube options</span></span>
-<span data-ttu-id="036d8-121">Bir grup tarafından ile UNION ALL yaklaşımı kullanarak KÜPÜ oluşturmak mümkündür.</span><span class="sxs-lookup"><span data-stu-id="036d8-121">It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach.</span></span> <span data-ttu-id="036d8-122">Kod sıkıcı ve yönetilmeleri hızlı bir şekilde olabilecek sorunudur.</span><span class="sxs-lookup"><span data-stu-id="036d8-122">The problem is that the code can quickly become cumbersome and unwieldy.</span></span> <span data-ttu-id="036d8-123">Bunu azaltmak için bu yaklaşım daha gelişmiş kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="036d8-123">To mitigate this you can use this more advanced approach.</span></span>
+## <a name="cube-options"></a><span data-ttu-id="fec95-120">Küp seçenekleri</span><span class="sxs-lookup"><span data-stu-id="fec95-120">Cube options</span></span>
+<span data-ttu-id="fec95-121">Olası toocreate bir grup tarafından WITH CUBE olduğu hello UNION ALL yaklaşımı kullanarak.</span><span class="sxs-lookup"><span data-stu-id="fec95-121">It is possible toocreate a GROUP BY WITH CUBE using hello UNION ALL approach.</span></span> <span data-ttu-id="fec95-122">Merhaba hello kod sıkıcı ve yönetilmeleri hızlı bir şekilde olabilecek bir sorundur.</span><span class="sxs-lookup"><span data-stu-id="fec95-122">hello problem is that hello code can quickly become cumbersome and unwieldy.</span></span> <span data-ttu-id="fec95-123">toomitigate bu bu yaklaşımı daha gelişmiş kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fec95-123">toomitigate this you can use this more advanced approach.</span></span>
 
-<span data-ttu-id="036d8-124">Yukarıdaki örnekte kullanalım.</span><span class="sxs-lookup"><span data-stu-id="036d8-124">Let's use the example above.</span></span>
+<span data-ttu-id="fec95-124">Yukarıdaki örnekte hello kullanalım.</span><span class="sxs-lookup"><span data-stu-id="fec95-124">Let's use hello example above.</span></span>
 
-<span data-ttu-id="036d8-125">İlk adım, 'biz oluşturmak istediğiniz bir toplama tüm düzeylerini tanımlar cube' tanımlamaktır.</span><span class="sxs-lookup"><span data-stu-id="036d8-125">The first step is to define the 'cube' that defines all the levels of aggregation that we want to create.</span></span> <span data-ttu-id="036d8-126">CROSS JOIN iki türetilmiş tabloların not almanız önemlidir.</span><span class="sxs-lookup"><span data-stu-id="036d8-126">It is important to take note of the CROSS JOIN of the two derived tables.</span></span> <span data-ttu-id="036d8-127">Bu tüm düzeyleri bize oluşturur.</span><span class="sxs-lookup"><span data-stu-id="036d8-127">This generates all the levels for us.</span></span> <span data-ttu-id="036d8-128">Kod kalan gerçekten biçimlendirme için yoktur.</span><span class="sxs-lookup"><span data-stu-id="036d8-128">The rest of the code is really there for formatting.</span></span>
+<span data-ttu-id="fec95-125">Merhaba ilk adımı toodefine hello 'toocreate istiyoruz toplama tüm hello düzeylerini tanımlar cube' dir.</span><span class="sxs-lookup"><span data-stu-id="fec95-125">hello first step is toodefine hello 'cube' that defines all hello levels of aggregation that we want toocreate.</span></span> <span data-ttu-id="fec95-126">Önemli tootake Not hello hello iki türetilmiş tabloların çapraz birleşimi olan.</span><span class="sxs-lookup"><span data-stu-id="fec95-126">It is important tootake note of hello CROSS JOIN of hello two derived tables.</span></span> <span data-ttu-id="fec95-127">Bu tüm hello düzeylerini bize oluşturur.</span><span class="sxs-lookup"><span data-stu-id="fec95-127">This generates all hello levels for us.</span></span> <span data-ttu-id="fec95-128">Merhaba rest hello kod gerçekten biçimlendirme için yoktur.</span><span class="sxs-lookup"><span data-stu-id="fec95-128">hello rest of hello code is really there for formatting.</span></span>
 
 ```sql
 CREATE TABLE #Cube
@@ -119,11 +119,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-<span data-ttu-id="036d8-129">CTAS sonuçlarını aşağıda görebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="036d8-129">The results of the CTAS can be seen below:</span></span>
+<span data-ttu-id="fec95-129">Merhaba Hello sonuçlarını CTAS altında görülebilir:</span><span class="sxs-lookup"><span data-stu-id="fec95-129">hello results of hello CTAS can be seen below:</span></span>
 
 ![][1]
 
-<span data-ttu-id="036d8-130">Ara Sonuçların depolanacağı bir hedef tablo belirtmek için ikinci adım şöyledir:</span><span class="sxs-lookup"><span data-stu-id="036d8-130">The second step is to specify a target table to store interim results:</span></span>
+<span data-ttu-id="fec95-130">Hello ikinci adım, bir hedef tablo toostore geçici sonuçları toospecify şöyledir:</span><span class="sxs-lookup"><span data-stu-id="fec95-130">hello second step is toospecify a target table toostore interim results:</span></span>
 
 ```sql
 DECLARE
@@ -146,7 +146,7 @@ WITH
 ;
 ```
 
-<span data-ttu-id="036d8-131">Üçüncü adım bizim toplama gerçekleştirme sütunları küp üzerinde döngü oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="036d8-131">The third step is to loop over our cube of columns performing the aggregation.</span></span> <span data-ttu-id="036d8-132">Sorgu #Cube geçici tablodaki her satır için bir kez çalıştır ve #Results geçici tablosunda Sonuçların depolanacağı</span><span class="sxs-lookup"><span data-stu-id="036d8-132">The query will run once for every row in the #Cube temporary table and store the results in the #Results temp table</span></span>
+<span data-ttu-id="fec95-131">Merhaba üçüncü tooloop bizim hello toplama gerçekleştirme sütunları küp üzerinde bir adımdır.</span><span class="sxs-lookup"><span data-stu-id="fec95-131">hello third step is tooloop over our cube of columns performing hello aggregation.</span></span> <span data-ttu-id="fec95-132">Merhaba sorgu hello #Cube geçici tablosunda her satır için bir kez çalıştır ve hello #Results geçici tablosunda hello sonuçları deposunu</span><span class="sxs-lookup"><span data-stu-id="fec95-132">hello query will run once for every row in hello #Cube temporary table and store hello results in hello #Results temp table</span></span>
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +170,7 @@ BEGIN
 END
 ```
 
-<span data-ttu-id="036d8-133">Son olarak biz #Results geçici tablosundan okuyarak sonuçlar döndürebilir</span><span class="sxs-lookup"><span data-stu-id="036d8-133">Lastly we can return the results by simply reading from the #Results temporary table</span></span>
+<span data-ttu-id="fec95-133">Son olarak biz hello #Results geçici tablodaki okuyarak hello sonuçlar döndürebilir</span><span class="sxs-lookup"><span data-stu-id="fec95-133">Lastly we can return hello results by simply reading from hello #Results temporary table</span></span>
 
 ```sql
 SELECT *
@@ -179,10 +179,10 @@ ORDER BY 1,2,3
 ;
 ```
 
-<span data-ttu-id="036d8-134">Kod bölümlere ayırma ve döngü yapısı oluşturma kodu daha yönetilebilir ve sürdürülebilir haline gelir.</span><span class="sxs-lookup"><span data-stu-id="036d8-134">By breaking the code up into sections and generating a looping construct the code becomes more manageable and maintainable.</span></span>
+<span data-ttu-id="fec95-134">Merhaba kod bölümlere ayırma ve döngü yapısı hello oluşturma kodu daha yönetilebilir ve sürdürülebilir haline gelir.</span><span class="sxs-lookup"><span data-stu-id="fec95-134">By breaking hello code up into sections and generating a looping construct hello code becomes more manageable and maintainable.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="036d8-135">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="036d8-135">Next steps</span></span>
-<span data-ttu-id="036d8-136">Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış][development overview].</span><span class="sxs-lookup"><span data-stu-id="036d8-136">For more development tips, see [development overview][development overview].</span></span>
+## <a name="next-steps"></a><span data-ttu-id="fec95-135">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="fec95-135">Next steps</span></span>
+<span data-ttu-id="fec95-136">Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış][development overview].</span><span class="sxs-lookup"><span data-stu-id="fec95-136">For more development tips, see [development overview][development overview].</span></span>
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png

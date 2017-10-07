@@ -1,6 +1,6 @@
 ---
-title: "Azure REST API - Azure kullanarak Hadoop kümeleri oluşturma | Microsoft Docs"
-description: "Azure Resource Manager şablonları Azure REST API göndererek Hdınsight kümeleri oluşturmayı öğrenin."
+title: "aaaCreate Hadoop kümeleri Azure REST API - Azure kullanarak | Microsoft Docs"
+description: "Azure Resource Manager şablonları toohello Azure REST API göndererek nasıl toocreate Hdınsight kümeleri hakkında bilgi edinin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,31 +16,31 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 87b585e5084eccdc3d7c57483deabb4ad6e32597
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-hadoop-clusters-using-the-azure-rest-api"></a><span data-ttu-id="48fe1-103">Azure REST API'sini kullanarak Hadoop kümeleri oluşturma</span><span class="sxs-lookup"><span data-stu-id="48fe1-103">Create Hadoop clusters using the Azure REST API</span></span>
+# <a name="create-hadoop-clusters-using-hello-azure-rest-api"></a><span data-ttu-id="80c5e-103">Hello Azure REST API'sini kullanarak Hadoop kümeleri oluşturma</span><span class="sxs-lookup"><span data-stu-id="80c5e-103">Create Hadoop clusters using hello Azure REST API</span></span>
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-<span data-ttu-id="48fe1-104">Bir Azure Resource Manager şablonu ve Azure REST API'sini kullanarak bir Hdınsight kümesi oluşturmayı öğrenin.</span><span class="sxs-lookup"><span data-stu-id="48fe1-104">Learn how to create an HDInsight cluster using an Azure Resource Manager template and the Azure REST API.</span></span>
+<span data-ttu-id="80c5e-104">Nasıl toocreate bir Hdınsight küme bir Azure Resource Manager şablonu kullanarak ve Azure REST API hello öğrenin.</span><span class="sxs-lookup"><span data-stu-id="80c5e-104">Learn how toocreate an HDInsight cluster using an Azure Resource Manager template and hello Azure REST API.</span></span>
 
-<span data-ttu-id="48fe1-105">Azure REST API'sini Hdınsight kümeleri gibi yeni kaynaklar oluşturma dahil olmak üzere Azure platformu barındırılan Hizmetleri yönetim işlemlerini gerçekleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="48fe1-105">The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.</span></span>
+<span data-ttu-id="80c5e-105">Hello Azure REST API tooperform yönetim işlemlerini hello hello oluşturulmasını Hdınsight kümeleri gibi yeni kaynaklar dahil olmak üzere Azure platformu barındırılan hizmetleri sağlar.</span><span class="sxs-lookup"><span data-stu-id="80c5e-105">hello Azure REST API allows you tooperform management operations on services hosted in hello Azure platform, including hello creation of new resources such as HDInsight clusters.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="48fe1-106">Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir.</span><span class="sxs-lookup"><span data-stu-id="48fe1-106">Linux is the only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="48fe1-107">Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span><span class="sxs-lookup"><span data-stu-id="48fe1-107">For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span></span>
+> <span data-ttu-id="80c5e-106">Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir.</span><span class="sxs-lookup"><span data-stu-id="80c5e-106">Linux is hello only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="80c5e-107">Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span><span class="sxs-lookup"><span data-stu-id="80c5e-107">For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="48fe1-108">Bu adımlarda belge kullanımı [curl (https://curl.haxx.se/)](https://curl.haxx.se/) Azure REST API'si ile iletişim kurmak için yardımcı programı.</span><span class="sxs-lookup"><span data-stu-id="48fe1-108">The steps in this document use the [curl (https://curl.haxx.se/)](https://curl.haxx.se/) utility to communicate with the Azure REST API.</span></span>
+> <span data-ttu-id="80c5e-108">Merhaba adımları bu belgenin kullanımı hello [curl (https://curl.haxx.se/)](https://curl.haxx.se/) yardımcı programı toocommunicate hello Azure REST API'si ile.</span><span class="sxs-lookup"><span data-stu-id="80c5e-108">hello steps in this document use hello [curl (https://curl.haxx.se/)](https://curl.haxx.se/) utility toocommunicate with hello Azure REST API.</span></span>
 
-## <a name="create-a-template"></a><span data-ttu-id="48fe1-109">Şablon oluşturma</span><span class="sxs-lookup"><span data-stu-id="48fe1-109">Create a template</span></span>
+## <a name="create-a-template"></a><span data-ttu-id="80c5e-109">Şablon oluşturma</span><span class="sxs-lookup"><span data-stu-id="80c5e-109">Create a template</span></span>
 
-<span data-ttu-id="48fe1-110">Azure Resource Manager şablonları tanımlayan JSON belgeleri olan bir **kaynak grubu** ve ortamdaki tüm kaynaklar (örneğin, Hdınsight.) Bu şablona dayalı yaklaşım, tek bir şablonda Hdınsight için gereken kaynaklar tanımlamanıza olanak sağlar.</span><span class="sxs-lookup"><span data-stu-id="48fe1-110">Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define the resources that you need for HDInsight in one template.</span></span>
+<span data-ttu-id="80c5e-110">Azure Resource Manager şablonları tanımlayan JSON belgeleri olan bir **kaynak grubu** ve ortamdaki tüm kaynaklar (örneğin, Hdınsight.) Bu şablona dayalı yaklaşım, tek bir şablonda Hdınsight için gereken toodefine hello kaynaklar sağlar.</span><span class="sxs-lookup"><span data-stu-id="80c5e-110">Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you toodefine hello resources that you need for HDInsight in one template.</span></span>
 
-<span data-ttu-id="48fe1-111">Bir birleşme şablonu ve parametre dosyalarının aşağıdaki JSON belgedir [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), Linux tabanlı bir küme oluşturur SSH kullanıcı hesabını güvenli hale getirmek için bir parola kullanma.</span><span class="sxs-lookup"><span data-stu-id="48fe1-111">The following JSON document is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.</span></span>
+<span data-ttu-id="80c5e-111">Merhaba aşağıdaki JSON hello birleşmesi şablonu ve parametre dosyalarını belgedir [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), Linux tabanlı oluşturur bir parola toosecure hello SSH kullanıcı hesabı kullanarak küme.</span><span class="sxs-lookup"><span data-stu-id="80c5e-111">hello following JSON document is a merger of hello template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password toosecure hello SSH user account.</span></span>
 
    ```json
    {
@@ -56,50 +56,50 @@ ms.lasthandoff: 08/18/2017
                        "storm",
                        "spark"],
                        "metadata": {
-                           "description": "The type of the HDInsight cluster to create."
+                           "description": "hello type of hello HDInsight cluster toocreate."
                        }
                    },
                    "clusterName": {
                        "type": "string",
                        "metadata": {
-                           "description": "The name of the HDInsight cluster to create."
+                           "description": "hello name of hello HDInsight cluster toocreate."
                        }
                    },
                    "clusterLoginUserName": {
                        "type": "string",
                        "metadata": {
-                           "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+                           "description": "These credentials can be used toosubmit jobs toohello cluster and toolog into cluster dashboards."
                        }
                    },
                    "clusterLoginPassword": {
                        "type": "securestring",
                        "metadata": {
-                           "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                           "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                        }
                    },
                    "sshUserName": {
                        "type": "string",
                        "metadata": {
-                           "description": "These credentials can be used to remotely access the cluster."
+                           "description": "These credentials can be used tooremotely access hello cluster."
                        }
                    },
                    "sshPassword": {
                        "type": "securestring",
                        "metadata": {
-                           "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                           "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                        }
                    },
                    "clusterStorageAccountName": {
                        "type": "string",
                        "metadata": {
-                           "description": "The name of the storage account to be created and be used as the cluster's storage."
+                           "description": "hello name of hello storage account toobe created and be used as hello cluster's storage."
                        }
                    },
                    "clusterWorkerNodeCount": {
                        "type": "int",
                        "defaultValue": 4,
                        "metadata": {
-                           "description": "The number of nodes in the HDInsight cluster."
+                           "description": "hello number of nodes in hello HDInsight cluster."
                        }
                    }
                },
@@ -215,60 +215,60 @@ ms.lasthandoff: 08/18/2017
    }
    ```
 
-<span data-ttu-id="48fe1-112">Bu örnekte, bu belgede yer alan adımlar, kullanılır.</span><span class="sxs-lookup"><span data-stu-id="48fe1-112">This example is used in the steps in this document.</span></span> <span data-ttu-id="48fe1-113">Örneği değiştirecek *değerleri* içinde **parametreleri** kümeniz için değerlerle bölümü.</span><span class="sxs-lookup"><span data-stu-id="48fe1-113">Replace the example *values* in the **Parameters** section with the values for your cluster.</span></span>
+<span data-ttu-id="80c5e-112">Bu örnek, bu belgedeki hello adımlarda kullanılır.</span><span class="sxs-lookup"><span data-stu-id="80c5e-112">This example is used in hello steps in this document.</span></span> <span data-ttu-id="80c5e-113">Merhaba örneği değiştirecek *değerleri* hello içinde **parametreleri** kümeniz için hello değerlerle bölümü.</span><span class="sxs-lookup"><span data-stu-id="80c5e-113">Replace hello example *values* in hello **Parameters** section with hello values for your cluster.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="48fe1-114">Şablonu çalışan düğümleri (4) varsayılan sayısı bir Hdınsight kümesi için kullanır.</span><span class="sxs-lookup"><span data-stu-id="48fe1-114">The template uses the default number of worker nodes (4) for an HDInsight cluster.</span></span> <span data-ttu-id="48fe1-115">32'den fazla çalışan düğümlerine planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB ram ile seçmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="48fe1-115">If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14 GB ram.</span></span>
+> <span data-ttu-id="80c5e-114">Merhaba şablon hello varsayılan çalışan düğümleri (4) sayısı bir Hdınsight kümesi için kullanır.</span><span class="sxs-lookup"><span data-stu-id="80c5e-114">hello template uses hello default number of worker nodes (4) for an HDInsight cluster.</span></span> <span data-ttu-id="80c5e-115">32'den fazla çalışan düğümlerine planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB ram ile seçmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="80c5e-115">If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14 GB ram.</span></span>
 >
-> <span data-ttu-id="48fe1-116">Düğümü boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).</span><span class="sxs-lookup"><span data-stu-id="48fe1-116">For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).</span></span>
+> <span data-ttu-id="80c5e-116">Düğümü boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).</span><span class="sxs-lookup"><span data-stu-id="80c5e-116">For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).</span></span>
 
-## <a name="log-in-to-your-azure-subscription"></a><span data-ttu-id="48fe1-117">Azure aboneliğinizde oturum açın</span><span class="sxs-lookup"><span data-stu-id="48fe1-117">Log in to your Azure subscription</span></span>
+## <a name="log-in-tooyour-azure-subscription"></a><span data-ttu-id="80c5e-117">Azure aboneliği tooyour oturum</span><span class="sxs-lookup"><span data-stu-id="80c5e-117">Log in tooyour Azure subscription</span></span>
 
-<span data-ttu-id="48fe1-118">Konusunda belgelenen adımları izleyin [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) ve kullanarak aboneliğinze bağlanın `az login` komutu.</span><span class="sxs-lookup"><span data-stu-id="48fe1-118">Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.</span></span>
+<span data-ttu-id="80c5e-118">İçinde belirtilen başlangıç adımları [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) ve tooyour abonelik hello kullanarak bağlanmak `az login` komutu.</span><span class="sxs-lookup"><span data-stu-id="80c5e-118">Follow hello steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect tooyour subscription using hello `az login` command.</span></span>
 
-## <a name="create-a-service-principal"></a><span data-ttu-id="48fe1-119">Hizmet sorumlusu oluşturma</span><span class="sxs-lookup"><span data-stu-id="48fe1-119">Create a service principal</span></span>
+## <a name="create-a-service-principal"></a><span data-ttu-id="80c5e-119">Hizmet sorumlusu oluşturma</span><span class="sxs-lookup"><span data-stu-id="80c5e-119">Create a service principal</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="48fe1-120">Bu adımları özetlenmiş bir sürümü olan *parolayla hizmet sorumlusu oluşturma* bölümünü [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için kullanım Azure CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) belge.</span><span class="sxs-lookup"><span data-stu-id="48fe1-120">These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) document.</span></span> <span data-ttu-id="48fe1-121">Bu adımlar Azure REST API'sine kimliğini doğrulamak için kullanılan bir hizmet sorumlusu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="48fe1-121">These steps create a service principal that is used to authenticate to the Azure REST API.</span></span>
+> <span data-ttu-id="80c5e-120">Bu adımları hello özetlenmiş bir sürümü olan *parolayla hizmet sorumlusu oluşturma* hello bölümünü [kullanım Azure CLI toocreate bir hizmet sorumlusu tooaccess kaynakları](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) belge.</span><span class="sxs-lookup"><span data-stu-id="80c5e-120">These steps are an abridged version of hello *Create service principal with password* section of hello [Use Azure CLI toocreate a service principal tooaccess resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) document.</span></span> <span data-ttu-id="80c5e-121">Bu adımları kullanılan tooauthenticate toohello Azure REST API'si olan bir hizmet sorumlusu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="80c5e-121">These steps create a service principal that is used tooauthenticate toohello Azure REST API.</span></span>
 
-1. <span data-ttu-id="48fe1-122">Bir komut satırından, Azure aboneliklerinize listelemek için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="48fe1-122">From a command line, use the following command to list your Azure subscriptions.</span></span>
+1. <span data-ttu-id="80c5e-122">Bir komut satırından komut toolist aşağıdaki hello Azure aboneliklerinize kullanın.</span><span class="sxs-lookup"><span data-stu-id="80c5e-122">From a command line, use hello following command toolist your Azure subscriptions.</span></span>
 
    ```bash
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    <span data-ttu-id="48fe1-123">Listede, kullanıp not etmek istediğiniz aboneliği seçin **ABONELİK_KİMLİĞİ** ve __Tenant_ID__ sütun.</span><span class="sxs-lookup"><span data-stu-id="48fe1-123">In the list, select the subscription that you want to use and note the **Subscription_ID** and __Tenant_ID__ columns.</span></span> <span data-ttu-id="48fe1-124">Bu değerleri kaydedin.</span><span class="sxs-lookup"><span data-stu-id="48fe1-124">Save these values.</span></span>
+    <span data-ttu-id="80c5e-123">Merhaba listesinde toouse istediğiniz ve Not hello hello aboneliği seçin **ABONELİK_KİMLİĞİ** ve __Tenant_ID__ sütun.</span><span class="sxs-lookup"><span data-stu-id="80c5e-123">In hello list, select hello subscription that you want toouse and note hello **Subscription_ID** and __Tenant_ID__ columns.</span></span> <span data-ttu-id="80c5e-124">Bu değerleri kaydedin.</span><span class="sxs-lookup"><span data-stu-id="80c5e-124">Save these values.</span></span>
 
-2. <span data-ttu-id="48fe1-125">Azure Active Directory'de bir uygulama oluşturmak için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="48fe1-125">Use the following command to create an application in Azure Active Directory.</span></span>
+2. <span data-ttu-id="80c5e-125">Komut toocreate bir uygulama Azure Active Directory'de aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="80c5e-125">Use hello following command toocreate an application in Azure Active Directory.</span></span>
 
    ```bash
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    <span data-ttu-id="48fe1-126">İçin değerleri `--display-name`, `--homepage`, ve `--identifier-uris` kendi değerlere sahip.</span><span class="sxs-lookup"><span data-stu-id="48fe1-126">Replace the values for the `--display-name`, `--homepage`, and `--identifier-uris` with your own values.</span></span> <span data-ttu-id="48fe1-127">Yeni Active Directory giriş için bir parola sağlayın.</span><span class="sxs-lookup"><span data-stu-id="48fe1-127">Provide a password for the new Active Directory entry.</span></span>
+    <span data-ttu-id="80c5e-126">Hello için Hello değerleri `--display-name`, `--homepage`, ve `--identifier-uris` kendi değerlere sahip.</span><span class="sxs-lookup"><span data-stu-id="80c5e-126">Replace hello values for hello `--display-name`, `--homepage`, and `--identifier-uris` with your own values.</span></span> <span data-ttu-id="80c5e-127">Merhaba yeni Active Directory giriş için bir parola sağlayın.</span><span class="sxs-lookup"><span data-stu-id="80c5e-127">Provide a password for hello new Active Directory entry.</span></span>
 
    > [!NOTE]
-   > <span data-ttu-id="48fe1-128">`--home-page` Ve `--identifier-uris` değerleri internet'te barındırılan gerçek bir web sayfasına başvuru gerekmez.</span><span class="sxs-lookup"><span data-stu-id="48fe1-128">The `--home-page` and `--identifier-uris` values don't need to reference an actual web page hosted on the internet.</span></span> <span data-ttu-id="48fe1-129">Benzersiz bir URI olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="48fe1-129">They must be unique URIs.</span></span>
+   > <span data-ttu-id="80c5e-128">Merhaba `--home-page` ve `--identifier-uris` değerleri tooreference hello üzerinde barındırılan gerçek bir web sayfasına gerekmez Internet.</span><span class="sxs-lookup"><span data-stu-id="80c5e-128">hello `--home-page` and `--identifier-uris` values don't need tooreference an actual web page hosted on hello internet.</span></span> <span data-ttu-id="80c5e-129">Benzersiz bir URI olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="80c5e-129">They must be unique URIs.</span></span>
 
-   <span data-ttu-id="48fe1-130">Bu komuttan döndürülen değer __uygulama kimliği__ yeni uygulama için.</span><span class="sxs-lookup"><span data-stu-id="48fe1-130">The value returned from this command is the __App ID__ for the new application.</span></span> <span data-ttu-id="48fe1-131">Bu değer kaydedin.</span><span class="sxs-lookup"><span data-stu-id="48fe1-131">Save this value.</span></span>
+   <span data-ttu-id="80c5e-130">Merhaba Bu komuttan döndürülen değer: Merhaba __uygulama kimliği__ hello yeni uygulama için.</span><span class="sxs-lookup"><span data-stu-id="80c5e-130">hello value returned from this command is hello __App ID__ for hello new application.</span></span> <span data-ttu-id="80c5e-131">Bu değer kaydedin.</span><span class="sxs-lookup"><span data-stu-id="80c5e-131">Save this value.</span></span>
 
-3. <span data-ttu-id="48fe1-132">Kullanarak bir hizmet sorumlusu oluşturmak için aşağıdaki komutu kullanın **uygulama kimliği**.</span><span class="sxs-lookup"><span data-stu-id="48fe1-132">Use the following command to create a service principal using the **App ID**.</span></span>
+3. <span data-ttu-id="80c5e-132">Kullanım hello şu komutu toocreate hello kullanarak bir hizmet sorumlusu **uygulama kimliği**.</span><span class="sxs-lookup"><span data-stu-id="80c5e-132">Use hello following command toocreate a service principal using hello **App ID**.</span></span>
 
    ```bash
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     <span data-ttu-id="48fe1-133">Bu komuttan döndürülen değer __nesne kimliği__.</span><span class="sxs-lookup"><span data-stu-id="48fe1-133">The value returned from this command is the __Object ID__.</span></span> <span data-ttu-id="48fe1-134">Bu değer kaydedin.</span><span class="sxs-lookup"><span data-stu-id="48fe1-134">Save this value.</span></span>
+     <span data-ttu-id="80c5e-133">Merhaba Bu komuttan döndürülen değer: Merhaba __nesne kimliği__.</span><span class="sxs-lookup"><span data-stu-id="80c5e-133">hello value returned from this command is hello __Object ID__.</span></span> <span data-ttu-id="80c5e-134">Bu değer kaydedin.</span><span class="sxs-lookup"><span data-stu-id="80c5e-134">Save this value.</span></span>
 
-4. <span data-ttu-id="48fe1-135">Ata **sahibi** hizmet asıl kullanarak rolü **nesne kimliği** değeri.</span><span class="sxs-lookup"><span data-stu-id="48fe1-135">Assign the **Owner** role to the service principal using the **Object ID** value.</span></span> <span data-ttu-id="48fe1-136">Kullanım **abonelik kimliği** daha önce aldığınız.</span><span class="sxs-lookup"><span data-stu-id="48fe1-136">Use the **subscription ID** you obtained earlier.</span></span>
+4. <span data-ttu-id="80c5e-135">Merhaba atamak **sahibi** hello kullanarak rolü toohello hizmet sorumlusu **nesne kimliği** değeri.</span><span class="sxs-lookup"><span data-stu-id="80c5e-135">Assign hello **Owner** role toohello service principal using hello **Object ID** value.</span></span> <span data-ttu-id="80c5e-136">Kullanım hello **abonelik kimliği** daha önce aldığınız.</span><span class="sxs-lookup"><span data-stu-id="80c5e-136">Use hello **subscription ID** you obtained earlier.</span></span>
 
    ```bash
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
-## <a name="get-an-authentication-token"></a><span data-ttu-id="48fe1-137">Kimlik Doğrulama belirtecini alma</span><span class="sxs-lookup"><span data-stu-id="48fe1-137">Get an authentication token</span></span>
+## <a name="get-an-authentication-token"></a><span data-ttu-id="80c5e-137">Kimlik Doğrulama belirtecini alma</span><span class="sxs-lookup"><span data-stu-id="80c5e-137">Get an authentication token</span></span>
 
-<span data-ttu-id="48fe1-138">Kimlik Doğrulama belirtecini almak için aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="48fe1-138">Use the following command to retrieve an authentication token:</span></span>
+<span data-ttu-id="80c5e-138">Komut tooretrieve kimlik doğrulama belirtecini aşağıdaki hello kullan:</span><span class="sxs-lookup"><span data-stu-id="80c5e-138">Use hello following command tooretrieve an authentication token:</span></span>
 
 ```bash
 curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
@@ -280,11 +280,11 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 --data-urlencode "resource=https://management.azure.com/"
 ```
 
-<span data-ttu-id="48fe1-139">Ayarlama `$TENANTID`, `$APPID`, ve `$PASSWORD` elde ya da daha önce kullanılan değerler.</span><span class="sxs-lookup"><span data-stu-id="48fe1-139">Set `$TENANTID`, `$APPID`, and `$PASSWORD` to the values obtained or used previously.</span></span>
+<span data-ttu-id="80c5e-139">Ayarlama `$TENANTID`, `$APPID`, ve `$PASSWORD` toohello değerleri elde veya önceden kullanılmış.</span><span class="sxs-lookup"><span data-stu-id="80c5e-139">Set `$TENANTID`, `$APPID`, and `$PASSWORD` toohello values obtained or used previously.</span></span>
 
-<span data-ttu-id="48fe1-140">Bu istek başarılı olursa, 200 serisi yanıtı alır ve bir JSON belgesi yanıt gövdesi içerir.</span><span class="sxs-lookup"><span data-stu-id="48fe1-140">If this request is successful, you receive a 200 series response and the response body contains a JSON document.</span></span>
+<span data-ttu-id="80c5e-140">Bu istek başarılı olursa, 200 serisi yanıtı alır ve bir JSON belgesi hello yanıt gövdesi içerir.</span><span class="sxs-lookup"><span data-stu-id="80c5e-140">If this request is successful, you receive a 200 series response and hello response body contains a JSON document.</span></span>
 
-<span data-ttu-id="48fe1-141">Bu istek tarafından döndürülen JSON belgesi adlı bir öğe içeriyorsa **access_token**.</span><span class="sxs-lookup"><span data-stu-id="48fe1-141">The JSON document returned by this request contains an element named **access_token**.</span></span> <span data-ttu-id="48fe1-142">Değeri **access_token** REST API için kimlik doğrulama istekleri için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="48fe1-142">The value of **access_token** is used to authentication requests to the REST API.</span></span>
+<span data-ttu-id="80c5e-141">Merhaba bu istek tarafından döndürülen JSON belgesi adlı bir öğe içeriyorsa **access_token**.</span><span class="sxs-lookup"><span data-stu-id="80c5e-141">hello JSON document returned by this request contains an element named **access_token**.</span></span> <span data-ttu-id="80c5e-142">Merhaba değerini **access_token** kullanılan tooauthentication istekleri toohello REST API değil.</span><span class="sxs-lookup"><span data-stu-id="80c5e-142">hello value of **access_token** is used tooauthentication requests toohello REST API.</span></span>
 
 ```json
 {
@@ -296,14 +296,14 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 }
 ```
 
-## <a name="create-a-resource-group"></a><span data-ttu-id="48fe1-143">Kaynak grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="48fe1-143">Create a resource group</span></span>
+## <a name="create-a-resource-group"></a><span data-ttu-id="80c5e-143">Kaynak grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="80c5e-143">Create a resource group</span></span>
 
-<span data-ttu-id="48fe1-144">Bir kaynak grubu oluşturmak için aşağıdakileri kullanın.</span><span class="sxs-lookup"><span data-stu-id="48fe1-144">Use the following to create a resource group.</span></span>
+<span data-ttu-id="80c5e-144">Bir kaynak grubu toocreate aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="80c5e-144">Use hello following toocreate a resource group.</span></span>
 
-* <span data-ttu-id="48fe1-145">Ayarlama `$SUBSCRIPTIONID` abonelik kimliği alınan hizmet asıl oluşturulurken.</span><span class="sxs-lookup"><span data-stu-id="48fe1-145">Set `$SUBSCRIPTIONID` to the subscription ID received while creating the service principal.</span></span>
-* <span data-ttu-id="48fe1-146">Ayarlama `$ACCESSTOKEN` önceki adımda aldığınız erişim belirtecini için.</span><span class="sxs-lookup"><span data-stu-id="48fe1-146">Set `$ACCESSTOKEN` to the access token received in the previous step.</span></span>
-* <span data-ttu-id="48fe1-147">Değiştir `DATACENTERLOCATION` kaynak grubu ve kaynakları, oluşturmak istediğiniz veri merkezi ile.</span><span class="sxs-lookup"><span data-stu-id="48fe1-147">Replace `DATACENTERLOCATION` with the data center you wish to create the resource group, and resources, in.</span></span> <span data-ttu-id="48fe1-148">Örneğin, 'Orta Güney ABD'.</span><span class="sxs-lookup"><span data-stu-id="48fe1-148">For example, 'South Central US'.</span></span>
-* <span data-ttu-id="48fe1-149">Ayarlama `$RESOURCEGROUPNAME` bu grup için kullanmak istediğiniz adı:</span><span class="sxs-lookup"><span data-stu-id="48fe1-149">Set `$RESOURCEGROUPNAME` to the name you wish to use for this group:</span></span>
+* <span data-ttu-id="80c5e-145">Ayarlama `$SUBSCRIPTIONID` toohello abonelik kimliği alınan hizmet asıl hello oluşturulurken.</span><span class="sxs-lookup"><span data-stu-id="80c5e-145">Set `$SUBSCRIPTIONID` toohello subscription ID received while creating hello service principal.</span></span>
+* <span data-ttu-id="80c5e-146">Ayarlama `$ACCESSTOKEN` hello önceki adımda aldığınız toohello erişim belirteci.</span><span class="sxs-lookup"><span data-stu-id="80c5e-146">Set `$ACCESSTOKEN` toohello access token received in hello previous step.</span></span>
+* <span data-ttu-id="80c5e-147">Değiştir `DATACENTERLOCATION` ile Merhaba veri merkezi toocreate hello kaynak grubu ve kaynaklar içinde istediğiniz.</span><span class="sxs-lookup"><span data-stu-id="80c5e-147">Replace `DATACENTERLOCATION` with hello data center you wish toocreate hello resource group, and resources, in.</span></span> <span data-ttu-id="80c5e-148">Örneğin, 'Orta Güney ABD'.</span><span class="sxs-lookup"><span data-stu-id="80c5e-148">For example, 'South Central US'.</span></span>
+* <span data-ttu-id="80c5e-149">Ayarlama `$RESOURCEGROUPNAME` toouse bu grup için istediğiniz toohello adı:</span><span class="sxs-lookup"><span data-stu-id="80c5e-149">Set `$RESOURCEGROUPNAME` toohello name you wish toouse for this group:</span></span>
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
@@ -314,34 +314,34 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 }'
 ```
 
-<span data-ttu-id="48fe1-150">Bu istek başarılı olursa, 200 serisi yanıtını alma ve grubu ile ilgili bilgileri içeren bir JSON belgesi yanıt gövdesi içerir.</span><span class="sxs-lookup"><span data-stu-id="48fe1-150">If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the group.</span></span> <span data-ttu-id="48fe1-151">`"provisioningState"` Ögesinin değerini `"Succeeded"`.</span><span class="sxs-lookup"><span data-stu-id="48fe1-151">The `"provisioningState"` element contains a value of `"Succeeded"`.</span></span>
+<span data-ttu-id="80c5e-150">Bu istek başarılı olursa, 200 serisi yanıtını alma ve hello grubu hakkında bilgi içeren bir JSON belgesi hello yanıt gövdesi içerir.</span><span class="sxs-lookup"><span data-stu-id="80c5e-150">If this request is successful, you receive a 200 series response and hello response body contains a JSON document containing information about hello group.</span></span> <span data-ttu-id="80c5e-151">Merhaba `"provisioningState"` ögesinin değerini `"Succeeded"`.</span><span class="sxs-lookup"><span data-stu-id="80c5e-151">hello `"provisioningState"` element contains a value of `"Succeeded"`.</span></span>
 
-## <a name="create-a-deployment"></a><span data-ttu-id="48fe1-152">Bir dağıtımı oluşturma</span><span class="sxs-lookup"><span data-stu-id="48fe1-152">Create a deployment</span></span>
+## <a name="create-a-deployment"></a><span data-ttu-id="80c5e-152">Bir dağıtımı oluşturma</span><span class="sxs-lookup"><span data-stu-id="80c5e-152">Create a deployment</span></span>
 
-<span data-ttu-id="48fe1-153">Şablonu kaynak grubuna dağıtmak için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="48fe1-153">Use the following command to deploy the template to the resource group.</span></span>
+<span data-ttu-id="80c5e-153">Komut toodeploy hello şablon toohello kaynak grubu aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="80c5e-153">Use hello following command toodeploy hello template toohello resource group.</span></span>
 
-* <span data-ttu-id="48fe1-154">Ayarlama `$DEPLOYMENTNAME` bu dağıtım için kullanmak istediğiniz adı.</span><span class="sxs-lookup"><span data-stu-id="48fe1-154">Set `$DEPLOYMENTNAME` to the name you wish to use for this deployment.</span></span>
+* <span data-ttu-id="80c5e-154">Ayarlama `$DEPLOYMENTNAME` toouse bu dağıtım için istediğiniz toohello adı.</span><span class="sxs-lookup"><span data-stu-id="80c5e-154">Set `$DEPLOYMENTNAME` toohello name you wish toouse for this deployment.</span></span>
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
 -H "Authorization: Bearer $ACCESSTOKEN" \
 -H "Content-Type: application/json" \
--d "{set your body string to the template and parameters}"
+-d "{set your body string toohello template and parameters}"
 ```
 
 > [!NOTE]
-> <span data-ttu-id="48fe1-155">Bir dosyaya şablon kaydettiyseniz yerine aşağıdaki komutu kullanabilirsiniz `-d "{ template and parameters}"`:</span><span class="sxs-lookup"><span data-stu-id="48fe1-155">If you saved the template to a file, you can use the following command instead of `-d "{ template and parameters}"`:</span></span>
+> <span data-ttu-id="80c5e-155">Hello şablon tooa dosyası kaydettiyseniz komut yerine aşağıdaki hello kullanabilirsiniz `-d "{ template and parameters}"`:</span><span class="sxs-lookup"><span data-stu-id="80c5e-155">If you saved hello template tooa file, you can use hello following command instead of `-d "{ template and parameters}"`:</span></span>
 >
 > `--data-binary "@/path/to/file.json"`
 
-<span data-ttu-id="48fe1-156">Bu istek başarılı olursa, 200 serisi yanıtını alma ve dağıtım işlemiyle ilgili bilgi içeren bir JSON belgesi yanıt gövdesi içerir.</span><span class="sxs-lookup"><span data-stu-id="48fe1-156">If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the deployment operation.</span></span>
+<span data-ttu-id="80c5e-156">Bu istek başarılı olursa, 200 serisi yanıtını alma ve hello dağıtım işlemiyle ilgili bilgi içeren bir JSON belgesi hello yanıt gövdesi içerir.</span><span class="sxs-lookup"><span data-stu-id="80c5e-156">If this request is successful, you receive a 200 series response and hello response body contains a JSON document containing information about hello deployment operation.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="48fe1-157">Dağıtım gönderildi ancak tamamlanmadı.</span><span class="sxs-lookup"><span data-stu-id="48fe1-157">The deployment has been submitted, but has not completed.</span></span> <span data-ttu-id="48fe1-158">Tamamlamak için dağıtım için genellikle yaklaşık 15, birkaç dakika sürebilir.</span><span class="sxs-lookup"><span data-stu-id="48fe1-158">It can take several minutes, usually around 15, for the deployment to complete.</span></span>
+> <span data-ttu-id="80c5e-157">Merhaba dağıtım gönderildi ancak tamamlanmadı.</span><span class="sxs-lookup"><span data-stu-id="80c5e-157">hello deployment has been submitted, but has not completed.</span></span> <span data-ttu-id="80c5e-158">Birkaç dakika, genellikle yaklaşık 15 ' hello dağıtım toocomplete alabilir.</span><span class="sxs-lookup"><span data-stu-id="80c5e-158">It can take several minutes, usually around 15, for hello deployment toocomplete.</span></span>
 
-## <a name="check-the-status-of-a-deployment"></a><span data-ttu-id="48fe1-159">Bir dağıtım durumunu denetleyin</span><span class="sxs-lookup"><span data-stu-id="48fe1-159">Check the status of a deployment</span></span>
+## <a name="check-hello-status-of-a-deployment"></a><span data-ttu-id="80c5e-159">Bir dağıtım Hello durumunu denetleme</span><span class="sxs-lookup"><span data-stu-id="80c5e-159">Check hello status of a deployment</span></span>
 
-<span data-ttu-id="48fe1-160">Dağıtım durumunu denetlemek için aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="48fe1-160">To check the status of the deployment, use the following command:</span></span>
+<span data-ttu-id="80c5e-160">Merhaba dağıtımının komutu aşağıdaki kullanım hello toocheck hello durumu:</span><span class="sxs-lookup"><span data-stu-id="80c5e-160">toocheck hello status of hello deployment, use hello following command:</span></span>
 
 ```bash
 curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
@@ -349,29 +349,29 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -H "Content-Type: application/json"
 ```
 
-<span data-ttu-id="48fe1-161">Bu komut, dağıtım işlemi hakkında bilgi içeren bir JSON belgesi döndürür.</span><span class="sxs-lookup"><span data-stu-id="48fe1-161">This command returns a JSON document containing information about the deployment operation.</span></span> <span data-ttu-id="48fe1-162">`"provisioningState"` Öğesi dağıtım durumunu içerir.</span><span class="sxs-lookup"><span data-stu-id="48fe1-162">The `"provisioningState"` element contains the status of the deployment.</span></span> <span data-ttu-id="48fe1-163">Bu öğe bir değeri varsa `"Succeeded"`, dağıtım başarıyla tamamlandıktan sonra.</span><span class="sxs-lookup"><span data-stu-id="48fe1-163">If this element contains a value of `"Succeeded"`, then the deployment has completed successfully.</span></span>
+<span data-ttu-id="80c5e-161">Bu komut hello dağıtım işlemiyle ilgili bilgi içeren bir JSON belgesi döndürür.</span><span class="sxs-lookup"><span data-stu-id="80c5e-161">This command returns a JSON document containing information about hello deployment operation.</span></span> <span data-ttu-id="80c5e-162">Merhaba `"provisioningState"` öğesi hello hello dağıtımının durumunu içerir.</span><span class="sxs-lookup"><span data-stu-id="80c5e-162">hello `"provisioningState"` element contains hello status of hello deployment.</span></span> <span data-ttu-id="80c5e-163">Bu öğe bir değeri varsa `"Succeeded"`, hello dağıtım başarıyla tamamlandıktan sonra.</span><span class="sxs-lookup"><span data-stu-id="80c5e-163">If this element contains a value of `"Succeeded"`, then hello deployment has completed successfully.</span></span>
 
-## <a name="troubleshoot"></a><span data-ttu-id="48fe1-164">Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="48fe1-164">Troubleshoot</span></span>
+## <a name="troubleshoot"></a><span data-ttu-id="80c5e-164">Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="80c5e-164">Troubleshoot</span></span>
 
-<span data-ttu-id="48fe1-165">HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).</span><span class="sxs-lookup"><span data-stu-id="48fe1-165">If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).</span></span>
+<span data-ttu-id="80c5e-165">HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).</span><span class="sxs-lookup"><span data-stu-id="80c5e-165">If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="48fe1-166">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="48fe1-166">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="80c5e-166">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="80c5e-166">Next steps</span></span>
 
-<span data-ttu-id="48fe1-167">Hdınsight kümesi başarıyla oluşturuldu, kümenizi ile çalışmayı öğrenmek için aşağıdakileri kullanın.</span><span class="sxs-lookup"><span data-stu-id="48fe1-167">Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster.</span></span>
+<span data-ttu-id="80c5e-167">Hdınsight kümesi başarıyla oluşturuldu, toolearn nasıl aşağıdaki hello kullan toowork kümenizi ile.</span><span class="sxs-lookup"><span data-stu-id="80c5e-167">Now that you have successfully created an HDInsight cluster, use hello following toolearn how toowork with your cluster.</span></span>
 
-### <a name="hadoop-clusters"></a><span data-ttu-id="48fe1-168">Hadoop kümeleri</span><span class="sxs-lookup"><span data-stu-id="48fe1-168">Hadoop clusters</span></span>
+### <a name="hadoop-clusters"></a><span data-ttu-id="80c5e-168">Hadoop kümeleri</span><span class="sxs-lookup"><span data-stu-id="80c5e-168">Hadoop clusters</span></span>
 
-* [<span data-ttu-id="48fe1-169">HDInsight ile Hive kullanma</span><span class="sxs-lookup"><span data-stu-id="48fe1-169">Use Hive with HDInsight</span></span>](hdinsight-use-hive.md)
-* [<span data-ttu-id="48fe1-170">HDInsight ile Pig kullanma</span><span class="sxs-lookup"><span data-stu-id="48fe1-170">Use Pig with HDInsight</span></span>](hdinsight-use-pig.md)
-* [<span data-ttu-id="48fe1-171">Hdınsight ile MapReduce kullanma</span><span class="sxs-lookup"><span data-stu-id="48fe1-171">Use MapReduce with HDInsight</span></span>](hdinsight-use-mapreduce.md)
+* [<span data-ttu-id="80c5e-169">HDInsight ile Hive kullanma</span><span class="sxs-lookup"><span data-stu-id="80c5e-169">Use Hive with HDInsight</span></span>](hdinsight-use-hive.md)
+* [<span data-ttu-id="80c5e-170">HDInsight ile Pig kullanma</span><span class="sxs-lookup"><span data-stu-id="80c5e-170">Use Pig with HDInsight</span></span>](hdinsight-use-pig.md)
+* [<span data-ttu-id="80c5e-171">Hdınsight ile MapReduce kullanma</span><span class="sxs-lookup"><span data-stu-id="80c5e-171">Use MapReduce with HDInsight</span></span>](hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a><span data-ttu-id="48fe1-172">HBase kümeleri</span><span class="sxs-lookup"><span data-stu-id="48fe1-172">HBase clusters</span></span>
+### <a name="hbase-clusters"></a><span data-ttu-id="80c5e-172">HBase kümeleri</span><span class="sxs-lookup"><span data-stu-id="80c5e-172">HBase clusters</span></span>
 
-* [<span data-ttu-id="48fe1-173">Hdınsight'ta HBase kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="48fe1-173">Get started with HBase on HDInsight</span></span>](hdinsight-hbase-tutorial-get-started-linux.md)
-* [<span data-ttu-id="48fe1-174">Hdınsight'ta HBase için Java uygulamaları geliştirme</span><span class="sxs-lookup"><span data-stu-id="48fe1-174">Develop Java applications for HBase on HDInsight</span></span>](hdinsight-hbase-build-java-maven-linux.md)
+* [<span data-ttu-id="80c5e-173">Hdınsight'ta HBase kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="80c5e-173">Get started with HBase on HDInsight</span></span>](hdinsight-hbase-tutorial-get-started-linux.md)
+* [<span data-ttu-id="80c5e-174">Hdınsight'ta HBase için Java uygulamaları geliştirme</span><span class="sxs-lookup"><span data-stu-id="80c5e-174">Develop Java applications for HBase on HDInsight</span></span>](hdinsight-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a><span data-ttu-id="48fe1-175">Storm kümeleri</span><span class="sxs-lookup"><span data-stu-id="48fe1-175">Storm clusters</span></span>
+### <a name="storm-clusters"></a><span data-ttu-id="80c5e-175">Storm kümeleri</span><span class="sxs-lookup"><span data-stu-id="80c5e-175">Storm clusters</span></span>
 
-* [<span data-ttu-id="48fe1-176">Hdınsight üzerinde Storm için Java topolojisi geliştirme</span><span class="sxs-lookup"><span data-stu-id="48fe1-176">Develop Java topologies for Storm on HDInsight</span></span>](hdinsight-storm-develop-java-topology.md)
-* [<span data-ttu-id="48fe1-177">Hdınsight üzerinde Storm Python bileşenleri kullanma</span><span class="sxs-lookup"><span data-stu-id="48fe1-177">Use Python components in Storm on HDInsight</span></span>](hdinsight-storm-develop-python-topology.md)
-* [<span data-ttu-id="48fe1-178">Dağıtma ve hdınsight'ta Storm topolojileri izleme</span><span class="sxs-lookup"><span data-stu-id="48fe1-178">Deploy and monitor topologies with Storm on HDInsight</span></span>](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [<span data-ttu-id="80c5e-176">Hdınsight üzerinde Storm için Java topolojisi geliştirme</span><span class="sxs-lookup"><span data-stu-id="80c5e-176">Develop Java topologies for Storm on HDInsight</span></span>](hdinsight-storm-develop-java-topology.md)
+* [<span data-ttu-id="80c5e-177">Hdınsight üzerinde Storm Python bileşenleri kullanma</span><span class="sxs-lookup"><span data-stu-id="80c5e-177">Use Python components in Storm on HDInsight</span></span>](hdinsight-storm-develop-python-topology.md)
+* [<span data-ttu-id="80c5e-178">Dağıtma ve hdınsight'ta Storm topolojileri izleme</span><span class="sxs-lookup"><span data-stu-id="80c5e-178">Deploy and monitor topologies with Storm on HDInsight</span></span>](hdinsight-storm-deploy-monitor-topology-linux.md)

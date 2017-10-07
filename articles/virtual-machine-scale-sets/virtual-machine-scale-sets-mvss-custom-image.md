@@ -1,6 +1,6 @@
 ---
 title: "Bir Azure ölçek kümesi şablonu özel görüntü başvurusu | Microsoft Docs"
-description: "Özel görüntü mevcut bir Azure sanal makine ölçek kümesi şablona eklemeyi öğrenin"
+description: "Nasıl tooadd özel bir görüntü tooan mevcut Azure sanal makine ölçek kümesi şablon öğrenin"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a17d989e44d241b460238c0106350c3ef038e56
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a><span data-ttu-id="baa38-103">Bir Azure ölçek kümesi şablonuna özel bir görüntü ekleme</span><span class="sxs-lookup"><span data-stu-id="baa38-103">Add a custom image to an Azure scale set template</span></span>
+# <a name="add-a-custom-image-tooan-azure-scale-set-template"></a><span data-ttu-id="78d5a-103">Şablon özel görüntü tooan Azure ölçek kümesi ekleme</span><span class="sxs-lookup"><span data-stu-id="78d5a-103">Add a custom image tooan Azure scale set template</span></span>
 
-<span data-ttu-id="baa38-104">Bu makalede nasıl değiştirileceğini gösterir [minimum uygun ölçek kümesi şablonu](./virtual-machine-scale-sets-mvss-start.md) özel görüntüsünü dağıtmak için.</span><span class="sxs-lookup"><span data-stu-id="baa38-104">This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to deploy from custom image.</span></span>
+<span data-ttu-id="78d5a-104">Bu makalede gösterilmektedir nasıl toomodify hello [minimum uygun ölçek kümesi şablonu](./virtual-machine-scale-sets-mvss-start.md) özel görüntüden toodeploy.</span><span class="sxs-lookup"><span data-stu-id="78d5a-104">This article shows how toomodify hello [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) toodeploy from custom image.</span></span>
 
-## <a name="change-the-template-definition"></a><span data-ttu-id="baa38-105">Şablon tanımını değiştirin</span><span class="sxs-lookup"><span data-stu-id="baa38-105">Change the template definition</span></span>
+## <a name="change-hello-template-definition"></a><span data-ttu-id="78d5a-105">Merhaba şablon tanımını değiştirin</span><span class="sxs-lookup"><span data-stu-id="78d5a-105">Change hello template definition</span></span>
 
-<span data-ttu-id="baa38-106">Bizim minimum uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve ölçek dağıtma özel bir görüntüden ayarlamak için bizim şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json).</span><span class="sxs-lookup"><span data-stu-id="baa38-106">Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying the scale set from a custom image can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json).</span></span> <span data-ttu-id="baa38-107">Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set custom-image`) tarafından parça parça:</span><span class="sxs-lookup"><span data-stu-id="baa38-107">Let's examine the diff used to create this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:</span></span>
+<span data-ttu-id="78d5a-106">Bizim minimum uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve hello ölçeği özel bir görüntüden Ayarla dağıtmak için bizim şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json).</span><span class="sxs-lookup"><span data-stu-id="78d5a-106">Our minimum viable scale set template can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), and our template for deploying hello scale set from a custom image can be seen [here](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json).</span></span> <span data-ttu-id="78d5a-107">Merhaba kullanılan fark toocreate bu şablonu inceleyelim (`git diff minimum-viable-scale-set custom-image`) tarafından parça parça:</span><span class="sxs-lookup"><span data-stu-id="78d5a-107">Let's examine hello diff used toocreate this template (`git diff minimum-viable-scale-set custom-image`) piece by piece:</span></span>
 
-### <a name="creating-a-managed-disk-image"></a><span data-ttu-id="baa38-108">Yönetilen disk görüntüsü oluşturma</span><span class="sxs-lookup"><span data-stu-id="baa38-108">Creating a managed disk image</span></span>
+### <a name="creating-a-managed-disk-image"></a><span data-ttu-id="78d5a-108">Yönetilen disk görüntüsü oluşturma</span><span class="sxs-lookup"><span data-stu-id="78d5a-108">Creating a managed disk image</span></span>
 
-<span data-ttu-id="baa38-109">Bir özel yönetilen disk görüntüsü zaten varsa (bir kaynak türü `Microsoft.Compute/images`), sonra da bu bölümü atlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="baa38-109">If you already have a custom managed disk image (a resource of type `Microsoft.Compute/images`), then you can skip this section.</span></span>
+<span data-ttu-id="78d5a-109">Bir özel yönetilen disk görüntüsü zaten varsa (bir kaynak türü `Microsoft.Compute/images`), sonra da bu bölümü atlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="78d5a-109">If you already have a custom managed disk image (a resource of type `Microsoft.Compute/images`), then you can skip this section.</span></span>
 
-<span data-ttu-id="baa38-110">İlk olarak, eklediğimiz bir `sourceImageVhdUri` dağıtım yapmak özel görüntüsünü içeren Azure depolama alanında genelleştirilmiş blob URI'si olan parametre.</span><span class="sxs-lookup"><span data-stu-id="baa38-110">First, we add a `sourceImageVhdUri` parameter, which is the URI to the generalized blob in Azure Storage that contains the custom image to deploy from.</span></span>
+<span data-ttu-id="78d5a-110">İlk olarak, eklediğimiz bir `sourceImageVhdUri` hello URI genelleştirilmiş toohello blob hello özel görüntü toodeploy gelen içeren Azure storage'da olan parametre.</span><span class="sxs-lookup"><span data-stu-id="78d5a-110">First, we add a `sourceImageVhdUri` parameter, which is hello URI toohello generalized blob in Azure Storage that contains hello custom image toodeploy from.</span></span>
 
 
 ```diff
@@ -44,14 +44,14 @@ ms.lasthandoff: 07/11/2017
 +    "sourceImageVhdUri": {
 +      "type": "string",
 +      "metadata": {
-+        "description": "The source of the generalized blob containing the custom image"
++        "description": "hello source of hello generalized blob containing hello custom image"
 +      }
      }
    },
    "variables": {},
 ```
 
-<span data-ttu-id="baa38-111">Ardından, bir kaynak türü eklediğimiz `Microsoft.Compute/images`, yönetilen disk görüntüyü URI'da bulunan genelleştirilmiş blob dayalı olduğu `sourceImageVhdUri`.</span><span class="sxs-lookup"><span data-stu-id="baa38-111">Next, we add a resource of type `Microsoft.Compute/images`, which is the managed disk image based on the generalized blob located at URI `sourceImageVhdUri`.</span></span> <span data-ttu-id="baa38-112">Bu görüntü kullandığı ölçek kümesi ile aynı bölgede olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="baa38-112">This image must be in the same region as the scale set that uses it.</span></span> <span data-ttu-id="baa38-113">Görüntü özelliklerinde biz işletim sistemi türü, blob konumunu belirtin (gelen `sourceImageVhdUri` parametresi) ve depolama hesabı türü:</span><span class="sxs-lookup"><span data-stu-id="baa38-113">In the properties of the image, we specify the OS type, the location of the blob (from the `sourceImageVhdUri` parameter), and the storage account type:</span></span>
+<span data-ttu-id="78d5a-111">Ardından, bir kaynak türü eklediğimiz `Microsoft.Compute/images`, hangi hello yönetilen disk görüntüsü URI'da bulunan genelleştirilmiş hello blob temel `sourceImageVhdUri`.</span><span class="sxs-lookup"><span data-stu-id="78d5a-111">Next, we add a resource of type `Microsoft.Compute/images`, which is hello managed disk image based on hello generalized blob located at URI `sourceImageVhdUri`.</span></span> <span data-ttu-id="78d5a-112">Bu görüntü hello olmalıdır kullandığı hello ölçek kümesi aynı bölgede.</span><span class="sxs-lookup"><span data-stu-id="78d5a-112">This image must be in hello same region as hello scale set that uses it.</span></span> <span data-ttu-id="78d5a-113">Merhaba görüntü Hello özelliklerinde biz hello işletim sistemi türü, hello blob hello konumunu belirtin (Merhaba gelen `sourceImageVhdUri` parametresi) ve hello depolama hesabı türü:</span><span class="sxs-lookup"><span data-stu-id="78d5a-113">In hello properties of hello image, we specify hello OS type, hello location of hello blob (from hello `sourceImageVhdUri` parameter), and hello storage account type:</span></span>
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ ms.lasthandoff: 07/11/2017
 
 ```
 
-<span data-ttu-id="baa38-114">Eklediğimiz kaynak, Ölçek kümesindeki bir `dependsOn` ölçek kümesi bu görüntüden dağıtmayı denemeden önce görüntünün emin olmak için özel görüntü başvuran yan tümcesi oluşturulmuş:</span><span class="sxs-lookup"><span data-stu-id="baa38-114">In the scale set resource, we add a `dependsOn` clause referring to the custom image to make sure the image gets created before the scale set tries to deploy from that image:</span></span>
+<span data-ttu-id="78d5a-114">Hello ölçek kümesi kaynağı, eklediğimiz bir `dependsOn` toohello özel görüntü toomake hello görüntüsünü oluşturan toodeploy bu görüntüden hello ölçek kümesini denemeden önce emin başvuran yan tümcesi:</span><span class="sxs-lookup"><span data-stu-id="78d5a-114">In hello scale set resource, we add a `dependsOn` clause referring toohello custom image toomake sure hello image gets created before hello scale set tries toodeploy from that image:</span></span>
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -93,9 +93,9 @@ ms.lasthandoff: 07/11/2017
 
 ```
 
-### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a><span data-ttu-id="baa38-115">Ölçeğin değiştirilmesi yönetilen disk görüntüsü kullanmak için özelliklerini ayarlama</span><span class="sxs-lookup"><span data-stu-id="baa38-115">Changing scale set properties to use the managed disk image</span></span>
+### <a name="changing-scale-set-properties-toouse-hello-managed-disk-image"></a><span data-ttu-id="78d5a-115">Ölçeğin değiştirilmesi özellikleri toouse hello yönetilen disk resmi ayarlama</span><span class="sxs-lookup"><span data-stu-id="78d5a-115">Changing scale set properties toouse hello managed disk image</span></span>
 
-<span data-ttu-id="baa38-116">İçinde `imageReference` ölçeğini ayarlama `storageProfile`, yayımcı, teklif, sku ve platform görüntüsü belirtmek yerine, biz belirtin `id` , `Microsoft.Compute/images` kaynak:</span><span class="sxs-lookup"><span data-stu-id="baa38-116">In the `imageReference` of the scale set `storageProfile`, instead of specifying the publisher, offer, sku, and version of a platform image, we specify the `id` of the `Microsoft.Compute/images` resource:</span></span>
+<span data-ttu-id="78d5a-116">Merhaba, `imageReference` hello ölçeğini ayarlama `storageProfile`, hello publisher, teklif, sku ve platform görüntüsü belirtmek yerine hello belirttiğimiz `id` Merhaba, `Microsoft.Compute/images` kaynak:</span><span class="sxs-lookup"><span data-stu-id="78d5a-116">In hello `imageReference` of hello scale set `storageProfile`, instead of specifying hello publisher, offer, sku, and version of a platform image, we specify hello `id` of hello `Microsoft.Compute/images` resource:</span></span>
 
 ```diff
          "virtualMachineProfile": {
@@ -111,9 +111,9 @@ ms.lasthandoff: 07/11/2017
            "osProfile": {
 ```
 
-<span data-ttu-id="baa38-117">Bu örnekte, kullandığımız `resourceId` aynı şablonunda oluşturulan görüntü kaynak kimliği almak için işlevi.</span><span class="sxs-lookup"><span data-stu-id="baa38-117">In this example, we use the `resourceId` function to get the resource ID of the image created in the same template.</span></span> <span data-ttu-id="baa38-118">Yönetilen disk görüntüsü önceden oluşturduysanız, bunun yerine, görüntü kimliğini sağlamalıdır.</span><span class="sxs-lookup"><span data-stu-id="baa38-118">If you have created the managed disk image beforehand, you should provide the id of that image instead.</span></span> <span data-ttu-id="baa38-119">Bu kimliği biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.</span><span class="sxs-lookup"><span data-stu-id="baa38-119">This id must be of the form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.</span></span>
+<span data-ttu-id="78d5a-117">Bu örnekte, kullandığımız hello `resourceId` işlevi tooget hello kaynak kimliği hello görüntüsünün oluşturulan hello aynı şablonu.</span><span class="sxs-lookup"><span data-stu-id="78d5a-117">In this example, we use hello `resourceId` function tooget hello resource ID of hello image created in hello same template.</span></span> <span data-ttu-id="78d5a-118">Hello yönetilen disk görüntüsü önceden oluşturduysanız, bunun yerine, görüntü hello kimliğini sağlamalıdır.</span><span class="sxs-lookup"><span data-stu-id="78d5a-118">If you have created hello managed disk image beforehand, you should provide hello id of that image instead.</span></span> <span data-ttu-id="78d5a-119">Bu kimliği hello biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.</span><span class="sxs-lookup"><span data-stu-id="78d5a-119">This id must be of hello form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="baa38-120">Sonraki Adımlar</span><span class="sxs-lookup"><span data-stu-id="baa38-120">Next Steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="78d5a-120">Sonraki Adımlar</span><span class="sxs-lookup"><span data-stu-id="78d5a-120">Next Steps</span></span>
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

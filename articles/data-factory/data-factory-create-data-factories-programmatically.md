@@ -1,6 +1,6 @@
 ---
-title: "Azure .NET SDK kullanarak veri ardışık düzen oluşturun | Microsoft Docs"
-description: "Program aracılığıyla oluşturmak, izlemek ve Data Factory SDK'yı kullanarak Azure data factory'leri yönetme hakkında bilgi edinin."
+title: "Azure .NET SDK kullanarak aaaCreate veri ardışık | Microsoft Docs"
+description: "Nasıl tooprogrammatically oluşturmak, izlemek ve Data Factory SDK'yı kullanarak Azure data factory'leri yönetmek öğrenin."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,109 +14,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 9d9dac75321c5d4e079f49320d9b7c6f56e48754
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 190b5f99edbb3c27e1e8efb8990b9e601b22458f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a><span data-ttu-id="7f1e7-103">Oluşturma, izlemek ve Azure Data Factory .NET SDK kullanarak Azure data factory'leri yönetme</span><span class="sxs-lookup"><span data-stu-id="7f1e7-103">Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK</span></span>
-## <a name="overview"></a><span data-ttu-id="7f1e7-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="7f1e7-104">Overview</span></span>
-<span data-ttu-id="7f1e7-105">Oluşturun, izlemek ve program aracılığıyla Data Factory .NET SDK kullanarak Azure data factory'leri yönetin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-105">You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK.</span></span> <span data-ttu-id="7f1e7-106">Bu makalede, oluşturur ve bir veri fabrikası izler örnek bir .NET konsol uygulaması oluşturmak için izleyebileceğiniz bir kılavuz içerir.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-106">This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory.</span></span> 
+# <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a><span data-ttu-id="75354-103">Oluşturma, izlemek ve Azure Data Factory .NET SDK kullanarak Azure data factory'leri yönetme</span><span class="sxs-lookup"><span data-stu-id="75354-103">Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK</span></span>
+## <a name="overview"></a><span data-ttu-id="75354-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="75354-104">Overview</span></span>
+<span data-ttu-id="75354-105">Oluşturun, izlemek ve program aracılığıyla Data Factory .NET SDK kullanarak Azure data factory'leri yönetin.</span><span class="sxs-lookup"><span data-stu-id="75354-105">You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK.</span></span> <span data-ttu-id="75354-106">Bu makalede toocreate oluşturan ve veri fabrikası izler örnek bir .NET konsol uygulaması izleyebileceğiniz bir kılavuz içerir.</span><span class="sxs-lookup"><span data-stu-id="75354-106">This article contains a walkthrough that you can follow toocreate a sample .NET console application that creates and monitors a data factory.</span></span> 
 
 > [!NOTE]
-> <span data-ttu-id="7f1e7-107">Bu makale, Data Factory .NET API’nin tamamını kapsamaz.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-107">This article does not cover all the Data Factory .NET API.</span></span> <span data-ttu-id="7f1e7-108">Bkz: [Data Factory .NET API Başvurusu](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) hakkında kapsamlı bilgi için .NET API veri fabrikası için.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-108">See [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) for comprehensive documentation on .NET API for Data Factory.</span></span> 
+> <span data-ttu-id="75354-107">Bu makalede, tüm hello veri fabrikası .NET API kapsamaz.</span><span class="sxs-lookup"><span data-stu-id="75354-107">This article does not cover all hello Data Factory .NET API.</span></span> <span data-ttu-id="75354-108">Bkz: [Data Factory .NET API Başvurusu](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) hakkında kapsamlı bilgi için .NET API veri fabrikası için.</span><span class="sxs-lookup"><span data-stu-id="75354-108">See [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) for comprehensive documentation on .NET API for Data Factory.</span></span> 
 
-## <a name="prerequisites"></a><span data-ttu-id="7f1e7-109">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="7f1e7-109">Prerequisites</span></span>
-* <span data-ttu-id="7f1e7-110">Visual Studio 2012 veya 2013 veya 2015</span><span class="sxs-lookup"><span data-stu-id="7f1e7-110">Visual Studio 2012 or 2013 or 2015</span></span>
-* <span data-ttu-id="7f1e7-111">İndirme ve yükleme [Azure .NET SDK'sı](http://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="7f1e7-111">Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).</span></span>
-* <span data-ttu-id="7f1e7-112">Azure PowerShell.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-112">Azure PowerShell.</span></span> <span data-ttu-id="7f1e7-113">Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) makalesindeki yönergeleri izleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-113">Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer.</span></span> <span data-ttu-id="7f1e7-114">Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-114">You use Azure PowerShell to create an Azure Active Directory application.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="75354-109">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="75354-109">Prerequisites</span></span>
+* <span data-ttu-id="75354-110">Visual Studio 2012 veya 2013 veya 2015</span><span class="sxs-lookup"><span data-stu-id="75354-110">Visual Studio 2012 or 2013 or 2015</span></span>
+* <span data-ttu-id="75354-111">İndirme ve yükleme [Azure .NET SDK'sı](http://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="75354-111">Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).</span></span>
+* <span data-ttu-id="75354-112">Azure PowerShell.</span><span class="sxs-lookup"><span data-stu-id="75354-112">Azure PowerShell.</span></span> <span data-ttu-id="75354-113">' Ndaki yönergeleri izleyin [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) tooinstall Azure PowerShell, bilgisayarınızda makalesi.</span><span class="sxs-lookup"><span data-stu-id="75354-113">Follow instructions in [How tooinstall and configure Azure PowerShell](/powershell/azure/overview) article tooinstall Azure PowerShell on your computer.</span></span> <span data-ttu-id="75354-114">Azure PowerShell toocreate bir Azure Active Directory uygulamasını kullanın.</span><span class="sxs-lookup"><span data-stu-id="75354-114">You use Azure PowerShell toocreate an Azure Active Directory application.</span></span>
 
-### <a name="create-an-application-in-azure-active-directory"></a><span data-ttu-id="7f1e7-115">Azure Active Directory’de uygulama oluşturma</span><span class="sxs-lookup"><span data-stu-id="7f1e7-115">Create an application in Azure Active Directory</span></span>
-<span data-ttu-id="7f1e7-116">Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sorumlusu oluşturun ve bunu **Data Factory Katılımcısı** rolüne atayın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-116">Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.</span></span>
+### <a name="create-an-application-in-azure-active-directory"></a><span data-ttu-id="75354-115">Azure Active Directory’de uygulama oluşturma</span><span class="sxs-lookup"><span data-stu-id="75354-115">Create an application in Azure Active Directory</span></span>
+<span data-ttu-id="75354-116">Bir Azure Active Directory uygulaması oluşturmak, Merhaba uygulaması için bir hizmet sorumlusu oluşturmak ve toohello atamak **veri fabrikası katkıda bulunan** rol.</span><span class="sxs-lookup"><span data-stu-id="75354-116">Create an Azure Active Directory application, create a service principal for hello application, and assign it toohello **Data Factory Contributor** role.</span></span>
 
-1. <span data-ttu-id="7f1e7-117">**PowerShell**’i başlatın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-117">Launch **PowerShell**.</span></span>
-2. <span data-ttu-id="7f1e7-118">Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-118">Run the following command and enter the user name and password that you use to sign in to the Azure portal.</span></span>
+1. <span data-ttu-id="75354-117">**PowerShell**’i başlatın.</span><span class="sxs-lookup"><span data-stu-id="75354-117">Launch **PowerShell**.</span></span>
+2. <span data-ttu-id="75354-118">Merhaba aşağıdaki komutu çalıştırın ve hello kullanıcı adı ve parola toosign toohello Azure portal kullanın girin.</span><span class="sxs-lookup"><span data-stu-id="75354-118">Run hello following command and enter hello user name and password that you use toosign in toohello Azure portal.</span></span>
 
     ```PowerShell
     Login-AzureRmAccount
     ```
-3. <span data-ttu-id="7f1e7-119">Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-119">Run the following command to view all the subscriptions for this account.</span></span>
+3. <span data-ttu-id="75354-119">Bu hesap için tüm hello abonelikleri komutu tooview aşağıdaki hello çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="75354-119">Run hello following command tooview all hello subscriptions for this account.</span></span>
 
     ```PowerShell
     Get-AzureRmSubscription
     ```
-4. <span data-ttu-id="7f1e7-120">Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-120">Run the following command to select the subscription that you want to work with.</span></span> <span data-ttu-id="7f1e7-121">**&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-121">Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.</span></span>
+4. <span data-ttu-id="75354-120">Çalışma hello aşağıdaki toowork ile istediğiniz tooselect hello abonelik komutu.</span><span class="sxs-lookup"><span data-stu-id="75354-120">Run hello following command tooselect hello subscription that you want toowork with.</span></span> <span data-ttu-id="75354-121">Değiştir  **&lt;NameOfAzureSubscription** &gt; , Azure aboneliğinizin hello adı.</span><span class="sxs-lookup"><span data-stu-id="75354-121">Replace **&lt;NameOfAzureSubscription**&gt; with hello name of your Azure subscription.</span></span>
 
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
 
    > [!IMPORTANT]
-   > <span data-ttu-id="7f1e7-122">Bu komutun çıktısından **SubscriptionId** ve **TenantId** değerlerin not alın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-122">Note down **SubscriptionId** and **TenantId** from the output of this command.</span></span>
+   > <span data-ttu-id="75354-122">Aşağı Not **Subscriptionıd** ve **Tenantıd** bu komutun hello çıktısından.</span><span class="sxs-lookup"><span data-stu-id="75354-122">Note down **SubscriptionId** and **TenantId** from hello output of this command.</span></span>
 
-5. <span data-ttu-id="7f1e7-123">PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-123">Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.</span></span>
+5. <span data-ttu-id="75354-123">Adlı bir Azure kaynak grubu oluşturma **ADFTutorialResourceGroup** hello PowerShell komutunda aşağıdaki hello çalıştırarak.</span><span class="sxs-lookup"><span data-stu-id="75354-123">Create an Azure resource group named **ADFTutorialResourceGroup** by running hello following command in hello PowerShell.</span></span>
 
     ```PowerShell
     New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
-    <span data-ttu-id="7f1e7-124">Kaynak grubu zaten varsa bunun güncelleştirileceğini mi (Y) yoksa (N) olarak tutulacağını mı belirtirsiniz.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-124">If the resource group already exists, you specify whether to update it (Y) or keep it as (N).</span></span>
+    <span data-ttu-id="75354-124">Belirttiğiniz Hello kaynak grubu zaten varsa, olup olmadığını tooupdate bunu (Y) veya (N) tutun.</span><span class="sxs-lookup"><span data-stu-id="75354-124">If hello resource group already exists, you specify whether tooupdate it (Y) or keep it as (N).</span></span>
 
-    <span data-ttu-id="7f1e7-125">Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide kullanılan ADFTutorialResourceGroup yerine kaynak grubunuzun adını kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-125">If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.</span></span>
-6. <span data-ttu-id="7f1e7-126">Bir Azure Active Directory uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-126">Create an Azure Active Directory application.</span></span>
+    <span data-ttu-id="75354-125">Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide ADFTutorialResourceGroup yerine, kaynak grubunun toouse hello adı gerekir.</span><span class="sxs-lookup"><span data-stu-id="75354-125">If you use a different resource group, you need toouse hello name of your resource group in place of ADFTutorialResourceGroup in this tutorial.</span></span>
+6. <span data-ttu-id="75354-126">Bir Azure Active Directory uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="75354-126">Create an Azure Active Directory application.</span></span>
 
     ```PowerShell
     $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
-    <span data-ttu-id="7f1e7-127">Aşağıdaki hatayı alırsanız farklı bir URL belirtip komutu yeniden çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-127">If you get the following error, specify a different URL and run the command again.</span></span>
+    <span data-ttu-id="75354-127">Merhaba aşağıdaki hata alırsanız, farklı bir URL belirtin ve hello komutunu yeniden çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="75354-127">If you get hello following error, specify a different URL and run hello command again.</span></span>
     
     ```PowerShell
-    Another object with the same value for property identifierUris already exists.
+    Another object with hello same value for property identifierUris already exists.
     ```
-7. <span data-ttu-id="7f1e7-128">AD hizmet sorumlusunu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-128">Create the AD service principal.</span></span>
+7. <span data-ttu-id="75354-128">Merhaba AD hizmet sorumlusu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="75354-128">Create hello AD service principal.</span></span>
 
     ```PowerShell
     New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
-8. <span data-ttu-id="7f1e7-129">Hizmet sorumlusunu **Data Factory Katılımcısı** rolüne ekleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-129">Add service principal to the **Data Factory Contributor** role.</span></span>
+8. <span data-ttu-id="75354-129">Hizmet asıl toohello ekleme **veri fabrikası katkıda bulunan** rol.</span><span class="sxs-lookup"><span data-stu-id="75354-129">Add service principal toohello **Data Factory Contributor** role.</span></span>
 
     ```PowerShell
     New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
-9. <span data-ttu-id="7f1e7-130">Uygulama kimliğini alın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-130">Get the application ID.</span></span>
+9. <span data-ttu-id="75354-130">Merhaba uygulama kimliği alma</span><span class="sxs-lookup"><span data-stu-id="75354-130">Get hello application ID.</span></span>
 
     ```PowerShell
     $azureAdApplication 
     ```
-    <span data-ttu-id="7f1e7-131">Çıktıdaki uygulama kimliğini (applicationID) not alın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-131">Note down the application ID (applicationID) from the output.</span></span>
+    <span data-ttu-id="75354-131">Merhaba çıktısından hello uygulama kimliği (ApplicationId) aşağı unutmayın.</span><span class="sxs-lookup"><span data-stu-id="75354-131">Note down hello application ID (applicationID) from hello output.</span></span>
 
-<span data-ttu-id="7f1e7-132">Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="7f1e7-132">You should have following four values from these steps:</span></span>
+<span data-ttu-id="75354-132">Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="75354-132">You should have following four values from these steps:</span></span>
 
-* <span data-ttu-id="7f1e7-133">Kiracı Kimliği</span><span class="sxs-lookup"><span data-stu-id="7f1e7-133">Tenant ID</span></span>
-* <span data-ttu-id="7f1e7-134">Abonelik Kimliği</span><span class="sxs-lookup"><span data-stu-id="7f1e7-134">Subscription ID</span></span>
-* <span data-ttu-id="7f1e7-135">Uygulama Kimliği</span><span class="sxs-lookup"><span data-stu-id="7f1e7-135">Application ID</span></span>
-* <span data-ttu-id="7f1e7-136">Parola (ik komutta belirtilir)</span><span class="sxs-lookup"><span data-stu-id="7f1e7-136">Password (specified in the first command)</span></span>
+* <span data-ttu-id="75354-133">Kiracı Kimliği</span><span class="sxs-lookup"><span data-stu-id="75354-133">Tenant ID</span></span>
+* <span data-ttu-id="75354-134">Abonelik Kimliği</span><span class="sxs-lookup"><span data-stu-id="75354-134">Subscription ID</span></span>
+* <span data-ttu-id="75354-135">Uygulama Kimliği</span><span class="sxs-lookup"><span data-stu-id="75354-135">Application ID</span></span>
+* <span data-ttu-id="75354-136">Parola (Merhaba ilk komutunda belirtilen)</span><span class="sxs-lookup"><span data-stu-id="75354-136">Password (specified in hello first command)</span></span>
 
-## <a name="walkthrough"></a><span data-ttu-id="7f1e7-137">Kılavuz</span><span class="sxs-lookup"><span data-stu-id="7f1e7-137">Walkthrough</span></span>
-<span data-ttu-id="7f1e7-138">Kılavuzda data factory kopyalama etkinliği içeren sahip işlem hattı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-138">In the walkthrough, you create a data factory with a pipeline that contains a copy activity.</span></span> <span data-ttu-id="7f1e7-139">Kopyalama etkinliği verileri Azure blob depolama alanınızın bir klasörde aynı blob depolama başka bir klasöre kopyalar.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-139">The copy activity copies data from a folder in your Azure blob storage to another folder in the same blob storage.</span></span> 
+## <a name="walkthrough"></a><span data-ttu-id="75354-137">Kılavuz</span><span class="sxs-lookup"><span data-stu-id="75354-137">Walkthrough</span></span>
+<span data-ttu-id="75354-138">Merhaba kılavuzda data factory kopyalama etkinliği içeren sahip işlem hattı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="75354-138">In hello walkthrough, you create a data factory with a pipeline that contains a copy activity.</span></span> <span data-ttu-id="75354-139">Merhaba kopyalama etkinliği verileri kopyalar aynı blob depolama Merhaba, Azure blob depolama tooanother klasöründe bir klasörden.</span><span class="sxs-lookup"><span data-stu-id="75354-139">hello copy activity copies data from a folder in your Azure blob storage tooanother folder in hello same blob storage.</span></span> 
 
-<span data-ttu-id="7f1e7-140">Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-140">The Copy Activity performs the data movement in Azure Data Factory.</span></span> <span data-ttu-id="7f1e7-141">Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-141">The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way.</span></span> <span data-ttu-id="7f1e7-142">Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-142">See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.</span></span>
+<span data-ttu-id="75354-140">Merhaba kopya etkinliği Azure Data Factory'de hello veri taşımayı gerçekleştirir.</span><span class="sxs-lookup"><span data-stu-id="75354-140">hello Copy Activity performs hello data movement in Azure Data Factory.</span></span> <span data-ttu-id="75354-141">Merhaba etkinlik verileri güvenli, güvenilir ve ölçeklenebilir bir şekilde çeşitli veri depolamaları arasında kopyalayabilirsiniz genel olarak kullanılabilir bir hizmet tarafından desteklenir.</span><span class="sxs-lookup"><span data-stu-id="75354-141">hello activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way.</span></span> <span data-ttu-id="75354-142">Bkz: [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale hello kopyalama etkinliği hakkında ayrıntılı bilgi için.</span><span class="sxs-lookup"><span data-stu-id="75354-142">See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about hello Copy Activity.</span></span>
 
-1. <span data-ttu-id="7f1e7-143">Visual Studio 2012/2013/2015'i kullanarak bir C# .NET konsol uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-143">Using Visual Studio 2012/2013/2015, create a C# .NET console application.</span></span>
-   1. <span data-ttu-id="7f1e7-144">**Visual Studio** 2012/2013/2015’i başlatın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-144">Launch **Visual Studio** 2012/2013/2015.</span></span>
-   2. <span data-ttu-id="7f1e7-145">**Dosya**’ya tıklayın, **Yeni**’nin üzerine gelin ve **Proje**’ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-145">Click **File**, point to **New**, and click **Project**.</span></span>
-   3. <span data-ttu-id="7f1e7-146">**Şablonlar**’ı genişletin ve **Visual C#** seçeneğini belirleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-146">Expand **Templates**, and select **Visual C#**.</span></span> <span data-ttu-id="7f1e7-147">Bu kılavuzda C# kullanıyor olsanız da dilediğiniz .NET dilini kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-147">In this walkthrough, you use C#, but you can use any .NET language.</span></span>
-   4. <span data-ttu-id="7f1e7-148">Sağ taraftaki proje türleri listesinden **Konsol Uygulaması**’nı seçin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-148">Select **Console Application** from the list of project types on the right.</span></span>
-   5. <span data-ttu-id="7f1e7-149">Ad için **DataFactoryAPITestApp** değerini girin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-149">Enter **DataFactoryAPITestApp** for the Name.</span></span>
-   6. <span data-ttu-id="7f1e7-150">Konum için **C:\ADFGetStarted** yolunu seçin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-150">Select **C:\ADFGetStarted** for the Location.</span></span>
-   7. <span data-ttu-id="7f1e7-151">Projeyi oluşturmak için **Tamam**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-151">Click **OK** to create the project.</span></span>
-2. <span data-ttu-id="7f1e7-152">**Araçlar**'a tıklayın, **NuGet Paket Yöneticisi**'nin üzerine gelin ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-152">Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.</span></span>
-3. <span data-ttu-id="7f1e7-153">**Paket Yöneticisi Konsolu**'nda şu adımları uygulayın:</span><span class="sxs-lookup"><span data-stu-id="7f1e7-153">In the **Package Manager Console**, do the following steps:</span></span>
-   1. <span data-ttu-id="7f1e7-154">Data Factory paketini yüklemek için şu komutu çalıştırın: `Install-Package Microsoft.Azure.Management.DataFactories`</span><span class="sxs-lookup"><span data-stu-id="7f1e7-154">Run the following command to install Data Factory package: `Install-Package Microsoft.Azure.Management.DataFactories`</span></span>
-   2. <span data-ttu-id="7f1e7-155">Azure Active Directory paketini yüklemek için şu komutu çalıştırın (kodda Active Directory API'sini kullanırsınız): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`</span><span class="sxs-lookup"><span data-stu-id="7f1e7-155">Run the following command to install Azure Active Directory package (you use Active Directory API in the code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`</span></span>
-4. <span data-ttu-id="7f1e7-156">Değiştir **App.config** aşağıdaki içeriğe sahip proje dosyasında:</span><span class="sxs-lookup"><span data-stu-id="7f1e7-156">Replace the contents of **App.config** file in the project with the following content:</span></span> 
+1. <span data-ttu-id="75354-143">Visual Studio 2012/2013/2015'i kullanarak bir C# .NET konsol uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="75354-143">Using Visual Studio 2012/2013/2015, create a C# .NET console application.</span></span>
+   1. <span data-ttu-id="75354-144">**Visual Studio** 2012/2013/2015’i başlatın.</span><span class="sxs-lookup"><span data-stu-id="75354-144">Launch **Visual Studio** 2012/2013/2015.</span></span>
+   2. <span data-ttu-id="75354-145">Tıklatın **dosya**, çok noktası**yeni**, tıklatıp **proje**.</span><span class="sxs-lookup"><span data-stu-id="75354-145">Click **File**, point too**New**, and click **Project**.</span></span>
+   3. <span data-ttu-id="75354-146">**Şablonlar**’ı genişletin ve **Visual C#** seçeneğini belirleyin.</span><span class="sxs-lookup"><span data-stu-id="75354-146">Expand **Templates**, and select **Visual C#**.</span></span> <span data-ttu-id="75354-147">Bu kılavuzda C# kullanıyor olsanız da dilediğiniz .NET dilini kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="75354-147">In this walkthrough, you use C#, but you can use any .NET language.</span></span>
+   4. <span data-ttu-id="75354-148">Seçin **konsol uygulaması** hello sağ proje türlerinde hello listesinden.</span><span class="sxs-lookup"><span data-stu-id="75354-148">Select **Console Application** from hello list of project types on hello right.</span></span>
+   5. <span data-ttu-id="75354-149">Girin **DataFactoryAPITestApp** hello adı için.</span><span class="sxs-lookup"><span data-stu-id="75354-149">Enter **DataFactoryAPITestApp** for hello Name.</span></span>
+   6. <span data-ttu-id="75354-150">Seçin **C:\ADFGetStarted** için başlangıç konumu.</span><span class="sxs-lookup"><span data-stu-id="75354-150">Select **C:\ADFGetStarted** for hello Location.</span></span>
+   7. <span data-ttu-id="75354-151">Tıklatın **Tamam** toocreate hello projesi.</span><span class="sxs-lookup"><span data-stu-id="75354-151">Click **OK** toocreate hello project.</span></span>
+2. <span data-ttu-id="75354-152">Tıklatın **Araçları**, çok noktası**NuGet Paket Yöneticisi**, tıklatıp **Paket Yöneticisi Konsolu**.</span><span class="sxs-lookup"><span data-stu-id="75354-152">Click **Tools**, point too**NuGet Package Manager**, and click **Package Manager Console**.</span></span>
+3. <span data-ttu-id="75354-153">Merhaba, **Paket Yöneticisi Konsolu**, adımları hello:</span><span class="sxs-lookup"><span data-stu-id="75354-153">In hello **Package Manager Console**, do hello following steps:</span></span>
+   1. <span data-ttu-id="75354-154">Komut tooinstall Data Factory paketi aşağıdaki hello çalıştırın:`Install-Package Microsoft.Azure.Management.DataFactories`</span><span class="sxs-lookup"><span data-stu-id="75354-154">Run hello following command tooinstall Data Factory package: `Install-Package Microsoft.Azure.Management.DataFactories`</span></span>
+   2. <span data-ttu-id="75354-155">(Active Directory API hello kodda kullandığınız) komutu tooinstall Azure Active Directory paketi aşağıdaki hello çalıştırın:`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`</span><span class="sxs-lookup"><span data-stu-id="75354-155">Run hello following command tooinstall Azure Active Directory package (you use Active Directory API in hello code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`</span></span>
+4. <span data-ttu-id="75354-156">Merhaba Değiştir **App.config** içeriği aşağıdaki hello hello projeyle dosyasında:</span><span class="sxs-lookup"><span data-stu-id="75354-156">Replace hello contents of **App.config** file in hello project with hello following content:</span></span> 
     
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -127,14 +127,14 @@ ms.lasthandoff: 08/18/2017
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
             <add key="ApplicationId" value="your application ID" />
-            <add key="Password" value="Password you used while creating the AAD application" />
+            <add key="Password" value="Password you used while creating hello AAD application" />
             <add key="SubscriptionId" value= "Subscription ID" />
             <add key="ActiveDirectoryTenantId" value="Tenant ID" />
         </appSettings>
     </configuration>
     ```
-5. <span data-ttu-id="7f1e7-157">App.Config dosyasında değerlerini güncelleştirin  **&lt;uygulama kimliği&gt;**,  **&lt;parola&gt;**,  **&lt;abonelik kimliği&gt;**, ve  **&lt;kimliği Kiracı&gt;**  kendi değerlere sahip.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-157">In the App.Config file, update values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values.</span></span>
-6. <span data-ttu-id="7f1e7-158">Aşağıdakileri ekleyin **kullanarak** deyimlerini **Program.cs** proje dosyasında.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-158">Add the following **using** statements to the **Program.cs** file in the project.</span></span>
+5. <span data-ttu-id="75354-157">Merhaba App.Config dosyasında değerlerini güncelleştirin  **&lt;uygulama kimliği&gt;**,  **&lt;parola&gt;**,  **&lt; Abonelik kimliği&gt;**, ve  **&lt;kimliği Kiracı&gt;**  kendi değerlere sahip.</span><span class="sxs-lookup"><span data-stu-id="75354-157">In hello App.Config file, update values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values.</span></span>
+6. <span data-ttu-id="75354-158">Merhaba aşağıdakileri ekleyin **kullanarak** deyimleri toohello **Program.cs** hello proje dosyasında.</span><span class="sxs-lookup"><span data-stu-id="75354-158">Add hello following **using** statements toohello **Program.cs** file in hello project.</span></span>
 
     ```csharp
     using System.Configuration;
@@ -150,15 +150,15 @@ ms.lasthandoff: 08/18/2017
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
     ```
-6. <span data-ttu-id="7f1e7-159">**DataPipelineManagementClient** sınıfının bir örneğini oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-159">Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method.</span></span> <span data-ttu-id="7f1e7-160">Bir veri fabrikası, bağlı hizmet, girdi ve çıktı veri kümeleri ve işlem hattı oluşturmak için bu nesneyi kullanırsınız.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-160">You use this object to create a data factory, a linked service, input and output datasets, and a pipeline.</span></span> <span data-ttu-id="7f1e7-161">Çalışma zamanında bir veri kümesinin dilimlerini izlemek için de bu nesneyi kullanırsınız.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-161">You also use this object to monitor slices of a dataset at runtime.</span></span>
+6. <span data-ttu-id="75354-159">Bir örneği oluşturan kodu aşağıdaki hello eklemek **DataPipelineManagementClient** sınıfı toohello **ana** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="75354-159">Add hello following code that creates an instance of **DataPipelineManagementClient** class toohello **Main** method.</span></span> <span data-ttu-id="75354-160">Bu nesne toocreate data factory, bağlı hizmet, girdi ve çıktı veri kümelerini ve işlem hattı kullanın.</span><span class="sxs-lookup"><span data-stu-id="75354-160">You use this object toocreate a data factory, a linked service, input and output datasets, and a pipeline.</span></span> <span data-ttu-id="75354-161">Bu nesne toomonitor dilimler bir veri kümesinin ayrıca çalışma zamanında kullanın.</span><span class="sxs-lookup"><span data-stu-id="75354-161">You also use this object toomonitor slices of a dataset at runtime.</span></span>
 
     ```csharp
     // create data factory management client
 
-    //IMPORTANT: specify the name of Azure resource group here
+    //IMPORTANT: specify hello name of Azure resource group here
     string resourceGroupName = "ADFTutorialResourceGroup";
 
-    //IMPORTANT: the name of the data factory must be globally unique.
+    //IMPORTANT: hello name of hello data factory must be globally unique.
     // Therefore, update this value. For example:APITutorialFactory05122017
     string dataFactoryName = "APITutorialFactory";
 
@@ -172,10 +172,10 @@ ms.lasthandoff: 08/18/2017
     ```
 
    > [!IMPORTANT]
-   > <span data-ttu-id="7f1e7-162">**resourceGroupName** değerini Azure kaynak grubunuzun adıyla değiştirin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-162">Replace the value of **resourceGroupName** with the name of your Azure resource group.</span></span> <span data-ttu-id="7f1e7-163">Kullanarak bir kaynak grubu oluşturabilirsiniz [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'i.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-163">You can create a resource group using the [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet.</span></span>
+   > <span data-ttu-id="75354-162">Merhaba değerini **resourceGroupName** hello Azure kaynak grubu adı.</span><span class="sxs-lookup"><span data-stu-id="75354-162">Replace hello value of **resourceGroupName** with hello name of your Azure resource group.</span></span> <span data-ttu-id="75354-163">Hello kullanarak bir kaynak grubu oluşturabilirsiniz [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'i.</span><span class="sxs-lookup"><span data-stu-id="75354-163">You can create a resource group using hello [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet.</span></span>
    >
-   > <span data-ttu-id="7f1e7-164">Veri fabrikasının adını (dataFactoryName) benzersiz olacak şekilde güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-164">Update name of the data factory (dataFactoryName) to be unique.</span></span> <span data-ttu-id="7f1e7-165">Veri fabrikasının adı genel olarak benzersiz olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-165">Name of the data factory must be globally unique.</span></span> <span data-ttu-id="7f1e7-166">Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-166">See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.</span></span>
-7. <span data-ttu-id="7f1e7-167">Bir **veri fabrikası** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-167">Add the following code that creates a **data factory** to the **Main** method.</span></span>
+   > <span data-ttu-id="75354-164">Merhaba veri fabrikası (dataFactoryName) toobe benzersiz adını güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="75354-164">Update name of hello data factory (dataFactoryName) toobe unique.</span></span> <span data-ttu-id="75354-165">Merhaba veri fabrikasının adı genel olarak benzersiz olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="75354-165">Name of hello data factory must be globally unique.</span></span> <span data-ttu-id="75354-166">Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.</span><span class="sxs-lookup"><span data-stu-id="75354-166">See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.</span></span>
+7. <span data-ttu-id="75354-167">Oluşturan kod aşağıdaki hello eklemek bir **veri fabrikası** toohello **ana** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="75354-167">Add hello following code that creates a **data factory** toohello **Main** method.</span></span>
 
     ```csharp
     // create a data factory
@@ -192,10 +192,10 @@ ms.lasthandoff: 08/18/2017
         }
     );
     ```
-8. <span data-ttu-id="7f1e7-168">Bir **Azure Depolama bağlı hizmeti** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-168">Add the following code that creates an **Azure Storage linked service** to the **Main** method.</span></span>
+8. <span data-ttu-id="75354-168">Oluşturan kod aşağıdaki hello eklemek bir **Azure depolama bağlantılı hizmeti** toohello **ana** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="75354-168">Add hello following code that creates an **Azure Storage linked service** toohello **Main** method.</span></span>
 
    > [!IMPORTANT]
-   > <span data-ttu-id="7f1e7-169">**storageaccountname** ve **accountkey** sözcüklerini Azure Depolama hesabınızın adı ve anahtarıyla değiştirin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-169">Replace **storageaccountname** and **accountkey** with name and key of your Azure Storage account.</span></span>
+   > <span data-ttu-id="75354-169">**storageaccountname** ve **accountkey** sözcüklerini Azure Depolama hesabınızın adı ve anahtarıyla değiştirin.</span><span class="sxs-lookup"><span data-stu-id="75354-169">Replace **storageaccountname** and **accountkey** with name and key of your Azure Storage account.</span></span>
 
     ```csharp
     // create a linked service for input data store: Azure Storage
@@ -214,11 +214,11 @@ ms.lasthandoff: 08/18/2017
         }
     );
     ```
-9. <span data-ttu-id="7f1e7-170">**Girdi ve çıktı veri kümeleri** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-170">Add the following code that creates **input and output datasets** to the **Main** method.</span></span>
+9. <span data-ttu-id="75354-170">Oluşturan kod aşağıdaki hello eklemek **giriş ve çıkış veri kümeleri** toohello **ana** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="75354-170">Add hello following code that creates **input and output datasets** toohello **Main** method.</span></span>
 
-    <span data-ttu-id="7f1e7-171">**FolderPath** giriş blob ayarlanmıştır **adftutorial /** nerede **adftutorial** blob depolama alanınızın kapsayıcısında adıdır.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-171">The **FolderPath** for the input blob is set to **adftutorial/** where **adftutorial** is the name of the container in your blob storage.</span></span> <span data-ttu-id="7f1e7-172">Bu kapsayıcı, Azure blob depolamada mevcut değilse, bu ada sahip bir kapsayıcı oluşturmak: **adftutorial** ve kapsayıcıya bir metin dosyasını karşıya yükleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-172">If this container does not exist in your Azure blob storage, create a container with this name: **adftutorial** and upload a text file to the container.</span></span>
+    <span data-ttu-id="75354-171">Merhaba **FolderPath** hello giriş blob çok ayarlamak için**adftutorial /** nerede **adftutorial** hello kapsayıcıda blob depolama alanınızın hello adıdır.</span><span class="sxs-lookup"><span data-stu-id="75354-171">hello **FolderPath** for hello input blob is set too**adftutorial/** where **adftutorial** is hello name of hello container in your blob storage.</span></span> <span data-ttu-id="75354-172">Bu kapsayıcı, Azure blob depolamada mevcut değilse, bu ada sahip bir kapsayıcı oluşturmak: **adftutorial** ve bir metin dosyası toohello kapsayıcı yükleyin.</span><span class="sxs-lookup"><span data-stu-id="75354-172">If this container does not exist in your Azure blob storage, create a container with this name: **adftutorial** and upload a text file toohello container.</span></span>
 
-    <span data-ttu-id="7f1e7-173">Çıktı blob FolderPath ayarlamak: **adftutorial/apifactoryoutput / {dilim}** nerede **dilim** dinamik olarak değeri temel alınarak hesaplanır **SliceStart** (tarih-saat her dilimin başlatın.)</span><span class="sxs-lookup"><span data-stu-id="7f1e7-173">The FolderPath for the output blob is set to: **adftutorial/apifactoryoutput/{Slice}** where **Slice** is dynamically calculated based on the value of **SliceStart** (start date-time of each slice.)</span></span>
+    <span data-ttu-id="75354-173">Merhaba FolderPath hello için çıktı blob ayarlanır: **adftutorial/apifactoryoutput / {dilim}** nerede **dilim** dinamik olarak hesaplanan göre hello değeri **SliceStart**(tarih-saat her dilimin başlatın.)</span><span class="sxs-lookup"><span data-stu-id="75354-173">hello FolderPath for hello output blob is set to: **adftutorial/apifactoryoutput/{Slice}** where **Slice** is dynamically calculated based on hello value of **SliceStart** (start date-time of each slice.)</span></span>
 
     ```csharp
     // create input and output datasets
@@ -294,9 +294,9 @@ ms.lasthandoff: 08/18/2017
         }
     });
     ```
-10. <span data-ttu-id="7f1e7-174">**Bir işlem hattı oluşturan ve işlem hattını etkinleştiren** aşağıdaki kodu **Main** yöntemine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-174">Add the following code that **creates and activates a pipeline** to the **Main** method.</span></span> <span data-ttu-id="7f1e7-175">Bu işlem hattının **BlobSource**’u bir kaynak olarak, **BlobSink**’i ise bir havuz olarak alan bir **CopyActivity** etkinliği vardır.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-175">This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.</span></span>
+10. <span data-ttu-id="75354-174">Merhaba aşağıdaki kod ekleme **oluşturur ve bir ardışık düzen etkinleştirir** toohello **ana** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="75354-174">Add hello following code that **creates and activates a pipeline** toohello **Main** method.</span></span> <span data-ttu-id="75354-175">Bu işlem hattının **BlobSource**’u bir kaynak olarak, **BlobSink**’i ise bir havuz olarak alan bir **CopyActivity** etkinliği vardır.</span><span class="sxs-lookup"><span data-stu-id="75354-175">This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.</span></span>
 
-    <span data-ttu-id="7f1e7-176">Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-176">The Copy Activity performs the data movement in Azure Data Factory.</span></span> <span data-ttu-id="7f1e7-177">Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-177">The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way.</span></span> <span data-ttu-id="7f1e7-178">Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-178">See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.</span></span>
+    <span data-ttu-id="75354-176">Merhaba kopya etkinliği Azure Data Factory'de hello veri taşımayı gerçekleştirir.</span><span class="sxs-lookup"><span data-stu-id="75354-176">hello Copy Activity performs hello data movement in Azure Data Factory.</span></span> <span data-ttu-id="75354-177">Merhaba etkinlik verileri güvenli, güvenilir ve ölçeklenebilir bir şekilde çeşitli veri depolamaları arasında kopyalayabilirsiniz genel olarak kullanılabilir bir hizmet tarafından desteklenir.</span><span class="sxs-lookup"><span data-stu-id="75354-177">hello activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way.</span></span> <span data-ttu-id="75354-178">Bkz: [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale hello kopyalama etkinliği hakkında ayrıntılı bilgi için.</span><span class="sxs-lookup"><span data-stu-id="75354-178">See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about hello Copy Activity.</span></span>
 
     ```csharp
     // create a pipeline
@@ -315,7 +315,7 @@ ms.lasthandoff: 08/18/2017
             {
                 Description = "Demo Pipeline for data transfer between blobs",
     
-                // Initial value for pipeline's active period. With this, you won't need to set slice status
+                // Initial value for pipeline's active period. With this, you won't need tooset slice status
                 Start = PipelineActivePeriodStartTime,
                 End = PipelineActivePeriodEndTime,
     
@@ -354,7 +354,7 @@ ms.lasthandoff: 08/18/2017
         }
     });
     ```
-12. <span data-ttu-id="7f1e7-179">Çıktı veri kümesinin veri diliminin durumunu almak için aşağıdaki kodu **Main** yöntemine ekleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-179">Add the following code to the **Main** method to get the status of a data slice of the output dataset.</span></span> <span data-ttu-id="7f1e7-180">Bu örnekte beklenen yalnızca bir dilim yoktur.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-180">There is only one slice expected in this sample.</span></span>
+12. <span data-ttu-id="75354-179">Aşağıdaki kodu toohello hello eklemek **ana** yöntemi tooget hello hello bir veri dilimin durumunu çıkış veri kümesi.</span><span class="sxs-lookup"><span data-stu-id="75354-179">Add hello following code toohello **Main** method tooget hello status of a data slice of hello output dataset.</span></span> <span data-ttu-id="75354-180">Bu örnekte beklenen yalnızca bir dilim yoktur.</span><span class="sxs-lookup"><span data-stu-id="75354-180">There is only one slice expected in this sample.</span></span>
 
     ```csharp
     // Pulling status within a timeout threshold
@@ -363,8 +363,8 @@ ms.lasthandoff: 08/18/2017
     
     while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
     {
-        Console.WriteLine("Pulling the slice status");
-        // wait before the next status check
+        Console.WriteLine("Pulling hello slice status");
+        // wait before hello next status check
         Thread.Sleep(1000 * 12);
     
         var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
@@ -389,13 +389,13 @@ ms.lasthandoff: 08/18/2017
         }
     }
     ```
-13. <span data-ttu-id="7f1e7-181">**(isteğe bağlı)**  Bir veri dilimi ayrıntılarını çalıştırmak için aşağıdaki kodu ekleyin **ana** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-181">**(optional)** Add the following code to get run details for a data slice to the **Main** method.</span></span>
+13. <span data-ttu-id="75354-181">**(isteğe bağlı)**  Ekle hello aşağıdaki kod bir veri dilimi toohello çalıştırmak tooget ayrıntılarını **ana** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="75354-181">**(optional)** Add hello following code tooget run details for a data slice toohello **Main** method.</span></span>
 
     ```csharp
     Console.WriteLine("Getting run details of a data slice");
     
-    // give it a few minutes for the output slice to be ready
-    Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
+    // give it a few minutes for hello output slice toobe ready
+    Console.WriteLine("\nGive it a few minutes for hello output slice toobe ready and press any key.");
     Console.ReadKey();
     
     var datasliceRunListResponse = client.DataSliceRuns.List(
@@ -418,10 +418,10 @@ ms.lasthandoff: 08/18/2017
         Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
     }
     
-    Console.WriteLine("\nPress any key to exit.");
+    Console.WriteLine("\nPress any key tooexit.");
     Console.ReadKey();
     ```
-14. <span data-ttu-id="7f1e7-182">**Main** yöntemi tarafından kullanılan aşağıdaki yardımcı yöntemini **Program** sınıfına ekleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-182">Add the following helper method used by the **Main** method to the **Program** class.</span></span> <span data-ttu-id="7f1e7-183">Bu yöntem sağlamanıza olanak tanıyan bir iletişim kutusu açılır **kullanıcı adı** ve **parola** , Azure portalında oturum açmak için kullanın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-183">This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal.</span></span>
+14. <span data-ttu-id="75354-182">Merhaba tarafından kullanılan yardımcı yöntemini aşağıdaki hello eklemek **ana** yöntemi toohello **Program** sınıfı.</span><span class="sxs-lookup"><span data-stu-id="75354-182">Add hello following helper method used by hello **Main** method toohello **Program** class.</span></span> <span data-ttu-id="75354-183">Bu yöntem sağlamanıza olanak tanıyan bir iletişim kutusu açılır **kullanıcı adı** ve **parola** tooAzure Portalı'nda toolog kullanın.</span><span class="sxs-lookup"><span data-stu-id="75354-183">This method pops a dialog box that that lets you provide **user name** and **password** that you use toolog in tooAzure portal.</span></span>
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
@@ -437,29 +437,29 @@ ms.lasthandoff: 08/18/2017
         if (result != null)
             return result.AccessToken;
 
-        throw new InvalidOperationException("Failed to acquire token");
+        throw new InvalidOperationException("Failed tooacquire token");
     }
     ```
 
-15. <span data-ttu-id="7f1e7-184">Çözüm Gezgini'nde projenizi genişletin: **DataFactoryAPITestApp**, sağ **başvuruları**, tıklatıp **Başvuru Ekle**.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-184">In the Solution Explorer, expand the project: **DataFactoryAPITestApp**, right-click **References**, and click **Add Reference**.</span></span> <span data-ttu-id="7f1e7-185">İçin bu onay kutusunu işaretleyin `System.Configuration` derleme ve tıklatın **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-185">Select check box for `System.Configuration` assembly and click **OK**.</span></span>
-15. <span data-ttu-id="7f1e7-186">Konsol uygulamasını derleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-186">Build the console application.</span></span> <span data-ttu-id="7f1e7-187">Menüde **Derle**’ye tıklayın ve **Çözümü Derle**’ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-187">Click **Build** on the menu and click **Build Solution**.</span></span>
-16. <span data-ttu-id="7f1e7-188">Olduğunu en az bir dosya adftutorial kapsayıcısında Azure blob depolama alanınızın onaylayın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-188">Confirm that there is at least one file in the adftutorial container in your Azure blob storage.</span></span> <span data-ttu-id="7f1e7-189">Aksi durumda, Emp.txt dosyasını Not Defteri'nde aşağıdaki içerik ile oluşturun ve adftutorial kapsayıcıya yükleyin.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-189">If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.</span></span>
+15. <span data-ttu-id="75354-184">Merhaba projeyi Hello Çözüm Gezgini, genişletin: **DataFactoryAPITestApp**, sağ **başvuruları**, tıklatıp **Başvuru Ekle**.</span><span class="sxs-lookup"><span data-stu-id="75354-184">In hello Solution Explorer, expand hello project: **DataFactoryAPITestApp**, right-click **References**, and click **Add Reference**.</span></span> <span data-ttu-id="75354-185">İçin bu onay kutusunu işaretleyin `System.Configuration` derleme ve tıklatın **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="75354-185">Select check box for `System.Configuration` assembly and click **OK**.</span></span>
+15. <span data-ttu-id="75354-186">Merhaba konsol uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="75354-186">Build hello console application.</span></span> <span data-ttu-id="75354-187">Tıklatın **yapı** hello menüsüne ve ardından üzerinde **yapı çözümü**.</span><span class="sxs-lookup"><span data-stu-id="75354-187">Click **Build** on hello menu and click **Build Solution**.</span></span>
+16. <span data-ttu-id="75354-188">Olduğunu en az bir dosya hello adftutorial kapsayıcısında Azure blob depolama alanınızın onaylayın.</span><span class="sxs-lookup"><span data-stu-id="75354-188">Confirm that there is at least one file in hello adftutorial container in your Azure blob storage.</span></span> <span data-ttu-id="75354-189">Aksi durumda, Emp.txt dosyasını Not Defteri'nde aşağıdaki hello ile içerik oluşturun ve toohello adftutorial kapsayıcı yükleyin.</span><span class="sxs-lookup"><span data-stu-id="75354-189">If not, create Emp.txt file in Notepad with hello following content and upload it toohello adftutorial container.</span></span>
 
     ```
     John, Doe
     Jane, Doe
     ```
-17. <span data-ttu-id="7f1e7-190">Menüden **Hata Ayıkla** -> **Hata Ayıklamayı Başlat**’a tıklayarak örneği çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-190">Run the sample by clicking **Debug** -> **Start Debugging** on the menu.</span></span> <span data-ttu-id="7f1e7-191">**Getting run details of a data slice** iletisini gördüğünüzde birkaç dakika bekleyin ve **ENTER** tuşuna basın.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-191">When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.</span></span>
-18. <span data-ttu-id="7f1e7-192">Azure portalı kullanarak **APITutorialFactory** veri fabrikasının aşağıdaki yapıtlarla birlikte oluşturulduğunu doğrulayın:</span><span class="sxs-lookup"><span data-stu-id="7f1e7-192">Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:</span></span>
-    * <span data-ttu-id="7f1e7-193">Bağlantılı hizmeti: **AzureStorageLinkedService**</span><span class="sxs-lookup"><span data-stu-id="7f1e7-193">Linked service: **AzureStorageLinkedService**</span></span>
-    * <span data-ttu-id="7f1e7-194">Veri kümesi: **DatasetBlobSource** ve **DatasetBlobDestination**.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-194">Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.</span></span>
-    * <span data-ttu-id="7f1e7-195">İşlem hattı: **PipelineBlobSample**</span><span class="sxs-lookup"><span data-stu-id="7f1e7-195">Pipeline: **PipelineBlobSample**</span></span>
-19. <span data-ttu-id="7f1e7-196">Bir çıkış dosyası oluşturulur doğrulayın **apifactoryoutput** klasöründe **adftutorial** kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="7f1e7-196">Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.</span></span>
+17. <span data-ttu-id="75354-190">Tıklayarak Hello örneği çalıştırmak **hata ayıklama** -> **hata ayıklamayı Başlat** başlangıç menüsünde.</span><span class="sxs-lookup"><span data-stu-id="75354-190">Run hello sample by clicking **Debug** -> **Start Debugging** on hello menu.</span></span> <span data-ttu-id="75354-191">Merhaba gördüğünüzde **veri dilimi ayrıntılarını çalıştırmak**, birkaç dakika basın için bekleyin ve **ENTER**.</span><span class="sxs-lookup"><span data-stu-id="75354-191">When you see hello **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.</span></span>
+18. <span data-ttu-id="75354-192">Kullanım hello Azure portal tooverify bu hello veri fabrikası **APITutorialFactory** yapıları aşağıdaki hello ile oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="75354-192">Use hello Azure portal tooverify that hello data factory **APITutorialFactory** is created with hello following artifacts:</span></span>
+    * <span data-ttu-id="75354-193">Bağlantılı hizmeti: **AzureStorageLinkedService**</span><span class="sxs-lookup"><span data-stu-id="75354-193">Linked service: **AzureStorageLinkedService**</span></span>
+    * <span data-ttu-id="75354-194">Veri kümesi: **DatasetBlobSource** ve **DatasetBlobDestination**.</span><span class="sxs-lookup"><span data-stu-id="75354-194">Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.</span></span>
+    * <span data-ttu-id="75354-195">İşlem hattı: **PipelineBlobSample**</span><span class="sxs-lookup"><span data-stu-id="75354-195">Pipeline: **PipelineBlobSample**</span></span>
+19. <span data-ttu-id="75354-196">Bir çıkış dosyası hello oluşturulduğunu doğrulayın **apifactoryoutput** hello klasöründe **adftutorial** kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="75354-196">Verify that an output file is created in hello **apifactoryoutput** folder in hello **adftutorial** container.</span></span>
 
-## <a name="get-a-list-of-failed-data-slices"></a><span data-ttu-id="7f1e7-197">Başarısız olan veri dilimlerinin listesini al</span><span class="sxs-lookup"><span data-stu-id="7f1e7-197">Get a list of failed data slices</span></span> 
+## <a name="get-a-list-of-failed-data-slices"></a><span data-ttu-id="75354-197">Başarısız olan veri dilimlerinin listesini al</span><span class="sxs-lookup"><span data-stu-id="75354-197">Get a list of failed data slices</span></span> 
 
 ```csharp
-// Parse the resource path
+// Parse hello resource path
 var ResourceGroupName = "ADFTutorialResourceGroup";
 var DataFactoryName = "DataFactoryAPITestApp";
 
@@ -495,7 +495,7 @@ do
 while (response != null);
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="7f1e7-198">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="7f1e7-198">Next steps</span></span>
-<span data-ttu-id="7f1e7-199">Verileri Azure blob depolama alanından Azure SQL veritabanına kopyalar .NET SDK kullanarak bir işlem hattı oluşturmak için aşağıdaki örneğe bakın:</span><span class="sxs-lookup"><span data-stu-id="7f1e7-199">See the following example for creating a pipeline using .NET SDK that copies data from an Azure blob storage to an Azure SQL database:</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="75354-198">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="75354-198">Next steps</span></span>
+<span data-ttu-id="75354-199">Örnek verileri Azure blob depolama tooan Azure SQL veritabanından kopyalar .NET SDK kullanarak bir işlem hattı oluşturmak için aşağıdaki hello bakın:</span><span class="sxs-lookup"><span data-stu-id="75354-199">See hello following example for creating a pipeline using .NET SDK that copies data from an Azure blob storage tooan Azure SQL database:</span></span> 
 
-- [<span data-ttu-id="7f1e7-200">Blob depolama alanından SQL veritabanına veri kopyalamak için bir işlem hattı oluşturma</span><span class="sxs-lookup"><span data-stu-id="7f1e7-200">Create a pipeline to copy data from Blob Storage to SQL Database</span></span>](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [<span data-ttu-id="75354-200">Blob Storage tooSQL veritabanı ' bir ardışık düzen toocopy verileri oluşturma</span><span class="sxs-lookup"><span data-stu-id="75354-200">Create a pipeline toocopy data from Blob Storage tooSQL Database</span></span>](data-factory-copy-activity-tutorial-using-dotnet-api.md)

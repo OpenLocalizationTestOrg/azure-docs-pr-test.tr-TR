@@ -1,5 +1,5 @@
 ---
-title: "Azure kapsayıcı hizmeti Öğreticisi - uygulamayı Ölçeklendir | Microsoft Docs"
+title: "aaaAzure kapsayıcı hizmeti Öğreticisi - uygulamayı Ölçeklendir | Microsoft Docs"
 description: "Azure kapsayıcı hizmeti Öğreticisi - uygulamayı Ölçeklendir"
 services: container-service
 documentationcenter: 
@@ -17,40 +17,40 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 62e70e34d06f5220734ff85c70a0c9b475f9579b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 29571eef0fd91bd6b40f00d8c018539f320179bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a><span data-ttu-id="ff59d-104">Ölçek Kubernetes pod'ları ve Kubernetes altyapısı</span><span class="sxs-lookup"><span data-stu-id="ff59d-104">Scale Kubernetes pods and Kubernetes infrastructure</span></span>
+# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a><span data-ttu-id="1ec2a-104">Ölçek Kubernetes pod'ları ve Kubernetes altyapısı</span><span class="sxs-lookup"><span data-stu-id="1ec2a-104">Scale Kubernetes pods and Kubernetes infrastructure</span></span>
 
-<span data-ttu-id="ff59d-105">Öğreticiler takip, Azure kapsayıcı Hizmeti'nde çalışan Kubernetes küme sahip olmanız ve Azure oylama uygulaması dağıtılır.</span><span class="sxs-lookup"><span data-stu-id="ff59d-105">If you've been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app.</span></span> 
+<span data-ttu-id="1ec2a-105">Hello öğreticileri takip, Azure kapsayıcı Hizmeti'nde çalışan Kubernetes küme sahip olmanız ve hello Azure oylama uygulaması dağıtılır.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-105">If you've been following hello tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed hello Azure Voting app.</span></span> 
 
-<span data-ttu-id="ff59d-106">Bu öğreticide parçası beş yedi, uygulama pod'ları ölçeğini ve pod otomatik ölçeklendirmeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="ff59d-106">In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling.</span></span> <span data-ttu-id="ff59d-107">Ayrıca iş yüklerini barındırmak için kümenin kapasite değiştirmek için Azure VM Aracısı düğüm sayısının ölçeğini öğrenin.</span><span class="sxs-lookup"><span data-stu-id="ff59d-107">You also learn how to scale the number of Azure VM agent nodes to change the cluster's capacity for hosting workloads.</span></span> <span data-ttu-id="ff59d-108">Tamamlanan görevler aşağıdakileri içerir:</span><span class="sxs-lookup"><span data-stu-id="ff59d-108">Tasks completed include:</span></span>
+<span data-ttu-id="1ec2a-106">Bu öğreticide parçası beş yedi, hello pod'ları hello uygulamasında ölçeğini ve pod otomatik ölçeklendirmeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-106">In this tutorial, part five of seven, you scale out hello pods in hello app and try pod autoscaling.</span></span> <span data-ttu-id="1ec2a-107">Ayrıca, nasıl Azure VM Aracısı düğümleri toochange tooscale hello sayısı hello iş yüklerini barındırmak için kümenin kapasite öğrenin.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-107">You also learn how tooscale hello number of Azure VM agent nodes toochange hello cluster's capacity for hosting workloads.</span></span> <span data-ttu-id="1ec2a-108">Tamamlanan görevler aşağıdakileri içerir:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-108">Tasks completed include:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="ff59d-109">Kubernetes pod'ları el ile ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="ff59d-109">Manually scaling Kubernetes pods</span></span>
-> * <span data-ttu-id="ff59d-110">Otomatik ölçeklendirme uygulaması ön ucu çalıştıran pod'ları yapılandırma</span><span class="sxs-lookup"><span data-stu-id="ff59d-110">Configuring Autoscale pods running the app front end</span></span>
-> * <span data-ttu-id="ff59d-111">Kubernetes Azure Aracısı düğümleri ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="ff59d-111">Scale the Kubernetes Azure agent nodes</span></span>
+> * <span data-ttu-id="1ec2a-109">Kubernetes pod'ları el ile ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="1ec2a-109">Manually scaling Kubernetes pods</span></span>
+> * <span data-ttu-id="1ec2a-110">Merhaba uygulaması ön ucu çalıştıran otomatik ölçeklendirme pod'ları yapılandırma</span><span class="sxs-lookup"><span data-stu-id="1ec2a-110">Configuring Autoscale pods running hello app front end</span></span>
+> * <span data-ttu-id="1ec2a-111">Merhaba Kubernetes Azure Aracısı düğümleri ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="1ec2a-111">Scale hello Kubernetes Azure agent nodes</span></span>
 
-<span data-ttu-id="ff59d-112">Sonraki öğreticilerde, Azure oy uygulama güncelleştirilir ve Kubernetes küme izlemek için Operations Management Suite yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="ff59d-112">In subsequent tutorials, the Azure Vote application is updated, and Operations Management Suite configured to monitor the Kubernetes cluster.</span></span>
+<span data-ttu-id="1ec2a-112">Sonraki öğreticilerde, hello Azure oy uygulama güncelleştirilir ve Operations Management Suite toomonitor hello Kubernetes kümesi yapılandırılır.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-112">In subsequent tutorials, hello Azure Vote application is updated, and Operations Management Suite configured toomonitor hello Kubernetes cluster.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="ff59d-113">Başlamadan önce</span><span class="sxs-lookup"><span data-stu-id="ff59d-113">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="1ec2a-113">Başlamadan önce</span><span class="sxs-lookup"><span data-stu-id="1ec2a-113">Before you begin</span></span>
 
-<span data-ttu-id="ff59d-114">Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine karşıya bu görüntü ve oluşturulan Kubernetes küme paketlenmiştir.</span><span class="sxs-lookup"><span data-stu-id="ff59d-114">In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created.</span></span> <span data-ttu-id="ff59d-115">Uygulama sonra Kubernetes kümede çalıştırıldı.</span><span class="sxs-lookup"><span data-stu-id="ff59d-115">The application was then run on the Kubernetes cluster.</span></span> <span data-ttu-id="ff59d-116">Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md).</span><span class="sxs-lookup"><span data-stu-id="ff59d-116">If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md).</span></span> 
+<span data-ttu-id="1ec2a-114">Önceki öğreticileri, bir uygulama bir kapsayıcı görüntüsüne paketlenmiş, tooAzure kapsayıcı kayıt defteri ve oluşturulan bir Kubernetes kümesi bu görüntüyü karşıya.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-114">In previous tutorials, an application was packaged into a container image, this image uploaded tooAzure Container Registry, and a Kubernetes cluster created.</span></span> <span data-ttu-id="1ec2a-115">Merhaba uygulaması sonra hello Kubernetes kümede çalıştırıldı.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-115">hello application was then run on hello Kubernetes cluster.</span></span> <span data-ttu-id="1ec2a-116">Bu adımları yapmadıysanız ve boyunca toofollow istersiniz, toohello dönmek [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md).</span><span class="sxs-lookup"><span data-stu-id="1ec2a-116">If you have not done these steps, and would like toofollow along, return toohello [Tutorial 1 – Create container images](./container-service-tutorial-kubernetes-prepare-app.md).</span></span> 
 
-<span data-ttu-id="ff59d-117">En azından, Bu öğretici bir Kubernetes kümesi ile çalışan bir uygulama gerektirir.</span><span class="sxs-lookup"><span data-stu-id="ff59d-117">At minimum, this tutorial requires a Kubernetes cluster with a running application.</span></span>
+<span data-ttu-id="1ec2a-117">En azından, Bu öğretici bir Kubernetes kümesi ile çalışan bir uygulama gerektirir.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-117">At minimum, this tutorial requires a Kubernetes cluster with a running application.</span></span>
 
-## <a name="manually-scale-pods"></a><span data-ttu-id="ff59d-118">Pod'ları el ile ölçeklendirin</span><span class="sxs-lookup"><span data-stu-id="ff59d-118">Manually scale pods</span></span>
+## <a name="manually-scale-pods"></a><span data-ttu-id="1ec2a-118">Pod'ları el ile ölçeklendirin</span><span class="sxs-lookup"><span data-stu-id="1ec2a-118">Manually scale pods</span></span>
 
-<span data-ttu-id="ff59d-119">Bu nedenle şimdiye kadar Azure oy ön uç ve Redis örnek silinmiş dağıtıldı, her tek bir çoğaltma ile.</span><span class="sxs-lookup"><span data-stu-id="ff59d-119">Thus far, the Azure Vote front-end and Redis instance have been deployed, each with a single replica.</span></span> <span data-ttu-id="ff59d-120">Doğrulamak için çalıştırın [kubectl almak](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.</span><span class="sxs-lookup"><span data-stu-id="ff59d-120">To verify, run the [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.</span></span>
+<span data-ttu-id="1ec2a-119">Bugüne kadarki hello Azure oy ön uç ve Redis örnek dağıtıldıktan, her tek bir çoğaltma ile.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-119">Thus far, hello Azure Vote front-end and Redis instance have been deployed, each with a single replica.</span></span> <span data-ttu-id="1ec2a-120">Merhaba çalıştırmak tooverify [kubectl almak](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-120">tooverify, run hello [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.</span></span>
 
 ```azurecli-interactive
 kubectl get pods
 ```
 
-<span data-ttu-id="ff59d-121">Çıktı:</span><span class="sxs-lookup"><span data-stu-id="ff59d-121">Output:</span></span>
+<span data-ttu-id="1ec2a-121">Çıktı:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-121">Output:</span></span>
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -58,19 +58,19 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-<span data-ttu-id="ff59d-122">El ile pod'ları içinde sayısını değiştirme `azure-vote-front` dağıtım kullanarak [kubectl ölçek](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) komutu.</span><span class="sxs-lookup"><span data-stu-id="ff59d-122">Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command.</span></span> <span data-ttu-id="ff59d-123">Bu örnek 5 sayısını artırır.</span><span class="sxs-lookup"><span data-stu-id="ff59d-123">This example increases the number to 5.</span></span>
+<span data-ttu-id="1ec2a-122">El ile pod'ları hello içinde hello sayısını değiştirme `azure-vote-front` hello kullanarak dağıtım [kubectl ölçek](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) komutu.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-122">Manually change hello number of pods in hello `azure-vote-front` deployment using hello [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) command.</span></span> <span data-ttu-id="1ec2a-123">Bu örnek hello numara too5 artırır.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-123">This example increases hello number too5.</span></span>
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-<span data-ttu-id="ff59d-124">Çalıştırma [kubectl pod'ları alma](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) Kubernetes pod'ları oluşturmakta olduğunu doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="ff59d-124">Run [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) to verify that Kubernetes is creating the pods.</span></span> <span data-ttu-id="ff59d-125">Bir dakika veya bunu sonra ek pod'ları çalıştırıyorsanız:</span><span class="sxs-lookup"><span data-stu-id="ff59d-125">After a minute or so, the additional pods are running:</span></span>
+<span data-ttu-id="1ec2a-124">Çalıştırma [kubectl pod'ları alma](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) tooverify Kubernetes hello pod'ları oluşturuyor.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-124">Run [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) tooverify that Kubernetes is creating hello pods.</span></span> <span data-ttu-id="1ec2a-125">Bir dakika veya bunu sonra ek hello pod'ları çalıştırıyorsanız:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-125">After a minute or so, hello additional pods are running:</span></span>
 
 ```azurecli-interactive
 kubectl get pods
 ```
 
-<span data-ttu-id="ff59d-126">Çıktı:</span><span class="sxs-lookup"><span data-stu-id="ff59d-126">Output:</span></span>
+<span data-ttu-id="1ec2a-126">Çıktı:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-126">Output:</span></span>
 
 ```bash
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -82,11 +82,11 @@ azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
 azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
-## <a name="autoscale-pods"></a><span data-ttu-id="ff59d-127">Otomatik ölçeklendirme pod'ları</span><span class="sxs-lookup"><span data-stu-id="ff59d-127">Autoscale pods</span></span>
+## <a name="autoscale-pods"></a><span data-ttu-id="1ec2a-127">Otomatik ölçeklendirme pod'ları</span><span class="sxs-lookup"><span data-stu-id="1ec2a-127">Autoscale pods</span></span>
 
-<span data-ttu-id="ff59d-128">Kubernetes destekleyen [yatay pod otomatik ölçeklendirmeyi](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) ayarlamak için pod'ları CPU kullanımına bağlı olarak bir dağıtımda sayısı veya diğer ölçümleri seçin.</span><span class="sxs-lookup"><span data-stu-id="ff59d-128">Kubernetes supports [horizontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to adjust the number of pods in a deployment depending on CPU utilization or other select metrics.</span></span> 
+<span data-ttu-id="1ec2a-128">Kubernetes destekleyen [yatay pod otomatik ölçeklendirmeyi](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) tooadjust hello pod'ları CPU kullanımı veya diğer bağlı olarak bir dağıtımda sayısını ölçümleri seçin.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-128">Kubernetes supports [horizontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) tooadjust hello number of pods in a deployment depending on CPU utilization or other select metrics.</span></span> 
 
-<span data-ttu-id="ff59d-129">Autoscaler kullanmak için pod'ları CPU istekleri ve tanımlanan sınırları olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="ff59d-129">To use the autoscaler, your pods must have CPU requests and limits defined.</span></span> <span data-ttu-id="ff59d-130">İçinde `azure-vote-front` dağıtım, ön uç kapsayıcı 0,5 sınırına sahip istekleri 0,25 CPU CPU.</span><span class="sxs-lookup"><span data-stu-id="ff59d-130">In the `azure-vote-front` deployment, the front-end container requests 0.25 CPU, with a limit of 0.5 CPU.</span></span> <span data-ttu-id="ff59d-131">Ayarları gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="ff59d-131">The settings look like:</span></span>
+<span data-ttu-id="1ec2a-129">toouse hello autoscaler, pod'ları CPU istekleri ve sınırları tanımlanmış olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-129">toouse hello autoscaler, your pods must have CPU requests and limits defined.</span></span> <span data-ttu-id="1ec2a-130">Merhaba, `azure-vote-front` dağıtımı, ön uç kapsayıcı istekleri 0,25 CPU 0,5 sınırı ile Merhaba CPU.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-130">In hello `azure-vote-front` deployment, hello front-end container requests 0.25 CPU, with a limit of 0.5 CPU.</span></span> <span data-ttu-id="1ec2a-131">gibi Hello ayarlarını arayın:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-131">hello settings look like:</span></span>
 
 ```YAML
 resources:
@@ -96,39 +96,39 @@ resources:
      cpu: 500m
 ```
 
-<span data-ttu-id="ff59d-132">Aşağıdaki örnek kullanır [kubectl otomatik ölçeklendirme](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) pod'ları içinde sayısı için otomatik ölçeklendirme komutu `azure-vote-front` dağıtım.</span><span class="sxs-lookup"><span data-stu-id="ff59d-132">The following example uses the [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) command to autoscale the number of pods in the `azure-vote-front` deployment.</span></span> <span data-ttu-id="ff59d-133">Burada, CPU kullanımı % 50 aşarsa, en fazla 10 için pod'ları autoscaler artırır.</span><span class="sxs-lookup"><span data-stu-id="ff59d-133">Here, if CPU utilization exceeds 50%, the autoscaler increases the pods to a maximum of 10.</span></span>
+<span data-ttu-id="1ec2a-132">Merhaba aşağıdaki örnek kullanır hello [kubectl otomatik ölçeklendirme](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) komut tooautoscale hello pod'ları hello içinde sayısı `azure-vote-front` dağıtım.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-132">hello following example uses hello [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) command tooautoscale hello number of pods in hello `azure-vote-front` deployment.</span></span> <span data-ttu-id="1ec2a-133">Burada, CPU kullanımı % 50 aşarsa hello autoscaler hello pod'ları tooa en fazla 10 artırır.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-133">Here, if CPU utilization exceeds 50%, hello autoscaler increases hello pods tooa maximum of 10.</span></span>
 
 
 ```azurecli-interactive
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-<span data-ttu-id="ff59d-134">Autoscaler durumunu görmek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="ff59d-134">To see the status of the autoscaler, run the following command:</span></span>
+<span data-ttu-id="1ec2a-134">Merhaba autoscaler, komutu aşağıdaki hello çalıştırmak toosee hello durumu:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-134">toosee hello status of hello autoscaler, run hello following command:</span></span>
 
 ```azurecli-interactive
 kubectl get hpa
 ```
 
-<span data-ttu-id="ff59d-135">Çıktı:</span><span class="sxs-lookup"><span data-stu-id="ff59d-135">Output:</span></span>
+<span data-ttu-id="1ec2a-135">Çıktı:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-135">Output:</span></span>
 
 ```bash
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-<span data-ttu-id="ff59d-136">Azure oy uygulama üzerinde minimum yük ile birkaç dakika sonra pod çoğaltmaların sayısı 3'e otomatik olarak azaltır.</span><span class="sxs-lookup"><span data-stu-id="ff59d-136">After a few minutes, with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to 3.</span></span>
+<span data-ttu-id="1ec2a-136">Merhaba pod çoğaltmaların sayısı hello Azure oy uygulama üzerinde minimum yük ile birkaç dakika sonra otomatik olarak too3 azaltır.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-136">After a few minutes, with minimal load on hello Azure Vote app, hello number of pod replicas decreases automatically too3.</span></span>
 
-## <a name="scale-the-agents"></a><span data-ttu-id="ff59d-137">Aracıları ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="ff59d-137">Scale the agents</span></span>
+## <a name="scale-hello-agents"></a><span data-ttu-id="1ec2a-137">Ölçek hello aracıları</span><span class="sxs-lookup"><span data-stu-id="1ec2a-137">Scale hello agents</span></span>
 
-<span data-ttu-id="ff59d-138">Önceki öğreticide varsayılan komutlarını kullanarak Kubernetes kümenize oluşturduysanız, üç Aracısı düğüm yok.</span><span class="sxs-lookup"><span data-stu-id="ff59d-138">If you created your Kubernetes cluster using default commands in the previous tutorial, it has three agent nodes.</span></span> <span data-ttu-id="ff59d-139">Daha fazla veya daha az sayıda kapsayıcı iş yükleri kümenizde düşünüyorsanız, aracı sayısı el ile ayarlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ff59d-139">You can adjust the number of agents manually if you plan more or fewer container workloads on your cluster.</span></span> <span data-ttu-id="ff59d-140">Kullanım [az acs ölçeklendirme](/cli/azure/acs#scale) komut ve aracılarla sayısını belirtin `--new-agent-count` parametresi.</span><span class="sxs-lookup"><span data-stu-id="ff59d-140">Use the [az acs scale](/cli/azure/acs#scale) command, and specify the number of agents with the `--new-agent-count` parameter.</span></span>
+<span data-ttu-id="1ec2a-138">Merhaba önceki öğreticide varsayılan komutlarını kullanarak Kubernetes kümenize oluşturduysanız, üç Aracısı düğüm yok.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-138">If you created your Kubernetes cluster using default commands in hello previous tutorial, it has three agent nodes.</span></span> <span data-ttu-id="1ec2a-139">Daha fazla veya daha az sayıda kapsayıcı iş yükleri kümenizde düşünüyorsanız, aracı hello sayısı el ile ayarlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-139">You can adjust hello number of agents manually if you plan more or fewer container workloads on your cluster.</span></span> <span data-ttu-id="1ec2a-140">Kullanım hello [az acs ölçeklendirme](/cli/azure/acs#scale) komutu ve aracı hello sayısı ile Merhaba belirtin `--new-agent-count` parametresi.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-140">Use hello [az acs scale](/cli/azure/acs#scale) command, and specify hello number of agents with hello `--new-agent-count` parameter.</span></span>
 
-<span data-ttu-id="ff59d-141">Aşağıdaki örnek 4 adlı Kubernetes kümedeki Aracısı düğüm sayısını artırır *myK8sCluster*.</span><span class="sxs-lookup"><span data-stu-id="ff59d-141">The following example increases the number of agent nodes to 4 in the Kubernetes cluster named *myK8sCluster*.</span></span> <span data-ttu-id="ff59d-142">Komut birkaç tamamlamak için dakika sürer.</span><span class="sxs-lookup"><span data-stu-id="ff59d-142">The command takes a couple of minutes to complete.</span></span>
+<span data-ttu-id="1ec2a-141">Merhaba aşağıdaki örnek hello sayısını Aracısı düğümleri too4 adlı hello Kubernetes kümedeki artırır *myK8sCluster*.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-141">hello following example increases hello number of agent nodes too4 in hello Kubernetes cluster named *myK8sCluster*.</span></span> <span data-ttu-id="1ec2a-142">birkaç dakika toocomplete Hello komutu alır.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-142">hello command takes a couple of minutes toocomplete.</span></span>
 
 ```azurecli-interactive
 az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-count 4
 ```
 
-<span data-ttu-id="ff59d-143">Komut çıktısı aracı sayısı düğümleri değerinde gösterir `agentPoolProfiles:count`:</span><span class="sxs-lookup"><span data-stu-id="ff59d-143">The command output shows the number of agent nodes in the value of `agentPoolProfiles:count`:</span></span>
+<span data-ttu-id="1ec2a-143">Merhaba komutu çıktısı hello sayısını Aracısı düğümleri hello değerinde gösterir `agentPoolProfiles:count`:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-143">hello command output shows hello number of agent nodes in hello value of `agentPoolProfiles:count`:</span></span>
 
 ```azurecli
 {
@@ -145,17 +145,17 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="ff59d-144">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="ff59d-144">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="1ec2a-144">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="1ec2a-144">Next steps</span></span>
 
-<span data-ttu-id="ff59d-145">Bu öğreticide, farklı ölçekleme özelliklerini Kubernetes kümenizdeki kullanılır.</span><span class="sxs-lookup"><span data-stu-id="ff59d-145">In this tutorial, you used different scaling features in your Kubernetes cluster.</span></span> <span data-ttu-id="ff59d-146">Görevleri dahil ele:</span><span class="sxs-lookup"><span data-stu-id="ff59d-146">Tasks covered included:</span></span>
+<span data-ttu-id="1ec2a-145">Bu öğreticide, farklı ölçekleme özelliklerini Kubernetes kümenizdeki kullanılır.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-145">In this tutorial, you used different scaling features in your Kubernetes cluster.</span></span> <span data-ttu-id="1ec2a-146">Görevleri dahil ele:</span><span class="sxs-lookup"><span data-stu-id="1ec2a-146">Tasks covered included:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="ff59d-147">Kubernetes pod'ları el ile ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="ff59d-147">Manually scaling Kubernetes pods</span></span>
-> * <span data-ttu-id="ff59d-148">Otomatik ölçeklendirme uygulaması ön ucu çalıştıran pod'ları yapılandırma</span><span class="sxs-lookup"><span data-stu-id="ff59d-148">Configuring Autoscale pods running the app front end</span></span>
-> * <span data-ttu-id="ff59d-149">Kubernetes Azure Aracısı düğümleri ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="ff59d-149">Scale the Kubernetes Azure agent nodes</span></span>
+> * <span data-ttu-id="1ec2a-147">Kubernetes pod'ları el ile ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="1ec2a-147">Manually scaling Kubernetes pods</span></span>
+> * <span data-ttu-id="1ec2a-148">Merhaba uygulaması ön ucu çalıştıran otomatik ölçeklendirme pod'ları yapılandırma</span><span class="sxs-lookup"><span data-stu-id="1ec2a-148">Configuring Autoscale pods running hello app front end</span></span>
+> * <span data-ttu-id="1ec2a-149">Merhaba Kubernetes Azure Aracısı düğümleri ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="1ec2a-149">Scale hello Kubernetes Azure agent nodes</span></span>
 
-<span data-ttu-id="ff59d-150">Kubernetes uygulamada güncelleştirmek hakkında bilgi edinmek için sonraki öğretici ilerleyin.</span><span class="sxs-lookup"><span data-stu-id="ff59d-150">Advance to the next tutorial to learn about updating application in Kubernetes.</span></span>
+<span data-ttu-id="1ec2a-150">Kubernetes uygulamada güncelleştirme hakkında toohello sonraki öğretici toolearn ilerleyin.</span><span class="sxs-lookup"><span data-stu-id="1ec2a-150">Advance toohello next tutorial toolearn about updating application in Kubernetes.</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="ff59d-151">Bir uygulamada Kubernetes güncelleştir</span><span class="sxs-lookup"><span data-stu-id="ff59d-151">Update an application in Kubernetes</span></span>](./container-service-tutorial-kubernetes-app-update.md)
+> [<span data-ttu-id="1ec2a-151">Bir uygulamada Kubernetes güncelleştir</span><span class="sxs-lookup"><span data-stu-id="1ec2a-151">Update an application in Kubernetes</span></span>](./container-service-tutorial-kubernetes-app-update.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak Azure Dosya depolamayı yönetme | Microsoft Docs"
-description: "PowerShell kullanarak Azure Dosya depolamayı yönetmeyi öğrenin."
+title: aaaHow toouse PowerShell toomanage Azure File storage | Microsoft Docs
+description: "Toouse PowerShell toomanage Azure File storage öğrenin."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -14,89 +14,89 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7bd84c9cfa31782aedf4a209cb15d4b8d92e2737
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a><span data-ttu-id="fe745-103">PowerShell kullanarak Azure Dosya depolamayı yönetme</span><span class="sxs-lookup"><span data-stu-id="fe745-103">How to use PowerShell to manage Azure File storage</span></span>
-<span data-ttu-id="fe745-104">Dosya paylaşımları oluşturmak ve yönetmek için Azure PowerShell’i kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fe745-104">You can use Azure PowerShell to create and manage file shares.</span></span>
+# <a name="how-toouse-powershell-toomanage-azure-file-storage"></a><span data-ttu-id="2a172-103">Nasıl toouse PowerShell toomanage Azure dosya depolama</span><span class="sxs-lookup"><span data-stu-id="2a172-103">How toouse PowerShell toomanage Azure File storage</span></span>
+<span data-ttu-id="2a172-104">Azure PowerShell toocreate ve dosya paylaşımlarını yönetmek kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="2a172-104">You can use Azure PowerShell toocreate and manage file shares.</span></span>
 
-## <a name="install-the-powershell-cmdlets-for-azure-storage"></a><span data-ttu-id="fe745-105">Azure Storage için PowerShell cmdlet’leri yükleme</span><span class="sxs-lookup"><span data-stu-id="fe745-105">Install the PowerShell cmdlets for Azure Storage</span></span>
-<span data-ttu-id="fe745-106">PowerShell’i kullanmaya hazırlamak için Azure PowerShell cmdlet’lerini indirin ve yükleyin.</span><span class="sxs-lookup"><span data-stu-id="fe745-106">To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.</span></span> <span data-ttu-id="fe745-107">Yükleme noktası ve yükleme yönergeleri için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).</span><span class="sxs-lookup"><span data-stu-id="fe745-107">See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for the install point and installation instructions.</span></span>
+## <a name="install-hello-powershell-cmdlets-for-azure-storage"></a><span data-ttu-id="2a172-105">Azure Storage için Hello PowerShell cmdlet'lerini yükleyin</span><span class="sxs-lookup"><span data-stu-id="2a172-105">Install hello PowerShell cmdlets for Azure Storage</span></span>
+<span data-ttu-id="2a172-106">tooprepare toouse PowerShell, indirin ve hello Azure PowerShell cmdlet'lerini yükleyin.</span><span class="sxs-lookup"><span data-stu-id="2a172-106">tooprepare toouse PowerShell, download and install hello Azure PowerShell cmdlets.</span></span> <span data-ttu-id="2a172-107">Bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azureps-cmdlets-docs) noktası ve yükleme yönergeleri için hello yükleyin.</span><span class="sxs-lookup"><span data-stu-id="2a172-107">See [How tooinstall and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for hello install point and installation instructions.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="fe745-108">En güncel Azure PowerShell modülünü indirmeniz ve yüklemeniz veya yükseltmeniz önerilir.</span><span class="sxs-lookup"><span data-stu-id="fe745-108">It's recommended that you download and install or upgrade to the latest Azure PowerShell module.</span></span>
+> <span data-ttu-id="2a172-108">Bu, indirin ve yükleyin veya toohello en son Azure PowerShell modülü yükseltme önerilir.</span><span class="sxs-lookup"><span data-stu-id="2a172-108">It's recommended that you download and install or upgrade toohello latest Azure PowerShell module.</span></span>
 > 
 > 
 
-<span data-ttu-id="fe745-109">**Başlat**’a tıklayıp **Windows PowerShell** yazarak Azure PowerShell penceresini açın.</span><span class="sxs-lookup"><span data-stu-id="fe745-109">Open an Azure PowerShell window by clicking **Start** and typing **Windows PowerShell**.</span></span> <span data-ttu-id="fe745-110">PowerShell penceresi sizin için Azure Powershell modülünü yükler.</span><span class="sxs-lookup"><span data-stu-id="fe745-110">The PowerShell window loads the Azure Powershell module for you.</span></span>
+<span data-ttu-id="2a172-109">**Başlat**’a tıklayıp **Windows PowerShell** yazarak Azure PowerShell penceresini açın.</span><span class="sxs-lookup"><span data-stu-id="2a172-109">Open an Azure PowerShell window by clicking **Start** and typing **Windows PowerShell**.</span></span> <span data-ttu-id="2a172-110">Merhaba PowerShell penceresinde hello Azure Powershell modülü sizin yerinize yükler.</span><span class="sxs-lookup"><span data-stu-id="2a172-110">hello PowerShell window loads hello Azure Powershell module for you.</span></span>
 
-## <a name="create-a-context-for-your-storage-account-and-key"></a><span data-ttu-id="fe745-111">Depolama hesabınız ve anahtarı için bir bağlam oluşturma</span><span class="sxs-lookup"><span data-stu-id="fe745-111">Create a context for your storage account and key</span></span>
-<span data-ttu-id="fe745-112">Depolama hesabı bağlamını oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fe745-112">Create the storage account context.</span></span> <span data-ttu-id="fe745-113">Bağlam, depolama hesabı adını ve hesap anahtarını kapsar.</span><span class="sxs-lookup"><span data-stu-id="fe745-113">The context encapsulates the storage account name and account key.</span></span> <span data-ttu-id="fe745-114">Hesap anahtarını [Azure portalından](https://portal.azure.com) kopyalama yönergeleri için bkz. [Depolama erişim anahtarlarını görüntüleme ve kopyalama](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).</span><span class="sxs-lookup"><span data-stu-id="fe745-114">For instructions on copying your account key from the [Azure portal](https://portal.azure.com), see [View and copy storage access keys](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).</span></span>
+## <a name="create-a-context-for-your-storage-account-and-key"></a><span data-ttu-id="2a172-111">Depolama hesabınız ve anahtarı için bir bağlam oluşturma</span><span class="sxs-lookup"><span data-stu-id="2a172-111">Create a context for your storage account and key</span></span>
+<span data-ttu-id="2a172-112">Merhaba depolama hesabı bağlamını oluşturun.</span><span class="sxs-lookup"><span data-stu-id="2a172-112">Create hello storage account context.</span></span> <span data-ttu-id="2a172-113">Merhaba bağlam Merhaba, depolama hesabı adı ve hesap anahtarını kapsar.</span><span class="sxs-lookup"><span data-stu-id="2a172-113">hello context encapsulates hello storage account name and account key.</span></span> <span data-ttu-id="2a172-114">Hesap anahtarınızı hello kopyalama yönergeleri için [Azure portal](https://portal.azure.com), bkz: [depolama erişim tuşlarını görüntüleme ve kopyalama](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).</span><span class="sxs-lookup"><span data-stu-id="2a172-114">For instructions on copying your account key from hello [Azure portal](https://portal.azure.com), see [View and copy storage access keys](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).</span></span>
 
-<span data-ttu-id="fe745-115">`storage-account-name` ve `storage-account-key` değerlerini aşağıdaki örnekte olduğu gibi depolama hesabı adı ve anahtarınız ile değiştirin.</span><span class="sxs-lookup"><span data-stu-id="fe745-115">Replace `storage-account-name` and `storage-account-key` with your storage account name and key in the following example.</span></span>
+<span data-ttu-id="2a172-115">Değiştir `storage-account-name` ve `storage-account-key` depolama hesabı adı ve örnek aşağıdaki hello anahtarında ile.</span><span class="sxs-lookup"><span data-stu-id="2a172-115">Replace `storage-account-name` and `storage-account-key` with your storage account name and key in hello following example.</span></span>
 
 ```powershell
 # create a context for account and key
 $ctx=New-AzureStorageContext storage-account-name storage-account-key
 ```
 
-## <a name="create-a-new-file-share"></a><span data-ttu-id="fe745-116">Yeni dosya paylaşımı oluşturma</span><span class="sxs-lookup"><span data-stu-id="fe745-116">Create a new file share</span></span>
-<span data-ttu-id="fe745-117">`logs` adında yeni bir paylaşım oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fe745-117">Create the new share, named `logs`.</span></span>
+## <a name="create-a-new-file-share"></a><span data-ttu-id="2a172-116">Yeni dosya paylaşımı oluşturma</span><span class="sxs-lookup"><span data-stu-id="2a172-116">Create a new file share</span></span>
+<span data-ttu-id="2a172-117">Adlı hello yeni paylaşım oluşturun `logs`.</span><span class="sxs-lookup"><span data-stu-id="2a172-117">Create hello new share, named `logs`.</span></span>
 
 ```powershell
 # create a new share
 $s = New-AzureStorageShare logs -Context $ctx
 ```
 
-<span data-ttu-id="fe745-118">Artık, File Storage’da bir dosya paylaşımınız bulunur.</span><span class="sxs-lookup"><span data-stu-id="fe745-118">You now have a file share in File storage.</span></span> <span data-ttu-id="fe745-119">Şimdi, bir dizin ve dosya ekleyeceğiz.</span><span class="sxs-lookup"><span data-stu-id="fe745-119">Next we'll add a directory and a file.</span></span>
+<span data-ttu-id="2a172-118">Artık, File Storage’da bir dosya paylaşımınız bulunur.</span><span class="sxs-lookup"><span data-stu-id="2a172-118">You now have a file share in File storage.</span></span> <span data-ttu-id="2a172-119">Şimdi, bir dizin ve dosya ekleyeceğiz.</span><span class="sxs-lookup"><span data-stu-id="2a172-119">Next we'll add a directory and a file.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="fe745-120">Dosya paylaşımınızın adı küçük harflerden oluşmalıdır.</span><span class="sxs-lookup"><span data-stu-id="fe745-120">The name of your file share must be all lowercase.</span></span> <span data-ttu-id="fe745-121">Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](https://msdn.microsoft.com/library/azure/dn167011.aspx)</span><span class="sxs-lookup"><span data-stu-id="fe745-121">For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).</span></span>
+> <span data-ttu-id="2a172-120">Merhaba, dosya paylaşımının adını tamamen küçük harfli olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="2a172-120">hello name of your file share must be all lowercase.</span></span> <span data-ttu-id="2a172-121">Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](https://msdn.microsoft.com/library/azure/dn167011.aspx)</span><span class="sxs-lookup"><span data-stu-id="2a172-121">For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).</span></span>
 > 
 > 
 
-## <a name="create-a-directory-in-the-file-share"></a><span data-ttu-id="fe745-122">Dosya paylaşımında bir dizin oluşturma</span><span class="sxs-lookup"><span data-stu-id="fe745-122">Create a directory in the file share</span></span>
-<span data-ttu-id="fe745-123">Paylaşımda bir dizin oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fe745-123">Create a directory in the share.</span></span> <span data-ttu-id="fe745-124">Aşağıdaki örnekte, dizin `CustomLogs` olarak adlandırılmıştır.</span><span class="sxs-lookup"><span data-stu-id="fe745-124">In the following example, the directory is named `CustomLogs`.</span></span>
+## <a name="create-a-directory-in-hello-file-share"></a><span data-ttu-id="2a172-122">Merhaba dosya paylaşımında bir dizin oluşturun</span><span class="sxs-lookup"><span data-stu-id="2a172-122">Create a directory in hello file share</span></span>
+<span data-ttu-id="2a172-123">Merhaba paylaşımda bir dizin oluşturun.</span><span class="sxs-lookup"><span data-stu-id="2a172-123">Create a directory in hello share.</span></span> <span data-ttu-id="2a172-124">Aşağıdaki örneğine hello hello dizin adlı `CustomLogs`.</span><span class="sxs-lookup"><span data-stu-id="2a172-124">In hello following example, hello directory is named `CustomLogs`.</span></span>
 
 ```powershell
-# create a directory in the share
+# create a directory in hello share
 New-AzureStorageDirectory -Share $s -Path CustomLogs
 ```
 
-## <a name="upload-a-local-file-to-the-directory"></a><span data-ttu-id="fe745-125">Dizine yerel bir dosya yükleme</span><span class="sxs-lookup"><span data-stu-id="fe745-125">Upload a local file to the directory</span></span>
-<span data-ttu-id="fe745-126">Şimdi, dizine yerel bir doya yükleyin.</span><span class="sxs-lookup"><span data-stu-id="fe745-126">Now upload a local file to the directory.</span></span> <span data-ttu-id="fe745-127">Aşağıdaki örnekte `C:\temp\Log1.txt` konumundan bir dosya yüklenir.</span><span class="sxs-lookup"><span data-stu-id="fe745-127">The following example uploads a file from `C:\temp\Log1.txt`.</span></span> <span data-ttu-id="fe745-128">Dosya yolunu yerel makinenizdeki geçerli bir dosyaya işaret edecek şekilde düzenleyin.</span><span class="sxs-lookup"><span data-stu-id="fe745-128">Edit the file path so that it points to a valid file on your local machine.</span></span>
+## <a name="upload-a-local-file-toohello-directory"></a><span data-ttu-id="2a172-125">Bir yerel dosya toohello dizin karşıya yükle</span><span class="sxs-lookup"><span data-stu-id="2a172-125">Upload a local file toohello directory</span></span>
+<span data-ttu-id="2a172-126">Şimdi bir yerel dosya toohello dizin karşıya yükleyin.</span><span class="sxs-lookup"><span data-stu-id="2a172-126">Now upload a local file toohello directory.</span></span> <span data-ttu-id="2a172-127">Merhaba aşağıdaki örnek dosya karşıya yükleme `C:\temp\Log1.txt`.</span><span class="sxs-lookup"><span data-stu-id="2a172-127">hello following example uploads a file from `C:\temp\Log1.txt`.</span></span> <span data-ttu-id="2a172-128">Hello dosya yolu geçerli bir dosya tooa yerel makinenizde işaret şekilde düzenleyin.</span><span class="sxs-lookup"><span data-stu-id="2a172-128">Edit hello file path so that it points tooa valid file on your local machine.</span></span>
 
 ```powershell
-# upload a local file to the new directory
+# upload a local file toohello new directory
 Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
 ```
 
-## <a name="list-the-files-in-the-directory"></a><span data-ttu-id="fe745-129">Dizindeki dosyaları listeleme</span><span class="sxs-lookup"><span data-stu-id="fe745-129">List the files in the directory</span></span>
-<span data-ttu-id="fe745-130">Dizindeki dosyaları görmek üzere tüm dizin dosyalarını listeleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fe745-130">To see the file in the directory, you can list all of the directory's files.</span></span> <span data-ttu-id="fe745-131">Bu komut, CustomLogs dizinindeki dosyaları ve alt dizinleri (varsa) döndürür.</span><span class="sxs-lookup"><span data-stu-id="fe745-131">This command returns the files and subdirectories (if there are any) in the CustomLogs directory.</span></span>
+## <a name="list-hello-files-in-hello-directory"></a><span data-ttu-id="2a172-129">Merhaba dizininde hello dosyaları listeleme</span><span class="sxs-lookup"><span data-stu-id="2a172-129">List hello files in hello directory</span></span>
+<span data-ttu-id="2a172-130">toosee hello dosya hello dizinindeki tüm hello dizin dosyalarını listeleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="2a172-130">toosee hello file in hello directory, you can list all of hello directory's files.</span></span> <span data-ttu-id="2a172-131">(Varsa) Bu komut hello CustomLogs dizinindeki hello dosyaları ve alt dizinleri döndürür.</span><span class="sxs-lookup"><span data-stu-id="2a172-131">This command returns hello files and subdirectories (if there are any) in hello CustomLogs directory.</span></span>
 
 ```powershell
-# list files in the new directory
+# list files in hello new directory
 Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
 ```
 
-<span data-ttu-id="fe745-132">Get-AzureStorageFile, hangi dizin nesnesi geçiriliyorsa, onun için dosyaların ve dizinlerin bir listesini döndürür.</span><span class="sxs-lookup"><span data-stu-id="fe745-132">Get-AzureStorageFile returns a list of files and directories for whatever directory object is passed in.</span></span> <span data-ttu-id="fe745-133">"Get-AzureStorageFile -Share $s" kök dizindeki dosyaların ve dizinlerin bir listesini döndürür.</span><span class="sxs-lookup"><span data-stu-id="fe745-133">"Get-AzureStorageFile -Share $s" returns a list of files and directories in the root directory.</span></span> <span data-ttu-id="fe745-134">Alt dizindeki dosyaların bir listesini almak için alt dizini Get-AzureStorageFile dizinine geçirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="fe745-134">To get a list of files in a subdirectory, you have to pass the subdirectory to Get-AzureStorageFile.</span></span> <span data-ttu-id="fe745-135">Böylece şu işlemleri gerçekleştirmiş olursunuz; komutun kanala kadar olan ilk parçası CustomLogs alt dizininin dizin örneğini döndürür.</span><span class="sxs-lookup"><span data-stu-id="fe745-135">That's what this does -- the first part of the command up to the pipe returns a directory instance of the subdirectory CustomLogs.</span></span> <span data-ttu-id="fe745-136">Daha sonra, CustomLogs alt dizinindeki dosyaları ve dizinleri döndüren Get-AzureStorageFile dizinine geçirilir.</span><span class="sxs-lookup"><span data-stu-id="fe745-136">Then that is passed into Get-AzureStorageFile, which returns the files and directories in CustomLogs.</span></span>
+<span data-ttu-id="2a172-132">Get-AzureStorageFile, hangi dizin nesnesi geçiriliyorsa, onun için dosyaların ve dizinlerin bir listesini döndürür.</span><span class="sxs-lookup"><span data-stu-id="2a172-132">Get-AzureStorageFile returns a list of files and directories for whatever directory object is passed in.</span></span> <span data-ttu-id="2a172-133">"Get-AzureStorageFile-Share $s" Merhaba kök dizinindeki dosyaları ve dizinleri listesini döndürür.</span><span class="sxs-lookup"><span data-stu-id="2a172-133">"Get-AzureStorageFile -Share $s" returns a list of files and directories in hello root directory.</span></span> <span data-ttu-id="2a172-134">tooget alt dizindeki dosyaların listesi, toopass hello alt tooGet-AzureStorageFile sahip.</span><span class="sxs-lookup"><span data-stu-id="2a172-134">tooget a list of files in a subdirectory, you have toopass hello subdirectory tooGet-AzureStorageFile.</span></span> <span data-ttu-id="2a172-135">Bu yaptığı olan--hello toohello kanal hello komutu ilk parçası CustomLogs hello alt dizininin dizin örneğini döndürür.</span><span class="sxs-lookup"><span data-stu-id="2a172-135">That's what this does -- hello first part of hello command up toohello pipe returns a directory instance of hello subdirectory CustomLogs.</span></span> <span data-ttu-id="2a172-136">Daha sonra customlogs alt dizinindeki hello dosyaları ve dizinleri döndüren Get-AzureStorageFile içine geçirilir.</span><span class="sxs-lookup"><span data-stu-id="2a172-136">Then that is passed into Get-AzureStorageFile, which returns hello files and directories in CustomLogs.</span></span>
 
-## <a name="copy-files"></a><span data-ttu-id="fe745-137">Dosyaları kopyalama</span><span class="sxs-lookup"><span data-stu-id="fe745-137">Copy files</span></span>
-<span data-ttu-id="fe745-138">Azure PowerShell’in 0.9.7 sürümünden başlayarak, bir dosyayı başka bir dosyaya, bir dosyayı başka bir bloba veya bir blobu bir dosyaya kopyalayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fe745-138">Beginning with version 0.9.7 of Azure PowerShell, you can copy a file to another file, a file to a blob, or a blob to a file.</span></span> <span data-ttu-id="fe745-139">Bu kopyalama işlemlerinin PowerShell cmdlet'leri kullanılarak nasıl yapılacağı aşağıda gösterilmiştir.</span><span class="sxs-lookup"><span data-stu-id="fe745-139">Below we demonstrate how to perform these copy operations using PowerShell cmdlets.</span></span>
+## <a name="copy-files"></a><span data-ttu-id="2a172-137">Dosyaları kopyalama</span><span class="sxs-lookup"><span data-stu-id="2a172-137">Copy files</span></span>
+<span data-ttu-id="2a172-138">Azure PowerShell'in 0.9.7 sürümünden başlayarak, tooanother dosyası, dosya tooa blob veya bir blobu tooa dosyayı kopyalayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="2a172-138">Beginning with version 0.9.7 of Azure PowerShell, you can copy a file tooanother file, a file tooa blob, or a blob tooa file.</span></span> <span data-ttu-id="2a172-139">Aşağıda nasıl tooperform bu kopyalama göstermek PowerShell cmdlet'lerini kullanarak işlemleri.</span><span class="sxs-lookup"><span data-stu-id="2a172-139">Below we demonstrate how tooperform these copy operations using PowerShell cmdlets.</span></span>
 
 ```powershell
-# copy a file to the new directory
+# copy a file toohello new directory
 Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt -DestShareName destshare -DestFilePath destdir/hellocopy.txt -Context $srcCtx -DestContext $destCtx
 
-# copy a blob to a file directory
+# copy a blob tooa file directory
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
-## <a name="next-steps"></a><span data-ttu-id="fe745-140">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="fe745-140">Next steps</span></span>
-<span data-ttu-id="fe745-141">Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.</span><span class="sxs-lookup"><span data-stu-id="fe745-141">See these links for more information about Azure File storage.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2a172-140">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="2a172-140">Next steps</span></span>
+<span data-ttu-id="2a172-141">Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.</span><span class="sxs-lookup"><span data-stu-id="2a172-141">See these links for more information about Azure File storage.</span></span>
 
-* [<span data-ttu-id="fe745-142">SSS</span><span class="sxs-lookup"><span data-stu-id="fe745-142">FAQ</span></span>](../storage-files-faq.md)
-* [<span data-ttu-id="fe745-143">Windows’da sorun giderme</span><span class="sxs-lookup"><span data-stu-id="fe745-143">Troubleshooting on Windows</span></span>](storage-troubleshoot-windows-file-connection-problems.md)      
-* [<span data-ttu-id="fe745-144">Linux’ta sorun giderme</span><span class="sxs-lookup"><span data-stu-id="fe745-144">Troubleshooting on Linux</span></span>](storage-troubleshoot-linux-file-connection-problems.md)    
+* [<span data-ttu-id="2a172-142">SSS</span><span class="sxs-lookup"><span data-stu-id="2a172-142">FAQ</span></span>](../storage-files-faq.md)
+* [<span data-ttu-id="2a172-143">Windows’da sorun giderme</span><span class="sxs-lookup"><span data-stu-id="2a172-143">Troubleshooting on Windows</span></span>](storage-troubleshoot-windows-file-connection-problems.md)      
+* [<span data-ttu-id="2a172-144">Linux’ta sorun giderme</span><span class="sxs-lookup"><span data-stu-id="2a172-144">Troubleshooting on Linux</span></span>](storage-troubleshoot-linux-file-connection-problems.md)    

@@ -1,6 +1,6 @@
 ---
-title: "Güvenli iletişim için Azure Service Fabric Hizmetleri'nde Yardım | Microsoft Docs"
-description: "Güvenilir hizmetler için iletişimi güvenli hale getirmek nasıl genel bakış çalıştıran bir Azure Service Fabric kümesi."
+title: "Azure Service Fabric hizmetler için güvenli iletişim aaaHelp | Microsoft Docs"
+description: "Toohelp güvenliğini nasıl iletişim güvenilir hizmetler için genel bakış çalıştıran bir Azure Service Fabric kümesi."
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 14db54d50c35478c1f2c156de0dba36f1427c8cb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a><span data-ttu-id="fe970-103">Güvenli iletişim Azure Service Fabric hizmetler için Yardım</span><span class="sxs-lookup"><span data-stu-id="fe970-103">Help secure communication for services in Azure Service Fabric</span></span>
+# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a><span data-ttu-id="e3bc8-103">Güvenli iletişim Azure Service Fabric hizmetler için Yardım</span><span class="sxs-lookup"><span data-stu-id="e3bc8-103">Help secure communication for services in Azure Service Fabric</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="fe970-104">Windows üzerinde C#</span><span class="sxs-lookup"><span data-stu-id="fe970-104">C# on Windows</span></span>](service-fabric-reliable-services-secure-communication.md)
-> * [<span data-ttu-id="fe970-105">Linux üzerinde Java</span><span class="sxs-lookup"><span data-stu-id="fe970-105">Java on Linux</span></span>](service-fabric-reliable-services-secure-communication-java.md)
+> * [<span data-ttu-id="e3bc8-104">Windows üzerinde C#</span><span class="sxs-lookup"><span data-stu-id="e3bc8-104">C# on Windows</span></span>](service-fabric-reliable-services-secure-communication.md)
+> * [<span data-ttu-id="e3bc8-105">Linux üzerinde Java</span><span class="sxs-lookup"><span data-stu-id="e3bc8-105">Java on Linux</span></span>](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a><span data-ttu-id="fe970-106">Hizmet remoting kullanırken hizmet korunmasına yardımcı olma</span><span class="sxs-lookup"><span data-stu-id="fe970-106">Help secure a service when you're using service remoting</span></span>
-<span data-ttu-id="fe970-107">Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-services-communication-remoting-java.md) nasıl uzaktan iletişim için güvenilir hizmetler ayarlanacağı açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="fe970-107">We'll be using an existing [example](service-fabric-reliable-services-communication-remoting-java.md) that explains how to set up remoting for reliable services.</span></span> <span data-ttu-id="fe970-108">Hizmet remoting kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="fe970-108">To help secure a service when you're using service remoting, follow these steps:</span></span>
+## <a name="help-secure-a-service-when-youre-using-service-remoting"></a><span data-ttu-id="e3bc8-106">Hizmet remoting kullanırken hizmet korunmasına yardımcı olma</span><span class="sxs-lookup"><span data-stu-id="e3bc8-106">Help secure a service when you're using service remoting</span></span>
+<span data-ttu-id="e3bc8-107">Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-services-communication-remoting-java.md) , açıklar nasıl tooset uzaktan iletişim güvenilir hizmetler için ayarlama.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-107">We'll be using an existing [example](service-fabric-reliable-services-communication-remoting-java.md) that explains how tooset up remoting for reliable services.</span></span> <span data-ttu-id="e3bc8-108">toohelp hizmet remoting kullanırken bir hizmeti güvenli hale getirme, aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="e3bc8-108">toohelp secure a service when you're using service remoting, follow these steps:</span></span>
 
-1. <span data-ttu-id="fe970-109">Bir arabirim oluşturmak `HelloWorldStateless`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek yöntemleri tanımlar.</span><span class="sxs-lookup"><span data-stu-id="fe970-109">Create an interface, `HelloWorldStateless`, that defines the methods that will be available for a remote procedure call on your service.</span></span> <span data-ttu-id="fe970-110">Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, içinde bildirilen `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paket.</span><span class="sxs-lookup"><span data-stu-id="fe970-110">Your service will use `FabricTransportServiceRemotingListener`, which is declared in the `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` package.</span></span> <span data-ttu-id="fe970-111">Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama.</span><span class="sxs-lookup"><span data-stu-id="fe970-111">This is an `CommunicationListener` implementation that provides remoting capabilities.</span></span>
+1. <span data-ttu-id="e3bc8-109">Bir arabirim oluşturmak `HelloWorldStateless`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek hello yöntemleri tanımlar.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-109">Create an interface, `HelloWorldStateless`, that defines hello methods that will be available for a remote procedure call on your service.</span></span> <span data-ttu-id="e3bc8-110">Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, hello bildirilen `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paket.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-110">Your service will use `FabricTransportServiceRemotingListener`, which is declared in hello `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` package.</span></span> <span data-ttu-id="e3bc8-111">Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-111">This is an `CommunicationListener` implementation that provides remoting capabilities.</span></span>
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -51,13 +51,13 @@ ms.lasthandoff: 07/11/2017
         }
     }
     ```
-2. <span data-ttu-id="fe970-112">Dinleyici ayarları ve güvenlik kimlik bilgileri ekleyin.</span><span class="sxs-lookup"><span data-stu-id="fe970-112">Add listener settings and security credentials.</span></span>
+2. <span data-ttu-id="e3bc8-112">Dinleyici ayarları ve güvenlik kimlik bilgileri ekleyin.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-112">Add listener settings and security credentials.</span></span>
 
-    <span data-ttu-id="fe970-113">Hizmet iletişimi güvenli hale getirmek için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="fe970-113">Make sure that the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster.</span></span> <span data-ttu-id="fe970-114">Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:</span><span class="sxs-lookup"><span data-stu-id="fe970-114">There are two ways that you can provide listener settings and security credentials:</span></span>
+    <span data-ttu-id="e3bc8-113">Güvenli, hizmet iletişimi hello kümedeki tüm hello düğümlerde yüklü toouse toohelp istediğiniz hello sertifikanın emin olun.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-113">Make sure that hello certificate that you want toouse toohelp secure your service communication is installed on all hello nodes in hello cluster.</span></span> <span data-ttu-id="e3bc8-114">Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:</span><span class="sxs-lookup"><span data-stu-id="e3bc8-114">There are two ways that you can provide listener settings and security credentials:</span></span>
 
-   1. <span data-ttu-id="fe970-115">Kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-model.md):</span><span class="sxs-lookup"><span data-stu-id="fe970-115">Provide them by using a [config package](service-fabric-application-model.md):</span></span>
+   1. <span data-ttu-id="e3bc8-115">Kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-model.md):</span><span class="sxs-lookup"><span data-stu-id="e3bc8-115">Provide them by using a [config package](service-fabric-application-model.md):</span></span>
 
-       <span data-ttu-id="fe970-116">Ekleme bir `TransportSettings` settings.xml dosyasındaki bölümü.</span><span class="sxs-lookup"><span data-stu-id="fe970-116">Add a `TransportSettings` section in the settings.xml file.</span></span>
+       <span data-ttu-id="e3bc8-116">Ekleme bir `TransportSettings` hello settings.xml dosyasındaki bölümü.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-116">Add a `TransportSettings` section in hello settings.xml file.</span></span>
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -72,7 +72,7 @@ ms.lasthandoff: 07/11/2017
 
        ```
 
-       <span data-ttu-id="fe970-117">Bu durumda, `createServiceInstanceListeners` yöntemi şöyle görünür:</span><span class="sxs-lookup"><span data-stu-id="fe970-117">In this case, the `createServiceInstanceListeners` method will look like this:</span></span>
+       <span data-ttu-id="e3bc8-117">Bu durumda, hello `createServiceInstanceListeners` yöntemi şöyle görünür:</span><span class="sxs-lookup"><span data-stu-id="e3bc8-117">In this case, hello `createServiceInstanceListeners` method will look like this:</span></span>
 
        ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -84,7 +84,7 @@ ms.lasthandoff: 07/11/2017
         }
        ```
 
-        <span data-ttu-id="fe970-118">Eklerseniz bir `TransportSettings` herhangi öneki olmadan settings.xml dosyasındaki bölümünü `FabricTransportListenerSettings` tüm ayarları varsayılan olarak bu bölümünden yüklenir.</span><span class="sxs-lookup"><span data-stu-id="fe970-118">If you add a `TransportSettings` section in the settings.xml file without any prefix, `FabricTransportListenerSettings` will load all the settings from this section by default.</span></span>
+        <span data-ttu-id="e3bc8-118">Eklerseniz bir `TransportSettings` hello settings.xml dosyasındaki tüm öneki olmadan bölümünde `FabricTransportListenerSettings` tüm hello Ayarları sayfasından Bu bölüm varsayılan olarak yüklenecektir.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-118">If you add a `TransportSettings` section in hello settings.xml file without any prefix, `FabricTransportListenerSettings` will load all hello settings from this section by default.</span></span>
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -92,7 +92,7 @@ ms.lasthandoff: 07/11/2017
             ...
         </Section>
         ```
-        <span data-ttu-id="fe970-119">Bu durumda, `CreateServiceInstanceListeners` yöntemi şöyle görünür:</span><span class="sxs-lookup"><span data-stu-id="fe970-119">In this case, the `CreateServiceInstanceListeners` method will look like this:</span></span>
+        <span data-ttu-id="e3bc8-119">Bu durumda, hello `CreateServiceInstanceListeners` yöntemi şöyle görünür:</span><span class="sxs-lookup"><span data-stu-id="e3bc8-119">In this case, hello `CreateServiceInstanceListeners` method will look like this:</span></span>
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -103,9 +103,9 @@ ms.lasthandoff: 07/11/2017
             return listeners;
         }
        ```
-3. <span data-ttu-id="fe970-120">Çağırdığınızda yöntemler güvenli bir hizmette kullanmak yerine uzaktan iletişim yığını kullanarak `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` hizmeti proxy'si oluşturmak, kullanmak için sınıf `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.</span><span class="sxs-lookup"><span data-stu-id="fe970-120">When you call methods on a secured service by using the remoting stack, instead of using the `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` class to create a service proxy, use `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.</span></span>
+3. <span data-ttu-id="e3bc8-120">Çağırdığınızda yöntemler güvenli bir hizmette hello kullanmak yerine hello remoting yığını kullanarak `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` sınıfı toocreate kullanımı bir hizmeti proxy'si `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-120">When you call methods on a secured service by using hello remoting stack, instead of using hello `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` class toocreate a service proxy, use `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.</span></span>
 
-    <span data-ttu-id="fe970-121">İstemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportSettings` settings.xml dosyasından.</span><span class="sxs-lookup"><span data-stu-id="fe970-121">If the client code is running as part of a service, you can load `FabricTransportSettings` from the settings.xml file.</span></span> <span data-ttu-id="fe970-122">Daha önce gösterildiği gibi hizmet koduna benzer TransportSettings bir bölüm oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fe970-122">Create a TransportSettings section that is similar to the service code, as shown earlier.</span></span> <span data-ttu-id="fe970-123">İstemci kodu aşağıdaki değişiklikleri yapın:</span><span class="sxs-lookup"><span data-stu-id="fe970-123">Make the following changes to the client code:</span></span>
+    <span data-ttu-id="e3bc8-121">Merhaba istemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportSettings` hello settings.xml dosyasından.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-121">If hello client code is running as part of a service, you can load `FabricTransportSettings` from hello settings.xml file.</span></span> <span data-ttu-id="e3bc8-122">Benzer toohello hizmeti kodu TransportSettings bölümünde daha önce gösterildiği gibi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="e3bc8-122">Create a TransportSettings section that is similar toohello service code, as shown earlier.</span></span> <span data-ttu-id="e3bc8-123">Değişiklikleri toohello istemci kodu aşağıdaki hello olun:</span><span class="sxs-lookup"><span data-stu-id="e3bc8-123">Make hello following changes toohello client code:</span></span>
 
     ```java
 

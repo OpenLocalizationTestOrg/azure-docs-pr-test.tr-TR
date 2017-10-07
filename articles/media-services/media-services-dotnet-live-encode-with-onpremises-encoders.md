@@ -1,6 +1,6 @@
 ---
-title: ".NET kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme | Microsoft Docs"
-description: "Bu konu, .NET şirket içi kodlayıcılarla gerçek zamanlı kodlama gerçekleştirmek için nasıl kullanılacağını gösterir."
+title: "aaaHow tooperform Canlı ile akış içi .NET kullanarak kodlayıcılar | Microsoft Docs"
+description: "Bu konu nasıl toouse .NET tooperform Canlı kodlama ile şirket içi kodlayıcılardan gösterir."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,60 +14,60 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 3ef6065f5b9e05e0ea5716548699943a2c877bc4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 332582c9f925f8b9270929b3fa8140fce010bbf9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a><span data-ttu-id="a9fab-103">.NET kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="a9fab-103">How to perform live streaming with on-premises encoders using .NET</span></span>
+# <a name="how-tooperform-live-streaming-with-on-premises-encoders-using-net"></a><span data-ttu-id="8f4e4-103">Nasıl tooperform canlı akış .NET kullanarak şirket içi kodlayıcılarda</span><span class="sxs-lookup"><span data-stu-id="8f4e4-103">How tooperform live streaming with on-premises encoders using .NET</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="a9fab-104">Portal</span><span class="sxs-lookup"><span data-stu-id="a9fab-104">Portal</span></span>](media-services-portal-live-passthrough-get-started.md)
-> * [<span data-ttu-id="a9fab-105">.NET</span><span class="sxs-lookup"><span data-stu-id="a9fab-105">.NET</span></span>](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [<span data-ttu-id="a9fab-106">REST</span><span class="sxs-lookup"><span data-stu-id="a9fab-106">REST</span></span>](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [<span data-ttu-id="8f4e4-104">Portal</span><span class="sxs-lookup"><span data-stu-id="8f4e4-104">Portal</span></span>](media-services-portal-live-passthrough-get-started.md)
+> * [<span data-ttu-id="8f4e4-105">.NET</span><span class="sxs-lookup"><span data-stu-id="8f4e4-105">.NET</span></span>](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+> * [<span data-ttu-id="8f4e4-106">REST</span><span class="sxs-lookup"><span data-stu-id="8f4e4-106">REST</span></span>](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
-<span data-ttu-id="a9fab-107">Bu öğretici, oluşturmak üzere Azure Media Services .NET SDK'sını kullanma adımları bir **kanal** doğrudan teslimat için yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="a9fab-107">This tutorial walks you through the steps of using the Azure Media Services .NET SDK to create a **Channel** that is configured for a pass-through delivery.</span></span> 
+<span data-ttu-id="8f4e4-107">Bu öğretici, hello Azure Media Services .NET SDK'sı toocreate kullanmanın hello adımlarda size bir **kanal** doğrudan teslimat için yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-107">This tutorial walks you through hello steps of using hello Azure Media Services .NET SDK toocreate a **Channel** that is configured for a pass-through delivery.</span></span> 
 
-## <a name="prerequisites"></a><span data-ttu-id="a9fab-108">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="a9fab-108">Prerequisites</span></span>
-<span data-ttu-id="a9fab-109">Öğreticiyi tamamlamak için aşağıdakiler gereklidir:</span><span class="sxs-lookup"><span data-stu-id="a9fab-109">The following are required to complete the tutorial:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="8f4e4-108">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="8f4e4-108">Prerequisites</span></span>
+<span data-ttu-id="8f4e4-109">Merhaba, gerekli toocomplete hello öğretici şunlardır:</span><span class="sxs-lookup"><span data-stu-id="8f4e4-109">hello following are required toocomplete hello tutorial:</span></span>
 
-* <span data-ttu-id="a9fab-110">Bir Azure hesabı.</span><span class="sxs-lookup"><span data-stu-id="a9fab-110">An Azure account.</span></span>
-* <span data-ttu-id="a9fab-111">Bir Media Services hesabı.</span><span class="sxs-lookup"><span data-stu-id="a9fab-111">A Media Services account.</span></span>    <span data-ttu-id="a9fab-112">Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).</span><span class="sxs-lookup"><span data-stu-id="a9fab-112">To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).</span></span>
-* <span data-ttu-id="a9fab-113">Geliştirme ortamınızı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="a9fab-113">Set up your dev environment.</span></span> <span data-ttu-id="a9fab-114">Daha fazla bilgi için bkz: [ortamınızı ayarlama](media-services-set-up-computer.md).</span><span class="sxs-lookup"><span data-stu-id="a9fab-114">For more information, see [Set up your environment](media-services-set-up-computer.md).</span></span>
-* <span data-ttu-id="a9fab-115">Bir Web kamerası.</span><span class="sxs-lookup"><span data-stu-id="a9fab-115">A webcam.</span></span> <span data-ttu-id="a9fab-116">Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).</span><span class="sxs-lookup"><span data-stu-id="a9fab-116">For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).</span></span>
+* <span data-ttu-id="8f4e4-110">Bir Azure hesabı.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-110">An Azure account.</span></span>
+* <span data-ttu-id="8f4e4-111">Bir Media Services hesabı.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-111">A Media Services account.</span></span>    <span data-ttu-id="8f4e4-112">bir Media Services hesabı toocreate bkz [nasıl tooCreate Media Services hesabı](media-services-portal-create-account.md).</span><span class="sxs-lookup"><span data-stu-id="8f4e4-112">toocreate a Media Services account, see [How tooCreate a Media Services Account](media-services-portal-create-account.md).</span></span>
+* <span data-ttu-id="8f4e4-113">Geliştirme ortamınızı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-113">Set up your dev environment.</span></span> <span data-ttu-id="8f4e4-114">Daha fazla bilgi için bkz: [ortamınızı ayarlama](media-services-set-up-computer.md).</span><span class="sxs-lookup"><span data-stu-id="8f4e4-114">For more information, see [Set up your environment](media-services-set-up-computer.md).</span></span>
+* <span data-ttu-id="8f4e4-115">Bir Web kamerası.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-115">A webcam.</span></span> <span data-ttu-id="8f4e4-116">Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).</span><span class="sxs-lookup"><span data-stu-id="8f4e4-116">For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).</span></span>
 
-<span data-ttu-id="a9fab-117">Aşağıdaki makaleleri gözden geçirmeniz için önerilir:</span><span class="sxs-lookup"><span data-stu-id="a9fab-117">Recommended to review the following articles:</span></span>
+<span data-ttu-id="8f4e4-117">Önerilen tooreview hello makaleler:</span><span class="sxs-lookup"><span data-stu-id="8f4e4-117">Recommended tooreview hello following articles:</span></span>
 
-* [<span data-ttu-id="a9fab-118">Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar</span><span class="sxs-lookup"><span data-stu-id="a9fab-118">Azure Media Services RTMP Support and Live Encoders</span></span>](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
-* [<span data-ttu-id="a9fab-119">Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış</span><span class="sxs-lookup"><span data-stu-id="a9fab-119">Live streaming with on-premises encoders that create multi-bitrate streams</span></span>](media-services-live-streaming-with-onprem-encoders.md)
+* [<span data-ttu-id="8f4e4-118">Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar</span><span class="sxs-lookup"><span data-stu-id="8f4e4-118">Azure Media Services RTMP Support and Live Encoders</span></span>](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+* [<span data-ttu-id="8f4e4-119">Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış</span><span class="sxs-lookup"><span data-stu-id="8f4e4-119">Live streaming with on-premises encoders that create multi-bitrate streams</span></span>](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="a9fab-120">Visual Studio projesi oluşturup yapılandırma</span><span class="sxs-lookup"><span data-stu-id="a9fab-120">Create and configure a Visual Studio project</span></span>
+## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="8f4e4-120">Visual Studio projesi oluşturup yapılandırma</span><span class="sxs-lookup"><span data-stu-id="8f4e4-120">Create and configure a Visual Studio project</span></span>
 
-<span data-ttu-id="a9fab-121">Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun.</span><span class="sxs-lookup"><span data-stu-id="a9fab-121">Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
+<span data-ttu-id="8f4e4-121">Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="8f4e4-121">Set up your development environment and populate hello app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
 
-## <a name="example"></a><span data-ttu-id="a9fab-122">Örnek</span><span class="sxs-lookup"><span data-stu-id="a9fab-122">Example</span></span>
-<span data-ttu-id="a9fab-123">Aşağıdaki kod örneğinde aşağıdaki görevlerin nasıl yerine getirileceğini gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="a9fab-123">The following code example demonstrates how to achieve the following tasks:</span></span>
+## <a name="example"></a><span data-ttu-id="8f4e4-122">Örnek</span><span class="sxs-lookup"><span data-stu-id="8f4e4-122">Example</span></span>
+<span data-ttu-id="8f4e4-123">Aşağıdaki kod örneğine hello nasıl tooachieve hello aşağıdaki görevleri gösterir:</span><span class="sxs-lookup"><span data-stu-id="8f4e4-123">hello following code example demonstrates how tooachieve hello following tasks:</span></span>
 
-* <span data-ttu-id="a9fab-124">Media Services’e bağlanmak</span><span class="sxs-lookup"><span data-stu-id="a9fab-124">Connect to Media Services</span></span>
-* <span data-ttu-id="a9fab-125">Kanal oluşturma</span><span class="sxs-lookup"><span data-stu-id="a9fab-125">Create a channel</span></span>
-* <span data-ttu-id="a9fab-126">Kanal güncelleştir</span><span class="sxs-lookup"><span data-stu-id="a9fab-126">Update the channel</span></span>
-* <span data-ttu-id="a9fab-127">Kanalın giriş uç noktası alamadı.</span><span class="sxs-lookup"><span data-stu-id="a9fab-127">Retrieve the channel’s input endpoint.</span></span> <span data-ttu-id="a9fab-128">Giriş uç noktası şirket içi gerçek zamanlı kodlayıcıya sağlanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="a9fab-128">The input endpoint should be provided to the on-premises live encoder.</span></span> <span data-ttu-id="a9fab-129">Gerçek zamanlı Kodlayıcı dönüştürür sinyalleri kameradan kanalın girişine gönderilen akışlara (uç noktasını alın).</span><span class="sxs-lookup"><span data-stu-id="a9fab-129">The live encoder converts signals from the camera to streams that are sent to the channel’s input (ingest) endpoint.</span></span>
-* <span data-ttu-id="a9fab-130">Kanal Önizleme uç noktasını alın</span><span class="sxs-lookup"><span data-stu-id="a9fab-130">Retrieve the channel’s preview endpoint</span></span>
-* <span data-ttu-id="a9fab-131">Oluşturma ve bir program başlatma</span><span class="sxs-lookup"><span data-stu-id="a9fab-131">Create and start a program</span></span>
-* <span data-ttu-id="a9fab-132">Program erişmek için gerekli bir Bulucu oluşturun</span><span class="sxs-lookup"><span data-stu-id="a9fab-132">Create a locator needed to access the program</span></span>
-* <span data-ttu-id="a9fab-133">Oluşturma ve bir StreamingEndpoint başlatma</span><span class="sxs-lookup"><span data-stu-id="a9fab-133">Create and start a StreamingEndpoint</span></span>
-* <span data-ttu-id="a9fab-134">Akış uç noktasını güncelleyin</span><span class="sxs-lookup"><span data-stu-id="a9fab-134">Update the streaming endpoint</span></span>
-* <span data-ttu-id="a9fab-135">Kapatma kaynakları</span><span class="sxs-lookup"><span data-stu-id="a9fab-135">Shut down resources</span></span>
+* <span data-ttu-id="8f4e4-124">TooMedia Hizmetleri'ne Bağlama</span><span class="sxs-lookup"><span data-stu-id="8f4e4-124">Connect tooMedia Services</span></span>
+* <span data-ttu-id="8f4e4-125">Kanal oluşturma</span><span class="sxs-lookup"><span data-stu-id="8f4e4-125">Create a channel</span></span>
+* <span data-ttu-id="8f4e4-126">Güncelleştirme hello kanalı</span><span class="sxs-lookup"><span data-stu-id="8f4e4-126">Update hello channel</span></span>
+* <span data-ttu-id="8f4e4-127">Merhaba kanalın giriş uç noktası alamadı.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-127">Retrieve hello channel’s input endpoint.</span></span> <span data-ttu-id="8f4e4-128">Merhaba giriş uç noktası toohello içi gerçek zamanlı Kodlayıcı sağlanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-128">hello input endpoint should be provided toohello on-premises live encoder.</span></span> <span data-ttu-id="8f4e4-129">Merhaba gerçek zamanlı Kodlayıcı dönüştürür sinyalleri toohello kanalın giriş gönderilen hello kamera toostreams gelen (uç noktasını alın).</span><span class="sxs-lookup"><span data-stu-id="8f4e4-129">hello live encoder converts signals from hello camera toostreams that are sent toohello channel’s input (ingest) endpoint.</span></span>
+* <span data-ttu-id="8f4e4-130">Merhaba kanalın Önizleme uç noktasını alın</span><span class="sxs-lookup"><span data-stu-id="8f4e4-130">Retrieve hello channel’s preview endpoint</span></span>
+* <span data-ttu-id="8f4e4-131">Oluşturma ve bir program başlatma</span><span class="sxs-lookup"><span data-stu-id="8f4e4-131">Create and start a program</span></span>
+* <span data-ttu-id="8f4e4-132">Tooaccess program hello bir Bulucu oluşturun</span><span class="sxs-lookup"><span data-stu-id="8f4e4-132">Create a locator needed tooaccess hello program</span></span>
+* <span data-ttu-id="8f4e4-133">Oluşturma ve bir StreamingEndpoint başlatma</span><span class="sxs-lookup"><span data-stu-id="8f4e4-133">Create and start a StreamingEndpoint</span></span>
+* <span data-ttu-id="8f4e4-134">Akış uç noktası hello güncelleştir</span><span class="sxs-lookup"><span data-stu-id="8f4e4-134">Update hello streaming endpoint</span></span>
+* <span data-ttu-id="8f4e4-135">Kapatma kaynakları</span><span class="sxs-lookup"><span data-stu-id="8f4e4-135">Shut down resources</span></span>
 
 >[!IMPORTANT]
-><span data-ttu-id="a9fab-136">İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="a9fab-136">Make sure the streaming endpoint from which you want to stream content is in the **Running** state.</span></span> 
+><span data-ttu-id="8f4e4-136">Akış uç noktası toostream içerik istediğiniz hello hello olduğundan emin olun **çalıştıran** durumu.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-136">Make sure hello streaming endpoint from which you want toostream content is in hello **Running** state.</span></span> 
     
 >[!NOTE]
-><span data-ttu-id="a9fab-137">Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için).</span><span class="sxs-lookup"><span data-stu-id="a9fab-137">There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy).</span></span> <span data-ttu-id="a9fab-138">Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için).</span><span class="sxs-lookup"><span data-stu-id="a9fab-138">You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies).</span></span> <span data-ttu-id="a9fab-139">Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.</span><span class="sxs-lookup"><span data-stu-id="a9fab-139">For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.</span></span>
+><span data-ttu-id="8f4e4-137">Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için).</span><span class="sxs-lookup"><span data-stu-id="8f4e4-137">There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy).</span></span> <span data-ttu-id="8f4e4-138">Merhaba kullanması gereken her zaman kullanıyorsanız, aynı ilke kimliği hello aynı gün / erişim izinlerini, örneğin, uzun bir süre (karşıya yükleme olmayan ilkeleri) yerinde hedeflenen tooremain olan bulucular ilkeleri.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-138">You should use hello same policy ID if you are always using hello same days / access permissions, for example, policies for locators that are intended tooremain in place for a long time (non-upload policies).</span></span> <span data-ttu-id="8f4e4-139">Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.</span><span class="sxs-lookup"><span data-stu-id="8f4e4-139">For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.</span></span>
 
-<span data-ttu-id="a9fab-140">Gerçek zamanlı Kodlayıcı yapılandırma hakkında daha fazla bilgi için bkz: [Azure Media Services RTMP desteği ve gerçek zamanlı kodlayıcılar](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).</span><span class="sxs-lookup"><span data-stu-id="a9fab-140">For information on how to configure a live encoder, see [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).</span></span>
+<span data-ttu-id="8f4e4-140">Hakkında bilgi için bkz tooconfigure gerçek zamanlı Kodlayıcı [Azure Media Services RTMP desteği ve gerçek zamanlı kodlayıcılar](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).</span><span class="sxs-lookup"><span data-stu-id="8f4e4-140">For information on how tooconfigure a live encoder, see [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).</span></span>
 
     using System;
     using System.Collections.Generic;
@@ -86,7 +86,7 @@ ms.lasthandoff: 08/29/2017
         private const string AssetlName = "asset001";
         private const string ProgramlName = "program001";
 
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -103,11 +103,11 @@ ms.lasthandoff: 08/29/2017
 
             IChannel channel = CreateAndStartChannel();
 
-            // Set the Live Encoder to point to the channel's input endpoint:
+            // Set hello Live Encoder toopoint toohello channel's input endpoint:
             string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
 
-            // Use the previewEndpoint to preview and verify
-            // that the input from the encoder is actually reaching the Channel.
+            // Use hello previewEndpoint toopreview and verify
+            // that hello input from hello encoder is actually reaching hello Channel.
             string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
 
             IProgram program = CreateAndStartProgram(channel);
@@ -120,7 +120,7 @@ ms.lasthandoff: 08/29/2017
 
         public static IChannel CreateAndStartChannel()
         {
-            //If you want to change the Smooth fragments to HLS segment ratio, you would set the ChannelCreationOptions’s Output property.
+            //If you want toochange hello Smooth fragments tooHLS segment ratio, you would set hello ChannelCreationOptions’s Output property.
 
             IChannel channel = _context.Channels.Create(
             new ChannelCreationOptions
@@ -130,7 +130,7 @@ ms.lasthandoff: 08/29/2017
             Preview = CreateChannelPreview()
             });
 
-            //Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
+            //Starting and stopping Channels can take some time tooexecute. toodetermine hello state of operations after calling Start or Stop, query hello IChannel.State .
 
             channel.Start();
 
@@ -150,7 +150,7 @@ ms.lasthandoff: 08/29/2017
                     {
                     Name = "TestChannelInput001",
                     // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                    // will allow access to IP addresses.
+                    // will allow access tooIP addresses.
                     Address = IPAddress.Parse("0.0.0.0"),
                     SubnetPrefixLength = 0
                     }
@@ -171,7 +171,7 @@ ms.lasthandoff: 08/29/2017
                     {
                     Name = "TestChannelPreview001",
                     // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                    // will allow access to IP addresses.
+                    // will allow access tooIP addresses.
                     Address = IPAddress.Parse("0.0.0.0"),
                     SubnetPrefixLength = 0
                     }
@@ -213,7 +213,7 @@ ms.lasthandoff: 08/29/2017
         {
             IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
 
-            // Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
+            // Create a Program on hello Channel. You can have multiple Programs that overlap or are sequential;
             // however each Program must have a unique name within your Media Services account.
             IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
             program.Start();
@@ -379,11 +379,11 @@ ms.lasthandoff: 08/29/2017
         }
     }
 
-## <a name="next-step"></a><span data-ttu-id="a9fab-141">Sonraki adım</span><span class="sxs-lookup"><span data-stu-id="a9fab-141">Next Step</span></span>
-<span data-ttu-id="a9fab-142">Gözden geçirme Media Services'i öğrenme yolları</span><span class="sxs-lookup"><span data-stu-id="a9fab-142">Review Media Services learning paths</span></span>
+## <a name="next-step"></a><span data-ttu-id="8f4e4-141">Sonraki adım</span><span class="sxs-lookup"><span data-stu-id="8f4e4-141">Next Step</span></span>
+<span data-ttu-id="8f4e4-142">Gözden geçirme Media Services'i öğrenme yolları</span><span class="sxs-lookup"><span data-stu-id="8f4e4-142">Review Media Services learning paths</span></span>
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="a9fab-143">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="a9fab-143">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="8f4e4-143">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="8f4e4-143">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

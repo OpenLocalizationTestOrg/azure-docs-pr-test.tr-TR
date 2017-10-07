@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
-description: "Koşulları ağ düzeyinde izlemek ve tanılamak için Ağ İzleyicisi’ni nasıl kullanacağınızı öğrenin."
-ms.openlocfilehash: 3c390494f5e86eb82a3011b962217798feff5ca2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+description: "Bilgi nasıl toouse Ağ İzleyicisi toomonitor ve ağ düzeyinde koşullar tanılama."
+ms.openlocfilehash: 6c5fcdb2e5095eaceb759e45ae3d35875a0c3fc7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-network-watcher-documentation"></a>Azure Ağ İzleyicisi Belgeleri
 
-Koşulları ağ senaryosu düzeyinde izlemenizi ve tanılamanızı sağlayan bir hizmet olan Ağ İzleyicisi’ni kullanmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler paket yakalama, topoloji ve diğer araçları kullanarak Azure Ağınız hakkında nasıl öngörüler elde edebileceğinizi öğretir.
+Bilgi nasıl toouse Ağ İzleyicisi, size toomonitor sağlar ve bir ağ senaryo düzeyinde koşullar tanılamak bir hizmet. Öğreticiler, API başvuru ve diğer belgelerin nasıl çok gibi paket yakalama, topoloji ve daha fazla kazanç Öngörüler araçları ile Azure ağınızın gösterir.
 
 <ul class="panelContent cardsFTitle">
     <li>

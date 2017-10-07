@@ -1,6 +1,6 @@
 ---
-title: "Azure Event Hubs Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Event Hubs’ı kullanarak birçok farklı platformdaki bağlı IoT cihazlarından ve uygulamalarından saniyede milyonlarca olay alma işlemini nasıl yapabileceğinizi öğrenin."
+title: "aaaAzure olay hub'ları belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Saniye başına olayların toouse olay hub'ları tooingest milyonlarca IOT cihazları ve uygulamaları platformları geniş bir dizi nasıl bağlanacağını öğrenin."
 services: event-hubs
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 56c24eb26faf1729c33b025d5c9fcf5d13abd376
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b75a4f958f66afdbca2fc612e2359df241164818
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-documentation"></a>Event Hubs Belgeleri
 
-Event Hubs’ı kullanarak bağlı IoT cihazlarından ve uygulamalarından saniyede milyonlarca olay toplama ve yönetme işlemlerini nasıl yapabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, birçok farklı platformdaki olaylar için ölçeklenebilir alma sistemi ayarlama ile ilgili bilgiler içerir.
+Bilgi nasıl toouse olay hub'ları toocollect ve saniye başına milyonlarca olayı bağlı IOT cihazları ve uygulamalardan yönetebilirsiniz. Öğreticiler, API başvuruları ve diğer belgelerde, birçok farklı platformdaki olaylar için ölçeklenebilir alma sistemi ayarlama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -70,7 +70,7 @@ Event Hubs’ı kullanarak bağlı IoT cihazlarından ve uygulamalarından saniy
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Event Hubs programlama kılavuzu ile çalışmaya başlama</h3>
+                        <h3>Merhaba Event Hubs Programlama Kılavuzu ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Event Hubs’ı kullanarak bağlı IoT cihazlarından ve uygulamalarından saniy
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure portalını kullanarak Event Hubs ile çalışmaya başlama</h3>
+                        <h3>Hello Azure portal kullanarak Event Hubs ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>

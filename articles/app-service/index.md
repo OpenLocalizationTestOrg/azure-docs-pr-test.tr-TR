@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Öğreticiler, videolar, API başvuruları ve diğer belgelere başvurarak, App Service ile herhangi bir platform veya cihaz için web uygulamaları ve mobil uygulamalar oluşturma hakkında bilgi edinin."
+title: "aaaAzure App Service belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Bilgi nasıl toouse uygulama hizmeti toocreate web ve mobil uygulamalar için herhangi bir platform veya cihaz öğreticileri, videoları, API başvuru ve diğer belgeleri kullanma."
 services: app-service
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1d4ec0970232d2a12065a05d2f0211f7aae16d3f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="app-service-documentation"></a>App Service Belgeleri
 
-Öğreticiler, videolar, API başvuruları ve diğer belgelere başvurarak, App Service ile herhangi bir platform veya cihaz için web uygulamaları ve mobil uygulamalar geliştirme ve barındırma hakkında bilgi edinin. Uygulamaları SaaS çözümleriyle tümleştirme, şirket içi uygulamalara bağlanma ve iş süreçlerinizi otomatikleştirme hakkında bilgi edinin.
+Bilgi nasıl toouse App Service web toodevelop ve ana bilgisayar ve mobil uygulamaları herhangi bir platform veya cihaz öğreticileri, videoları, API başvuru ve diğer belgelerin kullanarak. Nasıl toointegrate uygulamalarla SaaS çözümleri, şirket içi uygulamalara bağlanın ve İş süreçlerinizi otomatikleştirin öğrenin.
 
 <ul class="panelContent cardsFTitle">
     <li>

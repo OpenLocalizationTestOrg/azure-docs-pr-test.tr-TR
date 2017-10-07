@@ -1,6 +1,6 @@
 ---
-title: "Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama | Microsoft Docs"
-description: "Visual Studio bağlantılı hizmetler kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure kuyruk depolama kullanarak nereden başlayacaksınız"
+title: "aaaGet başlatılan Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) | Microsoft Docs"
+description: "Visual Studio bağlantılı hizmetler kullanarak tooa depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure kuyruk depolama kullanarak tooget nasıl başlatılacağını"
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
 ms.author: kraigb
-ms.openlocfilehash: 4687e5dfce72583728068c176d86d100313badf6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 415a437c4ce60b1e2e328f8e937c73b0d5c50e78
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a><span data-ttu-id="89e0a-103">Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="89e0a-103">Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)</span></span>
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a><span data-ttu-id="97da0-103">Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="97da0-103">Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)</span></span>
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a><span data-ttu-id="89e0a-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="89e0a-104">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="97da0-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="97da0-104">Overview</span></span>
 
-<span data-ttu-id="89e0a-105">Azure kuyruk depolama uygulama bileşenleri arasında Mesajlaşma bulut sağlar.</span><span class="sxs-lookup"><span data-stu-id="89e0a-105">Azure queue storage provides cloud messaging between application components.</span></span> <span data-ttu-id="89e0a-106">Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır.</span><span class="sxs-lookup"><span data-stu-id="89e0a-106">In designing applications for scale, application components are often decoupled, so that they can scale independently.</span></span> <span data-ttu-id="89e0a-107">Kuyruk depolama bulutta, masaüstünde, şirket içi sunucuda veya mobil bir cihazda çalışan uygulama bileşenleri arasındaki iletişim için zaman uyumsuz mesajlaşma sunar.</span><span class="sxs-lookup"><span data-stu-id="89e0a-107">Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device.</span></span> <span data-ttu-id="89e0a-108">Kuyruk depolama ayrıca zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını destekler.</span><span class="sxs-lookup"><span data-stu-id="89e0a-108">Queue storage also supports managing asynchronous tasks and building process work flows.</span></span>
+<span data-ttu-id="97da0-105">Azure kuyruk depolama uygulama bileşenleri arasında Mesajlaşma bulut sağlar.</span><span class="sxs-lookup"><span data-stu-id="97da0-105">Azure queue storage provides cloud messaging between application components.</span></span> <span data-ttu-id="97da0-106">Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır.</span><span class="sxs-lookup"><span data-stu-id="97da0-106">In designing applications for scale, application components are often decoupled, so that they can scale independently.</span></span> <span data-ttu-id="97da0-107">Merhaba bulutta, hello Masaüstü, bir şirket içi sunucu veya bir mobil cihaz çalıştırıp çalıştırmadığınızı uygulama bileşenleri arasında iletişim için zaman uyumsuz Mesajlaşma kuyruk depolama sunar.</span><span class="sxs-lookup"><span data-stu-id="97da0-107">Queue storage delivers asynchronous messaging for communication between application components, whether they are running in hello cloud, on hello desktop, on an on-premises server, or on a mobile device.</span></span> <span data-ttu-id="97da0-108">Kuyruk depolama ayrıca zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını destekler.</span><span class="sxs-lookup"><span data-stu-id="97da0-108">Queue storage also supports managing asynchronous tasks and building process work flows.</span></span>
 
-<span data-ttu-id="89e0a-109">Bu öğretici Azure kuyruk depolama varlıkları kullanarak bazı genel senaryolar için ASP.NET kodunun nasıl yazılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="89e0a-109">This tutorial shows how to write ASP.NET code for some common scenarios using Azure queue storage entities.</span></span> <span data-ttu-id="89e0a-110">Bu senaryolar, bir Azure kuyruk oluşturma ve ekleme, değiştirme, okuma ve iletileri kuyruğa kaldırma gibi genel görevleri içerir.</span><span class="sxs-lookup"><span data-stu-id="89e0a-110">These scenarios include common tasks such as creating an Azure queue, and adding, modifying, reading, and removing queue messages.</span></span>
+<span data-ttu-id="97da0-109">Bu öğretici, nasıl Azure kuyruk depolama varlıklar kullanarak bazı genel senaryolar için toowrite ASP.NET kodu gösterir.</span><span class="sxs-lookup"><span data-stu-id="97da0-109">This tutorial shows how toowrite ASP.NET code for some common scenarios using Azure queue storage entities.</span></span> <span data-ttu-id="97da0-110">Bu senaryolar, bir Azure kuyruk oluşturma ve ekleme, değiştirme, okuma ve iletileri kuyruğa kaldırma gibi genel görevleri içerir.</span><span class="sxs-lookup"><span data-stu-id="97da0-110">These scenarios include common tasks such as creating an Azure queue, and adding, modifying, reading, and removing queue messages.</span></span>
 
-##<a name="prerequisites"></a><span data-ttu-id="89e0a-111">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="89e0a-111">Prerequisites</span></span>
+##<a name="prerequisites"></a><span data-ttu-id="97da0-111">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="97da0-111">Prerequisites</span></span>
 
-* [<span data-ttu-id="89e0a-112">Microsoft Visual Studio</span><span class="sxs-lookup"><span data-stu-id="89e0a-112">Microsoft Visual Studio</span></span>](https://www.visualstudio.com/downloads/)
-* [<span data-ttu-id="89e0a-113">Azure depolama hesabı</span><span class="sxs-lookup"><span data-stu-id="89e0a-113">Azure storage account</span></span>](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [<span data-ttu-id="97da0-112">Microsoft Visual Studio</span><span class="sxs-lookup"><span data-stu-id="97da0-112">Microsoft Visual Studio</span></span>](https://www.visualstudio.com/downloads/)
+* [<span data-ttu-id="97da0-113">Azure depolama hesabı</span><span class="sxs-lookup"><span data-stu-id="97da0-113">Azure storage account</span></span>](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -40,21 +40,21 @@ ms.lasthandoff: 08/29/2017
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a><span data-ttu-id="89e0a-114">Bir MVC denetleyicisi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="89e0a-114">Create an MVC controller</span></span> 
+### <a name="create-an-mvc-controller"></a><span data-ttu-id="97da0-114">Bir MVC denetleyicisi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="97da0-114">Create an MVC controller</span></span> 
 
-1. <span data-ttu-id="89e0a-115">İçinde **Çözüm Gezgini**, sağ **denetleyicileri**ve bağlam menüsünden seçin **Ekle -> denetleyicisi**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-115">In the **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add->Controller**.</span></span>
+1. <span data-ttu-id="97da0-115">Merhaba, **Çözüm Gezgini**, sağ **denetleyicileri**ve hello bağlam menüsünden seçin **Ekle -> denetleyicisi**.</span><span class="sxs-lookup"><span data-stu-id="97da0-115">In hello **Solution Explorer**, right-click **Controllers**, and, from hello context menu, select **Add->Controller**.</span></span>
 
-    ![Bir ASP.NET MVC uygulamasına denetleyici ekleme](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
+    ![Bir ASP.NET MVC uygulama denetleyicisi tooan Ekle](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
 
-1. <span data-ttu-id="89e0a-117">Üzerinde **İskele Ekle** iletişim kutusunda **MVC 5 denetleyici - boş**seçip **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-117">On the **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.</span></span>
+1. <span data-ttu-id="97da0-117">Merhaba üzerinde **İskele Ekle** iletişim kutusunda **MVC 5 denetleyici - boş**seçip **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="97da0-117">On hello **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.</span></span>
 
     ![MVC denetleyicisi türünü belirtin](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
 
-1. <span data-ttu-id="89e0a-119">Üzerinde **denetleyici Ekle** iletişim kutusunda, denetleyici adı *QueuesController*seçip **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-119">On the **Add Controller** dialog, name the controller *QueuesController*, and select **Add**.</span></span>
+1. <span data-ttu-id="97da0-119">Merhaba üzerinde **denetleyici Ekle** iletişim, ad hello denetleyicisi *QueuesController*seçip **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="97da0-119">On hello **Add Controller** dialog, name hello controller *QueuesController*, and select **Add**.</span></span>
 
-    ![MVC Denetleyici adı](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
+    ![Ad hello MVC denetleyicisi](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. <span data-ttu-id="89e0a-121">Aşağıdakileri ekleyin *kullanarak* yönergeleri `QueuesController.cs` dosyası:</span><span class="sxs-lookup"><span data-stu-id="89e0a-121">Add the following *using* directives to the `QueuesController.cs` file:</span></span>
+1. <span data-ttu-id="97da0-121">Merhaba aşağıdakileri ekleyin *kullanarak* yönergeleri toohello `QueuesController.cs` dosyası:</span><span class="sxs-lookup"><span data-stu-id="97da0-121">Add hello following *using* directives toohello `QueuesController.cs` file:</span></span>
 
     ```csharp
     using Microsoft.Azure;
@@ -62,62 +62,62 @@ ms.lasthandoff: 08/29/2017
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
     ```
-## <a name="create-a-queue"></a><span data-ttu-id="89e0a-122">Bir kuyruk oluşturma</span><span class="sxs-lookup"><span data-stu-id="89e0a-122">Create a queue</span></span>
+## <a name="create-a-queue"></a><span data-ttu-id="97da0-122">Bir kuyruk oluşturma</span><span class="sxs-lookup"><span data-stu-id="97da0-122">Create a queue</span></span>
 
-<span data-ttu-id="89e0a-123">Aşağıdaki adımlar bir sıranın nasıl oluşturulacağını gösterir:</span><span class="sxs-lookup"><span data-stu-id="89e0a-123">The following steps illustrate how to create a queue:</span></span>
+<span data-ttu-id="97da0-123">Merhaba aşağıdaki adımları göstermek nasıl toocreate bir sıra:</span><span class="sxs-lookup"><span data-stu-id="97da0-123">hello following steps illustrate how toocreate a queue:</span></span>
 
 > [!NOTE]
 > 
-> <span data-ttu-id="89e0a-124">Bu bölümdeki adımları tamamladığınızdan varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="89e0a-124">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="97da0-124">Bu bölümde hello adımları tamamladığınızdan varsayılır [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="97da0-124">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="89e0a-125">`QueuesController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="89e0a-125">Open the `QueuesController.cs` file.</span></span> 
+1. <span data-ttu-id="97da0-125">Açık hello `QueuesController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="97da0-125">Open hello `QueuesController.cs` file.</span></span> 
 
-1. <span data-ttu-id="89e0a-126">Adlı bir yöntem ekleyin **CreateQueue** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-126">Add a method called **CreateQueue** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="97da0-126">Adlı bir yöntem ekleyin **CreateQueue** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="97da0-126">Add a method called **CreateQueue** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult CreateQueue()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. <span data-ttu-id="89e0a-127">İçinde **CreateQueue** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-127">Within the **CreateQueue** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="89e0a-128">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="89e0a-128">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="97da0-127">Merhaba içinde **CreateQueue** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-127">Within hello **CreateQueue** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="97da0-128">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="97da0-128">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. <span data-ttu-id="89e0a-129">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="89e0a-129">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="97da0-129">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="97da0-129">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. <span data-ttu-id="89e0a-130">Alma bir **CloudQueue** istenen sıra adı için bir başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-130">Get a **CloudQueue** object that represents a reference to the desired queue name.</span></span> <span data-ttu-id="89e0a-131">**CloudQueueClient.GetQueueReference** yöntemi kuyruk depolama doğrulamasını yapmaz.</span><span class="sxs-lookup"><span data-stu-id="89e0a-131">The **CloudQueueClient.GetQueueReference** method does not make a request against queue storage.</span></span> <span data-ttu-id="89e0a-132">Sıranın var olup olmadığına bakılmaksızın başvuru döndürülür.</span><span class="sxs-lookup"><span data-stu-id="89e0a-132">The reference is returned whether or not the queue exists.</span></span> 
+1. <span data-ttu-id="97da0-130">Alma bir **CloudQueue** başvuru toohello istenen sıra adını temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-130">Get a **CloudQueue** object that represents a reference toohello desired queue name.</span></span> <span data-ttu-id="97da0-131">Merhaba **CloudQueueClient.GetQueueReference** yöntemi kuyruk depolama doğrulamasını yapmaz.</span><span class="sxs-lookup"><span data-stu-id="97da0-131">hello **CloudQueueClient.GetQueueReference** method does not make a request against queue storage.</span></span> <span data-ttu-id="97da0-132">Merhaba sıra var olup olmadığına bakılmaksızın hello başvuru döndürülür.</span><span class="sxs-lookup"><span data-stu-id="97da0-132">hello reference is returned whether or not hello queue exists.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="89e0a-133">Çağrı **CloudQueue.CreateIfNotExists** henüz yoksa, kuyruk oluşturmak için yöntem.</span><span class="sxs-lookup"><span data-stu-id="89e0a-133">Call the **CloudQueue.CreateIfNotExists** method to create the queue if it does not yet exist.</span></span> <span data-ttu-id="89e0a-134">**CloudQueue.CreateIfNotExists** yöntemi döndürür **true** sıranın var olmadığından ve başarıyla oluşturuldu.</span><span class="sxs-lookup"><span data-stu-id="89e0a-134">The **CloudQueue.CreateIfNotExists** method returns **true** if the queue does not exist, and is successfully created.</span></span> <span data-ttu-id="89e0a-135">Aksi takdirde, **false** döndürülür.</span><span class="sxs-lookup"><span data-stu-id="89e0a-135">Otherwise, **false** is returned.</span></span>    
+1. <span data-ttu-id="97da0-133">Merhaba çağrısı **CloudQueue.CreateIfNotExists** henüz yoksa, yöntem toocreate hello sırası.</span><span class="sxs-lookup"><span data-stu-id="97da0-133">Call hello **CloudQueue.CreateIfNotExists** method toocreate hello queue if it does not yet exist.</span></span> <span data-ttu-id="97da0-134">Merhaba **CloudQueue.CreateIfNotExists** yöntemi döndürür **true** hello sıra yok ve başarıyla oluşturuldu.</span><span class="sxs-lookup"><span data-stu-id="97da0-134">hello **CloudQueue.CreateIfNotExists** method returns **true** if hello queue does not exist, and is successfully created.</span></span> <span data-ttu-id="97da0-135">Aksi takdirde, **false** döndürülür.</span><span class="sxs-lookup"><span data-stu-id="97da0-135">Otherwise, **false** is returned.</span></span>    
 
     ```csharp
     ViewBag.Success = queue.CreateIfNotExists();
     ```
 
-1. <span data-ttu-id="89e0a-136">Güncelleştirme **ViewBag** sıra adı.</span><span class="sxs-lookup"><span data-stu-id="89e0a-136">Update the **ViewBag** with the name of the queue.</span></span>
+1. <span data-ttu-id="97da0-136">Güncelleştirme hello **ViewBag** hello sırasının hello ada sahip.</span><span class="sxs-lookup"><span data-stu-id="97da0-136">Update hello **ViewBag** with hello name of hello queue.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
 
-1. <span data-ttu-id="89e0a-137">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-137">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="97da0-137">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="97da0-137">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="89e0a-138">Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **CreateQueue** Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-138">On the **Add View** dialog, enter **CreateQueue** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="97da0-138">Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **CreateQueue** hello Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="97da0-138">On hello **Add View** dialog, enter **CreateQueue** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="89e0a-139">Açık `CreateQueue.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="89e0a-139">Open `CreateQueue.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="97da0-139">Açık `CreateQueue.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="97da0-139">Open `CreateQueue.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -129,84 +129,84 @@ ms.lasthandoff: 08/29/2017
     Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. <span data-ttu-id="89e0a-140">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="89e0a-140">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="97da0-140">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="97da0-140">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="89e0a-141">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="89e0a-141">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="97da0-141">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="97da0-141">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. <span data-ttu-id="89e0a-142">Uygulamayı çalıştırmak ve seçmek **Oluşturma sırası** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:</span><span class="sxs-lookup"><span data-stu-id="89e0a-142">Run the application, and select **Create queue** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="97da0-142">Merhaba uygulamayı çalıştırın ve seçin **Oluşturma sırası** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:</span><span class="sxs-lookup"><span data-stu-id="97da0-142">Run hello application, and select **Create queue** toosee results similar toohello following screen shot:</span></span>
   
     ![Kuyruk oluşturma](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    <span data-ttu-id="89e0a-144">Daha önce belirtildiği gibi **CloudQueue.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca sıranın yok ve oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="89e0a-144">As mentioned previously, the **CloudQueue.CreateIfNotExists** method returns **true** only when the queue doesn't exist and is created.</span></span> <span data-ttu-id="89e0a-145">Bu nedenle, sıranın mevcut olduğunda uygulama çalıştırırsanız, yöntem döndürür **false**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-145">Therefore, if you run the app when the queue exists, the method returns **false**.</span></span> <span data-ttu-id="89e0a-146">Birden çok kez uygulamayı çalıştırmak için uygulamayı yeniden çalıştırmadan önce sıranın silmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="89e0a-146">To run the app multiple times, you must delete the queue before running the app again.</span></span> <span data-ttu-id="89e0a-147">Aracılığıyla sıra silme yapılabilir **CloudQueue.Delete** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="89e0a-147">Deleting the queue can be done via the **CloudQueue.Delete** method.</span></span> <span data-ttu-id="89e0a-148">Kuyruğu kullanarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span><span class="sxs-lookup"><span data-stu-id="89e0a-148">You can also delete the queue using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span></span>  
+    <span data-ttu-id="97da0-144">Daha önce belirtildiği gibi hello **CloudQueue.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca hello sıra yok ve oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="97da0-144">As mentioned previously, hello **CloudQueue.CreateIfNotExists** method returns **true** only when hello queue doesn't exist and is created.</span></span> <span data-ttu-id="97da0-145">Bu nedenle, hello sırası mevcut olduğunda hello uygulama çalıştırırsanız, hello yöntemi döndürür **false**.</span><span class="sxs-lookup"><span data-stu-id="97da0-145">Therefore, if you run hello app when hello queue exists, hello method returns **false**.</span></span> <span data-ttu-id="97da0-146">toorun hello uygulama birden çok kez, hello sıra hello uygulama yeniden çalıştırmadan önce silmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="97da0-146">toorun hello app multiple times, you must delete hello queue before running hello app again.</span></span> <span data-ttu-id="97da0-147">Silme hello sıra hello yapılabilir **CloudQueue.Delete** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="97da0-147">Deleting hello queue can be done via hello **CloudQueue.Delete** method.</span></span> <span data-ttu-id="97da0-148">Merhaba sıra hello kullanarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya hello [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span><span class="sxs-lookup"><span data-stu-id="97da0-148">You can also delete hello queue using hello [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or hello [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span></span>  
 
-## <a name="add-a-message-to-a-queue"></a><span data-ttu-id="89e0a-149">Kuyruğa bir ileti Ekle</span><span class="sxs-lookup"><span data-stu-id="89e0a-149">Add a message to a queue</span></span>
+## <a name="add-a-message-tooa-queue"></a><span data-ttu-id="97da0-149">Bir ileti tooa sırası Ekle</span><span class="sxs-lookup"><span data-stu-id="97da0-149">Add a message tooa queue</span></span>
 
-<span data-ttu-id="89e0a-150">Seçtiğiniz sonra [bir kuyruk oluşturan](#create-a-queue), bu kuyruğa iletileri ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="89e0a-150">Once you've [created a queue](#create-a-queue), you can add messages to that queue.</span></span> <span data-ttu-id="89e0a-151">Bu bölümde, bir sıraya bir ileti eklerken size yol gösterir *sınama sırası*.</span><span class="sxs-lookup"><span data-stu-id="89e0a-151">This section walks you through adding a message to a queue *test-queue*.</span></span> 
+<span data-ttu-id="97da0-150">Seçtiğiniz sonra [bir kuyruk oluşturan](#create-a-queue), iletileri toothat sırası ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="97da0-150">Once you've [created a queue](#create-a-queue), you can add messages toothat queue.</span></span> <span data-ttu-id="97da0-151">Bu bölümde, bir ileti tooa sırası eklerken size yol gösterir *sınama sırası*.</span><span class="sxs-lookup"><span data-stu-id="97da0-151">This section walks you through adding a message tooa queue *test-queue*.</span></span> 
 
 > [!NOTE]
 > 
-> <span data-ttu-id="89e0a-152">Bu bölümdeki adımları tamamladığınızdan varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="89e0a-152">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="97da0-152">Bu bölümde hello adımları tamamladığınızdan varsayılır [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="97da0-152">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="89e0a-153">`QueuesController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="89e0a-153">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="97da0-153">Açık hello `QueuesController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="97da0-153">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="89e0a-154">Adlı bir yöntem ekleyin **AddMessage** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-154">Add a method called **AddMessage** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="97da0-154">Adlı bir yöntem ekleyin **AddMessage** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="97da0-154">Add a method called **AddMessage** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult AddMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="89e0a-155">İçinde **AddMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-155">Within the **AddMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="89e0a-156">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="89e0a-156">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="97da0-155">Merhaba içinde **AddMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-155">Within hello **AddMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="97da0-156">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="97da0-156">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="89e0a-157">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="89e0a-157">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="97da0-157">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="97da0-157">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="89e0a-158">Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-158">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="97da0-158">Alma bir **CloudQueueContainer** başvuru toohello sırası temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-158">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="89e0a-159">Oluşturma **CloudQueueMessage** sıraya eklemek istediğiniz iletiyi temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-159">Create the **CloudQueueMessage** object representing the message you want to add to the queue.</span></span> <span data-ttu-id="89e0a-160">A **CloudQueueMessage** bir dizeden (UTF-8 biçiminde) veya bir bayt dizisi nesne oluşturulabilir.</span><span class="sxs-lookup"><span data-stu-id="89e0a-160">A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.</span></span>
+1. <span data-ttu-id="97da0-159">Merhaba oluşturma **CloudQueueMessage** tooadd toohello sıra istediğiniz selamlama iletisine temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-159">Create hello **CloudQueueMessage** object representing hello message you want tooadd toohello queue.</span></span> <span data-ttu-id="97da0-160">A **CloudQueueMessage** bir dizeden (UTF-8 biçiminde) veya bir bayt dizisi nesne oluşturulabilir.</span><span class="sxs-lookup"><span data-stu-id="97da0-160">A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.</span></span>
 
     ```csharp
     CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
     ```
 
-1. <span data-ttu-id="89e0a-161">Çağrı **CloudQueue.AddMessage** messaged sıraya eklemek için yöntem.</span><span class="sxs-lookup"><span data-stu-id="89e0a-161">Call the **CloudQueue.AddMessage** method to add the messaged to the queue.</span></span>
+1. <span data-ttu-id="97da0-161">Merhaba çağrısı **CloudQueue.AddMessage** yöntemi tooadd hello messaged toohello sırası.</span><span class="sxs-lookup"><span data-stu-id="97da0-161">Call hello **CloudQueue.AddMessage** method tooadd hello messaged toohello queue.</span></span>
 
     ```csharp
     queue.AddMessage(message);
     ```
 
-1. <span data-ttu-id="89e0a-162">Birkaç oluşturup **ViewBag** görünümü görüntülemek özelliklerini.</span><span class="sxs-lookup"><span data-stu-id="89e0a-162">Create and set a couple of **ViewBag** properties for display in the view.</span></span>
+1. <span data-ttu-id="97da0-162">Birkaç oluşturup **ViewBag** hello görünümünde görüntülenmesi için özellikler.</span><span class="sxs-lookup"><span data-stu-id="97da0-162">Create and set a couple of **ViewBag** properties for display in hello view.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
 
-1. <span data-ttu-id="89e0a-163">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-163">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="97da0-163">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="97da0-163">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="89e0a-164">Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **AddMessage** Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-164">On the **Add View** dialog, enter **AddMessage** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="97da0-164">Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **AddMessage** hello Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="97da0-164">On hello **Add View** dialog, enter **AddMessage** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="89e0a-165">Açık `AddMessage.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="89e0a-165">Open `AddMessage.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="97da0-165">Açık `AddMessage.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="97da0-165">Open `AddMessage.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -215,81 +215,81 @@ ms.lasthandoff: 08/29/2017
     
     <h2>Add Message results</h2>
     
-    The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
+    hello message '@ViewBag.Message' was added toohello queue '@ViewBag.QueueName'.
     ```
 
-1. <span data-ttu-id="89e0a-166">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="89e0a-166">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="97da0-166">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="97da0-166">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="89e0a-167">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="89e0a-167">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="97da0-167">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="97da0-167">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. <span data-ttu-id="89e0a-168">Uygulamayı çalıştırmak ve seçmek **Ekle ileti** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:</span><span class="sxs-lookup"><span data-stu-id="89e0a-168">Run the application, and select **Add message** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="97da0-168">Merhaba uygulamayı çalıştırın ve seçin **Ekle ileti** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:</span><span class="sxs-lookup"><span data-stu-id="97da0-168">Run hello application, and select **Add message** toosee results similar toohello following screen shot:</span></span>
   
     ![Mesaj ekleyin.](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-<span data-ttu-id="89e0a-170">İki bölüm - [kaldırmadan bir sıradan ileti okumak](#read-a-message-from-a-queue-without-removing-it) ve [ekleme ve kaldırma bir iletiyi bir kuyruktan okunur](#read-and-remove-a-message-from-a-queue) -kuyruktan iletileri okumak nasıl gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="89e0a-170">The two sections - [Read a message from a queue without removing it](#read-a-message-from-a-queue-without-removing-it) and [Read and remove a message from a queue](#read-and-remove-a-message-from-a-queue) - illustrate how to read messages from a queue.</span></span>    
+<span data-ttu-id="97da0-170">iki bölüm - hello [kaldırmadan bir sıradan ileti okumak](#read-a-message-from-a-queue-without-removing-it) ve [ekleme ve kaldırma bir iletiyi bir kuyruktan okunur](#read-and-remove-a-message-from-a-queue) -nasıl tooread kuyruktan iletileri gösterir.</span><span class="sxs-lookup"><span data-stu-id="97da0-170">hello two sections - [Read a message from a queue without removing it](#read-a-message-from-a-queue-without-removing-it) and [Read and remove a message from a queue](#read-and-remove-a-message-from-a-queue) - illustrate how tooread messages from a queue.</span></span>  
 
-## <a name="read-a-message-from-a-queue-without-removing-it"></a><span data-ttu-id="89e0a-171">Bir ileti kuyruktan kaldırmadan okuma</span><span class="sxs-lookup"><span data-stu-id="89e0a-171">Read a message from a queue without removing it</span></span>
+## <a name="read-a-message-from-a-queue-without-removing-it"></a><span data-ttu-id="97da0-171">Bir ileti kuyruktan kaldırmadan okuma</span><span class="sxs-lookup"><span data-stu-id="97da0-171">Read a message from a queue without removing it</span></span>
 
-<span data-ttu-id="89e0a-172">Bu bölümde, (ilk iletiyi kaldırmadan okuma) kuyruğa alınan iletinin peek göstermektedir.</span><span class="sxs-lookup"><span data-stu-id="89e0a-172">This section illustrates how to peek at a queued message (read the first message without removing it).</span></span>  
+<span data-ttu-id="97da0-172">Bu bölümde anlatılacaktır nasıl toopeek sıraya alınmış bir iletiye (kaldırarak olmadan okuma hello ilk iletiyi).</span><span class="sxs-lookup"><span data-stu-id="97da0-172">This section illustrates how toopeek at a queued message (read hello first message without removing it).</span></span>  
 
 > [!NOTE]
 > 
-> <span data-ttu-id="89e0a-173">Bu bölümdeki adımları tamamladığınızdan varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="89e0a-173">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="97da0-173">Bu bölümde hello adımları tamamladığınızdan varsayılır [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="97da0-173">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="89e0a-174">`QueuesController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="89e0a-174">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="97da0-174">Açık hello `QueuesController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="97da0-174">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="89e0a-175">Adlı bir yöntem ekleyin **PeekMessage** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-175">Add a method called **PeekMessage** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="97da0-175">Adlı bir yöntem ekleyin **PeekMessage** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="97da0-175">Add a method called **PeekMessage** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult PeekMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="89e0a-176">İçinde **PeekMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-176">Within the **PeekMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="89e0a-177">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="89e0a-177">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="97da0-176">Merhaba içinde **PeekMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-176">Within hello **PeekMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="97da0-177">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="97da0-177">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="89e0a-178">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="89e0a-178">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="97da0-178">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="97da0-178">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="89e0a-179">Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-179">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="97da0-179">Alma bir **CloudQueueContainer** başvuru toohello sırası temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-179">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="89e0a-180">Çağrı **CloudQueue.PeekMessage** sıradaki ilk iletiyi sıradan kaldırarak olmadan okumak için yöntem.</span><span class="sxs-lookup"><span data-stu-id="89e0a-180">Call the **CloudQueue.PeekMessage** method to read the first message in the queue without removing it from the queue.</span></span> 
+1. <span data-ttu-id="97da0-180">Merhaba çağrısı **CloudQueue.PeekMessage** yöntemi tooread hello hello sıradan kaldırarak olmadan hello sıradaki ilk iletiyi.</span><span class="sxs-lookup"><span data-stu-id="97da0-180">Call hello **CloudQueue.PeekMessage** method tooread hello first message in hello queue without removing it from hello queue.</span></span> 
 
     ```csharp
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. <span data-ttu-id="89e0a-181">Güncelleştirme **ViewBag** iki değerlerle: kuyruk adı ve okundu ileti.</span><span class="sxs-lookup"><span data-stu-id="89e0a-181">Update the **ViewBag** with two values: the queue name and the message that was read.</span></span> <span data-ttu-id="89e0a-182">**CloudQueueMessage** nesne nesnenin değeri almak için iki özellik sunar: **CloudQueueMessage.AsBytes** ve **CloudQueueMessage.AsString**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-182">The **CloudQueueMessage** object exposes two properties for getting the object's value: **CloudQueueMessage.AsBytes** and **CloudQueueMessage.AsString**.</span></span> <span data-ttu-id="89e0a-183">**AsString** (Bu örnekte kullanılan) bir dize döndürür sırada **AsBytes** bir bayt dizisi döndürür.</span><span class="sxs-lookup"><span data-stu-id="89e0a-183">**AsString** (used in this example) returns a string, while **AsBytes** returns a byte array.</span></span>
+1. <span data-ttu-id="97da0-181">Güncelleştirme hello **ViewBag** iki değerlerle: hello kuyruk adı ve okundu hello ileti.</span><span class="sxs-lookup"><span data-stu-id="97da0-181">Update hello **ViewBag** with two values: hello queue name and hello message that was read.</span></span> <span data-ttu-id="97da0-182">Merhaba **CloudQueueMessage** nesne hello nesnenin değeri almak için iki özellik sunar: **CloudQueueMessage.AsBytes** ve **CloudQueueMessage.AsString**.</span><span class="sxs-lookup"><span data-stu-id="97da0-182">hello **CloudQueueMessage** object exposes two properties for getting hello object's value: **CloudQueueMessage.AsBytes** and **CloudQueueMessage.AsString**.</span></span> <span data-ttu-id="97da0-183">**AsString** (Bu örnekte kullanılan) bir dize döndürür sırada **AsBytes** bir bayt dizisi döndürür.</span><span class="sxs-lookup"><span data-stu-id="97da0-183">**AsString** (used in this example) returns a string, while **AsBytes** returns a byte array.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
-1. <span data-ttu-id="89e0a-184">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-184">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="97da0-184">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="97da0-184">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="89e0a-185">Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **PeekMessage** Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-185">On the **Add View** dialog, enter **PeekMessage** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="97da0-185">Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **PeekMessage** hello Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="97da0-185">On hello **Add View** dialog, enter **PeekMessage** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="89e0a-186">Açık `PeekMessage.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="89e0a-186">Open `PeekMessage.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="97da0-186">Açık `PeekMessage.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="97da0-186">Open `PeekMessage.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -304,83 +304,83 @@ ms.lasthandoff: 08/29/2017
     </table>    
     ```
 
-1. <span data-ttu-id="89e0a-187">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="89e0a-187">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="97da0-187">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="97da0-187">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="89e0a-188">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="89e0a-188">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="97da0-188">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="97da0-188">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. <span data-ttu-id="89e0a-189">Uygulamayı çalıştırmak ve seçmek **gözlem ileti** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:</span><span class="sxs-lookup"><span data-stu-id="89e0a-189">Run the application, and select **Peek message** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="97da0-189">Merhaba uygulamayı çalıştırın ve seçin **gözlem ileti** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:</span><span class="sxs-lookup"><span data-stu-id="97da0-189">Run hello application, and select **Peek message** toosee results similar toohello following screen shot:</span></span>
   
     ![İletiye Gözat](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
-## <a name="read-and-remove-a-message-from-a-queue"></a><span data-ttu-id="89e0a-191">Okuma ve bir ileti kuyruktan kaldırma</span><span class="sxs-lookup"><span data-stu-id="89e0a-191">Read and remove a message from a queue</span></span>
+## <a name="read-and-remove-a-message-from-a-queue"></a><span data-ttu-id="97da0-191">Okuma ve bir ileti kuyruktan kaldırma</span><span class="sxs-lookup"><span data-stu-id="97da0-191">Read and remove a message from a queue</span></span>
 
-<span data-ttu-id="89e0a-192">Bu bölümde, okuma ve bir ileti kuyruktan kaldırma öğrenin.</span><span class="sxs-lookup"><span data-stu-id="89e0a-192">In this section, you learn how to read and remove a message from a queue.</span></span>   
+<span data-ttu-id="97da0-192">Bu bölümde, bilgi nasıl tooread ve kuyruktan bir ileti kaldırın.</span><span class="sxs-lookup"><span data-stu-id="97da0-192">In this section, you learn how tooread and remove a message from a queue.</span></span>   
 
 > [!NOTE]
 > 
-> <span data-ttu-id="89e0a-193">Bu bölümdeki adımları tamamladığınızdan varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="89e0a-193">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="97da0-193">Bu bölümde hello adımları tamamladığınızdan varsayılır [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="97da0-193">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="89e0a-194">`QueuesController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="89e0a-194">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="97da0-194">Açık hello `QueuesController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="97da0-194">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="89e0a-195">Adlı bir yöntem ekleyin **ReadMessage** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-195">Add a method called **ReadMessage** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="97da0-195">Adlı bir yöntem ekleyin **ReadMessage** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="97da0-195">Add a method called **ReadMessage** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult ReadMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="89e0a-196">İçinde **ReadMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-196">Within the **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="89e0a-197">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="89e0a-197">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="97da0-196">Merhaba içinde **ReadMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-196">Within hello **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="97da0-197">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="97da0-197">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="89e0a-198">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="89e0a-198">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="97da0-198">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="97da0-198">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="89e0a-199">Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-199">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="97da0-199">Alma bir **CloudQueueContainer** başvuru toohello sırası temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-199">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="89e0a-200">Çağrı **CloudQueue.GetMessage** sıradaki ilk iletiyi okumak için yöntem.</span><span class="sxs-lookup"><span data-stu-id="89e0a-200">Call the **CloudQueue.GetMessage** method to read the first message in the queue.</span></span> <span data-ttu-id="89e0a-201">**CloudQueue.GetMessage** yöntemi yapar ileti görünmez başka bir kod değiştirmek veya ileti, onu işlenirken silmek böylece iletileri okuyan herhangi bir kod için 30 saniye (varsayılan).</span><span class="sxs-lookup"><span data-stu-id="89e0a-201">The **CloudQueue.GetMessage** method makes the message invisible for 30 seconds (by default) to any other code reading messages so that no other code can modify or delete the message while your processing it.</span></span> <span data-ttu-id="89e0a-202">İleti görünmez süre miktarını değiştirmek için değiştirmek **visibilityTimeout** için geçirilen parametre **CloudQueue.GetMessage** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="89e0a-202">To change the amount of time the message is invisible, modify the **visibilityTimeout** parameter being passed to the **CloudQueue.GetMessage** method.</span></span>
+1. <span data-ttu-id="97da0-200">Merhaba çağrısı **CloudQueue.GetMessage** yöntemi tooread hello hello sıradaki ilk iletiyi.</span><span class="sxs-lookup"><span data-stu-id="97da0-200">Call hello **CloudQueue.GetMessage** method tooread hello first message in hello queue.</span></span> <span data-ttu-id="97da0-201">Merhaba **CloudQueue.GetMessage** yöntemi yapar (varsayılan) 30 saniye tooany ileti görünmez başka bir kod değiştirmek veya selamlama iletisine, onu işlenirken silmek böylece iletileri okumak başka bir kod hello.</span><span class="sxs-lookup"><span data-stu-id="97da0-201">hello **CloudQueue.GetMessage** method makes hello message invisible for 30 seconds (by default) tooany other code reading messages so that no other code can modify or delete hello message while your processing it.</span></span> <span data-ttu-id="97da0-202">toochange hello zaman selamlama iletisine miktarıdır görünmez, hello Değiştir **visibilityTimeout** toohello geçirilen parametre **CloudQueue.GetMessage** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="97da0-202">toochange hello amount of time hello message is invisible, modify hello **visibilityTimeout** parameter being passed toohello **CloudQueue.GetMessage** method.</span></span>
 
     ```csharp
-    // This message will be invisible to other code for 30 seconds.
+    // This message will be invisible tooother code for 30 seconds.
     CloudQueueMessage message = queue.GetMessage();     
     ```
 
-1. <span data-ttu-id="89e0a-203">Çağrı **CloudQueueMessage.Delete** iletiyi sıradan silmek için yöntem.</span><span class="sxs-lookup"><span data-stu-id="89e0a-203">Call the **CloudQueueMessage.Delete** method to delete the message from the queue.</span></span>
+1. <span data-ttu-id="97da0-203">Merhaba çağrısı **CloudQueueMessage.Delete** hello kuyruğundan yöntemi toodelete hello ileti.</span><span class="sxs-lookup"><span data-stu-id="97da0-203">Call hello **CloudQueueMessage.Delete** method toodelete hello message from hello queue.</span></span>
 
     ```csharp
     queue.DeleteMessage(message);
     ```
 
-1. <span data-ttu-id="89e0a-204">Güncelleştirme **ViewBag** silinmiş ileti ve sıra adı.</span><span class="sxs-lookup"><span data-stu-id="89e0a-204">Update the **ViewBag** with the message deleted, and the name of the queue.</span></span>
+1. <span data-ttu-id="97da0-204">Güncelleştirme hello **ViewBag** hello ileti silinmiş ile Merhaba hello sırasının adı.</span><span class="sxs-lookup"><span data-stu-id="97da0-204">Update hello **ViewBag** with hello message deleted, and hello name of hello queue.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
  
-1. <span data-ttu-id="89e0a-205">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-205">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="97da0-205">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="97da0-205">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="89e0a-206">Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **ReadMessage** Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-206">On the **Add View** dialog, enter **ReadMessage** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="97da0-206">Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **ReadMessage** hello Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="97da0-206">On hello **Add View** dialog, enter **ReadMessage** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="89e0a-207">Açık `ReadMessage.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="89e0a-207">Open `ReadMessage.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="97da0-207">Açık `ReadMessage.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="97da0-207">Open `ReadMessage.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -395,82 +395,82 @@ ms.lasthandoff: 08/29/2017
     </table>
     ```
 
-1. <span data-ttu-id="89e0a-208">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="89e0a-208">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="97da0-208">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="97da0-208">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="89e0a-209">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="89e0a-209">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="97da0-209">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="97da0-209">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. <span data-ttu-id="89e0a-210">Uygulamayı çalıştırmak ve seçmek **okuma/silme iletisi** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:</span><span class="sxs-lookup"><span data-stu-id="89e0a-210">Run the application, and select **Read/Delete message** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="97da0-210">Merhaba uygulamayı çalıştırın ve seçin **okuma/silme iletisi** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:</span><span class="sxs-lookup"><span data-stu-id="97da0-210">Run hello application, and select **Read/Delete message** toosee results similar toohello following screen shot:</span></span>
   
     ![Okuma ve silme iletisi](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
-## <a name="get-the-queue-length"></a><span data-ttu-id="89e0a-212">Kuyruk uzunluğu alma</span><span class="sxs-lookup"><span data-stu-id="89e0a-212">Get the queue length</span></span>
+## <a name="get-hello-queue-length"></a><span data-ttu-id="97da0-212">Merhaba kuyruk uzunluğu alma</span><span class="sxs-lookup"><span data-stu-id="97da0-212">Get hello queue length</span></span>
 
-<span data-ttu-id="89e0a-213">Bu bölümde, kuyruk uzunluğu (iletilerinin sayısı) alma gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="89e0a-213">This section illustrates how to get the queue length (number of messages).</span></span> 
+<span data-ttu-id="97da0-213">Bu bölümde, nasıl tooget hello sırası uzunluğu (ileti sayısını) gösterir.</span><span class="sxs-lookup"><span data-stu-id="97da0-213">This section illustrates how tooget hello queue length (number of messages).</span></span> 
 
 > [!NOTE]
 > 
-> <span data-ttu-id="89e0a-214">Bu bölümdeki adımları tamamladığınızdan varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="89e0a-214">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="97da0-214">Bu bölümde hello adımları tamamladığınızdan varsayılır [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="97da0-214">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="89e0a-215">`QueuesController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="89e0a-215">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="97da0-215">Açık hello `QueuesController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="97da0-215">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="89e0a-216">Adlı bir yöntem ekleyin **GetQueueLength** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-216">Add a method called **GetQueueLength** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="97da0-216">Adlı bir yöntem ekleyin **GetQueueLength** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="97da0-216">Add a method called **GetQueueLength** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult GetQueueLength()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="89e0a-217">İçinde **ReadMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-217">Within the **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="89e0a-218">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="89e0a-218">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="97da0-217">Merhaba içinde **ReadMessage** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-217">Within hello **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="97da0-218">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="97da0-218">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="89e0a-219">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="89e0a-219">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="97da0-219">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="97da0-219">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="89e0a-220">Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-220">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="97da0-220">Alma bir **CloudQueueContainer** başvuru toohello sırası temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-220">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="89e0a-221">Çağrı **CloudQueue.FetchAttributes** (uzunluğu dahil) kuyruğun öznitelikleri alma yöntemi.</span><span class="sxs-lookup"><span data-stu-id="89e0a-221">Call the **CloudQueue.FetchAttributes** method to retrieve the queue's attributes (including its length).</span></span> 
+1. <span data-ttu-id="97da0-221">Merhaba çağrısı **CloudQueue.FetchAttributes** yöntemi tooretrieve hello sıranın öznitelikleri (uzunluğu dahil).</span><span class="sxs-lookup"><span data-stu-id="97da0-221">Call hello **CloudQueue.FetchAttributes** method tooretrieve hello queue's attributes (including its length).</span></span> 
 
     ```csharp
     queue.FetchAttributes();
     ```
 
-6. <span data-ttu-id="89e0a-222">Erişim **CloudQueue.ApproximateMessageCount** sıra uzunluğu alınacağı özellik.</span><span class="sxs-lookup"><span data-stu-id="89e0a-222">Access the **CloudQueue.ApproximateMessageCount** property to get the queue's length.</span></span>
+6. <span data-ttu-id="97da0-222">Erişim hello **CloudQueue.ApproximateMessageCount** özelliği tooget hello sırasının uzunluğu.</span><span class="sxs-lookup"><span data-stu-id="97da0-222">Access hello **CloudQueue.ApproximateMessageCount** property tooget hello queue's length.</span></span>
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;
     ```
 
-1. <span data-ttu-id="89e0a-223">Güncelleştirme **ViewBag** sırası uzunluğu ve ada sahip.</span><span class="sxs-lookup"><span data-stu-id="89e0a-223">Update the **ViewBag** with the name of the queue, and its length.</span></span>
+1. <span data-ttu-id="97da0-223">Güncelleştirme hello **ViewBag** hello kuyruk ve uzunluğu hello adı.</span><span class="sxs-lookup"><span data-stu-id="97da0-223">Update hello **ViewBag** with hello name of hello queue, and its length.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Length = nMessages;
     ```
  
-1. <span data-ttu-id="89e0a-224">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-224">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="97da0-224">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="97da0-224">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="89e0a-225">Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **GetQueueLength** Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-225">On the **Add View** dialog, enter **GetQueueLength** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="97da0-225">Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **GetQueueLength** hello Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="97da0-225">On hello **Add View** dialog, enter **GetQueueLength** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="89e0a-226">Açık `GetQueueLengthMessage.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="89e0a-226">Open `GetQueueLengthMessage.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="97da0-226">Açık `GetQueueLengthMessage.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="97da0-226">Open `GetQueueLengthMessage.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -479,78 +479,78 @@ ms.lasthandoff: 08/29/2017
     
     <h2>Get Queue Length results</h2>
     
-    The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
+    hello queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
     ```
 
-1. <span data-ttu-id="89e0a-227">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="89e0a-227">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="97da0-227">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="97da0-227">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="89e0a-228">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="89e0a-228">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="97da0-228">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="97da0-228">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. <span data-ttu-id="89e0a-229">Uygulamayı çalıştırmak ve seçmek **alma sırası uzunluğu** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:</span><span class="sxs-lookup"><span data-stu-id="89e0a-229">Run the application, and select **Get queue length** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="97da0-229">Merhaba uygulamayı çalıştırın ve seçin **alma sırası uzunluğu** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:</span><span class="sxs-lookup"><span data-stu-id="97da0-229">Run hello application, and select **Get queue length** toosee results similar toohello following screen shot:</span></span>
   
     ![Kuyruk uzunluğu alma](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
 
-## <a name="delete-a-queue"></a><span data-ttu-id="89e0a-231">Bir kuyruk silme</span><span class="sxs-lookup"><span data-stu-id="89e0a-231">Delete a queue</span></span>
-<span data-ttu-id="89e0a-232">Bu bölümde, bir kuyruk silme göstermektedir.</span><span class="sxs-lookup"><span data-stu-id="89e0a-232">This section illustrates how to delete a queue.</span></span> 
+## <a name="delete-a-queue"></a><span data-ttu-id="97da0-231">Bir kuyruk silme</span><span class="sxs-lookup"><span data-stu-id="97da0-231">Delete a queue</span></span>
+<span data-ttu-id="97da0-232">Bu bölümde anlatılacaktır nasıl toodelete bir sıra.</span><span class="sxs-lookup"><span data-stu-id="97da0-232">This section illustrates how toodelete a queue.</span></span> 
 
 > [!NOTE]
 > 
-> <span data-ttu-id="89e0a-233">Bu bölümdeki adımları tamamladığınızdan varsayar [geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="89e0a-233">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="97da0-233">Bu bölümde hello adımları tamamladığınızdan varsayılır [hello geliştirme ortamını ayarlama](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="97da0-233">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="89e0a-234">`QueuesController.cs` dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="89e0a-234">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="97da0-234">Açık hello `QueuesController.cs` dosya.</span><span class="sxs-lookup"><span data-stu-id="97da0-234">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="89e0a-235">Adlı bir yöntem ekleyin **DeleteQueue** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-235">Add a method called **DeleteQueue** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="97da0-235">Adlı bir yöntem ekleyin **DeleteQueue** döndüren bir **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="97da0-235">Add a method called **DeleteQueue** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult DeleteQueue()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="89e0a-236">İçinde **DeleteQueue** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-236">Within the **DeleteQueue** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="89e0a-237">Azure hizmet yapılandırmasından depolama bağlantı dizesi ve depolama hesabı bilgilerini almak için aşağıdaki kodu kullanın: (değişiklik  *&lt;depolama hesabı adı >* Azure depolama hesabı adını eriştiğiniz.)</span><span class="sxs-lookup"><span data-stu-id="89e0a-237">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="97da0-236">Merhaba içinde **DeleteQueue** yöntemi, get bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-236">Within hello **DeleteQueue** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="97da0-237">Kullanım hello aşağıdaki kod tooget hello depolama bağlantı dizesi ve depolama hesabı bilgileri hello Azure hizmet yapılandırması: (değişiklik  *&lt;depolama hesabı adı >* hello Azure depolama toohello adı hesabı. eriştiğiniz)</span><span class="sxs-lookup"><span data-stu-id="97da0-237">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="89e0a-238">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="89e0a-238">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="97da0-238">Alma bir **CloudQueueClient** nesnesi, bir kuyruk hizmeti istemcisi temsil eder.</span><span class="sxs-lookup"><span data-stu-id="97da0-238">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="89e0a-239">Alma bir **CloudQueueContainer** sıranın başvuru temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="89e0a-239">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="97da0-239">Alma bir **CloudQueueContainer** başvuru toohello sırası temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="97da0-239">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="89e0a-240">Çağrı **CloudQueue.Delete** yöntemi tarafından temsil edilen sıra silmek için **CloudQueue** nesnesi.</span><span class="sxs-lookup"><span data-stu-id="89e0a-240">Call the **CloudQueue.Delete** method to delete the queue represented by the **CloudQueue** object.</span></span>
+1. <span data-ttu-id="97da0-240">Merhaba çağrısı **CloudQueue.Delete** hello tarafından temsil edilen yöntem toodelete hello sıra **CloudQueue** nesnesi.</span><span class="sxs-lookup"><span data-stu-id="97da0-240">Call hello **CloudQueue.Delete** method toodelete hello queue represented by hello **CloudQueue** object.</span></span>
 
     ```csharp
     queue.Delete();
     ```
 
-1. <span data-ttu-id="89e0a-241">Güncelleştirme **ViewBag** sırası uzunluğu ve ada sahip.</span><span class="sxs-lookup"><span data-stu-id="89e0a-241">Update the **ViewBag** with the name of the queue, and its length.</span></span>
+1. <span data-ttu-id="97da0-241">Güncelleştirme hello **ViewBag** hello kuyruk ve uzunluğu hello adı.</span><span class="sxs-lookup"><span data-stu-id="97da0-241">Update hello **ViewBag** with hello name of hello queue, and its length.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
  
-1. <span data-ttu-id="89e0a-242">İçinde **Çözüm Gezgini**, genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-242">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="97da0-242">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri** klasörünü sağ tıklatın **sıraları**ve hello bağlam menüsünden seçin **Ekle -> Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="97da0-242">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="89e0a-243">Üzerinde **Görünüm Ekle** iletişim kutusunda, girin **DeleteQueue** Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="89e0a-243">On the **Add View** dialog, enter **DeleteQueue** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="97da0-243">Merhaba üzerinde **Görünüm Ekle** iletişim kutusunda, girin **DeleteQueue** hello Görünüm adı ' nı seçip için **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="97da0-243">On hello **Add View** dialog, enter **DeleteQueue** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="89e0a-244">Açık `DeleteQueue.cshtml`ve aşağıdaki kod parçacığını gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="89e0a-244">Open `DeleteQueue.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="97da0-244">Açık `DeleteQueue.cshtml`ve kod parçacığını aşağıdaki hello gibi görünüyor şekilde değiştirin:</span><span class="sxs-lookup"><span data-stu-id="97da0-244">Open `DeleteQueue.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -562,20 +562,20 @@ ms.lasthandoff: 08/29/2017
     @ViewBag.QueueName deleted.
     ```
 
-1. <span data-ttu-id="89e0a-245">İçinde **Çözüm Gezgini**, genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="89e0a-245">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="97da0-245">Merhaba, **Çözüm Gezgini**, hello genişletin **görünümleri -> paylaşılan** klasörü ve açık `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="97da0-245">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="89e0a-246">Son sonra **Html.ActionLink**, aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="89e0a-246">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="97da0-246">Merhaba sonra son **Html.ActionLink**, hello aşağıdakileri ekleyin **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="97da0-246">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. <span data-ttu-id="89e0a-247">Uygulamayı çalıştırmak ve seçmek **alma sırası uzunluğu** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:</span><span class="sxs-lookup"><span data-stu-id="89e0a-247">Run the application, and select **Get queue length** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="97da0-247">Merhaba uygulamayı çalıştırın ve seçin **alma sırası uzunluğu** toosee benzer toohello ekran görüntüsü aşağıdaki sonuçları:</span><span class="sxs-lookup"><span data-stu-id="97da0-247">Run hello application, and select **Get queue length** toosee results similar toohello following screen shot:</span></span>
   
     ![Kuyruğu silin](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
-## <a name="next-steps"></a><span data-ttu-id="89e0a-249">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="89e0a-249">Next steps</span></span>
-<span data-ttu-id="89e0a-250">Azure’da veri depolama ile ilgili ek seçenekler hakkında daha fazla bilgi edinmek için daha fazla özellik kılavuzu görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="89e0a-250">View more feature guides to learn about additional options for storing data in Azure.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="97da0-249">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="97da0-249">Next steps</span></span>
+<span data-ttu-id="97da0-250">Veri depolama için ek seçenekleri hakkında daha fazla özellik kılavuzları toolearn görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="97da0-250">View more feature guides toolearn about additional options for storing data in Azure.</span></span>
 
-  * [<span data-ttu-id="89e0a-251">Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="89e0a-251">Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)</span></span>](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [<span data-ttu-id="89e0a-252">Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="89e0a-252">Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)</span></span>](vs-storage-aspnet-getting-started-tables.md)
+  * [<span data-ttu-id="97da0-251">Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="97da0-251">Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)</span></span>](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * [<span data-ttu-id="97da0-252">Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="97da0-252">Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)</span></span>](vs-storage-aspnet-getting-started-tables.md)

@@ -1,6 +1,6 @@
 ---
-title: "264 Çoklu bit hızı 4K ses 5.1 | Microsoft Docs"
-description: "Konuyu genel bir fikir veren ** 264 Çoklu bit hızı 4K ses 5.1* * görev hazır."
+title: "aaa264 Çoklu bit hızı 4K ses 5.1 | Microsoft Docs"
+description: "Merhaba konu hello genel bir bakış sunar ** 264 Çoklu bit hızı 4K ses 5.1* * görev hazır."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 10e5c41be42b73e3e1458adac9642547c182530b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ea0169a86b132002233488ba748a6583fe08d51b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="h264-multiple-bitrate-4k-audio-51"></a><span data-ttu-id="97f47-103">H264 Çoklu bit hızı 4K ses 5.1</span><span class="sxs-lookup"><span data-stu-id="97f47-103">H264 Multiple Bitrate 4K Audio 5.1</span></span>
-<span data-ttu-id="97f47-104">`Media Encoder Standard`kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar.</span><span class="sxs-lookup"><span data-stu-id="97f47-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="97f47-105">Kullanabilir bir `preset name` hangi biçimine medya dosyanızın kodlamak istediğiniz belirtmek için.</span><span class="sxs-lookup"><span data-stu-id="97f47-105">You can either use a `preset name` to specify into which format you would like to encode your media file.</span></span> <span data-ttu-id="97f47-106">Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz</span><span class="sxs-lookup"><span data-stu-id="97f47-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="97f47-107">Ardından kodlayıcıya önceden özel geçirirsiniz.</span><span class="sxs-lookup"><span data-stu-id="97f47-107">You would then pass the custom preset to the encoder.</span></span> <span data-ttu-id="97f47-108">Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="97f47-108">For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
+# <a name="h264-multiple-bitrate-4k-audio-51"></a><span data-ttu-id="d1a5e-103">H264 Çoklu bit hızı 4K ses 5.1</span><span class="sxs-lookup"><span data-stu-id="d1a5e-103">H264 Multiple Bitrate 4K Audio 5.1</span></span>
+<span data-ttu-id="d1a5e-104">`Media Encoder Standard`kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="d1a5e-105">Kullanabilir bir `preset name` hangi biçimine gibi tooencode toospecify medya dosyanızın.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-105">You can either use a `preset name` toospecify into which format you would like tooencode your media file.</span></span> <span data-ttu-id="d1a5e-106">Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz</span><span class="sxs-lookup"><span data-stu-id="d1a5e-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="d1a5e-107">Ardından hello özel hazır toohello Kodlayıcı geçirirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-107">You would then pass hello custom preset toohello encoder.</span></span> <span data-ttu-id="d1a5e-108">Tüm hello Hello listesi için bu tarafından desteklenen adları önceden `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="d1a5e-108">For hello list of all hello preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
   
- <span data-ttu-id="97f47-109">Bu konuda gösterilmektedir `H264 Multiple Bitrate 4K Audio 5.1` XML ve JSON biçiminde hazır.</span><span class="sxs-lookup"><span data-stu-id="97f47-109">This topic shows the `H264 Multiple Bitrate 4K Audio 5.1` preset in XML and JSON format.</span></span>  
+ <span data-ttu-id="d1a5e-109">Bu konu, hello gösterir `H264 Multiple Bitrate 4K Audio 5.1` XML ve JSON biçiminde hazır.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-109">This topic shows hello `H264 Multiple Bitrate 4K Audio 5.1` preset in XML and JSON format.</span></span>  
   
- <span data-ttu-id="97f47-110">Bu hazır 20000 kbps ila 1000 KB/sn ve AAC 5.1 ses arasında değişen 12 GOP hizalı MP4 dosyaları kümesi üretir.</span><span class="sxs-lookup"><span data-stu-id="97f47-110">This preset produces a set of 12 GOP-aligned MP4 files, ranging from 20000 kbps to 1000 kbps, and AAC 5.1 audio.</span></span> <span data-ttu-id="97f47-111">Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan inceleyin.</span><span class="sxs-lookup"><span data-stu-id="97f47-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below.</span></span> <span data-ttu-id="97f47-112">Hangi her öğe anlamına gelir ve geçerli değerlerin her öğe için açıklamalar için bkz [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="97f47-112">For explanations of what each element means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md).</span></span>  
-  
-> [!NOTE]
->  <span data-ttu-id="97f47-113">Premium ayrılmış birim alması gereken 4K türüyle kodlar.</span><span class="sxs-lookup"><span data-stu-id="97f47-113">You should get the Premium reserved unit type with 4K encodes.</span></span> <span data-ttu-id="97f47-114">Daha fazla bilgi için bkz: [ölçek kodlama nasıl](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span><span class="sxs-lookup"><span data-stu-id="97f47-114">For more information, see [How to Scale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span></span>  
+ <span data-ttu-id="d1a5e-110">Bu hazır 20000 kbps too1000 kbps ve AAC 5.1 ses 12 GOP hizalı MP4 dosyaları kümesi üretir.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-110">This preset produces a set of 12 GOP-aligned MP4 files, ranging from 20000 kbps too1000 kbps, and AAC 5.1 audio.</span></span> <span data-ttu-id="d1a5e-111">Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan hello inceleyin.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine hello XML or JSON defined below.</span></span> <span data-ttu-id="d1a5e-112">Hello her öğe için hangi her öğe anlamına gelir ve hello geçerli değerlerin açıklamaları görmek için [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="d1a5e-112">For explanations of what each element means, and hello valid values for each element, see hello [Media Encoder Standard schema](media-services-mes-schema.md).</span></span>  
   
 > [!NOTE]
->  <span data-ttu-id="97f47-115">Değiştirirken `Width` ve `Height` katmanları arasında değerleri en boy oranını tutarlı olmaya devam ettiğinden emin olun.</span><span class="sxs-lookup"><span data-stu-id="97f47-115">When modifying the `Width` and `Height` values across layers, make sure that the aspect ratio remains consistent.</span></span> <span data-ttu-id="97f47-116">Örneğin: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="97f47-116">For example: 1920x1080, 1280x720, 1080x576, 640x360.</span></span> <span data-ttu-id="97f47-117">En boy oranlarına karışımını gibi kullanmamalısınız: 1280 x 720, 720 x 480, 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="97f47-117">You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.</span></span>  
+>  <span data-ttu-id="d1a5e-113">Merhaba ayrılmış Premium alması gereken birimi türü 4K ile kodlar.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-113">You should get hello Premium reserved unit type with 4K encodes.</span></span> <span data-ttu-id="d1a5e-114">Daha fazla bilgi için bkz: [nasıl tooScale kodlama](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span><span class="sxs-lookup"><span data-stu-id="d1a5e-114">For more information, see [How tooScale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span></span>  
   
- <span data-ttu-id="97f47-118">XML</span><span class="sxs-lookup"><span data-stu-id="97f47-118">XML</span></span>  
+> [!NOTE]
+>  <span data-ttu-id="d1a5e-115">Merhaba değiştirirken `Width` ve `Height` katmanları arasında değerleri bu hello en boy oranını tutarlı kalabilmesi emin olun.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-115">When modifying hello `Width` and `Height` values across layers, make sure that hello aspect ratio remains consistent.</span></span> <span data-ttu-id="d1a5e-116">Örneğin: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-116">For example: 1920x1080, 1280x720, 1080x576, 640x360.</span></span> <span data-ttu-id="d1a5e-117">En boy oranlarına karışımını gibi kullanmamalısınız: 1280 x 720, 720 x 480, 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="d1a5e-117">You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.</span></span>  
+  
+ <span data-ttu-id="d1a5e-118">XML</span><span class="sxs-lookup"><span data-stu-id="d1a5e-118">XML</span></span>  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -240,7 +240,7 @@ ms.lasthandoff: 08/29/2017
 </Preset>  
 ```  
   
- <span data-ttu-id="97f47-119">JSON</span><span class="sxs-lookup"><span data-stu-id="97f47-119">JSON</span></span>  
+ <span data-ttu-id="d1a5e-119">JSON</span><span class="sxs-lookup"><span data-stu-id="d1a5e-119">JSON</span></span>  
   
 ```  
 {  

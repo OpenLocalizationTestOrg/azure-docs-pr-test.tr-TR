@@ -1,6 +1,6 @@
 ---
-title: "Bir statik genel IP adresi ile - Azure CLI 1.0 bir VM oluşturma | Microsoft Docs"
-description: "Azure komut satırı arabirimi (CLI) 1.0 kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin."
+title: bir statik genel IP adresiyle - Azure CLI 1.0 VM aaaCreate | Microsoft Docs
+description: "Nasıl toocreate ile bir statik genel IP adresini kullanarak bir VM hello Azure komut satırı arabirimi (CLI) 1.0 öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,40 +16,40 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a373c32271096308678fe3402e8420cc14fe5935
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ee906b65735830757b455df00f9f8d4373be3dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a><span data-ttu-id="0829e-103">Azure CLI 1.0 kullanarak bir statik genel IP adresiyle bir VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="0829e-103">Create a VM with a static public IP address using the Azure CLI 1.0</span></span>
+# <a name="create-a-vm-with-a-static-public-ip-address-using-hello-azure-cli-10"></a><span data-ttu-id="3a702-103">Hello Azure CLI 1.0 kullanarak bir statik genel IP adresiyle bir VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="3a702-103">Create a VM with a static public IP address using hello Azure CLI 1.0</span></span>
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="0829e-104">Azure portal</span><span class="sxs-lookup"><span data-stu-id="0829e-104">Azure portal</span></span>](virtual-network-deploy-static-pip-arm-portal.md)
-> * [<span data-ttu-id="0829e-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="0829e-105">PowerShell</span></span>](virtual-network-deploy-static-pip-arm-ps.md)
-> * [<span data-ttu-id="0829e-106">Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="0829e-106">Azure CLI 2.0</span></span>](virtual-network-deploy-static-pip-arm-cli.md)
-> * [<span data-ttu-id="0829e-107">Azure CLI 1.0</span><span class="sxs-lookup"><span data-stu-id="0829e-107">Azure CLI 1.0</span></span>](virtual-network-deploy-static-pip-cli-nodejs.md)
-> * [<span data-ttu-id="0829e-108">Şablon</span><span class="sxs-lookup"><span data-stu-id="0829e-108">Template</span></span>](virtual-network-deploy-static-pip-arm-template.md)
-> * [<span data-ttu-id="0829e-109">PowerShell (Klasik)</span><span class="sxs-lookup"><span data-stu-id="0829e-109">PowerShell (Classic)</span></span>](virtual-networks-reserved-public-ip.md)
+> * [<span data-ttu-id="3a702-104">Azure portal</span><span class="sxs-lookup"><span data-stu-id="3a702-104">Azure portal</span></span>](virtual-network-deploy-static-pip-arm-portal.md)
+> * [<span data-ttu-id="3a702-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="3a702-105">PowerShell</span></span>](virtual-network-deploy-static-pip-arm-ps.md)
+> * [<span data-ttu-id="3a702-106">Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="3a702-106">Azure CLI 2.0</span></span>](virtual-network-deploy-static-pip-arm-cli.md)
+> * [<span data-ttu-id="3a702-107">Azure CLI 1.0</span><span class="sxs-lookup"><span data-stu-id="3a702-107">Azure CLI 1.0</span></span>](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [<span data-ttu-id="3a702-108">Şablon</span><span class="sxs-lookup"><span data-stu-id="3a702-108">Template</span></span>](virtual-network-deploy-static-pip-arm-template.md)
+> * [<span data-ttu-id="3a702-109">PowerShell (Klasik)</span><span class="sxs-lookup"><span data-stu-id="3a702-109">PowerShell (Classic)</span></span>](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> <span data-ttu-id="0829e-110">Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="0829e-110">Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="0829e-111">Bu makalede, Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft önerir Resource Manager dağıtım modelini kullanarak yer almaktadır.</span><span class="sxs-lookup"><span data-stu-id="0829e-111">This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.</span></span>
+> <span data-ttu-id="3a702-110">Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="3a702-110">Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="3a702-111">Bu makalede, Microsoft hello Klasik dağıtım modeli yerine çoğu yeni dağıtımlar için önerir hello Resource Manager dağıtım modeli kullanılarak kapsar.</span><span class="sxs-lookup"><span data-stu-id="3a702-111">This article covers using hello Resource Manager deployment model, which Microsoft recommends for most new deployments instead of hello classic deployment model.</span></span>
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-<span data-ttu-id="0829e-112">Azure CLI 1.0 (Bu makalede) kullanarak bu görevi tamamlayabilirsiniz veya [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md).</span><span class="sxs-lookup"><span data-stu-id="0829e-112">You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md).</span></span> 
+<span data-ttu-id="3a702-112">Hello Azure CLI 1.0 (Bu makalede) veya hello kullanarak bu görevi tamamlayabilirsiniz [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md).</span><span class="sxs-lookup"><span data-stu-id="3a702-112">You can complete this task using hello Azure CLI 1.0 (this article) or hello [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md).</span></span> 
 
-## <span data-ttu-id="0829e-113"><a name = "create"></a>1. adım - kodunuzu Başlat</span><span class="sxs-lookup"><span data-stu-id="0829e-113"><a name = "create"></a>Step 1 - Start your script</span></span>
-<span data-ttu-id="0829e-114">Kullanılan tam bash komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh).</span><span class="sxs-lookup"><span data-stu-id="0829e-114">You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh).</span></span> <span data-ttu-id="0829e-115">Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="0829e-115">Complete the following steps to change the script to work in your environment:</span></span>
+## <span data-ttu-id="3a702-113"><a name = "create"></a>1. adım - kodunuzu Başlat</span><span class="sxs-lookup"><span data-stu-id="3a702-113"><a name = "create"></a>Step 1 - Start your script</span></span>
+<span data-ttu-id="3a702-114">Kullanılan hello tam bash komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh).</span><span class="sxs-lookup"><span data-stu-id="3a702-114">You can download hello full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh).</span></span> <span data-ttu-id="3a702-115">Aşağıdaki adımları toochange hello betik toowork ortamınızdaki hello tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="3a702-115">Complete hello following steps toochange hello script toowork in your environment:</span></span>
 
-<span data-ttu-id="0829e-116">Dağıtımınız için kullanmak istediğiniz değerleri temel alarak aşağıdaki değişkenlerinin değerlerini değiştirin.</span><span class="sxs-lookup"><span data-stu-id="0829e-116">Change the values of the variables below based on the values you want to use for your deployment.</span></span> <span data-ttu-id="0829e-117">Bu makalede kullanılan senaryo için aşağıdaki değerleri eşleyin:</span><span class="sxs-lookup"><span data-stu-id="0829e-117">The following values map to the scenario used in this article:</span></span>
+<span data-ttu-id="3a702-116">Merhaba değerlerini değiştirin dağıtımınız için toouse istediğiniz hello değişkenleri aşağıdaki hello değerlerine göre.</span><span class="sxs-lookup"><span data-stu-id="3a702-116">Change hello values of hello variables below based on hello values you want toouse for your deployment.</span></span> <span data-ttu-id="3a702-117">Bu makalede kullanılan değerleri harita toohello senaryo aşağıdaki hello:</span><span class="sxs-lookup"><span data-stu-id="3a702-117">hello following values map toohello scenario used in this article:</span></span>
 
 ```azurecli
-# Set variables for the new resource group
+# Set variables for hello new resource group
 rgName="IaaSStory"
 location="westus"
 
@@ -79,16 +79,16 @@ pipName="PIPWEB1"
 dnsName="iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a><span data-ttu-id="0829e-118">Adım 2 - gerekli kaynaklar için VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="0829e-118">Step 2 - Create the necessary resources for your VM</span></span>
-<span data-ttu-id="0829e-119">Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafından kullanılacak gerekir.</span><span class="sxs-lookup"><span data-stu-id="0829e-119">Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.</span></span>
+## <a name="step-2---create-hello-necessary-resources-for-your-vm"></a><span data-ttu-id="3a702-118">2. adım - hello gerekli kaynaklar için VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="3a702-118">Step 2 - Create hello necessary resources for your VM</span></span>
+<span data-ttu-id="3a702-119">Bir VM oluşturmadan önce bir kaynak grubu, VNet, ortak IP ve NIC ihtiyacınız toobe hello VM tarafından kullanılır.</span><span class="sxs-lookup"><span data-stu-id="3a702-119">Before creating a VM, you need a resource group, VNet, public IP, and NIC toobe used by hello VM.</span></span>
 
-1. <span data-ttu-id="0829e-120">Yeni bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0829e-120">Create a new resource group.</span></span>
+1. <span data-ttu-id="3a702-120">Yeni bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="3a702-120">Create a new resource group.</span></span>
 
     ```azurecli
     azure group create $rgName $location
     ```
 
-2. <span data-ttu-id="0829e-121">VNet ve alt ağ oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0829e-121">Create the VNet and subnet.</span></span>
+2. <span data-ttu-id="3a702-121">Oluşturma VNet ve alt ağ hello.</span><span class="sxs-lookup"><span data-stu-id="3a702-121">Create hello VNet and subnet.</span></span>
 
     ```azurecli
     azure network vnet create --resource-group $rgName \
@@ -101,7 +101,7 @@ dnsName="iaasstoryws1"
         --address-prefix $subnetPrefix
     ```
 
-3. <span data-ttu-id="0829e-122">Genel IP kaynağı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0829e-122">Create the public IP resource.</span></span>
+3. <span data-ttu-id="3a702-122">Merhaba genel IP kaynağı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="3a702-122">Create hello public IP resource.</span></span>
 
     ```azurecli
     azure network public-ip create --resource-group $rgName \
@@ -111,7 +111,7 @@ dnsName="iaasstoryws1"
         --domain-name-label $dnsName
     ```
 
-4. <span data-ttu-id="0829e-123">Yukarıdaki genel IP ile oluşturulan alt ağdaki sanal makine için ağ arabirimi (NIC) oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0829e-123">Create the network interface (NIC) for the VM in the subnet created above, with the public IP.</span></span> <span data-ttu-id="0829e-124">İlk komut kümesini almak için kullanılan fark **kimliği** , yukarıda oluşturduğunuz alt ağının.</span><span class="sxs-lookup"><span data-stu-id="0829e-124">Notice the first set of commands are used to retrieve the **Id** of the subnet created above.</span></span>
+4. <span data-ttu-id="3a702-123">Yukarıdaki hello genel IP ile oluşturulan hello alt hello VM için Hello ağ arabirimi (NIC) oluşturun.</span><span class="sxs-lookup"><span data-stu-id="3a702-123">Create hello network interface (NIC) for hello VM in hello subnet created above, with hello public IP.</span></span> <span data-ttu-id="3a702-124">Bildirim hello ilk komutları kümesidir kullanılan tooretrieve hello **kimliği** yukarıda oluşturduğunuz hello alt.</span><span class="sxs-lookup"><span data-stu-id="3a702-124">Notice hello first set of commands are used tooretrieve hello **Id** of hello subnet created above.</span></span>
 
     ```azurecli
     subnetId="$(azure network vnet subnet show --resource-group $rgName \
@@ -129,10 +129,10 @@ dnsName="iaasstoryws1"
     ```
 
    > [!TIP]
-   > <span data-ttu-id="0829e-125">İlk komut kullanımlar yukarıda [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) ve [dize düzenlemesi](http://tldp.org/LDP/abs/html/string-manipulation.html) (daha açık belirtmek gerekirse substring kaldırma).</span><span class="sxs-lookup"><span data-stu-id="0829e-125">The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).</span></span>
+   > <span data-ttu-id="3a702-125">Merhaba kullanımlar yukarıda ilk komut [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) ve [dize düzenlemesi](http://tldp.org/LDP/abs/html/string-manipulation.html) (daha açık belirtmek gerekirse substring kaldırma).</span><span class="sxs-lookup"><span data-stu-id="3a702-125">hello first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).</span></span>
    >
 
-5. <span data-ttu-id="0829e-126">VM işletim sistemi sürücüsünü barındırmak için bir depolama hesabı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0829e-126">Create a storage account to host the VM OS drive.</span></span>
+5. <span data-ttu-id="3a702-126">Bir depolama hesabı toohost hello VM işletim sistemi sürücüsü oluşturun.</span><span class="sxs-lookup"><span data-stu-id="3a702-126">Create a storage account toohost hello VM OS drive.</span></span>
 
     ```azurecli
     azure storage account create $stdStorageAccountName \
@@ -140,10 +140,10 @@ dnsName="iaasstoryws1"
         --location $location --type LRS
     ```
 
-## <a name="step-3---create-the-vm"></a><span data-ttu-id="0829e-127">3. adım - VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="0829e-127">Step 3 - Create the VM</span></span>
-<span data-ttu-id="0829e-128">Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="0829e-128">Now that all necessary resources are in place, you can create a new VM.</span></span>
+## <a name="step-3---create-hello-vm"></a><span data-ttu-id="3a702-127">3. adım - hello VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="3a702-127">Step 3 - Create hello VM</span></span>
+<span data-ttu-id="3a702-128">Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3a702-128">Now that all necessary resources are in place, you can create a new VM.</span></span>
 
-1. <span data-ttu-id="0829e-129">VM oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0829e-129">Create the VM.</span></span>
+1. <span data-ttu-id="3a702-129">Merhaba VM oluşturun.</span><span class="sxs-lookup"><span data-stu-id="3a702-129">Create hello VM.</span></span>
 
     ```azurecli
     azure vm create --resource-group $rgName \
@@ -160,18 +160,18 @@ dnsName="iaasstoryws1"
         --admin-username $username \
         --admin-password $password
     ```
-2. <span data-ttu-id="0829e-130">Komut dosyasını kaydedin.</span><span class="sxs-lookup"><span data-stu-id="0829e-130">Save the script file.</span></span>
+2. <span data-ttu-id="3a702-130">Merhaba komut dosyasını kaydedin.</span><span class="sxs-lookup"><span data-stu-id="3a702-130">Save hello script file.</span></span>
 
-## <a name="step-4---run-the-script"></a><span data-ttu-id="0829e-131">Adım 4 - komut dosyasını çalıştır</span><span class="sxs-lookup"><span data-stu-id="0829e-131">Step 4 - Run the script</span></span>
-<span data-ttu-id="0829e-132">Gerekli değişiklikleri yapma ve komut dosyası anlama sonra yukarıda Göster, komut dosyasını çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="0829e-132">After making any necessary changes, and understanding the script show above, run the script.</span></span>
+## <a name="step-4---run-hello-script"></a><span data-ttu-id="3a702-131">Adım 4 - çalışma hello komut dosyası</span><span class="sxs-lookup"><span data-stu-id="3a702-131">Step 4 - Run hello script</span></span>
+<span data-ttu-id="3a702-132">Gerekli değişiklikleri yapma ve hello betik anlama sonra yukarıda Göster, hello komut dosyasını çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="3a702-132">After making any necessary changes, and understanding hello script show above, run hello script.</span></span>
 
-1. <span data-ttu-id="0829e-133">Bir bash konsoldan, yukarıdaki komut dosyasını çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="0829e-133">From a bash console, run the script above.</span></span>
+1. <span data-ttu-id="3a702-133">Bir bash konsoldan, yukarıdaki hello komut dosyasını çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="3a702-133">From a bash console, run hello script above.</span></span>
 
     ```azurecli
     sh myscript.sh
     ```
 
-2. <span data-ttu-id="0829e-134">Birkaç dakika sonra aşağıdaki çıktıda görüntülenmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="0829e-134">The output below should be displayed after a few minutes.</span></span>
+2. <span data-ttu-id="3a702-134">birkaç dakika sonra aşağıdaki Hello çıktıda görüntülenmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="3a702-134">hello output below should be displayed after a few minutes.</span></span>
 
         info:    Executing command group create
         info:    Getting resource group IaaSStory
@@ -197,9 +197,9 @@ dnsName="iaasstoryws1"
         data:      192.168.0.0/16
         info:    network vnet create command OK
         info:    Executing command network vnet subnet create
-        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up hello subnet "FrontEnd"
         info:    Creating subnet "FrontEnd"
-        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up hello subnet "FrontEnd"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
         data:    Type                            : Microsoft.Network/virtualNetworks/subnets
         data:    ProvisioningState               : Succeeded
@@ -208,9 +208,9 @@ dnsName="iaasstoryws1"
         data:
         info:    network vnet subnet create command OK
         info:    Executing command network public-ip create
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         info:    Creating public ip address "PIPWEB1"
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
         data:    Name                            : PIPWEB1
         data:    Type                            : Microsoft.Network/publicIPAddresses
@@ -223,10 +223,10 @@ dnsName="iaasstoryws1"
         data:    FQDN                            : iaasstoryws1.westus.cloudapp.azure.com
         info:    network public-ip create command OK
         info:    Executing command network nic create
-        info:    Looking up the network interface "NICWEB1"
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello network interface "NICWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         info:    Creating network interface "NICWEB1"
-        info:    Looking up the network interface "NICWEB1"
+        info:    Looking up hello network interface "NICWEB1"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkInterfaces/NICWEB1
         data:    Name                            : NICWEB1
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -246,10 +246,10 @@ dnsName="iaasstoryws1"
         info:    Creating storage account
         info:    storage account create command OK
         info:    Executing command vm create
-        info:    Looking up the VM "WEB1"
-        info:    Using the VM Size "Standard_A1"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account iaasstorystorage
-        info:    Looking up the NIC "NICWEB1"
+        info:    Looking up hello VM "WEB1"
+        info:    Using hello VM Size "Standard_A1"
+        info:    hello [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up hello storage account iaasstorystorage
+        info:    Looking up hello NIC "NICWEB1"
         info:    Creating VM "WEB1"
         info:    vm create command OK

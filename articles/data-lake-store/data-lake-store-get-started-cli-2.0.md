@@ -1,6 +1,6 @@
 ---
-title: "Azure komut satırı arabirimi 2.0 aracını kullanarak Azure Data Lake Store ile çalışmaya başlama | Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure platformlar arası komut satırı 2.0 aracını kullanma"
+title: "Azure komut satırı 2.0 aaaUse arabirimi tooget Azure Data Lake Store ile çalışmaya | Microsoft Docs"
+description: "Temel işlemleri gerçekleştirmek ve Azure platformlar arası komut satırı 2.0 toocreate bir Data Lake Store hesabı kullanın"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,110 +14,110 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: ed78d25f2bac0a9996f1796ee503f31a36940977
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 374dcd6cdbc13ad19f6c65502329986ecae60ef2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a><span data-ttu-id="1c069-103">Azure CLI 2.0 kullanarak Azure Data Lake Store ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="1c069-103">Get started with Azure Data Lake Store using Azure CLI 2.0</span></span>
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a><span data-ttu-id="00423-103">Azure CLI 2.0 kullanarak Azure Data Lake Store ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="00423-103">Get started with Azure Data Lake Store using Azure CLI 2.0</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="1c069-104">Portal</span><span class="sxs-lookup"><span data-stu-id="1c069-104">Portal</span></span>](data-lake-store-get-started-portal.md)
-> * [<span data-ttu-id="1c069-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="1c069-105">PowerShell</span></span>](data-lake-store-get-started-powershell.md)
-> * [<span data-ttu-id="1c069-106">.NET SDK</span><span class="sxs-lookup"><span data-stu-id="1c069-106">.NET SDK</span></span>](data-lake-store-get-started-net-sdk.md)
-> * [<span data-ttu-id="1c069-107">Java SDK</span><span class="sxs-lookup"><span data-stu-id="1c069-107">Java SDK</span></span>](data-lake-store-get-started-java-sdk.md)
-> * [<span data-ttu-id="1c069-108">REST API</span><span class="sxs-lookup"><span data-stu-id="1c069-108">REST API</span></span>](data-lake-store-get-started-rest-api.md)
-> * [<span data-ttu-id="1c069-109">Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="1c069-109">Azure CLI 2.0</span></span>](data-lake-store-get-started-cli-2.0.md)
-> * [<span data-ttu-id="1c069-110">Node.js</span><span class="sxs-lookup"><span data-stu-id="1c069-110">Node.js</span></span>](data-lake-store-manage-use-nodejs.md)
-> * [<span data-ttu-id="1c069-111">Python</span><span class="sxs-lookup"><span data-stu-id="1c069-111">Python</span></span>](data-lake-store-get-started-python.md)
+> * [<span data-ttu-id="00423-104">Portal</span><span class="sxs-lookup"><span data-stu-id="00423-104">Portal</span></span>](data-lake-store-get-started-portal.md)
+> * [<span data-ttu-id="00423-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="00423-105">PowerShell</span></span>](data-lake-store-get-started-powershell.md)
+> * [<span data-ttu-id="00423-106">.NET SDK</span><span class="sxs-lookup"><span data-stu-id="00423-106">.NET SDK</span></span>](data-lake-store-get-started-net-sdk.md)
+> * [<span data-ttu-id="00423-107">Java SDK</span><span class="sxs-lookup"><span data-stu-id="00423-107">Java SDK</span></span>](data-lake-store-get-started-java-sdk.md)
+> * [<span data-ttu-id="00423-108">REST API</span><span class="sxs-lookup"><span data-stu-id="00423-108">REST API</span></span>](data-lake-store-get-started-rest-api.md)
+> * [<span data-ttu-id="00423-109">Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="00423-109">Azure CLI 2.0</span></span>](data-lake-store-get-started-cli-2.0.md)
+> * [<span data-ttu-id="00423-110">Node.js</span><span class="sxs-lookup"><span data-stu-id="00423-110">Node.js</span></span>](data-lake-store-manage-use-nodejs.md)
+> * [<span data-ttu-id="00423-111">Python</span><span class="sxs-lookup"><span data-stu-id="00423-111">Python</span></span>](data-lake-store-get-started-python.md)
 >
 >
 
-<span data-ttu-id="1c069-112">Azure Data Lake Store hesabı oluşturma ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure CLI 2.0 (Önizleme) aracının nasıl kullanılacağını öğrenin. Data Lake Store hakkında daha fazla bilgi için bkz. [Data Lake Store'a Genel Bakış](data-lake-store-overview.md).</span><span class="sxs-lookup"><span data-stu-id="1c069-112">Learn how to use Azure CLI 2.0 to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).</span></span>
+<span data-ttu-id="00423-112">Bir Azure Data Lake toouse Azure CLI 2.0 toocreate nasıl depolamak öğrenin hesap ve gibi klasör oluşturma karşıya yükleme ve veri dosyalarını indirme temel işlemleri gerçekleştirmek, vb., hesabınızı silme. Data Lake Store hakkında daha fazla bilgi için bkz. [Data Lake Store'a Genel Bakış](data-lake-store-overview.md).</span><span class="sxs-lookup"><span data-stu-id="00423-112">Learn how toouse Azure CLI 2.0 toocreate an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).</span></span>
 
-<span data-ttu-id="1c069-113">Azure CLI 2.0, Azure kaynaklarını yönetmek için Azure tarafından sunulan yeni komut satırı deneyimidir.</span><span class="sxs-lookup"><span data-stu-id="1c069-113">The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources.</span></span> <span data-ttu-id="1c069-114">MacOS, Linux ve Windows’da kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="1c069-114">It can be used on macOS, Linux, and Windows.</span></span> <span data-ttu-id="1c069-115">Daha fazla bilgi edinmek için bkz. [Azure CLI 2.0 aracına genel bakış](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="1c069-115">For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview).</span></span> <span data-ttu-id="1c069-116">Tam komut ve söz dizimi listesi için [Azure Data Lake Store CLI 2.0 başvurusuna](https://docs.microsoft.com/cli/azure/dls) da bakabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1c069-116">You can also look at the [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.</span></span>
-
-
-## <a name="prerequisites"></a><span data-ttu-id="1c069-117">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="1c069-117">Prerequisites</span></span>
-<span data-ttu-id="1c069-118">Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="1c069-118">Before you begin this article, you must have the following:</span></span>
-
-* <span data-ttu-id="1c069-119">**Bir Azure aboneliği**.</span><span class="sxs-lookup"><span data-stu-id="1c069-119">**An Azure subscription**.</span></span> <span data-ttu-id="1c069-120">Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="1c069-120">See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
-
-* <span data-ttu-id="1c069-121">**Azure CLI 2.0** - Yönergeler için kz. [Azure CLI 2.0 aracını yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="1c069-121">**Azure CLI 2.0** - See [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.</span></span>
-
-## <a name="authentication"></a><span data-ttu-id="1c069-122">Kimlik Doğrulaması</span><span class="sxs-lookup"><span data-stu-id="1c069-122">Authentication</span></span>
-
-<span data-ttu-id="1c069-123">Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız daha basit bir kimlik doğrulama yaklaşımı kullanılmaktadır.</span><span class="sxs-lookup"><span data-stu-id="1c069-123">This article uses a simpler authentication approach with Data Lake Store where you log in as an end-user user.</span></span> <span data-ttu-id="1c069-124">Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir.</span><span class="sxs-lookup"><span data-stu-id="1c069-124">The access level to Data Lake Store account and file system is then governed by the access level of the logged in user.</span></span> <span data-ttu-id="1c069-125">Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur.</span><span class="sxs-lookup"><span data-stu-id="1c069-125">However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**.</span></span> <span data-ttu-id="1c069-126">Kimlik doğrulaması gerçekleştirmeyle ilgili yönergeler ve daha fazla bilgi için [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md) bölümlerine göz atın.</span><span class="sxs-lookup"><span data-stu-id="1c069-126">For instructions and more information on how to authenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).</span></span>
+<span data-ttu-id="00423-113">Hello Azure CLI 2.0 Azure kaynaklarını yönetmek için Azure'nın yeni komut satırı deneyimidir.</span><span class="sxs-lookup"><span data-stu-id="00423-113">hello Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources.</span></span> <span data-ttu-id="00423-114">MacOS, Linux ve Windows’da kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="00423-114">It can be used on macOS, Linux, and Windows.</span></span> <span data-ttu-id="00423-115">Daha fazla bilgi edinmek için bkz. [Azure CLI 2.0 aracına genel bakış](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="00423-115">For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview).</span></span> <span data-ttu-id="00423-116">Hello de bakabilirsiniz [Azure Data Lake deposu CLI 2.0 başvurusu](https://docs.microsoft.com/cli/azure/dls) komutlar ve söz dizimi tam bir listesi.</span><span class="sxs-lookup"><span data-stu-id="00423-116">You can also look at hello [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.</span></span>
 
 
-## <a name="log-in-to-your-azure-subscription"></a><span data-ttu-id="1c069-127">Azure aboneliğinizde oturum açın</span><span class="sxs-lookup"><span data-stu-id="1c069-127">Log in to your Azure subscription</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="00423-117">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="00423-117">Prerequisites</span></span>
+<span data-ttu-id="00423-118">Bu makaleye başlamadan önce hello şunlara sahip olmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="00423-118">Before you begin this article, you must have hello following:</span></span>
 
-1. <span data-ttu-id="1c069-128">Azure aboneliğinizde oturum açın.</span><span class="sxs-lookup"><span data-stu-id="1c069-128">Log into your Azure subscription.</span></span>
+* <span data-ttu-id="00423-119">**Bir Azure aboneliği**.</span><span class="sxs-lookup"><span data-stu-id="00423-119">**An Azure subscription**.</span></span> <span data-ttu-id="00423-120">Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="00423-120">See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+
+* <span data-ttu-id="00423-121">**Azure CLI 2.0** - Yönergeler için kz. [Azure CLI 2.0 aracını yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="00423-121">**Azure CLI 2.0** - See [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions.</span></span>
+
+## <a name="authentication"></a><span data-ttu-id="00423-122">Kimlik Doğrulaması</span><span class="sxs-lookup"><span data-stu-id="00423-122">Authentication</span></span>
+
+<span data-ttu-id="00423-123">Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız daha basit bir kimlik doğrulama yaklaşımı kullanılmaktadır.</span><span class="sxs-lookup"><span data-stu-id="00423-123">This article uses a simpler authentication approach with Data Lake Store where you log in as an end-user user.</span></span> <span data-ttu-id="00423-124">Merhaba erişim düzeyi tooData Lake Store hesabı ve dosya sistemi, kullanıcı oturum hello hello erişim düzeyi sonra tabidir.</span><span class="sxs-lookup"><span data-stu-id="00423-124">hello access level tooData Lake Store account and file system is then governed by hello access level of hello logged in user.</span></span> <span data-ttu-id="00423-125">Ancak, diğer yaklaşım vardır Data Lake Store ile iyi tooauthenticate olarak olan **son kullanıcı kimlik doğrulaması** veya **hizmeti için kimlik doğrulama**.</span><span class="sxs-lookup"><span data-stu-id="00423-125">However, there are other approaches as well tooauthenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**.</span></span> <span data-ttu-id="00423-126">Yönergeler ve hakkında daha fazla bilgi için tooauthenticate, bkz: [son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md) veya [hizmeti için kimlik doğrulama](data-lake-store-authenticate-using-active-directory.md).</span><span class="sxs-lookup"><span data-stu-id="00423-126">For instructions and more information on how tooauthenticate, see [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) or [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md).</span></span>
+
+
+## <a name="log-in-tooyour-azure-subscription"></a><span data-ttu-id="00423-127">Azure aboneliği tooyour oturum</span><span class="sxs-lookup"><span data-stu-id="00423-127">Log in tooyour Azure subscription</span></span>
+
+1. <span data-ttu-id="00423-128">Azure aboneliğinizde oturum açın.</span><span class="sxs-lookup"><span data-stu-id="00423-128">Log into your Azure subscription.</span></span>
 
     ```azurecli
     az login
     ```
 
-    <span data-ttu-id="1c069-129">Sonraki adımda kullanmak üzere bir kod alırsınız.</span><span class="sxs-lookup"><span data-stu-id="1c069-129">You get a code to use in the next step.</span></span> <span data-ttu-id="1c069-130">Kimliğinizi doğrulamak için bir web tarayıcısı kullanarak https://aka.ms/devicelogin adresine gidin ve kodu girin.</span><span class="sxs-lookup"><span data-stu-id="1c069-130">Use a web browser to open the page https://aka.ms/devicelogin and enter the code to authenticate.</span></span> <span data-ttu-id="1c069-131">Kimlik bilgilerinizi kullanarak oturum açmanız istenir.</span><span class="sxs-lookup"><span data-stu-id="1c069-131">You are prompted to log in using your credentials.</span></span>
+    <span data-ttu-id="00423-129">Kod toouse hello sonraki adımda alın.</span><span class="sxs-lookup"><span data-stu-id="00423-129">You get a code toouse in hello next step.</span></span> <span data-ttu-id="00423-130">Bir web tarayıcısı tooopen hello sayfa https://aka.ms/devicelogin kullanın ve hello kod tooauthenticate girin.</span><span class="sxs-lookup"><span data-stu-id="00423-130">Use a web browser tooopen hello page https://aka.ms/devicelogin and enter hello code tooauthenticate.</span></span> <span data-ttu-id="00423-131">Kimlik bilgilerinizi kullanarak istendiğinde toolog var.</span><span class="sxs-lookup"><span data-stu-id="00423-131">You are prompted toolog in using your credentials.</span></span>
 
-2. <span data-ttu-id="1c069-132">Oturum açtığınızda, pencerede hesabınızla ilişkili tüm Azure abonelikleri listelenir.</span><span class="sxs-lookup"><span data-stu-id="1c069-132">Once you log in, the window lists all the Azure subscriptions that are associated with your account.</span></span> <span data-ttu-id="1c069-133">Belirli bir aboneliği kullanmak için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="1c069-133">Use the following command to use a specific subscription.</span></span>
+2. <span data-ttu-id="00423-132">Oturum açtığında hello pencere listeleri tüm hesabınızla ilişkilendirilen Azure aboneliklerinin hello.</span><span class="sxs-lookup"><span data-stu-id="00423-132">Once you log in, hello window lists all hello Azure subscriptions that are associated with your account.</span></span> <span data-ttu-id="00423-133">Komut toouse belirli bir aboneliği aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="00423-133">Use hello following command toouse a specific subscription.</span></span>
    
     ```azurecli
     az account set --subscription <subscription id> 
     ```
 
-## <a name="create-an-azure-data-lake-store-account"></a><span data-ttu-id="1c069-134">Azure Data Lake Store hesabı oluşturma</span><span class="sxs-lookup"><span data-stu-id="1c069-134">Create an Azure Data Lake Store account</span></span>
+## <a name="create-an-azure-data-lake-store-account"></a><span data-ttu-id="00423-134">Azure Data Lake Store hesabı oluşturma</span><span class="sxs-lookup"><span data-stu-id="00423-134">Create an Azure Data Lake Store account</span></span>
 
-1. <span data-ttu-id="1c069-135">Yeni bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="1c069-135">Create a new resource group.</span></span> <span data-ttu-id="1c069-136">Aşağıdaki komut içinde kullanmak istediğiniz parametre değerlerini sağlayın.</span><span class="sxs-lookup"><span data-stu-id="1c069-136">In the following command, provide the parameter values you want to use.</span></span> <span data-ttu-id="1c069-137">Konum adı boşluk içeriyorsa adı tırnak işaretleri içine alın.</span><span class="sxs-lookup"><span data-stu-id="1c069-137">If the location name contains spaces, put it in quotes.</span></span> <span data-ttu-id="1c069-138">Örneğin, "Doğu ABD 2".</span><span class="sxs-lookup"><span data-stu-id="1c069-138">For example "East US 2".</span></span> 
+1. <span data-ttu-id="00423-135">Yeni bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="00423-135">Create a new resource group.</span></span> <span data-ttu-id="00423-136">Komutu aşağıdaki hello hello toouse istediğiniz parametre değerlerini sağlayın.</span><span class="sxs-lookup"><span data-stu-id="00423-136">In hello following command, provide hello parameter values you want toouse.</span></span> <span data-ttu-id="00423-137">Merhaba konum adı boşluk içeriyorsa, tırnak işaretleri içine alın.</span><span class="sxs-lookup"><span data-stu-id="00423-137">If hello location name contains spaces, put it in quotes.</span></span> <span data-ttu-id="00423-138">Örneğin, "Doğu ABD 2".</span><span class="sxs-lookup"><span data-stu-id="00423-138">For example "East US 2".</span></span> 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup
     ```
 
-2. <span data-ttu-id="1c069-139">Data Lake Store hesabını oluşturun.</span><span class="sxs-lookup"><span data-stu-id="1c069-139">Create the Data Lake Store account.</span></span>
+2. <span data-ttu-id="00423-139">Merhaba Data Lake Store hesabı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="00423-139">Create hello Data Lake Store account.</span></span>
    
     ```azurecli
     az dls account create --account mydatalakestore --resource-group myresourcegroup
     ```
 
-## <a name="create-folders-in-a-data-lake-store-account"></a><span data-ttu-id="1c069-140">Data Lake Store hesabında klasör oluşturma</span><span class="sxs-lookup"><span data-stu-id="1c069-140">Create folders in a Data Lake Store account</span></span>
+## <a name="create-folders-in-a-data-lake-store-account"></a><span data-ttu-id="00423-140">Data Lake Store hesabında klasör oluşturma</span><span class="sxs-lookup"><span data-stu-id="00423-140">Create folders in a Data Lake Store account</span></span>
 
-<span data-ttu-id="1c069-141">Veri depolamak ve yönetmek için Azure Data Lake Store hesabınızın altında klasör oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1c069-141">You can create folders under your Azure Data Lake Store account to manage and store data.</span></span> <span data-ttu-id="1c069-142">Aşağıdaki komutu kullanarak Data Lake Store'un kökünde **mynewfolder** adlı bir klasör oluşturun.</span><span class="sxs-lookup"><span data-stu-id="1c069-142">Use the following command to create a folder called **mynewfolder** at the root of the Data Lake Store.</span></span>
+<span data-ttu-id="00423-141">Azure Data Lake Store hesabı toomanage altında klasörleri oluşturun ve veri depolayın.</span><span class="sxs-lookup"><span data-stu-id="00423-141">You can create folders under your Azure Data Lake Store account toomanage and store data.</span></span> <span data-ttu-id="00423-142">Adlı bir klasör komutu toocreate aşağıdaki kullanım hello **mynewfolder** hello Data Lake Store hello kökü.</span><span class="sxs-lookup"><span data-stu-id="00423-142">Use hello following command toocreate a folder called **mynewfolder** at hello root of hello Data Lake Store.</span></span>
 
 ```azurecli
 az dls fs create --account mydatalakestore --path /mynewfolder --folder
 ```
 
 > [!NOTE]
-> <span data-ttu-id="1c069-143">`--folder` parametresi, komutun bir klasör oluşturmasını sağlar.</span><span class="sxs-lookup"><span data-stu-id="1c069-143">The `--folder` parameter ensures that the command creates a folder.</span></span> <span data-ttu-id="1c069-144">Bu parametre yoksa, komut tarafından Data Lake Store hesabının kökünde mynewfolder adlı boş bir dosya oluşturur.</span><span class="sxs-lookup"><span data-stu-id="1c069-144">If this parameter is not present, the command creates an empty file called mynewfolder at the root of the Data Lake Store account.</span></span>
+> <span data-ttu-id="00423-143">Merhaba `--folder` parametre sağlar hello komutu bir klasör oluşturur.</span><span class="sxs-lookup"><span data-stu-id="00423-143">hello `--folder` parameter ensures that hello command creates a folder.</span></span> <span data-ttu-id="00423-144">Bu parametre mevcut değilse hello komut hello hello Data Lake Store hesabı kökünde mynewfolder adlı boş bir dosya oluşturur.</span><span class="sxs-lookup"><span data-stu-id="00423-144">If this parameter is not present, hello command creates an empty file called mynewfolder at hello root of hello Data Lake Store account.</span></span>
 > 
 >
 
-## <a name="upload-data-to-a-data-lake-store-account"></a><span data-ttu-id="1c069-145">Data Lake Store hesabına veri yükleme</span><span class="sxs-lookup"><span data-stu-id="1c069-145">Upload data to a Data Lake Store account</span></span>
+## <a name="upload-data-tooa-data-lake-store-account"></a><span data-ttu-id="00423-145">Veri tooa Data Lake Store hesabı karşıya yükle</span><span class="sxs-lookup"><span data-stu-id="00423-145">Upload data tooa Data Lake Store account</span></span>
 
-<span data-ttu-id="1c069-146">Data Lake Store'a doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre yüklenecek şekilde veri yükleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1c069-146">You can upload data to Data Lake Store directly at the root level or to a folder that you created within the account.</span></span> <span data-ttu-id="1c069-147">Aşağıdaki kod parçacıkları, birtakım örnek verilerin önceki bölümde oluşturduğunuz klasöre (**mynewfolder**) nasıl yükleneceğini göstermektedir.</span><span class="sxs-lookup"><span data-stu-id="1c069-147">The snippets below demonstrate how to upload some sample data to the folder (**mynewfolder**) you created in the previous section.</span></span>
+<span data-ttu-id="00423-146">Veri tooData Lake deposu hello hesap içinde oluşturduğunuz doğrudan hello kök düzeyinde veya tooa klasöründe karşıya yükleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="00423-146">You can upload data tooData Lake Store directly at hello root level or tooa folder that you created within hello account.</span></span> <span data-ttu-id="00423-147">Merhaba parçacıkları göstermek nasıl tooupload bazı örnek veri toohello klasörü (**mynewfolder**) hello önceki bölümde oluşturduğunuz.</span><span class="sxs-lookup"><span data-stu-id="00423-147">hello snippets below demonstrate how tooupload some sample data toohello folder (**mynewfolder**) you created in hello previous section.</span></span>
 
-<span data-ttu-id="1c069-148">Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1c069-148">If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).</span></span> <span data-ttu-id="1c069-149">Dosyayı indirin ve bilgisayarınızda C:\sampledata\ gibi yerel bir dizinde depolayın.</span><span class="sxs-lookup"><span data-stu-id="1c069-149">Download the file and store it in a local directory on your computer, such as  C:\sampledata\.</span></span>
+<span data-ttu-id="00423-148">Bazı örnek veri tooupload için arıyorsanız, hello alabilirsiniz **Ambulance Data** hello klasöründen [Azure Data Lake Git deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).</span><span class="sxs-lookup"><span data-stu-id="00423-148">If you are looking for some sample data tooupload, you can get hello **Ambulance Data** folder from hello [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).</span></span> <span data-ttu-id="00423-149">Merhaba dosyasını indirin ve C:\sampledata\ gibi bilgisayarınızdaki yerel bir klasörde saklayın.</span><span class="sxs-lookup"><span data-stu-id="00423-149">Download hello file and store it in a local directory on your computer, such as  C:\sampledata\.</span></span>
 
 ```azurecli
 az dls fs upload --account mydatalakestore --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
 ```
 
 > [!NOTE]
-> <span data-ttu-id="1c069-150">Hedef için dosya adı dahil olmak üzere yolun tamamını belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="1c069-150">For the destination, you must specify the complete path including the file name.</span></span>
+> <span data-ttu-id="00423-150">Merhaba hedef için hello dosya adını içeren hello tam yolunu belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="00423-150">For hello destination, you must specify hello complete path including hello file name.</span></span>
 > 
 >
 
 
-## <a name="list-files-in-a-data-lake-store-account"></a><span data-ttu-id="1c069-151">Data Lake Store hesabındaki dosyaları listeleme</span><span class="sxs-lookup"><span data-stu-id="1c069-151">List files in a Data Lake Store account</span></span>
+## <a name="list-files-in-a-data-lake-store-account"></a><span data-ttu-id="00423-151">Data Lake Store hesabındaki dosyaları listeleme</span><span class="sxs-lookup"><span data-stu-id="00423-151">List files in a Data Lake Store account</span></span>
 
-<span data-ttu-id="1c069-152">Bir Data Lake Store hesabındaki dosyaları listelemek için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="1c069-152">Use the following command to list the files in a Data Lake Store account.</span></span>
+<span data-ttu-id="00423-152">Aşağıdaki komut toolist hello dosyaları bir Data Lake Store hesabındaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="00423-152">Use hello following command toolist hello files in a Data Lake Store account.</span></span>
 
 ```azurecli
 az dls fs list --account mydatalakestore --path /mynewfolder
 ```
 
-<span data-ttu-id="1c069-153">Bunun çıktısının aşağıdakine benzer olması gerekir:</span><span class="sxs-lookup"><span data-stu-id="1c069-153">The output of this should be similar to the following:</span></span>
+<span data-ttu-id="00423-153">Merhaba çıktısını benzer toohello aşağıdaki gibi olmalıdır:</span><span class="sxs-lookup"><span data-stu-id="00423-153">hello output of this should be similar toohello following:</span></span>
 
     [
         {
@@ -137,60 +137,60 @@ az dls fs list --account mydatalakestore --path /mynewfolder
         }
     ]
 
-## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a><span data-ttu-id="1c069-154">Data Lake Store hesabındaki verileri yeniden adlandırma, indirme ve silme</span><span class="sxs-lookup"><span data-stu-id="1c069-154">Rename, download, and delete data from a Data Lake Store account</span></span> 
+## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a><span data-ttu-id="00423-154">Data Lake Store hesabındaki verileri yeniden adlandırma, indirme ve silme</span><span class="sxs-lookup"><span data-stu-id="00423-154">Rename, download, and delete data from a Data Lake Store account</span></span> 
 
-* <span data-ttu-id="1c069-155">**Bir dosyayı yeniden adlandırmak için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-155">**To rename a file**, use the following command:</span></span>
+* <span data-ttu-id="00423-155">**bir dosya toorename**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-155">**toorename a file**, use hello following command:</span></span>
   
     ```azurecli
     az dls fs move --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
-* <span data-ttu-id="1c069-156">**Bir dosyayı indirmek için** aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="1c069-156">**To download a file**, use the following command.</span></span> <span data-ttu-id="1c069-157">Belirttiğiniz hedef yolun önceden var olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="1c069-157">Make sure the destination path you specify already exists.</span></span>
+* <span data-ttu-id="00423-156">**bir dosya toodownload**, komutu aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="00423-156">**toodownload a file**, use hello following command.</span></span> <span data-ttu-id="00423-157">Önceden belirttiğiniz hello hedef yolu var olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="00423-157">Make sure hello destination path you specify already exists.</span></span>
   
     ```azurecli     
     az dls fs download --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
     ```
 
     > [!NOTE]
-    > <span data-ttu-id="1c069-158">Bu komut, henüz mevcut değilse hedef klasörü oluşturur.</span><span class="sxs-lookup"><span data-stu-id="1c069-158">The command creates the destination folder if it does not exist.</span></span>
+    > <span data-ttu-id="00423-158">henüz yoksa hello komut hello hedef klasörü oluşturur.</span><span class="sxs-lookup"><span data-stu-id="00423-158">hello command creates hello destination folder if it does not exist.</span></span>
     > 
     >
 
-* <span data-ttu-id="1c069-159">**Bir dosyayı silmek için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-159">**To delete a file**, use the following command:</span></span>
+* <span data-ttu-id="00423-159">**bir dosya toodelete**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-159">**toodelete a file**, use hello following command:</span></span>
   
     ```azurecli
     az dls fs delete --account mydatalakestore --path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
-    <span data-ttu-id="1c069-160">Hem **mynewfolder** klasörünü hem de **vehicle1_09142014_copy.csv** dosyasını tek bir komutla silmek istiyorsanız --recurse parametresini kullanın</span><span class="sxs-lookup"><span data-stu-id="1c069-160">If you want to delete the folder **mynewfolder** and the file **vehicle1_09142014_copy.csv** together in one command, use the --recurse parameter</span></span>
+    <span data-ttu-id="00423-160">Toodelete hello klasörünün istiyorsanız **mynewfolder** ve hello dosya **vehicle1_09142014_copy.csv** birlikte bir komut kullanın hello--parametre recurse</span><span class="sxs-lookup"><span data-stu-id="00423-160">If you want toodelete hello folder **mynewfolder** and hello file **vehicle1_09142014_copy.csv** together in one command, use hello --recurse parameter</span></span>
 
     ```azurecli
     az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
     ```
 
-## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a><span data-ttu-id="1c069-161">Data Lake Store hesabı için izin ve ACL’ler ile çalışma</span><span class="sxs-lookup"><span data-stu-id="1c069-161">Work with permissions and ACLs for a Data Lake Store account</span></span>
+## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a><span data-ttu-id="00423-161">Data Lake Store hesabı için izin ve ACL’ler ile çalışma</span><span class="sxs-lookup"><span data-stu-id="00423-161">Work with permissions and ACLs for a Data Lake Store account</span></span>
 
-<span data-ttu-id="1c069-162">Bu bölümde, Azure CLI 2.0 aracını kullanarak ACL’leri ve izinleri nasıl yönetebileceğiniz hakkında bilgi edineceksiniz.</span><span class="sxs-lookup"><span data-stu-id="1c069-162">In this section you learn about how to manage ACLs and permissions using Azure CLI 2.0.</span></span> <span data-ttu-id="1c069-163">Azure Data Lake Store’da ACL’lerin nasıl uygulandığıyla ilgili ayrıntılı bir tartışma için bkz. [Azure Data Lake Store’da erişim denetimi](data-lake-store-access-control.md).</span><span class="sxs-lookup"><span data-stu-id="1c069-163">For a detailed discussion on how ACLs are implemented in Azure Data Lake Store, see [Access control in Azure Data Lake Store](data-lake-store-access-control.md).</span></span>
+<span data-ttu-id="00423-162">Bu bölümde hakkında bilgi edinin toomanage ACL'ler Azure CLI 2.0 kullanarak ve izinleri.</span><span class="sxs-lookup"><span data-stu-id="00423-162">In this section you learn about how toomanage ACLs and permissions using Azure CLI 2.0.</span></span> <span data-ttu-id="00423-163">Azure Data Lake Store’da ACL’lerin nasıl uygulandığıyla ilgili ayrıntılı bir tartışma için bkz. [Azure Data Lake Store’da erişim denetimi](data-lake-store-access-control.md).</span><span class="sxs-lookup"><span data-stu-id="00423-163">For a detailed discussion on how ACLs are implemented in Azure Data Lake Store, see [Access control in Azure Data Lake Store](data-lake-store-access-control.md).</span></span>
 
-* <span data-ttu-id="1c069-164">**Bir dosya veya klasörün sahibini güncelleştirmek için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-164">**To update the owner of a file/folder**, use the following command:</span></span>
+* <span data-ttu-id="00423-164">**bir dosya/klasör tooupdate hello sahibi**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-164">**tooupdate hello owner of a file/folder**, use hello following command:</span></span>
 
     ```azurecli
     az dls fs access set-owner --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
     ```
 
-* <span data-ttu-id="1c069-165">**Bir dosya veya klasörün izinlerini güncelleştirmek için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-165">**To update the permissions for a file/folder**, use the following command:</span></span>
+* <span data-ttu-id="00423-165">**tooupdate hello dosya/klasör izinlerini**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-165">**tooupdate hello permissions for a file/folder**, use hello following command:</span></span>
 
     ```azurecli
     az dls fs access set-permission --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --permission 777
     ```
     
-* <span data-ttu-id="1c069-166">**Belirli bir yolun ACL’lerini almak için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-166">**To get the ACLs for a given path**, use the following command:</span></span>
+* <span data-ttu-id="00423-166">**belirli bir yol için tooget hello ACL'ler**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-166">**tooget hello ACLs for a given path**, use hello following command:</span></span>
 
     ```azurecli
     az dls fs access show --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv
     ```
 
-    <span data-ttu-id="1c069-167">Çıktının aşağıdakine benzer olması gerekir:</span><span class="sxs-lookup"><span data-stu-id="1c069-167">The output should be similar to the following:</span></span>
+    <span data-ttu-id="00423-167">Merhaba çıkış benzer toohello aşağıdaki gibi olmalıdır:</span><span class="sxs-lookup"><span data-stu-id="00423-167">hello output should be similar toohello following:</span></span>
 
         {
             "entries": [
@@ -204,44 +204,44 @@ az dls fs list --account mydatalakestore --path /mynewfolder
           "stickyBit": false
         }
 
-* <span data-ttu-id="1c069-168">**ACL’ye yönelik bir giriş ayarlamak için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-168">**To set an entry for an ACL**, use the following command:</span></span>
+* <span data-ttu-id="00423-168">**tooset bir ACL için bir giriş**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-168">**tooset an entry for an ACL**, use hello following command:</span></span>
 
     ```azurecli
     az dls fs access set-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
     ```
 
-* <span data-ttu-id="1c069-169">**ACL’ye yönelik bir girişi kaldırmak için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-169">**To remove an entry for an ACL**, use the following command:</span></span>
+* <span data-ttu-id="00423-169">**tooremove bir ACL için bir giriş**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-169">**tooremove an entry for an ACL**, use hello following command:</span></span>
 
     ```azurecli
     az dls fs access remove-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
     ```
 
-* <span data-ttu-id="1c069-170">**Varsayılan ACL’nin tamamını kaldırmak için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-170">**To remove an entire default ACL**, use the following command:</span></span>
+* <span data-ttu-id="00423-170">**tooremove tüm bir varsayılan ACL**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-170">**tooremove an entire default ACL**, use hello following command:</span></span>
 
     ```azurecli
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder --default-acl
     ```
 
-* <span data-ttu-id="1c069-171">**Varsayılan olmayan bir ACL’nin tamamını kaldırmak için** aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="1c069-171">**To remove an entire non-default ACL**, use the following command:</span></span>
+* <span data-ttu-id="00423-171">**Tüm varsayılan olmayan ACL tooremove**, komutu aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="00423-171">**tooremove an entire non-default ACL**, use hello following command:</span></span>
 
     ```azurecli
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder
     ```
     
-## <a name="delete-a-data-lake-store-account"></a><span data-ttu-id="1c069-172">Data Lake Store hesabını silme</span><span class="sxs-lookup"><span data-stu-id="1c069-172">Delete a Data Lake Store account</span></span>
-<span data-ttu-id="1c069-173">Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="1c069-173">Use the following command to delete a Data Lake Store account.</span></span>
+## <a name="delete-a-data-lake-store-account"></a><span data-ttu-id="00423-172">Data Lake Store hesabını silme</span><span class="sxs-lookup"><span data-stu-id="00423-172">Delete a Data Lake Store account</span></span>
+<span data-ttu-id="00423-173">Komut toodelete bir Data Lake Store hesabı aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="00423-173">Use hello following command toodelete a Data Lake Store account.</span></span>
 
 ```azurecli
 az dls account delete --account mydatalakestore
 ```
 
-<span data-ttu-id="1c069-174">İstendiğinde, hesabı silmek için **Y** yazın.</span><span class="sxs-lookup"><span data-stu-id="1c069-174">When prompted, enter **Y** to delete the account.</span></span>
+<span data-ttu-id="00423-174">İstendiğinde, girin **Y** toodelete hello hesabı.</span><span class="sxs-lookup"><span data-stu-id="00423-174">When prompted, enter **Y** toodelete hello account.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="1c069-175">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="1c069-175">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="00423-175">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="00423-175">Next steps</span></span>
 
-* [<span data-ttu-id="1c069-176">Azure Data Lake Store CLI 2.0 başvurusu</span><span class="sxs-lookup"><span data-stu-id="1c069-176">Azure Data Lake Store CLI 2.0 reference</span></span>](https://docs.microsoft.com/cli/azure/dls)
-* [<span data-ttu-id="1c069-177">Data Lake Store'da verilerin güvenliğini sağlama</span><span class="sxs-lookup"><span data-stu-id="1c069-177">Secure data in Data Lake Store</span></span>](data-lake-store-secure-data.md)
-* [<span data-ttu-id="1c069-178">Azure Data Lake Analytics'i Data Lake Store ile kullanma</span><span class="sxs-lookup"><span data-stu-id="1c069-178">Use Azure Data Lake Analytics with Data Lake Store</span></span>](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [<span data-ttu-id="1c069-179">Azure HDInsight'ı Data Lake Store ile kullanma</span><span class="sxs-lookup"><span data-stu-id="1c069-179">Use Azure HDInsight with Data Lake Store</span></span>](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [<span data-ttu-id="00423-176">Azure Data Lake Store CLI 2.0 başvurusu</span><span class="sxs-lookup"><span data-stu-id="00423-176">Azure Data Lake Store CLI 2.0 reference</span></span>](https://docs.microsoft.com/cli/azure/dls)
+* [<span data-ttu-id="00423-177">Data Lake Store'da verilerin güvenliğini sağlama</span><span class="sxs-lookup"><span data-stu-id="00423-177">Secure data in Data Lake Store</span></span>](data-lake-store-secure-data.md)
+* [<span data-ttu-id="00423-178">Azure Data Lake Analytics'i Data Lake Store ile kullanma</span><span class="sxs-lookup"><span data-stu-id="00423-178">Use Azure Data Lake Analytics with Data Lake Store</span></span>](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [<span data-ttu-id="00423-179">Azure HDInsight'ı Data Lake Store ile kullanma</span><span class="sxs-lookup"><span data-stu-id="00423-179">Use Azure HDInsight with Data Lake Store</span></span>](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [azure-command-line-tools]: ../xplat-cli-install.md

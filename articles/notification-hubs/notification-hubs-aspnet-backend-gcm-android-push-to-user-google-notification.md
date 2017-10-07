@@ -1,6 +1,6 @@
 ---
-title: "Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile Android için"
-description: "Azure kullanıcılara anında iletme bildirimleri göndermek öğrenin. Android için Java dilinde yazılan kod örnekleri"
+title: ".NET arka ucu ile aaaAzure Notification Hubs kullanıcılara bildirme Android için"
+description: "Nasıl toosend anında iletme bildirimleri toousers Azure'da öğrenin. Android için Java dilinde yazılan kod örnekleri"
 documentationcenter: android
 services: notification-hubs
 author: ysxu
@@ -14,32 +14,32 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 418a4b638dfaa3fee33a7a7242433699205c79f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b042d2e6fb7f7c861c378526a8a0d59ab75beef9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-notification-hubs-notify-users-for-android-with-net-backend"></a><span data-ttu-id="7e156-104">Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile Android için</span><span class="sxs-lookup"><span data-stu-id="7e156-104">Azure Notification Hubs Notify Users for Android with .NET backend</span></span>
+# <a name="azure-notification-hubs-notify-users-for-android-with-net-backend"></a><span data-ttu-id="18f07-104">Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile Android için</span><span class="sxs-lookup"><span data-stu-id="18f07-104">Azure Notification Hubs Notify Users for Android with .NET backend</span></span>
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-## <a name="overview"></a><span data-ttu-id="7e156-105">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="7e156-105">Overview</span></span>
-<span data-ttu-id="7e156-106">Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve mobil platformlar için tüketici ve kurumsal uygulama için anında iletme bildirimleri uyarlamasını büyük ölçüde basitleştirir ölçeklendirilmiş gönderim altyapısı erişmenize olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="7e156-106">Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.</span></span> <span data-ttu-id="7e156-107">Bu öğreticide, belirli bir cihazdaki belirli bir uygulama kullanıcısına anında iletme bildirimleri göndermek için Azure Bildirim Hub'larını nasıl kullanacağınız gösterilir.</span><span class="sxs-lookup"><span data-stu-id="7e156-107">This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device.</span></span> <span data-ttu-id="7e156-108">Bir ASP.NET Webapı arka istemcilerin kimliğini doğrulamak ve bildirimleri oluşturmak için Kılavuzu konusundaki gösterildiği gibi kullanılır [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).</span><span class="sxs-lookup"><span data-stu-id="7e156-108">An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).</span></span> <span data-ttu-id="7e156-109">Bu öğreticide oluşturduğunuz bildirim hub'ındaki derlemeler [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="7e156-109">This tutorial builds on the notification hub that you created in the [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) tutorial.</span></span>
+## <a name="overview"></a><span data-ttu-id="18f07-105">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="18f07-105">Overview</span></span>
+<span data-ttu-id="18f07-106">Azure'da anında iletme bildirimi destek tooaccess kullanımı kolay, multiplatform ve Mobile Tüketiciler, kurumsal uygulamalar için anında iletme bildirimleri hello uyarlamasını büyük ölçüde basitleştirir ölçeklendirilmiş gönderim altyapısı sağlar Platform.</span><span class="sxs-lookup"><span data-stu-id="18f07-106">Push notification support in Azure enables you tooaccess an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies hello implementation of push notifications for both consumer and enterprise applications for mobile platforms.</span></span> <span data-ttu-id="18f07-107">Bu öğretici nasıl toouse Azure Notification Hubs toosend anında iletme bildirimleri tooa belirli uygulama kullanıcısı belirli bir cihazda gösterir.</span><span class="sxs-lookup"><span data-stu-id="18f07-107">This tutorial shows you how toouse Azure Notification Hubs toosend push notifications tooa specific app user on a specific device.</span></span> <span data-ttu-id="18f07-108">Bir ASP.NET Webapı arka kullanılan tooauthenticate istemcileri ve toogenerate bildirimleri hello Kılavuzu konusundaki gösterildiği gibidir [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).</span><span class="sxs-lookup"><span data-stu-id="18f07-108">An ASP.NET WebAPI backend is used tooauthenticate clients and toogenerate notifications, as shown in hello guidance topic [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).</span></span> <span data-ttu-id="18f07-109">Hello oluşturulan hello bildirim hub'ında Bu öğretici derlemeler [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="18f07-109">This tutorial builds on hello notification hub that you created in hello [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) tutorial.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="7e156-110">Bu öğreticide oluşturduğunuz ve bildirim hub'ınızı açıklandığı şekilde yapılandırılmış varsayar [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="7e156-110">This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).</span></span>
+> <span data-ttu-id="18f07-110">Bu öğreticide oluşturduğunuz ve bildirim hub'ınızı açıklandığı şekilde yapılandırılmış varsayar [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="18f07-110">This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).</span></span>
 > 
 > 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="create-the-android-project"></a><span data-ttu-id="7e156-111">Android projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="7e156-111">Create the Android Project</span></span>
-<span data-ttu-id="7e156-112">Sonraki adım, Android uygulaması oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="7e156-112">The next step is to create the Android application.</span></span>
+## <a name="create-hello-android-project"></a><span data-ttu-id="18f07-111">Merhaba Android projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="18f07-111">Create hello Android Project</span></span>
+<span data-ttu-id="18f07-112">Merhaba sonraki toocreate Merhaba Android uygulaması adımdır.</span><span class="sxs-lookup"><span data-stu-id="18f07-112">hello next step is toocreate hello Android application.</span></span>
 
-1. <span data-ttu-id="7e156-113">İzleyin [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) oluşturup GCM'den anında iletme bildirimleri almak için uygulamanızı yapılandırmak için öğretici.</span><span class="sxs-lookup"><span data-stu-id="7e156-113">Follow the [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) tutorial to create and configure your app to receive push notifications from GCM.</span></span>
-2. <span data-ttu-id="7e156-114">Açık, **res/layout/activity_main.xml** dosya, yerine aşağıdaki içerik tanımlarla.</span><span class="sxs-lookup"><span data-stu-id="7e156-114">Open your **res/layout/activity_main.xml** file, replace the with the following content definitions.</span></span>
+1. <span data-ttu-id="18f07-113">Merhaba izleyin [bildirim hub'ları (Android) ile çalışmaya başlama](notification-hubs-android-push-notification-google-gcm-get-started.md) öğretici toocreate ve GCM, uygulama tooreceive anında iletme bildirimleri yapılandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="18f07-113">Follow hello [Getting Started with Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md) tutorial toocreate and configure your app tooreceive push notifications from GCM.</span></span>
+2. <span data-ttu-id="18f07-114">Açık, **res/layout/activity_main.xml** dosya, hello içerik tanımları aşağıdaki hello ile değiştirin.</span><span class="sxs-lookup"><span data-stu-id="18f07-114">Open your **res/layout/activity_main.xml** file, replace hello with hello following content definitions.</span></span>
    
-    <span data-ttu-id="7e156-115">Bu, bir kullanıcı olarak oturum açmayı yeni EDITTEXT denetimlerini ekler.</span><span class="sxs-lookup"><span data-stu-id="7e156-115">This adds new EditText controls for logging in as a user.</span></span> <span data-ttu-id="7e156-116">Ayrıca bir alan için gönderdiğiniz bildirimleri parçası olacak bir kullanıcı adı etiketi eklenir:</span><span class="sxs-lookup"><span data-stu-id="7e156-116">Also a field is added for a username tag that will be part of notifications you send:</span></span>
+    <span data-ttu-id="18f07-115">Bu, bir kullanıcı olarak oturum açmayı yeni EDITTEXT denetimlerini ekler.</span><span class="sxs-lookup"><span data-stu-id="18f07-115">This adds new EditText controls for logging in as a user.</span></span> <span data-ttu-id="18f07-116">Ayrıca bir alan için gönderdiğiniz bildirimleri parçası olacak bir kullanıcı adı etiketi eklenir:</span><span class="sxs-lookup"><span data-stu-id="18f07-116">Also a field is added for a username tag that will be part of notifications you send:</span></span>
    
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
@@ -122,7 +122,7 @@ ms.lasthandoff: 07/11/2017
             android:layout_below="@+id/editTextNotificationMessage"
             android:layout_centerHorizontal="true" />
         </RelativeLayout>
-3. <span data-ttu-id="7e156-117">Açık, **res/values/strings.xml** dosya ve değiştirme `send_button` dizesi yeniden tanımlamanız aşağıdaki satırları tanımıyla `send_button` ve diğer denetimler için dizeleri ekleyin:</span><span class="sxs-lookup"><span data-stu-id="7e156-117">Open your **res/values/strings.xml** file and replace the `send_button` definition with the following lines that redefine the string for the `send_button` and add strings for the other controls:</span></span>
+3. <span data-ttu-id="18f07-117">Açık, **res/values/strings.xml** dosya ve hello yerine `send_button` hello aşağıdaki tanımıyla satırları hello için bu yeniden tanımla hello dizesi `send_button` ve diğer denetimlerin hello için dizeleri ekleyin:</span><span class="sxs-lookup"><span data-stu-id="18f07-117">Open your **res/values/strings.xml** file and replace hello `send_button` definition with hello following lines that redefine hello string for hello `send_button` and add strings for hello other controls:</span></span>
    
         <string name="usernameHint">Username</string>
         <string name="passwordHint">Password</string>
@@ -132,10 +132,10 @@ ms.lasthandoff: 07/11/2017
             Recipient username tag
         </string>
    
-    <span data-ttu-id="7e156-118">Main_activity.xml grafik düzeninizi gibi görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="7e156-118">Your main_activity.xml graphical layout should now look like this:</span></span>
+    <span data-ttu-id="18f07-118">Main_activity.xml grafik düzeninizi gibi görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="18f07-118">Your main_activity.xml graphical layout should now look like this:</span></span>
    
     ![][A1]
-4. <span data-ttu-id="7e156-119">Adlı yeni bir sınıf oluşturun **RegisterClient** aynı pakette, `MainActivity` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="7e156-119">Create a new class named **RegisterClient** in the same package as your `MainActivity` class.</span></span> <span data-ttu-id="7e156-120">Aşağıdaki kodu için yeni sınıf dosyası kullanın.</span><span class="sxs-lookup"><span data-stu-id="7e156-120">Use the code below for the new class file.</span></span>
+4. <span data-ttu-id="18f07-119">Adlı yeni bir sınıf oluşturun **RegisterClient** hello aynı olarak paketini, `MainActivity` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="18f07-119">Create a new class named **RegisterClient** in hello same package as your `MainActivity` class.</span></span> <span data-ttu-id="18f07-120">Merhaba kodunu aşağıda hello yeni sınıf dosyası için kullanın.</span><span class="sxs-lookup"><span data-stu-id="18f07-120">Use hello code below for hello new class file.</span></span>
    
         import java.io.IOException;
         import java.io.UnsupportedEncodingException;
@@ -240,15 +240,15 @@ ms.lasthandoff: 07/11/2017
             }
         }
    
-    <span data-ttu-id="7e156-121">Bu bileşen için anında iletme bildirimleri kaydetmek için uygulama arka ucu başvurmak için gereken REST çağrılarını uygular.</span><span class="sxs-lookup"><span data-stu-id="7e156-121">This component implements the REST calls required to contact the app backend, in order to register for push notifications.</span></span> <span data-ttu-id="7e156-122">Ayrıca yerel olarak depoladığı *registrationIds* bildirim hub'ı içinde ayrıntılı olarak tarafından oluşturulan [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).</span><span class="sxs-lookup"><span data-stu-id="7e156-122">It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).</span></span> <span data-ttu-id="7e156-123">Tıkladığınızda yerel depolamada depolanan bir yetki belirteci kullandığına dikkat edin **oturum** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="7e156-123">Note that it uses an authorization token stored in local storage when you click the **Log in** button.</span></span>
-5. <span data-ttu-id="7e156-124">İçinde `MainActivity` sınıfı kaldırın veya yorum yapmak için özel alan çıkışı `NotificationHub`, ve bir alan ekleyin `RegisterClient` sınıfı ve ASP.NET ucun uç noktası için bir dize.</span><span class="sxs-lookup"><span data-stu-id="7e156-124">In your `MainActivity` class remove or comment out your private field for `NotificationHub`, and add a field for the `RegisterClient` class and a string for your ASP.NET backend's endpoint.</span></span> <span data-ttu-id="7e156-125">Değiştirdiğinizden emin olun `<Enter Your Backend Endpoint>` ile gerçek arka uç noktanızı elde daha önce.</span><span class="sxs-lookup"><span data-stu-id="7e156-125">Be sure to replace `<Enter Your Backend Endpoint>` with the your actual backend endpoint obtained previously.</span></span> <span data-ttu-id="7e156-126">Örneğin, `http://mybackend.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="7e156-126">For example, `http://mybackend.azurewebsites.net`.</span></span>
+    <span data-ttu-id="18f07-121">Bu bileşen hello REST çağrılarını gerekli toocontact hello uygulama arka ucu, anında iletme bildirimleri için sipariş tooregister içinde uygular.</span><span class="sxs-lookup"><span data-stu-id="18f07-121">This component implements hello REST calls required toocontact hello app backend, in order tooregister for push notifications.</span></span> <span data-ttu-id="18f07-122">Merhaba da yerel olarak depoladığı *registrationIds* bildirim hub'ı ayrıntılı biçimde açıklandığı gibi hello tarafından oluşturulan [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).</span><span class="sxs-lookup"><span data-stu-id="18f07-122">It also locally stores hello *registrationIds* created by hello Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).</span></span> <span data-ttu-id="18f07-123">Merhaba tıklattığınızda yerel depolamada depolanan bir yetki belirteci kullandığına dikkat edin **oturum** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="18f07-123">Note that it uses an authorization token stored in local storage when you click hello **Log in** button.</span></span>
+5. <span data-ttu-id="18f07-124">İçinde `MainActivity` sınıfı kaldırın veya yorum yapmak için özel alan çıkışı `NotificationHub`, ve hello için bir alan ekleyin `RegisterClient` sınıfı ve ASP.NET ucun uç noktası için bir dize.</span><span class="sxs-lookup"><span data-stu-id="18f07-124">In your `MainActivity` class remove or comment out your private field for `NotificationHub`, and add a field for hello `RegisterClient` class and a string for your ASP.NET backend's endpoint.</span></span> <span data-ttu-id="18f07-125">Emin tooreplace olması `<Enter Your Backend Endpoint>` hello ile gerçek arka uç noktanızı elde daha önce.</span><span class="sxs-lookup"><span data-stu-id="18f07-125">Be sure tooreplace `<Enter Your Backend Endpoint>` with hello your actual backend endpoint obtained previously.</span></span> <span data-ttu-id="18f07-126">Örneğin, `http://mybackend.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="18f07-126">For example, `http://mybackend.azurewebsites.net`.</span></span>
 
         //private NotificationHub hub;
         private RegisterClient registerClient;
         private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
 
 
-1. <span data-ttu-id="7e156-127">İçinde `MainActivity` sınıfı, buna `onCreate` yöntemi, kaldırmak veya açıklama başlatılması `hub` alan ve çağrısı `registerWithNotificationHubs` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="7e156-127">In your `MainActivity` class, in the `onCreate` method, remove or comment out the initialization of the `hub` field and the call to the `registerWithNotificationHubs` method.</span></span> <span data-ttu-id="7e156-128">Örneği başlatmak için kod ekleme `RegisterClient` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="7e156-128">Then add code to initialize an instance of the `RegisterClient` class.</span></span> <span data-ttu-id="7e156-129">Yöntemi, aşağıdaki satırları içermelidir:</span><span class="sxs-lookup"><span data-stu-id="7e156-129">The method should contain the following lines:</span></span>
+1. <span data-ttu-id="18f07-127">İçinde `MainActivity` sınıfında hello `onCreate` yöntemi, kaldırmak veya açıklama hello hello başlatma `hub` alan ve hello çağrısı toohello `registerWithNotificationHubs` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="18f07-127">In your `MainActivity` class, in hello `onCreate` method, remove or comment out hello initialization of hello `hub` field and hello call toohello `registerWithNotificationHubs` method.</span></span> <span data-ttu-id="18f07-128">Kod tooinitialize hello örneği eklemek `RegisterClient` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="18f07-128">Then add code tooinitialize an instance of hello `RegisterClient` class.</span></span> <span data-ttu-id="18f07-129">Merhaba yöntemi izleyerek hello içermelidir:</span><span class="sxs-lookup"><span data-stu-id="18f07-129">hello method should contain hello following lines:</span></span>
    
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -265,8 +265,8 @@ ms.lasthandoff: 07/11/2017
    
             setContentView(R.layout.activity_main);
         }
-2. <span data-ttu-id="7e156-130">İçinde `MainActivity` sınıfı, silmek veya yorum tüm `registerWithNotificationHubs` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="7e156-130">In your `MainActivity` class, delete or comment out the entire `registerWithNotificationHubs` method.</span></span> <span data-ttu-id="7e156-131">Bu öğreticide kullanılmayacak.</span><span class="sxs-lookup"><span data-stu-id="7e156-131">It will not be used in this tutorial.</span></span>
-3. <span data-ttu-id="7e156-132">Aşağıdakileri ekleyin `import` deyimleri için **MainActivity.java** dosya.</span><span class="sxs-lookup"><span data-stu-id="7e156-132">Add the following `import` statements to your **MainActivity.java** file.</span></span>
+2. <span data-ttu-id="18f07-130">İçinde `MainActivity` sınıfı, silmek veya yorum hello tüm `registerWithNotificationHubs` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="18f07-130">In your `MainActivity` class, delete or comment out hello entire `registerWithNotificationHubs` method.</span></span> <span data-ttu-id="18f07-131">Bu öğreticide kullanılmayacak.</span><span class="sxs-lookup"><span data-stu-id="18f07-131">It will not be used in this tutorial.</span></span>
+3. <span data-ttu-id="18f07-132">Merhaba aşağıdakileri ekleyin `import` deyimleri tooyour **MainActivity.java** dosya.</span><span class="sxs-lookup"><span data-stu-id="18f07-132">Add hello following `import` statements tooyour **MainActivity.java** file.</span></span>
    
         import android.widget.Button;
         import java.io.UnsupportedEncodingException;
@@ -276,7 +276,7 @@ ms.lasthandoff: 07/11/2017
         import org.apache.http.client.ClientProtocolException;
         import java.io.IOException;
         import org.apache.http.HttpStatus;
-4. <span data-ttu-id="7e156-133">Daha sonra işlemek için aşağıdaki yöntemleri ekleyin **oturum** olay ve anında iletme bildirimleri gönderme düğmesini tıklatın.</span><span class="sxs-lookup"><span data-stu-id="7e156-133">Then, add the following methods to handle the **Log in** button click event and sending push notifications.</span></span>
+4. <span data-ttu-id="18f07-133">Ardından, aşağıdaki yöntemleri toohandle hello hello ekleyin **oturum** olay ve anında iletme bildirimleri gönderme düğmesini tıklatın.</span><span class="sxs-lookup"><span data-stu-id="18f07-133">Then, add hello following methods toohandle hello **Log in** button click event and sending push notifications.</span></span>
    
         @Override
         protected void onStart() {
@@ -296,7 +296,7 @@ ms.lasthandoff: 07/11/2017
                         String regid = gcm.register(SENDER_ID);
                         registerClient.register(regid, new HashSet<String>());
                     } catch (Exception e) {
-                        DialogNotify("MainActivity - Failed to register", e.getMessage());
+                        DialogNotify("MainActivity - Failed tooregister", e.getMessage());
                         return e;
                     }
                     return null;
@@ -320,15 +320,15 @@ ms.lasthandoff: 07/11/2017
         }
    
         /**
-         * This method calls the ASP.NET WebAPI backend to send the notification message
-         * to the platform notification service based on the pns parameter.
+         * This method calls hello ASP.NET WebAPI backend toosend hello notification message
+         * toohello platform notification service based on hello pns parameter.
          *
-         * @param pns     The platform notification service to send the notification message to. Must
-         *                be one of the following ("wns", "gcm", "apns").
-         * @param userTag The tag for the user who will receive the notification message. This string
+         * @param pns     hello platform notification service toosend hello notification message to. Must
+         *                be one of hello following ("wns", "gcm", "apns").
+         * @param userTag hello tag for hello user who will receive hello notification message. This string
          *                must not contain spaces or special characters.
-         * @param message The notification message string. This string must include the double quotes
-         *                to be used as JSON content.
+         * @param message hello notification message string. This string must include hello double quotes
+         *                toobe used as JSON content.
          */
         public void sendPush(final String pns, final String userTag, final String message)
                 throws ClientProtocolException, IOException {
@@ -354,7 +354,7 @@ ms.lasthandoff: 07/11/2017
                             throw new RuntimeException("Error sending notification");
                         }
                     } catch (Exception e) {
-                        DialogNotify("MainActivity - Failed to send " + pns + " notification ", e.getMessage());
+                        DialogNotify("MainActivity - Failed toosend " + pns + " notification ", e.getMessage());
                         return e;
                     }
    
@@ -363,17 +363,17 @@ ms.lasthandoff: 07/11/2017
             }.execute(null, null, null);
         }
 
-    <span data-ttu-id="7e156-134">`login` İşleyicisi **oturum** düğmesi temel kimlik doğrulaması oluşturur giriş kullanıcı adı ve parola (Bu, kimlik doğrulama şemasını kullanan herhangi bir belirteci temsil ettiğini unutmayın) kullanarak belirteci sonra kullanır `RegisterClient` için arka uç kaydı için çağırın.</span><span class="sxs-lookup"><span data-stu-id="7e156-134">The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (note that this represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.</span></span>
+    <span data-ttu-id="18f07-134">Merhaba `login` hello için işleyici **oturum** düğmesi oluşturur temel kimlik doğrulaması belirteci hello giriş kullanıcı adı ve parolasına (Bu, kimlik doğrulama şemasını kullanan herhangi bir belirteci temsil ettiğini unutmayın) kullanarak bir sonra kullanan`RegisterClient`toocall hello arka uç kaydı için.</span><span class="sxs-lookup"><span data-stu-id="18f07-134">hello `login` handler for hello **Log in** button generates a basic authentication token using on hello input username and password (note that this represents any token your authentication scheme uses), then it uses `RegisterClient` toocall hello backend for registration.</span></span>
 
-    <span data-ttu-id="7e156-135">`sendPush` Güvenli bir bildirim kullanıcı etiketinde dayanarak kullanıcıya tetiklemek için arka uç yöntemini çağırır.</span><span class="sxs-lookup"><span data-stu-id="7e156-135">The `sendPush` method calls the backend to trigger a secure notification to the user based on the user tag.</span></span> <span data-ttu-id="7e156-136">Platform bildirim hizmeti `sendPush` hedefleri bağımlı `pns` dizesi geçirilen.</span><span class="sxs-lookup"><span data-stu-id="7e156-136">The platform notification service that `sendPush` targets depends on the `pns` string passed in.</span></span>
+    <span data-ttu-id="18f07-135">Merhaba `sendPush` yöntemi güvenli bildirim toohello kullanıcı hello kullanıcı etiketinde tabanlı hello arka uç tootrigger çağırır.</span><span class="sxs-lookup"><span data-stu-id="18f07-135">hello `sendPush` method calls hello backend tootrigger a secure notification toohello user based on hello user tag.</span></span> <span data-ttu-id="18f07-136">Merhaba platform bildirim hizmetinin `sendPush` hedeflediği bağlıdır hello üzerinde `pns` dizesi geçirilen.</span><span class="sxs-lookup"><span data-stu-id="18f07-136">hello platform notification service that `sendPush` targets depends on hello `pns` string passed in.</span></span>
 
-1. <span data-ttu-id="7e156-137">İçinde `MainActivity` sınıfı, güncelleştirme `sendNotificationButtonOnClick` çağrılacak yöntem `sendPush` kullanıcının yöntemiyle seçili platform Bildirim Hizmetleri gibi.</span><span class="sxs-lookup"><span data-stu-id="7e156-137">In your `MainActivity` class, update the `sendNotificationButtonOnClick` method to call the `sendPush` method with the user's selected platform notification services as follows.</span></span>
+1. <span data-ttu-id="18f07-137">İçinde `MainActivity` sınıfı, güncelleştirme hello `sendNotificationButtonOnClick` yöntemi toocall hello `sendPush` hello kullanıcının yöntemiyle seçili platform Bildirim Hizmetleri gibi.</span><span class="sxs-lookup"><span data-stu-id="18f07-137">In your `MainActivity` class, update hello `sendNotificationButtonOnClick` method toocall hello `sendPush` method with hello user's selected platform notification services as follows.</span></span>
    
        /**
-        * Send Notification button click handler. This method sends the push notification
-        * message to each platform selected.
+        * Send Notification button click handler. This method sends hello push notification
+        * message tooeach platform selected.
         *
-        * @param v The view
+        * @param v hello view
         */
        public void sendNotificationButtonOnClick(View v)
                throws ClientProtocolException, IOException {
@@ -400,16 +400,16 @@ ms.lasthandoff: 07/11/2017
            }
        }
 
-## <a name="run-the-application"></a><span data-ttu-id="7e156-138">Uygulamayı çalıştırın</span><span class="sxs-lookup"><span data-stu-id="7e156-138">Run the Application</span></span>
-1. <span data-ttu-id="7e156-139">Uygulama bir aygıt veya Android Studio kullanarak bir öykünücü çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="7e156-139">Run the application on a device or an emulator using Android Studio.</span></span>
-2. <span data-ttu-id="7e156-140">Android uygulamada bir kullanıcı adı ve parola girin.</span><span class="sxs-lookup"><span data-stu-id="7e156-140">In the Android app, enter a username and password.</span></span> <span data-ttu-id="7e156-141">Her ikisi de aynı dize değeri olması gerekir ve boşluk veya özel karakterler içermemelidir.</span><span class="sxs-lookup"><span data-stu-id="7e156-141">They must both be the same string value and they must not contain spaces or special characters.</span></span>
-3. <span data-ttu-id="7e156-142">Android uygulamanın tıklayın **oturum**.</span><span class="sxs-lookup"><span data-stu-id="7e156-142">In the Android app, click **Log in**.</span></span> <span data-ttu-id="7e156-143">Bildiren bir bildirim iletisi için bekleyin **günlüğe giriş ve kayıtlı**.</span><span class="sxs-lookup"><span data-stu-id="7e156-143">Wait for a toast message that states **Logged in and registered**.</span></span> <span data-ttu-id="7e156-144">Bu etkinleştirecek **bildirim gönder** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="7e156-144">This will enable the **Send Notification** button.</span></span>
+## <a name="run-hello-application"></a><span data-ttu-id="18f07-138">Merhaba uygulama çalıştırın</span><span class="sxs-lookup"><span data-stu-id="18f07-138">Run hello Application</span></span>
+1. <span data-ttu-id="18f07-139">Merhaba uygulaması bir aygıt veya Android Studio kullanarak bir öykünücü çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="18f07-139">Run hello application on a device or an emulator using Android Studio.</span></span>
+2. <span data-ttu-id="18f07-140">Merhaba Android uygulamada bir kullanıcı adı ve parola girin.</span><span class="sxs-lookup"><span data-stu-id="18f07-140">In hello Android app, enter a username and password.</span></span> <span data-ttu-id="18f07-141">Hem de hello olmalıdır aynı dize değeri ve bunlar içermemelidir boşluk veya özel karakter.</span><span class="sxs-lookup"><span data-stu-id="18f07-141">They must both be hello same string value and they must not contain spaces or special characters.</span></span>
+3. <span data-ttu-id="18f07-142">Merhaba Android uygulamada tıklatın **oturum**.</span><span class="sxs-lookup"><span data-stu-id="18f07-142">In hello Android app, click **Log in**.</span></span> <span data-ttu-id="18f07-143">Bildiren bir bildirim iletisi için bekleyin **günlüğe giriş ve kayıtlı**.</span><span class="sxs-lookup"><span data-stu-id="18f07-143">Wait for a toast message that states **Logged in and registered**.</span></span> <span data-ttu-id="18f07-144">Bu hello etkinleştirecek **bildirim gönder** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="18f07-144">This will enable hello **Send Notification** button.</span></span>
    
     ![][A2]
-4. <span data-ttu-id="7e156-145">Uygula'yı sahip olduğu tüm platformlar etkinleştirmek için düğmeler uygulaması çalıştıran ve bir kullanıcının kayıtlı.</span><span class="sxs-lookup"><span data-stu-id="7e156-145">Click the toggle buttons to enable all platforms where you have ran the app and registered a user.</span></span>
-5. <span data-ttu-id="7e156-146">Bildirim iletisi alırsınız kullanıcının adını girin.</span><span class="sxs-lookup"><span data-stu-id="7e156-146">Enter the user's name that will receive the notification message.</span></span> <span data-ttu-id="7e156-147">Bu kullanıcı bildirimleri hedef cihazlarda kayıtlı olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="7e156-147">That user must be registered for notifications on the target devices.</span></span>
-6. <span data-ttu-id="7e156-148">Anında iletme bildirimi iletisi almak kullanıcı için bir ileti girin.</span><span class="sxs-lookup"><span data-stu-id="7e156-148">Enter a message for the user to receive as a push notification message.</span></span>
-7. <span data-ttu-id="7e156-149">Tıklatın **bildirim gönder**.</span><span class="sxs-lookup"><span data-stu-id="7e156-149">Click **Send Notification**.</span></span>  <span data-ttu-id="7e156-150">Eşleşen bir kullanıcı adı etiketi ile bir kaydı var her bir cihaz anında iletme bildirimi alırsınız.</span><span class="sxs-lookup"><span data-stu-id="7e156-150">Each device that has a registration with the matching username tag will receive the push notification.</span></span>
+4. <span data-ttu-id="18f07-145">Merhaba iki durumlu düğmeler tooenable tıklatın sahip olduğu tüm platformlar hello uygulaması çalıştıran ve bir kullanıcının kayıtlı.</span><span class="sxs-lookup"><span data-stu-id="18f07-145">Click hello toggle buttons tooenable all platforms where you have ran hello app and registered a user.</span></span>
+5. <span data-ttu-id="18f07-146">Merhaba bildirim iletisi alırsınız hello kullanıcının adını girin.</span><span class="sxs-lookup"><span data-stu-id="18f07-146">Enter hello user's name that will receive hello notification message.</span></span> <span data-ttu-id="18f07-147">Bu kullanıcı bildirimleri hello hedef cihazlarda kayıtlı olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="18f07-147">That user must be registered for notifications on hello target devices.</span></span>
+6. <span data-ttu-id="18f07-148">Bir ileti için hello kullanıcı tooreceive anında bildirim iletisi girin.</span><span class="sxs-lookup"><span data-stu-id="18f07-148">Enter a message for hello user tooreceive as a push notification message.</span></span>
+7. <span data-ttu-id="18f07-149">Tıklatın **bildirim gönder**.</span><span class="sxs-lookup"><span data-stu-id="18f07-149">Click **Send Notification**.</span></span>  <span data-ttu-id="18f07-150">Merhaba eşleşen bir kullanıcı adı etiketi ile bir kaydı var her bir cihaz hello anında iletme bildirimi alırsınız.</span><span class="sxs-lookup"><span data-stu-id="18f07-150">Each device that has a registration with hello matching username tag will receive hello push notification.</span></span>
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png

@@ -13,7 +13,7 @@
 ### [İşletimsel güvenliği etkinleştirme](azure-operational-security.md)
 ### [Gelişmiş tehdit algılama](azure-threat-detection.md)
 ### [Günlük kaydı ve denetim](azure-log-audit.md)
-### [Genel bulutta yalıtım](azure-isolation.md)
+### [Merhaba genel bulut ayırma](azure-isolation.md)
 ### [Güvenliğe yönelik teknik özellikler](azure-security-technical-capabilities.md)
 ### [Azure’da idare](governance-in-azure.md)
 ### [Bekleme sırasında veri şifrelemesi](azure-security-encryption-atrest.md)
@@ -48,7 +48,7 @@
 ## Güvenlik yönetimi ve izleme
 ### [Güvenlik yönetimi](azure-security-management.md)
 ### [Azure Güvenlik Merkezi](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md)
+### [Giriş tooAzure günlük tümleştirme](security-azure-log-integration-overview.md)
 #### [Azure günlük tümleştirmesini kullanmaya başlama](security-azure-log-integration-get-started.md)
 #### [Azure Active Directory denetim günlüklerini tümleştirme](security-azure-log-integration-ad.md)
 #### [Güvenlik Merkezi uyarılarını tümleştirme](security-azure-log-integration-security-center.md)

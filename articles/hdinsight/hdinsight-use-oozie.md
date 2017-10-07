@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight'ta Hadoop Oozie kullanın | Microsoft Docs"
-description: "Hadoop Oozie Hdınsight, büyük veri hizmeti kullanın. Oozie iş akışı tanımlamak ve Oozie işi göndermek öğrenin."
+title: "hdınsight'ta Hadoop Oozie aaaUse | Microsoft Docs"
+description: "Hadoop Oozie Hdınsight, büyük veri hizmeti kullanın. Bilgi nasıl toodefine bir Oozie iş akışı ve Oozie işi gönderin."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -17,31 +17,31 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 36fe3e4220ec92699b6d52cba47cd6b83f361d66
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 12d0cf1a01838ab0f4e699c384ce2fb18f85cbad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a><span data-ttu-id="0f2cf-104">Oozie Hadoop ile tanımlamak ve Hdınsight'ta bir iş akışını çalıştırmak için kullanın.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-104">Use Oozie with Hadoop to define and run a workflow in HDInsight</span></span>
+# <a name="use-oozie-with-hadoop-toodefine-and-run-a-workflow-in-hdinsight"></a><span data-ttu-id="62e0c-104">Hdınsight'ta bir iş akışını çalıştırma ve Hadoop toodefine ile Oozie kullanın</span><span class="sxs-lookup"><span data-stu-id="62e0c-104">Use Oozie with Hadoop toodefine and run a workflow in HDInsight</span></span>
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-<span data-ttu-id="0f2cf-105">Apache Oozie bir iş akışı tanımlayın ve üzerinde Hdınsight iş akışını çalıştırmak için nasıl kullanılacağını öğrenin.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-105">Learn how to use Apache Oozie to define a workflow and run the workflow on HDInsight.</span></span> <span data-ttu-id="0f2cf-106">Oozie Düzenleyicisi hakkında bilgi edinmek için [Hdınsight ile zamana dayalı Oozie Düzenleyicisi Hadoop kullanma][hdinsight-oozie-coordinator-time].</span><span class="sxs-lookup"><span data-stu-id="0f2cf-106">To learn about the Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time].</span></span> <span data-ttu-id="0f2cf-107">Azure Data Factory öğrenmek için bkz: [kullanım Pig ve Hive Data Factory ile][azure-data-factory-pig-hive].</span><span class="sxs-lookup"><span data-stu-id="0f2cf-107">To learn Azure Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].</span></span>
+<span data-ttu-id="62e0c-105">Hdınsight iş akışında toouse Apache Oozie toodefine bir iş akışı ve Çalıştır nasıl hello öğrenin.</span><span class="sxs-lookup"><span data-stu-id="62e0c-105">Learn how toouse Apache Oozie toodefine a workflow and run hello workflow on HDInsight.</span></span> <span data-ttu-id="62e0c-106">toolearn hello Oozie Düzenleyicisi hakkında bkz [Hdınsight ile zamana dayalı Oozie Düzenleyicisi Hadoop kullanma][hdinsight-oozie-coordinator-time].</span><span class="sxs-lookup"><span data-stu-id="62e0c-106">toolearn about hello Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time].</span></span> <span data-ttu-id="62e0c-107">Azure Data Factory toolearn bkz [kullanım Pig ve Hive Data Factory ile][azure-data-factory-pig-hive].</span><span class="sxs-lookup"><span data-stu-id="62e0c-107">toolearn Azure Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].</span></span>
 
-<span data-ttu-id="0f2cf-108">Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-108">Apache Oozie is a workflow/coordination system that manages Hadoop jobs.</span></span> <span data-ttu-id="0f2cf-109">Bu Hadoop yığını ile tümleşiktir ve Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-109">It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop.</span></span> <span data-ttu-id="0f2cf-110">Ayrıca, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-110">It can also be used to schedule jobs that are specific to a system, like Java programs or shell scripts.</span></span>
+<span data-ttu-id="62e0c-108">Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-108">Apache Oozie is a workflow/coordination system that manages Hadoop jobs.</span></span> <span data-ttu-id="62e0c-109">Merhaba Hadoop yığını ile tümleştirilir ve Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler.</span><span class="sxs-lookup"><span data-stu-id="62e0c-109">It is integrated with hello Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop.</span></span> <span data-ttu-id="62e0c-110">Ayrıca, Java programları veya kabuk betikleri gibi belirli tooa sistem kullanılan tooschedule işler de olabilir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-110">It can also be used tooschedule jobs that are specific tooa system, like Java programs or shell scripts.</span></span>
 
-<span data-ttu-id="0f2cf-111">Bu öğreticide yönergeleri izleyerek uygulama iş akışı iki eylemleri içerir:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-111">The workflow you implement by following the instructions in this tutorial contains two actions:</span></span>
+<span data-ttu-id="62e0c-111">Bu öğreticide hello yönergeleri izleyerek uygulamak hello iş akışı iki eylemleri içerir:</span><span class="sxs-lookup"><span data-stu-id="62e0c-111">hello workflow you implement by following hello instructions in this tutorial contains two actions:</span></span>
 
 ![İş akışı diyagramı][img-workflow-diagram]
 
-1. <span data-ttu-id="0f2cf-113">Hive eylem log4j dosyasını her günlük düzeyi türünün oluşumları saymak için HiveQL betiğini çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-113">A Hive action runs a HiveQL script to count the occurrences of each log-level type in a log4j file.</span></span> <span data-ttu-id="0f2cf-114">Her log4j dosyasını türünün ve önem örneğin gösterir [günlük düzeyi] alan içeren bir dizi alanlarının oluşur:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-114">Each log4j file consists of a line of fields that contains a [LOG LEVEL] field that shows the type and the severity, for example:</span></span>
+1. <span data-ttu-id="62e0c-113">Bir Hive eylem HiveQL betiğini toocount hello log4j dosyasında her günlük düzeyi türü oluşumları çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-113">A Hive action runs a HiveQL script toocount hello occurrences of each log-level type in a log4j file.</span></span> <span data-ttu-id="62e0c-114">Her log4j dosyasını hello türü ve hello önem derecesi, örneğin gösteren bir [günlük düzeyi] alan içeren bir dizi alanlarının oluşur:</span><span class="sxs-lookup"><span data-stu-id="62e0c-114">Each log4j file consists of a line of fields that contains a [LOG LEVEL] field that shows hello type and hello severity, for example:</span></span>
    
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
    
-    <span data-ttu-id="0f2cf-115">Hive betiği çıkış benzer:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-115">The Hive script output is similar to:</span></span>
+    <span data-ttu-id="62e0c-115">Merhaba Hive betik çıktısı benzer:</span><span class="sxs-lookup"><span data-stu-id="62e0c-115">hello Hive script output is similar to:</span></span>
    
         [DEBUG] 434
         [ERROR] 3
@@ -50,28 +50,28 @@ ms.lasthandoff: 08/29/2017
         [TRACE] 816
         [WARN]  4
    
-    <span data-ttu-id="0f2cf-116">Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].</span><span class="sxs-lookup"><span data-stu-id="0f2cf-116">For more information about Hive, see [Use Hive with HDInsight][hdinsight-use-hive].</span></span>
-2. <span data-ttu-id="0f2cf-117">Sqoop eylem HiveQL çıktı Azure SQL veritabanındaki bir tablo dışa aktarır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-117">A Sqoop action exports the HiveQL output to a table in an Azure SQL database.</span></span> <span data-ttu-id="0f2cf-118">Sqoop hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Hadoop Sqoop][hdinsight-use-sqoop].</span><span class="sxs-lookup"><span data-stu-id="0f2cf-118">For more information about Sqoop, see [Use Hadoop Sqoop with HDInsight][hdinsight-use-sqoop].</span></span>
+    <span data-ttu-id="62e0c-116">Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].</span><span class="sxs-lookup"><span data-stu-id="62e0c-116">For more information about Hive, see [Use Hive with HDInsight][hdinsight-use-hive].</span></span>
+2. <span data-ttu-id="62e0c-117">Sqoop eylemin hello HiveQL çıkış tooa bir Azure SQL veritabanı tablosunda dışa aktarır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-117">A Sqoop action exports hello HiveQL output tooa table in an Azure SQL database.</span></span> <span data-ttu-id="62e0c-118">Sqoop hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Hadoop Sqoop][hdinsight-use-sqoop].</span><span class="sxs-lookup"><span data-stu-id="62e0c-118">For more information about Sqoop, see [Use Hadoop Sqoop with HDInsight][hdinsight-use-sqoop].</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="0f2cf-119">Hdınsight kümelerinde desteklenen Oozie sürümleri için bkz: [Hdınsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?] [hdinsight-versions].</span><span class="sxs-lookup"><span data-stu-id="0f2cf-119">For supported Oozie versions on HDInsight clusters, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions].</span></span>
+> <span data-ttu-id="62e0c-119">Hdınsight kümelerinde desteklenen Oozie sürümleri için bkz: [Hdınsight tarafından sağlanan hello Hadoop küme sürümlerindeki yenilikler nelerdir?] [hdinsight-versions].</span><span class="sxs-lookup"><span data-stu-id="62e0c-119">For supported Oozie versions on HDInsight clusters, see [What's new in hello Hadoop cluster versions provided by HDInsight?][hdinsight-versions].</span></span>
 > 
 > 
 
-### <a name="prerequisites"></a><span data-ttu-id="0f2cf-120">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="0f2cf-120">Prerequisites</span></span>
-<span data-ttu-id="0f2cf-121">Bu öğreticiye başlamadan önce aşağıdaki öğesi olması gerekir:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-121">Before you begin this tutorial, you must have the following item:</span></span>
+### <a name="prerequisites"></a><span data-ttu-id="62e0c-120">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="62e0c-120">Prerequisites</span></span>
+<span data-ttu-id="62e0c-121">Bu öğreticiye başlamadan önce hello öğesi aşağıdaki olması gerekir:</span><span class="sxs-lookup"><span data-stu-id="62e0c-121">Before you begin this tutorial, you must have hello following item:</span></span>
 
-* <span data-ttu-id="0f2cf-122">**Azure PowerShell içeren bir iş istasyonu**.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-122">**A workstation with Azure PowerShell**.</span></span> 
+* <span data-ttu-id="62e0c-122">**Azure PowerShell içeren bir iş istasyonu**.</span><span class="sxs-lookup"><span data-stu-id="62e0c-122">**A workstation with Azure PowerShell**.</span></span> 
   
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
   
 
-## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a><span data-ttu-id="0f2cf-123">Oozie iş akışı ve ilgili HiveQL betiğini tanımlayın</span><span class="sxs-lookup"><span data-stu-id="0f2cf-123">Define Oozie workflow and the related HiveQL script</span></span>
-<span data-ttu-id="0f2cf-124">Oozie iş akışı tanımları hPDL (XML işlem tanım dili) yazılır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-124">Oozie workflows definitions are written in hPDL (a XML Process Definition Language).</span></span> <span data-ttu-id="0f2cf-125">Varsayılan iş akışı dosya adı *workflow.xml*.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-125">The default workflow file name is *workflow.xml*.</span></span> <span data-ttu-id="0f2cf-126">Bu öğreticide kullandığınız iş akışı dosyası verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-126">The following is the workflow file you use in this tutorial.</span></span>
+## <a name="define-oozie-workflow-and-hello-related-hiveql-script"></a><span data-ttu-id="62e0c-123">Merhaba HiveQL betiğini ilgili ve Oozie iş akışı tanımlama</span><span class="sxs-lookup"><span data-stu-id="62e0c-123">Define Oozie workflow and hello related HiveQL script</span></span>
+<span data-ttu-id="62e0c-124">Oozie iş akışı tanımları hPDL (XML işlem tanım dili) yazılır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-124">Oozie workflows definitions are written in hPDL (a XML Process Definition Language).</span></span> <span data-ttu-id="62e0c-125">Merhaba varsayılan iş akışı dosya adı *workflow.xml*.</span><span class="sxs-lookup"><span data-stu-id="62e0c-125">hello default workflow file name is *workflow.xml*.</span></span> <span data-ttu-id="62e0c-126">Merhaba, bu öğreticide kullandığınız hello iş akışı dosyası aşağıdadır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-126">hello following is hello workflow file you use in this tutorial.</span></span>
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
-        <start to = "RunHiveScript"/>
+        <start too= "RunHiveScript"/>
 
         <action name="RunHiveScript">
             <hive xmlns="uri:oozie:hive-action:0.2">
@@ -125,80 +125,80 @@ ms.lasthandoff: 08/29/2017
         <end name="end"/>
     </workflow-app>
 
-<span data-ttu-id="0f2cf-127">İş akışında tanımlanan iki eylemler vardır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-127">There are two actions defined in the workflow.</span></span> <span data-ttu-id="0f2cf-128">Başlangıç için eylem *RunHiveScript*.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-128">The start-to action is *RunHiveScript*.</span></span> <span data-ttu-id="0f2cf-129">Eylem başarıyla çalışırsa, bir sonraki eylem olan *RunSqoopExport*.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-129">If the action runs successfully, the next action is *RunSqoopExport*.</span></span>
+<span data-ttu-id="62e0c-127">Merhaba iş akışında tanımlanan iki eylemler vardır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-127">There are two actions defined in hello workflow.</span></span> <span data-ttu-id="62e0c-128">Merhaba start-tooaction olan *RunHiveScript*.</span><span class="sxs-lookup"><span data-stu-id="62e0c-128">hello start-tooaction is *RunHiveScript*.</span></span> <span data-ttu-id="62e0c-129">Merhaba eylemi başarıyla çalışırsa, hello sonraki eylemdir *RunSqoopExport*.</span><span class="sxs-lookup"><span data-stu-id="62e0c-129">If hello action runs successfully, hello next action is *RunSqoopExport*.</span></span>
 
-<span data-ttu-id="0f2cf-130">RunHiveScript birkaç değişkeni yok.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-130">The RunHiveScript has several variables.</span></span> <span data-ttu-id="0f2cf-131">Azure PowerShell kullanarak Oozie iş istasyonunuzdan gönderdiğinizde değerlerini geçirin.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-131">You pass the values when you submit the Oozie job from your workstation by using Azure PowerShell.</span></span>
+<span data-ttu-id="62e0c-130">Merhaba RunHiveScript birkaç değişkeni yok.</span><span class="sxs-lookup"><span data-stu-id="62e0c-130">hello RunHiveScript has several variables.</span></span> <span data-ttu-id="62e0c-131">Azure PowerShell kullanarak hello Oozie iş istasyonunuzdan gönderdiğinizde hello değerlerini geçirin.</span><span class="sxs-lookup"><span data-stu-id="62e0c-131">You pass hello values when you submit hello Oozie job from your workstation by using Azure PowerShell.</span></span>
 
 <table border = "1">
-<tr><th><span data-ttu-id="0f2cf-132">İş akışı değişkenleri</span><span class="sxs-lookup"><span data-stu-id="0f2cf-132">Workflow variables</span></span></th><th><span data-ttu-id="0f2cf-133">Açıklama</span><span class="sxs-lookup"><span data-stu-id="0f2cf-133">Description</span></span></th></tr>
-<tr><td><span data-ttu-id="0f2cf-134">${Jobtracker'a}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-134">${jobTracker}</span></span></td><td><span data-ttu-id="0f2cf-135">Hadoop işi İzleyicisi URL'sini belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-135">Specifies the URL of the Hadoop job tracker.</span></span> <span data-ttu-id="0f2cf-136">Kullanım <strong>jobtrackerhost:9010</strong> Hdınsight sürüm 3.0 ve 2.1 içinde.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-136">Use <strong>jobtrackerhost:9010</strong> in HDInsight version 3.0 and 2.1.</span></span></td></tr>
-<tr><td><span data-ttu-id="0f2cf-137">${İş}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-137">${nameNode}</span></span></td><td><span data-ttu-id="0f2cf-138">Hadoop adı düğümü URL'sini belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-138">Specifies the URL of the Hadoop name node.</span></span> <span data-ttu-id="0f2cf-139">Örneğin, varsayılan dosya sistemi adresi kullanın <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-139">Use the default file system address, for example, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</span></span></td></tr>
-<tr><td><span data-ttu-id="0f2cf-140">${queueName}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-140">${queueName}</span></span></td><td><span data-ttu-id="0f2cf-141">İş için gönderildiğinde sıra adı belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-141">Specifies the queue name that the job is submitted to.</span></span> <span data-ttu-id="0f2cf-142">Kullanım <strong>varsayılan</strong>.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-142">Use the <strong>default</strong>.</span></span></td></tr>
+<tr><th><span data-ttu-id="62e0c-132">İş akışı değişkenleri</span><span class="sxs-lookup"><span data-stu-id="62e0c-132">Workflow variables</span></span></th><th><span data-ttu-id="62e0c-133">Açıklama</span><span class="sxs-lookup"><span data-stu-id="62e0c-133">Description</span></span></th></tr>
+<tr><td><span data-ttu-id="62e0c-134">${Jobtracker'a}</span><span class="sxs-lookup"><span data-stu-id="62e0c-134">${jobTracker}</span></span></td><td><span data-ttu-id="62e0c-135">Merhaba Hadoop işi İzleyicisi Merhaba URL'sini belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-135">Specifies hello URL of hello Hadoop job tracker.</span></span> <span data-ttu-id="62e0c-136">Kullanım <strong>jobtrackerhost:9010</strong> Hdınsight sürüm 3.0 ve 2.1 içinde.</span><span class="sxs-lookup"><span data-stu-id="62e0c-136">Use <strong>jobtrackerhost:9010</strong> in HDInsight version 3.0 and 2.1.</span></span></td></tr>
+<tr><td><span data-ttu-id="62e0c-137">${İş}</span><span class="sxs-lookup"><span data-stu-id="62e0c-137">${nameNode}</span></span></td><td><span data-ttu-id="62e0c-138">Merhaba Hadoop adı düğümü Hello URL'sini belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-138">Specifies hello URL of hello Hadoop name node.</span></span> <span data-ttu-id="62e0c-139">Örneğin, Hello varsayılan dosya sistemi adresini kullanın <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</span><span class="sxs-lookup"><span data-stu-id="62e0c-139">Use hello default file system address, for example, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</span></span></td></tr>
+<tr><td><span data-ttu-id="62e0c-140">${queueName}</span><span class="sxs-lookup"><span data-stu-id="62e0c-140">${queueName}</span></span></td><td><span data-ttu-id="62e0c-141">İş hello hello sıra adı gönderildiği belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-141">Specifies hello queue name that hello job is submitted to.</span></span> <span data-ttu-id="62e0c-142">Kullanım hello <strong>varsayılan</strong>.</span><span class="sxs-lookup"><span data-stu-id="62e0c-142">Use hello <strong>default</strong>.</span></span></td></tr>
 </table>
 
 <table border = "1">
-<tr><th><span data-ttu-id="0f2cf-143">Eylem değişkeni yığını</span><span class="sxs-lookup"><span data-stu-id="0f2cf-143">Hive action variable</span></span></th><th><span data-ttu-id="0f2cf-144">Açıklama</span><span class="sxs-lookup"><span data-stu-id="0f2cf-144">Description</span></span></th></tr>
-<tr><td><span data-ttu-id="0f2cf-145">${hiveDataFolder}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-145">${hiveDataFolder}</span></span></td><td><span data-ttu-id="0f2cf-146">Create Table Hive komutu için kaynak dizini belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-146">Specifies the source directory for the Hive Create Table command.</span></span></td></tr>
-<tr><td><span data-ttu-id="0f2cf-147">${hiveOutputFolder}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-147">${hiveOutputFolder}</span></span></td><td><span data-ttu-id="0f2cf-148">INSERT üzerine deyimi için çıkış klasörünü belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-148">Specifies the output folder for the INSERT OVERWRITE statement.</span></span></td></tr>
-<tr><td><span data-ttu-id="0f2cf-149">${hiveTableName}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-149">${hiveTableName}</span></span></td><td><span data-ttu-id="0f2cf-150">Log4j veri dosyalarına başvuran Hive tablosu adını belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-150">Specifies the name of the Hive table that references the log4j data files.</span></span></td></tr>
+<tr><th><span data-ttu-id="62e0c-143">Eylem değişkeni yığını</span><span class="sxs-lookup"><span data-stu-id="62e0c-143">Hive action variable</span></span></th><th><span data-ttu-id="62e0c-144">Açıklama</span><span class="sxs-lookup"><span data-stu-id="62e0c-144">Description</span></span></th></tr>
+<tr><td><span data-ttu-id="62e0c-145">${hiveDataFolder}</span><span class="sxs-lookup"><span data-stu-id="62e0c-145">${hiveDataFolder}</span></span></td><td><span data-ttu-id="62e0c-146">Merhaba hello Hive Create Table komutu için kaynak dizini belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-146">Specifies hello source directory for hello Hive Create Table command.</span></span></td></tr>
+<tr><td><span data-ttu-id="62e0c-147">${hiveOutputFolder}</span><span class="sxs-lookup"><span data-stu-id="62e0c-147">${hiveOutputFolder}</span></span></td><td><span data-ttu-id="62e0c-148">Merhaba Ekle üzerine deyimi için Hello çıkış klasörünü belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-148">Specifies hello output folder for hello INSERT OVERWRITE statement.</span></span></td></tr>
+<tr><td><span data-ttu-id="62e0c-149">${hiveTableName}</span><span class="sxs-lookup"><span data-stu-id="62e0c-149">${hiveTableName}</span></span></td><td><span data-ttu-id="62e0c-150">Merhaba log4j veri dosyalarına başvuran hello Hive tablosu Hello adını belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-150">Specifies hello name of hello Hive table that references hello log4j data files.</span></span></td></tr>
 </table>
 
 <table border = "1">
-<tr><th><span data-ttu-id="0f2cf-151">Sqoop eylem değişkeni</span><span class="sxs-lookup"><span data-stu-id="0f2cf-151">Sqoop action variable</span></span></th><th><span data-ttu-id="0f2cf-152">Açıklama</span><span class="sxs-lookup"><span data-stu-id="0f2cf-152">Description</span></span></th></tr>
-<tr><td><span data-ttu-id="0f2cf-153">${sqlDatabaseConnectionString}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-153">${sqlDatabaseConnectionString}</span></span></td><td><span data-ttu-id="0f2cf-154">Azure SQL veritabanı bağlantı dizesi belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-154">Specifies the Azure SQL database connection string.</span></span></td></tr>
-<tr><td><span data-ttu-id="0f2cf-155">${sqlDatabaseTableName}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-155">${sqlDatabaseTableName}</span></span></td><td><span data-ttu-id="0f2cf-156">Veriler için dışa Azure SQL veritabanı tablosu belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-156">Specifies the Azure SQL database table where the data is exported to.</span></span></td></tr>
-<tr><td><span data-ttu-id="0f2cf-157">${hiveOutputFolder}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-157">${hiveOutputFolder}</span></span></td><td><span data-ttu-id="0f2cf-158">Hive Ekle üzerine deyimi için çıkış klasörünü belirtir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-158">Specifies the output folder for the Hive INSERT OVERWRITE statement.</span></span> <span data-ttu-id="0f2cf-159">Bu Sqoop verme (verme-dir) için aynı klasörüdür.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-159">This is the same folder for the Sqoop export (export-dir).</span></span></td></tr>
+<tr><th><span data-ttu-id="62e0c-151">Sqoop eylem değişkeni</span><span class="sxs-lookup"><span data-stu-id="62e0c-151">Sqoop action variable</span></span></th><th><span data-ttu-id="62e0c-152">Açıklama</span><span class="sxs-lookup"><span data-stu-id="62e0c-152">Description</span></span></th></tr>
+<tr><td><span data-ttu-id="62e0c-153">${sqlDatabaseConnectionString}</span><span class="sxs-lookup"><span data-stu-id="62e0c-153">${sqlDatabaseConnectionString}</span></span></td><td><span data-ttu-id="62e0c-154">Hello Azure SQL veritabanı bağlantı dizesi belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-154">Specifies hello Azure SQL database connection string.</span></span></td></tr>
+<tr><td><span data-ttu-id="62e0c-155">${sqlDatabaseTableName}</span><span class="sxs-lookup"><span data-stu-id="62e0c-155">${sqlDatabaseTableName}</span></span></td><td><span data-ttu-id="62e0c-156">Merhaba veriler için dışa hello Azure SQL veritabanı tablosunda belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-156">Specifies hello Azure SQL database table where hello data is exported to.</span></span></td></tr>
+<tr><td><span data-ttu-id="62e0c-157">${hiveOutputFolder}</span><span class="sxs-lookup"><span data-stu-id="62e0c-157">${hiveOutputFolder}</span></span></td><td><span data-ttu-id="62e0c-158">Merhaba Hive Ekle üzerine deyimi için Hello çıkış klasörünü belirtir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-158">Specifies hello output folder for hello Hive INSERT OVERWRITE statement.</span></span> <span data-ttu-id="62e0c-159">Merhaba budur aynı klasöre hello Sqoop verme (verme-dir).</span><span class="sxs-lookup"><span data-stu-id="62e0c-159">This is hello same folder for hello Sqoop export (export-dir).</span></span></td></tr>
 </table>
 
-<span data-ttu-id="0f2cf-160">Oozie iş akışı ve iş akışı eylemlerinin kullanma hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (Hdınsight sürüm 3.0 için) veya [Apache Oozie 3.3.2 belgelerine] [ apache-oozie-332] (Hdınsight sürüm 2.1 için).</span><span class="sxs-lookup"><span data-stu-id="0f2cf-160">For more information about Oozie workflow and using workflow actions, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).</span></span>
+<span data-ttu-id="62e0c-160">Oozie iş akışı ve iş akışı eylemlerinin kullanma hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (Hdınsight sürüm 3.0 için) veya [Apache Oozie 3.3.2 belgelerine] [ apache-oozie-332] (Hdınsight sürüm 2.1 için).</span><span class="sxs-lookup"><span data-stu-id="62e0c-160">For more information about Oozie workflow and using workflow actions, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).</span></span>
 
-<span data-ttu-id="0f2cf-161">İş akışı Hive eylemde HiveQL komut dosyasını çağırır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-161">The Hive action in the workflow calls a HiveQL script file.</span></span> <span data-ttu-id="0f2cf-162">Bu komut dosyasını üç HiveQL ifadelerini içerir:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-162">This script file contains three HiveQL statements:</span></span>
+<span data-ttu-id="62e0c-161">Merhaba Hive eylemin hello iş akışında bir HiveQL komut dosyasını çağırır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-161">hello Hive action in hello workflow calls a HiveQL script file.</span></span> <span data-ttu-id="62e0c-162">Bu komut dosyasını üç HiveQL ifadelerini içerir:</span><span class="sxs-lookup"><span data-stu-id="62e0c-162">This script file contains three HiveQL statements:</span></span>
 
     DROP TABLE ${hiveTableName};
     CREATE EXTERNAL TABLE ${hiveTableName}(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE DIRECTORY '${hiveOutputFolder}' SELECT t4 AS sev, COUNT(*) AS cnt FROM ${hiveTableName} WHERE t4 LIKE '[%' GROUP BY t4;
 
-1. <span data-ttu-id="0f2cf-163">**DROP TABLE deyimi** varsa log4j Hive tablosu siler.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-163">**The DROP TABLE statement** deletes the log4j Hive table if it exists.</span></span>
-2. <span data-ttu-id="0f2cf-164">**CREATE TABLE deyimi** log4j günlük dosyası konumuna işaret log4j Hive dış tablo oluşturur.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-164">**The CREATE TABLE statement** creates a log4j Hive external table that points to the location of the log4j log file.</span></span> <span data-ttu-id="0f2cf-165">Alan sınırlayıcı ",".</span><span class="sxs-lookup"><span data-stu-id="0f2cf-165">The field delimiter is ",".</span></span> <span data-ttu-id="0f2cf-166">Varsayılan satır ayırıcı "\n" dir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-166">The default line delimiter is "\n".</span></span> <span data-ttu-id="0f2cf-167">Hive dış tablo birden çok kez Oozie iş akışını çalıştırmak istiyorsanız, özgün konumundan kaldırılmakta olan veri dosyası önlemek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-167">A Hive external table is used to avoid the data file being removed from the original location if you want to run the Oozie workflow multiple times.</span></span>
-3. <span data-ttu-id="0f2cf-168">**INSERT üzerine deyimi** log4j Hive tablosu her günlük düzeyi türünden oluşumlarını sayar ve çıktı Azure storage'da bir blob kaydeder.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-168">**The INSERT OVERWRITE statement** counts the occurrences of each log-level type from the log4j Hive table, and saves the output to a blob in Azure Storage.</span></span>
+1. <span data-ttu-id="62e0c-163">**Merhaba DROP TABLE deyimi** siler hello log4j Hive tablosu varsa.</span><span class="sxs-lookup"><span data-stu-id="62e0c-163">**hello DROP TABLE statement** deletes hello log4j Hive table if it exists.</span></span>
+2. <span data-ttu-id="62e0c-164">**Merhaba CREATE TABLE deyimi** toohello hello log4j günlük dosyasının konumunu işaret log4j Hive dış tablo oluşturur.</span><span class="sxs-lookup"><span data-stu-id="62e0c-164">**hello CREATE TABLE statement** creates a log4j Hive external table that points toohello location of hello log4j log file.</span></span> <span data-ttu-id="62e0c-165">Merhaba alan sınırlayıcı ",".</span><span class="sxs-lookup"><span data-stu-id="62e0c-165">hello field delimiter is ",".</span></span> <span data-ttu-id="62e0c-166">Merhaba varsayılan satır ayırıcı "\n" dir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-166">hello default line delimiter is "\n".</span></span> <span data-ttu-id="62e0c-167">Hive dış tablo birden çok kez toorun hello Oozie iş akışı istiyorsanız hello özgün konumundan kaldırılmakta kullanılan tooavoid hello veri dosyasıdır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-167">A Hive external table is used tooavoid hello data file being removed from hello original location if you want toorun hello Oozie workflow multiple times.</span></span>
+3. <span data-ttu-id="62e0c-168">**Merhaba Ekle üzerine deyimi** hello log4j Hive tablosu her günlük düzeyi türünden hello oluşumlarını sayar ve Azure depolama alanında hello çıktı tooa blob kaydeder.</span><span class="sxs-lookup"><span data-stu-id="62e0c-168">**hello INSERT OVERWRITE statement** counts hello occurrences of each log-level type from hello log4j Hive table, and saves hello output tooa blob in Azure Storage.</span></span>
 
-<span data-ttu-id="0f2cf-169">Komut dosyasında kullanılan üç değişkenleri şunlardır:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-169">There are three variables used in the script:</span></span>
+<span data-ttu-id="62e0c-169">Merhaba komut dosyasında kullanılan üç değişkenleri şunlardır:</span><span class="sxs-lookup"><span data-stu-id="62e0c-169">There are three variables used in hello script:</span></span>
 
-* <span data-ttu-id="0f2cf-170">${hiveTableName}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-170">${hiveTableName}</span></span>
-* <span data-ttu-id="0f2cf-171">${hiveDataFolder}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-171">${hiveDataFolder}</span></span>
-* <span data-ttu-id="0f2cf-172">${hiveOutputFolder}</span><span class="sxs-lookup"><span data-stu-id="0f2cf-172">${hiveOutputFolder}</span></span>
+* <span data-ttu-id="62e0c-170">${hiveTableName}</span><span class="sxs-lookup"><span data-stu-id="62e0c-170">${hiveTableName}</span></span>
+* <span data-ttu-id="62e0c-171">${hiveDataFolder}</span><span class="sxs-lookup"><span data-stu-id="62e0c-171">${hiveDataFolder}</span></span>
+* <span data-ttu-id="62e0c-172">${hiveOutputFolder}</span><span class="sxs-lookup"><span data-stu-id="62e0c-172">${hiveOutputFolder}</span></span>
 
-<span data-ttu-id="0f2cf-173">İş akışı tanımı dosyası (Bu öğreticide workflow.xml) bu değerleri bu HiveQL betiğini çalışma zamanında geçirir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-173">The workflow definition file (workflow.xml in this tutorial) passes these values to this HiveQL script at run time.</span></span>
+<span data-ttu-id="62e0c-173">Merhaba iş akışı tanımı dosyası (Bu öğreticide workflow.xml) bu değerleri toothis çalışma zamanında HiveQL betiğini geçirir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-173">hello workflow definition file (workflow.xml in this tutorial) passes these values toothis HiveQL script at run time.</span></span>
 
-<span data-ttu-id="0f2cf-174">İş akışı dosyası ve HiveQL dosya bir blob kapsayıcısında depolanır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-174">Both the workflow file and the HiveQL file are stored in a blob container.</span></span>  <span data-ttu-id="0f2cf-175">Daha sonra Bu öğreticide kullandığınız PowerShell Betiği hem dosyaları için varsayılan depolama hesabı kopyalar.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-175">The PowerShell script you use later in this tutorial copies both files to the default Storage account.</span></span> 
+<span data-ttu-id="62e0c-174">Merhaba iş akışı dosyası ve hello HiveQL dosya bir blob kapsayıcısında depolanır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-174">Both hello workflow file and hello HiveQL file are stored in a blob container.</span></span>  <span data-ttu-id="62e0c-175">Merhaba, daha sonra Bu öğreticide kullandığınız PowerShell Betiği hem dosyaları toohello varsayılan depolama hesabı kopyalar.</span><span class="sxs-lookup"><span data-stu-id="62e0c-175">hello PowerShell script you use later in this tutorial copies both files toohello default Storage account.</span></span> 
 
-## <a name="submit-oozie-jobs-using-powershell"></a><span data-ttu-id="0f2cf-176">PowerShell kullanarak Oozie işlerini gönderme</span><span class="sxs-lookup"><span data-stu-id="0f2cf-176">Submit Oozie jobs using PowerShell</span></span>
-<span data-ttu-id="0f2cf-177">Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-177">Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs.</span></span> <span data-ttu-id="0f2cf-178">Kullanabileceğiniz **Invoke-RestMethod** cmdlet'ini Oozie web hizmetlerini çağırır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-178">You can use the **Invoke-RestMethod** cmdlet to invoke Oozie web services.</span></span> <span data-ttu-id="0f2cf-179">Oozie web hizmetleri API'si bir HTTP REST JSON API'dir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-179">The Oozie web services API is a HTTP REST JSON API.</span></span> <span data-ttu-id="0f2cf-180">Oozie web hizmetleri API'si hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (Hdınsight sürüm 3.0 için) veya [Apache Oozie 3.3.2 belgelerine] [ apache-oozie-332] (Hdınsight sürüm 2.1 için).</span><span class="sxs-lookup"><span data-stu-id="0f2cf-180">For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).</span></span>
+## <a name="submit-oozie-jobs-using-powershell"></a><span data-ttu-id="62e0c-176">PowerShell kullanarak Oozie işlerini gönderme</span><span class="sxs-lookup"><span data-stu-id="62e0c-176">Submit Oozie jobs using PowerShell</span></span>
+<span data-ttu-id="62e0c-177">Azure PowerShell cmdlet'lerin Oozie işleri tanımlamak için şu anda sağlamaz.</span><span class="sxs-lookup"><span data-stu-id="62e0c-177">Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs.</span></span> <span data-ttu-id="62e0c-178">Merhaba kullanabilirsiniz **Invoke-RestMethod** cmdlet tooinvoke Oozie web hizmetleri.</span><span class="sxs-lookup"><span data-stu-id="62e0c-178">You can use hello **Invoke-RestMethod** cmdlet tooinvoke Oozie web services.</span></span> <span data-ttu-id="62e0c-179">bir HTTP REST JSON API Hello Oozie web hizmetleri API'si var.</span><span class="sxs-lookup"><span data-stu-id="62e0c-179">hello Oozie web services API is a HTTP REST JSON API.</span></span> <span data-ttu-id="62e0c-180">Merhaba Oozie web hizmetleri API'si hakkında daha fazla bilgi için bkz: [Apache Oozie 4.0 belgelerine] [ apache-oozie-400] (Hdınsight sürüm 3.0 için) veya [Apache Oozie 3.3.2 belgelerine] [ apache-oozie-332] (Hdınsight sürüm 2.1 için).</span><span class="sxs-lookup"><span data-stu-id="62e0c-180">For more information about hello Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).</span></span>
 
-<span data-ttu-id="0f2cf-181">Bu bölümdeki PowerShell Betiği aşağıdaki adımları gerçekleştirir:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-181">The PowerShell script in this section performs the following steps:</span></span>
+<span data-ttu-id="62e0c-181">Merhaba PowerShell Betiği bu bölümdeki hello aşağıdaki adımları gerçekleştirir:</span><span class="sxs-lookup"><span data-stu-id="62e0c-181">hello PowerShell script in this section performs hello following steps:</span></span>
 
-1. <span data-ttu-id="0f2cf-182">Azure'a bağlayın.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-182">Connect to Azure.</span></span>
-2. <span data-ttu-id="0f2cf-183">Bir Azure kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-183">Create an Azure resource group.</span></span> <span data-ttu-id="0f2cf-184">Daha fazla bilgi için bkz: [kullanım Azure PowerShell'i Azure Resource Manager ile](../powershell-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="0f2cf-184">For more information, see [Use Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).</span></span>
-3. <span data-ttu-id="0f2cf-185">Bir Azure SQL veritabanı sunucusu, Azure SQL veritabanına ve iki tablo oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-185">Create an Azure SQL Database server, an Azure SQL database, and two tables.</span></span> <span data-ttu-id="0f2cf-186">Bunlar, Sqoop eylem iş akışı tarafından kullanılır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-186">These are used by the Sqoop action in the workflow.</span></span>
+1. <span data-ttu-id="62e0c-182">TooAzure bağlanın.</span><span class="sxs-lookup"><span data-stu-id="62e0c-182">Connect tooAzure.</span></span>
+2. <span data-ttu-id="62e0c-183">Bir Azure kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="62e0c-183">Create an Azure resource group.</span></span> <span data-ttu-id="62e0c-184">Daha fazla bilgi için bkz: [kullanım Azure PowerShell'i Azure Resource Manager ile](../powershell-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="62e0c-184">For more information, see [Use Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).</span></span>
+3. <span data-ttu-id="62e0c-185">Bir Azure SQL veritabanı sunucusu, Azure SQL veritabanına ve iki tablo oluşturun.</span><span class="sxs-lookup"><span data-stu-id="62e0c-185">Create an Azure SQL Database server, an Azure SQL database, and two tables.</span></span> <span data-ttu-id="62e0c-186">Bunlar, hello Sqoop eylemin hello iş akışında tarafından kullanılır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-186">These are used by hello Sqoop action in hello workflow.</span></span>
    
-    <span data-ttu-id="0f2cf-187">Tablo adı *log4jLogCount*.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-187">The table name is *log4jLogCount*.</span></span>
-4. <span data-ttu-id="0f2cf-188">Oozie işlerini çalıştırmak için kullanılan Hdınsight kümesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-188">Create an HDInsight cluster used to run Oozie jobs.</span></span>
+    <span data-ttu-id="62e0c-187">Merhaba tablo adı *log4jLogCount*.</span><span class="sxs-lookup"><span data-stu-id="62e0c-187">hello table name is *log4jLogCount*.</span></span>
+4. <span data-ttu-id="62e0c-188">Bir Hdınsight kümesi kullanılan toorun Oozie işleri oluşturun.</span><span class="sxs-lookup"><span data-stu-id="62e0c-188">Create an HDInsight cluster used toorun Oozie jobs.</span></span>
    
-    <span data-ttu-id="0f2cf-189">Küme incelemek için Azure portalında veya Azure PowerShell'i kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-189">To examine the cluster, you can use the Azure portal or Azure PowerShell.</span></span>
-5. <span data-ttu-id="0f2cf-190">Oozie iş akışı dosyası ve HiveQL komut dosyası için varsayılan dosya sistemi kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-190">Copy the oozie workflow file and the HiveQL script file to the default file system.</span></span>
+    <span data-ttu-id="62e0c-189">tooexamine hello küme hello Azure portalında veya Azure PowerShell'i kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="62e0c-189">tooexamine hello cluster, you can use hello Azure portal or Azure PowerShell.</span></span>
+5. <span data-ttu-id="62e0c-190">Merhaba oozie iş akışı dosyası ve hello HiveQL betiğini dosya toohello varsayılan dosya sistemi kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="62e0c-190">Copy hello oozie workflow file and hello HiveQL script file toohello default file system.</span></span>
    
-    <span data-ttu-id="0f2cf-191">Her iki dosyaları bir ortak Blob kapsayıcısında depolanır.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-191">Both files are stored in a public Blob container.</span></span>
+    <span data-ttu-id="62e0c-191">Her iki dosyaları bir ortak Blob kapsayıcısında depolanır.</span><span class="sxs-lookup"><span data-stu-id="62e0c-191">Both files are stored in a public Blob container.</span></span>
    
-   * <span data-ttu-id="0f2cf-192">HiveQL betiğini (useoozie.hql) (wasb:///tutorials/useoozie/useoozie.hql) Azure depolama alanına kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-192">Copy the HiveQL script (useoozie.hql) to Azure Storage (wasb:///tutorials/useoozie/useoozie.hql).</span></span>
-   * <span data-ttu-id="0f2cf-193">Workflow.XML için wasb:///tutorials/useoozie/workflow.xml kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-193">Copy workflow.xml to wasb:///tutorials/useoozie/workflow.xml.</span></span>
-   * <span data-ttu-id="0f2cf-194">Veri dosyasını kopyalayın (/ example/data/sample.log) wasb:///tutorials/useoozie/data/sample.log için.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-194">Copy the data file (/example/data/sample.log) to wasb:///tutorials/useoozie/data/sample.log.</span></span>
-6. <span data-ttu-id="0f2cf-195">Oozie işi gönderin.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-195">Submit an Oozie job.</span></span>
+   * <span data-ttu-id="62e0c-192">Merhaba HiveQL betiğini (useoozie.hql) tooAzure depolama (wasb:///tutorials/useoozie/useoozie.hql) kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="62e0c-192">Copy hello HiveQL script (useoozie.hql) tooAzure Storage (wasb:///tutorials/useoozie/useoozie.hql).</span></span>
+   * <span data-ttu-id="62e0c-193">Workflow.XML toowasb:///tutorials/useoozie/workflow.xml kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="62e0c-193">Copy workflow.xml toowasb:///tutorials/useoozie/workflow.xml.</span></span>
+   * <span data-ttu-id="62e0c-194">Kopya hello veri dosyası (/ example/data/sample.log) toowasb:///tutorials/useoozie/data/sample.log.</span><span class="sxs-lookup"><span data-stu-id="62e0c-194">Copy hello data file (/example/data/sample.log) toowasb:///tutorials/useoozie/data/sample.log.</span></span>
+6. <span data-ttu-id="62e0c-195">Oozie işi gönderin.</span><span class="sxs-lookup"><span data-stu-id="62e0c-195">Submit an Oozie job.</span></span>
    
-    <span data-ttu-id="0f2cf-196">OOzie iş sonuçları incelemek için Azure SQL veritabanına bağlanmak için Visual Studio veya diğer Araçlar'ı kullanın.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-196">To examine the OOzie job results, use Visual Studio or other tools to connect to the Azure SQL Database.</span></span>
+    <span data-ttu-id="62e0c-196">tooexamine hello OOzie iş sonuçları, Visual Studio'ya veya diğer araçlar tooconnect toohello Azure SQL Database kullanın.</span><span class="sxs-lookup"><span data-stu-id="62e0c-196">tooexamine hello OOzie job results, use Visual Studio or other tools tooconnect toohello Azure SQL Database.</span></span>
 
-<span data-ttu-id="0f2cf-197">Komut dosyası aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-197">Here is the script.</span></span>  <span data-ttu-id="0f2cf-198">Windows PowerShell ISE komut dosyasını çalıştırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-198">You can run the script from Windows PowerShell ISE.</span></span> <span data-ttu-id="0f2cf-199">Yalnızca ilk 7 değişkenleri yapılandırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-199">You only need to configure the first 7 variables.</span></span>
+<span data-ttu-id="62e0c-197">Burada, hello betik verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="62e0c-197">Here is hello script.</span></span>  <span data-ttu-id="62e0c-198">Windows PowerShell ISE hello komut dosyasını çalıştırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="62e0c-198">You can run hello script from Windows PowerShell ISE.</span></span> <span data-ttu-id="62e0c-199">Tooconfigure yeterlidir ilk 7 değişkenleri hello.</span><span class="sxs-lookup"><span data-stu-id="62e0c-199">You only need tooconfigure hello first 7 variables.</span></span>
 
-    #region - provide the following values
+    #region - provide hello following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 08/29/2017
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
     # HDInsight cluster HTTP user credential used for creating and connectin
-    $httpUserName = "admin"  # The default name is "admin"
+    $httpUserName = "admin"  # hello default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
     # Used for creating Azure service names
@@ -240,8 +240,8 @@ ms.lasthandoff: 08/29/2017
     # Treat all errors as terminating
     $ErrorActionPreference = "Stop"
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{
         Login-AzureRmAccount
@@ -285,8 +285,8 @@ ms.lasthandoff: 08/29/2017
             -StartIpAddress $workstationIPAddress `
             -EndIpAddress $workstationIPAddress
 
-        #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. 
-        #Note that this allows Azure traffic from any Azure subscription to access the server.
+        #tooallow other Azure services tooaccess hello server add a firewall rule and set both hello StartIpAddress and EndIpAddress too0.0.0.0. 
+        #Note that this allows Azure traffic from any Azure subscription tooaccess hello server.
         New-AzureRmSqlServerFirewallRule `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
@@ -316,7 +316,7 @@ ms.lasthandoff: 08/29/2017
     #endregion
 
     #region - Create SQL database tables
-    Write-Host "Creating the log4jlogs table  ..." -ForegroundColor Green
+    Write-Host "Creating hello log4jlogs table  ..." -ForegroundColor Green
 
     $sqlDatabaseTableName = "log4jLogsCount"
     $cmdCreateLog4jCountTable = " CREATE TABLE [dbo].[$sqlDatabaseTableName](
@@ -332,7 +332,7 @@ ms.lasthandoff: 08/29/2017
     $conn.ConnectionString = $sqlDatabaseConnectionString
     $conn.Open()
 
-    # Create the log4jlogs table and index
+    # Create hello log4jlogs table and index
     $cmd = New-Object System.Data.SqlClient.SqlCommand
     $cmd.Connection = $conn
     $cmd.CommandText = $cmdCreateLog4jCountTable
@@ -343,16 +343,16 @@ ms.lasthandoff: 08/29/2017
 
     #region - Create HDInsight cluster
 
-    Write-Host "Creating the HDInsight cluster and the dependent services ..." -ForegroundColor Green
+    Write-Host "Creating hello HDInsight cluster and hello dependent services ..." -ForegroundColor Green
 
-    # Create the default storage account
+    # Create hello default storage account
     New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_LRS
 
-    # Create the default Blob container
+    # Create hello default Blob container
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
@@ -363,7 +363,7 @@ ms.lasthandoff: 08/29/2017
         -Name $defaultBlobContainerName `
         -Context $defaultStorageAccountContext 
 
-    # Create the HDInsight cluster
+    # Create hello HDInsight cluster
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
@@ -379,7 +379,7 @@ ms.lasthandoff: 08/29/2017
         -DefaultStorageAccountKey $defaultStorageAccountKey `
         -DefaultStorageContainer $defaultBlobContainerName 
 
-    # Validate the cluster
+    # Validate hello cluster
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
     #endregion
 
@@ -390,8 +390,8 @@ ms.lasthandoff: 08/29/2017
     # Both files are stored in a public Blob
     $publicBlobContext = New-AzureStorageContext -StorageAccountName "hditutorialdata" -Anonymous
 
-    # WASB folder for storing the Oozie tutorial files.
-    $destFolder = "tutorials/useoozie"  # Do NOT use the long path here
+    # WASB folder for storing hello Oozie tutorial files.
+    $destFolder = "tutorials/useoozie"  # Do NOT use hello long path here
 
     Start-CopyAzureStorageBlob `
         -Context $publicBlobContext `
@@ -411,7 +411,7 @@ ms.lasthandoff: 08/29/2017
         -DestBlob "$destFolder/workflow.xml" `
         -Force
 
-    #validate the copy
+    #validate hello copy
     Get-AzureStorageBlob `
         -Context $defaultStorageAccountContext `
         -Container $defaultBlobContainerName `
@@ -424,9 +424,9 @@ ms.lasthandoff: 08/29/2017
 
     #endregion
 
-    #region - copy the sample.log file
+    #region - copy hello sample.log file
 
-    Write-Host "Make a copy of the sample.log file ... " -ForegroundColor Green
+    Write-Host "Make a copy of hello sample.log file ... " -ForegroundColor Green
 
     Start-CopyAzureStorageBlob `
         -Context $defaultStorageAccountContext `
@@ -436,7 +436,7 @@ ms.lasthandoff: 08/29/2017
         -DestContainer $defaultBlobContainerName `
         -destBlob "$destFolder/data/sample.log" 
 
-    #validate the copy
+    #validate hello copy
     Get-AzureStorageBlob `
         -Context $defaultStorageAccountContext `
         -Container $defaultBlobContainerName `
@@ -451,7 +451,7 @@ ms.lasthandoff: 08/29/2017
     $oozieJobName = $namePrefix + "OozieJob"
 
     #Oozie WF variables
-    $oozieWFPath="$storageUri/tutorials/useoozie"  # The default name is workflow.xml. And you don't need to specify the file name.
+    $oozieWFPath="$storageUri/tutorials/useoozie"  # hello default name is workflow.xml. And you don't need toospecify hello file name.
     $waitTimeBetweenOozieJobStatusCheck=10
 
     #Hive action variables
@@ -539,7 +539,7 @@ ms.lasthandoff: 08/29/2017
     Write-Host "Oozie server status is $oozieServerSatus."
 
     # create Oozie job
-    Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
+    Write-Host "Sending hello following Payload toohello cluster:" -ForegroundColor Green
     Write-Host "`n--------`n$OoziePayload`n--------"
     $clusterUriCreateJob = "https://$hdinsightClusterName.azurehdinsight.net:443/oozie/v2/jobs"
     $response = Invoke-RestMethod -Method Post -Uri $clusterUriCreateJob -Credential $httpCredential -Body $OoziePayload -ContentType "application/xml" -OutVariable $OozieJobName #-debug
@@ -549,15 +549,15 @@ ms.lasthandoff: 08/29/2017
     Write-Host "Oozie job id is $oozieJobId..."
 
     # start Oozie job
-    Write-Host "Starting the Oozie job $oozieJobId..." -ForegroundColor Green
+    Write-Host "Starting hello Oozie job $oozieJobId..." -ForegroundColor Green
     $clusterUriStartJob = "https://$hdinsightClusterName.azurehdinsight.net:443/oozie/v2/job/" + $oozieJobId + "?action=start"
     $response = Invoke-RestMethod -Method Put -Uri $clusterUriStartJob -Credential $httpCredential | Format-Table -HideTableHeaders #-debug
 
     # get job status
-    Write-Host "Sleeping for $waitTimeBetweenOozieJobStatusCheck seconds until the job metadata is populated in the Oozie metastore..." -ForegroundColor Green
+    Write-Host "Sleeping for $waitTimeBetweenOozieJobStatusCheck seconds until hello job metadata is populated in hello Oozie metastore..." -ForegroundColor Green
     Start-Sleep -Seconds $waitTimeBetweenOozieJobStatusCheck
 
-    Write-Host "Getting job status and waiting for the job to complete..." -ForegroundColor Green
+    Write-Host "Getting job status and waiting for hello job toocomplete..." -ForegroundColor Green
     $clusterUriGetJobStatus = "https://$hdinsightClusterName.azurehdinsight.net:443/oozie/v2/job/" + $oozieJobId + "?show=info"
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriGetJobStatus -Credential $httpCredential
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
@@ -565,7 +565,7 @@ ms.lasthandoff: 08/29/2017
 
     while($JobStatus -notmatch "SUCCEEDED|KILLED")
     {
-        Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state...waiting $waitTimeBetweenOozieJobStatusCheck seconds for the job to complete..."
+        Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state...waiting $waitTimeBetweenOozieJobStatusCheck seconds for hello job toocomplete..."
         Start-Sleep -Seconds $waitTimeBetweenOozieJobStatusCheck
         $response = Invoke-RestMethod -Method Get -Uri $clusterUriGetJobStatus -Credential $httpCredential
         $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
@@ -578,14 +578,14 @@ ms.lasthandoff: 08/29/2017
     #endregion
 
 
-<span data-ttu-id="0f2cf-200">**Öğreticiyi yeniden çalıştırmak için**</span><span class="sxs-lookup"><span data-stu-id="0f2cf-200">**To re-run the tutorial**</span></span>
+<span data-ttu-id="62e0c-200">**toore çalıştırma başlangıç Öğreticisi**</span><span class="sxs-lookup"><span data-stu-id="62e0c-200">**toore-run hello tutorial**</span></span>
 
-<span data-ttu-id="0f2cf-201">İş akışını yeniden çalıştırmak için aşağıdaki öğeleri silmeniz gerekir:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-201">To re-run the workflow, you must delete the following items:</span></span>
+<span data-ttu-id="62e0c-201">toore çalıştırma hello iş akışı öğeleri aşağıdaki hello silmeniz gerekir:</span><span class="sxs-lookup"><span data-stu-id="62e0c-201">toore-run hello workflow, you must delete hello following items:</span></span>
 
-* <span data-ttu-id="0f2cf-202">Hive betiği çıkış dosyası</span><span class="sxs-lookup"><span data-stu-id="0f2cf-202">The Hive script output file</span></span>
-* <span data-ttu-id="0f2cf-203">Log4jLogsCount tablosundaki verileri</span><span class="sxs-lookup"><span data-stu-id="0f2cf-203">The data in the log4jLogsCount table</span></span>
+* <span data-ttu-id="62e0c-202">Merhaba Hive betik çıkış dosyası</span><span class="sxs-lookup"><span data-stu-id="62e0c-202">hello Hive script output file</span></span>
+* <span data-ttu-id="62e0c-203">Merhaba log4jLogsCount tablosunda Hello veri</span><span class="sxs-lookup"><span data-stu-id="62e0c-203">hello data in hello log4jLogsCount table</span></span>
 
-<span data-ttu-id="0f2cf-204">Kullanabileceğiniz bir örnek PowerShell komut dosyasını şöyledir:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-204">Here is a sample PowerShell script that you can use:</span></span>
+<span data-ttu-id="62e0c-204">Kullanabileceğiniz bir örnek PowerShell komut dosyasını şöyledir:</span><span class="sxs-lookup"><span data-stu-id="62e0c-204">Here is a sample PowerShell script that you can use:</span></span>
 
     $resourceGroupName = "<AzureResourceGroupName>"
 
@@ -599,14 +599,14 @@ ms.lasthandoff: 08/29/2017
     $sqlDatabaseName = "<SQLDatabaseName>"
     $sqlDatabaseTableName = "log4jLogsCount"
 
-    Write-host "Delete the Hive script output file ..." -ForegroundColor Green
+    Write-host "Delete hello Hive script output file ..." -ForegroundColor Green
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
     Remove-AzureStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $defaultBlobContainerName
 
-    Write-host "Delete all the records from the log4jLogsCount table ..." -ForegroundColor Green
+    Write-host "Delete all hello records from hello log4jLogsCount table ..." -ForegroundColor Green
     $conn = New-Object System.Data.SqlClient.SqlConnection
     $conn.ConnectionString = "Data Source=$sqlDatabaseServerName.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
     $conn.open()
@@ -617,18 +617,18 @@ ms.lasthandoff: 08/29/2017
 
     $conn.close()
 
-## <a name="next-steps"></a><span data-ttu-id="0f2cf-205">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="0f2cf-205">Next steps</span></span>
-<span data-ttu-id="0f2cf-206">Bu öğreticide, Oozie iş akışı tanımlama ve PowerShell kullanarak bir Oozie işi çalıştırmak öğrendiniz.</span><span class="sxs-lookup"><span data-stu-id="0f2cf-206">In this tutorial, you learned how to define an Oozie workflow and how to run an Oozie job by using PowerShell.</span></span> <span data-ttu-id="0f2cf-207">Daha fazla bilgi için aşağıdaki makalelere bakın:</span><span class="sxs-lookup"><span data-stu-id="0f2cf-207">To learn more, see the following articles:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="62e0c-205">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="62e0c-205">Next steps</span></span>
+<span data-ttu-id="62e0c-206">Bu öğreticide, nasıl öğrenilen toodefine bir Oozie iş akışı ve nasıl toorun bir Oozie iş PowerShell kullanarak.</span><span class="sxs-lookup"><span data-stu-id="62e0c-206">In this tutorial, you learned how toodefine an Oozie workflow and how toorun an Oozie job by using PowerShell.</span></span> <span data-ttu-id="62e0c-207">toolearn daha makaleler hello bakın:</span><span class="sxs-lookup"><span data-stu-id="62e0c-207">toolearn more, see hello following articles:</span></span>
 
-* <span data-ttu-id="0f2cf-208">[Hdınsight ile zamana dayalı Oozie düzenleyicisi kullanın][hdinsight-oozie-coordinator-time]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-208">[Use time-based Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]</span></span>
-* <span data-ttu-id="0f2cf-209">[Hadoop ile hdınsight'ta Hive mobil ahize kullanımını çözümleme için kullanmaya başlama][hdinsight-get-started]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-209">[Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]</span></span>
-* <span data-ttu-id="0f2cf-210">[Hdınsight ile Azure Blob storage kullanma][hdinsight-storage]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-210">[Use Azure Blob storage with HDInsight][hdinsight-storage]</span></span>
-* <span data-ttu-id="0f2cf-211">[PowerShell kullanarak Hdınsight yönetme][hdinsight-admin-powershell]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-211">[Administer HDInsight using PowerShell][hdinsight-admin-powershell]</span></span>
-* <span data-ttu-id="0f2cf-212">[Hdınsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-212">[Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data]</span></span>
-* <span data-ttu-id="0f2cf-213">[Hdınsight'ta Hadoop ile Sqoop kullanma][hdinsight-use-sqoop]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-213">[Use Sqoop with Hadoop in HDInsight][hdinsight-use-sqoop]</span></span>
-* <span data-ttu-id="0f2cf-214">[Hdınsight'ta Hadoop ile Hive kullanma][hdinsight-use-hive]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-214">[Use Hive with Hadoop on HDInsight][hdinsight-use-hive]</span></span>
-* <span data-ttu-id="0f2cf-215">[Hdınsight'ta Hadoop ile pig kullanma][hdinsight-use-pig]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-215">[Use Pig with Hadoop on HDInsight][hdinsight-use-pig]</span></span>
-* <span data-ttu-id="0f2cf-216">[Hdınsight için Java MapReduce programlar geliştirmek][hdinsight-develop-mapreduce]</span><span class="sxs-lookup"><span data-stu-id="0f2cf-216">[Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]</span></span>
+* <span data-ttu-id="62e0c-208">[Hdınsight ile zamana dayalı Oozie düzenleyicisi kullanın][hdinsight-oozie-coordinator-time]</span><span class="sxs-lookup"><span data-stu-id="62e0c-208">[Use time-based Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]</span></span>
+* <span data-ttu-id="62e0c-209">[Hadoop ile Hive Hdınsight tooanalyze mobil ahize kullanımda kullanmaya başlama][hdinsight-get-started]</span><span class="sxs-lookup"><span data-stu-id="62e0c-209">[Get started using Hadoop with Hive in HDInsight tooanalyze mobile handset use][hdinsight-get-started]</span></span>
+* <span data-ttu-id="62e0c-210">[Hdınsight ile Azure Blob storage kullanma][hdinsight-storage]</span><span class="sxs-lookup"><span data-stu-id="62e0c-210">[Use Azure Blob storage with HDInsight][hdinsight-storage]</span></span>
+* <span data-ttu-id="62e0c-211">[PowerShell kullanarak Hdınsight yönetme][hdinsight-admin-powershell]</span><span class="sxs-lookup"><span data-stu-id="62e0c-211">[Administer HDInsight using PowerShell][hdinsight-admin-powershell]</span></span>
+* <span data-ttu-id="62e0c-212">[Hdınsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data]</span><span class="sxs-lookup"><span data-stu-id="62e0c-212">[Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data]</span></span>
+* <span data-ttu-id="62e0c-213">[Hdınsight'ta Hadoop ile Sqoop kullanma][hdinsight-use-sqoop]</span><span class="sxs-lookup"><span data-stu-id="62e0c-213">[Use Sqoop with Hadoop in HDInsight][hdinsight-use-sqoop]</span></span>
+* <span data-ttu-id="62e0c-214">[Hdınsight'ta Hadoop ile Hive kullanma][hdinsight-use-hive]</span><span class="sxs-lookup"><span data-stu-id="62e0c-214">[Use Hive with Hadoop on HDInsight][hdinsight-use-hive]</span></span>
+* <span data-ttu-id="62e0c-215">[Hdınsight'ta Hadoop ile pig kullanma][hdinsight-use-pig]</span><span class="sxs-lookup"><span data-stu-id="62e0c-215">[Use Pig with Hadoop on HDInsight][hdinsight-use-pig]</span></span>
+* <span data-ttu-id="62e0c-216">[Hdınsight için Java MapReduce programlar geliştirmek][hdinsight-develop-mapreduce]</span><span class="sxs-lookup"><span data-stu-id="62e0c-216">[Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]</span></span>
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 

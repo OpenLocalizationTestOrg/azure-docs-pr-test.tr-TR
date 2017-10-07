@@ -1,6 +1,6 @@
 ---
-title: "SAP çoklu SID yapılandırma oluşturma | Microsoft Docs"
-description: "Yüksek kullanılabilirlik SAP NetWeaver çoklu SID yapılandırma için Windows sanal makineleri Kılavuzu"
+title: "bir Azure SAP çoklu SID yapılandırmasında aaaCreate | Microsoft Docs"
+description: "Windows sanal makinelerde Kılavuzu toohigh kullanılabilirlik SAP NetWeaver çoklu SID yapılandırması"
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c813329b6fed2a2c23e59f1bdfd2d3babae0e724
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 546d951d1f0861b27639fdab40ebaf0b7f379575
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-sap-netweaver-multi-sid-configuration"></a><span data-ttu-id="d8073-103">SAP NetWeaver çoklu SID yapılandırması oluştur</span><span class="sxs-lookup"><span data-stu-id="d8073-103">Create an SAP NetWeaver multi-SID configuration</span></span>
+# <a name="create-an-sap-netweaver-multi-sid-configuration"></a><span data-ttu-id="9e404-103">SAP NetWeaver çoklu SID yapılandırması oluştur</span><span class="sxs-lookup"><span data-stu-id="9e404-103">Create an SAP NetWeaver multi-SID configuration</span></span>
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -444,93 +444,93 @@ ms.lasthandoff: 08/29/2017
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-<span data-ttu-id="d8073-104">Eylül 2016'da, Microsoft yönetebileceğiniz birden çok sanal IP adresi kullanarak bir özelliği yayımlanan bir [Azure iç yük dengeleyici][load-balancer-multivip-overview].</span><span class="sxs-lookup"><span data-stu-id="d8073-104">In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview].</span></span> <span data-ttu-id="d8073-105">Bu işlev Azure dış yük dengeleyicide zaten var.</span><span class="sxs-lookup"><span data-stu-id="d8073-105">This functionality already exists in the Azure external load balancer.</span></span>
+<span data-ttu-id="9e404-104">Eylül 2016'da, Microsoft yönetebileceğiniz birden çok sanal IP adresi kullanarak bir özelliği yayımlanan bir [Azure iç yük dengeleyici][load-balancer-multivip-overview].</span><span class="sxs-lookup"><span data-stu-id="9e404-104">In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview].</span></span> <span data-ttu-id="9e404-105">Bu işlev hello Azure dış yük dengeleyicide zaten var.</span><span class="sxs-lookup"><span data-stu-id="9e404-105">This functionality already exists in hello Azure external load balancer.</span></span>
 
-<span data-ttu-id="d8073-106">Bir SAP dağıtımınız varsa, bir iç yük dengeleyici SAP ASCS/SCS için bir Windows Küme yapılandırması oluşturmak için açıklandığı gibi kullanabileceğiniz [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide].</span><span class="sxs-lookup"><span data-stu-id="d8073-106">If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS, as documented in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide].</span></span>
+<span data-ttu-id="9e404-106">Bir SAP dağıtımınız varsa, bir iç yük dengeleyici toocreate Windows Küme yapılandırması SAP ASCS/SCS için hello belirtildiği gibi kullanabileceğiniz [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde] [ sap-ha-guide].</span><span class="sxs-lookup"><span data-stu-id="9e404-106">If you have an SAP deployment, you can use an internal load balancer toocreate a Windows cluster configuration for SAP ASCS/SCS, as documented in hello [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide].</span></span>
 
-<span data-ttu-id="d8073-107">Bu makalede, varolan bir Windows Server Yük Devretme Kümelemesi (WSFC) kümesine ek SAP ASCS/SCS kümelenmiş örneklerini yükleyerek tek bir ASCS/SCS yüklemesinden bir SAP çoklu SID yapılandırmasına taşıma odaklanır.</span><span class="sxs-lookup"><span data-stu-id="d8073-107">This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster.</span></span> <span data-ttu-id="d8073-108">Bu işlem tamamlandığında, bir SAP çoklu SID küme yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="d8073-108">When this process is completed, you will have configured an SAP multi-SID cluster.</span></span>
+<span data-ttu-id="9e404-107">Bu makalede nasıl toomove ek SAP ASCS/SCS yükleyerek bir tek ASCS/SCS yükleme tooan SAP çoklu SID yapılandırmadan örneklerinin mevcut bir Windows Server Yük Devretme Kümelemesi (WSFC) kümesine kümelenmiş odaklanır.</span><span class="sxs-lookup"><span data-stu-id="9e404-107">This article focuses on how toomove from a single ASCS/SCS installation tooan SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster.</span></span> <span data-ttu-id="9e404-108">Bu işlem tamamlandığında, bir SAP çoklu SID küme yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="9e404-108">When this process is completed, you will have configured an SAP multi-SID cluster.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="d8073-109">Bu özellik yalnızca Azure Resource Manager dağıtım modelinde kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="d8073-109">This feature is available only in the Azure Resource Manager deployment model.</span></span>
+> <span data-ttu-id="9e404-109">Bu özellik yalnızca hello Azure Resource Manager dağıtım modelinde kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="9e404-109">This feature is available only in hello Azure Resource Manager deployment model.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="d8073-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="d8073-110">Prerequisites</span></span>
-<span data-ttu-id="d8073-111">Zaten bir SAP ASCS/SCS örnek için kullanılan bir WSFC kümesinin anlatıldığı gibi yapılandırdığınız [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde] [ sap-ha-guide] ve bu diyagramda gösterildiği gibi.</span><span class="sxs-lookup"><span data-stu-id="d8073-111">You have already configured a WSFC cluster that is used for one SAP ASCS/SCS instance, as discussed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide] and as shown in this diagram.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="9e404-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="9e404-110">Prerequisites</span></span>
+<span data-ttu-id="9e404-111">Zaten bir SAP ASCS/SCS örnek için kullanılan bir WSFC kümesinin hello anlatıldığı gibi yapılandırdığınız [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde] [ sap-ha-guide] ve bu diyagramda gösterildiği gibi.</span><span class="sxs-lookup"><span data-stu-id="9e404-111">You have already configured a WSFC cluster that is used for one SAP ASCS/SCS instance, as discussed in hello [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide] and as shown in this diagram.</span></span>
 
 ![Yüksek kullanılabilirlik SAP ASCS/SCS örneği][sap-ha-guide-figure-6001]
 
-## <a name="target-architecture"></a><span data-ttu-id="d8073-113">Hedef mimari</span><span class="sxs-lookup"><span data-stu-id="d8073-113">Target architecture</span></span>
+## <a name="target-architecture"></a><span data-ttu-id="9e404-113">Hedef mimari</span><span class="sxs-lookup"><span data-stu-id="9e404-113">Target architecture</span></span>
 
-<span data-ttu-id="d8073-114">Hedef birden çok SAP ABAP ASCS yüklemektir veya SAP Java SCS burada Resimli olarak aynı WSFC kümesinde örneklerinin kümelenmiş:</span><span class="sxs-lookup"><span data-stu-id="d8073-114">The goal is to install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated here:</span></span>
+<span data-ttu-id="9e404-114">Merhaba tooinstall birden çok SAP ABAP ASCS veya SAP Java SCS kümelenmiş örnekler hello aynı hedeftir WSFC küme, aşağıda gösterildiği gibi:</span><span class="sxs-lookup"><span data-stu-id="9e404-114">hello goal is tooinstall multiple SAP ABAP ASCS or SAP Java SCS clustered instances in hello same WSFC cluster, as illustrated here:</span></span>
 
 ![Azure birden çok SAP ASCS/SCS kümelenmiş örneğinde][sap-ha-guide-figure-6002]
 
 > [!NOTE]
-><span data-ttu-id="d8073-116">Her Azure iç yük dengeleyici için özel ön uç IP sayısı için bir sınır yoktur.</span><span class="sxs-lookup"><span data-stu-id="d8073-116">There is a limit to the number of private front-end IPs for each Azure internal load balancer.</span></span>
+><span data-ttu-id="9e404-116">Her Azure iç yük dengeleyici için özel ön uç IP sınırı toohello sayısı yoktur.</span><span class="sxs-lookup"><span data-stu-id="9e404-116">There is a limit toohello number of private front-end IPs for each Azure internal load balancer.</span></span>
 >
-><span data-ttu-id="d8073-117">Bir WSFC kümesinin SAP ASCS/SCS örneği maksimum sayısı üst sınırını her Azure iç yük dengeleyici için özel ön uç IP eşittir.</span><span class="sxs-lookup"><span data-stu-id="d8073-117">The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.</span></span>
+><span data-ttu-id="9e404-117">Hello en fazla bir WSFC kümesinin SAP ASCS/SCS durumlarda her Azure iç yük dengeleyici için özel ön uç IP maksimum sayısı eşit toohello sayısıdır.</span><span class="sxs-lookup"><span data-stu-id="9e404-117">hello maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal toohello maximum number of private front-end IPs for each Azure internal load balancer.</span></span>
 >
 
-<span data-ttu-id="d8073-118">Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz: "özel ön uç IP yük dengeleyici başına" [ağ sınırları: Azure Resource Manager][networking-limits-azure-resource-manager].</span><span class="sxs-lookup"><span data-stu-id="d8073-118">For more information about load-balancer limits, see "Private front end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].</span></span>
+<span data-ttu-id="9e404-118">Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz: "özel ön uç IP yük dengeleyici başına" [ağ sınırları: Azure Resource Manager][networking-limits-azure-resource-manager].</span><span class="sxs-lookup"><span data-stu-id="9e404-118">For more information about load-balancer limits, see "Private front end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].</span></span>
 
-<span data-ttu-id="d8073-119">İki yüksek kullanılabilirlik SAP sistemleriyle tam yatay şöyle olabilir:</span><span class="sxs-lookup"><span data-stu-id="d8073-119">The complete landscape with two high-availability SAP systems would look like this:</span></span>
+<span data-ttu-id="9e404-119">Merhaba tam yatay iki yüksek kullanılabilirlik SAP sistemleriyle şöyle olabilir:</span><span class="sxs-lookup"><span data-stu-id="9e404-119">hello complete landscape with two high-availability SAP systems would look like this:</span></span>
 
 ![SAP yüksek kullanılabilirlik multi-SID Kurulum iki SAP sistemiyle SID][sap-ha-guide-figure-6003]
 
 > [!IMPORTANT]
-> <span data-ttu-id="d8073-121">Kurulum, aşağıdaki koşulları karşılaması gerekir:</span><span class="sxs-lookup"><span data-stu-id="d8073-121">The setup must meet the following conditions:</span></span>
-> - <span data-ttu-id="d8073-122">SAP ASCS/SCS örnekleri aynı WSFC küme paylaşması gerekir.</span><span class="sxs-lookup"><span data-stu-id="d8073-122">The SAP ASCS/SCS instances must share the same WSFC cluster.</span></span>
-> - <span data-ttu-id="d8073-123">Her DBMS SID kendi adanmış WSFC kümesi olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="d8073-123">Each DBMS SID must have its own dedicated WSFC cluster.</span></span>
-> - <span data-ttu-id="d8073-124">Bir SAP sistem SID'si ait SAP uygulama sunucuları, kendi özel VM'ler olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="d8073-124">SAP application servers that belong to one SAP system SID must have their own dedicated VMs.</span></span>
+> <span data-ttu-id="9e404-121">Merhaba Kurulum hello aşağıdaki koşulları karşılaması gerekir:</span><span class="sxs-lookup"><span data-stu-id="9e404-121">hello setup must meet hello following conditions:</span></span>
+> - <span data-ttu-id="9e404-122">Merhaba SAP ASCS/SCS örnekleri paylaşması aynı hello WSFC kümesi.</span><span class="sxs-lookup"><span data-stu-id="9e404-122">hello SAP ASCS/SCS instances must share hello same WSFC cluster.</span></span>
+> - <span data-ttu-id="9e404-123">Her DBMS SID kendi adanmış WSFC kümesi olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="9e404-123">Each DBMS SID must have its own dedicated WSFC cluster.</span></span>
+> - <span data-ttu-id="9e404-124">Tooone SAP sistem SID ait SAP uygulama sunucuları, kendi özel VM'ler olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="9e404-124">SAP application servers that belong tooone SAP system SID must have their own dedicated VMs.</span></span>
 
 
-## <a name="prepare-the-infrastructure"></a><span data-ttu-id="d8073-125">Altyapıyı hazırlama</span><span class="sxs-lookup"><span data-stu-id="d8073-125">Prepare the infrastructure</span></span>
-<span data-ttu-id="d8073-126">Altyapınızı hazırlamak için aşağıdaki parametrelerle ek SAP ASCS/SCS örneğini yükleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="d8073-126">To prepare your infrastructure, you can install an additional SAP ASCS/SCS instance with the following parameters:</span></span>
+## <a name="prepare-hello-infrastructure"></a><span data-ttu-id="9e404-125">Merhaba altyapıyı hazırlama</span><span class="sxs-lookup"><span data-stu-id="9e404-125">Prepare hello infrastructure</span></span>
+<span data-ttu-id="9e404-126">tooprepare altyapınızı, ek SAP ASCS/SCS örnek şu parametreler hello ile yükleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="9e404-126">tooprepare your infrastructure, you can install an additional SAP ASCS/SCS instance with hello following parameters:</span></span>
 
-| <span data-ttu-id="d8073-127">Parametre adı</span><span class="sxs-lookup"><span data-stu-id="d8073-127">Parameter name</span></span> | <span data-ttu-id="d8073-128">Değer</span><span class="sxs-lookup"><span data-stu-id="d8073-128">Value</span></span> |
+| <span data-ttu-id="9e404-127">Parametre adı</span><span class="sxs-lookup"><span data-stu-id="9e404-127">Parameter name</span></span> | <span data-ttu-id="9e404-128">Değer</span><span class="sxs-lookup"><span data-stu-id="9e404-128">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d8073-129">SAP ASCS/SCS SID</span><span class="sxs-lookup"><span data-stu-id="d8073-129">SAP ASCS/SCS SID</span></span> |<span data-ttu-id="d8073-130">pr1 lb ascs</span><span class="sxs-lookup"><span data-stu-id="d8073-130">pr1-lb-ascs</span></span> |
-| <span data-ttu-id="d8073-131">SAP DBMS iç yük dengeleyici</span><span class="sxs-lookup"><span data-stu-id="d8073-131">SAP DBMS internal load balancer</span></span> | <span data-ttu-id="d8073-132">PR5</span><span class="sxs-lookup"><span data-stu-id="d8073-132">PR5</span></span> |
-| <span data-ttu-id="d8073-133">SAP sanal ana bilgisayar adı</span><span class="sxs-lookup"><span data-stu-id="d8073-133">SAP virtual host name</span></span> | <span data-ttu-id="d8073-134">pr5 sap cl</span><span class="sxs-lookup"><span data-stu-id="d8073-134">pr5-sap-cl</span></span> |
-| <span data-ttu-id="d8073-135">SAP ASCS/SCS sanal ana bilgisayar IP adresi (ek Azure yük dengeleyici IP adresi)</span><span class="sxs-lookup"><span data-stu-id="d8073-135">SAP ASCS/SCS virtual host IP address (additional Azure load balancer IP address)</span></span> | <span data-ttu-id="d8073-136">10.0.0.50</span><span class="sxs-lookup"><span data-stu-id="d8073-136">10.0.0.50</span></span> |
-| <span data-ttu-id="d8073-137">SAP ASCS/SCS örnek sayısı</span><span class="sxs-lookup"><span data-stu-id="d8073-137">SAP ASCS/SCS instance number</span></span> | <span data-ttu-id="d8073-138">50</span><span class="sxs-lookup"><span data-stu-id="d8073-138">50</span></span> |
-| <span data-ttu-id="d8073-139">Ek SAP ASCS/SCS örnek için ILB araştırmasını bağlantı noktası</span><span class="sxs-lookup"><span data-stu-id="d8073-139">ILB probe port for additional SAP ASCS/SCS instance</span></span> | <span data-ttu-id="d8073-140">62350</span><span class="sxs-lookup"><span data-stu-id="d8073-140">62350</span></span> |
+| <span data-ttu-id="9e404-129">SAP ASCS/SCS SID</span><span class="sxs-lookup"><span data-stu-id="9e404-129">SAP ASCS/SCS SID</span></span> |<span data-ttu-id="9e404-130">pr1 lb ascs</span><span class="sxs-lookup"><span data-stu-id="9e404-130">pr1-lb-ascs</span></span> |
+| <span data-ttu-id="9e404-131">SAP DBMS iç yük dengeleyici</span><span class="sxs-lookup"><span data-stu-id="9e404-131">SAP DBMS internal load balancer</span></span> | <span data-ttu-id="9e404-132">PR5</span><span class="sxs-lookup"><span data-stu-id="9e404-132">PR5</span></span> |
+| <span data-ttu-id="9e404-133">SAP sanal ana bilgisayar adı</span><span class="sxs-lookup"><span data-stu-id="9e404-133">SAP virtual host name</span></span> | <span data-ttu-id="9e404-134">pr5 sap cl</span><span class="sxs-lookup"><span data-stu-id="9e404-134">pr5-sap-cl</span></span> |
+| <span data-ttu-id="9e404-135">SAP ASCS/SCS sanal ana bilgisayar IP adresi (ek Azure yük dengeleyici IP adresi)</span><span class="sxs-lookup"><span data-stu-id="9e404-135">SAP ASCS/SCS virtual host IP address (additional Azure load balancer IP address)</span></span> | <span data-ttu-id="9e404-136">10.0.0.50</span><span class="sxs-lookup"><span data-stu-id="9e404-136">10.0.0.50</span></span> |
+| <span data-ttu-id="9e404-137">SAP ASCS/SCS örnek sayısı</span><span class="sxs-lookup"><span data-stu-id="9e404-137">SAP ASCS/SCS instance number</span></span> | <span data-ttu-id="9e404-138">50</span><span class="sxs-lookup"><span data-stu-id="9e404-138">50</span></span> |
+| <span data-ttu-id="9e404-139">Ek SAP ASCS/SCS örnek için ILB araştırmasını bağlantı noktası</span><span class="sxs-lookup"><span data-stu-id="9e404-139">ILB probe port for additional SAP ASCS/SCS instance</span></span> | <span data-ttu-id="9e404-140">62350</span><span class="sxs-lookup"><span data-stu-id="9e404-140">62350</span></span> |
 
 > [!NOTE]
-> <span data-ttu-id="d8073-141">SAP ASCS/SCS küme örnekleri için her IP adresi benzersiz sonda bağlantı noktası gerektirir.</span><span class="sxs-lookup"><span data-stu-id="d8073-141">For SAP ASCS/SCS cluster instances, each IP address requires a unique probe port.</span></span> <span data-ttu-id="d8073-142">Örneğin, bir IP adresinde bir Azure iç yük dengeleyici araştırması bağlantı noktası 62300 kullanıyorsa, herhangi bir IP adresi, yük dengeleyicide sonda bağlantı noktası 62300 kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d8073-142">For example, if one IP address on an Azure internal load balancer uses probe port 62300, no other IP address on that load balancer can use probe port 62300.</span></span>
+> <span data-ttu-id="9e404-141">SAP ASCS/SCS küme örnekleri için her IP adresi benzersiz sonda bağlantı noktası gerektirir.</span><span class="sxs-lookup"><span data-stu-id="9e404-141">For SAP ASCS/SCS cluster instances, each IP address requires a unique probe port.</span></span> <span data-ttu-id="9e404-142">Örneğin, bir IP adresinde bir Azure iç yük dengeleyici araştırması bağlantı noktası 62300 kullanıyorsa, herhangi bir IP adresi, yük dengeleyicide sonda bağlantı noktası 62300 kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9e404-142">For example, if one IP address on an Azure internal load balancer uses probe port 62300, no other IP address on that load balancer can use probe port 62300.</span></span>
 >
-><span data-ttu-id="d8073-143">Sonda bağlantı noktası 62300 zaten ayrılmış olduğundan bizim amaçlar için araştırma bağlantı noktası 62350 kullanıyoruz.</span><span class="sxs-lookup"><span data-stu-id="d8073-143">For our purposes, because probe port 62300 is already reserved, we are using probe port 62350.</span></span>
+><span data-ttu-id="9e404-143">Sonda bağlantı noktası 62300 zaten ayrılmış olduğundan bizim amaçlar için araştırma bağlantı noktası 62350 kullanıyoruz.</span><span class="sxs-lookup"><span data-stu-id="9e404-143">For our purposes, because probe port 62300 is already reserved, we are using probe port 62350.</span></span>
 
-<span data-ttu-id="d8073-144">Mevcut WSFC kümesinde iki düğümü ek SAP ASCS/SCS örnekleri yükleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="d8073-144">You can install additional SAP ASCS/SCS instances in the existing WSFC cluster with two nodes:</span></span>
+<span data-ttu-id="9e404-144">Merhaba mevcut WSFC kümede iki düğümü ek SAP ASCS/SCS örnekleri yükleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="9e404-144">You can install additional SAP ASCS/SCS instances in hello existing WSFC cluster with two nodes:</span></span>
 
-| <span data-ttu-id="d8073-145">Sanal makine rolü</span><span class="sxs-lookup"><span data-stu-id="d8073-145">Virtual machine role</span></span> | <span data-ttu-id="d8073-146">Sanal makine ana bilgisayar adı</span><span class="sxs-lookup"><span data-stu-id="d8073-146">Virtual machine host name</span></span> | <span data-ttu-id="d8073-147">Statik IP adresi</span><span class="sxs-lookup"><span data-stu-id="d8073-147">Static IP address</span></span> |
+| <span data-ttu-id="9e404-145">Sanal makine rolü</span><span class="sxs-lookup"><span data-stu-id="9e404-145">Virtual machine role</span></span> | <span data-ttu-id="9e404-146">Sanal makine ana bilgisayar adı</span><span class="sxs-lookup"><span data-stu-id="9e404-146">Virtual machine host name</span></span> | <span data-ttu-id="9e404-147">Statik IP adresi</span><span class="sxs-lookup"><span data-stu-id="9e404-147">Static IP address</span></span> |
 | --- | --- | --- |
-| <span data-ttu-id="d8073-148">1. küme düğümü ASCS/SCS örneği için</span><span class="sxs-lookup"><span data-stu-id="d8073-148">1st cluster node for ASCS/SCS instance</span></span> |<span data-ttu-id="d8073-149">pr1 ascs 0</span><span class="sxs-lookup"><span data-stu-id="d8073-149">pr1-ascs-0</span></span> |<span data-ttu-id="d8073-150">10.0.0.10</span><span class="sxs-lookup"><span data-stu-id="d8073-150">10.0.0.10</span></span> |
-| <span data-ttu-id="d8073-151">ASCS/SCS örneği için 2 küme düğümü</span><span class="sxs-lookup"><span data-stu-id="d8073-151">2nd cluster node for ASCS/SCS instance</span></span> |<span data-ttu-id="d8073-152">pr1 ascs 1</span><span class="sxs-lookup"><span data-stu-id="d8073-152">pr1-ascs-1</span></span> |<span data-ttu-id="d8073-153">10.0.0.9</span><span class="sxs-lookup"><span data-stu-id="d8073-153">10.0.0.9</span></span> |
+| <span data-ttu-id="9e404-148">1. küme düğümü ASCS/SCS örneği için</span><span class="sxs-lookup"><span data-stu-id="9e404-148">1st cluster node for ASCS/SCS instance</span></span> |<span data-ttu-id="9e404-149">pr1 ascs 0</span><span class="sxs-lookup"><span data-stu-id="9e404-149">pr1-ascs-0</span></span> |<span data-ttu-id="9e404-150">10.0.0.10</span><span class="sxs-lookup"><span data-stu-id="9e404-150">10.0.0.10</span></span> |
+| <span data-ttu-id="9e404-151">ASCS/SCS örneği için 2 küme düğümü</span><span class="sxs-lookup"><span data-stu-id="9e404-151">2nd cluster node for ASCS/SCS instance</span></span> |<span data-ttu-id="9e404-152">pr1 ascs 1</span><span class="sxs-lookup"><span data-stu-id="9e404-152">pr1-ascs-1</span></span> |<span data-ttu-id="9e404-153">10.0.0.9</span><span class="sxs-lookup"><span data-stu-id="9e404-153">10.0.0.9</span></span> |
 
-### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a><span data-ttu-id="d8073-154">Kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı DNS sunucusunda oluşturun</span><span class="sxs-lookup"><span data-stu-id="d8073-154">Create a virtual host name for the clustered SAP ASCS/SCS instance on the DNS server</span></span>
+### <a name="create-a-virtual-host-name-for-hello-clustered-sap-ascsscs-instance-on-hello-dns-server"></a><span data-ttu-id="9e404-154">Kümelenmiş hello SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı hello DNS sunucusunda oluşturun</span><span class="sxs-lookup"><span data-stu-id="9e404-154">Create a virtual host name for hello clustered SAP ASCS/SCS instance on hello DNS server</span></span>
 
-<span data-ttu-id="d8073-155">Aşağıdaki parametreleri kullanarak ASCS/SCS örneğinin sanal ana bilgisayar adı için bir DNS girişi oluşturabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="d8073-155">You can create a DNS entry for the virtual host name of the ASCS/SCS instance by using the following parameters:</span></span>
+<span data-ttu-id="9e404-155">Şu parametreler hello kullanarak hello ASCS/SCS örneğinin hello sanal ana bilgisayar adı için bir DNS girişi oluşturabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="9e404-155">You can create a DNS entry for hello virtual host name of hello ASCS/SCS instance by using hello following parameters:</span></span>
 
-| <span data-ttu-id="d8073-156">Yeni SAP ASCS/SCS sanal ana bilgisayar adı</span><span class="sxs-lookup"><span data-stu-id="d8073-156">New SAP ASCS/SCS virtual host name</span></span> | <span data-ttu-id="d8073-157">İlişkili IP adresi</span><span class="sxs-lookup"><span data-stu-id="d8073-157">Associated IP address</span></span> |
+| <span data-ttu-id="9e404-156">Yeni SAP ASCS/SCS sanal ana bilgisayar adı</span><span class="sxs-lookup"><span data-stu-id="9e404-156">New SAP ASCS/SCS virtual host name</span></span> | <span data-ttu-id="9e404-157">İlişkili IP adresi</span><span class="sxs-lookup"><span data-stu-id="9e404-157">Associated IP address</span></span> |
 | --- | --- | --- |
-|<span data-ttu-id="d8073-158">pr5 sap cl</span><span class="sxs-lookup"><span data-stu-id="d8073-158">pr5-sap-cl</span></span> |<span data-ttu-id="d8073-159">10.0.0.50</span><span class="sxs-lookup"><span data-stu-id="d8073-159">10.0.0.50</span></span> |
+|<span data-ttu-id="9e404-158">pr5 sap cl</span><span class="sxs-lookup"><span data-stu-id="9e404-158">pr5-sap-cl</span></span> |<span data-ttu-id="9e404-159">10.0.0.50</span><span class="sxs-lookup"><span data-stu-id="9e404-159">10.0.0.50</span></span> |
 
-<span data-ttu-id="d8073-160">Yeni ana bilgisayar adı ve IP adresi DNS Yöneticisi'nde, aşağıdaki ekran görüntüsünde gösterildiği gibi görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="d8073-160">The new host name and IP address are displayed in the DNS Manager, as shown in the following screenshot:</span></span>
+<span data-ttu-id="9e404-160">Merhaba yeni ana bilgisayar adı ve IP adresi hello DNS Yöneticisi'ni hello ekran aşağıdaki gösterildiği gibi görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="9e404-160">hello new host name and IP address are displayed in hello DNS Manager, as shown in hello following screenshot:</span></span>
 
-![DNS Yöneticisi listesini yeni SAP ASCS/SCS için tanımlanmış DNS girişi vurgulama küme sanal adı ve TCP/IP adresi][sap-ha-guide-figure-6004]
+![DNS Yöneticisi'ni liste Hello vurgulama hello yeni SAP ASCS/SCS küme sanal adı ve TCP/IP adresi için DNS girişi tanımlanan][sap-ha-guide-figure-6004]
 
-<span data-ttu-id="d8073-162">Bir DNS girişi oluşturma yordamı da ana ayrıntılı açıklanan [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide-9.1.1].</span><span class="sxs-lookup"><span data-stu-id="d8073-162">The procedure for creating a DNS entry is also described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9.1.1].</span></span>
+<span data-ttu-id="9e404-162">bir DNS girişi oluşturmak için hello yordam hello ana ayrıntılı açıklanan de [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide-9.1.1].</span><span class="sxs-lookup"><span data-stu-id="9e404-162">hello procedure for creating a DNS entry is also described in detail in hello main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9.1.1].</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="d8073-163">Ek ASCS/SCS örneğinin sanal ana bilgisayar adı atamak yeni IP adresi SAP Azure yük dengeleyiciye atanan yeni IP adresi ile aynı olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="d8073-163">The new IP address that you assign to the virtual host name of the additional ASCS/SCS instance must be the same as the new IP address that you assigned to the SAP Azure load balancer.</span></span>
+> <span data-ttu-id="9e404-163">Merhaba hello ek ASCS/SCS örneğinin toohello sanal ana bilgisayar adı atayın, yeni IP adresi gerekir olması hello toohello SAP Azure yük dengeleyiciye atanan hello yeni IP adresi ile aynı.</span><span class="sxs-lookup"><span data-stu-id="9e404-163">hello new IP address that you assign toohello virtual host name of hello additional ASCS/SCS instance must be hello same as hello new IP address that you assigned toohello SAP Azure load balancer.</span></span>
 >
-><span data-ttu-id="d8073-164">Senaryomuzda 10.0.0.50 IP adresidir.</span><span class="sxs-lookup"><span data-stu-id="d8073-164">In our scenario, the IP address is 10.0.0.50.</span></span>
+><span data-ttu-id="9e404-164">Senaryomuzda 10.0.0.50 hello IP adresidir.</span><span class="sxs-lookup"><span data-stu-id="9e404-164">In our scenario, hello IP address is 10.0.0.50.</span></span>
 
-### <a name="add-an-ip-address-to-an-existing-azure-internal-load-balancer-by-using-powershell"></a><span data-ttu-id="d8073-165">PowerShell kullanarak bir IP adresi var olan bir Azure iç yük dengeleyici ekleme</span><span class="sxs-lookup"><span data-stu-id="d8073-165">Add an IP address to an existing Azure internal load balancer by using PowerShell</span></span>
+### <a name="add-an-ip-address-tooan-existing-azure-internal-load-balancer-by-using-powershell"></a><span data-ttu-id="9e404-165">PowerShell kullanarak bir IP adresi tooan mevcut Azure iç yük dengeleyici ekleme</span><span class="sxs-lookup"><span data-stu-id="9e404-165">Add an IP address tooan existing Azure internal load balancer by using PowerShell</span></span>
 
-<span data-ttu-id="d8073-166">Aynı WSFC kümesinde birden fazla SAP ASCS/SCS örneği oluşturmak için bir IP adresi var olan bir Azure iç yük dengeleyici eklemek için PowerShell kullanın.</span><span class="sxs-lookup"><span data-stu-id="d8073-166">To create more than one SAP ASCS/SCS instance in the same WSFC cluster, use PowerShell to add an IP address to an existing Azure internal load balancer.</span></span> <span data-ttu-id="d8073-167">Her IP adresi, kendi Yük Dengeleme kuralları, araştırma bağlantı noktası, ön uç IP havuzu ve arka uç havuzu gerektirir.</span><span class="sxs-lookup"><span data-stu-id="d8073-167">Each IP address requires its own load-balancing rules, probe port, front-end IP pool, and back-end pool.</span></span>
+<span data-ttu-id="9e404-166">bir SAP ASCS/SCS örneğinde birden çok toocreate hello aynı WSFC küme, Azure iç yük dengeleyici var olan bir IP adresi tooan PowerShell tooadd kullanın.</span><span class="sxs-lookup"><span data-stu-id="9e404-166">toocreate more than one SAP ASCS/SCS instance in hello same WSFC cluster, use PowerShell tooadd an IP address tooan existing Azure internal load balancer.</span></span> <span data-ttu-id="9e404-167">Her IP adresi, kendi Yük Dengeleme kuralları, araştırma bağlantı noktası, ön uç IP havuzu ve arka uç havuzu gerektirir.</span><span class="sxs-lookup"><span data-stu-id="9e404-167">Each IP address requires its own load-balancing rules, probe port, front-end IP pool, and back-end pool.</span></span>
 
-<span data-ttu-id="d8073-168">Aşağıdaki komut dosyasını yeni bir IP adresi için var olan bir yük dengeleyici ekler.</span><span class="sxs-lookup"><span data-stu-id="d8073-168">The following script adds a new IP address to an existing load balancer.</span></span> <span data-ttu-id="d8073-169">Ortamınız için PowerShell değişkenleri güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="d8073-169">Update the PowerShell variables for your environment.</span></span> <span data-ttu-id="d8073-170">Komut dosyası tüm SAP ASCS/SCS bağlantı noktaları için gereken tüm Yük Dengeleme kuralları oluşturacaksınız.</span><span class="sxs-lookup"><span data-stu-id="d8073-170">The script will create all needed load-balancing rules for all SAP ASCS/SCS ports.</span></span>
+<span data-ttu-id="9e404-168">Merhaba aşağıdaki betiği yeni IP adresi tooan var olan yük dengeleyici ekler.</span><span class="sxs-lookup"><span data-stu-id="9e404-168">hello following script adds a new IP address tooan existing load balancer.</span></span> <span data-ttu-id="9e404-169">Merhaba PowerShell değişkenleri ortamınız için güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="9e404-169">Update hello PowerShell variables for your environment.</span></span> <span data-ttu-id="9e404-170">Merhaba betik tüm SAP ASCS/SCS bağlantı noktaları için gereken tüm Yük Dengeleme kuralları oluşturacaksınız.</span><span class="sxs-lookup"><span data-stu-id="9e404-170">hello script will create all needed load-balancing rules for all SAP ASCS/SCS ports.</span></span>
 
 ```powershell
 
@@ -551,7 +551,7 @@ $count = $ILB.FrontendIpConfigurations.Count + 1
 $FrontEndConfigurationName ="lbFrontendASCS$count"
 $LBProbeName = "lbProbeASCS$count"
 
-# Get the Azure VNet and subnet
+# Get hello Azure VNet and subnet
 $VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName
 $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
 
@@ -574,14 +574,14 @@ $BEConfig = Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfig
 # Get new updated config
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 
-# Assign VM NICs to backend pool
+# Assign VM NICs toobackend pool
 $BEPool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB
 foreach($VMName in $VMNames){
         $VM = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName
         $NICName = ($VM.NetworkInterfaceIDs[0].Split('/') | select -last 1)        
         $NIC = Get-AzureRmNetworkInterface -name $NICName -ResourceGroupName $ResourceGroupName                
         $NIC.IpConfigurations[0].LoadBalancerBackendAddressPools += $BEPool
-        Write-Host "Assigning network card '$NICName' of the '$VMName' VM to the backend pool '$BackEndConfigurationName' ..." -ForegroundColor Green
+        Write-Host "Assigning network card '$NICName' of hello '$VMName' VM toohello backend pool '$BackEndConfigurationName' ..." -ForegroundColor Green
         Set-AzureRmNetworkInterface -NetworkInterface $NIC
         #start-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VM.Name
 }
@@ -594,79 +594,79 @@ $FEConfig = get-AzureRMLoadBalancerFrontendIpConfig -Name $FrontEndConfiguration
 $BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB
 $HealthProbe  = Get-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
 
-Write-Host "Creating load balancing rules for the ports: '$Ports' ... " -ForegroundColor Green
+Write-Host "Creating load balancing rules for hello ports: '$Ports' ... " -ForegroundColor Green
 
 foreach ($Port in $Ports) {
 
         $LBConfigrulename = "lbrule$Port" + "_$count"
-        Write-Host "Creating load balancing rule '$LBConfigrulename' for the port '$Port' ..." -ForegroundColor Green
+        Write-Host "Creating load balancing rule '$LBConfigrulename' for hello port '$Port' ..." -ForegroundColor Green
 
         $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $HealthProbe -Protocol tcp -FrontendPort  $Port -BackendPort $Port -IdleTimeoutInMinutes 30 -LoadDistribution Default -EnableFloatingIP   
 }
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Succesfully added new IP '$ILBIP' toohello internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
-<span data-ttu-id="d8073-171">Betik çalıştıktan sonra sonuçları aşağıdaki ekran görüntüsünde gösterildiği gibi Azure portalında görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="d8073-171">After the script has run, the results are displayed in the Azure portal, as shown in the following screenshot:</span></span>
+<span data-ttu-id="9e404-171">Merhaba betik çalıştıktan sonra sonuçları görüntülenir hello hello Azure portal hello ekran aşağıdaki gösterildiği gibi:</span><span class="sxs-lookup"><span data-stu-id="9e404-171">After hello script has run, hello results are displayed in hello Azure portal, as shown in hello following screenshot:</span></span>
 
-![Azure portalında yeni ön uç IP havuzu][sap-ha-guide-figure-6005]
+![Hello Azure portalında yeni ön uç IP havuzundaki][sap-ha-guide-figure-6005]
 
-### <a name="add-disks-to-cluster-machines-and-configure-the-sios-cluster-share-disk"></a><span data-ttu-id="d8073-173">Diskleri küme makinelere ekleyin ve SIOS küme paylaşım disk yapılandırma</span><span class="sxs-lookup"><span data-stu-id="d8073-173">Add disks to cluster machines, and configure the SIOS cluster share disk</span></span>
+### <a name="add-disks-toocluster-machines-and-configure-hello-sios-cluster-share-disk"></a><span data-ttu-id="9e404-173">Diskleri toocluster makineleri ekleyin ve hello SIOS küme paylaşım disk yapılandırma</span><span class="sxs-lookup"><span data-stu-id="9e404-173">Add disks toocluster machines, and configure hello SIOS cluster share disk</span></span>
 
-<span data-ttu-id="d8073-174">Her ek SAP ASCS/SCS örneği için yeni bir küme paylaşım disk eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="d8073-174">You must add a new cluster share disk for each additional SAP ASCS/SCS instance.</span></span> <span data-ttu-id="d8073-175">Windows Server 2012 R2 için WSFC küme paylaşım disk şu anda kullanımda SIOS DataKeeper yazılım çözümüdür.</span><span class="sxs-lookup"><span data-stu-id="d8073-175">For Windows Server 2012 R2, the WSFC cluster share disk currently in use is the SIOS DataKeeper software solution.</span></span>
+<span data-ttu-id="9e404-174">Her ek SAP ASCS/SCS örneği için yeni bir küme paylaşım disk eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="9e404-174">You must add a new cluster share disk for each additional SAP ASCS/SCS instance.</span></span> <span data-ttu-id="9e404-175">Windows Server 2012 R2 için hello WSFC küme paylaşım disk şu anda kullanımda hello SIOS DataKeeper yazılım çözümüdür.</span><span class="sxs-lookup"><span data-stu-id="9e404-175">For Windows Server 2012 R2, hello WSFC cluster share disk currently in use is hello SIOS DataKeeper software solution.</span></span>
 
-<span data-ttu-id="d8073-176">Şunları yapın:</span><span class="sxs-lookup"><span data-stu-id="d8073-176">Do the following:</span></span>
-1. <span data-ttu-id="d8073-177">Bir ek disk veya diskler (hangi şeritler gerek) aynı boyutta her küme düğümleri eklemek ve biçimlendirir.</span><span class="sxs-lookup"><span data-stu-id="d8073-177">Add an additional disk or disks of the same size (which you need to stripe) to each of the cluster nodes, and format them.</span></span>
-2. <span data-ttu-id="d8073-178">Depolama çoğaltma SIOS DataKeeper ile yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="d8073-178">Configure storage replication with SIOS DataKeeper.</span></span>
+<span data-ttu-id="9e404-176">Aşağıdaki hello:</span><span class="sxs-lookup"><span data-stu-id="9e404-176">Do hello following:</span></span>
+1. <span data-ttu-id="9e404-177">Ek bir ekleme disk veya diskler hello aynı boyutta (gereken toostripe) hello tooeach küme düğümleri ve biçimlendirir.</span><span class="sxs-lookup"><span data-stu-id="9e404-177">Add an additional disk or disks of hello same size (which you need toostripe) tooeach of hello cluster nodes, and format them.</span></span>
+2. <span data-ttu-id="9e404-178">Depolama çoğaltma SIOS DataKeeper ile yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="9e404-178">Configure storage replication with SIOS DataKeeper.</span></span>
 
-<span data-ttu-id="d8073-179">Bu yordam WSFC küme makinelerde SIOS DataKeeper zaten yüklediyseniz varsayar.</span><span class="sxs-lookup"><span data-stu-id="d8073-179">This procedure assumes that you have already installed SIOS DataKeeper on the WSFC cluster machines.</span></span> <span data-ttu-id="d8073-180">Yüklediyseniz, makineler arası çoğaltma şimdi yapılandırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="d8073-180">If you have installed it, you must now configure replication between the machines.</span></span> <span data-ttu-id="d8073-181">İşlem ana ayrıntılı açıklanan [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide-8.12.3.3].</span><span class="sxs-lookup"><span data-stu-id="d8073-181">The process is described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.12.3.3].</span></span>  
+<span data-ttu-id="9e404-179">Bu yordam hello WSFC küme makinelerde SIOS DataKeeper zaten yüklediyseniz varsayar.</span><span class="sxs-lookup"><span data-stu-id="9e404-179">This procedure assumes that you have already installed SIOS DataKeeper on hello WSFC cluster machines.</span></span> <span data-ttu-id="9e404-180">Yüklediyseniz, çoğaltma hello makineler arasında şimdi yapılandırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="9e404-180">If you have installed it, you must now configure replication between hello machines.</span></span> <span data-ttu-id="9e404-181">Merhaba işlem hello ana ayrıntılı açıklanan [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide-8.12.3.3].</span><span class="sxs-lookup"><span data-stu-id="9e404-181">hello process is described in detail in hello main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.12.3.3].</span></span>  
 
-![DataKeeper eş zamanlı disk yeni SAP ASCS/SCS paylaşmak için yansıtma][sap-ha-guide-figure-6006]
+![DataKeeper hello yeni SAP ASCS/SCS paylaşım disk için yansıtma zaman uyumlu][sap-ha-guide-figure-6006]
 
-### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a><span data-ttu-id="d8073-183">SAP uygulama sunucuları ve DBMS küme için sanal makineleri dağıtma</span><span class="sxs-lookup"><span data-stu-id="d8073-183">Deploy VMs for SAP application servers and DBMS cluster</span></span>
+### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a><span data-ttu-id="9e404-183">SAP uygulama sunucuları ve DBMS küme için sanal makineleri dağıtma</span><span class="sxs-lookup"><span data-stu-id="9e404-183">Deploy VMs for SAP application servers and DBMS cluster</span></span>
 
-<span data-ttu-id="d8073-184">Altyapı hazırlık ikinci SAP sistemi için tamamlamak için aşağıdakileri yapın:</span><span class="sxs-lookup"><span data-stu-id="d8073-184">To complete the infrastructure preparation for the second SAP system, do the following:</span></span>
+<span data-ttu-id="9e404-184">toocomplete hello altyapı hazırlık hello ikinci SAP sistemi hello aşağıdaki:</span><span class="sxs-lookup"><span data-stu-id="9e404-184">toocomplete hello infrastructure preparation for hello second SAP system, do hello following:</span></span>
 
-1. <span data-ttu-id="d8073-185">SAP uygulama sunucuları için özel VM'ler dağıtın ve bunları kendi özel kullanılabilirlik grubunda yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="d8073-185">Deploy dedicated VMs for SAP application servers and put them in their own dedicated availability group.</span></span>
-2. <span data-ttu-id="d8073-186">DBMS küme için özel VM'ler dağıtın ve bunları kendi özel kullanılabilirlik grubunda yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="d8073-186">Deploy dedicated VMs for DBMS cluster and put them in their own dedicated availability group.</span></span>
+1. <span data-ttu-id="9e404-185">SAP uygulama sunucuları için özel VM'ler dağıtın ve bunları kendi özel kullanılabilirlik grubunda yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="9e404-185">Deploy dedicated VMs for SAP application servers and put them in their own dedicated availability group.</span></span>
+2. <span data-ttu-id="9e404-186">DBMS küme için özel VM'ler dağıtın ve bunları kendi özel kullanılabilirlik grubunda yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="9e404-186">Deploy dedicated VMs for DBMS cluster and put them in their own dedicated availability group.</span></span>
 
 
-## <a name="install-the-second-sap-sid2-netweaver-system"></a><span data-ttu-id="d8073-187">İkinci SAP SID2 NetWeaver sistemini yükleyin</span><span class="sxs-lookup"><span data-stu-id="d8073-187">Install the second SAP SID2 NetWeaver system</span></span>
+## <a name="install-hello-second-sap-sid2-netweaver-system"></a><span data-ttu-id="9e404-187">Merhaba ikinci SAP SID2 NetWeaver sistemini yükleyin</span><span class="sxs-lookup"><span data-stu-id="9e404-187">Install hello second SAP SID2 NetWeaver system</span></span>
 
-<span data-ttu-id="d8073-188">İkinci bir SAP SID2 sistemi yükleme tam işlemi ana açıklanan [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide-9].</span><span class="sxs-lookup"><span data-stu-id="d8073-188">The complete process of installing a second SAP SID2 system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].</span></span>
+<span data-ttu-id="9e404-188">İkinci bir SAP SID2 sistemi yükleme hello tam işlem hello ana açıklanan [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide-9].</span><span class="sxs-lookup"><span data-stu-id="9e404-188">hello complete process of installing a second SAP SID2 system is described in hello main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].</span></span>
 
-<span data-ttu-id="d8073-189">Üst düzey yordam aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="d8073-189">The high-level procedure is as follows:</span></span>
+<span data-ttu-id="9e404-189">Merhaba üst düzey yordam aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="9e404-189">hello high-level procedure is as follows:</span></span>
 
-1. <span data-ttu-id="d8073-190">[SAP ilk küme düğümüne yüklemek][sap-ha-guide-9.1.2].</span><span class="sxs-lookup"><span data-stu-id="d8073-190">[Install the SAP first cluster node][sap-ha-guide-9.1.2].</span></span>  
- <span data-ttu-id="d8073-191">Bu adımda, SAP bir yüksek kullanılabilirlik ASCS/SCS örneğiyle üzerinde yüklemekte olduğunuz **mevcut WSFC küme düğümü 1**.</span><span class="sxs-lookup"><span data-stu-id="d8073-191">In this step, you are installing SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 1**.</span></span>
+1. <span data-ttu-id="9e404-190">[Merhaba SAP ilk küme düğümüne yüklemek][sap-ha-guide-9.1.2].</span><span class="sxs-lookup"><span data-stu-id="9e404-190">[Install hello SAP first cluster node][sap-ha-guide-9.1.2].</span></span>  
+ <span data-ttu-id="9e404-191">Bu adımda, yüksek kullanılabilirlik ASCS/SCS örneğinde hello ile SAP yüklemekte olduğunuz **mevcut WSFC küme düğümü 1**.</span><span class="sxs-lookup"><span data-stu-id="9e404-191">In this step, you are installing SAP with a high-availability ASCS/SCS instance on hello **EXISTING WSFC cluster node 1**.</span></span>
 
-2. <span data-ttu-id="d8073-192">[ASCS/SCS örneğinin SAP profilini değiştirmek][sap-ha-guide-9.1.3].</span><span class="sxs-lookup"><span data-stu-id="d8073-192">[Modify the SAP profile of the ASCS/SCS instance][sap-ha-guide-9.1.3].</span></span>
+2. <span data-ttu-id="9e404-192">[Merhaba ASCS/SCS örneğinin Hello SAP profilini değiştirmek][sap-ha-guide-9.1.3].</span><span class="sxs-lookup"><span data-stu-id="9e404-192">[Modify hello SAP profile of hello ASCS/SCS instance][sap-ha-guide-9.1.3].</span></span>
 
-3. <span data-ttu-id="d8073-193">[Bir araştırma bağlantı noktası yapılandırın][sap-ha-guide-9.1.4].</span><span class="sxs-lookup"><span data-stu-id="d8073-193">[Configure a probe port][sap-ha-guide-9.1.4].</span></span>  
- <span data-ttu-id="d8073-194">Bu adımda, PowerShell kullanarak bir SAP küme kaynağı SAP SID2 IP sonda bağlantı noktası yapılandırmış olursunuz.</span><span class="sxs-lookup"><span data-stu-id="d8073-194">In this step, you are configuring an SAP cluster resource SAP-SID2-IP probe port by using PowerShell.</span></span> <span data-ttu-id="d8073-195">Bu yapılandırma SAP ASCS/SCS küme düğümlerinden birinin yürütün.</span><span class="sxs-lookup"><span data-stu-id="d8073-195">Execute this configuration on one of the SAP ASCS/SCS cluster nodes.</span></span>
+3. <span data-ttu-id="9e404-193">[Bir araştırma bağlantı noktası yapılandırın][sap-ha-guide-9.1.4].</span><span class="sxs-lookup"><span data-stu-id="9e404-193">[Configure a probe port][sap-ha-guide-9.1.4].</span></span>  
+ <span data-ttu-id="9e404-194">Bu adımda, PowerShell kullanarak bir SAP küme kaynağı SAP SID2 IP sonda bağlantı noktası yapılandırmış olursunuz.</span><span class="sxs-lookup"><span data-stu-id="9e404-194">In this step, you are configuring an SAP cluster resource SAP-SID2-IP probe port by using PowerShell.</span></span> <span data-ttu-id="9e404-195">Bu yapılandırma hello SAP ASCS/SCS küme düğümlerinden birinin yürütün.</span><span class="sxs-lookup"><span data-stu-id="9e404-195">Execute this configuration on one of hello SAP ASCS/SCS cluster nodes.</span></span>
 
-4. <span data-ttu-id="d8073-196">[Veritabanı örneği yüklemek][sap-ha-guide-9.2].</span><span class="sxs-lookup"><span data-stu-id="d8073-196">[Install the database instance][sap-ha-guide-9.2].</span></span>  
- <span data-ttu-id="d8073-197">Bu adımda, adanmış bir WSFC kümesinde DBMS yüklüyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="d8073-197">In this step, you are installing DBMS on a dedicated WSFC cluster.</span></span>
+4. <span data-ttu-id="9e404-196">[Merhaba veritabanı örneğini yükleyin][sap-ha-guide-9.2].</span><span class="sxs-lookup"><span data-stu-id="9e404-196">[Install hello database instance][sap-ha-guide-9.2].</span></span>  
+ <span data-ttu-id="9e404-197">Bu adımda, adanmış bir WSFC kümesinde DBMS yüklüyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="9e404-197">In this step, you are installing DBMS on a dedicated WSFC cluster.</span></span>
 
-5. <span data-ttu-id="d8073-198">[İkinci küme düğümü yükleme][sap-ha-guide-9.3].</span><span class="sxs-lookup"><span data-stu-id="d8073-198">[Install the second cluster node][sap-ha-guide-9.3].</span></span>  
- <span data-ttu-id="d8073-199">Bu adımda, mevcut WSFC Küme düğüm 2 üzerinde bir yüksek kullanılabilirlik ASCS/SCS örneği SAP yüklüyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="d8073-199">In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 2.</span></span>
+5. <span data-ttu-id="9e404-198">[Merhaba ikinci küme düğümü yükleme][sap-ha-guide-9.3].</span><span class="sxs-lookup"><span data-stu-id="9e404-198">[Install hello second cluster node][sap-ha-guide-9.3].</span></span>  
+ <span data-ttu-id="9e404-199">Bu adımda, hello mevcut WSFC Küme düğüm 2 üzerinde bir yüksek kullanılabilirlik ASCS/SCS örneği SAP yüklüyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="9e404-199">In this step, you are installing SAP with a high-availability ASCS/SCS instance on hello existing WSFC cluster node 2.</span></span>
 
-6. <span data-ttu-id="d8073-200">SAP ASCS/SCS örneği ve ProbePort için Windows Güvenlik Duvarı bağlantı noktalarını açın.</span><span class="sxs-lookup"><span data-stu-id="d8073-200">Open Windows Firewall ports for the SAP ASCS/SCS instance and ProbePort.</span></span>  
- <span data-ttu-id="d8073-201">SAP ASCS/SCS örnekleri için kullanılan her iki küme düğümlerinde SAP ASCS/SCS tarafından kullanılan tüm Windows Güvenlik Duvarı bağlantı noktaları açıyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="d8073-201">On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS.</span></span> <span data-ttu-id="d8073-202">Bu bağlantı noktaları listelenir [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide-8.8].</span><span class="sxs-lookup"><span data-stu-id="d8073-202">These ports are listed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.8].</span></span>  
- <span data-ttu-id="d8073-203">Ayrıca bizim senaryoda 62350 olan Azure iç yük dengeleyici araştırması bağlantı açın.</span><span class="sxs-lookup"><span data-stu-id="d8073-203">Also open the Azure internal load balancer probe port, which is 62350 in our scenario.</span></span>
+6. <span data-ttu-id="9e404-200">Merhaba SAP ASCS/SCS örneği ve ProbePort için Windows Güvenlik Duvarı bağlantı noktalarını açın.</span><span class="sxs-lookup"><span data-stu-id="9e404-200">Open Windows Firewall ports for hello SAP ASCS/SCS instance and ProbePort.</span></span>  
+ <span data-ttu-id="9e404-201">SAP ASCS/SCS örnekleri için kullanılan her iki küme düğümlerinde SAP ASCS/SCS tarafından kullanılan tüm Windows Güvenlik Duvarı bağlantı noktaları açıyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="9e404-201">On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS.</span></span> <span data-ttu-id="9e404-202">Bu bağlantı noktaları hello listelenen [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde][sap-ha-guide-8.8].</span><span class="sxs-lookup"><span data-stu-id="9e404-202">These ports are listed in hello [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.8].</span></span>  
+ <span data-ttu-id="9e404-203">Ayrıca bizim senaryoda 62350 olan hello Azure iç yük dengeleyici araştırması bağlantı noktası açın.</span><span class="sxs-lookup"><span data-stu-id="9e404-203">Also open hello Azure internal load balancer probe port, which is 62350 in our scenario.</span></span>
 
-7. <span data-ttu-id="d8073-204">[SAP ERS Windows hizmet örneği başlangıç türünü değiştirme][sap-ha-guide-9.4].</span><span class="sxs-lookup"><span data-stu-id="d8073-204">[Change the start type of the SAP ERS Windows service instance][sap-ha-guide-9.4].</span></span>
+7. <span data-ttu-id="9e404-204">[Merhaba başlangıç türünü hello SAP ERS Windows hizmeti örneğinin][sap-ha-guide-9.4].</span><span class="sxs-lookup"><span data-stu-id="9e404-204">[Change hello start type of hello SAP ERS Windows service instance][sap-ha-guide-9.4].</span></span>
 
-8. <span data-ttu-id="d8073-205">[SAP birincil uygulama sunucusu yüklemeniz] [ sap-ha-guide-9.5] yeni VM ayrılmış.</span><span class="sxs-lookup"><span data-stu-id="d8073-205">[Install the SAP primary application server][sap-ha-guide-9.5] on the new dedicated VM.</span></span>
+8. <span data-ttu-id="9e404-205">[Merhaba SAP birincil uygulama sunucusu yüklemeniz] [ sap-ha-guide-9.5] hello yeni VM ayrılmış.</span><span class="sxs-lookup"><span data-stu-id="9e404-205">[Install hello SAP primary application server][sap-ha-guide-9.5] on hello new dedicated VM.</span></span>
 
-9. <span data-ttu-id="d8073-206">[SAP ek uygulama sunucusu yüklemeniz] [ sap-ha-guide-9.6] yeni VM ayrılmış.</span><span class="sxs-lookup"><span data-stu-id="d8073-206">[Install the SAP additional application server][sap-ha-guide-9.6] on the new dedicated VM.</span></span>
+9. <span data-ttu-id="9e404-206">[Merhaba SAP ek uygulama sunucusu yüklemeniz] [ sap-ha-guide-9.6] hello yeni VM ayrılmış.</span><span class="sxs-lookup"><span data-stu-id="9e404-206">[Install hello SAP additional application server][sap-ha-guide-9.6] on hello new dedicated VM.</span></span>
 
-10. <span data-ttu-id="d8073-207">[SIOS çoğaltma ve SAP ASCS/SCS örneği yük devretme testi][sap-ha-guide-10].</span><span class="sxs-lookup"><span data-stu-id="d8073-207">[Test the SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10].</span></span>
+10. <span data-ttu-id="9e404-207">[Test hello SAP ASCS/SCS örneği yük devretme ve SIOS çoğaltma][sap-ha-guide-10].</span><span class="sxs-lookup"><span data-stu-id="9e404-207">[Test hello SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10].</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="d8073-208">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d8073-208">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="9e404-208">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="9e404-208">Next steps</span></span>
 
-- <span data-ttu-id="d8073-209">[Ağ sınırları: Azure Resource Manager][networking-limits-azure-resource-manager]</span><span class="sxs-lookup"><span data-stu-id="d8073-209">[Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]</span></span>
-- <span data-ttu-id="d8073-210">[Azure için birden çok Vip yük dengeleyici][load-balancer-multivip-overview]</span><span class="sxs-lookup"><span data-stu-id="d8073-210">[Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]</span></span>
-- <span data-ttu-id="d8073-211">[Windows sanal makineleri üzerinde yüksek kullanılabilirlik SAP NetWeaver Kılavuzu][sap-ha-guide]</span><span class="sxs-lookup"><span data-stu-id="d8073-211">[Guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide]</span></span>
+- <span data-ttu-id="9e404-209">[Ağ sınırları: Azure Resource Manager][networking-limits-azure-resource-manager]</span><span class="sxs-lookup"><span data-stu-id="9e404-209">[Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]</span></span>
+- <span data-ttu-id="9e404-210">[Azure için birden çok Vip yük dengeleyici][load-balancer-multivip-overview]</span><span class="sxs-lookup"><span data-stu-id="9e404-210">[Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]</span></span>
+- <span data-ttu-id="9e404-211">[Windows sanal makineleri üzerinde yüksek kullanılabilirlik SAP NetWeaver Kılavuzu][sap-ha-guide]</span><span class="sxs-lookup"><span data-stu-id="9e404-211">[Guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide]</span></span>
