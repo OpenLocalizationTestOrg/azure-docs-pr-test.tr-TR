@@ -1,12 +1,12 @@
 ---
 title: "SensorTag cihaz & Azure IOT ağ geçidi - Ders 3: örnek uygulamayı çalıştırma | Microsoft Docs"
-description: "BIRAK SensorTag ve IOT hub'ınızı ' ndan veri almaya bırak örnek uygulamayı çalıştırın."
+description: "BIRAK örnek uygulama tooreceive veri BOŞALT SensorTag ve IOT hub'ınızı çalıştırın."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "bırak uygulama, algılayıcı İzleyici uygulama, algılayıcı veri toplama, algılayıcılar, bulut için algılayıcı verilerini verileri"
+keywords: "bırak uygulama, algılayıcı İzleyici uygulama, algılayıcı veri toplama, algılayıcılar, algılayıcı verileri toocloud verileri"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: b33e53a1-1df7-4412-ade1-45185aec5bef
@@ -17,51 +17,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: f6fa158dbe1d48be7d493efa6217e1e0a759d2f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a8acdeadd402ffc82d3b766e1ec03a77ddcebb1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-and-run-a-ble-sample-application"></a><span data-ttu-id="f5c22-104">Yapılandırma ve bırak örnek uygulamayı çalıştırma</span><span class="sxs-lookup"><span data-stu-id="f5c22-104">Configure and run a BLE sample application</span></span>
+# <a name="configure-and-run-a-ble-sample-application"></a><span data-ttu-id="466bf-104">Yapılandırma ve bırak örnek uygulamayı çalıştırma</span><span class="sxs-lookup"><span data-stu-id="466bf-104">Configure and run a BLE sample application</span></span>
 
-## <a name="what-you-will-do"></a><span data-ttu-id="f5c22-105">Ne yapacağını</span><span class="sxs-lookup"><span data-stu-id="f5c22-105">What you will do</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="466bf-105">Ne yapacağını</span><span class="sxs-lookup"><span data-stu-id="466bf-105">What you will do</span></span>
 
-- <span data-ttu-id="f5c22-106">Örnek depoyu kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="f5c22-106">Clone the sample repository.</span></span> 
-- <span data-ttu-id="f5c22-107">SensorTag ve Intel NUC arasında bağlantı kurun.</span><span class="sxs-lookup"><span data-stu-id="f5c22-107">Set up the connectivity between SensorTag and Intel NUC.</span></span> 
-- <span data-ttu-id="f5c22-108">IOT hub ve silinmesini devre dışı bırak (Bluetooth düşük enerji) örnek uygulaması SensorTag bilgilerini almak için Azure CLI kullanın.</span><span class="sxs-lookup"><span data-stu-id="f5c22-108">Use the Azure CLI to get your IoT hub and SensorTag information for a BLE(Bluetooth Low Energy) sample application.</span></span> <span data-ttu-id="f5c22-109">Yapılandırmak ve bırak örnek uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="f5c22-109">And configure and run the BLE sample application.</span></span> 
+- <span data-ttu-id="466bf-106">Kopya hello örnek depo.</span><span class="sxs-lookup"><span data-stu-id="466bf-106">Clone hello sample repository.</span></span> 
+- <span data-ttu-id="466bf-107">SensorTag ve Intel NUC arasında hello bağlantı kurun.</span><span class="sxs-lookup"><span data-stu-id="466bf-107">Set up hello connectivity between SensorTag and Intel NUC.</span></span> 
+- <span data-ttu-id="466bf-108">Hello Azure CLI tooget bırak (Bluetooth düşük enerji) örnek bir uygulama için IOT hub ve SensorTag bilgileri kullanın.</span><span class="sxs-lookup"><span data-stu-id="466bf-108">Use hello Azure CLI tooget your IoT hub and SensorTag information for a BLE(Bluetooth Low Energy) sample application.</span></span> <span data-ttu-id="466bf-109">Yapılandırmak ve hello bırak örnek uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="466bf-109">And configure and run hello BLE sample application.</span></span> 
 
-<span data-ttu-id="f5c22-110">Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası](iot-hub-gateway-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="f5c22-110">If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).</span></span>
+<span data-ttu-id="466bf-110">Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası](iot-hub-gateway-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="466bf-110">If you have any problems, look for solutions on hello [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="f5c22-111">Bilgi edineceksiniz</span><span class="sxs-lookup"><span data-stu-id="f5c22-111">What you will learn</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="466bf-111">Bilgi edineceksiniz</span><span class="sxs-lookup"><span data-stu-id="466bf-111">What you will learn</span></span>
 
-<span data-ttu-id="f5c22-112">Bu makalede, şunları öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="f5c22-112">In this article, you will learn:</span></span>
+<span data-ttu-id="466bf-112">Bu makalede, şunları öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="466bf-112">In this article, you will learn:</span></span>
 
-- <span data-ttu-id="f5c22-113">Nasıl yapılandırmak ve bırak örnek uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="f5c22-113">How to configure and run the BLE sample application.</span></span>
+- <span data-ttu-id="466bf-113">Nasıl tooconfigure ve çalışma hello bırak örnek uygulama.</span><span class="sxs-lookup"><span data-stu-id="466bf-113">How tooconfigure and run hello BLE sample application.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="f5c22-114">Ne gerekiyor</span><span class="sxs-lookup"><span data-stu-id="f5c22-114">What you need</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="466bf-114">Ne gerekiyor</span><span class="sxs-lookup"><span data-stu-id="466bf-114">What you need</span></span>
 
-<span data-ttu-id="f5c22-115">Başarılı bir şekilde tamamladınız gerekir</span><span class="sxs-lookup"><span data-stu-id="f5c22-115">You must have successfully completed</span></span>
+<span data-ttu-id="466bf-115">Başarılı bir şekilde tamamladınız gerekir</span><span class="sxs-lookup"><span data-stu-id="466bf-115">You must have successfully completed</span></span>
 
-- [<span data-ttu-id="f5c22-116">IOT hub'ı oluşturma ve SensorTag kaydetme</span><span class="sxs-lookup"><span data-stu-id="f5c22-116">Create an IoT hub and register SensorTag</span></span>](iot-hub-gateway-kit-c-lesson2-register-device.md)
+- [<span data-ttu-id="466bf-116">IOT hub'ı oluşturma ve SensorTag kaydetme</span><span class="sxs-lookup"><span data-stu-id="466bf-116">Create an IoT hub and register SensorTag</span></span>](iot-hub-gateway-kit-c-lesson2-register-device.md)
 
-## <a name="clone-the-sample-repository-to-the-host-computer"></a><span data-ttu-id="f5c22-117">Ana bilgisayara örnek depoyu kopyalayın</span><span class="sxs-lookup"><span data-stu-id="f5c22-117">Clone the sample repository to the host computer</span></span>
+## <a name="clone-hello-sample-repository-toohello-host-computer"></a><span data-ttu-id="466bf-117">Kopya hello örnek depo toohello ana bilgisayarı</span><span class="sxs-lookup"><span data-stu-id="466bf-117">Clone hello sample repository toohello host computer</span></span>
 
-<span data-ttu-id="f5c22-118">Örnek deposuna kopyalamak için ana bilgisayarda aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="f5c22-118">To clone the sample repository, follow these steps on the host computer:</span></span>
+<span data-ttu-id="466bf-118">tooclone hello örnek deposu, hello ana bilgisayarda aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="466bf-118">tooclone hello sample repository, follow these steps on hello host computer:</span></span>
 
-1. <span data-ttu-id="f5c22-119">Windows komut istemi penceresi açın veya terminal macOS veya Ubuntu açın.</span><span class="sxs-lookup"><span data-stu-id="f5c22-119">Open a Command Prompt window in Windows or open a terminal in macOS or Ubuntu.</span></span>
-2. <span data-ttu-id="f5c22-120">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="f5c22-120">Run the following commands:</span></span>
+1. <span data-ttu-id="466bf-119">Windows komut istemi penceresi açın veya terminal macOS veya Ubuntu açın.</span><span class="sxs-lookup"><span data-stu-id="466bf-119">Open a Command Prompt window in Windows or open a terminal in macOS or Ubuntu.</span></span>
+2. <span data-ttu-id="466bf-120">Merhaba aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="466bf-120">Run hello following commands:</span></span>
 
    ```bash
    git clone https://github.com/Azure-samples/iot-hub-c-intel-nuc-gateway-getting-started
    cd iot-hub-c-intel-nuc-gateway-getting-started
    ```
 
-## <a name="set-up-the-connectivity-between-sensortag-and-intel-nuc"></a><span data-ttu-id="f5c22-121">SensorTag ve Intel NUC arasında bağlantılar kurmak</span><span class="sxs-lookup"><span data-stu-id="f5c22-121">Set up the connectivity between SensorTag and Intel NUC</span></span>
+## <a name="set-up-hello-connectivity-between-sensortag-and-intel-nuc"></a><span data-ttu-id="466bf-121">SensorTag ve Intel NUC arasında hello bağlantısı ayarlama</span><span class="sxs-lookup"><span data-stu-id="466bf-121">Set up hello connectivity between SensorTag and Intel NUC</span></span>
 
-<span data-ttu-id="f5c22-122">Bağlantı kurmak için ana bilgisayarda aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="f5c22-122">To set up the connectivity, follow these steps on the host computer:</span></span>
+<span data-ttu-id="466bf-122">Merhaba bağlantı kurma tooset hello ana bilgisayarda aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="466bf-122">tooset up hello connectivity, follow these steps on hello host computer:</span></span>
 
-1. <span data-ttu-id="f5c22-123">Yapılandırma dosyası, aşağıdaki komutları çalıştırarak başlatın:</span><span class="sxs-lookup"><span data-stu-id="f5c22-123">Initialize the configuration file by running the following commands:</span></span>
+1. <span data-ttu-id="466bf-123">Merhaba yapılandırma dosyası hello aşağıdaki komutları çalıştırarak başlatın:</span><span class="sxs-lookup"><span data-stu-id="466bf-123">Initialize hello configuration file by running hello following commands:</span></span>
 
    ```bash
    cd Lesson3
@@ -69,7 +69,7 @@ ms.lasthandoff: 07/11/2017
    gulp init
    ```
 
-2. <span data-ttu-id="f5c22-124">Açık `config-gateway.json` aşağıdaki komutu çalıştırarak Visual Studio Code:</span><span class="sxs-lookup"><span data-stu-id="f5c22-124">Open `config-gateway.json` in Visual Studio Code by running the following command:</span></span>
+2. <span data-ttu-id="466bf-124">Açık `config-gateway.json` hello aşağıdaki komutu çalıştırarak Visual Studio Code:</span><span class="sxs-lookup"><span data-stu-id="466bf-124">Open `config-gateway.json` in Visual Studio Code by running hello following command:</span></span>
 
    ```bash
    # For Windows command prompt
@@ -78,48 +78,48 @@ ms.lasthandoff: 07/11/2017
    code ~/.iot-hub-getting-started/config-gateway.json
    ```
 
-3. <span data-ttu-id="f5c22-125">Aşağıdaki kod satırını bulun ve değiştirin `[device hostname or IP address]` Intel NUC IP adresi veya ana bilgisayar adı.</span><span class="sxs-lookup"><span data-stu-id="f5c22-125">Locate the following line of code and replace `[device hostname or IP address]` with the IP address or host name of Intel NUC.</span></span>
-   <span data-ttu-id="f5c22-126">![config ağ geçidinin ekran görüntüsü](media/iot-hub-gateway-kit-lessons/lesson3/config_gateway.png)</span><span class="sxs-lookup"><span data-stu-id="f5c22-126">![screenshot of config gateway](media/iot-hub-gateway-kit-lessons/lesson3/config_gateway.png)</span></span>
+3. <span data-ttu-id="466bf-125">Aşağıdaki kod hello bulun ve değiştirin `[device hostname or IP address]` başlangıç IP adresi veya ana bilgisayar adı ile Intel NUC.</span><span class="sxs-lookup"><span data-stu-id="466bf-125">Locate hello following line of code and replace `[device hostname or IP address]` with hello IP address or host name of Intel NUC.</span></span>
+   <span data-ttu-id="466bf-126">![config ağ geçidinin ekran görüntüsü](media/iot-hub-gateway-kit-lessons/lesson3/config_gateway.png)</span><span class="sxs-lookup"><span data-stu-id="466bf-126">![screenshot of config gateway](media/iot-hub-gateway-kit-lessons/lesson3/config_gateway.png)</span></span>
 
-4. <span data-ttu-id="f5c22-127">Yardımcı Araçlar, aşağıdaki komutu çalıştırarak üzerinde Intel NUC yükleyin:</span><span class="sxs-lookup"><span data-stu-id="f5c22-127">Install helper tools on Intel NUC by running the following command:</span></span>
+4. <span data-ttu-id="466bf-127">Yardımcı Araçlar hello aşağıdaki komutu çalıştırarak üzerinde Intel NUC yükleyin:</span><span class="sxs-lookup"><span data-stu-id="466bf-127">Install helper tools on Intel NUC by running hello following command:</span></span>
 
    ```bash
    gulp install-tools
    ```
 
-5. <span data-ttu-id="f5c22-128">Aşağıdaki resim olarak güç düğmesine basarak üzerinde SensorTag açın ve yeşil LED blink.</span><span class="sxs-lookup"><span data-stu-id="f5c22-128">Turn on SensorTag by pressing the power button as the following picture, and the green LED should blink.</span></span>
+5. <span data-ttu-id="466bf-128">Resim aşağıdaki hello hello güç düğmesine basarak üzerinde SensorTag açın ve hello yeşil LED blink.</span><span class="sxs-lookup"><span data-stu-id="466bf-128">Turn on SensorTag by pressing hello power button as hello following picture, and hello green LED should blink.</span></span>
 
    ![Algılayıcı etiketi Aç](media/iot-hub-gateway-kit-lessons/lesson3/turn on_off sensortag.jpg)
 
-6. <span data-ttu-id="f5c22-130">Aşağıdaki komutları çalıştırarak SensorTag aygıtlarını tara:</span><span class="sxs-lookup"><span data-stu-id="f5c22-130">Scan SensorTag devices by running the following commands:</span></span>
+6. <span data-ttu-id="466bf-130">Merhaba aşağıdaki komutları çalıştırarak SensorTag aygıtlarını tara:</span><span class="sxs-lookup"><span data-stu-id="466bf-130">Scan SensorTag devices by running hello following commands:</span></span>
 
    ```bash
    gulp discover-sensortag
    ```
 
-7. <span data-ttu-id="f5c22-131">Aşağıdaki komutu çalıştırarak SensorTag ve Intel NUC arasındaki bağlantıyı test edin:</span><span class="sxs-lookup"><span data-stu-id="f5c22-131">Test the connectivity between the SensorTag and Intel NUC by running the following command:</span></span>
+7. <span data-ttu-id="466bf-131">Merhaba SensorTag ve Intel NUC arasında Hello bağlantısı hello aşağıdaki komutu çalıştırarak test edin:</span><span class="sxs-lookup"><span data-stu-id="466bf-131">Test hello connectivity between hello SensorTag and Intel NUC by running hello following command:</span></span>
 
    ```bash
    gulp test-connectivity --mac {mac address}
    ```
 
-   <span data-ttu-id="f5c22-132">Değiştir `{mac address}` önceki adımda elde ettiğiniz MAC adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="f5c22-132">Replace `{mac address}` with the MAC address that you obtained in the previous step.</span></span>
+   <span data-ttu-id="466bf-132">Değiştir `{mac address}` hello hello önceki adımda elde ettiğiniz MAC adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="466bf-132">Replace `{mac address}` with hello MAC address that you obtained in hello previous step.</span></span>
 
-## <a name="get-the-connection-string-of-sensortag"></a><span data-ttu-id="f5c22-133">SensorTag bağlantı dizesi alma</span><span class="sxs-lookup"><span data-stu-id="f5c22-133">Get the connection string of SensorTag</span></span>
+## <a name="get-hello-connection-string-of-sensortag"></a><span data-ttu-id="466bf-133">SensorTag Hello bağlantı dizesi alma</span><span class="sxs-lookup"><span data-stu-id="466bf-133">Get hello connection string of SensorTag</span></span>
 
-<span data-ttu-id="f5c22-134">SensorTag Azure IOT hub bağlantı dizesini almak için ana bilgisayarda aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="f5c22-134">To get the Azure IoT hub connection string of SensorTag, run the following command on the host computer:</span></span>
+<span data-ttu-id="466bf-134">tooget hello Azure IOT hub bağlantı dizesi SensorTag, komut hello ana bilgisayarda aşağıdaki hello çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="466bf-134">tooget hello Azure IoT hub connection string of SensorTag, run hello following command on hello host computer:</span></span>
 
 ```bash
 az iot device show-connection-string --hub-name {IoT hub name} --device-id mydevice --resource-group iot-gateway
 ```
 
-<span data-ttu-id="f5c22-135">`{IoT hub name}`kullandığınız IOT hub addır.</span><span class="sxs-lookup"><span data-stu-id="f5c22-135">`{IoT hub name}` is the IoT hub name that you used.</span></span> <span data-ttu-id="f5c22-136">IOT ağ geçidi değeri olarak kullanın `{resource group name}` ve mydevice değeri olarak `{device id}` Ders 2 değerinde değiştirilmediyse.</span><span class="sxs-lookup"><span data-stu-id="f5c22-136">Use iot-gateway as the value of `{resource group name}` and use mydevice as the value of `{device id}` if you didn't change the value in Lesson 2.</span></span>
+<span data-ttu-id="466bf-135">`{IoT hub name}`kullandığınız hello IOT hub adıdır.</span><span class="sxs-lookup"><span data-stu-id="466bf-135">`{IoT hub name}` is hello IoT hub name that you used.</span></span> <span data-ttu-id="466bf-136">IOT ağ geçidi hello değeri olarak kullanın `{resource group name}` ve mydevice hello değeri olarak `{device id}` Ders 2 hello değerinde değiştirilmediyse.</span><span class="sxs-lookup"><span data-stu-id="466bf-136">Use iot-gateway as hello value of `{resource group name}` and use mydevice as hello value of `{device id}` if you didn't change hello value in Lesson 2.</span></span>
 
-## <a name="configure-the-ble-sample-application"></a><span data-ttu-id="f5c22-137">BIRAK örnek uygulamayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="f5c22-137">Configure the BLE sample application</span></span>
+## <a name="configure-hello-ble-sample-application"></a><span data-ttu-id="466bf-137">Merhaba bırak örnek uygulamayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="466bf-137">Configure hello BLE sample application</span></span>
 
-<span data-ttu-id="f5c22-138">Yapılandırmak ve bırak örnek uygulamayı çalıştırmak için ana bilgisayarda aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="f5c22-138">To configure and run the BLE sample application, follow these steps on the host computer:</span></span>
+<span data-ttu-id="466bf-138">tooconfigure ve çalışma hello bırak örnek uygulama, hello ana bilgisayarda aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="466bf-138">tooconfigure and run hello BLE sample application, follow these steps on hello host computer:</span></span>
 
-1. <span data-ttu-id="f5c22-139">Açık `config-sensortag.json` aşağıdaki komutu çalıştırarak Visual Studio Code:</span><span class="sxs-lookup"><span data-stu-id="f5c22-139">Open `config-sensortag.json` in Visual Studio Code by running the following command:</span></span>
+1. <span data-ttu-id="466bf-139">Açık `config-sensortag.json` hello aşağıdaki komutu çalıştırarak Visual Studio Code:</span><span class="sxs-lookup"><span data-stu-id="466bf-139">Open `config-sensortag.json` in Visual Studio Code by running hello following command:</span></span>
 
    ```bash
    # For Windows command prompt
@@ -130,34 +130,34 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 
    ![config sensortag ekran görüntüsü](media/iot-hub-gateway-kit-lessons/lesson3/config_sensortag.png)
 
-2. <span data-ttu-id="f5c22-141">Kod içinde aşağıdaki değişiklikleri yapın:</span><span class="sxs-lookup"><span data-stu-id="f5c22-141">Make the following replacements in the code:</span></span>
-   - <span data-ttu-id="f5c22-142">Değiştir `[IoT hub name]` ile kullandığınız IOT hub adı.</span><span class="sxs-lookup"><span data-stu-id="f5c22-142">Replace `[IoT hub name]` with the IoT hub name that you used.</span></span>
-   - <span data-ttu-id="f5c22-143">Değiştir `[IoT device connection string]` aldığınız SensorTag bağlantı dizesi ile.</span><span class="sxs-lookup"><span data-stu-id="f5c22-143">Replace `[IoT device connection string]` with the connection string of SensorTag that you obtained.</span></span>
-   - <span data-ttu-id="f5c22-144">Değiştir `[device_mac_address]` aldığınız SensorTag MAC adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="f5c22-144">Replace `[device_mac_address]` with the MAC address of the SensorTag that you obtained.</span></span>
+2. <span data-ttu-id="466bf-141">Merhaba kodda değişiklik aşağıdaki hello olun:</span><span class="sxs-lookup"><span data-stu-id="466bf-141">Make hello following replacements in hello code:</span></span>
+   - <span data-ttu-id="466bf-142">Değiştir `[IoT hub name]` kullandığınız hello IOT hub'ı adı ile.</span><span class="sxs-lookup"><span data-stu-id="466bf-142">Replace `[IoT hub name]` with hello IoT hub name that you used.</span></span>
+   - <span data-ttu-id="466bf-143">Değiştir `[IoT device connection string]` aldığınız SensorTag hello bağlantı dizesi ile.</span><span class="sxs-lookup"><span data-stu-id="466bf-143">Replace `[IoT device connection string]` with hello connection string of SensorTag that you obtained.</span></span>
+   - <span data-ttu-id="466bf-144">Değiştir `[device_mac_address]` hello hello aldığınız SensorTag MAC adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="466bf-144">Replace `[device_mac_address]` with hello MAC address of hello SensorTag that you obtained.</span></span>
 
-3. <span data-ttu-id="f5c22-145">BIRAK örnek uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="f5c22-145">Run the BLE sample application.</span></span>
+3. <span data-ttu-id="466bf-145">Merhaba bırak örnek uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="466bf-145">Run hello BLE sample application.</span></span>
 
-   <span data-ttu-id="f5c22-146">BIRAK örnek uygulamayı çalıştırmak için ana bilgisayarda aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="f5c22-146">To run the BLE sample application, follow these steps on the host computer:</span></span>
+   <span data-ttu-id="466bf-146">toorun hello bırak örnek uygulama, hello ana bilgisayarda aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="466bf-146">toorun hello BLE sample application, follow these steps on hello host computer:</span></span>
 
-   1. <span data-ttu-id="f5c22-147">Üzerinde SensorTag açın.</span><span class="sxs-lookup"><span data-stu-id="f5c22-147">Turn on SensorTag.</span></span>
+   1. <span data-ttu-id="466bf-147">Üzerinde SensorTag açın.</span><span class="sxs-lookup"><span data-stu-id="466bf-147">Turn on SensorTag.</span></span>
 
-   2. <span data-ttu-id="f5c22-148">Dağıtma ve aşağıdaki komutu çalıştırarak üzerinde Intel NUC bırak örnek uygulamayı çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="f5c22-148">Deploy and run the BLE sample application on Intel NUC by running the following command:</span></span>
+   2. <span data-ttu-id="466bf-148">Dağıtma ve hello aşağıdaki komutu çalıştırarak üzerinde Intel NUC hello bırak örnek uygulamayı çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="466bf-148">Deploy and run hello BLE sample application on Intel NUC by running hello following command:</span></span>
    
       ```bash
       gulp run
       ```
 
-## <a name="verify-that-the-ble-sample-application-works"></a><span data-ttu-id="f5c22-149">BIRAK örnek uygulama çalıştığını doğrulayın</span><span class="sxs-lookup"><span data-stu-id="f5c22-149">Verify that the BLE sample application works</span></span>
+## <a name="verify-that-hello-ble-sample-application-works"></a><span data-ttu-id="466bf-149">Merhaba bırak örnek uygulaması çalıştığını doğrulayın</span><span class="sxs-lookup"><span data-stu-id="466bf-149">Verify that hello BLE sample application works</span></span>
 
-<span data-ttu-id="f5c22-150">Şimdi, aşağıdakine benzer bir çıktı görmeniz gerekir:</span><span class="sxs-lookup"><span data-stu-id="f5c22-150">You should now see an output like the following:</span></span>
+<span data-ttu-id="466bf-150">Şimdi hello aşağıdaki gibi bir çıktı görmeniz gerekir:</span><span class="sxs-lookup"><span data-stu-id="466bf-150">You should now see an output like hello following:</span></span>
 
 ![BIRAK örnek uygulama çıktısı](media/iot-hub-gateway-kit-lessons/lesson3/BLE_running.png)
 
-<span data-ttu-id="f5c22-152">Örnek uygulama sıcaklık veri toplamayı tutar ve IOT hub'ınıza gönderilir.</span><span class="sxs-lookup"><span data-stu-id="f5c22-152">The sample application keeps collecting temperature data and sent it to your IoT hub.</span></span> <span data-ttu-id="f5c22-153">Örnek uygulama, 40 saniye gönderdikten sonra otomatik olarak sona erer.</span><span class="sxs-lookup"><span data-stu-id="f5c22-153">The sample application terminates automatically after sending 40 seconds.</span></span>
+<span data-ttu-id="466bf-152">Merhaba örnek uygulaması sıcaklık veri toplamayı tutar ve tooyour IOT hub'ı gönderilir.</span><span class="sxs-lookup"><span data-stu-id="466bf-152">hello sample application keeps collecting temperature data and sent it tooyour IoT hub.</span></span> <span data-ttu-id="466bf-153">Merhaba örnek uygulaması, 40 saniye gönderdikten sonra otomatik olarak sona erer.</span><span class="sxs-lookup"><span data-stu-id="466bf-153">hello sample application terminates automatically after sending 40 seconds.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="f5c22-154">Özet</span><span class="sxs-lookup"><span data-stu-id="f5c22-154">Summary</span></span>
+## <a name="summary"></a><span data-ttu-id="466bf-154">Özet</span><span class="sxs-lookup"><span data-stu-id="466bf-154">Summary</span></span>
 
-<span data-ttu-id="f5c22-155">Başarılı bir şekilde SensorTag ve Intel NUC arasında bağlantılar kurmak ve toplar ve veri SensorTag IOT hub'ınıza gönderir bırak örnek uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="f5c22-155">You've successfully set up the connectivity between SensorTag and Intel NUC, and run a BLE sample application which collects and sends data from SensorTag to your IoT hub.</span></span> <span data-ttu-id="f5c22-156">IOT hub'ınızı veri aldığını doğrulamak öğrenmek hazırsınız.</span><span class="sxs-lookup"><span data-stu-id="f5c22-156">You're ready to learn how to verify that your IoT hub has received the data.</span></span>
+<span data-ttu-id="466bf-155">Başarılı bir şekilde SensorTag ve Intel NUC arasında hello bağlantılar kurmak ve toplar ve SensorTag tooyour IOT hub'ından veri gönderen bir bırak örnek uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="466bf-155">You've successfully set up hello connectivity between SensorTag and Intel NUC, and run a BLE sample application which collects and sends data from SensorTag tooyour IoT hub.</span></span> <span data-ttu-id="466bf-156">Hazır toolearn olduğunuz nasıl IOT hub'ınızı aldı tooverify hello veri.</span><span class="sxs-lookup"><span data-stu-id="466bf-156">You're ready toolearn how tooverify that your IoT hub has received hello data.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="f5c22-157">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="f5c22-157">Next steps</span></span>
-[<span data-ttu-id="f5c22-158">IoT hub'ınızdan ileti okuma</span><span class="sxs-lookup"><span data-stu-id="f5c22-158">Read messages from your IoT hub</span></span>](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
+## <a name="next-steps"></a><span data-ttu-id="466bf-157">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="466bf-157">Next steps</span></span>
+[<span data-ttu-id="466bf-158">IoT hub'ınızdan ileti okuma</span><span class="sxs-lookup"><span data-stu-id="466bf-158">Read messages from your IoT hub</span></span>](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)

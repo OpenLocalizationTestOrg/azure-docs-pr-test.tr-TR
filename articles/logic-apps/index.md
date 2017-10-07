@@ -1,6 +1,6 @@
 ---
-title: "Azure Logic Apps Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Şirket içinde ve bulutta iş akışlarını otomatikleştiren ve basitleştiren mantıksal uygulamalar geliştirme hakkında bilgi edinin. Öğreticiler, şablonlar ve API başvuruları."
+title: "aaaAzure Logic Apps belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Nasıl otomatikleştirmek ve şirket içi ve hello iş iş akışları basitleştirmeye toodevelop mantıksal uygulamalar bulut öğrenin. Öğreticiler, şablonlar ve API başvuruları."
 services: logic-apps
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 7f9790a52365b76e9d3dd1fdf1a17ab2aaaf8b5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5cc3a730b1b6abcb3ec0132f6e8ebf2e54775836
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="logic-apps-documentation"></a>Logic Apps Belgeleri
 
-Bulutta ölçeklenebilir iş akışlarını basitleştiren ve tümleştiren mantıksal uygulamalar geliştirme hakkında bilgi edinin. Öğreticiler, şablonlar ve API başvuruları, şirket içinde ve bulutta otomatik iş akışları tasarlamanıza ve dağıtmanıza yardımcı olur.
+Bulut basitleştirmek ve ölçeklenebilir iş akışlarında tümleştirmek toodevelop Logic Apps nasıl hello öğrenin. Eğitim, şablonları ve API tasarım, şirket otomatik iş iş akışları dağıtın ve bulut hello Yardım başvurur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,7 +106,7 @@ Bulutta ölçeklenebilir iş akışlarını basitleştiren ve tümleştiren mant
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Logic Apps ile kullanılacak bir özel API oluşturmaya başlama</h3>
+                        <h3>Logic Apps ile özel bir API toouse oluşturmaya başlamak</h3>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Paketi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+title: "aaaAzure IOT paketi belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
 description: 
 services: iot-suite
 author: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 4d78758b718cb98a84a9ed8aed4c1b92db4ea59e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 83b006447e0d06d49ed7feace16b0db7d04d56f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="iot-suite-documentation"></a>IoT Paketi Belgeleri
 
-Microsoft Azure IoT Paketi’ni hemen kullanmaya başlayın. Önceden yapılandırılmış çözümleri kullanın ve Nesnelerin İnterneti (IoT) çözümünüzün geliştirilmesini hızlandırın. Linux, Windows ve gerçek zamanlı işletim sistemleri gibi birden çok platforma yönelik cihaz SDK’larını kullanarak yeni cihazlar ekleyin ve mevcut cihazlarınızı bağlayın. Yalnızca birkaç sensörden, eşzamanlı olarak bağlanan milyonlarca cihaza kolayca ölçeklendirin ve projeniz ne kadar büyük ya da küçük olursa olsun Azure’un küresel kullanılabilirliğine güvenin.&mdash;
+Microsoft Azure IoT Paketi’ni hemen kullanmaya başlayın. Nesnelerin interneti (IOT) çözümünüzün hello geliştirme hızlandırmak ve önceden yapılandırılmış çözümler kullanın. Linux, Windows ve gerçek zamanlı işletim sistemleri gibi birden çok platforma yönelik cihaz SDK’larını kullanarak yeni cihazlar ekleyin ve mevcut cihazlarınızı bağlayın. Kolay ölçeklendirme eş zamanlı cihazı birkaç algılayıcılar toomillions ve hello genel Azure kullanılabilirliğine bağlı&mdash;nasıl büyük veya küçük olursa olsun, projenizin.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -92,7 +92,7 @@ Microsoft Azure IoT Paketi’ni hemen kullanmaya başlayın. Önceden yapıland�
                         <p><a href="/azure/iot-suite/iot-security-architecture">Güvenlik mimarisi</a></p>
                         <p><a href="/azure/iot-suite/iot-security-best-practices">En iyi güvenlik uygulamaları</a></p>
                         <p><a href="/azure/iot-suite/iot-suite-security-deployment">IoT dağıtımınızın güvenliğini sağlama</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Baştan sona güvenlik</a></p>
+                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Plan hello güvenlikten</a></p>
                    </div>
                 </div>
             </div>

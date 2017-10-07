@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+title: "aaaAzure Machine Learning belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
 description: "Uygulamalarda tahmine dayalı analiz kullanan veri uzmanlarına ve geliştiricilere yönelik bir bulut hizmeti olan Machine Learning ile ilgili belgeler, videolar ve örnek modeller."
 services: machine-learning
 author: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7307d83a6c8059e581a37910d3af5a66fc502d0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="azure-machine-learning-documentation"></a>Azure Machine Learning Belgeleri
 
-Veri uzmanlarının ve geliştiricilerin uygulamalara tahmine dayalı analizler eklemek için Machine Learning’i kullanabileceğini öğrenin. Öğreticiler, videolar ve örnek modellerde makine öğrenimi modelleri oluşturma ve dağıtma konusunda bilgi sağlanmıştır.
+Veri bilimcileri ve geliştiricileri Machine Learning tooembed Tahmine dayalı analiz uygulamalara kullanma hakkında bilgi edinin. Öğreticiler, videolar ve örnek modeli Göster, nasıl toobuild ve makine öğrenimi modellerini dağıtın.
 
 <ul class="panelContent cardsFTitle">
     <li>

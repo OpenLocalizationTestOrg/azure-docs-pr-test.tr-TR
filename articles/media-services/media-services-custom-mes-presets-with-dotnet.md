@@ -1,6 +1,6 @@
 ---
-title: "Medya Kodlayıcısı standart hazır özelleştirme | Microsoft Docs"
-description: "Bu konu, Medya Kodlayıcısı standart görev hazır özelleştirerek gelişmiş kodlama gerçekleştirmek gösterilmiştir. Konu, Media Services .NET SDK'sı bir kodlama görevi ve proje oluşturmak için nasıl kullanılacağını gösterir. Ayrıca, kodlama işi özel hazır ayarları sağlamak nasıl gösterir."
+title: "aaaCustomizing Medya Kodlayıcısı standart hazır ayarları | Microsoft Docs"
+description: "Bu konu, Medya Kodlayıcısı standart görev hazır özelleştirerek kodlama tooperform nasıl Gelişmiş gösterir. Merhaba konu nasıl bir kodlama toouse Media Services .NET SDK'sı toocreate görevi ve iş gösterir. Aynı zamanda, nasıl özel toosupply toohello kodlama işinin hazır ayarları gösterir."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fa8c3bef63b0c1ecc88a6b8874ecbff3a8028a57
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customizing-media-encoder-standard-presets"></a><span data-ttu-id="9b121-105">Özelleştirme Medya Kodlayıcısı standart hazır ayarları</span><span class="sxs-lookup"><span data-stu-id="9b121-105">Customizing Media Encoder Standard presets</span></span>
+# <a name="customizing-media-encoder-standard-presets"></a><span data-ttu-id="b97b7-105">Özelleştirme Medya Kodlayıcısı standart hazır ayarları</span><span class="sxs-lookup"><span data-stu-id="b97b7-105">Customizing Media Encoder Standard presets</span></span>
 
-## <a name="overview"></a><span data-ttu-id="9b121-106">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="9b121-106">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="b97b7-106">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="b97b7-106">Overview</span></span>
 
-<span data-ttu-id="9b121-107">Bu konu, bir özel hazır kullanarak Medya Kodlayıcısı standart (MES ile) gelişmiş kodlama gerçekleştirmek nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="9b121-107">This topic shows how to perform advanced encoding with Media Encoder Standard (MES) using a custom preset.</span></span> <span data-ttu-id="9b121-108">Konu .NET kodlama görev ve bu görevi yürüten bir iş oluşturmak için kullanır.</span><span class="sxs-lookup"><span data-stu-id="9b121-108">The topic uses .NET to create an encoding task and a job that executes this task.</span></span>  
+<span data-ttu-id="b97b7-107">Bu konu, nasıl Medya Kodlayıcısı standart (özel bir kullanarak MES ile) kodlama Gelişmiş tooperform önceden gösterir.</span><span class="sxs-lookup"><span data-stu-id="b97b7-107">This topic shows how tooperform advanced encoding with Media Encoder Standard (MES) using a custom preset.</span></span> <span data-ttu-id="b97b7-108">Merhaba konu .NET toocreate bir kodlama görev ve bu görevi yürüten bir işi kullanır.</span><span class="sxs-lookup"><span data-stu-id="b97b7-108">hello topic uses .NET toocreate an encoding task and a job that executes this task.</span></span>  
 
-<span data-ttu-id="9b121-109">Bu konuda bir hazır gerçekleştirerek özelleştirmek nasıl göreceksiniz [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) önceden ve katman sayısını azaltır.</span><span class="sxs-lookup"><span data-stu-id="9b121-109">In this topic you will see how to customize a preset by taking the [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) preset and reducing the number of layers.</span></span> <span data-ttu-id="9b121-110">[Medya Kodlayıcısı standart özelleştirme hazır ayarları](media-services-advanced-encoding-with-mes.md) konu gelişmiş kodlama görevleri gerçekleştirmek için kullanılan özel hazır gösterir.</span><span class="sxs-lookup"><span data-stu-id="9b121-110">The [Customizing Media Encoder Standard presets](media-services-advanced-encoding-with-mes.md) topic demonstrates custom presets that can be used to perform advanced encoding tasks.</span></span>
+<span data-ttu-id="b97b7-109">Bu konudaki nasıl toocustomize alarak hazır hello görürsünüz [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) Katmanlar hazır ve azalan hello sayısı.</span><span class="sxs-lookup"><span data-stu-id="b97b7-109">In this topic you will see how toocustomize a preset by taking hello [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) preset and reducing hello number of layers.</span></span> <span data-ttu-id="b97b7-110">Merhaba [Medya Kodlayıcısı standart özelleştirme hazır ayarları](media-services-advanced-encoding-with-mes.md) konu gelişmiş kodlama görevleri kullanılan tooperform olabilir özel hazır gösterir.</span><span class="sxs-lookup"><span data-stu-id="b97b7-110">hello [Customizing Media Encoder Standard presets](media-services-advanced-encoding-with-mes.md) topic demonstrates custom presets that can be used tooperform advanced encoding tasks.</span></span>
 
-## <span data-ttu-id="9b121-111"><a id="customizing_presets"></a>MES hazır özelleştirme</span><span class="sxs-lookup"><span data-stu-id="9b121-111"><a id="customizing_presets"></a> Customizing a MES preset</span></span>
+## <span data-ttu-id="b97b7-111"><a id="customizing_presets"></a>MES hazır özelleştirme</span><span class="sxs-lookup"><span data-stu-id="b97b7-111"><a id="customizing_presets"></a> Customizing a MES preset</span></span>
 
-### <a name="original-preset"></a><span data-ttu-id="9b121-112">Özgün hazır</span><span class="sxs-lookup"><span data-stu-id="9b121-112">Original preset</span></span>
+### <a name="original-preset"></a><span data-ttu-id="b97b7-112">Özgün hazır</span><span class="sxs-lookup"><span data-stu-id="b97b7-112">Original preset</span></span>
 
-<span data-ttu-id="9b121-113">Tanımlanan JSON Kaydet [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) .json uzantılı bazı dosyasındaki konu.</span><span class="sxs-lookup"><span data-stu-id="9b121-113">Save the JSON defined in the [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) topic in some file with .json extension.</span></span> <span data-ttu-id="9b121-114">Örneğin, **CustomPreset_JSON.json**.</span><span class="sxs-lookup"><span data-stu-id="9b121-114">For example, **CustomPreset_JSON.json**.</span></span>
+<span data-ttu-id="b97b7-113">JSON tanımlanan hello Kaydet hello [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) .json uzantılı bazı dosyasındaki konu.</span><span class="sxs-lookup"><span data-stu-id="b97b7-113">Save hello JSON defined in hello [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) topic in some file with .json extension.</span></span> <span data-ttu-id="b97b7-114">Örneğin, **CustomPreset_JSON.json**.</span><span class="sxs-lookup"><span data-stu-id="b97b7-114">For example, **CustomPreset_JSON.json**.</span></span>
 
-### <a name="customized-preset"></a><span data-ttu-id="9b121-115">Özelleştirilmiş hazır</span><span class="sxs-lookup"><span data-stu-id="9b121-115">Customized preset</span></span>
+### <a name="customized-preset"></a><span data-ttu-id="b97b7-115">Özelleştirilmiş hazır</span><span class="sxs-lookup"><span data-stu-id="b97b7-115">Customized preset</span></span>
 
-<span data-ttu-id="9b121-116">Açık **CustomPreset_JSON.json** dosya ve ilk üç katmanlardan kaldırma **H264Layers** dosyanız aşağıdaki gibi görünür.</span><span class="sxs-lookup"><span data-stu-id="9b121-116">Open the **CustomPreset_JSON.json** file and remove first three layers from **H264Layers** so your file looks like this.</span></span>
+<span data-ttu-id="b97b7-116">Açık hello **CustomPreset_JSON.json** dosya ve ilk üç katmanlardan kaldırma **H264Layers** dosyanızı şuna benzer şekilde.</span><span class="sxs-lookup"><span data-stu-id="b97b7-116">Open hello **CustomPreset_JSON.json** file and remove first three layers from **H264Layers** so your file looks like this.</span></span>
 
     
     {  
@@ -109,28 +109,28 @@ ms.lasthandoff: 08/29/2017
     }  
     
 
-## <span data-ttu-id="9b121-117"><a id="encoding_with_dotnet"></a>Media Services .NET SDK'sı ile kodlama</span><span class="sxs-lookup"><span data-stu-id="9b121-117"><a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK</span></span>
+## <span data-ttu-id="b97b7-117"><a id="encoding_with_dotnet"></a>Media Services .NET SDK'sı ile kodlama</span><span class="sxs-lookup"><span data-stu-id="b97b7-117"><a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK</span></span>
 
-<span data-ttu-id="9b121-118">Aşağıdaki kod örneği, aşağıdaki görevleri gerçekleştirmek için Media Services .NET SDK'sını kullanır:</span><span class="sxs-lookup"><span data-stu-id="9b121-118">The following code example uses Media Services .NET SDK to perform the following tasks:</span></span>
+<span data-ttu-id="b97b7-118">Aşağıdaki kod örneğine hello görevleri aşağıdaki Media Services .NET SDK'sı tooperform hello kullanır:</span><span class="sxs-lookup"><span data-stu-id="b97b7-118">hello following code example uses Media Services .NET SDK tooperform hello following tasks:</span></span>
 
-- <span data-ttu-id="9b121-119">Bir kodlama işi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="9b121-119">Create an encoding job.</span></span>
-- <span data-ttu-id="9b121-120">Medya Kodlayıcısı standart Kodlayıcı başvuru alın.</span><span class="sxs-lookup"><span data-stu-id="9b121-120">Get a reference to the Media Encoder Standard encoder.</span></span>
-- <span data-ttu-id="9b121-121">Önceki bölümde oluşturduğunuz özel JSON hazır yükleyin.</span><span class="sxs-lookup"><span data-stu-id="9b121-121">Load the custom JSON preset that you created in the previous section.</span></span> 
+- <span data-ttu-id="b97b7-119">Bir kodlama işi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="b97b7-119">Create an encoding job.</span></span>
+- <span data-ttu-id="b97b7-120">Bir başvuru toohello Medya Kodlayıcısı standart Kodlayıcısı alın.</span><span class="sxs-lookup"><span data-stu-id="b97b7-120">Get a reference toohello Media Encoder Standard encoder.</span></span>
+- <span data-ttu-id="b97b7-121">Merhaba önceki bölümde oluşturduğunuz özel JSON önceden hello yükleyin.</span><span class="sxs-lookup"><span data-stu-id="b97b7-121">Load hello custom JSON preset that you created in hello previous section.</span></span> 
   
-        // Load the JSON from the local file.
+        // Load hello JSON from hello local file.
         string configuration = File.ReadAllText(fileName);  
 
-- <span data-ttu-id="9b121-122">Bir kodlama görev projeye ekleyin.</span><span class="sxs-lookup"><span data-stu-id="9b121-122">Add an encoding task to the job.</span></span> 
-- <span data-ttu-id="9b121-123">Kodlanacak giriş varlık belirtin.</span><span class="sxs-lookup"><span data-stu-id="9b121-123">Specify the input asset to be encoded.</span></span>
-- <span data-ttu-id="9b121-124">Kodlanmış varlık içerecek bir çıkış varlığı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="9b121-124">Create an output asset that will contain the encoded asset.</span></span>
-- <span data-ttu-id="9b121-125">İş ilerleme durumunu denetlemek için olay işleyici ekleyin.</span><span class="sxs-lookup"><span data-stu-id="9b121-125">Add an event handler to check the job progress.</span></span>
-- <span data-ttu-id="9b121-126">İşi göndermek.</span><span class="sxs-lookup"><span data-stu-id="9b121-126">Submit the job.</span></span>
+- <span data-ttu-id="b97b7-122">Bir kodlama görev toohello işi ekleyin.</span><span class="sxs-lookup"><span data-stu-id="b97b7-122">Add an encoding task toohello job.</span></span> 
+- <span data-ttu-id="b97b7-123">Merhaba giriş belirtin kodlanmış varlık toobe.</span><span class="sxs-lookup"><span data-stu-id="b97b7-123">Specify hello input asset toobe encoded.</span></span>
+- <span data-ttu-id="b97b7-124">Kodlanmış hello varlık içerecek bir çıkış varlığı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="b97b7-124">Create an output asset that will contain hello encoded asset.</span></span>
+- <span data-ttu-id="b97b7-125">Bir olay işleyicisi toocheck hello ilerleyişini ekleyin.</span><span class="sxs-lookup"><span data-stu-id="b97b7-125">Add an event handler toocheck hello job progress.</span></span>
+- <span data-ttu-id="b97b7-126">Merhaba işi gönderin.</span><span class="sxs-lookup"><span data-stu-id="b97b7-126">Submit hello job.</span></span>
    
-#### <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="9b121-127">Visual Studio projesi oluşturup yapılandırma</span><span class="sxs-lookup"><span data-stu-id="9b121-127">Create and configure a Visual Studio project</span></span>
+#### <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="b97b7-127">Visual Studio projesi oluşturup yapılandırma</span><span class="sxs-lookup"><span data-stu-id="b97b7-127">Create and configure a Visual Studio project</span></span>
 
-<span data-ttu-id="9b121-128">Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun.</span><span class="sxs-lookup"><span data-stu-id="9b121-128">Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
+<span data-ttu-id="b97b7-128">Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="b97b7-128">Set up your development environment and populate hello app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
 
-#### <a name="example"></a><span data-ttu-id="9b121-129">Örnek</span><span class="sxs-lookup"><span data-stu-id="9b121-129">Example</span></span>   
+#### <a name="example"></a><span data-ttu-id="b97b7-129">Örnek</span><span class="sxs-lookup"><span data-stu-id="b97b7-129">Example</span></span>   
 
     using System;
     using System.Configuration;
@@ -143,7 +143,7 @@ ms.lasthandoff: 08/29/2017
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -168,7 +168,7 @@ ms.lasthandoff: 08/29/2017
             // Get an uploaded asset.
             var asset = _context.Assets.FirstOrDefault();
 
-            // Encode and generate the output using custom presets.
+            // Encode and generate hello output using custom presets.
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
@@ -178,11 +178,11 @@ ms.lasthandoff: 08/29/2017
         {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of hello 
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Load the XML (or JSON) from the local file.
+            // Load hello XML (or JSON) from hello local file.
             string configuration = File.ReadAllText("CustomPreset_JSON.json");
 
             // Create a task
@@ -191,11 +191,11 @@ ms.lasthandoff: 08/29/2017
             configuration,
             TaskOptions.None);
 
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset to contain the results of the job. 
+            // Add an output asset toocontain hello results of hello job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is not encrypted. 
+            // means hello output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
             AssetCreationOptions.None);
 
@@ -250,12 +250,12 @@ ms.lasthandoff: 08/29/2017
         }
     }
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="9b121-130">Media Services’i öğrenme yolları</span><span class="sxs-lookup"><span data-stu-id="9b121-130">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="b97b7-130">Media Services’i öğrenme yolları</span><span class="sxs-lookup"><span data-stu-id="b97b7-130">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="9b121-131">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="9b121-131">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="b97b7-131">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="b97b7-131">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a><span data-ttu-id="9b121-132">Ayrıca Bkz.</span><span class="sxs-lookup"><span data-stu-id="9b121-132">See Also</span></span>
-[<span data-ttu-id="9b121-133">Media Services kodlama a genel bakış</span><span class="sxs-lookup"><span data-stu-id="9b121-133">Media Services Encoding Overview</span></span>](media-services-encode-asset.md)
+## <a name="see-also"></a><span data-ttu-id="b97b7-132">Ayrıca Bkz.</span><span class="sxs-lookup"><span data-stu-id="b97b7-132">See Also</span></span>
+[<span data-ttu-id="b97b7-133">Media Services kodlama a genel bakış</span><span class="sxs-lookup"><span data-stu-id="b97b7-133">Media Services Encoding Overview</span></span>](media-services-encode-asset.md)
 

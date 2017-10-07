@@ -1,5 +1,5 @@
 ---
-title: "Azure geçişi karma bağlantılar protokol Kılavuzu | Microsoft Docs"
+title: "aaaAzure geçişi karma bağlantılar protokol Kılavuzu | Microsoft Docs"
 description: "Azure geçişi karma bağlantılar Protokolü Kılavuzu."
 services: service-bus-relay
 documentationcenter: na
@@ -14,109 +14,109 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d145d919d606ae4722b063e1baf39fb845a600a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # Azure geçişi karma bağlantılar Protokolü
-Azure geçişi Azure Service Bus platformunun anahtar özelliği ayaklar biridir. Yeni *karma bağlantılar* yetenektir geçişinin HTTP ve WebSockets dayalı bir güvenli, açık Protokolü evrimi. Eşit oranda adlı eski yerini *BizTalk Services* özel Protokolü foundation üzerinde oluşturulmuş özellik. Azure App Services karma bağlantılar tümleştirilmesi olarak çalışmaya devam edecek-değil.
+Azure geçiş hello anahtar özelliği ayaklar hello Azure Service Bus platformun biridir. Merhaba yeni *karma bağlantılar* yetenektir geçişinin HTTP ve WebSockets dayalı bir güvenli, açık Protokolü evrimi. Eşit oranda adlı hello eski yerini *BizTalk Services* özel Protokolü foundation üzerinde oluşturulmuş özellik. Merhaba tümleştirmeye karma bağlantılar, Azure App Services toofunction olarak devam edecek-değil.
 
-Karma bağlantılar sırasında birini veya her ikisini tarafların NAT veya güvenlik duvarı arkasında bulunduğu iki ağa bağlı uygulamalar arasında çift yönlü, ikili akış iletişim sağlar. Bu makalede bağlanan istemciler dinleyicisi ve gönderen rol ve nasıl dinleyicileri yeni bağlantıları kabul etmek için karma bağlantılar geçiş ile istemci tarafı etkileşimler açıklanmaktadır.
+Karma bağlantılar sırasında birini veya her ikisini tarafların NAT veya güvenlik duvarı arkasında bulunduğu iki ağa bağlı uygulamalar arasında çift yönlü, ikili akış iletişim sağlar. Bu makalede bağlanan istemciler dinleyicisi ve gönderen rol ve nasıl dinleyicileri yeni bağlantıları kabul etmek için hello karma bağlantılar geçiş ile Merhaba istemci tarafı etkileşimler açıklanmaktadır.
 
 ## Etkileşim modeli
-Karma bağlantılar geçişi, bir randevu noktası Azure bulutta, hem tarafların bulmak ve kendi ağın açısından bağlanmak sağlayarak iki taraf bağlanır. Bu randevu noktası "karma" Bu ve diğer belgelerin API'leri hem de Azure portalında bağlantısıdır. Karma bağlantılar Hizmeti uç noktası bu makalenin geri kalanı için "hizmet" olarak adlandırılır. Diğer ağ birçok API'ler tarafından kurulan terminolojisi üzerinde etkileşim modeli leans.
+Merhaba karma bağlantılar geçiş hello Azure bulut, hem tarafların bulmak ve kendi ağın perspektif toofrom bağlanmak randevu noktasında sağlayarak iki taraf bağlanır. Bu randevu noktası "karma" Bu ve diğer belgelerin hello API'leri hem de Azure portal hello bağlantısıdır. Merhaba karma hizmet uç noktası bağlantıları tooas hello "hizmet" hello, bu makalenin kalanında için denir. diğer ağ birçok API'ler tarafından kurulan hello terminolojisi üzerinde Hello etkileşim modeli leans.
 
-İlk gelen bağlantıları işlemek için hazırlık gösterir ve daha sonra bunları kabul geldikçe dinleyici yoktur. Diğer tarafta bir çift yönlü iletişim yolu kurmak için kabul edilmesi için bu bağlantıyı bekleniyor dinleyicisi doğru bağlayan bağlanan bir istemcinin yoktur.
-"Bağlan" "Dinleme" ve "Kabul" çoğu yuva API'leri Bul aynı şartları şunlardır.
+İlk hazırlık toohandle gelen bağlantıları gösterir ve daha sonra bunları kabul geldikçe dinleyici yoktur. Üzerindeki diğer taraftaki Merhaba, hello dinleyicisi, çift yönlü iletişim yolu kurmak için kabul o bağlantı toobe bekleniyor doğrultusunda bağlayan bağlanan bir istemcinin yoktur.
+"Bağlan", "Dinleme," ve "Kabul" olan hello aynı çoğunda bulun terimler yuva API'leri.
 
-Herhangi bir geçişli iletişim modelini "dinleyicisi", "istemci" de cümlecik kullanımda hale getirir. ve diğer terminolojisi aşırı da neden olabilir bir hizmet uç noktası doğru giden bağlantı her iki taraf sahiptir. Bu nedenle karma bağlantılar için kullandığımız kesin terminolojisi aşağıdaki gibidir:
+Herhangi bir geçişli iletişim modelini hello "dinleyicisi", "istemci" de cümlecik kullanımda hale getirir. ve diğer terminolojisi aşırı da neden olabilir bir hizmet uç noktası doğru giden bağlantı her iki taraf sahiptir. Bu nedenle karma bağlantılar için kullandığımız hello kesin terminolojisi aşağıdaki gibidir:
 
-Hizmet istemcilere olduğundan bağlantısının her iki tarafında programlar "istemcileri," adı verilir. Bekler ve bağlantıları kabul istemci "dinleyicisi" veya "dinleyicisi rol." olarak kabul edilir Hizmeti üzerinden bir dinleyici doğru yeni bir bağlantı başlatır istemci "gönderen" adlı ya da "gönderen rol."
+istemcileri toohello hizmet olduğundan bağlantısının her iki tarafında hello programlar "istemcileri," adı verilir. Merhaba bekler ve bağlantıları "dinleyicisi" ya da kabul eden istemci denirse toobe rolündeki hello"dinleyicisi." hello hizmeti üzerinden bir dinleyici doğru yeni bir bağlantı başlatır hello istemci hello "gönderen" adlı ya da "gönderen rol."
 
 ### Dinleyici etkileşimleri
-Dinleyici hizmeti ile dört etkileşimleri; yine de sahip istiyor musunuz? Tüm kablo ayrıntıları başvuru bölümünde bu makalenin sonraki bölümlerinde açıklanmıştır.
+Merhaba dinleyicisi hello hizmetiyle dört etkileşimleri; yine de sahip istiyor musunuz? Tüm kablo ayrıntıları hello başvuru bölümünde bu makalenin sonraki bölümlerinde açıklanmıştır.
 
 #### Dinleme
-Bir dinleyicisi hizmetine hazırlık belirtmek için bağlantıları kabul etmeye hazır bir giden WebSocket bağlantısı oluşturur. Bağlantı el sıkışması geçiş ad alanı ve bu ad "Dinleme" hakkı confers bir güvenlik belirteci yapılandırılmış karma bağlantı adını taşır.
-WebSocket hizmeti tarafından kabul edildiğinde kayıt tamamlandıktan ve yerleşik web WebSocket "etkinleştirilmesine yönelik tüm sonraki etkileşimler denetim kanalı olarak" Canlı tutulur. Hizmetin en fazla 25 eşzamanlı dinleyicileri karma bir bağlantı sağlar. İki veya daha fazla etkin dinleyiciler varsa, gelen bağlantıları bunları rastgele sırayla dengeli; Orta dağıtım garanti edilmez.
+tooindicate hazırlık toohello hizmet dinleyici hazır tooaccept bağlantıları olduğundan, bir giden WebSocket bağlantısı oluşturur. Merhaba bağlantı el sıkışması hello geçiş ad alanı ve bu ad hello "Dinleme" hakkı confers bir güvenlik belirteci yapılandırılmış karma bağlantı hello adını taşır.
+Merhaba WebSocket hello hizmeti tarafından kabul edildiğinde hello kayıt tamamlandıktan ve web WebSocket hello "etkinleştirilmesine yönelik tüm sonraki etkileşimler denetim kanalı" olarak Canlı tutulur hello kurulmuş. Karma bir bağlantı üzerindeki too25 eşzamanlı dinleyicileri yukarı Hello hizmet verir. İki veya daha fazla etkin dinleyiciler varsa, gelen bağlantıları bunları rastgele sırayla dengeli; Orta dağıtım garanti edilmez.
 
 #### Kabul et
-Bir gönderici service üzerinde yeni bir bağlantı oturum açtığında, hizmet seçer ve karma bağlantı etkin dinleyicileri birini bildirir. Bu bildirim için dinleyici dinleyici bağlantı kabul etmek için bağlanmalısınız WebSocket uç noktasının URL'sini içeren bir JSON ileti olarak açık denetim kanalı üzerinden gönderilir.
+Bir gönderici hello hizmet üzerinde yeni bir bağlantı açıldığında hello hizmet seçer ve hello etkin dinleyicileri hello karma bağlantı üzerinde birini bildirir. Bu bildirim toohello dinleyicisi dinleyicisi hello hello WebSocket bitiş noktası içeren hello URL'sini hello bağlantı kabul toofor bağlanmalısınız JSON ileti olarak hello açık denetim kanalı üzerinden gönderilir.
 
-URL olabilir ve doğrudan ek iş olmadan dinleyicisi tarafından kullanılan gerekir.
-Kodlanmış bilgiler yalnızca temelde için gönderen bağlantının kurulan baştan sona olması, ancak en çok 30 saniye bekleyin konusunda istekli mi kadar uzun süre kısa bir süre için geçerlidir. URL, yalnızca bir başarılı bağlantı denemesinde için kullanılabilir. Randevu URL WebSocket bağlantı kuran hemen tüm başka etkinlik bu WebSocket ilk ve son gönderen herhangi bir araya veya hizmeti tarafından tercüme olmadan geçirilen.
+Merhaba URL olabilir ve doğrudan ek iş olmadan hello dinleyicisi tarafından kullanılan gerekir.
+Kodlanmış hello bilgileri yalnızca istekli toowait hello bağlantı kurulan toobe uçtan uca, ancak tooa en çok 30 saniyelik yukarı hello gönderen olarak zaman, aslında sürece kısa bir süre için geçerlidir. Merhaba URL yalnızca bir başarılı bağlantı denemesinde için kullanılabilir. Kısa sürede hello gelen URL kurulduğunda, hello randevu bu WebSocket tüm başka faaliyete bağlantıyla geçişli WebSocket ve herhangi bir araya veya hello hizmeti tarafından tercüme olmadan toohello gönderen.
 
 #### Yenile
-Dinleyici etkinken dinleyicisi kaydetme ve denetim kanalı korumak için kullanılması gereken güvenlik belirteci dolabilir. Belirteç süre sonu devam eden bağlantılarını etkilemez, ancak denetim kanalı düzeyinde veya sona erme anda hemen sonra hizmeti tarafından kesilmesine neden olmaz. "Yenile" işlemi dinleyicisi denetim kanalı için uzun süreler sürdürülebilir denetim kanalı ile ilişkili belirteci değiştirdiğinizden gönderebileceğiniz bir JSON iletisidir.
+Merhaba dinleyicisi etkinken denetim kanalı sona erebilir korumak ve kullanılan tooregister hello dinleyicisi olmalıdır hello güvenlik belirteci. Merhaba belirteç süre sonu devam eden bağlantılarını etkilemez, ancak hello hizmet düzeyinde veya sona erme hello anda hemen sonra tarafından bırakılan hello denetim kanalı toobe neden olmaz. Merhaba "Yenile" Merhaba denetim kanalı için uzun süreler sürdürülebilir şekilde dinleyicisi hello bir JSON ileti hello denetim kanalı ile ilişkili tooreplace hello belirteci gönderebilirsiniz işlemdir.
 
 #### Ping
-Denetim kanalı aracılar şekilde, uzun bir süre için boşta kalırsa gibi yük Dengeleyiciler ya da NAT TCP bağlantısı kaybolmasına neden olabilir. "Ping" işlemi, çok küçük miktarda veri herkes bağlantı etkin olması için tasarlanmıştır ve ayrıca için dinleyici "canlı" test hizmet ağdaki yönlendiricilerin anımsatır kanalda göndererek önler. Ping başarısız olursa, denetim kanalı kullanılamaz olarak düşünülmelidir ve dinleyiciyi yeniden bağlanmanız.
+Merhaba denetim kanalı aracılar hello şekilde üzerinde uzun bir süre için boşta kalırsa gibi yük Dengeleyiciler ya da NAT hello TCP bağlantısı kaybolmasına neden olabilir. Merhaba "ping" işlemi toobe Canlı tasarlanmıştır, çok küçük miktarda veri herkes hello ağdaki yönlendiricilerin anımsatır hello kanalda bu hello bağlantı göndererek önler ve dosyayı hello dinleyicisinin "canlı" test olarak sunar. Merhaba ping başarısız olursa, hello denetim kanalı kullanılamaz olarak düşünülmelidir ve hello dinleyiciyi yeniden bağlanmanız.
 
 ### Gönderen etkileşimi
-Gönderen yalnızca tek bir etkileşim hizmeti ile vardır: bağladığı.
+Hello göndericisi yalnızca tek bir etkileşim hello hizmetiyle vardır: bağladığı.
 
 #### Bağlan
-"Bağlan" işlemi hizmet üzerinde WebSocket açar karma bağlantı adını ve (isteğe bağlı olarak, ancak gerekli varsayılan olarak) sağlayan bir güvenlik belirteci sorgu dizesinde conferring "Gönderme" izni. Hizmeti daha önce açıklandığı şekilde dinleyicisi etkileşim ve bu WebSocket ile birleştirilmiş bir randevu bağlantı dinleyicisi oluşturur. WebSocket kabul ettikten sonra bu WebSocket üzerinde tüm diğer etkileşimler ile bağlantılı bir dinleyici ' dir.
+Merhaba "Bağlan" işlemi WebSocket hello hizmet sağlayan hello adı hello karma bağlantı ve (isteğe bağlı olarak, ancak gerekli varsayılan olarak) üzerinde "Gönderme" izni hello sorgu dizesinde conferring bir güvenlik belirteci açar. Hello hizmet şekilde daha önce açıklanan hello hello dinleyicisinde etkileşim ve bu WebSocket ile birleştirilmiş bir randevu bağlantı hello dinleyicisi oluşturur. Merhaba WebSocket kabul ettikten sonra bu WebSocket üzerinde tüm diğer etkileşimler ile bağlantılı bir dinleyici ' dir.
 
 ### Etkileşim özeti
-Bu etkileşimi model gönderen istemci için bir dinleyici bağlı olduğu ve herhangi bir ek preambles veya hazırlık gerekir "temiz" bir WebSocket ile el sıkışması dışında geldiğini sonucudur. Bu model taşımalarına karma bağlantılar hizmeti kendi WebSocket istemci katmana doğru şekilde oluşturulmuş bir URL sağlayarak yararlanmak neredeyse her mevcut WebSocket istemci uygulamanızı sağlar.
+Merhaba Bu etkileşim model hello gönderen istemci el sıkışması "temiz" WebSocket bağlı tooa dinleyicisi olduğu ve herhangi bir başka preambles veya hazırlama gereken ile dışında gelir sonucudur. Bu model, kendi WebSocket istemci katmana doğru şekilde oluşturulmuş bir URL sağlayarak neredeyse her varolan WebSocket istemci uygulaması tooreadily faydalanan hello karma bağlantılar hizmeti sağlar.
 
-Randevu bağlantı kabul etkileşiminin dinleyicisi edinir WebSocket de temiz ve tüm mevcut WebSocket sunucu uygulamasına kendi framework'ün yerel ağ dinleyicileri "kabul et" işlemleri ve karma bağlantılar uzak "kabul et" işlemleri arasında ayırt bazı en az bir ek soyutlama ile karmalayan.
+Dinleyici hello WebSocket kabul etkileşim edinir hello randevu bağlantı da temiz ve tooany varolan WebSocket sunucu uygulamasıyla "arasında kabul et" ayırt bazı en az bir ek Özet karmalayan kendi framework'ün yerel ağ dinleyicileri ve karma bağlantılar uzak işlemler "işlemleri kabul".
 
 ## Protokolü başvurusu
 
-Bu bölümde daha önce açıklanan Protokolü etkileşimleri ayrıntılarını açıklanmaktadır.
+Bu bölümde daha önce açıklanan hello Protokolü etkileşimlerin hello Ayrıntılar açıklanmaktadır.
 
 Tüm WebSocket bağlantılar bağlantı noktası 443 üzerinde bazı WebSocket framework veya API tarafından yaygın olarak soyutlanır HTTPS 1.1'den yükseltme olarak yapılır. Açıklamayı buraya uygulama belirli bir framework öneren olmadan nötr, tutulur.
 
 ### Dinleyici Protokolü
-Dinleyici Protokolü iki bağlantı hareketleri ve üç ileti işlemlerini oluşur.
+Merhaba dinleyici Protokolü iki bağlantı hareketleri ve üç ileti işlemlerini oluşur.
 
 #### Dinleyici denetim kanalı bağlantısı
-Denetim kanalı WebSocket bağlantı oluşturma konusunda açıldığında:
+Merhaba denetim kanalı WebSocket bağlantı oluşturma konusunda açıldığında:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
 ```
 
-`namespace-address` Genellikle formunun karma bağlantı barındıran Azure geçiş ad alanı tam etki alanı adı `{myname}.servicebus.windows.net`.
+Merhaba `namespace-address` hello Azure geçiş ad alanı konakları hello formunun genellikle karma bağlantı hello hello tam etki alanı adı `{myname}.servicebus.windows.net`.
 
-Sorgu dizesi parametresi seçenekleri aşağıdaki gibidir.
+Merhaba sorgu dizesi parametresi seçenekleri aşağıdaki gibidir.
 
 | Parametre | Gerekli | Açıklama |
 | --- | --- | --- |
-| `sb-hc-action` |Evet |Dinleyici rolü için parametre olmalıdır **sb hc eylem dinleme =** |
-| `{path}` |Evet |Üzerinde bu dinleyici kaydetmek için önceden yapılandırılmış karma bağlantı URL kodlanmış ad alanı yolu. Bu deyim eklenir sabit `$hc/` yol bölümü. |
-| `sb-hc-token` |Evet\* |Dinleyici bir geçerli, URL kodlanmış Service Bus paylaşılan erişim belirteci ad alanı veya confers karma bağlantı için sağlamalısınız **dinleme** doğru. |
+| `sb-hc-action` |Evet |Merhaba dinleyicisi rol Merhaba parametresi olmalıdır **sb hc eylem dinleme =** |
+| `{path}` |Evet |Merhaba Hello URL kodlanmış ad alanı yolu karma bağlantı tooregister bu dinleyici üzerinde önceden yapılandırılmış. Sabit eklenmiş toohello bu ifadesidir `$hc/` yol bölümü. |
+| `sb-hc-token` |Evet\* |Merhaba dinleyicisi bir geçerli, URL kodlanmış Service Bus paylaşılan erişim belirteci hello ad alanı veya hello confers karma bağlantı için sağlamalıdır **dinleme** doğru. |
 | `sb-hc-id` |Hayır |Bu istemci tarafından sağlanan isteğe bağlı kimliği uçtan uca Tanılama izleme sağlar. |
 
-WebSocket bağlantı kaydedilmemiş, karma bağlantı yolu veya eksik veya geçersiz bir belirteç veya başka bir hata nedeniyle başarısız olursa hata geri bildirim normal HTTP 1.1 durumu geri bildirim modeli kullanılarak sağlanır. Durum açıklaması bir hata izleme-Azure destek personeli için iletilen kimliğini içerir:
+Merhaba WebSocket bağlantısı kaydedilmemiş, toohello karma bağlantı yolu veya eksik veya geçersiz bir belirteç veya başka bir hata başarısız olursa, hello hata geri bildirim hello normal HTTP 1.1 durumu geri bildirim modeli kullanılarak sağlanır. Durum açıklaması bir hata izleme-Azure destek personeli için iletilen kimliğini içerir:
 
 | Kod | Hata | Açıklama |
 | --- | --- | --- |
-| 404 |Bulunamadı |Karma bağlantı yolu geçersiz veya temel URL biçimi yanlış. |
-| 401 |Yetkilendirilmemiş |Güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz olur. |
-| 403 |Yasak |Güvenlik belirteci, bu eylem için bu yol için geçerli değil. |
-| 500 |İç hata |Bir hizmette sorun oluştu. |
+| 404 |Bulunamadı |Merhaba karma bağlantı yolu geçersiz veya hello temel URL biçimi yanlış. |
+| 401 |Yetkilendirilmemiş |Merhaba güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz olur. |
+| 403 |Yasak |Merhaba güvenlik belirteci, bu eylem için bu yol için geçerli değil. |
+| 500 |İç hata |Bir hello hizmetinde sorun oluştu. |
 
-Başlangıçta yukarı, izleme kimliği de içeren açıklayıcı bir hata iletisi ile birlikte uygun WebSocket protokolü hata kodu kullanarak iletişim böylece nedeni ayarlandı sonra WebSocket bağlantısı kasıtlı olarak hizmet tarafından kapatılırsa Hizmet denetim kanalı bir hata koşulu karşılaşılmadan kapanır değil. Temiz bir kapatma denetlenen istemcidir.
+Başlangıçta yukarı, bir izleme de içeren açıklayıcı bir hata iletisi ile birlikte uygun WebSocket protokolü hata kodu kullanarak iletilen böylece hello nedeni ayarlandı sonra hello WebSocket bağlantısı bilerek hello hizmeti tarafından kapatılırsa KİMLİĞİ. Merhaba hizmet denetim kanalı bir hata koşulu karşılaşılmadan kapanır değil. Temiz bir kapatma denetlenen istemcidir.
 
 | WS durumu | Açıklama |
 | --- | --- |
-| 1001 |Karma bağlantı yolu silinmiş veya devre dışı. |
-| 1008 |Güvenlik belirtecinin süresi doldu, bu nedenle yetkilendirme ilkesini ihlal etti. |
-| 1011 |Bir hizmette sorun oluştu. |
+| 1001 |Merhaba karma bağlantı yolu silinmiş veya devre dışı. |
+| 1008 |Merhaba güvenlik belirtecinin süresi doldu, bu nedenle hello yetkilendirme ilkesini ihlal etti. |
+| 1011 |Bir hello hizmetinde sorun oluştu. |
 
 ### Anlaşma kabul et
-"Kabul" bildirim hizmeti tarafından dinleyiciye daha önce oluşturulmuş denetim kanalı üzerinden WebSocket metin çerçevesinde JSON ileti olarak gönderilir. Bu iletiyi yok Yanıtla yoktur.
+Merhaba "kabul" bildirim, JSON ileti WebSocket metin çerçevesinde olarak, daha önce oluşturulmuş denetim kanalı üzerinden hello hizmet toohello dinleyicisi tarafından gönderilir. Hiçbir yanıt toothis iletisi yok.
 
-İleti şu anda aşağıdaki özellikleri tanımlayan "kabul et" adlı bir JSON nesnesi içerir:
+Merhaba ileti şu anda aşağıdaki özelliklere hello tanımlayan "kabul et" adlı bir JSON nesnesi içerir:
 
-* **Adres** – hizmet WebSocket kurmak için bir gelen bağlantı kabul etmek için kullanılacak URL dizesi.
-* **Kimliği** – Bu bağlantı için benzersiz tanımlayıcı. Kimliği gönderen istemci tarafından sağlanan, sağlanan gönderen değerdir, aksi takdirde bir sistem tarafından oluşturulan değer.
-* **connectHeaders** – sn WebSocket protokolü ve sn WebSocket uzantıları üstbilgileri de içeren gönderenin geçiş uç noktasına tarafından sağlanan tüm HTTP üstbilgileri.
+* **Adres** – hello WebSocket toothe hizmet tooaccept gelen bağlantı kurmak için kullanılan URL dizesi toobe hello.
+* **Kimliği** – Bu bağlantı için benzersiz tanımlayıcı hello. Hello kimliği hello gönderen istemci tarafından sağlanan, onu hello sağlanan gönderen değeri, aksi takdirde, sistem tarafından oluşturulan değer.
+* **connectHeaders** – kaldırılmış tüm HTTP üstbilgilerin toohello geçiş endpoint hello sn WebSocket protokolü ve sn WebSocket uzantıları üstbilgileri de içeren hello gönderen tarafından sağlanan.
 
 #### İleti kabul et
 
@@ -134,70 +134,70 @@ Başlangıçta yukarı, izleme kimliği de içeren açıklayıcı bir hata ileti
 }
 ```
 
-JSON iletisinde sağlanan adres URL dinleyicisi tarafından kabul etme veya reddetme gönderen yuva için WebSocket kurmak için kullanılır.
+Başlangıç adresi URL hello JSON ileti hello dinleyicisi tarafından kurmak için kullanılan sağlanan hello WebSocket kabul etme veya reddetme hello gönderen yuva için.
 
-#### Yuva kabul etme
-Kabul etmek için dinleyici sağlanan adresi WebSocket bağlantı kurar.
+#### Merhaba Yuva kabul etme
+tooaccept, WebSocket bağlantı sağlanan toohello adresi hello dinleyicisi oluşturur.
 
-"Kabul" iletisi taşıyorsa bir `Sec-WebSocket-Protocol` üstbilgisi, bu protokolü destekliyorsa, dinleyiciyi yalnızca WebSocket kabul beklenir. Ayrıca, WebSocket belirlenen üstbilgisini ayarlar.
+Merhaba, "kabul" izleme iletisi bir `Sec-WebSocket-Protocol` üstbilgisi, o hello dinleyicisi bu Protokolü'nü destekliyorsa hello WebSocket yalnızca kabul beklenir. Ayrıca, WebSocket kurulan hello hello üstbilgisini ayarlar.
 
-Aynı durum geçerlidir `Sec-WebSocket-Extensions` üstbilgi. Framework uzantı destekliyorsa, gerekli olan sunucu tarafı yanıt üstbilgisi ayarlamalısınız `Sec-WebSocket-Extensions` el sıkışma uzantısı.
+Merhaba aynı toohello geçerlidir `Sec-WebSocket-Extensions` üstbilgi. Merhaba framework uzantı destekliyorsa, hello üstbilgi toohello sunucu tarafı yanıt gerekli Merhaba, ayarlamalısınız `Sec-WebSocket-Extensions` el sıkışma hello uzantısı.
 
-URL olarak kullanılması gereken-kabul yuva kurmak için olsa da, aşağıdaki parametreleri içerir:
+Merhaba URL kullanılan, olarak-hello kurmak için olan Yuva kabul eder, ancak aşağıdaki parametreleri içerir:
 
 | Parametre | Gerekli | Açıklama |
 | --- | --- | --- |
-| `sb-hc-action` |Evet |Bir yuva kabul etmek için parametre olmalıdır`sb-hc-action=accept` |
-| `{path}` |Evet |(aşağıdaki paragraf bakın) |
+| `sb-hc-action` |Evet |Bir yuva kabul etmek için hello parametresi olmalıdır`sb-hc-action=accept` |
+| `{path}` |Evet |(paragraf aşağıdaki hello bakın) |
 | `sb-hc-id` |Hayır |Önceki açıklamasına bakın **kimliği**. |
 
-`{path}`URL kodlanmış ad alanı, bu dinleyiciyi kaydetmek önceden yapılandırılmış karma bağlantısı yoludur. Bu deyim eklenir sabit `$hc/` yol bölümü. 
+`{path}`hello Hello URL kodlanmış ad alanı yolu hangi tooregister karma bağlantı, bu dinleyiciyi önceden yapılandırılmış olur. Sabit eklenmiş toothe bu ifadesidir `$hc/` yol bölümü. 
 
-`path` İfade genişletilmiş bir sonek ve kayıtlı adı ayıran eğik sonra izleyen bir sorgu dizesi ifadesi. Bu, HTTP üstbilgilerini eklemek mümkün değilse, gönderme bağımsız değişkenleri kabul dinleyicisi geçirmek gönderen istemci sağlar. Dinleyici framework sabit yol bölümü ve yolun kayıtlı adından ayrıştırır ve önüne hiçbir sorgu dizesi bağımsız değişkenler olmadan geri kalanı, büyük olasılıkla hale getirir beklenir `sb-`, bağlantı kabul etmeye karar verme için uygulama tarafından kullanılabilir.
+Merhaba `path` ifade genişletilmiş bir sonek ve ayıran eğik sonra hello kayıtlı adından sonra bir sorgu dizesi ifadesi. Bu, olası tooinclude HTTP üstbilgileri değilse hello gönderen istemci toopass gönderme bağımsız değişkenleri toohello kabul dinleyicisi sağlar. Merhaba Beklenti bu hello dinleyicisi framework ayrıştırır hello sabit yol bölümü ve yolundan hello kayıtlı adı olduğundan ve hello kalan büyük olasılıkla önüne hiçbir sorgu dizesi bağımsız değişkenler olmadan yapar `sb-`, kullanılabilir toohello uygulama karar tooaccept bağlantı hello olup olmadığını.
 
-Daha fazla bilgi için aşağıdaki "Gönderen Protokolü" bölümüne bakın.
+Daha fazla bilgi için "Gönderen Protokolü" bölümünde aşağıdaki hello bakın.
 
-Varsa bir hata, hizmet gibi yanıtlayabilir:
+Varsa bir hata, hello hizmeti gibi yanıtlayabilir:
 
 | Kod | Hata | Açıklama |
 | --- | --- | --- |
-| 403 |Yasak |URL geçerli değil. |
-| 500 |İç hata |Bir hizmette sorun oluştu |
+| 403 |Yasak |Merhaba URL geçerli değil. |
+| 500 |İç hata |Bir hello hizmetinde sorun oluştu |
 
-Bağlantı kurulduktan sonra sunucu WebSocket göndereni aşağı ya da aşağıdaki durumundaki kapattığında WebSocket kapatır:
+Merhaba bağlantı kurulduktan sonra hello gönderen WebSocket aşağı ya da durum aşağıdaki hello ile kapattığında hello sunucu WebSocket hello kapatır:
 
 | WS durumu | Açıklama |
 | --- | --- |
-| 1001 |Gönderen istemci bağlantıyı kapatır. |
-| 1001 |Karma bağlantı yolu silinmiş veya devre dışı. |
-| 1008 |Güvenlik belirtecinin süresi doldu, bu nedenle yetkilendirme ilkesini ihlal etti. |
-| 1011 |Bir hizmette sorun oluştu. |
+| 1001 |Merhaba gönderen istemci hello bağlantıyı kapatır. |
+| 1001 |Merhaba karma bağlantı yolu silinmiş veya devre dışı. |
+| 1008 |Merhaba güvenlik belirtecinin süresi doldu, bu nedenle hello yetkilendirme ilkesini ihlal etti. |
+| 1011 |Bir hello hizmetinde sorun oluştu. |
 
-#### Yuva reddetme
-Durum kodu ve durum açıklaması reddetme nedeni iletişim gönderene akış yapabileceği "kabul" mesajını inceleyerek sonra yuva reddetme benzer bir el sıkışması gerektirir.
+#### Merhaba yuva reddetme
+Merhaba durum kodu ve durum açıklaması hello reddetme nedeni akabilir iletişim toohello gönderen yedekleme benzer bir el sıkışması "kabul" İnceleme selamlama iletisine gerektirir sonra hello yuva reddetme.
 
-(Yani bir tanımlanan hata durumunda sonlandırmak için tasarlanmıştır) WebSocket el sıkışma Protokolü tasarım seçiminin kullanılmasıdır dinleyicisi istemci uygulamaları WebSocket istemcide yararlanmaya devam edebilirsiniz ve gerekmez fazladan kullandığınızda, HTTP istemci tam.
+Böylece dinleyicisi istemci uygulamaları toorely WebSocket istemcide devam edebilirsiniz ve gerekmez fazladan kullandığınızda, HTTP istemci tam hello Protokolü tasarım burada toouse (yani tanımlanmış hata durumuna tasarlanmış tooend) bir Web yuvası anlaşması seçimdir.
 
-Yuva reddetmek için istemci "kabul" iletisi URI adresi alır ve aşağıdaki gibi iki sorgu dizesi parametreleri ekler:
+tooreject hello yuva hello istemci selamlama iletisine "kabul" Merhaba adresinden URI alır ve iki sorgu dizesi parametreleri tooit, aşağıdaki gibi ekler:
 
 | Param | Gerekli | Açıklama |
 | --- | --- | --- |
 | statusCode |Evet |Sayısal HTTP durum kodu. |
-| StatusDescription |Evet |Reddetme İnsan okunabilir açıklaması. |
+| StatusDescription |Evet |Merhaba reddetme İnsan okunabilir açıklaması. |
 
-Sonuçta elde edilen URI sonra WebSocket bağlantı kurmak için kullanılır.
+Sonuçta elde edilen URI ise hello tooestablish WebSocket bağlantısı kullanılır.
 
-Hiçbir WebSocket kurulduktan sonra doğru tamamlarken, bu el sıkışma bilerek 410, HTTP hata koduyla başarısız olur. Bir sorun yaşanırsa, aşağıdaki kodları hata açıklanmaktadır:
+Hiçbir WebSocket kurulduktan sonra doğru tamamlarken, bu el sıkışma bilerek 410, HTTP hata koduyla başarısız olur. Bir sorun yaşanırsa hello hata kodları aşağıdaki hello açıklanmaktadır:
 
 | Kod | Hata | Açıklama |
 | --- | --- | --- |
-| 403 |Yasak |URL geçerli değil. |
-| 500 |İç hata |Bir hizmette sorun oluştu. |
+| 403 |Yasak |Merhaba URL geçerli değil. |
+| 500 |İç hata |Bir hello hizmetinde sorun oluştu. |
 
 ### Dinleyici belirteci yenileme
-Dinleyici belirteci dolmak üzere olduğunda, bu yerleşik denetim kanalı aracılığıyla hizmetine çerçeve mesaj göndererek değiştirebilirsiniz. İleti adlı bir JSON nesnesi içerir `renewToken`, şu anda aşağıdaki özelliği tanımlar:
+Merhaba dinleyicisi belirteci hakkında tooexpire olduğunda, bir metin çerçeve ileti toohello hizmeti oluşturulmuş hello denetim kanalı aracılığıyla göndererek değiştirebilirsiniz. İleti adlı bir JSON nesnesi içerir `renewToken`, özelliği şu anda aşağıdaki hello tanımlar:
 
-* **belirteç** – ad alanı veya confers karma bağlantı için geçerli, URL kodlanmış bir hizmet veri yolu paylaşılan erişim belirteci **dinleme** doğru.
+* **belirteç** – ad alanı veya hello confers karma bağlantı için geçerli, URL kodlanmış bir hizmet veri yolu paylaşılan erişim belirteci **dinleme** doğru.
 
 #### renewToken iletisi
 
@@ -209,58 +209,58 @@ Dinleyici belirteci dolmak üzere olduğunda, bu yerleşik denetim kanalı arac�
 }
 ```
 
-Belirteç doğrulama başarısız olursa, erişim reddedildi ve bulut hizmeti bir hata ile denetim kanalı WebSocket kapatır. Aksi durumda yanıt yoktur.
+Merhaba belirteci doğrulama başarısız olursa, erişim reddedildi ve hello bulut hizmeti bir hata ile Merhaba denetim kanalı WebSocket kapatır. Aksi durumda yanıt yoktur.
 
 | WS durumu | Açıklama |
 | --- | --- |
-| 1008 |Güvenlik belirtecinin süresi doldu, bu nedenle yetkilendirme ilkesini ihlal etti. |
+| 1008 |Merhaba güvenlik belirtecinin süresi doldu, bu nedenle hello yetkilendirme ilkesini ihlal etti. |
 
 ## Gönderen Protokolü
-Gönderen Protokolü dinleyici kurulan şekilde etkili bir şekilde aynıdır.
-Uçtan uca WebSocket için maksimum saydamlığı hedeftir. Bağlanmak için adres dinleyicisi ile aynıdır, ancak "eylem" farklıdır ve farklı izin belirteci gerekiyor:
+Merhaba gönderen Protokolü dinleyici kurulan etkili bir şekilde aynı toohello yoludur.
+Merhaba hedeftir hello uçtan uca için maksimum saydamlığı WebSocket. Merhaba adresi toois hello hello dinleyicisi ancak hello "eylem" aynıdır farklıdır ve belirteç bağlanmak için farklı bir izin gerekir:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
 ```
 
-*Ad alanı adresi* genellikle formunun karma bağlantı barındıran Azure geçiş ad alanı tam etki alanı adı `{myname}.servicebus.windows.net`.
+Merhaba *ad alanı adresi* hello Azure geçiş ad alanı konakları hello formunun genellikle karma bağlantı hello hello tam etki alanı adı `{myname}.servicebus.windows.net`.
 
-İstek, uygulama tanımlı olanlar da dahil olmak üzere, rasgele ek HTTP üstbilgileri içerebilir. Tüm sağlanan üstbilgileri akış dinleyiciye ve bulunabilir `connectHeader` nesnesinin **kabul** denetim iletisi.
+Merhaba isteği uygulama tanımlı olanlar da dahil olmak üzere, rasgele ek HTTP üstbilgileri içerebilir. Tüm üstbilgiler akış toohello dinleyicisi tarafından sağlanan ve hello üzerinde bulunabilir `connectHeader` hello nesnesinin **kabul** denetim iletisi.
 
-Sorgu dizesi parametresi seçenekleri aşağıdaki gibidir:
+Merhaba sorgu dizesi parametresi seçenekleri aşağıdaki gibidir:
 
-| Param | Gerekli? | Açıklama |
+| Param | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| `sb-hc-action` |Evet |Gönderen rolü için parametre olmalıdır `action=connect`. |
-| `{path}` |Evet |(aşağıdaki paragraf bakın) |
-| `sb-hc-token` |Evet\* |Dinleyici bir geçerli, URL kodlanmış Service Bus paylaşılan erişim belirteci ad alanı veya confers karma bağlantı için sağlamalısınız **Gönder** doğru. |
-| `sb-hc-id` |Hayır |Uçtan uca Tanılama izleme sağlar ve bir dinleyici kabul anlaşması sırasında kullanılabilir duruma isteğe bağlı bir kimliği. |
+| `sb-hc-action` |Evet |Merhaba gönderen rolü için hello parametresi olmalıdır `action=connect`. |
+| `{path}` |Evet |(paragraf aşağıdaki hello bakın) |
+| `sb-hc-token` |Evet\* |Merhaba dinleyicisi bir geçerli, URL kodlanmış Service Bus paylaşılan erişim belirteci hello ad alanı veya hello confers karma bağlantı için sağlamalıdır **Gönder** doğru. |
+| `sb-hc-id` |Hayır |Uçtan uca Tanılama izleme sağlar ve kullanılabilir toohello dinleyicisi hello sırasında yapılan bir isteğe bağlı kimlik el sıkışma kabul edin. |
 
-`{path}` , Bu dinleyiciyi kaydetmek önceden yapılandırılmış karma bağlantısı URL kodlanmış ad alanı yolu. `path` İfadesi uzatabilirsiniz sonek ve daha fazla iletişim kurmak için bir sorgu dizesi ifadesi. Karma bağlantı yolu altında kaydedilmişse `hyco`, `path` ifade olabilir `hyco/suffix?param=value&...` burada tanımlanan sorgu dizesi parametreleri tarafından izlenen. Tam bir deyim aşağıdaki gibi olabilir:
+Merhaba `{path}` olan hello hello URL kodlanmış ad alanı yolu önceden yapılandırılmış hangi tooregister karma bağlantıda bu dinleyicisi. Merhaba `path` ifadesi uzatabilirsiniz sonek ve başka bir sorgu dizesi ifade toocommunicate. Merhaba karma bağlantı hello yolu altında kaydedilmişse `hyco`, hello `path` ifade olabilir `hyco/suffix?param=value&...` hello sorgu dizesi parametreleri burada tanımlanan tarafından izlenen. Tam bir deyim aşağıdaki gibi olabilir:
 
 ```
 wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
 ```
 
-`path` İfade geçirilir aracılığıyla dinleyicisi "kabul" denetimi iletisinde bulunan URI adresi.
+Merhaba `path` ifade toohello dinleyicisi hello adresindeki hello "kabul" denetimi iletisinde bulunan URI üzerinden geçirilir.
 
-WebSocket bağlantı kayıtlı karma bağlantı yolu, eksik veya geçersiz bir belirteç veya başka bir hata nedeniyle başarısız olursa hata geri bildirim normal HTTP 1.1 durumu geri bildirim modeli kullanılarak sağlanır. Durum açıklaması izleme bildirilmesi kimliği Azure destek personeli için bir hata içeriyor:
+Merhaba WebSocket bağlantısı toohello karma bağlantı yolu olmayan Kaydedilmekte, eksik veya geçersiz bir belirteç veya başka bir hata başarısız olursa, hello hata geri bildirim hello normal HTTP 1.1 durumu geri bildirim modeli kullanılarak sağlanır. Durum açıklaması izleme bildirilmesi kimliği Azure destek personeli için bir hata içeriyor:
 
 | Kod | Hata | Açıklama |
 | --- | --- | --- |
-| 404 |Bulunamadı |Karma bağlantı yolu geçersiz veya temel URL biçimi yanlış. |
-| 401 |Yetkilendirilmemiş |Güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz olur. |
-| 403 |Yasak |Güvenlik belirteci bu yol için ve bu eylem için geçerli değil. |
-| 500 |İç hata |Bir hizmette sorun oluştu. |
+| 404 |Bulunamadı |Merhaba karma bağlantı yolu geçersiz veya hello temel URL biçimi yanlış. |
+| 401 |Yetkilendirilmemiş |Merhaba güvenlik belirteci eksik veya hatalı biçimlendirilmiş veya geçersiz olur. |
+| 403 |Yasak |Merhaba güvenlik belirteci bu yol için ve bu eylem için geçerli değil. |
+| 500 |İç hata |Bir hello hizmetinde sorun oluştu. |
 
-Yukarı, izleme kimliği de içeren açıklayıcı bir hata iletisi ile birlikte uygun WebSocket protokolü hata kodu kullanarak iletişim böylece nedeni başlangıçta ayarlandıktan sonra WebSocket bağlantısı kasıtlı olarak hizmet tarafından kapatılırsa
+Merhaba WebSocket bağlantısı bilerek, başlangıçta ayarlandığına sonra hello hizmeti tarafından kapatılırsa, hello nedeni bu nedenle de içeren açıklayıcı bir hata iletisi ile birlikte uygun WebSocket protokolü hata kodu kullanarak iletilen bir İzleme kimliği.
 
 | WS durumu | Açıklama |
 | --- | --- |
-| 1000 |Dinleyici yuva kapatın. |
-| 1001 |Karma bağlantı yolu silinmiş veya devre dışı. |
-| 1008 |Güvenlik belirtecinin süresi doldu, bu nedenle yetkilendirme ilkesini ihlal etti. |
-| 1011 |Bir hizmette sorun oluştu. |
+| 1000 |Merhaba dinleyicisi hello yuva kapatın. |
+| 1001 |Merhaba karma bağlantı yolu silinmiş veya devre dışı. |
+| 1008 |Merhaba güvenlik belirtecinin süresi doldu, bu nedenle hello yetkilendirme ilkesini ihlal etti. |
+| 1011 |Bir hello hizmetinde sorun oluştu. |
 
 ## Sonraki adımlar
 * [Geçiş hakkında SSS](relay-faq.md)

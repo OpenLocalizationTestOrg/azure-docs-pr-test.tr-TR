@@ -1,6 +1,6 @@
 ---
-title: "Trafik doğrulayın ile Azure Ağ İzleyicisi IP akışını doğrulamak - REST | Microsoft Docs"
-description: "Bu makalede, trafik için veya bir sanal makineden izin verilen veya reddedilen denetlemek açıklar"
+title: "Azure Ağ İzleyicisi IP akış ile aaaVerify trafiği doğrulama - REST | Microsoft Docs"
+description: "Bu makalede nasıl bir sanal makineden trafiği tooor izin verilen veya reddedilen varsa toocheck"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,52 +14,52 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 6d3ce00a7d4f9c0cd57fa8815625a1065b03b5b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 956db0d326db597c6c402a9e8d4a5522c47c02d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a><span data-ttu-id="3ed6d-103">Trafik izin verilen ya da IP akışla reddedildi onay Azure Ağ İzleyicisi'nin bir bileşeni doğrulayın</span><span class="sxs-lookup"><span data-stu-id="3ed6d-103">Check if traffic is allowed or denied with IP flow verify a component of Azure Network Watcher</span></span>
+# <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a><span data-ttu-id="6eb1f-103">Trafik izin verilen ya da IP akışla reddedildi onay Azure Ağ İzleyicisi'nin bir bileşeni doğrulayın</span><span class="sxs-lookup"><span data-stu-id="6eb1f-103">Check if traffic is allowed or denied with IP flow verify a component of Azure Network Watcher</span></span>
 
 > [!div class="op_single_selector"]
-> - [<span data-ttu-id="3ed6d-104">Azure portal</span><span class="sxs-lookup"><span data-stu-id="3ed6d-104">Azure portal</span></span>](network-watcher-check-ip-flow-verify-portal.md)
-> - [<span data-ttu-id="3ed6d-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="3ed6d-105">PowerShell</span></span>](network-watcher-check-ip-flow-verify-powershell.md)
-> - [<span data-ttu-id="3ed6d-106">CLI 1.0</span><span class="sxs-lookup"><span data-stu-id="3ed6d-106">CLI 1.0</span></span>](network-watcher-check-ip-flow-verify-cli-nodejs.md)
-> - [<span data-ttu-id="3ed6d-107">CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="3ed6d-107">CLI 2.0</span></span>](network-watcher-check-ip-flow-verify-cli.md)
-> - [<span data-ttu-id="3ed6d-108">Azure REST API'si</span><span class="sxs-lookup"><span data-stu-id="3ed6d-108">Azure REST API</span></span>](network-watcher-check-ip-flow-verify-rest.md)
+> - [<span data-ttu-id="6eb1f-104">Azure portal</span><span class="sxs-lookup"><span data-stu-id="6eb1f-104">Azure portal</span></span>](network-watcher-check-ip-flow-verify-portal.md)
+> - [<span data-ttu-id="6eb1f-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="6eb1f-105">PowerShell</span></span>](network-watcher-check-ip-flow-verify-powershell.md)
+> - [<span data-ttu-id="6eb1f-106">CLI 1.0</span><span class="sxs-lookup"><span data-stu-id="6eb1f-106">CLI 1.0</span></span>](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+> - [<span data-ttu-id="6eb1f-107">CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="6eb1f-107">CLI 2.0</span></span>](network-watcher-check-ip-flow-verify-cli.md)
+> - [<span data-ttu-id="6eb1f-108">Azure REST API'si</span><span class="sxs-lookup"><span data-stu-id="6eb1f-108">Azure REST API</span></span>](network-watcher-check-ip-flow-verify-rest.md)
 
 
-<span data-ttu-id="3ed6d-109">IP akış doğrulayın özelliğidir Ağ İzleyicisi, trafik için veya bir sanal makineden izin verilip verilmediğini doğrulamanızı sağlar.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-109">IP flow verify is a feature of Network Watcher that allows you to verify if traffic is allowed to or from a virtual machine.</span></span> <span data-ttu-id="3ed6d-110">Doğrulama gelen veya giden trafiği için çalıştırılabilir.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-110">The validation can be run for incoming or outgoing traffic.</span></span> <span data-ttu-id="3ed6d-111">Bu senaryo, bir sanal makine için bir dış kaynağa veya arka uç iletişim kurabilirsiniz geçerli durumunu almak yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-111">This scenario is useful to get a current state of whether a virtual machine can talk to an external resource or backend.</span></span> <span data-ttu-id="3ed6d-112">IP akış doğrulayın, ağ güvenlik grubu (NSG) kurallarınızı düzgün şekilde yapılandırıldığından ve NSG kuralları tarafından engellenen akışları sorun giderme doğrulamak için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-112">IP flow verify can be used to verify if your Network Security Group (NSG) rules are properly configured and troubleshoot flows that are being blocked by NSG rules.</span></span> <span data-ttu-id="3ed6d-113">IP kullanan başka bir nedeni akış durumda engellenen istediğiniz trafiği engellenmiş düzgün tarafından NSG emin olmak için doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-113">Another reason for using IP flow verify is to ensure traffic that you want blocked is being blocked properly by the NSG.</span></span>
+<span data-ttu-id="6eb1f-109">IP akış doğrulayın Ağ İzleyicisinin, trafiği bir sanal makineden tooor izin verilip verilmediğini tooverify sağlayan bir özelliktir.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-109">IP flow verify is a feature of Network Watcher that allows you tooverify if traffic is allowed tooor from a virtual machine.</span></span> <span data-ttu-id="6eb1f-110">Merhaba doğrulama gelen veya giden trafiği için çalıştırılabilir.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-110">hello validation can be run for incoming or outgoing traffic.</span></span> <span data-ttu-id="6eb1f-111">Bu senaryo kullanışlı tooget bir sanal makine tooan dış kaynak veya arka uç iletişim kurabilirsiniz, geçerli bir durumda olur.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-111">This scenario is useful tooget a current state of whether a virtual machine can talk tooan external resource or backend.</span></span> <span data-ttu-id="6eb1f-112">IP akış doğrulayın olabilir kullanılan tooverify ağ güvenlik grubu (NSG) kurallarınızı düzgün şekilde yapılandırılırsa ve NSG kuralları tarafından engellenen akışları sorun giderme.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-112">IP flow verify can be used tooverify if your Network Security Group (NSG) rules are properly configured and troubleshoot flows that are being blocked by NSG rules.</span></span> <span data-ttu-id="6eb1f-113">IP kullanan başka bir nedeni akış durumda engellenen istediğiniz tooensure trafiği engellenmiş düzgün şekilde NSG hello tarafından doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-113">Another reason for using IP flow verify is tooensure traffic that you want blocked is being blocked properly by hello NSG.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="3ed6d-114">Başlamadan önce</span><span class="sxs-lookup"><span data-stu-id="3ed6d-114">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="6eb1f-114">Başlamadan önce</span><span class="sxs-lookup"><span data-stu-id="6eb1f-114">Before you begin</span></span>
 
-<span data-ttu-id="3ed6d-115">ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-115">ARMclient is used to call the REST API using PowerShell.</span></span> <span data-ttu-id="3ed6d-116">ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)</span><span class="sxs-lookup"><span data-stu-id="3ed6d-116">ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)</span></span>
+<span data-ttu-id="6eb1f-115">ARMclient PowerShell kullanarak kullanılan toocall hello REST API ' dir.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-115">ARMclient is used toocall hello REST API using PowerShell.</span></span> <span data-ttu-id="6eb1f-116">ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)</span><span class="sxs-lookup"><span data-stu-id="6eb1f-116">ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)</span></span>
 
-<span data-ttu-id="3ed6d-117">Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-117">This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.</span></span>
+<span data-ttu-id="6eb1f-117">Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-117">This scenario assumes you have already followed hello steps in [Create a Network Watcher](network-watcher-create.md) toocreate a Network Watcher.</span></span>
 
-## <a name="scenario"></a><span data-ttu-id="3ed6d-118">Senaryo</span><span class="sxs-lookup"><span data-stu-id="3ed6d-118">Scenario</span></span>
+## <a name="scenario"></a><span data-ttu-id="6eb1f-118">Senaryo</span><span class="sxs-lookup"><span data-stu-id="6eb1f-118">Scenario</span></span>
 
-<span data-ttu-id="3ed6d-119">Bu senaryo, bir sanal makine bağlantı noktası 443 üzerinden başka bir makineye konuşun olmadığını doğrulamak için IP akış doğrulama kullanır.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-119">This scenario uses IP flow Verify to verify if a virtual machine can talk to another machine over port 443.</span></span> <span data-ttu-id="3ed6d-120">Trafiği reddedilirse, bu trafiği engelleyen güvenlik kuralı döndürür.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-120">If the traffic is denied, it returns the security rule that is denying that traffic.</span></span> <span data-ttu-id="3ed6d-121">IP akışı doğrulama hakkında daha fazla bilgi için ziyaret [IP akış doğrulayın genel bakış](network-watcher-ip-flow-verify-overview.md)</span><span class="sxs-lookup"><span data-stu-id="3ed6d-121">To learn more about IP flow Verify, visit [IP flow verify overview](network-watcher-ip-flow-verify-overview.md)</span></span>
+<span data-ttu-id="6eb1f-119">Bu senaryo IP akış doğrula tooverify kullanıyorsa bir sanal makine tooanother makine 443 numaralı bağlantı noktası iletişim kurabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-119">This scenario uses IP flow Verify tooverify if a virtual machine can talk tooanother machine over port 443.</span></span> <span data-ttu-id="6eb1f-120">Merhaba trafik reddedilirse, bu trafiğin reddediyor hello güvenlik kuralı döndürür.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-120">If hello traffic is denied, it returns hello security rule that is denying that traffic.</span></span> <span data-ttu-id="6eb1f-121">IP akış doğrulayın, hakkında daha fazla toolearn ziyaret [IP akış doğrulayın genel bakış](network-watcher-ip-flow-verify-overview.md)</span><span class="sxs-lookup"><span data-stu-id="6eb1f-121">toolearn more about IP flow Verify, visit [IP flow verify overview](network-watcher-ip-flow-verify-overview.md)</span></span>
 
-<span data-ttu-id="3ed6d-122">Bu senaryoda:</span><span class="sxs-lookup"><span data-stu-id="3ed6d-122">In this scenario, you:</span></span>
+<span data-ttu-id="6eb1f-122">Bu senaryoda:</span><span class="sxs-lookup"><span data-stu-id="6eb1f-122">In this scenario, you:</span></span>
 
-* <span data-ttu-id="3ed6d-123">Bir sanal makine alma</span><span class="sxs-lookup"><span data-stu-id="3ed6d-123">Retrieve a virtual machine</span></span>
-* <span data-ttu-id="3ed6d-124">Çağrı IP akış doğrulayın</span><span class="sxs-lookup"><span data-stu-id="3ed6d-124">Call IP flow verify</span></span>
-* <span data-ttu-id="3ed6d-125">Sonuçları doğrulayın</span><span class="sxs-lookup"><span data-stu-id="3ed6d-125">Verify results</span></span>
+* <span data-ttu-id="6eb1f-123">Bir sanal makine alma</span><span class="sxs-lookup"><span data-stu-id="6eb1f-123">Retrieve a virtual machine</span></span>
+* <span data-ttu-id="6eb1f-124">Çağrı IP akış doğrulayın</span><span class="sxs-lookup"><span data-stu-id="6eb1f-124">Call IP flow verify</span></span>
+* <span data-ttu-id="6eb1f-125">Sonuçları doğrulayın</span><span class="sxs-lookup"><span data-stu-id="6eb1f-125">Verify results</span></span>
 
-## <a name="log-in-with-armclient"></a><span data-ttu-id="3ed6d-126">Oturum ARMClient oturum</span><span class="sxs-lookup"><span data-stu-id="3ed6d-126">Log in with ARMClient</span></span>
+## <a name="log-in-with-armclient"></a><span data-ttu-id="6eb1f-126">Oturum ARMClient oturum</span><span class="sxs-lookup"><span data-stu-id="6eb1f-126">Log in with ARMClient</span></span>
 
 ```PowerShell
 armclient login
 ```
 
-## <a name="retrieve-a-virtual-machine"></a><span data-ttu-id="3ed6d-127">Bir sanal makine alma</span><span class="sxs-lookup"><span data-stu-id="3ed6d-127">Retrieve a virtual machine</span></span>
+## <a name="retrieve-a-virtual-machine"></a><span data-ttu-id="6eb1f-127">Bir sanal makine alma</span><span class="sxs-lookup"><span data-stu-id="6eb1f-127">Retrieve a virtual machine</span></span>
 
-<span data-ttu-id="3ed6d-128">Bir sanal makine döndürmek için aşağıdaki betiği çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-128">Run the following script to return a virtual machine.</span></span> <span data-ttu-id="3ed6d-129">Aşağıdaki kod değerleri değişkenleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="3ed6d-129">The following code needs values for the variables:</span></span>
+<span data-ttu-id="6eb1f-128">Komut dosyası tooreturn aşağıdaki hello bir sanal makine çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-128">Run hello following script tooreturn a virtual machine.</span></span> <span data-ttu-id="6eb1f-129">Merhaba aşağıdaki kodu değerleri hello değişkenleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="6eb1f-129">hello following code needs values for hello variables:</span></span>
 
-* <span data-ttu-id="3ed6d-130">**Subscriptionıd** -abonelik kimliği kullanın.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-130">**subscriptionId** - The subscription Id to use.</span></span>
-* <span data-ttu-id="3ed6d-131">**resourceGroupName** -sanal makine içeren bir kaynak grubu adı.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-131">**resourceGroupName** - The name of a resource group that contains virtual machines.</span></span>
+* <span data-ttu-id="6eb1f-130">**Subscriptionıd** -abonelik kimliği toouse hello.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-130">**subscriptionId** - hello subscription Id toouse.</span></span>
+* <span data-ttu-id="6eb1f-131">**resourceGroupName** - hello sanal makine içeren bir kaynak grubu adı.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-131">**resourceGroupName** - hello name of a resource group that contains virtual machines.</span></span>
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -68,7 +68,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-<span data-ttu-id="3ed6d-132">Gerekli bilgileri kimliği türü'nün altında: `Microsoft.Compute/virtualMachines`.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-132">The information that is needed is the id under the type `Microsoft.Compute/virtualMachines`.</span></span> <span data-ttu-id="3ed6d-133">Sonuçları aşağıdaki kod örneği benzer olmalıdır:</span><span class="sxs-lookup"><span data-stu-id="3ed6d-133">The results should be similar to the following code sample:</span></span>
+<span data-ttu-id="6eb1f-132">Merhaba gerekli bilgileri hello hello türü altında kimliğidir `Microsoft.Compute/virtualMachines`.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-132">hello information that is needed is hello id under hello type `Microsoft.Compute/virtualMachines`.</span></span> <span data-ttu-id="6eb1f-133">Merhaba sonuçları benzer toohello kodu örneği aşağıdaki gibi olmalıdır:</span><span class="sxs-lookup"><span data-stu-id="6eb1f-133">hello results should be similar toohello following code sample:</span></span>
 
 ```json
 ...,
@@ -98,17 +98,17 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 }
 ```
 
-## <a name="call-ip-flow-verify"></a><span data-ttu-id="3ed6d-134">Çağrı IP akış doğrulayın</span><span class="sxs-lookup"><span data-stu-id="3ed6d-134">Call IP flow Verify</span></span>
+## <a name="call-ip-flow-verify"></a><span data-ttu-id="6eb1f-134">Çağrı IP akış doğrulayın</span><span class="sxs-lookup"><span data-stu-id="6eb1f-134">Call IP flow Verify</span></span>
 
-<span data-ttu-id="3ed6d-135">Aşağıdaki örnek belirtilen bir sanal makine için trafiği doğrulamak için bir istek oluşturur.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-135">The following example creates a request to verify the traffic for a specified virtual machine.</span></span> <span data-ttu-id="3ed6d-136">Yanıt trafiğe izin verilip verilmediğini veya trafiği reddedilirse döndürür.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-136">The response returns if the traffic is allowed or if the traffic is denied.</span></span> <span data-ttu-id="3ed6d-137">Ayrıca, trafiği reddedilirse hangi kural trafiği engeller. döndürür.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-137">If traffic is denied it also returns what rule blocks the traffic.</span></span>
+<span data-ttu-id="6eb1f-135">Merhaba aşağıdaki örnek belirtilen bir sanal makine için bir istek tooverify hello trafiği oluşturur.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-135">hello following example creates a request tooverify hello traffic for a specified virtual machine.</span></span> <span data-ttu-id="6eb1f-136">Merhaba trafiğine izin verilip verilmediğini veya hello trafiği reddedilirse Hello yanıtı döndürür.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-136">hello response returns if hello traffic is allowed or if hello traffic is denied.</span></span> <span data-ttu-id="6eb1f-137">Trafik reddedilirse Ayrıca hangi kural bloklarını trafiği hello döndürür.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-137">If traffic is denied it also returns what rule blocks hello traffic.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="3ed6d-138">IP akış doğrulayın gerektirir VM kaynak ayrılır.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-138">IP flow verify requires that the VM resource is allocated.</span></span>
+> <span data-ttu-id="6eb1f-138">IP akış doğrulayın gerektirir hello VM kaynak ayrılır.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-138">IP flow verify requires that hello VM resource is allocated.</span></span>
 
-<span data-ttu-id="3ed6d-139">Komut dosyası kaynak kimliği bir sanal makine ve sanal makinedeki ağ arabirim kartı gerektirir.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-139">The script requires the resource Id of a virtual machine and of a network interface card on the virtual machine.</span></span> <span data-ttu-id="3ed6d-140">Bu değerler önceki çıktı tarafından sağlanır.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-140">These values are provided by the preceding output.</span></span>
+<span data-ttu-id="6eb1f-139">Merhaba betik hello kaynak kimliği, bir sanal makinenin ve hello sanal makinedeki ağ arabirim kartı gerektirir.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-139">hello script requires hello resource Id of a virtual machine and of a network interface card on hello virtual machine.</span></span> <span data-ttu-id="6eb1f-140">Bu değerleri çıktı önceki hello tarafından sağlanır.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-140">These values are provided by hello preceding output.</span></span>
 
 > [!Important]
-> <span data-ttu-id="3ed6d-141">Tüm Ağ İzleyicisi REST için istek URI'SİNDEKİ kaynak grubu adı çağrıdır, Ağ İzleyicisi örneği içeren bir tanılama eylemleri gerçekleştirdiğiniz kaynakları değil.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-141">For all Network Watcher REST calls the resource group name in the request URI is the one that contains the Network Watcher instance, not the resources you are performing the diagnostic actions on.</span></span>
+> <span data-ttu-id="6eb1f-141">İçin tüm Ağ İzleyicisi REST çağrılarını hello hello tanılama eylemleri gerçekleştirdiğiniz hello kaynakları değil hello Ağ İzleyicisi örneği içeren bir URI'dir hello isteğindeki kaynak grubu adı hello.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-141">For all Network Watcher REST calls hello resource group name in hello request URI is hello one that contains hello Network Watcher instance, not hello resources you are performing hello diagnostic actions on.</span></span>
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -141,11 +141,11 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/ipFlowVerify?api-version=2016-12-01" $requestBody -verbose
 ```
 
-## <a name="understanding-the-results"></a><span data-ttu-id="3ed6d-142">Sonuçları anlama</span><span class="sxs-lookup"><span data-stu-id="3ed6d-142">Understanding the results</span></span>
+## <a name="understanding-hello-results"></a><span data-ttu-id="6eb1f-142">Merhaba sonuçlarını anlama</span><span class="sxs-lookup"><span data-stu-id="6eb1f-142">Understanding hello results</span></span>
 
-<span data-ttu-id="3ed6d-143">Geri alma yanıt trafiğe izin verilen veya reddedilen bildirir.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-143">The response you get back tells you whether the traffic is allowed or denied.</span></span> <span data-ttu-id="3ed6d-144">Yanıt aşağıdaki örneklerde biri gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="3ed6d-144">The response looks like one of the following examples:</span></span>
+<span data-ttu-id="6eb1f-143">geri alma hello yanıt hello trafiğine izin verilen veya reddedilen söyler.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-143">hello response you get back tells you whether hello traffic is allowed or denied.</span></span> <span data-ttu-id="6eb1f-144">Merhaba yanıt bir hello örnekler aşağıdaki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="6eb1f-144">hello response looks like one of hello following examples:</span></span>
 
-<span data-ttu-id="3ed6d-145">**İzin verilen**</span><span class="sxs-lookup"><span data-stu-id="3ed6d-145">**Allowed**</span></span>
+<span data-ttu-id="6eb1f-145">**İzin verilen**</span><span class="sxs-lookup"><span data-stu-id="6eb1f-145">**Allowed**</span></span>
 
 ```json
 {
@@ -154,7 +154,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 }
 ```
 
-<span data-ttu-id="3ed6d-146">**Engellendi**</span><span class="sxs-lookup"><span data-stu-id="3ed6d-146">**Denied**</span></span>
+<span data-ttu-id="6eb1f-146">**Engellendi**</span><span class="sxs-lookup"><span data-stu-id="6eb1f-146">**Denied**</span></span>
 
 ```json
 {
@@ -163,9 +163,9 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="3ed6d-147">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="3ed6d-147">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="6eb1f-147">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="6eb1f-147">Next steps</span></span>
 
-<span data-ttu-id="3ed6d-148">Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) ağ güvenlik grupları hakkında daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="3ed6d-148">If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to learn more about Network Security Groups.</span></span>
+<span data-ttu-id="6eb1f-148">Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) toolearn ağ güvenlik grupları hakkında daha fazla bilgi.</span><span class="sxs-lookup"><span data-stu-id="6eb1f-148">If traffic is being blocked and it should not be, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) toolearn more about Network Security Groups.</span></span>
 
 
 

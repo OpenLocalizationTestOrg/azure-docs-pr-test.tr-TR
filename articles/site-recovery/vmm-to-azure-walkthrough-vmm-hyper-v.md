@@ -1,6 +1,6 @@
 ---
-title: "System Center VMM Hyper-V çoğaltma Azure için hazırlama | Microsoft Docs"
-description: "System Center VMM sunucusu Hyper-V çoğaltma Azure Site Kurtarma'yı kullanarak Azure için hazırlamayı açıklar"
+title: "Hyper-V çoğaltma tooAzure için System Center VMM aaaPrepare | Microsoft Docs"
+description: "Açıklar nasıl tooprepare System Center VMM sunucusuna Azure Site Recovery kullanarak Hyper-V çoğaltma tooAzure için"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.openlocfilehash: ec118ed837dbf140083b3ae1e4ecd41c81562018
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 773b06afaf7d3eea1fe64f050bf3970943cf466a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-6-prepare-vmm-servers-and-hyper-v-hosts-for-hyper-v-replication-to-azure"></a><span data-ttu-id="2d325-103">6. adım: Hyper-V çoğaltma Azure için VMM sunucuları ve Hyper-V ana bilgisayarları hazırlama</span><span class="sxs-lookup"><span data-stu-id="2d325-103">Step 6: Prepare VMM servers and Hyper-V hosts for Hyper-V replication to Azure</span></span>
+# <a name="step-6-prepare-vmm-servers-and-hyper-v-hosts-for-hyper-v-replication-tooazure"></a><span data-ttu-id="797f7-103">6. adım: VMM sunucuları ve Hyper-V konakları için Hyper-V çoğaltma tooAzure hazırlama</span><span class="sxs-lookup"><span data-stu-id="797f7-103">Step 6: Prepare VMM servers and Hyper-V hosts for Hyper-V replication tooAzure</span></span>
 
-<span data-ttu-id="2d325-104">Ayarladıktan sonra [Azure bileşenleri](vmm-to-azure-walkthrough-prepare-azure.md) şirket içi VMM sunucuları ve Azure Site Recovery ile etkileşim kurmak için Hyper-V konakları hazırlamak için bu makaledeki dağıtımı için yönergeleri kullanın.</span><span class="sxs-lookup"><span data-stu-id="2d325-104">After setting up [Azure components](vmm-to-azure-walkthrough-prepare-azure.md) for the deployment, use the instructions in this article to prepare on-premises VMM servers and Hyper-V hosts to interact with Azure Site Recovery.</span></span>
+<span data-ttu-id="797f7-104">Ayarladıktan sonra [Azure bileşenleri](vmm-to-azure-walkthrough-prepare-azure.md) hello dağıtımı için Azure Site Recovery ile bu makale tooprepare şirket içi VMM sunucuları ve Hyper-V konakları toointeract hello yönergeleri kullanın.</span><span class="sxs-lookup"><span data-stu-id="797f7-104">After setting up [Azure components](vmm-to-azure-walkthrough-prepare-azure.md) for hello deployment, use hello instructions in this article tooprepare on-premises VMM servers and Hyper-V hosts toointeract with Azure Site Recovery.</span></span>
 
-<span data-ttu-id="2d325-105">Bu makaleyi okuduktan sonra altındaki bir yorum gönderin ya da teknik sorular [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span><span class="sxs-lookup"><span data-stu-id="2d325-105">After reading this article, post any comments at the bottom, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span></span>
+<span data-ttu-id="797f7-105">Bu makaleyi okuduktan sonra hello altındaki tüm yorumlar post veya üzerinde hello teknik sorular sormak [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span><span class="sxs-lookup"><span data-stu-id="797f7-105">After reading this article, post any comments at hello bottom, or ask technical questions on hello [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span></span>
 
 
-## <a name="prepare-vmm-servers"></a><span data-ttu-id="2d325-106">VMM sunucuları hazırlama</span><span class="sxs-lookup"><span data-stu-id="2d325-106">Prepare VMM servers</span></span>
+## <a name="prepare-vmm-servers"></a><span data-ttu-id="797f7-106">VMM sunucuları hazırlama</span><span class="sxs-lookup"><span data-stu-id="797f7-106">Prepare VMM servers</span></span>
 
-- <span data-ttu-id="2d325-107">Site Recovery çoğaltma (site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) için destek gereksinimlerini karşılayan en az bir VMM sunucusu gerekir.</span><span class="sxs-lookup"><span data-stu-id="2d325-107">You need at least one VMM server that meet the support requirements for Site Recovery replication (site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).</span></span>
-- <span data-ttu-id="2d325-108">VMM sunucusu için hazır olduğundan emin olun [ağ eşlemesi](vmm-to-azure-walkthrough-network.md#network-mapping-for-replication-to-azure).</span><span class="sxs-lookup"><span data-stu-id="2d325-108">Make sure you've prepared the VMM server for [network mapping](vmm-to-azure-walkthrough-network.md#network-mapping-for-replication-to-azure).</span></span>
-- <span data-ttu-id="2d325-109">VMM sunucusunun bu URL'leri erişebildiğinden emin olun</span><span class="sxs-lookup"><span data-stu-id="2d325-109">Make sure that the VMM server can access these URLs</span></span>
+- <span data-ttu-id="797f7-107">Site Recovery çoğaltma (site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) hello destek gereksinimlerini karşılayan en az bir VMM sunucusu gerekir.</span><span class="sxs-lookup"><span data-stu-id="797f7-107">You need at least one VMM server that meet hello support requirements for Site Recovery replication (site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).</span></span>
+- <span data-ttu-id="797f7-108">Emin olun hello VMM sunucusu için hazır [ağ eşlemesi](vmm-to-azure-walkthrough-network.md#network-mapping-for-replication-to-azure).</span><span class="sxs-lookup"><span data-stu-id="797f7-108">Make sure you've prepared hello VMM server for [network mapping](vmm-to-azure-walkthrough-network.md#network-mapping-for-replication-to-azure).</span></span>
+- <span data-ttu-id="797f7-109">Merhaba VMM sunucusunun bu URL'leri erişebildiğinden emin olun</span><span class="sxs-lookup"><span data-stu-id="797f7-109">Make sure that hello VMM server can access these URLs</span></span>
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-- <span data-ttu-id="2d325-110">IP adresi tabanlı güvenlik duvarı kurallarına sahipseniz bu kuralların Azure ile iletişim kurmaya izin verdiğinden emin olun.</span><span class="sxs-lookup"><span data-stu-id="2d325-110">If you have IP address-based firewall rules, ensure they allow communication to Azure.</span></span>
-- <span data-ttu-id="2d325-111">[Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'na ve HTTPS (443) bağlantı noktasına izin verin.</span><span class="sxs-lookup"><span data-stu-id="2d325-111">Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.</span></span>
-- <span data-ttu-id="2d325-112">Aboneliğinizin Azure bölgesi ve Batı ABD (Access Control ve Identity Management için kullanılır) için IP adresi aralıklarına izin verin.</span><span class="sxs-lookup"><span data-stu-id="2d325-112">Allow IP address ranges for the Azure region of your subscription, and for West US (used for Access Control and Identity Management).</span></span>
+- <span data-ttu-id="797f7-110">IP adresi tabanlı güvenlik duvarı kuralları varsa, iletişim tooAzure izin emin olun.</span><span class="sxs-lookup"><span data-stu-id="797f7-110">If you have IP address-based firewall rules, ensure they allow communication tooAzure.</span></span>
+- <span data-ttu-id="797f7-111">Merhaba izin [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)ve hello HTTPS (443 numaralı) bağlantı noktası.</span><span class="sxs-lookup"><span data-stu-id="797f7-111">Allow hello [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and hello HTTPS (443) port.</span></span>
+- <span data-ttu-id="797f7-112">IP adres aralıklarını hello aboneliğinizin Azure bölgesi ve Batı ABD (erişim denetimi ve kimlik yönetimi için kullanılan) izin verir.</span><span class="sxs-lookup"><span data-stu-id="797f7-112">Allow IP address ranges for hello Azure region of your subscription, and for West US (used for Access Control and Identity Management).</span></span>
 
-<span data-ttu-id="2d325-113">Site Recovery dağıtımı sırasında Site kurtarma Sağlayıcısı'nı indirin ve her VMM sunucusuna yükleyin.</span><span class="sxs-lookup"><span data-stu-id="2d325-113">During Site Recovery deployment, you download the Site Recovery Provider and install it on each VMM server.</span></span> <span data-ttu-id="2d325-114">VMM sunucusu kurtarma Hizmetleri kasasına kayıtlı.</span><span class="sxs-lookup"><span data-stu-id="2d325-114">The VMM server is registered in the Recovery Services vault.</span></span>
-
-
+<span data-ttu-id="797f7-113">Site Recovery dağıtımı sırasında hello Site kurtarma sağlayıcısı indirin ve her VMM sunucusuna yükleyin.</span><span class="sxs-lookup"><span data-stu-id="797f7-113">During Site Recovery deployment, you download hello Site Recovery Provider and install it on each VMM server.</span></span> <span data-ttu-id="797f7-114">Kurtarma Hizmetleri kasası hello Hello VMM sunucusu kayıtlı.</span><span class="sxs-lookup"><span data-stu-id="797f7-114">hello VMM server is registered in hello Recovery Services vault.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="2d325-115">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="2d325-115">Next steps</span></span>
 
-<span data-ttu-id="2d325-116">Git [adım 7: bir kasa oluşturun](vmm-to-azure-walkthrough-create-vault.md)</span><span class="sxs-lookup"><span data-stu-id="2d325-116">Go to [Step 7: Create a vault](vmm-to-azure-walkthrough-create-vault.md)</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="797f7-115">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="797f7-115">Next steps</span></span>
+
+<span data-ttu-id="797f7-116">Çok Git[adım 7: bir kasa oluşturun](vmm-to-azure-walkthrough-create-vault.md)</span><span class="sxs-lookup"><span data-stu-id="797f7-116">Go too[Step 7: Create a vault](vmm-to-azure-walkthrough-create-vault.md)</span></span>
 

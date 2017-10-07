@@ -5,7 +5,7 @@
 ## [Bulut iş ortağı portalını kullanmaya başlama](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md)
 ## [Desteklenen ürünler](./Cloud-partner-portal-products-that-can-get-published-via-portal.md)
 
-# Nasıl yapılır kılavuzları
+# Nasıl tooguides
 ## Sanal Makineleri yönetme
 ### [Yazar sanal makine teklifi](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md)
 #### [Önkoşullar](../../cloud-partner-portal/cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
@@ -21,7 +21,7 @@
 
 ### [Mevcut teklifi güncelleştirme](./cloud-partner-portal-update-existing-offer.md)
 ### [VM teklifini/SKU’yu silme](./cloud-partner-portal-delete-an-offer.md)
-### [Bulut iş ortağı portalına geçirme](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+### [Toocloud iş ortağı portalını geçirme](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
 ## [Müşteri adayları alma](./cloud-partner-portal-get-customer-leads.md)
 ### [Azure tablosu](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)

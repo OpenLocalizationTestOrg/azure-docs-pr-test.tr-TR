@@ -1,6 +1,6 @@
 ---
-title: "Nesnelerin İnterneti (IoT Paketi) için Azure çözümleri | Microsoft Docs"
-description: "Azure'da IoT'ye, örnek bir çözüm mimarisini ve bunun Azure IoT Paketi ve önceden yapılandırılmış çözümlerle nasıl ilişkili olduğunu içeren genel bir bakış."
+title: "aaaAzure çözümleri nesnelerin interneti (IOT paketi) | Microsoft Docs"
+description: "Bir genel bakış örnek bir çözüm mimarisi ve tooAzure IOT paketi ve hello ilişkilendirilme şekli dahil olmak üzere Azure IOT önceden yapılandırılmış çözümler."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: 320190488bb4c7b8192421f9dd50a5264f558584
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e527ca3f7541c84fbd6abc99ee38792468f88644
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## <a name="azure-iot-suite"></a><span data-ttu-id="2a2b2-103">Azure IoT Paketi</span><span class="sxs-lookup"><span data-stu-id="2a2b2-103">Azure IoT Suite</span></span>
-<span data-ttu-id="2a2b2-104">Microsoft Azure IoT Paketi, kapsamlı önceden yapılandırılmış çözümler sayesinde hızlı başlangıç yapmanızı sağlayan kurumsal düzeyde bir çözümdür.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-104">The Microsoft Azure IoT Suite is an enterprise-grade solution that enables you to get started quickly through a set of extensible preconfigured solutions.</span></span> <span data-ttu-id="2a2b2-105">Bu çözümler [uzaktan izleme][lnk-preconfigured-solutions], [tahmine dayalı bakım][lnk-predictive-maintenance] ve [bağlı fabrika][lnk-connected-factory] gibi yaygın IoT senaryolarını hedeflemektedir.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-105">These solutions address common IoT scenarios, such as [remote monitoring][lnk-preconfigured-solutions], [predictive maintenance][lnk-predictive-maintenance], and [connected factory][lnk-connected-factory].</span></span> <span data-ttu-id="2a2b2-106">Bu çözümler, bu makalede ana hatlarıyla açıklanan IOT çözüm mimarisinin uygulamalarıdır.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-106">These solutions are implementations of the IoT solution architecture outlined in this article.</span></span>
+## <a name="azure-iot-suite"></a><span data-ttu-id="4f6b8-103">Azure IoT Paketi</span><span class="sxs-lookup"><span data-stu-id="4f6b8-103">Azure IoT Suite</span></span>
+<span data-ttu-id="4f6b8-104">Merhaba Microsoft Azure IOT paketi, bir dizi Genişletilebilir önceden yapılandırılmış çözümler ile hızlı şekilde kullanmaya tooget sağlayan bir kurumsal düzeyde çözümüdür.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-104">hello Microsoft Azure IoT Suite is an enterprise-grade solution that enables you tooget started quickly through a set of extensible preconfigured solutions.</span></span> <span data-ttu-id="4f6b8-105">Bu çözümler [uzaktan izleme][lnk-preconfigured-solutions], [tahmine dayalı bakım][lnk-predictive-maintenance] ve [bağlı fabrika][lnk-connected-factory] gibi yaygın IoT senaryolarını hedeflemektedir.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-105">These solutions address common IoT scenarios, such as [remote monitoring][lnk-preconfigured-solutions], [predictive maintenance][lnk-predictive-maintenance], and [connected factory][lnk-connected-factory].</span></span> <span data-ttu-id="4f6b8-106">Bu çözümlerin hello bu makalede açıklanan IOT çözüm mimarisi uygulamalarıdır.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-106">These solutions are implementations of hello IoT solution architecture outlined in this article.</span></span>
 
-<span data-ttu-id="2a2b2-107">Bu önceden yapılandırılmış çözümler, şunları içeren eksiksiz, çalışan ve uçtan uca çözümlerdir:</span><span class="sxs-lookup"><span data-stu-id="2a2b2-107">The preconfigured solutions are complete, working, end-to-end solutions that include:</span></span>
+<span data-ttu-id="4f6b8-107">Merhaba önceden yapılandırılmış çözümler eksiksiz, çalışan, dahil uçtan uca Çözümler:</span><span class="sxs-lookup"><span data-stu-id="4f6b8-107">hello preconfigured solutions are complete, working, end-to-end solutions that include:</span></span>
 
-- <span data-ttu-id="2a2b2-108">Başlamanıza yardımcı olmak için sanal cihazlar.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-108">Simulated devices to get you started.</span></span>
-- <span data-ttu-id="2a2b2-109">[Azure IoT Hub][Azure IoT Hub], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning] ve [Azure depolama][Azure storage] gibi önceden yapılandırılmış Azure hizmetleri.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-109">Preconfigured Azure services such as [Azure IoT Hub][Azure IoT Hub], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning], and [Azure storage][Azure storage].</span></span>
-- <span data-ttu-id="2a2b2-110">Çözüme özel yönetim konsolları.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-110">Solution-specific management consoles.</span></span>
+- <span data-ttu-id="4f6b8-108">Başlattığınız aygıtları tooget benzetimi.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-108">Simulated devices tooget you started.</span></span>
+- <span data-ttu-id="4f6b8-109">[Azure IoT Hub][Azure IoT Hub], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning] ve [Azure depolama][Azure storage] gibi önceden yapılandırılmış Azure hizmetleri.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-109">Preconfigured Azure services such as [Azure IoT Hub][Azure IoT Hub], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning], and [Azure storage][Azure storage].</span></span>
+- <span data-ttu-id="4f6b8-110">Çözüme özel yönetim konsolları.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-110">Solution-specific management consoles.</span></span>
 
-<span data-ttu-id="2a2b2-111">Önceden yapılandırılmış çözümlerde, özelleştirebildiğiniz ve kendi özel IoT senaryolarınıza uygulamak amacıyla uzanabildiğiniz kanıtlanmış, üretime hazır kod bulunur.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-111">The preconfigured solutions contain proven, production-ready code that you can customize and extend to implement your own specific IoT scenarios.</span></span>
+<span data-ttu-id="4f6b8-111">Merhaba önceden yapılandırılmış çözümleri özelleştirme ve kendi özel IOT senaryolarınıza tooimplement genişletmek kanıtlanmış, üretime hazır kod bulunur.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-111">hello preconfigured solutions contain proven, production-ready code that you can customize and extend tooimplement your own specific IoT scenarios.</span></span>
 
-<span data-ttu-id="2a2b2-112">Çok sayıda önceden yapılandırılmış çözümün kullandığı [Azure IoT Hub][Azure IoT Hub] hizmeti de ilginizi çekebilir.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-112">You may also be interested in the [Azure IoT Hub][Azure IoT Hub] service that many of the preconfigured solutions use.</span></span> <span data-ttu-id="2a2b2-113">[Azure IoT Hub][Azure IoT Hub], önceden yapılandırılmış çözüm mimarisinde kullanılan, cihazlar ve bulut arasındaki güvenli ve çift yönlü iletişimi sağlar.</span><span class="sxs-lookup"><span data-stu-id="2a2b2-113">[Azure IoT Hub][Azure IoT Hub] provides the secure and reliable bi-directional communications between devices and the cloud used in the preconfigured solution architecture.</span></span>
+<span data-ttu-id="4f6b8-112">Ayrıca hello ilgilenebilirsiniz [Azure IOT Hub] [ Azure IoT Hub] hello önceden yapılandırılmış çözümleri çoğunu kullandıkları hizmet.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-112">You may also be interested in hello [Azure IoT Hub][Azure IoT Hub] service that many of hello preconfigured solutions use.</span></span> <span data-ttu-id="4f6b8-113">[Azure IOT Hub] [ Azure IoT Hub] aygıtlar ve hello önceden yapılandırılmış çözüm mimarisinde kullanılan hello bulut arasında hello güvenli ve güvenilir çift yönlü iletişim sağlar.</span><span class="sxs-lookup"><span data-stu-id="4f6b8-113">[Azure IoT Hub][Azure IoT Hub] provides hello secure and reliable bi-directional communications between devices and hello cloud used in hello preconfigured solution architecture.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="2a2b2-114">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="2a2b2-114">Next steps</span></span>
-<span data-ttu-id="2a2b2-115">IoT Paketi ve önceden yapılandırılmış çözümler hakkında bilgi almaya devam etmek için aşağıdaki kaynakları keşfedin:</span><span class="sxs-lookup"><span data-stu-id="2a2b2-115">Explore these resources to continue learning about IoT Suite and the preconfigured solutions:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="4f6b8-114">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="4f6b8-114">Next steps</span></span>
+<span data-ttu-id="4f6b8-115">IOT paketi hakkında öğrenme bu kaynakları toocontinue keşfedin ve önceden yapılandırılmış çözümler hello:</span><span class="sxs-lookup"><span data-stu-id="4f6b8-115">Explore these resources toocontinue learning about IoT Suite and hello preconfigured solutions:</span></span>
 
-* <span data-ttu-id="2a2b2-116">[Azure IoT Paketi nedir?][lnk-whatissuite]</span><span class="sxs-lookup"><span data-stu-id="2a2b2-116">[What is Azure IoT Suite?][lnk-whatissuite]</span></span>
-* <span data-ttu-id="2a2b2-117">[Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?][lnk-whatarepreconfigured]</span><span class="sxs-lookup"><span data-stu-id="2a2b2-117">[What are the Azure IoT Suite preconfigured solutions?][lnk-whatarepreconfigured]</span></span>
+* <span data-ttu-id="4f6b8-116">[Azure IoT Paketi nedir?][lnk-whatissuite]</span><span class="sxs-lookup"><span data-stu-id="4f6b8-116">[What is Azure IoT Suite?][lnk-whatissuite]</span></span>
+* <span data-ttu-id="4f6b8-117">[Hello Azure IOT paketi önceden yapılandırılmış çözümleri nelerdir?][lnk-whatarepreconfigured]</span><span class="sxs-lookup"><span data-stu-id="4f6b8-117">[What are hello Azure IoT Suite preconfigured solutions?][lnk-whatarepreconfigured]</span></span>
 
 [lnk-whatissuite]: iot-suite-overview.md
 [lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md

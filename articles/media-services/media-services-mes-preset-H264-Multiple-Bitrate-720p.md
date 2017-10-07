@@ -1,6 +1,6 @@
 ---
-title: "H264 Çoklu bit hızı 720p Azure Medya Kodlayıcısı standart önceden - | Microsoft Docs"
-description: "Konuyu genel bir fikir veren ** H264 Çoklu bit hızı 720 p ** görev hazır."
+title: "aaaH264 Çoklu bit hızı 720p Azure Medya Kodlayıcısı standart önceden - | Microsoft Docs"
+description: "Merhaba konu hello genel bir bakış sunar ** H264 Çoklu bit hızı 720 p ** görev hazır."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 564e430ad1c9dcf1ee126d136b37009c74400401
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: bea3e879d2c6ae8c7a2af483360202697c1a082c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="h264-multiple-bitrate-720p"></a><span data-ttu-id="fc1de-103">H264 Çoklu bit hızı 720p</span><span class="sxs-lookup"><span data-stu-id="fc1de-103">H264 Multiple Bitrate 720p</span></span>
-<span data-ttu-id="fc1de-104">`Media Encoder Standard`kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar.</span><span class="sxs-lookup"><span data-stu-id="fc1de-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="fc1de-105">Kullanabilir bir `preset name` hangi biçimine medya dosyanızın kodlamak istediğiniz belirtmek için.</span><span class="sxs-lookup"><span data-stu-id="fc1de-105">You can either use a `preset name` to specify into which format you would like to encode your media file.</span></span> <span data-ttu-id="fc1de-106">Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz</span><span class="sxs-lookup"><span data-stu-id="fc1de-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="fc1de-107">Ardından kodlayıcıya önceden özel geçirirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fc1de-107">You would then pass the custom preset to the encoder.</span></span> <span data-ttu-id="fc1de-108">Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="fc1de-108">For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
+# <a name="h264-multiple-bitrate-720p"></a><span data-ttu-id="8b601-103">H264 Çoklu bit hızı 720p</span><span class="sxs-lookup"><span data-stu-id="8b601-103">H264 Multiple Bitrate 720p</span></span>
+<span data-ttu-id="8b601-104">`Media Encoder Standard`kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar.</span><span class="sxs-lookup"><span data-stu-id="8b601-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="8b601-105">Kullanabilir bir `preset name` hangi biçimine gibi tooencode toospecify medya dosyanızın.</span><span class="sxs-lookup"><span data-stu-id="8b601-105">You can either use a `preset name` toospecify into which format you would like tooencode your media file.</span></span> <span data-ttu-id="8b601-106">Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz</span><span class="sxs-lookup"><span data-stu-id="8b601-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="8b601-107">Ardından hello özel hazır toohello Kodlayıcı geçirirsiniz.</span><span class="sxs-lookup"><span data-stu-id="8b601-107">You would then pass hello custom preset toohello encoder.</span></span> <span data-ttu-id="8b601-108">Tüm hello Hello listesi için bu tarafından desteklenen adları önceden `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="8b601-108">For hello list of all hello preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
   
- <span data-ttu-id="fc1de-109">Bu konuda gösterilmektedir `H264 Multiple Bitrate 720p` XML ve JSON biçiminde hazır.</span><span class="sxs-lookup"><span data-stu-id="fc1de-109">This topic shows the `H264 Multiple Bitrate 720p` preset in XML and JSON format.</span></span>  
+ <span data-ttu-id="8b601-109">Bu konu, hello gösterir `H264 Multiple Bitrate 720p` XML ve JSON biçiminde hazır.</span><span class="sxs-lookup"><span data-stu-id="8b601-109">This topic shows hello `H264 Multiple Bitrate 720p` preset in XML and JSON format.</span></span>  
   
- <span data-ttu-id="fc1de-110">Bu hazır 3400 kbps ila 400 kbps ve stereo AAC ses arasında değişen 6 GOP hizalı MP4 dosyaları kümesi üretir.</span><span class="sxs-lookup"><span data-stu-id="fc1de-110">This preset produces a set of 6 GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio.</span></span> <span data-ttu-id="fc1de-111">Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan inceleyin.</span><span class="sxs-lookup"><span data-stu-id="fc1de-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below.</span></span> <span data-ttu-id="fc1de-112">Her öğe için hangi her bir öğe bu hazır anlamına gelir ve geçerli değerleri açıklamalar için bkz [Medya Kodlayıcısı standart şema](media-services-mes-schema.md) konu.</span><span class="sxs-lookup"><span data-stu-id="fc1de-112">For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.</span></span>  
+ <span data-ttu-id="8b601-110">Bu hazır 3400 kbps too400 kbps ve stereo AAC ses 6 GOP hizalı MP4 dosyaları kümesi üretir.</span><span class="sxs-lookup"><span data-stu-id="8b601-110">This preset produces a set of 6 GOP-aligned MP4 files, ranging from 3400 kbps too400 kbps, and stereo AAC audio.</span></span> <span data-ttu-id="8b601-111">Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan hello inceleyin.</span><span class="sxs-lookup"><span data-stu-id="8b601-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine hello XML or JSON defined below.</span></span> <span data-ttu-id="8b601-112">Merhaba hangi her bir öğe bu hazır anlamına gelir ve hello geçerli değerlerin her öğe için açıklamalar için bkz: [Medya Kodlayıcısı standart şema](media-services-mes-schema.md) konu.</span><span class="sxs-lookup"><span data-stu-id="8b601-112">For explanations of what each element in these presets means, and hello valid values for each element, see hello [Media Encoder Standard schema](media-services-mes-schema.md) topic.</span></span>  
   
 > [!NOTE]
->  <span data-ttu-id="fc1de-113">Değiştirirken `Width` ve `Height` katmanları arasında değerleri en boy oranını tutarlı olmaya devam ettiğinden emin olun.</span><span class="sxs-lookup"><span data-stu-id="fc1de-113">When modifying the `Width` and `Height` values across layers, make sure that the aspect ratio remains consistent.</span></span> <span data-ttu-id="fc1de-114">Örneğin: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="fc1de-114">For example: 1920x1080, 1280x720, 1080x576, 640x360.</span></span> <span data-ttu-id="fc1de-115">En boy oranlarına karışımını gibi kullanmamalısınız: 1280 x 720, 720 x 480, 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="fc1de-115">You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.</span></span>  
+>  <span data-ttu-id="8b601-113">Merhaba değiştirirken `Width` ve `Height` katmanları arasında değerleri bu hello en boy oranını tutarlı kalabilmesi emin olun.</span><span class="sxs-lookup"><span data-stu-id="8b601-113">When modifying hello `Width` and `Height` values across layers, make sure that hello aspect ratio remains consistent.</span></span> <span data-ttu-id="8b601-114">Örneğin: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="8b601-114">For example: 1920x1080, 1280x720, 1080x576, 640x360.</span></span> <span data-ttu-id="8b601-115">En boy oranlarına karışımını gibi kullanmamalısınız: 1280 x 720, 720 x 480, 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="8b601-115">You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.</span></span>  
   
- <span data-ttu-id="fc1de-116">XML</span><span class="sxs-lookup"><span data-stu-id="fc1de-116">XML</span></span>  
+ <span data-ttu-id="8b601-116">XML</span><span class="sxs-lookup"><span data-stu-id="8b601-116">XML</span></span>  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -147,7 +147,7 @@ ms.lasthandoff: 08/29/2017
 </Preset>  
 ```  
   
- <span data-ttu-id="fc1de-117">JSON</span><span class="sxs-lookup"><span data-stu-id="fc1de-117">JSON</span></span>  
+ <span data-ttu-id="8b601-117">JSON</span><span class="sxs-lookup"><span data-stu-id="8b601-117">JSON</span></span>  
   
 ```  
 {  

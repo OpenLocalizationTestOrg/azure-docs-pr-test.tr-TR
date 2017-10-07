@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory kimlik doğrulama protokolleri | Microsoft Docs"
-description: "Azure Active Directory (AD tarafından) desteklenen kimlik doğrulama protokolleri genel bakış"
+title: "Active Directory kimlik doğrulama protokolleri aaaAzure | Microsoft Docs"
+description: "Azure Active Directory (AD tarafından) desteklenen hello kimlik doğrulama protokolleri genel bakış"
 documentationcenter: dev-center-name
 author: priyamohanram
 services: active-directory
@@ -15,24 +15,24 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 91416669281aa8eeef5916db008f9b0cbcbf77e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1584efa83d30746075e970b8523c3abdccd34859
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # Azure Active Directory kimlik doğrulama protokolleri
-Azure Active Directory (Azure AD), çeşitli en yaygın olarak kullanılan kimlik doğrulama ve yetkilendirme kurallarının destekler. Bu bölümdeki konular, desteklenen protokoller ve uygulamalarının Azure AD'de açıklanmaktadır. Konular, desteklenen talep türleri, kullanım giriş Federasyon meta verilerinin gözden dahil, OAuth 2.0 ayrıntılı. ve SAML 2.0 protokolü başvurusu belgeleri ve sorun giderme bölümü.
+Azure Active Directory (Azure AD) birkaç hello en yaygın olarak kullanılan kimlik doğrulama ve yetkilendirme kurallarının destekler. Merhaba bu bölümdeki konular, desteklenen hello protokolleri ve uygulamalarının Azure AD'de açıklanmaktadır. Merhaba konuları desteklenen talep türleri, Federasyon meta verilerini bir giriş toohello kullanımını gözden dahil, OAuth 2.0 ayrıntılı. ve SAML 2.0 protokolü başvurusu belgeleri ve sorun giderme bölümü.
 
 ## Makaleler ve başvuru kimlik doğrulama protokolleri
-* [Önemli bilgiler hakkında imzalama anahtarı Rollover Azure AD'de](active-directory-signing-key-rollover.md) – Azure AD anahtar geçişi tempoyla, anahtarı otomatik olarak güncelleştirmek için yaptığınız değişiklikler ve tartışma için en yaygın uygulama senaryoları güncelleştirme imzalama hakkında bilgi edinin.
-* [Desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md) -Azure AD verir belirteçleri talepleri hakkında bilgi edinin.
-* [Federasyon meta verileri](active-directory-federation-metadata.md) -bulmak ve Azure AD oluşturur meta veri belgelerini yorumlama hakkında bilgi edinin.
-* [Azure AD'de OAuth 2.0](active-directory-protocols-oauth-code.md) -Azure AD OAuth 2.0 uygulamasında hakkında bilgi edinin.
-* [Openıd Connect 1.0](active-directory-protocols-openid-connect-code.md) -kimlik doğrulaması için OAuth 2.0, Yetkilendirme Protokolü kullanmayı öğrenin.
-* [İstemci kimlik bilgileri ile hizmet çağrıları](active-directory-protocols-oauth-service-to-service.md) -hizmet çağrıları için OAuth 2.0 istemci kimlik bilgileri verin akışı kullanmayı öğrenin.
-* [Hizmet çağrıları On-Behalf-Of akış ile](active-directory-protocols-oauth-on-behalf-of.md) -hizmet çağrıları için OAuth 2.0 On-Behalf-Of akış kullanmayı öğrenin.
-* [SAML Protokolü başvurusu](active-directory-saml-protocol-reference.md) -Azure AD çoklu oturum açma ve tek Sign-out SAML profilleri hakkında bilgi edinin.
+* [Önemli bilgiler hakkında imzalama anahtarı Rollover Azure AD'de](active-directory-signing-key-rollover.md) – Azure AD anahtar geçişi tempoyla, değişiklikler yapabilirsiniz tooupdate hello anahtarı otomatik olarak ve nasıl tooupdate hello en yaygın uygulama senaryoları için tartışma imzalama hakkında bilgi edinin.
+* [Desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md) -Azure AD verir hello belirteçleri hello Taleplerde hakkında bilgi edinin.
+* [Federasyon meta verileri](active-directory-federation-metadata.md) -öğrenin nasıl toofind ve Azure AD oluşturur hello meta veri belgelerini çevirebilir.
+* [Azure AD'de OAuth 2.0](active-directory-protocols-oauth-code.md) -hello uygulamasında OAuth 2.0 Azure AD hakkında bilgi edinin.
+* [Openıd Connect 1.0](active-directory-protocols-openid-connect-code.md) -öğrenin nasıl kimlik doğrulaması için OAuth 2.0, Yetkilendirme Protokolü toouse.
+* [Hizmet tooService çağrıları istemci kimlik bilgileri ile](active-directory-protocols-oauth-service-to-service.md) -nasıl hizmeti tooservice çağrıları için akışı toouse OAuth 2.0 istemci kimlik bilgileri verin öğrenin.
+* [Hizmet On-Behalf-Of akış tooService aramaları](active-directory-protocols-oauth-on-behalf-of.md) -toouse hizmet tooservice için OAuth 2.0 On-Behalf-Of akışı nasıl çağırır öğrenin.
+* [SAML Protokolü başvurusu](active-directory-saml-protocol-reference.md) -hello çoklu oturum açma ve tek Sign-out SAML profilleri Azure ad hakkında bilgi edinin.
 
 ## Ayrıca Bkz.
 [Azure Active Directory Geliştirici Kılavuzu](active-directory-developers-guide.md)

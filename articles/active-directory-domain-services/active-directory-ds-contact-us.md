@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory etki alanı Hizmetleri: Bizimle iletişim kurun | Microsoft Docs"
-description: "Azure AD etki alanı Hizmetleri ürün ekibine başvurun"
+description: "Hello Azure AD etki alanı Hizmetleri ürün ekibine başvurun"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7a23d50a392549f6c7e1182bcd9a328a28e74bff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-domain-services---contact-us"></a><span data-ttu-id="bc94d-103">Azure AD etki alanı Hizmetleri - bizimle iletişime geçin</span><span class="sxs-lookup"><span data-stu-id="bc94d-103">Azure AD Domain Services - Contact Us</span></span>
-## <a name="contact-the-product-team"></a><span data-ttu-id="bc94d-104">Ürün ekibine başvurun</span><span class="sxs-lookup"><span data-stu-id="bc94d-104">Contact the product team</span></span>
-<span data-ttu-id="bc94d-105">Yönetilen etki alanı ile ilgili sorununuz olursa, adımları özetlenen varsa denetleyin [sorun giderme kılavuzu](active-directory-ds-troubleshooting.md) sorunu çözün.</span><span class="sxs-lookup"><span data-stu-id="bc94d-105">If you have issues with your managed domain, check to see if the steps outlined in the [Troubleshooting Guide](active-directory-ds-troubleshooting.md) resolve the issue.</span></span> <span data-ttu-id="bc94d-106">Hala sorun yaşıyorsanız, bize ulaşın çekinmeyin.</span><span class="sxs-lookup"><span data-stu-id="bc94d-106">If you're still having trouble, feel free to contact us.</span></span>
+# <a name="azure-ad-domain-services---contact-us"></a><span data-ttu-id="68afc-103">Azure AD etki alanı Hizmetleri - bizimle iletişime geçin</span><span class="sxs-lookup"><span data-stu-id="68afc-103">Azure AD Domain Services - Contact Us</span></span>
+## <a name="contact-hello-product-team"></a><span data-ttu-id="68afc-104">Kişi hello ürün ekibi</span><span class="sxs-lookup"><span data-stu-id="68afc-104">Contact hello product team</span></span>
+<span data-ttu-id="68afc-105">Yönetilen etki alanı ile ilgili sorununuz olursa, hello adımları hello özetlenen toosee denetleyin [sorun giderme kılavuzu](active-directory-ds-troubleshooting.md) hello sorunu çözün.</span><span class="sxs-lookup"><span data-stu-id="68afc-105">If you have issues with your managed domain, check toosee if hello steps outlined in hello [Troubleshooting Guide](active-directory-ds-troubleshooting.md) resolve hello issue.</span></span> <span data-ttu-id="68afc-106">Hala sorun yaşıyorsanız, ücretsiz toocontact bize eşitleyerek.</span><span class="sxs-lookup"><span data-stu-id="68afc-106">If you're still having trouble, feel free toocontact us.</span></span>
 
-<span data-ttu-id="bc94d-107">Bizimle eposta: [Azure AD etki alanı Hizmetleri geribildirim](mailto:aaddsfb@microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="bc94d-107">You may email us at: [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com).</span></span>
+<span data-ttu-id="68afc-107">Bizimle eposta: [Azure AD etki alanı Hizmetleri geribildirim](mailto:aaddsfb@microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="68afc-107">You may email us at: [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com).</span></span>
 
-<span data-ttu-id="bc94d-108">Biz sorunu araştırmak için aşağıdaki eklediğinizden emin olun.</span><span class="sxs-lookup"><span data-stu-id="bc94d-108">Ensure that you include the following, so we can investigate the issue.</span></span>
+<span data-ttu-id="68afc-108">Biz hello sorunu araştırmak için hello aşağıdaki eklediğinizden emin olun.</span><span class="sxs-lookup"><span data-stu-id="68afc-108">Ensure that you include hello following, so we can investigate hello issue.</span></span>
 
-* <span data-ttu-id="bc94d-109">**Kimliği/dizin kimliği Kiracı** Azure AD dizininiz için.</span><span class="sxs-lookup"><span data-stu-id="bc94d-109">The **tenant ID/directory ID** for your Azure AD directory.</span></span> <span data-ttu-id="bc94d-110">Kiracı kimliği üzerinde dizin Kimliği alanında gördüğünüz GUID'dir [dizininiz için Özellikler sayfası](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)</span><span class="sxs-lookup"><span data-stu-id="bc94d-110">The tenant ID is the GUID you see in the directory ID field on the [Properties page for your directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)</span></span>
-* <span data-ttu-id="bc94d-111">**DNS etki alanı adı** , AAD etki alanı Hizmetleri yönetilen etki alanınız için yapılandırdığınız.</span><span class="sxs-lookup"><span data-stu-id="bc94d-111">The **DNS domain name** you've configured for your AAD Domain Services managed domain.</span></span>
+* <span data-ttu-id="68afc-109">Merhaba **kimliği/dizin kimliği Kiracı** Azure AD dizininiz için.</span><span class="sxs-lookup"><span data-stu-id="68afc-109">hello **tenant ID/directory ID** for your Azure AD directory.</span></span> <span data-ttu-id="68afc-110">Merhaba Kiracı kimliği: hello gördüğünüz hello dizin Kimliği alanında hello GUID [dizininiz için Özellikler sayfası](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)</span><span class="sxs-lookup"><span data-stu-id="68afc-110">hello tenant ID is hello GUID you see in hello directory ID field on hello [Properties page for your directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)</span></span>
+* <span data-ttu-id="68afc-111">Merhaba **DNS etki alanı adı** , AAD etki alanı Hizmetleri yönetilen etki alanınız için yapılandırdığınız.</span><span class="sxs-lookup"><span data-stu-id="68afc-111">hello **DNS domain name** you've configured for your AAD Domain Services managed domain.</span></span>
 
-## <a name="provide-feedback"></a><span data-ttu-id="bc94d-112">Geri bildirim sağlayın</span><span class="sxs-lookup"><span data-stu-id="bc94d-112">Provide Feedback</span></span>
-<span data-ttu-id="bc94d-113">Azure AD etki alanı hizmetleri hakkında bildiriminiz bizim  **[Azure Active Directory kullanıcı sesi kanal](https://feedback.azure.com/forums/169401-azure-active-directory/)**.</span><span class="sxs-lookup"><span data-stu-id="bc94d-113">We welcome your feedback about Azure AD Domain Services via the **[Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/)**.</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="68afc-112">Geri bildirim sağlayın</span><span class="sxs-lookup"><span data-stu-id="68afc-112">Provide Feedback</span></span>
+<span data-ttu-id="68afc-113">Merhaba aracılığıyla Azure AD etki alanı hizmetleri hakkında bildiriminiz bizim  **[Azure Active Directory kullanıcı sesi kanal](https://feedback.azure.com/forums/169401-azure-active-directory/)**.</span><span class="sxs-lookup"><span data-stu-id="68afc-113">We welcome your feedback about Azure AD Domain Services via hello **[Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/)**.</span></span>
 
-<span data-ttu-id="bc94d-114">Olun o, pre-bekleme soru veya geri bildirim sözcüklü **'AADDS'**, bunu bize ulaşması için.</span><span class="sxs-lookup"><span data-stu-id="bc94d-114">Ensure that you pre-pend your question or feedback with the words **'AADDS'**, for it to reach us.</span></span>
+<span data-ttu-id="68afc-114">Olun o, pre-bekleme soru veya geri bildirim hello sözcüklü **'AADDS'**, onun için tooreach bize.</span><span class="sxs-lookup"><span data-stu-id="68afc-114">Ensure that you pre-pend your question or feedback with hello words **'AADDS'**, for it tooreach us.</span></span>

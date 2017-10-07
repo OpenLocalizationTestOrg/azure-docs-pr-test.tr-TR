@@ -1,12 +1,12 @@
 ---
-title: "Azure IOT - Ders 1 Connect Raspberry pi (C): cihaz yapılandırma | Microsoft Docs"
-description: "Raspberry Pi 3'ü ilk kez kullanmak için yapılandırmak ve Raspberry Pi'yi donanım için en iyi duruma getirilmiş boş bir işletim sistemi Raspbian işletim sistemi yükleyin."
+title: "Connect Raspberry pi (C) tooAzure IOT - Ders 1: cihaz yapılandırma | Microsoft Docs"
+description: "Raspberry Pi 3'ü ilk kez kullanmak için yapılandırmak ve hello Raspbian işletim sistemi, Raspberry Pi'yi donanım hello için en iyi duruma getirilmiş boş bir işletim sistemi yükleyin."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "Yükleme raspbian, raspbian indirme raspbian, raspbian Kurulum, Böğürtlenli pi yükleme raspbian, Böğürtlenli pi yükleme işletim sistemi, Böğürtlenli pi sd kart yükleme, raspberry yüklemek için pi bağlantı kurma Böğürtlenli pi, Böğürtlenli pi bağlantı bağlanma"
+keywords: "Yükleme raspbian, raspbian indirme tooinstall raspbian raspbian Kurulum Böğürtlenli pi yükleme raspbian, Böğürtlenli pi yükleme işletim sistemi, Böğürtlenli pi sd kart yükleme, Böğürtlenli pi bağlantı kurma tooraspberry pi Böğürtlenli pi bağlantı bağlanma"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: 8ee9b23c-93f7-43ff-8ea1-e7761eb87a6f
@@ -17,105 +17,105 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 2a380f78d67db47a0dcab5b90843404921510528
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ba3466f6d5d46352326a2a63eb011e117da5aca5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-your-device"></a><span data-ttu-id="c920e-104">Cihazınızı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="c920e-104">Configure your device</span></span>
-## <a name="what-you-will-do"></a><span data-ttu-id="c920e-105">Ne yapacağını</span><span class="sxs-lookup"><span data-stu-id="c920e-105">What you will do</span></span>
-<span data-ttu-id="c920e-106">Pi ilk kez kullanmak için yapılandırmak ve Raspbian işletim sistemini yükleyin.</span><span class="sxs-lookup"><span data-stu-id="c920e-106">Configure Pi for first-time use and install the Raspbian operating system.</span></span> <span data-ttu-id="c920e-107">Raspbian Raspberry Pi'yi donanım için en iyi duruma getirilmiş boş bir işletim sistemi ' dir.</span><span class="sxs-lookup"><span data-stu-id="c920e-107">Raspbian is a free operating system that is optimized for the Raspberry Pi hardware.</span></span> <span data-ttu-id="c920e-108">Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="c920e-108">If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span></span>
+# <a name="configure-your-device"></a><span data-ttu-id="3e690-104">Cihazınızı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="3e690-104">Configure your device</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="3e690-105">Ne yapacağını</span><span class="sxs-lookup"><span data-stu-id="3e690-105">What you will do</span></span>
+<span data-ttu-id="3e690-106">Pi ilk kez kullanmak için yapılandırmak ve hello Raspbian işletim sistemini yükleyin.</span><span class="sxs-lookup"><span data-stu-id="3e690-106">Configure Pi for first-time use and install hello Raspbian operating system.</span></span> <span data-ttu-id="3e690-107">Raspbian Raspberry Pi'yi donanım hello için en iyi duruma getirilmiş boş bir işletim sistemi ' dir.</span><span class="sxs-lookup"><span data-stu-id="3e690-107">Raspbian is a free operating system that is optimized for hello Raspberry Pi hardware.</span></span> <span data-ttu-id="3e690-108">Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="3e690-108">If you have any problems, look for solutions on hello [troubleshooting page](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="c920e-109">Bilgi edineceksiniz</span><span class="sxs-lookup"><span data-stu-id="c920e-109">What you will learn</span></span>
-<span data-ttu-id="c920e-110">Bu makalede, şunları öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="c920e-110">In this article, you will learn:</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="3e690-109">Bilgi edineceksiniz</span><span class="sxs-lookup"><span data-stu-id="3e690-109">What you will learn</span></span>
+<span data-ttu-id="3e690-110">Bu makalede, şunları öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="3e690-110">In this article, you will learn:</span></span>
 
-* <span data-ttu-id="c920e-111">Raspbian Pi üzerinde yükleme.</span><span class="sxs-lookup"><span data-stu-id="c920e-111">How to install Raspbian on Pi.</span></span>
-* <span data-ttu-id="c920e-112">Bir USB kablosu kullanarak pi güç yapma.</span><span class="sxs-lookup"><span data-stu-id="c920e-112">How to power up Pi by using a USB cable.</span></span>
-* <span data-ttu-id="c920e-113">Pi ağa bir Ethernet kablolu veya kablosuz ağ kullanarak bağlanma.</span><span class="sxs-lookup"><span data-stu-id="c920e-113">How to connect Pi to the network by using an Ethernet cable or wireless network.</span></span>
-* <span data-ttu-id="c920e-114">Nasıl bir LED breadboard ekleyin ve Pi bağlanın.</span><span class="sxs-lookup"><span data-stu-id="c920e-114">How to add an LED to the breadboard and connect it to Pi.</span></span>
+* <span data-ttu-id="3e690-111">Nasıl tooinstall Raspbian Pi üzerinde.</span><span class="sxs-lookup"><span data-stu-id="3e690-111">How tooinstall Raspbian on Pi.</span></span>
+* <span data-ttu-id="3e690-112">Nasıl bir USB kablosu kullanarak toopower Pi ayarlama.</span><span class="sxs-lookup"><span data-stu-id="3e690-112">How toopower up Pi by using a USB cable.</span></span>
+* <span data-ttu-id="3e690-113">Nasıl tooconnect PI toohello ağ bir Ethernet kablolu veya kablosuz ağ kullanarak.</span><span class="sxs-lookup"><span data-stu-id="3e690-113">How tooconnect Pi toohello network by using an Ethernet cable or wireless network.</span></span>
+* <span data-ttu-id="3e690-114">Nasıl tooadd LED toohello breadboard ve tooPi bağlanın.</span><span class="sxs-lookup"><span data-stu-id="3e690-114">How tooadd an LED toohello breadboard and connect it tooPi.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="c920e-115">Ne gerekiyor</span><span class="sxs-lookup"><span data-stu-id="c920e-115">What you need</span></span>
-<span data-ttu-id="c920e-116">Bu işlemi tamamlamak için aşağıdaki bölümleri Raspberry Pi 3 Starter Seti'nden gerekir:</span><span class="sxs-lookup"><span data-stu-id="c920e-116">To complete this operation, you need the following parts from your Raspberry Pi 3 Starter Kit:</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="3e690-115">Ne gerekiyor</span><span class="sxs-lookup"><span data-stu-id="3e690-115">What you need</span></span>
+<span data-ttu-id="3e690-116">toocomplete bu işlemi Raspberry Pi 3 Starter Seti'nden bölümleri aşağıdaki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="3e690-116">toocomplete this operation, you need hello following parts from your Raspberry Pi 3 Starter Kit:</span></span>
 
-* <span data-ttu-id="c920e-117">Raspberry Pi 3 Panosu</span><span class="sxs-lookup"><span data-stu-id="c920e-117">The Raspberry Pi 3 board</span></span>
-* <span data-ttu-id="c920e-118">16 GB microSD kartı</span><span class="sxs-lookup"><span data-stu-id="c920e-118">The 16-GB microSD card</span></span>
-* <span data-ttu-id="c920e-119">5-volt 2 amp güç kaynağı ile 6 kaplama alanı mikro USB kablosu</span><span class="sxs-lookup"><span data-stu-id="c920e-119">The 5-volt 2-amp power supply with the 6-foot micro USB cable</span></span>
-* <span data-ttu-id="c920e-120">Breadboard</span><span class="sxs-lookup"><span data-stu-id="c920e-120">The breadboard</span></span>
-* <span data-ttu-id="c920e-121">Bağlayıcı kabloları</span><span class="sxs-lookup"><span data-stu-id="c920e-121">Connector wires</span></span>
-* <span data-ttu-id="c920e-122">560 ohm Direnç</span><span class="sxs-lookup"><span data-stu-id="c920e-122">A 560-ohm resistor</span></span>
-* <span data-ttu-id="c920e-123">Yayılmış 10 mm LED</span><span class="sxs-lookup"><span data-stu-id="c920e-123">A diffused 10-mm LED</span></span>
-* <span data-ttu-id="c920e-124">Ethernet kablosu</span><span class="sxs-lookup"><span data-stu-id="c920e-124">The Ethernet cable</span></span>
+* <span data-ttu-id="3e690-117">Merhaba Raspberry Pi 3 Panosu</span><span class="sxs-lookup"><span data-stu-id="3e690-117">hello Raspberry Pi 3 board</span></span>
+* <span data-ttu-id="3e690-118">Merhaba 16 GB microSD kartı</span><span class="sxs-lookup"><span data-stu-id="3e690-118">hello 16-GB microSD card</span></span>
+* <span data-ttu-id="3e690-119">Merhaba 6 kaplama alanı mikro USB kablosu ile Merhaba 5-volt 2 amp güç kaynağı</span><span class="sxs-lookup"><span data-stu-id="3e690-119">hello 5-volt 2-amp power supply with hello 6-foot micro USB cable</span></span>
+* <span data-ttu-id="3e690-120">Merhaba breadboard</span><span class="sxs-lookup"><span data-stu-id="3e690-120">hello breadboard</span></span>
+* <span data-ttu-id="3e690-121">Bağlayıcı kabloları</span><span class="sxs-lookup"><span data-stu-id="3e690-121">Connector wires</span></span>
+* <span data-ttu-id="3e690-122">560 ohm Direnç</span><span class="sxs-lookup"><span data-stu-id="3e690-122">A 560-ohm resistor</span></span>
+* <span data-ttu-id="3e690-123">Yayılmış 10 mm LED</span><span class="sxs-lookup"><span data-stu-id="3e690-123">A diffused 10-mm LED</span></span>
+* <span data-ttu-id="3e690-124">Merhaba Ethernet kablosu</span><span class="sxs-lookup"><span data-stu-id="3e690-124">hello Ethernet cable</span></span>
 
 ![Starter Kit şeyler](media/iot-hub-raspberry-pi-lessons/lesson1/starter_kit.jpg)
 
-<span data-ttu-id="c920e-126">Şunları da yapmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="c920e-126">You also need:</span></span>
+<span data-ttu-id="3e690-126">Şunları da yapmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="3e690-126">You also need:</span></span>
 
-* <span data-ttu-id="c920e-127">Pi bağlanmak için bir kablolu veya kablosuz bağlantı.</span><span class="sxs-lookup"><span data-stu-id="c920e-127">A wired or wireless connection for Pi to connect to.</span></span>
-* <span data-ttu-id="c920e-128">İşletim sistemi görüntüsü microSD kartı üzerine yazmak için bir USB SD bağdaştırıcı veya mini SD kart.</span><span class="sxs-lookup"><span data-stu-id="c920e-128">A USB-SD adapter or mini-SD card to burn the OS image onto the microSD card.</span></span>
-* <span data-ttu-id="c920e-129">Windows, Mac veya Linux çalıştıran bir bilgisayar.</span><span class="sxs-lookup"><span data-stu-id="c920e-129">A computer running Windows, Mac, or Linux.</span></span> <span data-ttu-id="c920e-130">Bilgisayar üzerinde microSD kartı Raspbian yüklemek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="c920e-130">The computer is used to install Raspbian on the microSD card.</span></span>
-* <span data-ttu-id="c920e-131">Gerekli araçları ve yazılım indirmesi için Internet bağlantısı.</span><span class="sxs-lookup"><span data-stu-id="c920e-131">An Internet connection to download the necessary tools and software.</span></span>
+* <span data-ttu-id="3e690-127">Pi tooconnect için kablolu veya kablosuz bağlantı.</span><span class="sxs-lookup"><span data-stu-id="3e690-127">A wired or wireless connection for Pi tooconnect to.</span></span>
+* <span data-ttu-id="3e690-128">Bir USB SD bağdaştırıcı veya mini SD kart tooburn hello işletim sistemi görüntüsünü hello microSD kartı.</span><span class="sxs-lookup"><span data-stu-id="3e690-128">A USB-SD adapter or mini-SD card tooburn hello OS image onto hello microSD card.</span></span>
+* <span data-ttu-id="3e690-129">Windows, Mac veya Linux çalıştıran bir bilgisayar.</span><span class="sxs-lookup"><span data-stu-id="3e690-129">A computer running Windows, Mac, or Linux.</span></span> <span data-ttu-id="3e690-130">Merhaba, kullanılan tooinstall Raspbian hello microSD kartı bilgisayardır.</span><span class="sxs-lookup"><span data-stu-id="3e690-130">hello computer is used tooinstall Raspbian on hello microSD card.</span></span>
+* <span data-ttu-id="3e690-131">Bir Internet bağlantısı toodownload gerekli araçları ve yazılım hello.</span><span class="sxs-lookup"><span data-stu-id="3e690-131">An Internet connection toodownload hello necessary tools and software.</span></span>
 
-## <a name="install-raspbian-on-the-microsd-card"></a><span data-ttu-id="c920e-132">Raspbian MicroSD kartı yükleyin</span><span class="sxs-lookup"><span data-stu-id="c920e-132">Install Raspbian on the MicroSD card</span></span>
-<span data-ttu-id="c920e-133">MicroSD kartı Raspbian görüntünün yüklenmesi için hazırlayın.</span><span class="sxs-lookup"><span data-stu-id="c920e-133">Prepare the microSD card for installation of the Raspbian image.</span></span>
+## <a name="install-raspbian-on-hello-microsd-card"></a><span data-ttu-id="3e690-132">Merhaba MicroSD kartı Raspbian yükleyin</span><span class="sxs-lookup"><span data-stu-id="3e690-132">Install Raspbian on hello MicroSD card</span></span>
+<span data-ttu-id="3e690-133">Merhaba microSD kartı hello Raspbian görüntü yüklemesi için hazırlayın.</span><span class="sxs-lookup"><span data-stu-id="3e690-133">Prepare hello microSD card for installation of hello Raspbian image.</span></span>
 
-1. <span data-ttu-id="c920e-134">Raspbian indirin.</span><span class="sxs-lookup"><span data-stu-id="c920e-134">Download Raspbian.</span></span>
-   1. <span data-ttu-id="c920e-135">[Karşıdan](https://www.raspberrypi.org/downloads/raspbian/) Raspbian Jessie piksel ile .zip dosyası.</span><span class="sxs-lookup"><span data-stu-id="c920e-135">[Download](https://www.raspberrypi.org/downloads/raspbian/) the .zip file for Raspbian Jessie with Pixel.</span></span>
-   2. <span data-ttu-id="c920e-136">Raspbian görüntünün bilgisayarınızdaki bir klasöre ayıklayın.</span><span class="sxs-lookup"><span data-stu-id="c920e-136">Extract the Raspbian image to a folder on your computer.</span></span>
-2. <span data-ttu-id="c920e-137">Raspbian microSD kartı yükleyin.</span><span class="sxs-lookup"><span data-stu-id="c920e-137">Install Raspbian to the microSD card.</span></span>
-   1. <span data-ttu-id="c920e-138">[Karşıdan](https://www.etcher.io) ve Etcher SD kart yazıcı yardımcı programını yükleyin.</span><span class="sxs-lookup"><span data-stu-id="c920e-138">[Download](https://www.etcher.io) and install the Etcher SD card burner utility.</span></span>
-   2. <span data-ttu-id="c920e-139">Etcher çalıştırın ve 1. adımda ayıkladığınız Raspbian görüntüyü seçin.</span><span class="sxs-lookup"><span data-stu-id="c920e-139">Run Etcher and select the Raspbian image that you extracted in step 1.</span></span>
-   3. <span data-ttu-id="c920e-140">MicroSD kartı sürücü seçin.</span><span class="sxs-lookup"><span data-stu-id="c920e-140">Select the microSD card drive.</span></span>
-      <span data-ttu-id="c920e-141">Etcher zaten doğru sürücü seçmiş olabilirsiniz olduğunu unutmayın.</span><span class="sxs-lookup"><span data-stu-id="c920e-141">Note that Etcher may have already selected the correct drive.</span></span>
-   4. <span data-ttu-id="c920e-142">Tıklatın **Flash** Raspbian microSD kartı yüklemek için.</span><span class="sxs-lookup"><span data-stu-id="c920e-142">Click **Flash** to install Raspbian to the microSD card.</span></span>
-   5. <span data-ttu-id="c920e-143">Yükleme tamamlandığında microSD kartı bilgisayarınızdan kaldırın.</span><span class="sxs-lookup"><span data-stu-id="c920e-143">Remove the microSD card from your computer when installation is complete.</span></span>
-      <span data-ttu-id="c920e-144">Etcher otomatik olarak çıkarır veya tamamlanmasından sonra microSD kartı çıkarır çünkü microSD kartı doğrudan kaldırmak güvenlidir.</span><span class="sxs-lookup"><span data-stu-id="c920e-144">It is safe to remove the microSD card directly because Etcher automatically ejects or unmounts the microSD card upon completion.</span></span>
-   6. <span data-ttu-id="c920e-145">MicroSD kartı, Pi yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="c920e-145">Insert the microSD card into your Pi.</span></span>
+1. <span data-ttu-id="3e690-134">Raspbian indirin.</span><span class="sxs-lookup"><span data-stu-id="3e690-134">Download Raspbian.</span></span>
+   1. <span data-ttu-id="3e690-135">[Karşıdan](https://www.raspberrypi.org/downloads/raspbian/) Raspbian Jessie piksel ile için hello .zip dosyası.</span><span class="sxs-lookup"><span data-stu-id="3e690-135">[Download](https://www.raspberrypi.org/downloads/raspbian/) hello .zip file for Raspbian Jessie with Pixel.</span></span>
+   2. <span data-ttu-id="3e690-136">Bilgisayarınızdaki Hello Raspbian görüntü tooa klasöre ayıklayın.</span><span class="sxs-lookup"><span data-stu-id="3e690-136">Extract hello Raspbian image tooa folder on your computer.</span></span>
+2. <span data-ttu-id="3e690-137">Raspbian toohello microSD kartı yükleyin.</span><span class="sxs-lookup"><span data-stu-id="3e690-137">Install Raspbian toohello microSD card.</span></span>
+   1. <span data-ttu-id="3e690-138">[Karşıdan](https://www.etcher.io) ve hello Etcher SD kart yazıcı yardımcı programını yükleyin.</span><span class="sxs-lookup"><span data-stu-id="3e690-138">[Download](https://www.etcher.io) and install hello Etcher SD card burner utility.</span></span>
+   2. <span data-ttu-id="3e690-139">Etcher çalıştırın ve 1. adımda ayıkladığınız hello Raspbian görüntüsünü seçin.</span><span class="sxs-lookup"><span data-stu-id="3e690-139">Run Etcher and select hello Raspbian image that you extracted in step 1.</span></span>
+   3. <span data-ttu-id="3e690-140">Merhaba microSD kartı sürücü seçin.</span><span class="sxs-lookup"><span data-stu-id="3e690-140">Select hello microSD card drive.</span></span>
+      <span data-ttu-id="3e690-141">Etcher zaten hello doğru sürücü seçmiş olabilirsiniz olduğunu unutmayın.</span><span class="sxs-lookup"><span data-stu-id="3e690-141">Note that Etcher may have already selected hello correct drive.</span></span>
+   4. <span data-ttu-id="3e690-142">Tıklatın **Flash** tooinstall Raspbian toohello microSD kartı.</span><span class="sxs-lookup"><span data-stu-id="3e690-142">Click **Flash** tooinstall Raspbian toohello microSD card.</span></span>
+   5. <span data-ttu-id="3e690-143">Yükleme tamamlandığında hello microSD kartı bilgisayarınızdan kaldırın.</span><span class="sxs-lookup"><span data-stu-id="3e690-143">Remove hello microSD card from your computer when installation is complete.</span></span>
+      <span data-ttu-id="3e690-144">Etcher otomatik olarak çıkarır veya hello microSD kartı tamamlanmasından sonra çıkarır güvenli tooremove hello microSD kartı doğrudan demektir.</span><span class="sxs-lookup"><span data-stu-id="3e690-144">It is safe tooremove hello microSD card directly because Etcher automatically ejects or unmounts hello microSD card upon completion.</span></span>
+   6. <span data-ttu-id="3e690-145">Merhaba microSD kartı, Pi yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="3e690-145">Insert hello microSD card into your Pi.</span></span>
 
-![SD kart Ekle](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
+![Merhaba SD kart Ekle](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
 
-## <a name="turn-on-pi"></a><span data-ttu-id="c920e-147">Pi üzerinde Aç</span><span class="sxs-lookup"><span data-stu-id="c920e-147">Turn on Pi</span></span>
-<span data-ttu-id="c920e-148">Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak açın.</span><span class="sxs-lookup"><span data-stu-id="c920e-148">Turn on Pi by using the micro USB cable and the power supply.</span></span>
+## <a name="turn-on-pi"></a><span data-ttu-id="3e690-147">Pi üzerinde Aç</span><span class="sxs-lookup"><span data-stu-id="3e690-147">Turn on Pi</span></span>
+<span data-ttu-id="3e690-148">Pi üzerinde hello mikro USB kablosu ve hello güç kaynağı kullanarak açın.</span><span class="sxs-lookup"><span data-stu-id="3e690-148">Turn on Pi by using hello micro USB cable and hello power supply.</span></span>
 
 ![Aç](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
 
 > [!NOTE]
-> <span data-ttu-id="c920e-150">En az Seti'nde güç kaynağı kullanmak önemlidir 2A, Raspberry düzgün çalışması için yeterli güç olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="c920e-150">It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry has enough power to work correctly.</span></span>
+> <span data-ttu-id="3e690-150">En az hello Seti'nde önemli toouse hello güç kaynağı olan 2A toomake, Raspberry yeterli güç toowork doğru olduğundan emin.</span><span class="sxs-lookup"><span data-stu-id="3e690-150">It is important toouse hello power supply in hello kit that is at least 2A toomake sure that your Raspberry has enough power toowork correctly.</span></span>
 
-## <a name="enable-ssh"></a><span data-ttu-id="c920e-151">SSH etkinleştir</span><span class="sxs-lookup"><span data-stu-id="c920e-151">Enable SSH</span></span>
-<span data-ttu-id="c920e-152">Kasım 2016 güncelleştirmesinden itibaren Raspbian varsayılan olarak devre dışı SSH sunucusu vardır.</span><span class="sxs-lookup"><span data-stu-id="c920e-152">As of the November 2016 release, Raspbian has the SSH server disabled by default.</span></span> <span data-ttu-id="c920e-153">El ile etkinleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="c920e-153">You need to enable it manually.</span></span> <span data-ttu-id="c920e-154">Başvurabilirsiniz [resmi yönergeleri](https://www.raspberrypi.org/documentation/remote-access/ssh/) veya bir izleyici bağlanmak ve Git **Tercihler Raspberry Pi yapılandırma ->** SSH etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="c920e-154">You can refer to the [official instructions](https://www.raspberrypi.org/documentation/remote-access/ssh/) or connect a monitor and go to **Preferences -> Raspberry Pi Configuration** to enable SSH.</span></span>
+## <a name="enable-ssh"></a><span data-ttu-id="3e690-151">SSH etkinleştir</span><span class="sxs-lookup"><span data-stu-id="3e690-151">Enable SSH</span></span>
+<span data-ttu-id="3e690-152">Kasım 2016 sürüm Hello itibariyle hello SSH sunucusu varsayılan olarak devre dışı Raspbian sahiptir.</span><span class="sxs-lookup"><span data-stu-id="3e690-152">As of hello November 2016 release, Raspbian has hello SSH server disabled by default.</span></span> <span data-ttu-id="3e690-153">Tooenable gerekir, el ile.</span><span class="sxs-lookup"><span data-stu-id="3e690-153">You need tooenable it manually.</span></span> <span data-ttu-id="3e690-154">Toohello başvurabilir [resmi yönergeleri](https://www.raspberrypi.org/documentation/remote-access/ssh/) veya bir izleyici bağlanmak ve çok Git**Tercihler Raspberry Pi yapılandırma ->** tooenable SSH.</span><span class="sxs-lookup"><span data-stu-id="3e690-154">You can refer toohello [official instructions](https://www.raspberrypi.org/documentation/remote-access/ssh/) or connect a monitor and go too**Preferences -> Raspberry Pi Configuration** tooenable SSH.</span></span>
 
-## <a name="connect-raspberry-pi-3-to-the-network"></a><span data-ttu-id="c920e-155">Raspberry Pi 3 ağa bağlanın</span><span class="sxs-lookup"><span data-stu-id="c920e-155">Connect Raspberry Pi 3 to the network</span></span>
-<span data-ttu-id="c920e-156">Pi kablolu veya kablosuz ağa bağlanabilir.</span><span class="sxs-lookup"><span data-stu-id="c920e-156">You can connect Pi to a wired network or to a wireless network.</span></span> <span data-ttu-id="c920e-157">Pi bilgisayarınızın aynı ağa bağlı olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="c920e-157">Make sure that Pi is connected to the same network as your computer.</span></span> <span data-ttu-id="c920e-158">Örneğin, Pi, bilgisayarın bağlı olduğu aynı anahtara bağlanabilir.</span><span class="sxs-lookup"><span data-stu-id="c920e-158">For example, you can connect Pi to the same switch that your computer is connected to.</span></span>
+## <a name="connect-raspberry-pi-3-toohello-network"></a><span data-ttu-id="3e690-155">Raspberry Pi 3 toohello ağa bağlan</span><span class="sxs-lookup"><span data-stu-id="3e690-155">Connect Raspberry Pi 3 toohello network</span></span>
+<span data-ttu-id="3e690-156">Pi tooa kablolu ağ veya tooa kablosuz ağa bağlanabilir.</span><span class="sxs-lookup"><span data-stu-id="3e690-156">You can connect Pi tooa wired network or tooa wireless network.</span></span> <span data-ttu-id="3e690-157">Pi bağlı toohello aynı bilgisayarınızda olarak ağ olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="3e690-157">Make sure that Pi is connected toohello same network as your computer.</span></span> <span data-ttu-id="3e690-158">Örneğin, aynı, bilgisayarın bağlı olduğu anahtar Pi toohello bağlanabilir.</span><span class="sxs-lookup"><span data-stu-id="3e690-158">For example, you can connect Pi toohello same switch that your computer is connected to.</span></span>
 
-### <a name="connect-to-a-wired-network"></a><span data-ttu-id="c920e-159">Kablolu bir ağa bağlan</span><span class="sxs-lookup"><span data-stu-id="c920e-159">Connect to a wired network</span></span>
-<span data-ttu-id="c920e-160">Pi kablolu ağa bağlamak için Ethernet kablosu kullanın.</span><span class="sxs-lookup"><span data-stu-id="c920e-160">Use the Ethernet cable to connect Pi to your wired network.</span></span> <span data-ttu-id="c920e-161">Bağlantı kurulamazsa Pi üzerinde iki LED'leri etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="c920e-161">The two LEDs on Pi turn on if the connection is established.</span></span>
+### <a name="connect-tooa-wired-network"></a><span data-ttu-id="3e690-159">Kablolu ağ tooa Bağlan</span><span class="sxs-lookup"><span data-stu-id="3e690-159">Connect tooa wired network</span></span>
+<span data-ttu-id="3e690-160">Merhaba Ethernet kablo tooconnect PI tooyour kablolu ağ kullanın.</span><span class="sxs-lookup"><span data-stu-id="3e690-160">Use hello Ethernet cable tooconnect Pi tooyour wired network.</span></span> <span data-ttu-id="3e690-161">Merhaba bağlantı kurulamazsa hello Pi üzerinde iki LED'leri etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="3e690-161">hello two LEDs on Pi turn on if hello connection is established.</span></span>
 
 ![Ethernet kablosu kullanarak bağlanma](media/iot-hub-raspberry-pi-lessons/lesson1/connect_ethernet.jpg)
 
-### <a name="connect-to-a-wireless-network"></a><span data-ttu-id="c920e-163">Kablosuz bir ağa bağlan</span><span class="sxs-lookup"><span data-stu-id="c920e-163">Connect to a wireless network</span></span>
-<span data-ttu-id="c920e-164">İzleyin [yönergeleri](https://www.raspberrypi.org/learning/software-guide/wifi/) Pi kablosuz ağınıza bağlanmak için Raspberry Pi Foundation gelen.</span><span class="sxs-lookup"><span data-stu-id="c920e-164">Follow the [instructions](https://www.raspberrypi.org/learning/software-guide/wifi/) from the Raspberry Pi Foundation to connect Pi to your wireless network.</span></span> <span data-ttu-id="c920e-165">Bu yönergeleri Pi bir izleyici ve klavye ilk bağlanmanızı gerektirir.</span><span class="sxs-lookup"><span data-stu-id="c920e-165">These instructions require you to first connect a monitor and a keyboard to Pi.</span></span>
+### <a name="connect-tooa-wireless-network"></a><span data-ttu-id="3e690-163">Tooa kablosuz ağa bağlan</span><span class="sxs-lookup"><span data-stu-id="3e690-163">Connect tooa wireless network</span></span>
+<span data-ttu-id="3e690-164">Merhaba izleyin [yönergeleri](https://www.raspberrypi.org/learning/software-guide/wifi/) hello Raspberry Pi Foundation tooconnect PI tooyour kablosuz ağ üzerinden.</span><span class="sxs-lookup"><span data-stu-id="3e690-164">Follow hello [instructions](https://www.raspberrypi.org/learning/software-guide/wifi/) from hello Raspberry Pi Foundation tooconnect Pi tooyour wireless network.</span></span> <span data-ttu-id="3e690-165">Bu yönergeleri gerektiren bir izleyici ve klavye tooPi toofirst bağlanın.</span><span class="sxs-lookup"><span data-stu-id="3e690-165">These instructions require you toofirst connect a monitor and a keyboard tooPi.</span></span>
 
-## <a name="connect-the-led-to-pi"></a><span data-ttu-id="c920e-166">Pi LED Bağlan</span><span class="sxs-lookup"><span data-stu-id="c920e-166">Connect the LED to Pi</span></span>
-<span data-ttu-id="c920e-167">Bu görevi tamamlamak için kullanmak [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), bağlayıcı kablo, LED ve Direnci.</span><span class="sxs-lookup"><span data-stu-id="c920e-167">To complete this task, use the [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), the connector wires, the LED, and the resistor.</span></span> <span data-ttu-id="c920e-168">Kendilerine bağlanması [genel amaçlı giriş/çıkış](https://www.raspberrypi.org/documentation/usage/gpio/) Pi (GPIO'yu) bağlantı noktaları.</span><span class="sxs-lookup"><span data-stu-id="c920e-168">Connect them to the [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of Pi.</span></span>
+## <a name="connect-hello-led-toopi"></a><span data-ttu-id="3e690-166">Merhaba LED tooPi Bağlan</span><span class="sxs-lookup"><span data-stu-id="3e690-166">Connect hello LED tooPi</span></span>
+<span data-ttu-id="3e690-167">toocomplete bu görev, kullanım hello [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard)hello bağlayıcı kablo, LED hello ve hello Direnci.</span><span class="sxs-lookup"><span data-stu-id="3e690-167">toocomplete this task, use hello [breadboard](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), hello connector wires, hello LED, and hello resistor.</span></span> <span data-ttu-id="3e690-168">Toohello bağlanmak [genel amaçlı giriş/çıkış](https://www.raspberrypi.org/documentation/usage/gpio/) Pi (GPIO'yu) bağlantı noktaları.</span><span class="sxs-lookup"><span data-stu-id="3e690-168">Connect them toohello [general-purpose input/output](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) ports of Pi.</span></span>
 
 ![Breadboard, LED ve Direnç](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
 
-1. <span data-ttu-id="c920e-170">Daha kısa Bacak LED için bağlanmak **GPIO'yu GND (PIN 6)**.</span><span class="sxs-lookup"><span data-stu-id="c920e-170">Connect the shorter leg of the LED to **GPIO GND (Pin 6)**.</span></span>
-2. <span data-ttu-id="c920e-171">LED uzun bacaktaki Direnci bir bacağı için bağlayın.</span><span class="sxs-lookup"><span data-stu-id="c920e-171">Connect the longer leg of the LED to one leg of the resistor.</span></span>
-3. <span data-ttu-id="c920e-172">Diğer Bacak Direnci için bağlanmak **GPIO'yu 4 (PIN 7)**.</span><span class="sxs-lookup"><span data-stu-id="c920e-172">Connect the other leg of the resistor to **GPIO 4 (Pin 7)**.</span></span>
+1. <span data-ttu-id="3e690-170">Merhaba kısa Bacak hello LED için çok bağlanmak**GPIO'yu GND (PIN 6)**.</span><span class="sxs-lookup"><span data-stu-id="3e690-170">Connect hello shorter leg of hello LED too**GPIO GND (Pin 6)**.</span></span>
+2. <span data-ttu-id="3e690-171">Merhaba uzun Bacak hello LED tooone Bacak hello Direnci için için bağlayın.</span><span class="sxs-lookup"><span data-stu-id="3e690-171">Connect hello longer leg of hello LED tooone leg of hello resistor.</span></span>
+3. <span data-ttu-id="3e690-172">Bağlantı diğer Bacak hello Direnci için çok hello**GPIO'yu 4 (PIN 7)**.</span><span class="sxs-lookup"><span data-stu-id="3e690-172">Connect hello other leg of hello resistor too**GPIO 4 (Pin 7)**.</span></span>
 
-<span data-ttu-id="c920e-173">LED polarite önemli olduğunu unutmayın.</span><span class="sxs-lookup"><span data-stu-id="c920e-173">Note that the LED polarity is important.</span></span> <span data-ttu-id="c920e-174">Bu polarite ayarı etkin düşük yaygın olarak bilinir.</span><span class="sxs-lookup"><span data-stu-id="c920e-174">This polarity setting is commonly known as Active Low.</span></span>
+<span data-ttu-id="3e690-173">Merhaba LED polarite önemli olduğunu unutmayın.</span><span class="sxs-lookup"><span data-stu-id="3e690-173">Note that hello LED polarity is important.</span></span> <span data-ttu-id="3e690-174">Bu polarite ayarı etkin düşük yaygın olarak bilinir.</span><span class="sxs-lookup"><span data-stu-id="3e690-174">This polarity setting is commonly known as Active Low.</span></span>
 
 ![Bağlantı](media/iot-hub-raspberry-pi-lessons/lesson1/pinout_breadboard.png)
 
-<span data-ttu-id="c920e-176">Tebrikler!</span><span class="sxs-lookup"><span data-stu-id="c920e-176">Congratulations!</span></span> <span data-ttu-id="c920e-177">Pi başarıyla yapılandırdıktan.</span><span class="sxs-lookup"><span data-stu-id="c920e-177">You've successfully configured Pi.</span></span>
+<span data-ttu-id="3e690-176">Tebrikler!</span><span class="sxs-lookup"><span data-stu-id="3e690-176">Congratulations!</span></span> <span data-ttu-id="3e690-177">Pi başarıyla yapılandırdıktan.</span><span class="sxs-lookup"><span data-stu-id="3e690-177">You've successfully configured Pi.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="c920e-178">Özet</span><span class="sxs-lookup"><span data-stu-id="c920e-178">Summary</span></span>
-<span data-ttu-id="c920e-179">Bu makalede, Raspbian yükleyerek, Pi ağa bağlanma ve bir LED Pi bağlanma Pi yapılandırma öğrendiniz.</span><span class="sxs-lookup"><span data-stu-id="c920e-179">In this article, you’ve learned how to configure Pi by installing Raspbian, connecting Pi to a network, and connecting an LED to Pi.</span></span> <span data-ttu-id="c920e-180">LED henüz açık değil yukarı unutmayın.</span><span class="sxs-lookup"><span data-stu-id="c920e-180">Note that the LED doesn't yet light up.</span></span> <span data-ttu-id="c920e-181">Sonraki hazırlık Pi üzerinde örnek bir uygulamayı çalıştırmak için gerekli araçları ve yazılım yüklemek için bir görevdir.</span><span class="sxs-lookup"><span data-stu-id="c920e-181">The next task is to install the necessary tools and software in preparation for running a sample application on Pi.</span></span>
+## <a name="summary"></a><span data-ttu-id="3e690-178">Özet</span><span class="sxs-lookup"><span data-stu-id="3e690-178">Summary</span></span>
+<span data-ttu-id="3e690-179">Bu makalede, öğrendiğinize tooconfigure nasıl Pi Raspbian, bağlanan Pi tooa ağ, yükleme ve LED tooPi bağlanma.</span><span class="sxs-lookup"><span data-stu-id="3e690-179">In this article, you’ve learned how tooconfigure Pi by installing Raspbian, connecting Pi tooa network, and connecting an LED tooPi.</span></span> <span data-ttu-id="3e690-180">LED henüz açık değil yukarı bu hello unutmayın.</span><span class="sxs-lookup"><span data-stu-id="3e690-180">Note that hello LED doesn't yet light up.</span></span> <span data-ttu-id="3e690-181">Merhaba sonraki tooinstall hello gerekli araçları ve yazılım üzerinde Pi örnek bir uygulamayı çalıştırmak için hazırlanırken bir görevdir.</span><span class="sxs-lookup"><span data-stu-id="3e690-181">hello next task is tooinstall hello necessary tools and software in preparation for running a sample application on Pi.</span></span>
 
 ![Donanım hazır.](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
-## <a name="next-steps"></a><span data-ttu-id="c920e-183">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="c920e-183">Next steps</span></span>
-[<span data-ttu-id="c920e-184">Araçları edinin</span><span class="sxs-lookup"><span data-stu-id="c920e-184">Get the tools</span></span>](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+## <a name="next-steps"></a><span data-ttu-id="3e690-183">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="3e690-183">Next steps</span></span>
+[<span data-ttu-id="3e690-184">Merhaba araçları edinin</span><span class="sxs-lookup"><span data-stu-id="3e690-184">Get hello tools</span></span>](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
 
