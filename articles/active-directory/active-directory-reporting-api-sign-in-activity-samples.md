@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory oturum açma etkinliği raporu API örnekleri | Microsoft Docs"
-description: "Azure Active Directory raporlama API'sini kullanmaya başlama"
+title: "aaaAzure Active Directory oturum açma etkinliği raporu API örnekleri | Microsoft Docs"
+description: "Tooget hello Azure Active Directory raporlama API'si ile çalışmaya nasıl"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,28 +15,28 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7fc2b59fe37ed2ffe85925c457300ef8fd83c3c7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d4fbbea95fe0b52828673b997681ae37481e21bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-sign-in-activity-report-api-samples"></a><span data-ttu-id="f66a8-103">Azure Active Directory oturum açma etkinliği raporu API örnekleri</span><span class="sxs-lookup"><span data-stu-id="f66a8-103">Azure Active Directory sign-in activity report API samples</span></span>
-<span data-ttu-id="f66a8-104">Bu konuda, Azure Active Directory hakkındaki konuları API raporlama koleksiyonu bir parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="f66a8-104">This topic is part of a collection of topics about the Azure Active Directory reporting API.</span></span>  
-<span data-ttu-id="f66a8-105">Azure AD raporlama kodu veya ilgili araçları kullanarak oturum açma etkinliği veri erişmenizi sağlayan bir API ile sağlar.</span><span class="sxs-lookup"><span data-stu-id="f66a8-105">Azure AD reporting provides you with an API that enables you to access sign-in activity data using code or related tools.</span></span>  
-<span data-ttu-id="f66a8-106">Örnek kod için ile sağlamak için bu konunun kapsamı olan **etkinlik API oturum aç**.</span><span class="sxs-lookup"><span data-stu-id="f66a8-106">The scope of this topic is to provide you with sample code for the **sign-in activity API**.</span></span>
+# <a name="azure-active-directory-sign-in-activity-report-api-samples"></a><span data-ttu-id="8a6fb-103">Azure Active Directory oturum açma etkinliği raporu API örnekleri</span><span class="sxs-lookup"><span data-stu-id="8a6fb-103">Azure Active Directory sign-in activity report API samples</span></span>
+<span data-ttu-id="8a6fb-104">Bu konu hello Azure Active Directory ilgili konulara koleksiyonu parçasıdır raporlama API'si.</span><span class="sxs-lookup"><span data-stu-id="8a6fb-104">This topic is part of a collection of topics about hello Azure Active Directory reporting API.</span></span>  
+<span data-ttu-id="8a6fb-105">Azure AD raporlama kodu veya ilgili araçları kullanarak tooaccess oturum açma etkinliği veri sağlayan bir API ile sağlar.</span><span class="sxs-lookup"><span data-stu-id="8a6fb-105">Azure AD reporting provides you with an API that enables you tooaccess sign-in activity data using code or related tools.</span></span>  
+<span data-ttu-id="8a6fb-106">Merhaba bu konunun kapsamı olan, örnek kod Merhaba tooprovide **etkinlik API oturum aç**.</span><span class="sxs-lookup"><span data-stu-id="8a6fb-106">hello scope of this topic is tooprovide you with sample code for hello **sign-in activity API**.</span></span>
 
-<span data-ttu-id="f66a8-107">Bkz.:</span><span class="sxs-lookup"><span data-stu-id="f66a8-107">See:</span></span>
+<span data-ttu-id="8a6fb-107">Bkz.:</span><span class="sxs-lookup"><span data-stu-id="8a6fb-107">See:</span></span>
 
-* <span data-ttu-id="f66a8-108">[Denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için</span><span class="sxs-lookup"><span data-stu-id="f66a8-108">[Audit logs](active-directory-reporting-azure-portal.md#activity-reports)  for more conceptual information</span></span>
-* <span data-ttu-id="f66a8-109">[Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) raporlama API'si hakkında daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="f66a8-109">[Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.</span></span>
+* <span data-ttu-id="8a6fb-108">[Denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için</span><span class="sxs-lookup"><span data-stu-id="8a6fb-108">[Audit logs](active-directory-reporting-azure-portal.md#activity-reports)  for more conceptual information</span></span>
+* <span data-ttu-id="8a6fb-109">[Hello Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) hello raporlama API'si hakkında daha fazla bilgi.</span><span class="sxs-lookup"><span data-stu-id="8a6fb-109">[Getting started with hello Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about hello reporting API.</span></span>
 
 
-## <a name="prerequisites"></a><span data-ttu-id="f66a8-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="f66a8-110">Prerequisites</span></span>
-<span data-ttu-id="f66a8-111">Bu konudaki örnekler kullanmadan önce tamamlanması gereken [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md).</span><span class="sxs-lookup"><span data-stu-id="f66a8-111">Before you can use the samples in this topic, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).</span></span>  
+## <a name="prerequisites"></a><span data-ttu-id="8a6fb-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="8a6fb-110">Prerequisites</span></span>
+<span data-ttu-id="8a6fb-111">Bu konudaki hello örnekleri kullanabilmeniz için önce toocomplete hello gerekir [Önkoşullar tooaccess hello Azure AD raporlama API'si](active-directory-reporting-api-prerequisites.md).</span><span class="sxs-lookup"><span data-stu-id="8a6fb-111">Before you can use hello samples in this topic, you need toocomplete hello [prerequisites tooaccess hello Azure AD reporting API](active-directory-reporting-api-prerequisites.md).</span></span>  
 
-## <a name="powershell-script"></a><span data-ttu-id="f66a8-112">PowerShell betiği</span><span class="sxs-lookup"><span data-stu-id="f66a8-112">PowerShell script</span></span>
-    # This script will require the Web Application and permissions setup in Azure Active Directory
+## <a name="powershell-script"></a><span data-ttu-id="8a6fb-112">PowerShell betiği</span><span class="sxs-lookup"><span data-stu-id="8a6fb-112">PowerShell script</span></span>
+    # This script will require hello Web Application and permissions setup in Azure Active Directory
     $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
     $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
     $loginURL       = "https://login.microsoftonline.com/"
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/03/2017
     Do{
         Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-        Write-Output "Save the output to a file SigninActivities$i.json"
+        Write-Output "Save hello output tooa file SigninActivities$i.json"
         Write-Output "---------------------------------------------"
         $myReport.Content | Out-File -FilePath SigninActivities$i.json -Force
         $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
@@ -78,13 +78,13 @@ ms.lasthandoff: 08/03/2017
 
 
 
-## <a name="executing-the-script"></a><span data-ttu-id="f66a8-113">Komut dosyası yürütme</span><span class="sxs-lookup"><span data-stu-id="f66a8-113">Executing the script</span></span>
-<span data-ttu-id="f66a8-114">Komut dosyası düzenlemeyi tamamladıktan sonra çalıştırın ve denetim beklenen verilerden rapor günlüklerini doğrulayın döndürülür.</span><span class="sxs-lookup"><span data-stu-id="f66a8-114">Once you finish editing the script, run it and verify that the expected data from the Audit logs report is returned.</span></span>
+## <a name="executing-hello-script"></a><span data-ttu-id="8a6fb-113">Merhaba komut dosyası yürütme</span><span class="sxs-lookup"><span data-stu-id="8a6fb-113">Executing hello script</span></span>
+<span data-ttu-id="8a6fb-114">Sonra hello betik düzenlenmesini tamamlamayı, çalıştırın ve bu hello hello denetim günlüklerini rapor verileri döndürülen beklenen doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="8a6fb-114">Once you finish editing hello script, run it and verify that hello expected data from hello Audit logs report is returned.</span></span>
 
-<span data-ttu-id="f66a8-115">Komut çıktısı raporundan oturum açma JSON biçiminde döndürür.</span><span class="sxs-lookup"><span data-stu-id="f66a8-115">The script returns output from the sign-in report in JSON format.</span></span> <span data-ttu-id="f66a8-116">Ayrıca oluşturur bir `SigninActivities.json` aynı çıkış dosyası.</span><span class="sxs-lookup"><span data-stu-id="f66a8-116">It also creates an `SigninActivities.json` file with the same output.</span></span> <span data-ttu-id="f66a8-117">Veri diğer raporlar ve yorum ihtiyacınız olmayan çıkış biçimleri çıkışı döndürmek için komut dosyasını değiştirerek deneyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f66a8-117">You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.</span></span>
+<span data-ttu-id="8a6fb-115">Merhaba betik çıkış raporundan hello oturum açma JSON biçiminde döndürür.</span><span class="sxs-lookup"><span data-stu-id="8a6fb-115">hello script returns output from hello sign-in report in JSON format.</span></span> <span data-ttu-id="8a6fb-116">Ayrıca oluşturur bir `SigninActivities.json` hello ile aynı dosyayı çıktı.</span><span class="sxs-lookup"><span data-stu-id="8a6fb-116">It also creates an `SigninActivities.json` file with hello same output.</span></span> <span data-ttu-id="8a6fb-117">Diğer raporlar ve yorum ihtiyacınız olmayan hello Çıkış biçimleri çıkışı hello betik tooreturn veriler değiştirerek deneyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="8a6fb-117">You can experiment by modifying hello script tooreturn data from other reports, and comment out hello output formats that you do not need.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="f66a8-118">Sonraki Adımlar</span><span class="sxs-lookup"><span data-stu-id="f66a8-118">Next Steps</span></span>
-* <span data-ttu-id="f66a8-119">Bu konudaki örnekler özelleştirme ister misiniz?</span><span class="sxs-lookup"><span data-stu-id="f66a8-119">Would you like to customize the samples in this topic?</span></span> <span data-ttu-id="f66a8-120">Kullanıma [Azure Active Directory oturum açma etkinliği API Başvurusu](active-directory-reporting-api-sign-in-activity-reference.md).</span><span class="sxs-lookup"><span data-stu-id="f66a8-120">Check out the [Azure Active Directory sign-in activity API reference](active-directory-reporting-api-sign-in-activity-reference.md).</span></span> 
-* <span data-ttu-id="f66a8-121">Azure Active Directory'ı Raporlama API'si kullanan bir tam genel bakış görmek istiyorsanız bkz [Azure Active raporlama API'si Directory ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).</span><span class="sxs-lookup"><span data-stu-id="f66a8-121">If you want to see a complete overview of using the Azure Active Directory reporting API, see [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started.md).</span></span>
-* <span data-ttu-id="f66a8-122">Azure Active Directory raporlama hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).</span><span class="sxs-lookup"><span data-stu-id="f66a8-122">If you would like to find out more about Azure Active Directory reporting, see the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).</span></span>  
+## <a name="next-steps"></a><span data-ttu-id="8a6fb-118">Sonraki Adımlar</span><span class="sxs-lookup"><span data-stu-id="8a6fb-118">Next Steps</span></span>
+* <span data-ttu-id="8a6fb-119">Bu konudaki toocustomize hello örnekleri ister misiniz?</span><span class="sxs-lookup"><span data-stu-id="8a6fb-119">Would you like toocustomize hello samples in this topic?</span></span> <span data-ttu-id="8a6fb-120">Merhaba denetleyin [Azure Active Directory oturum açma etkinliği API Başvurusu](active-directory-reporting-api-sign-in-activity-reference.md).</span><span class="sxs-lookup"><span data-stu-id="8a6fb-120">Check out hello [Azure Active Directory sign-in activity API reference](active-directory-reporting-api-sign-in-activity-reference.md).</span></span> 
+* <span data-ttu-id="8a6fb-121">Toosee kullanmanın eksiksiz bir genel görünüm istiyorsanız, Azure Active Directory raporlama API'si Merhaba, bkz: [hello Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).</span><span class="sxs-lookup"><span data-stu-id="8a6fb-121">If you want toosee a complete overview of using hello Azure Active Directory reporting API, see [Getting started with hello Azure Active Directory reporting API](active-directory-reporting-api-getting-started.md).</span></span>
+* <span data-ttu-id="8a6fb-122">Merhaba toofind Azure Active Directory raporlama hakkında daha fazla bilgi isterseniz bkz [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).</span><span class="sxs-lookup"><span data-stu-id="8a6fb-122">If you would like toofind out more about Azure Active Directory reporting, see hello [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).</span></span>  
 

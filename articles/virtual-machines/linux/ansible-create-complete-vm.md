@@ -1,6 +1,6 @@
 ---
-title: "Tam bir Linux VM oluşturmak için Ansible kullanın | Microsoft Docs"
-description: "Ansible azure'da tam bir Linux sanal makine ortamı oluşturmak ve yönetmek için nasıl kullanılacağını öğrenin"
+title: aaaUse Ansible toocreate azure'da tam bir Linux VM | Microsoft Docs
+description: "Bilgi nasıl toouse Ansible toocreate ve Azure tam bir Linux sanal makine ortamında yönetme"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2017
 ms.author: iainfou
-ms.openlocfilehash: b2fcc288b40c12a9b3f966156ee2eedf4acca313
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 970b0427f39fc23240f9faab868196ca4f444e0f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a><span data-ttu-id="04693-103">Ansible ile azure'da eksiksiz bir Linux sanal makine ortamı oluşturma</span><span class="sxs-lookup"><span data-stu-id="04693-103">Create a complete Linux virtual machine environment in Azure with Ansible</span></span>
-<span data-ttu-id="04693-104">Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="04693-104">Ansible allows you to automate the deployment and configuration of resources in your environment.</span></span> <span data-ttu-id="04693-105">Azure, aynı herhangi bir kaynağa olduğu gibi sanal makineleri (VM'ler) yönetmek için Ansible kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="04693-105">You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource.</span></span> <span data-ttu-id="04693-106">Bu makalede eksiksiz bir Linux ortamı ve Ansible kaynaklarla destekleme nasıl oluşturulacağı gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="04693-106">This article shows you how to create a complete Linux environment and supporting resources with Ansible.</span></span> <span data-ttu-id="04693-107">Ayrıca öğrenebilirsiniz nasıl [Ansible ile temel bir VM oluşturma](ansible-create-vm.md).</span><span class="sxs-lookup"><span data-stu-id="04693-107">You can also learn how to [Create a basic VM with Ansible](ansible-create-vm.md).</span></span>
+# <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a><span data-ttu-id="2bbbd-103">Ansible ile azure'da eksiksiz bir Linux sanal makine ortamı oluşturma</span><span class="sxs-lookup"><span data-stu-id="2bbbd-103">Create a complete Linux virtual machine environment in Azure with Ansible</span></span>
+<span data-ttu-id="2bbbd-104">Ansible ortamınızda tooautomate hello dağıtım ve kaynakların yapılandırmasını sağlar.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-104">Ansible allows you tooautomate hello deployment and configuration of resources in your environment.</span></span> <span data-ttu-id="2bbbd-105">Herhangi bir kaynağa olduğu gibi aynı Merhaba, da Ansible toomanage Azure'da sanal makineleri (VM'ler) kullanın.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-105">You can use Ansible toomanage your virtual machines (VMs) in Azure, hello same as you would any other resource.</span></span> <span data-ttu-id="2bbbd-106">Bu makale size nasıl gösterir toocreate eksiksiz bir Linux ortamı ve Ansible kaynaklarla destekleme.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-106">This article shows you how toocreate a complete Linux environment and supporting resources with Ansible.</span></span> <span data-ttu-id="2bbbd-107">Ayrıca çok nasıl öğrenebilirsiniz[Ansible ile temel bir VM oluşturma](ansible-create-vm.md).</span><span class="sxs-lookup"><span data-stu-id="2bbbd-107">You can also learn how too[Create a basic VM with Ansible](ansible-create-vm.md).</span></span>
 
 
-## <a name="prerequisites"></a><span data-ttu-id="04693-108">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="04693-108">Prerequisites</span></span>
-<span data-ttu-id="04693-109">Ansible ile Azure kaynaklarınızı yönetmek için aşağıdakiler gerekir:</span><span class="sxs-lookup"><span data-stu-id="04693-109">To manage Azure resources with Ansible, you need the following:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="2bbbd-108">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="2bbbd-108">Prerequisites</span></span>
+<span data-ttu-id="2bbbd-109">toomanage Azure Ansible kaynaklarla, aşağıdaki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-109">toomanage Azure resources with Ansible, you need hello following:</span></span>
 
-- <span data-ttu-id="04693-110">Ansible ve ana bilgisayar sisteminizde yüklü Azure Python SDK'sını modüller.</span><span class="sxs-lookup"><span data-stu-id="04693-110">Ansible and the Azure Python SDK modules installed on your host system.</span></span>
-    - <span data-ttu-id="04693-111">Ansible yüklemek [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), ve [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)</span><span class="sxs-lookup"><span data-stu-id="04693-111">Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)</span></span>
-- <span data-ttu-id="04693-112">Azure kimlik ve onları kullanmak üzere yapılandırılmış Ansible.</span><span class="sxs-lookup"><span data-stu-id="04693-112">Azure credentials, and Ansible configured to use them.</span></span>
-    - [<span data-ttu-id="04693-113">Azure kimlik bilgileri oluşturun ve Ansible yapılandırın</span><span class="sxs-lookup"><span data-stu-id="04693-113">Create Azure credentials and configure Ansible</span></span>](ansible-install-configure.md#create-azure-credentials)
-- <span data-ttu-id="04693-114">Azure CLI Sürüm 2.0.4 veya sonraki bir sürümü.</span><span class="sxs-lookup"><span data-stu-id="04693-114">Azure CLI version 2.0.4 or later.</span></span> <span data-ttu-id="04693-115">Sürümü bulmak için `az --version` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="04693-115">Run `az --version` to find the version.</span></span> 
-    - <span data-ttu-id="04693-116">Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="04693-116">If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> <span data-ttu-id="04693-117">Aynı zamanda [bulut Kabuk](/azure/cloud-shell/quickstart) tarayıcınızdan.</span><span class="sxs-lookup"><span data-stu-id="04693-117">You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.</span></span>
+- <span data-ttu-id="2bbbd-110">Ansible ve ana bilgisayar sisteminizde yüklü Azure Python SDK'sını modülleri hello.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-110">Ansible and hello Azure Python SDK modules installed on your host system.</span></span>
+    - <span data-ttu-id="2bbbd-111">Ansible yüklemek [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), ve [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)</span><span class="sxs-lookup"><span data-stu-id="2bbbd-111">Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)</span></span>
+- <span data-ttu-id="2bbbd-112">Azure kimlik ve yapılandırılmış Ansible toouse bunları.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-112">Azure credentials, and Ansible configured toouse them.</span></span>
+    - [<span data-ttu-id="2bbbd-113">Azure kimlik bilgileri oluşturun ve Ansible yapılandırın</span><span class="sxs-lookup"><span data-stu-id="2bbbd-113">Create Azure credentials and configure Ansible</span></span>](ansible-install-configure.md#create-azure-credentials)
+- <span data-ttu-id="2bbbd-114">Azure CLI Sürüm 2.0.4 veya sonraki bir sürümü.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-114">Azure CLI version 2.0.4 or later.</span></span> <span data-ttu-id="2bbbd-115">Çalıştırma `az --version` toofind hello sürümü.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-115">Run `az --version` toofind hello version.</span></span> 
+    - <span data-ttu-id="2bbbd-116">Tooupgrade gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="2bbbd-116">If you need tooupgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> <span data-ttu-id="2bbbd-117">Aynı zamanda [bulut Kabuk](/azure/cloud-shell/quickstart) tarayıcınızdan.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-117">You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.</span></span>
 
 
-## <a name="create-virtual-network"></a><span data-ttu-id="04693-118">Sanal ağ oluşturma</span><span class="sxs-lookup"><span data-stu-id="04693-118">Create virtual network</span></span>
-<span data-ttu-id="04693-119">Aşağıdaki bölümde Ansible playbook adlı bir sanal ağ oluşturur *myVnet* içinde *10.0.0.0/16* adres alanı:</span><span class="sxs-lookup"><span data-stu-id="04693-119">The following section in an Ansible playbook creates a virtual network named *myVnet* in the *10.0.0.0/16* address space:</span></span>
+## <a name="create-virtual-network"></a><span data-ttu-id="2bbbd-118">Sanal ağ oluşturma</span><span class="sxs-lookup"><span data-stu-id="2bbbd-118">Create virtual network</span></span>
+<span data-ttu-id="2bbbd-119">Merhaba Ansible playbook aşağıdaki bölümde adlı bir sanal ağ oluşturur *myVnet* hello içinde *10.0.0.0/16* adres alanı:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-119">hello following section in an Ansible playbook creates a virtual network named *myVnet* in hello *10.0.0.0/16* address space:</span></span>
 
 ```yaml
 - name: Create virtual network
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/11/2017
     address_prefixes: "10.10.0.0/16"
 ```
 
-<span data-ttu-id="04693-120">Bir alt ağı eklemek için aşağıdaki bölümde adlı bir alt ağı oluşturur *mySubnet* içinde *myVnet* sanal ağ:</span><span class="sxs-lookup"><span data-stu-id="04693-120">To add a subnet, the following section creates a subnet named *mySubnet* in the *myVnet* virtual network:</span></span>
+<span data-ttu-id="2bbbd-120">tooadd bir alt ağ, bölümden hello oluşturur adlı bir alt ağ *mySubnet* hello içinde *myVnet* sanal ağ:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-120">tooadd a subnet, hello following section creates a subnet named *mySubnet* in hello *myVnet* virtual network:</span></span>
 
 ```yaml
 - name: Add subnet
@@ -59,8 +59,8 @@ ms.lasthandoff: 07/11/2017
 ```
 
 
-## <a name="create-public-ip-address"></a><span data-ttu-id="04693-121">Ortak IP adresi oluştur</span><span class="sxs-lookup"><span data-stu-id="04693-121">Create public IP address</span></span>
-<span data-ttu-id="04693-122">Internet'te kaynaklara erişmek için oluşturmak ve VM'nize genel bir IP adresi atayın.</span><span class="sxs-lookup"><span data-stu-id="04693-122">To access resources across the Internet, create and assign a public IP address to your VM.</span></span> <span data-ttu-id="04693-123">Aşağıdaki bölümde Ansible playbook adlı ortak IP adresi oluşturur *myPublicIP*:</span><span class="sxs-lookup"><span data-stu-id="04693-123">The following section in an Ansible playbook creates a public IP address named *myPublicIP*:</span></span>
+## <a name="create-public-ip-address"></a><span data-ttu-id="2bbbd-121">Ortak IP adresi oluştur</span><span class="sxs-lookup"><span data-stu-id="2bbbd-121">Create public IP address</span></span>
+<span data-ttu-id="2bbbd-122">Merhaba Internet üzerinden tooaccess kaynakları oluşturun ve genel bir IP adresi tooyour VM atayın.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-122">tooaccess resources across hello Internet, create and assign a public IP address tooyour VM.</span></span> <span data-ttu-id="2bbbd-123">Merhaba Ansible playbook aşağıdaki bölümde oluşturur adlı ortak IP adresi *myPublicIP*:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-123">hello following section in an Ansible playbook creates a public IP address named *myPublicIP*:</span></span>
 
 ```yaml
 - name: Create public IP address
@@ -71,8 +71,8 @@ ms.lasthandoff: 07/11/2017
 ```
 
 
-## <a name="create-network-security-group"></a><span data-ttu-id="04693-124">Ağ güvenlik grubu oluşturun</span><span class="sxs-lookup"><span data-stu-id="04693-124">Create Network Security Group</span></span>
-<span data-ttu-id="04693-125">Ağ güvenlik grupları, VM ve ağ trafiği akışını denetler.</span><span class="sxs-lookup"><span data-stu-id="04693-125">Network Security Groups control the flow of network traffic in and out of your VM.</span></span> <span data-ttu-id="04693-126">Aşağıdaki bölümde Ansible playbook adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup* ve TCP bağlantı noktası 22 SSH trafiğine izin verecek bir kural tanımlar:</span><span class="sxs-lookup"><span data-stu-id="04693-126">The following section in an Ansible playbook creates a network security group named *myNetworkSecurityGroup* and defines a rule to allow SSH traffic on TCP port 22:</span></span>
+## <a name="create-network-security-group"></a><span data-ttu-id="2bbbd-124">Ağ güvenlik grubu oluşturun</span><span class="sxs-lookup"><span data-stu-id="2bbbd-124">Create Network Security Group</span></span>
+<span data-ttu-id="2bbbd-125">Ağ güvenlik grupları, VM ve ağ trafiğini hello akışını denetler.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-125">Network Security Groups control hello flow of network traffic in and out of your VM.</span></span> <span data-ttu-id="2bbbd-126">Merhaba Ansible playbook aşağıdaki bölümde adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup* ve TCP bağlantı noktası 22 kuralı tooallow SSH trafiği tanımlar:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-126">hello following section in an Ansible playbook creates a network security group named *myNetworkSecurityGroup* and defines a rule tooallow SSH traffic on TCP port 22:</span></span>
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -89,8 +89,8 @@ ms.lasthandoff: 07/11/2017
 ```
 
 
-## <a name="create-virtual-network-interface-card"></a><span data-ttu-id="04693-127">Sanal ağ arabirim kartı oluşturma</span><span class="sxs-lookup"><span data-stu-id="04693-127">Create virtual network interface card</span></span>
-<span data-ttu-id="04693-128">Bir sanal ağ arabirim kartı (NIC), VM verilen sanal ağ, genel IP adresi ve ağ güvenlik grubu bağlanır.</span><span class="sxs-lookup"><span data-stu-id="04693-128">A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group.</span></span> <span data-ttu-id="04693-129">Adlı bir sanal NIC Ansible playbook aşağıdaki bölümde oluşturur *myNIC* oluşturduğunuz sanal ağ kaynaklarına bağlı:</span><span class="sxs-lookup"><span data-stu-id="04693-129">The following section in an Ansible playbook creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:</span></span>
+## <a name="create-virtual-network-interface-card"></a><span data-ttu-id="2bbbd-127">Sanal ağ arabirim kartı oluşturma</span><span class="sxs-lookup"><span data-stu-id="2bbbd-127">Create virtual network interface card</span></span>
+<span data-ttu-id="2bbbd-128">Bir sanal ağ arabirim kartı (NIC) verilen sanal ağ, genel IP adresi ve ağ güvenlik grubu, VM tooa bağlanır.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-128">A virtual network interface card (NIC) connects your VM tooa given virtual network, public IP address, and network security group.</span></span> <span data-ttu-id="2bbbd-129">Merhaba Ansible playbook aşağıdaki bölümde oluşturur adlı bir sanal NIC *myNIC* bağlı toohello sanal ağ kaynaklarını oluşturduğunuz:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-129">hello following section in an Ansible playbook creates a virtual NIC named *myNIC* connected toohello virtual networking resources you have created:</span></span>
 
 ```yaml
 - name: Create virtual network inteface card
@@ -104,8 +104,8 @@ ms.lasthandoff: 07/11/2017
 ```
 
 
-## <a name="create-virtual-machine"></a><span data-ttu-id="04693-130">Sanal makine oluşturma</span><span class="sxs-lookup"><span data-stu-id="04693-130">Create virtual machine</span></span>
-<span data-ttu-id="04693-131">Son adım, bir VM oluşturun ve oluşturulan tüm kaynakları kullanmaktır.</span><span class="sxs-lookup"><span data-stu-id="04693-131">The final step is to create a VM and use all the resources created.</span></span> <span data-ttu-id="04693-132">Adlı bir VM'den Ansible playbook aşağıdaki bölümde oluşturur *myVM* ve adlı bir sanal NIC ekler *myNIC*.</span><span class="sxs-lookup"><span data-stu-id="04693-132">The following section in an Ansible playbook creates a VM named *myVM* and attaches the virtual NIC named *myNIC*.</span></span> <span data-ttu-id="04693-133">Kendi ortak anahtar verilerde *key_data* gibi eşleştirin:</span><span class="sxs-lookup"><span data-stu-id="04693-133">Enter your own public key data in the *key_data* pair as follows:</span></span>
+## <a name="create-virtual-machine"></a><span data-ttu-id="2bbbd-130">Sanal makine oluşturma</span><span class="sxs-lookup"><span data-stu-id="2bbbd-130">Create virtual machine</span></span>
+<span data-ttu-id="2bbbd-131">Merhaba son adımı toocreate VM ve oluşturulan tüm hello kaynakları kullanın.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-131">hello final step is toocreate a VM and use all hello resources created.</span></span> <span data-ttu-id="2bbbd-132">Merhaba Ansible playbook aşağıdaki bölümde oluşturur adlı bir VM'den *myVM* ve ekler hello adlı bir sanal NIC *myNIC*.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-132">hello following section in an Ansible playbook creates a VM named *myVM* and attaches hello virtual NIC named *myNIC*.</span></span> <span data-ttu-id="2bbbd-133">Kendi ortak anahtar verileri hello girin *key_data* gibi eşleştirin:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-133">Enter your own public key data in hello *key_data* pair as follows:</span></span>
 
 ```yaml
 - name: Create VM
@@ -126,8 +126,8 @@ ms.lasthandoff: 07/11/2017
       version: latest
 ```
 
-## <a name="complete-ansible-playbook"></a><span data-ttu-id="04693-134">Tam Ansible playbook</span><span class="sxs-lookup"><span data-stu-id="04693-134">Complete Ansible playbook</span></span>
-<span data-ttu-id="04693-135">Bu bölümler araya getirmek için adlı bir Ansible playbook oluşturma *azure_create_complete_vm.yml* ve aşağıdaki içeriği yapıştırın:</span><span class="sxs-lookup"><span data-stu-id="04693-135">To bring all these sections together, create an Ansible playbook named *azure_create_complete_vm.yml* and paste the following contents:</span></span>
+## <a name="complete-ansible-playbook"></a><span data-ttu-id="2bbbd-134">Tam Ansible playbook</span><span class="sxs-lookup"><span data-stu-id="2bbbd-134">Complete Ansible playbook</span></span>
+<span data-ttu-id="2bbbd-135">toobring bu bölümler birlikte adlı bir Ansible playbook oluşturma *azure_create_complete_vm.yml* ve Yapıştır hello aşağıdaki içeriği:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-135">toobring all these sections together, create an Ansible playbook named *azure_create_complete_vm.yml* and paste hello following contents:</span></span>
 
 ```yaml
 - name: Create Azure VM
@@ -187,19 +187,19 @@ ms.lasthandoff: 07/11/2017
         version: latest
 ```
 
-<span data-ttu-id="04693-136">Ansible içine tüm kaynaklarınızı dağıtmak için bir kaynak grubu gerekir.</span><span class="sxs-lookup"><span data-stu-id="04693-136">Ansible needs a resource group to deploy all your resources into.</span></span> <span data-ttu-id="04693-137">[az group create](/cli/azure/vm#create) ile bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="04693-137">Create a resource group with [az group create](/cli/azure/vm#create).</span></span> <span data-ttu-id="04693-138">Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:</span><span class="sxs-lookup"><span data-stu-id="04693-138">The following example creates a resource group named *myResourceGroup* in the *eastus* location:</span></span>
+<span data-ttu-id="2bbbd-136">Ansible tüm kaynaklarınızı içine bir kaynak grubu toodeploy gerekir.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-136">Ansible needs a resource group toodeploy all your resources into.</span></span> <span data-ttu-id="2bbbd-137">[az group create](/cli/azure/vm#create) ile bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-137">Create a resource group with [az group create](/cli/azure/vm#create).</span></span> <span data-ttu-id="2bbbd-138">Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *eastus* konumu:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-138">hello following example creates a resource group named *myResourceGroup* in hello *eastus* location:</span></span>
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-<span data-ttu-id="04693-139">Ansible ile tam VM ortamı oluşturmak için playbook aşağıdaki gibi çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="04693-139">To create the complete VM environment with Ansible, run the playbook as follows:</span></span>
+<span data-ttu-id="2bbbd-139">toocreate hello tam VM ortamıyla Ansible, hello playbook aşağıdaki gibi çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-139">toocreate hello complete VM environment with Ansible, run hello playbook as follows:</span></span>
 
 ```bash
 ansible-playbook azure_create_complete_vm.yml
 ```
 
-<span data-ttu-id="04693-140">Çıktı VM başarıyla oluşturulup oluşturulmadığını gösteren aşağıdaki örneğe benzer:</span><span class="sxs-lookup"><span data-stu-id="04693-140">The output looks similar to the following example that shows the VM has been successfully created:</span></span>
+<span data-ttu-id="2bbbd-140">Merhaba çıkış benzer toohello hello VM başarıyla oluşturulup oluşturulmadığını gösteren örnek aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="2bbbd-140">hello output looks similar toohello following example that shows hello VM has been successfully created:</span></span>
 
 ```bash
 PLAY [Create Azure VM] ****************************************************
@@ -229,5 +229,5 @@ PLAY RECAP ****************************************************************
 localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="04693-141">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="04693-141">Next steps</span></span>
-<span data-ttu-id="04693-142">Bu örnek, gerekli sanal ağ kaynakları içeren tam bir VM ortamı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="04693-142">This example creates a complete VM environment including the required virtual networking resources.</span></span> <span data-ttu-id="04693-143">Var olan ağ kaynaklarına varsayılan seçeneklerle içine bir VM oluşturmak daha doğrudan örnek için bkz [bir VM oluşturma](ansible-create-vm.md).</span><span class="sxs-lookup"><span data-stu-id="04693-143">For a more direct example to create a VM into existing network resources with default options, see [Create a VM](ansible-create-vm.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2bbbd-141">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="2bbbd-141">Next steps</span></span>
+<span data-ttu-id="2bbbd-142">Bu örnek hello gereken sanal ağ kaynakları içeren tam bir VM ortamı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="2bbbd-142">This example creates a complete VM environment including hello required virtual networking resources.</span></span> <span data-ttu-id="2bbbd-143">Bir daha doğrudan örnek toocreate için varsayılan seçenekleri ile var olan ağ kaynaklarına içine bir VM, bkz: [bir VM oluşturma](ansible-create-vm.md).</span><span class="sxs-lookup"><span data-stu-id="2bbbd-143">For a more direct example toocreate a VM into existing network resources with default options, see [Create a VM](ansible-create-vm.md).</span></span>

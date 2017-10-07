@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Degreed | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Degreed arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Degreed arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,206 +13,206 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: ea96edb25e2d7199981ff126bf4b2a3d93c6840a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: decb553a6c5fa253ddf16b0f03336ab9366a8b4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-degreed"></a><span data-ttu-id="23a3b-103">Öğretici: Azure Active Directory Tümleştirme Degreed ile</span><span class="sxs-lookup"><span data-stu-id="23a3b-103">Tutorial: Azure Active Directory integration with Degreed</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-degreed"></a><span data-ttu-id="20976-103">Öğretici: Azure Active Directory Tümleştirme Degreed ile</span><span class="sxs-lookup"><span data-stu-id="20976-103">Tutorial: Azure Active Directory integration with Degreed</span></span>
 
-<span data-ttu-id="23a3b-104">Bu öğreticide, Azure Active Directory (Azure AD) ile Degreed tümleştirmek öğrenin.</span><span class="sxs-lookup"><span data-stu-id="23a3b-104">In this tutorial, you learn how to integrate Degreed with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="20976-104">Bu öğreticide, bilgi nasıl toointegrate Degreed Azure Active Directory'ye (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="20976-104">In this tutorial, you learn how toointegrate Degreed with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="23a3b-105">Degreed Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="23a3b-105">Integrating Degreed with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="20976-105">Degreed Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="20976-105">Integrating Degreed with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="23a3b-106">Degreed erişimi, Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="23a3b-106">You can control in Azure AD who has access to Degreed</span></span>
-- <span data-ttu-id="23a3b-107">Otomatik olarak için Degreed (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="23a3b-107">You can enable your users to automatically get signed-on to Degreed (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="23a3b-108">Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="23a3b-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="20976-106">Erişim tooDegreed sahip Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="20976-106">You can control in Azure AD who has access tooDegreed</span></span>
+- <span data-ttu-id="20976-107">Kullanıcıların tooautomatically get açan tooDegreed (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="20976-107">You can enable your users tooautomatically get signed-on tooDegreed (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="20976-108">Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="20976-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="23a3b-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="23a3b-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="20976-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="20976-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="23a3b-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="23a3b-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="20976-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="20976-110">Prerequisites</span></span>
 
-<span data-ttu-id="23a3b-111">Azure AD tümleştirme Degreed ile yapılandırmak için aşağıdaki öğeleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="23a3b-111">To configure Azure AD integration with Degreed, you need the following items:</span></span>
+<span data-ttu-id="20976-111">tooconfigure Degreed ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="20976-111">tooconfigure Azure AD integration with Degreed, you need hello following items:</span></span>
 
-- <span data-ttu-id="23a3b-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="23a3b-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="23a3b-113">Bir Degreed çoklu oturum açma etkin abonelik</span><span class="sxs-lookup"><span data-stu-id="23a3b-113">A Degreed single-sign on enabled subscription</span></span>
+- <span data-ttu-id="20976-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="20976-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="20976-113">Bir Degreed çoklu oturum açma etkin abonelik</span><span class="sxs-lookup"><span data-stu-id="20976-113">A Degreed single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="23a3b-114">Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="23a3b-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="20976-114">tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="20976-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="23a3b-115">Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="23a3b-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="20976-115">Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:</span><span class="sxs-lookup"><span data-stu-id="20976-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="23a3b-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="23a3b-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="23a3b-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="23a3b-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="20976-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="20976-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="20976-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="20976-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="23a3b-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="23a3b-118">Scenario description</span></span>
-<span data-ttu-id="23a3b-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="23a3b-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="23a3b-120">Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="23a3b-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="20976-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="20976-118">Scenario description</span></span>
+<span data-ttu-id="20976-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="20976-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="20976-120">Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="20976-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="23a3b-121">Galeriden Degreed ekleme</span><span class="sxs-lookup"><span data-stu-id="23a3b-121">Adding Degreed from the gallery</span></span>
-2. <span data-ttu-id="23a3b-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="23a3b-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="20976-121">Merhaba Galerisi'nden Degreed ekleme</span><span class="sxs-lookup"><span data-stu-id="20976-121">Adding Degreed from hello gallery</span></span>
+2. <span data-ttu-id="20976-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="20976-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-degreed-from-the-gallery"></a><span data-ttu-id="23a3b-123">Galeriden Degreed ekleme</span><span class="sxs-lookup"><span data-stu-id="23a3b-123">Adding Degreed from the gallery</span></span>
-<span data-ttu-id="23a3b-124">Azure AD Degreed tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Degreed eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="23a3b-124">To configure the integration of Degreed into Azure AD, you need to add Degreed from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-degreed-from-hello-gallery"></a><span data-ttu-id="20976-123">Merhaba Galerisi'nden Degreed ekleme</span><span class="sxs-lookup"><span data-stu-id="20976-123">Adding Degreed from hello gallery</span></span>
+<span data-ttu-id="20976-124">Azure AD'ye tooconfigure hello tümleştirme Degreed, tooadd Degreed hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.</span><span class="sxs-lookup"><span data-stu-id="20976-124">tooconfigure hello integration of Degreed into Azure AD, you need tooadd Degreed from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="23a3b-125">**Galeriden Degreed eklemek için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="23a3b-125">**To add Degreed from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="20976-125">**tooadd Degreed hello galerisinden hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="20976-125">**tooadd Degreed from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="23a3b-126">İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="23a3b-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="20976-126">Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="20976-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="23a3b-128">Gidin **kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="23a3b-129">Ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="20976-128">Çok gidin**kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="20976-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="20976-129">Çok Git**tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="20976-129">Then go too**All applications**.</span></span>
 
     ![Uygulamalar][2]
     
-3. <span data-ttu-id="23a3b-131">Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.</span><span class="sxs-lookup"><span data-stu-id="23a3b-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="20976-131">tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.</span><span class="sxs-lookup"><span data-stu-id="20976-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Uygulamalar][3]
 
-4. <span data-ttu-id="23a3b-133">Arama kutusuna **Degreed**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-133">In the search box, type **Degreed**.</span></span>
+4. <span data-ttu-id="20976-133">Merhaba arama kutusuna yazın **Degreed**.</span><span class="sxs-lookup"><span data-stu-id="20976-133">In hello search box, type **Degreed**.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_search.png)
 
-5. <span data-ttu-id="23a3b-135">Sonuçlar panelinde seçin **Degreed**ve ardından **Ekle** uygulama eklemek için düğmesi.</span><span class="sxs-lookup"><span data-stu-id="23a3b-135">In the results panel, select **Degreed**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="20976-135">Merhaba Sonuçlar panelinde seçin **Degreed**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.</span><span class="sxs-lookup"><span data-stu-id="20976-135">In hello results panel, select **Degreed**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="23a3b-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="23a3b-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="23a3b-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Degreed ile test etme</span><span class="sxs-lookup"><span data-stu-id="23a3b-138">In this section, you configure and test Azure AD single sign-on with Degreed based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="20976-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="20976-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="20976-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Degreed ile test etme</span><span class="sxs-lookup"><span data-stu-id="20976-138">In this section, you configure and test Azure AD single sign-on with Degreed based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="23a3b-139">Tekli çalışmaya oturum için Azure AD Degreed karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister.</span><span class="sxs-lookup"><span data-stu-id="23a3b-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Degreed is to a user in Azure AD.</span></span> <span data-ttu-id="23a3b-140">Diğer bir deyişle, bir Azure AD kullanıcısının Degreed ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.</span><span class="sxs-lookup"><span data-stu-id="23a3b-140">In other words, a link relationship between an Azure AD user and the related user in Degreed needs to be established.</span></span>
+<span data-ttu-id="20976-139">Tek toowork'ın oturum açma hangi hello karşılık gelen Degreed içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir.</span><span class="sxs-lookup"><span data-stu-id="20976-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Degreed is tooa user in Azure AD.</span></span> <span data-ttu-id="20976-140">Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Degreed hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.</span><span class="sxs-lookup"><span data-stu-id="20976-140">In other words, a link relationship between an Azure AD user and hello related user in Degreed needs toobe established.</span></span>
 
-<span data-ttu-id="23a3b-141">Degreed içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="23a3b-141">In Degreed, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="20976-141">Merhaba hello değeri Degreed içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.</span><span class="sxs-lookup"><span data-stu-id="20976-141">In Degreed, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="23a3b-142">Yapılandırma ve Azure AD çoklu oturum açma Degreed ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="23a3b-142">To configure and test Azure AD single sign-on with Degreed, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="20976-142">tooconfigure ve Degreed ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="20976-142">tooconfigure and test Azure AD single sign-on with Degreed, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="23a3b-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="23a3b-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="23a3b-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.</span><span class="sxs-lookup"><span data-stu-id="23a3b-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="23a3b-145">**[Degreed test kullanıcısı oluşturma](#creating-a-degreed-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Degreed sağlamak için.</span><span class="sxs-lookup"><span data-stu-id="23a3b-145">**[Creating a Degreed test user](#creating-a-degreed-test-user)** - to have a counterpart of Britta Simon in Degreed that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="23a3b-146">**[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="23a3b-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="23a3b-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="23a3b-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="20976-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.</span><span class="sxs-lookup"><span data-stu-id="20976-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="20976-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.</span><span class="sxs-lookup"><span data-stu-id="20976-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="20976-145">**[Degreed test kullanıcısı oluşturma](#creating-a-degreed-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Degreed içinde karşılık gelen.</span><span class="sxs-lookup"><span data-stu-id="20976-145">**[Creating a Degreed test user](#creating-a-degreed-test-user)** - toohave a counterpart of Britta Simon in Degreed that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="20976-146">**[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="20976-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="20976-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.</span><span class="sxs-lookup"><span data-stu-id="20976-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="23a3b-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="23a3b-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="20976-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="20976-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="23a3b-149">Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Degreed uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="23a3b-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Degreed application.</span></span>
+<span data-ttu-id="20976-149">Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Degreed uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="20976-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Degreed application.</span></span>
 
-<span data-ttu-id="23a3b-150">**Azure AD çoklu oturum açma ile Degreed yapılandırmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="23a3b-150">**To configure Azure AD single sign-on with Degreed, perform the following steps:**</span></span>
+<span data-ttu-id="20976-150">**tooconfigure Azure AD çoklu oturum açma ile Degreed, hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="20976-150">**tooconfigure Azure AD single sign-on with Degreed, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="23a3b-151">Azure portalında üzerinde **Degreed** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-151">In the Azure portal, on the **Degreed** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="20976-151">Hello hello üzerinde Azure portal'ın **Degreed** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="20976-151">In hello Azure portal, on hello **Degreed** application integration page, click **Single sign-on**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. <span data-ttu-id="23a3b-153">Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="23a3b-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="20976-153">Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="20976-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_samlbase.png)
 
-3. <span data-ttu-id="23a3b-155">Üzerinde **Degreed etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="23a3b-155">On the **Degreed Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="20976-155">Merhaba üzerinde **Degreed etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="20976-155">On hello **Degreed Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_url.png)
 
-    <span data-ttu-id="23a3b-157">a.</span><span class="sxs-lookup"><span data-stu-id="23a3b-157">a.</span></span> <span data-ttu-id="23a3b-158">İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://degreed.com/?orgsso=<company code>`</span><span class="sxs-lookup"><span data-stu-id="23a3b-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://degreed.com/?orgsso=<company code>`</span></span>
+    <span data-ttu-id="20976-157">a.</span><span class="sxs-lookup"><span data-stu-id="20976-157">a.</span></span> <span data-ttu-id="20976-158">Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://degreed.com/?orgsso=<company code>`</span><span class="sxs-lookup"><span data-stu-id="20976-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://degreed.com/?orgsso=<company code>`</span></span>
 
-    <span data-ttu-id="23a3b-159">b.</span><span class="sxs-lookup"><span data-stu-id="23a3b-159">b.</span></span> <span data-ttu-id="23a3b-160">İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://degreed.com/<instancename>`</span><span class="sxs-lookup"><span data-stu-id="23a3b-160">In the **Identifier** textbox, type a URL using the following pattern: `https://degreed.com/<instancename>`</span></span>
+    <span data-ttu-id="20976-159">b.</span><span class="sxs-lookup"><span data-stu-id="20976-159">b.</span></span> <span data-ttu-id="20976-160">Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://degreed.com/<instancename>`</span><span class="sxs-lookup"><span data-stu-id="20976-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://degreed.com/<instancename>`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="23a3b-161">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="23a3b-161">These values are not real.</span></span> <span data-ttu-id="23a3b-162">Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="23a3b-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="23a3b-163">Kişi [Degreed istemci destek ekibi](mailTo:admin@degreed.com) bu değerleri almak için.</span><span class="sxs-lookup"><span data-stu-id="23a3b-163">Contact [Degreed Client support team](mailTo:admin@degreed.com) to get these values.</span></span> 
+    > <span data-ttu-id="20976-161">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="20976-161">These values are not real.</span></span> <span data-ttu-id="20976-162">Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="20976-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="20976-163">Kişi [Degreed istemci destek ekibi](mailTo:admin@degreed.com) tooget bu değerleri.</span><span class="sxs-lookup"><span data-stu-id="20976-163">Contact [Degreed Client support team](mailTo:admin@degreed.com) tooget these values.</span></span> 
  
 
 
-4. <span data-ttu-id="23a3b-164">Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="23a3b-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="20976-164">Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="20976-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_certificate.png) 
 
-5. <span data-ttu-id="23a3b-166">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="23a3b-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="20976-166">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="20976-166">Click **Save** button.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-degreed-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="23a3b-168">Çoklu oturum açma yapılandırmak için **Degreed** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Degreed destek ekibi](mailTo:admin@degreed.com).</span><span class="sxs-lookup"><span data-stu-id="23a3b-168">To configure single sign-on on **Degreed** side, you need to send the downloaded **Metadata XML** to [Degreed support team](mailTo:admin@degreed.com).</span></span> <span data-ttu-id="23a3b-169">Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="23a3b-169">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+6. <span data-ttu-id="20976-168">tooconfigure çoklu oturum açma üzerinde **Degreed** yan, indirilen toosend hello ihtiyacınız **meta veri XML** çok[Degreed destek ekibi](mailTo:admin@degreed.com).</span><span class="sxs-lookup"><span data-stu-id="20976-168">tooconfigure single sign-on on **Degreed** side, you need toosend hello downloaded **Metadata XML** too[Degreed support team](mailTo:admin@degreed.com).</span></span> <span data-ttu-id="20976-169">Bunlar, bu ayar toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="20976-169">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="23a3b-170">Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="23a3b-170">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="23a3b-171">Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm.</span><span class="sxs-lookup"><span data-stu-id="23a3b-171">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="23a3b-172">Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="23a3b-172">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="20976-170">Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="20976-170">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="20976-171">Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına.</span><span class="sxs-lookup"><span data-stu-id="20976-171">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="20976-172">Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="20976-172">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="23a3b-173">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="23a3b-173">Creating an Azure AD test user</span></span>
-<span data-ttu-id="23a3b-174">Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="23a3b-174">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="20976-173">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="20976-173">Creating an Azure AD test user</span></span>
+<span data-ttu-id="20976-174">Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.</span><span class="sxs-lookup"><span data-stu-id="20976-174">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-<span data-ttu-id="23a3b-176">**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="23a3b-176">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="20976-176">**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="20976-176">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="23a3b-177">İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="23a3b-177">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="20976-177">Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="20976-177">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-degreed-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="23a3b-179">Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-179">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="20976-179">Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="20976-179">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-degreed-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="23a3b-181">Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.</span><span class="sxs-lookup"><span data-stu-id="23a3b-181">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="20976-181">tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.</span><span class="sxs-lookup"><span data-stu-id="20976-181">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-degreed-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="23a3b-183">Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="23a3b-183">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="20976-183">Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="20976-183">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-degreed-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="23a3b-185">a.</span><span class="sxs-lookup"><span data-stu-id="23a3b-185">a.</span></span> <span data-ttu-id="23a3b-186">İçinde **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-186">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="20976-185">a.</span><span class="sxs-lookup"><span data-stu-id="20976-185">a.</span></span> <span data-ttu-id="20976-186">Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="20976-186">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="23a3b-187">b.</span><span class="sxs-lookup"><span data-stu-id="23a3b-187">b.</span></span> <span data-ttu-id="23a3b-188">İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="23a3b-188">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="20976-187">b.</span><span class="sxs-lookup"><span data-stu-id="20976-187">b.</span></span> <span data-ttu-id="20976-188">Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="20976-188">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="23a3b-189">c.</span><span class="sxs-lookup"><span data-stu-id="23a3b-189">c.</span></span> <span data-ttu-id="23a3b-190">Seçin **Göster parola** ve değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-190">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="20976-189">c.</span><span class="sxs-lookup"><span data-stu-id="20976-189">c.</span></span> <span data-ttu-id="20976-190">Seçin **Göster parola** ve hello hello değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="20976-190">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="23a3b-191">d.</span><span class="sxs-lookup"><span data-stu-id="23a3b-191">d.</span></span> <span data-ttu-id="23a3b-192">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="23a3b-192">Click **Create**.</span></span>
+    <span data-ttu-id="20976-191">d.</span><span class="sxs-lookup"><span data-stu-id="20976-191">d.</span></span> <span data-ttu-id="20976-192">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="20976-192">Click **Create**.</span></span>
  
-### <a name="creating-a-degreed-test-user"></a><span data-ttu-id="23a3b-193">Degreed test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="23a3b-193">Creating a Degreed test user</span></span>
+### <a name="creating-a-degreed-test-user"></a><span data-ttu-id="20976-193">Degreed test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="20976-193">Creating a Degreed test user</span></span>
 
-<span data-ttu-id="23a3b-194">Bu bölümün amacı Britta Simon içinde Degreed adlı bir kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="23a3b-194">The objective of this section is to create a user called Britta Simon in Degreed.</span></span> <span data-ttu-id="23a3b-195">Degreed yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler.</span><span class="sxs-lookup"><span data-stu-id="23a3b-195">Degreed supports just-in-time provisioning, which is by default enabled.</span></span>
+<span data-ttu-id="20976-194">Bu bölümde Hello amacı toocreate Britta Simon içinde Degreed adlı bir kullanıcı ' dir.</span><span class="sxs-lookup"><span data-stu-id="20976-194">hello objective of this section is toocreate a user called Britta Simon in Degreed.</span></span> <span data-ttu-id="20976-195">Degreed yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler.</span><span class="sxs-lookup"><span data-stu-id="20976-195">Degreed supports just-in-time provisioning, which is by default enabled.</span></span>
 
-<span data-ttu-id="23a3b-196">Bu bölümde, eylem öğe yok.</span><span class="sxs-lookup"><span data-stu-id="23a3b-196">There is no action item for you in this section.</span></span> <span data-ttu-id="23a3b-197">Yeni bir kullanıcı henüz yoksa Degreed erişme denemesi sırasında oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="23a3b-197">A new user is created during an attempt to access Degreed if it doesn't exist yet.</span></span>
+<span data-ttu-id="20976-196">Bu bölümde, eylem öğe yok.</span><span class="sxs-lookup"><span data-stu-id="20976-196">There is no action item for you in this section.</span></span> <span data-ttu-id="20976-197">Henüz yoksa yeni bir kullanıcı bir girişim tooaccess Degreed sırasında oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="20976-197">A new user is created during an attempt tooaccess Degreed if it doesn't exist yet.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="23a3b-198">Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [Degreed destek ekibi](mailTo:admin@degreed.com).</span><span class="sxs-lookup"><span data-stu-id="23a3b-198">If you need to create a user manually, you need to contact the [Degreed support team](mailTo:admin@degreed.com).</span></span>
+> <span data-ttu-id="20976-198">Toocreate kullanıcı el ile gerekiyorsa, toocontact hello gereksinim [Degreed destek ekibi](mailTo:admin@degreed.com).</span><span class="sxs-lookup"><span data-stu-id="20976-198">If you need toocreate a user manually, you need toocontact hello [Degreed support team](mailTo:admin@degreed.com).</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="23a3b-199">Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="23a3b-199">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="20976-199">Hello Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="20976-199">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="23a3b-200">Bu bölümde, Britta Degreed için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="23a3b-200">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Degreed.</span></span>
+<span data-ttu-id="20976-200">Bu bölümde, erişim tooDegreed vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="20976-200">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooDegreed.</span></span>
 
 ![Kullanıcı atama][200] 
 
-<span data-ttu-id="23a3b-202">**Degreed için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="23a3b-202">**To assign Britta Simon to Degreed, perform the following steps:**</span></span>
+<span data-ttu-id="20976-202">**tooassign Britta Simon tooDegreed hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="20976-202">**tooassign Britta Simon tooDegreed, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="23a3b-203">Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-203">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="20976-203">Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="20976-203">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Kullanıcı atama][201] 
 
-2. <span data-ttu-id="23a3b-205">Uygulamalar listesinde **Degreed**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-205">In the applications list, select **Degreed**.</span></span>
+2. <span data-ttu-id="20976-205">Merhaba uygulamalar listesinde **Degreed**.</span><span class="sxs-lookup"><span data-stu-id="20976-205">In hello applications list, select **Degreed**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_app.png) 
 
-3. <span data-ttu-id="23a3b-207">Soldaki menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="23a3b-207">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="20976-207">Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="20976-207">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Kullanıcı atama][202] 
 
-4. <span data-ttu-id="23a3b-209">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="23a3b-209">Click **Add** button.</span></span> <span data-ttu-id="23a3b-210">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="23a3b-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="20976-209">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="20976-209">Click **Add** button.</span></span> <span data-ttu-id="20976-210">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="20976-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Kullanıcı atama][203]
 
-5. <span data-ttu-id="23a3b-212">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="23a3b-212">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="20976-212">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="20976-212">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="23a3b-213">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="23a3b-213">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="20976-213">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="20976-213">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="23a3b-214">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="23a3b-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="20976-214">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="20976-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="23a3b-215">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="23a3b-215">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="20976-215">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="20976-215">Testing single sign-on</span></span>
 
-<span data-ttu-id="23a3b-216">Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="23a3b-216">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="20976-216">Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="20976-216">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="23a3b-217">Degreed kutucuğa tıkladığınızda erişim panelinde, otomatik olarak Degreed uygulamanıza açan.</span><span class="sxs-lookup"><span data-stu-id="23a3b-217">When you click the Degreed tile in the Access Panel, you should get automatically signed-on to your Degreed application.</span></span>
-<span data-ttu-id="23a3b-218">Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="23a3b-218">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="20976-217">Merhaba Degreed kutucuğa tıkladığınızda de erişim paneli Merhaba, otomatik olarak oturum açma tooyour Degreed uygulama almanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="20976-217">When you click hello Degreed tile in hello Access Panel, you should get automatically signed-on tooyour Degreed application.</span></span>
+<span data-ttu-id="20976-218">Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="20976-218">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="23a3b-219">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="23a3b-219">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="20976-219">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="20976-219">Additional resources</span></span>
 
-* [<span data-ttu-id="23a3b-220">Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi</span><span class="sxs-lookup"><span data-stu-id="23a3b-220">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="23a3b-221">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="23a3b-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="20976-220">İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları</span><span class="sxs-lookup"><span data-stu-id="20976-220">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="20976-221">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="20976-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->

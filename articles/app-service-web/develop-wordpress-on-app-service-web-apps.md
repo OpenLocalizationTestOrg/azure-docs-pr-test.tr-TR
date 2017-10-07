@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama hizmeti üzerinde WordPress geliştirme"
-description: "Geliştirme ve Azure üzerinde WordPress ölçeklendirme için en iyi uygulamaları öğrenin."
+title: Azure App Service'te WordPress aaaDeveloping
+description: "Geliştirme ve Azure üzerinde WordPress ölçekleme için Hello en iyi yöntemleri öğrenin."
 keywords: "uygulama hizmeti, azure app service, Ölçek wordpress ölçeklenebilir wordpress, wordpress"
 services: app-service
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: sunbuild
-ms.openlocfilehash: eeaafd4ba27709b0f2203035c2a7ae85aeea545f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d865416e9439adb1fb146569d4ee6355f86598c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="developing-wordpress-on-azure-app-service"></a><span data-ttu-id="b6878-104">Azure uygulama hizmeti üzerinde WordPress geliştirme</span><span class="sxs-lookup"><span data-stu-id="b6878-104">Developing WordPress on Azure App Service</span></span>
+# <a name="developing-wordpress-on-azure-app-service"></a><span data-ttu-id="14ec1-104">Azure uygulama hizmeti üzerinde WordPress geliştirme</span><span class="sxs-lookup"><span data-stu-id="14ec1-104">Developing WordPress on Azure App Service</span></span>
 [!INCLUDE [app-service-blueprint-guide-for-wordpress](../../includes/app-service-blueprint-guide-for-wordpress.md)]
 

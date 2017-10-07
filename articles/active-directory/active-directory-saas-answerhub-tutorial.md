@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile AnswerHub | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile AnswerHub arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile AnswerHub arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,254 +13,254 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a1c9cc5d7a2ebe28e9fb7e0e6ed8e3d393873ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 90b530da31abe7e6f18bfa2c5409f8ff1d4f1063
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a><span data-ttu-id="79eb4-103">Öğretici: Azure Active Directory Tümleştirme AnswerHub ile</span><span class="sxs-lookup"><span data-stu-id="79eb4-103">Tutorial: Azure Active Directory integration with AnswerHub</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a><span data-ttu-id="3c712-103">Öğretici: Azure Active Directory Tümleştirme AnswerHub ile</span><span class="sxs-lookup"><span data-stu-id="3c712-103">Tutorial: Azure Active Directory integration with AnswerHub</span></span>
 
-<span data-ttu-id="79eb4-104">Bu öğreticide, Azure Active Directory (Azure AD) ile AnswerHub tümleştirmek öğrenin.</span><span class="sxs-lookup"><span data-stu-id="79eb4-104">In this tutorial, you learn how to integrate AnswerHub with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="3c712-104">Bu öğreticide, bilgi nasıl toointegrate AnswerHub Azure Active Directory'ye (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="3c712-104">In this tutorial, you learn how toointegrate AnswerHub with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="79eb4-105">AnswerHub Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="79eb4-105">Integrating AnswerHub with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="3c712-105">AnswerHub Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="3c712-105">Integrating AnswerHub with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="79eb4-106">AnswerHub erişimi, Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="79eb4-106">You can control in Azure AD who has access to AnswerHub</span></span>
-- <span data-ttu-id="79eb4-107">Otomatik olarak için AnswerHub (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="79eb4-107">You can enable your users to automatically get signed-on to AnswerHub (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="79eb4-108">Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="79eb4-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="3c712-106">Erişim tooAnswerHub sahip Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="3c712-106">You can control in Azure AD who has access tooAnswerHub</span></span>
+- <span data-ttu-id="3c712-107">Kullanıcıların tooautomatically get açan tooAnswerHub (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="3c712-107">You can enable your users tooautomatically get signed-on tooAnswerHub (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="3c712-108">Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="3c712-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="79eb4-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="79eb4-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="3c712-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="3c712-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="79eb4-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="79eb4-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="3c712-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="3c712-110">Prerequisites</span></span>
 
-<span data-ttu-id="79eb4-111">Azure AD tümleştirme AnswerHub ile yapılandırmak için aşağıdaki öğeleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="79eb4-111">To configure Azure AD integration with AnswerHub, you need the following items:</span></span>
+<span data-ttu-id="3c712-111">tooconfigure AnswerHub ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="3c712-111">tooconfigure Azure AD integration with AnswerHub, you need hello following items:</span></span>
 
-- <span data-ttu-id="79eb4-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="79eb4-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="79eb4-113">Bir AnswerHub çoklu oturum açma abonelik etkin</span><span class="sxs-lookup"><span data-stu-id="79eb4-113">An AnswerHub single sign-on enabled subscription</span></span>
+- <span data-ttu-id="3c712-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="3c712-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="3c712-113">Bir AnswerHub çoklu oturum açma abonelik etkin</span><span class="sxs-lookup"><span data-stu-id="3c712-113">An AnswerHub single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="79eb4-114">Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="79eb4-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="3c712-114">tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="3c712-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="79eb4-115">Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="79eb4-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="3c712-115">Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:</span><span class="sxs-lookup"><span data-stu-id="3c712-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="79eb4-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="79eb4-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="79eb4-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="79eb4-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="3c712-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="3c712-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="3c712-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="3c712-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="79eb4-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="79eb4-118">Scenario description</span></span>
-<span data-ttu-id="79eb4-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="79eb4-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="79eb4-120">Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="79eb4-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="3c712-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="3c712-118">Scenario description</span></span>
+<span data-ttu-id="3c712-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="3c712-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="3c712-120">Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="3c712-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="79eb4-121">Galeriden AnswerHub ekleme</span><span class="sxs-lookup"><span data-stu-id="79eb4-121">Adding AnswerHub from the gallery</span></span>
-2. <span data-ttu-id="79eb4-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="79eb4-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="3c712-121">Merhaba Galerisi'nden AnswerHub ekleme</span><span class="sxs-lookup"><span data-stu-id="3c712-121">Adding AnswerHub from hello gallery</span></span>
+2. <span data-ttu-id="3c712-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="3c712-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-answerhub-from-the-gallery"></a><span data-ttu-id="79eb4-123">Galeriden AnswerHub ekleme</span><span class="sxs-lookup"><span data-stu-id="79eb4-123">Adding AnswerHub from the gallery</span></span>
-<span data-ttu-id="79eb4-124">Azure AD AnswerHub tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden AnswerHub eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="79eb4-124">To configure the integration of AnswerHub into Azure AD, you need to add AnswerHub from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-answerhub-from-hello-gallery"></a><span data-ttu-id="3c712-123">Merhaba Galerisi'nden AnswerHub ekleme</span><span class="sxs-lookup"><span data-stu-id="3c712-123">Adding AnswerHub from hello gallery</span></span>
+<span data-ttu-id="3c712-124">Azure AD'ye tooconfigure hello tümleştirme AnswerHub, tooadd AnswerHub hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.</span><span class="sxs-lookup"><span data-stu-id="3c712-124">tooconfigure hello integration of AnswerHub into Azure AD, you need tooadd AnswerHub from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="79eb4-125">**Galeriden AnswerHub eklemek için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="79eb4-125">**To add AnswerHub from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="3c712-125">**tooadd AnswerHub hello galerisinden hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="3c712-125">**tooadd AnswerHub from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="79eb4-126">İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="3c712-126">Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="3c712-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="79eb4-128">Gidin **kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="79eb4-129">Ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="3c712-128">Çok gidin**kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="3c712-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="3c712-129">Çok Git**tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="3c712-129">Then go too**All applications**.</span></span>
 
     ![Uygulamalar][2]
     
-3. <span data-ttu-id="79eb4-131">Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="3c712-131">tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.</span><span class="sxs-lookup"><span data-stu-id="3c712-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Uygulamalar][3]
 
-4. <span data-ttu-id="79eb4-133">Arama kutusuna **AnswerHub**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-133">In the search box, type **AnswerHub**.</span></span>
+4. <span data-ttu-id="3c712-133">Merhaba arama kutusuna yazın **AnswerHub**.</span><span class="sxs-lookup"><span data-stu-id="3c712-133">In hello search box, type **AnswerHub**.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_search.png)
 
-5. <span data-ttu-id="79eb4-135">Sonuçlar panelinde seçin **AnswerHub**ve ardından **Ekle** uygulama eklemek için düğmesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-135">In the results panel, select **AnswerHub**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="3c712-135">Merhaba Sonuçlar panelinde seçin **AnswerHub**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.</span><span class="sxs-lookup"><span data-stu-id="3c712-135">In hello results panel, select **AnswerHub**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="79eb4-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="79eb4-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="79eb4-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı AnswerHub sınayın.</span><span class="sxs-lookup"><span data-stu-id="79eb4-138">In this section, you configure and test Azure AD single sign-on with AnswerHub based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="3c712-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="3c712-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="3c712-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı AnswerHub sınayın.</span><span class="sxs-lookup"><span data-stu-id="3c712-138">In this section, you configure and test Azure AD single sign-on with AnswerHub based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="79eb4-139">Tekli çalışmaya oturum için Azure AD AnswerHub karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister.</span><span class="sxs-lookup"><span data-stu-id="79eb4-139">For single sign-on to work, Azure AD needs to know what the counterpart user in AnswerHub is to a user in Azure AD.</span></span> <span data-ttu-id="79eb4-140">Diğer bir deyişle, bir Azure AD kullanıcısının AnswerHub ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.</span><span class="sxs-lookup"><span data-stu-id="79eb4-140">In other words, a link relationship between an Azure AD user and the related user in AnswerHub needs to be established.</span></span>
+<span data-ttu-id="3c712-139">Tek toowork'ın oturum açma hangi hello karşılık gelen AnswerHub içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir.</span><span class="sxs-lookup"><span data-stu-id="3c712-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in AnswerHub is tooa user in Azure AD.</span></span> <span data-ttu-id="3c712-140">Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı AnswerHub hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.</span><span class="sxs-lookup"><span data-stu-id="3c712-140">In other words, a link relationship between an Azure AD user and hello related user in AnswerHub needs toobe established.</span></span>
 
-<span data-ttu-id="79eb4-141">AnswerHub içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="79eb4-141">In AnswerHub, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="3c712-141">Merhaba hello değeri AnswerHub içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.</span><span class="sxs-lookup"><span data-stu-id="3c712-141">In AnswerHub, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="79eb4-142">Yapılandırma ve Azure AD çoklu oturum açma AnswerHub ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="79eb4-142">To configure and test Azure AD single sign-on with AnswerHub, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="3c712-142">tooconfigure ve AnswerHub ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="3c712-142">tooconfigure and test Azure AD single sign-on with AnswerHub, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="79eb4-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="79eb4-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="79eb4-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.</span><span class="sxs-lookup"><span data-stu-id="79eb4-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="79eb4-145">**[Bir AnswerHub test kullanıcısı oluşturma](#creating-an-answerhub-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı AnswerHub sağlamak için.</span><span class="sxs-lookup"><span data-stu-id="79eb4-145">**[Creating an AnswerHub test user](#creating-an-answerhub-test-user)** - to have a counterpart of Britta Simon in AnswerHub that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="79eb4-146">**[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="79eb4-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="79eb4-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="79eb4-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="3c712-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.</span><span class="sxs-lookup"><span data-stu-id="3c712-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="3c712-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.</span><span class="sxs-lookup"><span data-stu-id="3c712-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="3c712-145">**[Bir AnswerHub test kullanıcısı oluşturma](#creating-an-answerhub-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir AnswerHub içinde karşılık gelen.</span><span class="sxs-lookup"><span data-stu-id="3c712-145">**[Creating an AnswerHub test user](#creating-an-answerhub-test-user)** - toohave a counterpart of Britta Simon in AnswerHub that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="3c712-146">**[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="3c712-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="3c712-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.</span><span class="sxs-lookup"><span data-stu-id="3c712-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="79eb4-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="79eb4-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="3c712-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="3c712-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="79eb4-149">Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma AnswerHub uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="79eb4-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your AnswerHub application.</span></span>
+<span data-ttu-id="3c712-149">Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma AnswerHub uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="3c712-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your AnswerHub application.</span></span>
 
-<span data-ttu-id="79eb4-150">**Azure AD çoklu oturum açma ile AnswerHub yapılandırmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="79eb4-150">**To configure Azure AD single sign-on with AnswerHub, perform the following steps:**</span></span>
+<span data-ttu-id="3c712-150">**tooconfigure Azure AD çoklu oturum açma ile AnswerHub, hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="3c712-150">**tooconfigure Azure AD single sign-on with AnswerHub, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="79eb4-151">Azure portalında üzerinde **AnswerHub** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-151">In the Azure portal, on the **AnswerHub** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="3c712-151">Hello hello üzerinde Azure portal'ın **AnswerHub** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="3c712-151">In hello Azure portal, on hello **AnswerHub** application integration page, click **Single sign-on**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. <span data-ttu-id="79eb4-153">Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="79eb4-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="3c712-153">Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="3c712-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_samlbase.png)
 
-3. <span data-ttu-id="79eb4-155">Üzerinde **AnswerHub etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="79eb4-155">On the **AnswerHub Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="3c712-155">Merhaba üzerinde **AnswerHub etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="3c712-155">On hello **AnswerHub Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_url.png)
 
-    <span data-ttu-id="79eb4-157">a.</span><span class="sxs-lookup"><span data-stu-id="79eb4-157">a.</span></span> <span data-ttu-id="79eb4-158">İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company>.answerhub.com`</span><span class="sxs-lookup"><span data-stu-id="79eb4-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<company>.answerhub.com`</span></span>
+    <span data-ttu-id="3c712-157">a.</span><span class="sxs-lookup"><span data-stu-id="3c712-157">a.</span></span> <span data-ttu-id="3c712-158">Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<company>.answerhub.com`</span><span class="sxs-lookup"><span data-stu-id="3c712-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<company>.answerhub.com`</span></span>
 
-    <span data-ttu-id="79eb4-159">b.</span><span class="sxs-lookup"><span data-stu-id="79eb4-159">b.</span></span> <span data-ttu-id="79eb4-160">İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company>.answerhub.com`</span><span class="sxs-lookup"><span data-stu-id="79eb4-160">In the **Identifier** textbox, type a URL using the following pattern: `https://<company>.answerhub.com`</span></span>
+    <span data-ttu-id="3c712-159">b.</span><span class="sxs-lookup"><span data-stu-id="3c712-159">b.</span></span> <span data-ttu-id="3c712-160">Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<company>.answerhub.com`</span><span class="sxs-lookup"><span data-stu-id="3c712-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<company>.answerhub.com`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="79eb4-161">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="79eb4-161">These values are not real.</span></span> <span data-ttu-id="79eb4-162">Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="79eb4-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="79eb4-163">Kişi [AnswerHub istemci destek ekibi](mailto:success@answerhub.com) bu değerleri almak için.</span><span class="sxs-lookup"><span data-stu-id="79eb4-163">Contact [AnswerHub Client support team](mailto:success@answerhub.com) to get these values.</span></span> 
+    > <span data-ttu-id="3c712-161">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="3c712-161">These values are not real.</span></span> <span data-ttu-id="3c712-162">Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="3c712-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="3c712-163">Kişi [AnswerHub istemci destek ekibi](mailto:success@answerhub.com) tooget bu değerleri.</span><span class="sxs-lookup"><span data-stu-id="3c712-163">Contact [AnswerHub Client support team](mailto:success@answerhub.com) tooget these values.</span></span> 
  
-4. <span data-ttu-id="79eb4-164">Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="79eb4-164">On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.</span></span>
+4. <span data-ttu-id="3c712-164">Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="3c712-164">On hello **SAML Signing Certificate** section, click **Certificate(Base64)** and then save hello certificate file on your computer.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_certificate.png) 
 
-5. <span data-ttu-id="79eb4-166">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="3c712-166">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="3c712-166">Click **Save** button.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-answerhub-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="79eb4-168">Üzerinde **AnswerHub yapılandırma** 'yi tıklatın **yapılandırma AnswerHub** açmak için **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-168">On the **AnswerHub Configuration** section, click **Configure AnswerHub** to open **Configure sign-on** window.</span></span> <span data-ttu-id="79eb4-169">Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="79eb4-169">Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="3c712-168">Merhaba üzerinde **AnswerHub yapılandırma** 'yi tıklatın **yapılandırma AnswerHub** tooopen **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="3c712-168">On hello **AnswerHub Configuration** section, click **Configure AnswerHub** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="3c712-169">Kopya hello **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="3c712-169">Copy hello **Sign-Out URL, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_configure.png) 
 
-7. <span data-ttu-id="79eb4-171">Farklı web tarayıcısı penceresinde AnswerHub şirket sitenize yönetici olarak oturum açın.</span><span class="sxs-lookup"><span data-stu-id="79eb4-171">In a different web browser window, log into your AnswerHub company site as an administrator.</span></span>
+7. <span data-ttu-id="3c712-171">Farklı web tarayıcısı penceresinde AnswerHub şirket sitenize yönetici olarak oturum açın.</span><span class="sxs-lookup"><span data-stu-id="3c712-171">In a different web browser window, log into your AnswerHub company site as an administrator.</span></span>
    
     >[!NOTE]
-    ><span data-ttu-id="79eb4-172">AnswerHub yapılandırmada yardıma gereksinim duyarsanız başvurun [AnswerHub'in destek ekibi](mailto:success@answerhub.com.).</span><span class="sxs-lookup"><span data-stu-id="79eb4-172">If you need help configuring AnswerHub, contact [AnswerHub's support team](mailto:success@answerhub.com.).</span></span>
+    ><span data-ttu-id="3c712-172">AnswerHub yapılandırmada yardıma gereksinim duyarsanız başvurun [AnswerHub'in destek ekibi](mailto:success@answerhub.com.).</span><span class="sxs-lookup"><span data-stu-id="3c712-172">If you need help configuring AnswerHub, contact [AnswerHub's support team](mailto:success@answerhub.com.).</span></span>
    
-8. <span data-ttu-id="79eb4-173">Git **Yönetim**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-173">Go to **Administration**.</span></span>
+8. <span data-ttu-id="3c712-173">Çok Git**Yönetim**.</span><span class="sxs-lookup"><span data-stu-id="3c712-173">Go too**Administration**.</span></span>
 
-9. <span data-ttu-id="79eb4-174">Tıklatın **kullanıcı ve grup** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-174">Click the **User and Group** tab.</span></span>
+9. <span data-ttu-id="3c712-174">Merhaba tıklatın **kullanıcı ve grup** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="3c712-174">Click hello **User and Group** tab.</span></span>
 
-10. <span data-ttu-id="79eb4-175">Sol taraftaki gezinti bölmesinde de **sosyal ayarları** 'yi tıklatın **SAML Kurulumu**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-175">In the navigation pane on the left side, in the **Social Settings** section, click **SAML Setup**.</span></span>
+10. <span data-ttu-id="3c712-175">Merhaba Gezinti bölmesindeki hello tarafı, sol hello **sosyal ayarları** 'yi tıklatın **SAML Kurulumu**.</span><span class="sxs-lookup"><span data-stu-id="3c712-175">In hello navigation pane on hello left side, in hello **Social Settings** section, click **SAML Setup**.</span></span>
 
-11. <span data-ttu-id="79eb4-176">Tıklatın **IDP Config** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-176">Click **IDP Config** tab.</span></span>
+11. <span data-ttu-id="3c712-176">Tıklatın **IDP Config** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="3c712-176">Click **IDP Config** tab.</span></span>
 
-12. <span data-ttu-id="79eb4-177">Üzerinde **IDP Config** sekmesinde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="79eb4-177">On the **IDP Config** tab, perform the following steps:</span></span>
+12. <span data-ttu-id="3c712-177">Merhaba üzerinde **IDP Config** sekmesinde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="3c712-177">On hello **IDP Config** tab, perform hello following steps:</span></span>
 
-     <span data-ttu-id="79eb4-178">![SAML Kurulumu](./media/active-directory-saas-answerhub-tutorial/ic785172.png "SAML Kurulumu")</span><span class="sxs-lookup"><span data-stu-id="79eb4-178">![SAML Setup](./media/active-directory-saas-answerhub-tutorial/ic785172.png "SAML Setup")</span></span>  
+     <span data-ttu-id="3c712-178">![SAML Kurulumu](./media/active-directory-saas-answerhub-tutorial/ic785172.png "SAML Kurulumu")</span><span class="sxs-lookup"><span data-stu-id="3c712-178">![SAML Setup](./media/active-directory-saas-answerhub-tutorial/ic785172.png "SAML Setup")</span></span>  
   
-     <span data-ttu-id="79eb4-179">a.</span><span class="sxs-lookup"><span data-stu-id="79eb4-179">a.</span></span> <span data-ttu-id="79eb4-180">İçinde **IDP oturum açma URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.</span><span class="sxs-lookup"><span data-stu-id="79eb4-180">In **IDP Login URL** textbox, paste **SAML Single Sign-On Service URL** which you have copied from Azure portal.</span></span>
+     <span data-ttu-id="3c712-179">a.</span><span class="sxs-lookup"><span data-stu-id="3c712-179">a.</span></span> <span data-ttu-id="3c712-180">İçinde **IDP oturum açma URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.</span><span class="sxs-lookup"><span data-stu-id="3c712-180">In **IDP Login URL** textbox, paste **SAML Single Sign-On Service URL** which you have copied from Azure portal.</span></span>
   
-     <span data-ttu-id="79eb4-181">b.</span><span class="sxs-lookup"><span data-stu-id="79eb4-181">b.</span></span> <span data-ttu-id="79eb4-182">İçinde **IDP oturum kapatma URL'si** metin kutusuna, Yapıştır **Sign-Out URL** Azure portalından kopyaladığınız değeri.</span><span class="sxs-lookup"><span data-stu-id="79eb4-182">In **IDP Logout URL** textbox, paste **Sign-Out URL** value which you have copied from Azure portal.</span></span>
+     <span data-ttu-id="3c712-181">b.</span><span class="sxs-lookup"><span data-stu-id="3c712-181">b.</span></span> <span data-ttu-id="3c712-182">İçinde **IDP oturum kapatma URL'si** metin kutusuna, Yapıştır **Sign-Out URL** Azure portalından kopyaladığınız değeri.</span><span class="sxs-lookup"><span data-stu-id="3c712-182">In **IDP Logout URL** textbox, paste **Sign-Out URL** value which you have copied from Azure portal.</span></span>
      
-     <span data-ttu-id="79eb4-183">c.</span><span class="sxs-lookup"><span data-stu-id="79eb4-183">c.</span></span> <span data-ttu-id="79eb4-184">İçinde **IDP ad tanımlayıcısı biçimi** metin kutusu, kullanıcı tanımlayıcısı olarak seçili Azure Portalı'nda aynı değeri girin **kullanıcı öznitelikleri** bölümü.</span><span class="sxs-lookup"><span data-stu-id="79eb4-184">In **IDP Name Identifier Format** textbox, enter the user Identifier value same as selected in Azure portal in **User Attributes** section.</span></span>
+     <span data-ttu-id="3c712-183">c.</span><span class="sxs-lookup"><span data-stu-id="3c712-183">c.</span></span> <span data-ttu-id="3c712-184">İçinde **IDP ad tanımlayıcısı biçimi** metin kutusuna, hello kullanıcı tanımlayıcısı olarak seçili Azure Portalı'nda aynı değeri girin **kullanıcı öznitelikleri** bölümü.</span><span class="sxs-lookup"><span data-stu-id="3c712-184">In **IDP Name Identifier Format** textbox, enter hello user Identifier value same as selected in Azure portal in **User Attributes** section.</span></span>
   
-     <span data-ttu-id="79eb4-185">d.</span><span class="sxs-lookup"><span data-stu-id="79eb4-185">d.</span></span> <span data-ttu-id="79eb4-186">Tıklatın **anahtarlar ve Sertifikalar**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-186">Click **Keys and Certificates**.</span></span>
+     <span data-ttu-id="3c712-185">d.</span><span class="sxs-lookup"><span data-stu-id="3c712-185">d.</span></span> <span data-ttu-id="3c712-186">Tıklatın **anahtarlar ve Sertifikalar**.</span><span class="sxs-lookup"><span data-stu-id="3c712-186">Click **Keys and Certificates**.</span></span>
 
-13. <span data-ttu-id="79eb4-187">Anahtarlar ve sertifikalar sekmesinde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="79eb4-187">On the Keys and Certificates tab, perform the following steps:</span></span>
+13. <span data-ttu-id="3c712-187">Merhaba anahtarlar ve sertifikalar sekmesinde hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="3c712-187">On hello Keys and Certificates tab, perform hello following steps:</span></span>
     
-     <span data-ttu-id="79eb4-188">![Anahtarlar ve Sertifikalar](./media/active-directory-saas-answerhub-tutorial/ic785173.png "anahtarlar ve sertifikalar")</span><span class="sxs-lookup"><span data-stu-id="79eb4-188">![Keys and Certificates](./media/active-directory-saas-answerhub-tutorial/ic785173.png "Keys and Certificates")</span></span>  
+     <span data-ttu-id="3c712-188">![Anahtarlar ve Sertifikalar](./media/active-directory-saas-answerhub-tutorial/ic785173.png "anahtarlar ve sertifikalar")</span><span class="sxs-lookup"><span data-stu-id="3c712-188">![Keys and Certificates](./media/active-directory-saas-answerhub-tutorial/ic785173.png "Keys and Certificates")</span></span>  
  
-     <span data-ttu-id="79eb4-189">a.</span><span class="sxs-lookup"><span data-stu-id="79eb4-189">a.</span></span> <span data-ttu-id="79eb4-190">Not Defteri'nde, Azure Portalı'ndan indirilen, base-64 kodlanmış sertifika açmak içeriğini, panoya kopyalayın ve yapıştırın kendisine **IDP ortak anahtarı (x 509 biçimi)** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="79eb4-190">Open your base-64 encoded certificate which you have downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **IDP Public Key (x509 Format)** textbox.</span></span>
+     <span data-ttu-id="3c712-189">a.</span><span class="sxs-lookup"><span data-stu-id="3c712-189">a.</span></span> <span data-ttu-id="3c712-190">Not Defteri'nde, kopyalama hello panonuza bunu içerik Azure Portalı'ndan indirilen, base-64 kodlanmış sertifika açın ve ardından toohello yapıştırın **IDP ortak anahtarı (x 509 biçimi)** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="3c712-190">Open your base-64 encoded certificate which you have downloaded from Azure portal in notepad, copy hello content of it into your clipboard, and then paste it toohello **IDP Public Key (x509 Format)** textbox.</span></span>
   
-     <span data-ttu-id="79eb4-191">b.</span><span class="sxs-lookup"><span data-stu-id="79eb4-191">b.</span></span> <span data-ttu-id="79eb4-192">**Kaydet** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="79eb4-192">Click **Save**.</span></span>
+     <span data-ttu-id="3c712-191">b.</span><span class="sxs-lookup"><span data-stu-id="3c712-191">b.</span></span> <span data-ttu-id="3c712-192">**Kaydet** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="3c712-192">Click **Save**.</span></span>
 
-14. <span data-ttu-id="79eb4-193">Üzerinde **IDP Config** sekmesini tıklatın, **kaydetmek**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-193">On the **IDP Config** tab, click **Save**.</span></span>
+14. <span data-ttu-id="3c712-193">Merhaba üzerinde **IDP Config** sekmesini tıklatın, **kaydetmek**.</span><span class="sxs-lookup"><span data-stu-id="3c712-193">On hello **IDP Config** tab, click **Save**.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="79eb4-194">Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="79eb4-194">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="79eb4-195">Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm.</span><span class="sxs-lookup"><span data-stu-id="79eb4-195">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="79eb4-196">Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="79eb4-196">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="3c712-194">Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="3c712-194">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="3c712-195">Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına.</span><span class="sxs-lookup"><span data-stu-id="3c712-195">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="3c712-196">Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="3c712-196">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="79eb4-197">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="79eb4-197">Creating an Azure AD test user</span></span>
-<span data-ttu-id="79eb4-198">Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="79eb4-198">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="3c712-197">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="3c712-197">Creating an Azure AD test user</span></span>
+<span data-ttu-id="3c712-198">Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.</span><span class="sxs-lookup"><span data-stu-id="3c712-198">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-<span data-ttu-id="79eb4-200">**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="79eb4-200">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="3c712-200">**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="3c712-200">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="79eb4-201">İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-201">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="3c712-201">Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="3c712-201">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-answerhub-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="79eb4-203">Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-203">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="3c712-203">Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="3c712-203">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-answerhub-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="79eb4-205">Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.</span><span class="sxs-lookup"><span data-stu-id="79eb4-205">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="3c712-205">tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.</span><span class="sxs-lookup"><span data-stu-id="3c712-205">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-answerhub-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="79eb4-207">Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="79eb4-207">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="3c712-207">Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="3c712-207">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-answerhub-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="79eb4-209">a.</span><span class="sxs-lookup"><span data-stu-id="79eb4-209">a.</span></span> <span data-ttu-id="79eb4-210">İçinde **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-210">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="3c712-209">a.</span><span class="sxs-lookup"><span data-stu-id="3c712-209">a.</span></span> <span data-ttu-id="3c712-210">Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="3c712-210">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="79eb4-211">b.</span><span class="sxs-lookup"><span data-stu-id="79eb4-211">b.</span></span> <span data-ttu-id="79eb4-212">İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="79eb4-212">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="3c712-211">b.</span><span class="sxs-lookup"><span data-stu-id="3c712-211">b.</span></span> <span data-ttu-id="3c712-212">Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="3c712-212">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="79eb4-213">c.</span><span class="sxs-lookup"><span data-stu-id="79eb4-213">c.</span></span> <span data-ttu-id="79eb4-214">Seçin **Göster parola** ve değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-214">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="3c712-213">c.</span><span class="sxs-lookup"><span data-stu-id="3c712-213">c.</span></span> <span data-ttu-id="3c712-214">Seçin **Göster parola** ve hello hello değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="3c712-214">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="79eb4-215">d.</span><span class="sxs-lookup"><span data-stu-id="79eb4-215">d.</span></span> <span data-ttu-id="79eb4-216">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="79eb4-216">Click **Create**.</span></span>
+    <span data-ttu-id="3c712-215">d.</span><span class="sxs-lookup"><span data-stu-id="3c712-215">d.</span></span> <span data-ttu-id="3c712-216">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="3c712-216">Click **Create**.</span></span>
  
-### <a name="creating-an-answerhub-test-user"></a><span data-ttu-id="79eb4-217">Bir AnswerHub test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="79eb4-217">Creating an AnswerHub test user</span></span>
+### <a name="creating-an-answerhub-test-user"></a><span data-ttu-id="3c712-217">Bir AnswerHub test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="3c712-217">Creating an AnswerHub test user</span></span>
 
-<span data-ttu-id="79eb4-218">Azure AD kullanıcıları için AnswerHub oturum açmak etkinleştirmek için bunların AnswerHub sağlanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="79eb4-218">To enable Azure AD users to log in to AnswerHub, they must be provisioned into AnswerHub.</span></span>  
-<span data-ttu-id="79eb4-219">AnswerHub söz konusu olduğunda, sağlama bir el ile bir görevdir.</span><span class="sxs-lookup"><span data-stu-id="79eb4-219">In the case of AnswerHub, provisioning is a manual task.</span></span>
+<span data-ttu-id="3c712-218">tooenable Azure AD kullanıcıların toolog tooAnswerHub bunların AnswerHub sağlanması gerekir.</span><span class="sxs-lookup"><span data-stu-id="3c712-218">tooenable Azure AD users toolog in tooAnswerHub, they must be provisioned into AnswerHub.</span></span>  
+<span data-ttu-id="3c712-219">AnswerHub Hello durumda sağlama bir el ile bir görevdir.</span><span class="sxs-lookup"><span data-stu-id="3c712-219">In hello case of AnswerHub, provisioning is a manual task.</span></span>
 
-<span data-ttu-id="79eb4-220">**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="79eb4-220">**To provision a user account, perform the following steps:**</span></span>
+<span data-ttu-id="3c712-220">**bir kullanıcı hesabı tooprovision hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="3c712-220">**tooprovision a user account, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="79eb4-221">Oturum, **AnswerHub** yönetici olarak şirket site.</span><span class="sxs-lookup"><span data-stu-id="79eb4-221">Log in to your **AnswerHub** company site as administrator.</span></span>
+1. <span data-ttu-id="3c712-221">İçinde tooyour oturum **AnswerHub** yönetici olarak şirket site.</span><span class="sxs-lookup"><span data-stu-id="3c712-221">Log in tooyour **AnswerHub** company site as administrator.</span></span>
 
-2. <span data-ttu-id="79eb4-222">Git **Yönetim**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-222">Go to **Administration**.</span></span>
+2. <span data-ttu-id="3c712-222">Çok Git**Yönetim**.</span><span class="sxs-lookup"><span data-stu-id="3c712-222">Go too**Administration**.</span></span>
 
-3. <span data-ttu-id="79eb4-223">Tıklatın **kullanıcıları ve grupları** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-223">Click the **Users & Groups** tab.</span></span>
+3. <span data-ttu-id="3c712-223">Merhaba tıklatın **kullanıcıları ve grupları** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="3c712-223">Click hello **Users & Groups** tab.</span></span>
 
-4. <span data-ttu-id="79eb4-224">Sol taraftaki gezinti bölmesinde de **kullanıcıları yönetme** 'yi tıklatın **oluşturma veya içeri aktarma kullanıcı**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-224">In the navigation pane on the left side, in the **Manage Users** section, click **Create or import users**.</span></span>
+4. <span data-ttu-id="3c712-224">Merhaba Gezinti bölmesindeki hello tarafı, sol hello **kullanıcıları yönetme** 'yi tıklatın **oluşturma veya içeri aktarma kullanıcı**.</span><span class="sxs-lookup"><span data-stu-id="3c712-224">In hello navigation pane on hello left side, in hello **Manage Users** section, click **Create or import users**.</span></span>
    
-   <span data-ttu-id="79eb4-225">![Kullanıcıları ve grupları](./media/active-directory-saas-answerhub-tutorial/ic785175.png "kullanıcıları ve grupları")</span><span class="sxs-lookup"><span data-stu-id="79eb4-225">![Users & Groups](./media/active-directory-saas-answerhub-tutorial/ic785175.png "Users & Groups")</span></span>
+   <span data-ttu-id="3c712-225">![Kullanıcıları ve grupları](./media/active-directory-saas-answerhub-tutorial/ic785175.png "kullanıcıları ve grupları")</span><span class="sxs-lookup"><span data-stu-id="3c712-225">![Users & Groups](./media/active-directory-saas-answerhub-tutorial/ic785175.png "Users & Groups")</span></span>
 
-5. <span data-ttu-id="79eb4-226">Tür **e-posta adresi**, **kullanıcıadı** ve **parola** ilgili metin kutularına sağlamak ve ardından istediğiniz geçerli bir Azure Active Directory hesap **kaydetmek**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-226">Type the **Email address**, **Username** and **Password** of a valid Azure Active Directory account you want to provision into the related textboxes, and then click **Save**.</span></span>
+5. <span data-ttu-id="3c712-226">Türü hello **e-posta adresi**, **kullanıcıadı** ve **parola** geçerli bir Azure hello tooprovision istediğiniz Active Directory hesabı ilgili metin kutularına ve 'ıtıklatın **Kaydet**.</span><span class="sxs-lookup"><span data-stu-id="3c712-226">Type hello **Email address**, **Username** and **Password** of a valid Azure Active Directory account you want tooprovision into hello related textboxes, and then click **Save**.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="79eb4-227">API sağlama AAD kullanıcı hesaplarına AnswerHub tarafından sağlanan veya herhangi diğer AnswerHub kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="79eb4-227">You can use any other AnswerHub user account creation tools or APIs provided by AnswerHub to provision AAD user accounts.</span></span>
+><span data-ttu-id="3c712-227">API AAD kullanıcı hesaplarının AnswerHub tooprovision tarafından sağlanan veya herhangi diğer AnswerHub kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3c712-227">You can use any other AnswerHub user account creation tools or APIs provided by AnswerHub tooprovision AAD user accounts.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="79eb4-228">Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="79eb4-228">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="3c712-228">Hello Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="3c712-228">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="79eb4-229">Bu bölümde, Britta AnswerHub için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="79eb4-229">In this section, you enable Britta Simon to use Azure single sign-on by granting access to AnswerHub.</span></span>
+<span data-ttu-id="3c712-229">Bu bölümde, erişim tooAnswerHub vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="3c712-229">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooAnswerHub.</span></span>
 
 ![Kullanıcı atama][200] 
 
-<span data-ttu-id="79eb4-231">**AnswerHub için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="79eb4-231">**To assign Britta Simon to AnswerHub, perform the following steps:**</span></span>
+<span data-ttu-id="3c712-231">**tooassign Britta Simon tooAnswerHub hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="3c712-231">**tooassign Britta Simon tooAnswerHub, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="79eb4-232">Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-232">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="3c712-232">Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="3c712-232">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Kullanıcı atama][201] 
 
-2. <span data-ttu-id="79eb4-234">Uygulamalar listesinde **AnswerHub**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-234">In the applications list, select **AnswerHub**.</span></span>
+2. <span data-ttu-id="3c712-234">Merhaba uygulamalar listesinde **AnswerHub**.</span><span class="sxs-lookup"><span data-stu-id="3c712-234">In hello applications list, select **AnswerHub**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-answerhub-tutorial/tutorial_answerhub_app.png) 
 
-3. <span data-ttu-id="79eb4-236">Soldaki menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="79eb4-236">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="3c712-236">Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="3c712-236">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Kullanıcı atama][202] 
 
-4. <span data-ttu-id="79eb4-238">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="79eb4-238">Click **Add** button.</span></span> <span data-ttu-id="79eb4-239">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="79eb4-239">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="3c712-238">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="3c712-238">Click **Add** button.</span></span> <span data-ttu-id="3c712-239">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="3c712-239">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Kullanıcı atama][203]
 
-5. <span data-ttu-id="79eb4-241">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="79eb4-241">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="3c712-241">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="3c712-241">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="79eb4-242">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="79eb4-242">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="3c712-242">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="3c712-242">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="79eb4-243">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="79eb4-243">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="3c712-243">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="3c712-243">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="79eb4-244">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="79eb4-244">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="3c712-244">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="3c712-244">Testing single sign-on</span></span>
 
-<span data-ttu-id="79eb4-245">Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="79eb4-245">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="3c712-245">Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="3c712-245">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="79eb4-246">Erişim paneli AnswerHub parçasında tıklattığınızda, otomatik olarak AnswerHub uygulamanıza açan.</span><span class="sxs-lookup"><span data-stu-id="79eb4-246">When you click the AnswerHub tile in the Access Panel, you should get automatically signed-on to your AnswerHub application.</span></span>
-<span data-ttu-id="79eb4-247">Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="79eb4-247">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
+<span data-ttu-id="3c712-246">Merhaba AnswerHub hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour AnswerHub uygulama almanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="3c712-246">When you click hello AnswerHub tile in hello Access Panel, you should get automatically signed-on tooyour AnswerHub application.</span></span>
+<span data-ttu-id="3c712-247">Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="3c712-247">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="79eb4-248">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="79eb4-248">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="3c712-248">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="3c712-248">Additional resources</span></span>
 
-* [<span data-ttu-id="79eb4-249">Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi</span><span class="sxs-lookup"><span data-stu-id="79eb4-249">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="79eb4-250">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="79eb4-250">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="3c712-249">İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları</span><span class="sxs-lookup"><span data-stu-id="3c712-249">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="3c712-250">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="3c712-250">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

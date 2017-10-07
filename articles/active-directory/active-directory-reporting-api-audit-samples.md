@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory raporlama denetim API'si örnekleri | Microsoft Docs"
-description: "Azure Active Directory raporlama API'sini kullanmaya başlama"
+title: "aaaAzure Active Directory raporlama denetim API'si örnekleri | Microsoft Docs"
+description: "Tooget hello Azure Active Directory raporlama API'si ile çalışmaya nasıl"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,32 +15,32 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6e3e127fbdc228ff0535be64fe4a4a696731a897
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6ada8a7184d7baacaba5ba9c1b9130653b1cf7fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-reporting-audit-api-samples"></a><span data-ttu-id="d8127-103">Denetim API'si örnekleri raporlama Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="d8127-103">Azure Active Directory reporting audit API samples</span></span>
-<span data-ttu-id="d8127-104">Bu konuda, Azure Active Directory hakkındaki konuları API raporlama koleksiyonu bir parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="d8127-104">This topic is part of a collection of topics about the Azure Active Directory reporting API.</span></span>  
-<span data-ttu-id="d8127-105">Azure AD raporlama kodu veya ilgili araçları kullanarak denetim veri erişmenizi sağlayan bir API ile sağlar.</span><span class="sxs-lookup"><span data-stu-id="d8127-105">Azure AD reporting provides you with an API that enables you to access audit data using code or related tools.</span></span>
-<span data-ttu-id="d8127-106">Örnek kod için ile sağlamak için bu konunun kapsamı olan **API denetim**.</span><span class="sxs-lookup"><span data-stu-id="d8127-106">The scope of this topic is to provide you with sample code for the **audit API**.</span></span>
+# <a name="azure-active-directory-reporting-audit-api-samples"></a><span data-ttu-id="0bfcc-103">Denetim API'si örnekleri raporlama Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="0bfcc-103">Azure Active Directory reporting audit API samples</span></span>
+<span data-ttu-id="0bfcc-104">Bu konu hello Azure Active Directory ilgili konulara koleksiyonu parçasıdır raporlama API'si.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-104">This topic is part of a collection of topics about hello Azure Active Directory reporting API.</span></span>  
+<span data-ttu-id="0bfcc-105">Azure AD raporlama kodu veya ilgili araçları kullanarak tooaccess denetim veri sağlayan bir API ile sağlar.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-105">Azure AD reporting provides you with an API that enables you tooaccess audit data using code or related tools.</span></span>
+<span data-ttu-id="0bfcc-106">Merhaba bu konunun kapsamı olan, örnek kod Merhaba tooprovide **API denetim**.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-106">hello scope of this topic is tooprovide you with sample code for hello **audit API**.</span></span>
 
-<span data-ttu-id="d8127-107">Bkz.:</span><span class="sxs-lookup"><span data-stu-id="d8127-107">See:</span></span>
+<span data-ttu-id="0bfcc-107">Bkz.:</span><span class="sxs-lookup"><span data-stu-id="0bfcc-107">See:</span></span>
 
-* <span data-ttu-id="d8127-108">[Denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için</span><span class="sxs-lookup"><span data-stu-id="d8127-108">[Audit logs](active-directory-reporting-azure-portal.md#activity-reports) for more conceptual information</span></span>
-* <span data-ttu-id="d8127-109">[Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) raporlama API'si hakkında daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="d8127-109">[Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about the reporting API.</span></span>
+* <span data-ttu-id="0bfcc-108">[Denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için</span><span class="sxs-lookup"><span data-stu-id="0bfcc-108">[Audit logs](active-directory-reporting-azure-portal.md#activity-reports) for more conceptual information</span></span>
+* <span data-ttu-id="0bfcc-109">[Hello Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) hello raporlama API'si hakkında daha fazla bilgi.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-109">[Getting started with hello Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) for more information about hello reporting API.</span></span>
 
-<span data-ttu-id="d8127-110">Sorularınız, sorunları veya Geri bildiriminiz için lütfen başvurun [raporlama AAD Yardım](mailto:aadreportinghelp@microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="d8127-110">For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).</span></span>
+<span data-ttu-id="0bfcc-110">Sorularınız, sorunları veya Geri bildiriminiz için lütfen başvurun [raporlama AAD Yardım](mailto:aadreportinghelp@microsoft.com).</span><span class="sxs-lookup"><span data-stu-id="0bfcc-110">For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).</span></span>
 
 
-## <a name="prerequisites"></a><span data-ttu-id="d8127-111">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="d8127-111">Prerequisites</span></span>
-<span data-ttu-id="d8127-112">Bu konudaki örnekler kullanmadan önce tamamlanması gereken [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md).</span><span class="sxs-lookup"><span data-stu-id="d8127-112">Before you can use the samples in this topic, you need to complete the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md).</span></span>  
+## <a name="prerequisites"></a><span data-ttu-id="0bfcc-111">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="0bfcc-111">Prerequisites</span></span>
+<span data-ttu-id="0bfcc-112">Bu konudaki hello örnekleri kullanabilmeniz için önce toocomplete hello gerekir [Önkoşullar tooaccess hello Azure AD raporlama API'si](active-directory-reporting-api-prerequisites.md).</span><span class="sxs-lookup"><span data-stu-id="0bfcc-112">Before you can use hello samples in this topic, you need toocomplete hello [prerequisites tooaccess hello Azure AD reporting API](active-directory-reporting-api-prerequisites.md).</span></span>  
 
-## <a name="known-issue"></a><span data-ttu-id="d8127-113">Bilinen bir sorun</span><span class="sxs-lookup"><span data-stu-id="d8127-113">Known issue</span></span>
-<span data-ttu-id="d8127-114">AB bölgede Kiracı ise, uygulama kimlik doğrulama çalışmaz.</span><span class="sxs-lookup"><span data-stu-id="d8127-114">App Auth will not work if your tenant is in the EU region.</span></span> <span data-ttu-id="d8127-115">Lütfen biz sorunu düzeltin kadar denetim API'si geçici bir çözüm olarak erişmek için kullanıcı kimlik doğrulama kullanın.</span><span class="sxs-lookup"><span data-stu-id="d8127-115">Please use User Auth for accessing the Audit API as a workaround until we fix the issue.</span></span> 
+## <a name="known-issue"></a><span data-ttu-id="0bfcc-113">Bilinen bir sorun</span><span class="sxs-lookup"><span data-stu-id="0bfcc-113">Known issue</span></span>
+<span data-ttu-id="0bfcc-114">Kiracı hello AB bölgede ise uygulama kimlik doğrulama çalışmaz.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-114">App Auth will not work if your tenant is in hello EU region.</span></span> <span data-ttu-id="0bfcc-115">Lütfen biz hello sorunu düzeltin kadar hello denetim API'si geçici bir çözüm olarak erişmek için kullanıcı kimlik doğrulama kullanın.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-115">Please use User Auth for accessing hello Audit API as a workaround until we fix hello issue.</span></span> 
 
-## <a name="powershell-script"></a><span data-ttu-id="d8127-116">PowerShell betiği</span><span class="sxs-lookup"><span data-stu-id="d8127-116">PowerShell script</span></span>
+## <a name="powershell-script"></a><span data-ttu-id="0bfcc-116">PowerShell betiği</span><span class="sxs-lookup"><span data-stu-id="0bfcc-116">PowerShell script</span></span>
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
     # Constants
@@ -49,14 +49,14 @@ ms.lasthandoff: 08/18/2017
     $loginURL       = "https://login.microsoftonline.com"     # AAD Instance; for example https://login.microsoftonline.com
     $tenantdomain   = "your-tenant-domain.onmicrosoft.com"    # AAD Tenant; for example, contoso.onmicrosoft.com
     $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
-    $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
+    $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' toodecrement minutes, for example
     Write-Output "Searching for events starting $7daysago"
 
     # Create HTTP header, get an OAuth2 access token based on client id, secret and tenant domain
     $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
     $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
-    # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
+    # Parse audit report items, save output toofile(s): auditX.json, where X = 0 thru n for number of nextLink pages
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
@@ -64,15 +64,15 @@ ms.lasthandoff: 08/18/2017
 
         # loop through each query page (1 through n)
         Do{
-            # display each event on the console window
+            # display each event on hello console window
             Write-Output "Fetching data using Uri: $url"
             $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
             foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
                 Write-Output ($event | ConvertTo-Json)
             }
 
-            # save the query page to an output file
-            Write-Output "Save the output to a file audit$i.json"
+            # save hello query page tooan output file
+            Write-Output "Save hello output tooa file audit$i.json"
             $myReport.Content | Out-File -FilePath audit$i.json -Force
             $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
             $i = $i+1
@@ -81,16 +81,16 @@ ms.lasthandoff: 08/18/2017
         Write-Host "ERROR: No Access Token"
         }
 
-    Write-Host "Press any key to continue ..."
+    Write-Host "Press any key toocontinue ..."
     $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 
-### <a name="executing-the-powershell-script"></a><span data-ttu-id="d8127-117">PowerShell komut dosyası yürütme</span><span class="sxs-lookup"><span data-stu-id="d8127-117">Executing the PowerShell script</span></span>
-<span data-ttu-id="d8127-118">Komut dosyası düzenlemeyi tamamladıktan sonra çalıştırın ve denetim beklenen verilerden rapor günlüklerini doğrulayın döndürülür.</span><span class="sxs-lookup"><span data-stu-id="d8127-118">Once you finish editing the script, run it and verify that the expected data from the Audit logs report is returned.</span></span>
+### <a name="executing-hello-powershell-script"></a><span data-ttu-id="0bfcc-117">Merhaba PowerShell betiğini yürütme</span><span class="sxs-lookup"><span data-stu-id="0bfcc-117">Executing hello PowerShell script</span></span>
+<span data-ttu-id="0bfcc-118">Sonra hello betik düzenlenmesini tamamlamayı, çalıştırın ve bu hello hello denetim günlüklerini rapor verileri döndürülen beklenen doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-118">Once you finish editing hello script, run it and verify that hello expected data from hello Audit logs report is returned.</span></span>
 
-<span data-ttu-id="d8127-119">Komut çıkış denetimi raporu JSON biçiminde döndürür.</span><span class="sxs-lookup"><span data-stu-id="d8127-119">The script returns output from the audit report in JSON format.</span></span> <span data-ttu-id="d8127-120">Ayrıca oluşturur bir `audit.json` aynı çıkış dosyası.</span><span class="sxs-lookup"><span data-stu-id="d8127-120">It also creates an `audit.json` file with the same output.</span></span> <span data-ttu-id="d8127-121">Veri diğer raporlar ve yorum ihtiyacınız olmayan çıkış biçimleri çıkışı döndürmek için komut dosyasını değiştirerek deneyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d8127-121">You can experiment by modifying the script to return data from other reports, and comment out the output formats that you do not need.</span></span>
+<span data-ttu-id="0bfcc-119">Merhaba betik çıktıyı JSON biçiminde hello denetim raporundan döndürür.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-119">hello script returns output from hello audit report in JSON format.</span></span> <span data-ttu-id="0bfcc-120">Ayrıca oluşturur bir `audit.json` hello ile aynı dosyayı çıktı.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-120">It also creates an `audit.json` file with hello same output.</span></span> <span data-ttu-id="0bfcc-121">Diğer raporlar ve yorum ihtiyacınız olmayan hello Çıkış biçimleri çıkışı hello betik tooreturn veriler değiştirerek deneyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="0bfcc-121">You can experiment by modifying hello script tooreturn data from other reports, and comment out hello output formats that you do not need.</span></span>
 
-## <a name="bash-script"></a><span data-ttu-id="d8127-122">Bash komut dosyası</span><span class="sxs-lookup"><span data-stu-id="d8127-122">Bash script</span></span>
+## <a name="bash-script"></a><span data-ttu-id="0bfcc-122">Bash komut dosyası</span><span class="sxs-lookup"><span data-stu-id="0bfcc-122">Bash script</span></span>
     #!/bin/bash
 
     # Author: Ken Hoff (kenhoff@microsoft.com)
@@ -118,10 +118,10 @@ ms.lasthandoff: 08/18/2017
 
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
-## <a name="python-script"></a><span data-ttu-id="d8127-123">Python komut dosyası</span><span class="sxs-lookup"><span data-stu-id="d8127-123">Python script</span></span>
+## <a name="python-script"></a><span data-ttu-id="0bfcc-123">Python komut dosyası</span><span class="sxs-lookup"><span data-stu-id="0bfcc-123">Python script</span></span>
     # Author: Michael McLaughlin (michmcla@microsoft.com)
     # Date: January 20, 2016
-    # This requires the Python Requests module: http://docs.python-requests.org
+    # This requires hello Python Requests module: http://docs.python-requests.org
 
     import requests
     import datetime
@@ -147,7 +147,7 @@ ms.lasthandoff: 08/18/2017
         print "ERROR: Couldn't get access token"
         sys.exit(1)
 
-    # Use the access token to make the API request
+    # Use hello access token toomake hello API request
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
@@ -163,8 +163,8 @@ ms.lasthandoff: 08/18/2017
 
 
 
-## <a name="next-steps"></a><span data-ttu-id="d8127-124">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d8127-124">Next steps</span></span>
-* <span data-ttu-id="d8127-125">Bu konudaki örnekler özelleştirme ister misiniz?</span><span class="sxs-lookup"><span data-stu-id="d8127-125">Would you like to customize the samples in this topic?</span></span> <span data-ttu-id="d8127-126">Kullanıma [Azure Active Directory denetim API Başvurusu](active-directory-reporting-api-audit-reference.md).</span><span class="sxs-lookup"><span data-stu-id="d8127-126">Check out the [Azure Active Directory audit API reference](active-directory-reporting-api-audit-reference.md).</span></span> 
-* <span data-ttu-id="d8127-127">Azure Active Directory'ı Raporlama API'si kullanan bir tam genel bakış görmek istiyorsanız bkz [Azure Active raporlama API'si Directory ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).</span><span class="sxs-lookup"><span data-stu-id="d8127-127">If you want to see a complete overview of using the Azure Active Directory reporting API, see [Getting started with the Azure Active Directory reporting API](active-directory-reporting-api-getting-started.md).</span></span>
-* <span data-ttu-id="d8127-128">Azure Active Directory raporlama hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).</span><span class="sxs-lookup"><span data-stu-id="d8127-128">If you would like to find out more about Azure Active Directory reporting, see the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).</span></span>  
+## <a name="next-steps"></a><span data-ttu-id="0bfcc-124">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="0bfcc-124">Next steps</span></span>
+* <span data-ttu-id="0bfcc-125">Bu konudaki toocustomize hello örnekleri ister misiniz?</span><span class="sxs-lookup"><span data-stu-id="0bfcc-125">Would you like toocustomize hello samples in this topic?</span></span> <span data-ttu-id="0bfcc-126">Merhaba denetleyin [Azure Active Directory denetim API Başvurusu](active-directory-reporting-api-audit-reference.md).</span><span class="sxs-lookup"><span data-stu-id="0bfcc-126">Check out hello [Azure Active Directory audit API reference](active-directory-reporting-api-audit-reference.md).</span></span> 
+* <span data-ttu-id="0bfcc-127">Toosee kullanmanın eksiksiz bir genel görünüm istiyorsanız, Azure Active Directory raporlama API'si Merhaba, bkz: [hello Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).</span><span class="sxs-lookup"><span data-stu-id="0bfcc-127">If you want toosee a complete overview of using hello Azure Active Directory reporting API, see [Getting started with hello Azure Active Directory reporting API](active-directory-reporting-api-getting-started.md).</span></span>
+* <span data-ttu-id="0bfcc-128">Merhaba toofind Azure Active Directory raporlama hakkında daha fazla bilgi isterseniz bkz [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).</span><span class="sxs-lookup"><span data-stu-id="0bfcc-128">If you would like toofind out more about Azure Active Directory reporting, see hello [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).</span></span>  
 

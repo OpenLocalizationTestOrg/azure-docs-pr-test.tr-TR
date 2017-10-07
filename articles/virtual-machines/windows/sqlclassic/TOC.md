@@ -4,21 +4,21 @@
 ## [SSS](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Kullanmaya Başlama
-## [Azure Portal’da bir VM sağlama](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+## [VM hello Azure Portal ile sağlama](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Azure PowerShell kullanarak bir VM sağlama](virtual-machines-windows-classic-ps-sql-create.md)
-## [Bir VM’ye bağlanma](virtual-machines-windows-classic-sql-connect.md)
+## [Tooa VM Bağlan](virtual-machines-windows-classic-sql-connect.md)
 ## [SQL Server veritabanını geçirme](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Nasıl yapılır?
 ## Yüksek Kullanılabilirliği Yapılandırma
 ### [Yüksek kullanılabilirlik seçenekleri](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Klasik portalda Always On kullanılabilirlik grubu yapılandırma](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Always On kullanılabilirlik grubu hello Klasik portalında yapılandırın](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [PowerShell ile Always On kullanılabilirlik grubu yapılandırma](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Kullanılabilirlik grubu için iç dinleyici yapılandırma](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Kullanılabilirlik grubu için dış dinleyici yapılandırma](virtual-machines-windows-classic-ps-sql-ext-listener.md)
-### [Şirket içi kullanılabilirlik grubunu Azure'a genişletme](virtual-machines-windows-classic-sql-onprem-availability.md)
+### [Şirket içi kullanılabilirlik grubu tooAzure genişletme](virtual-machines-windows-classic-sql-onprem-availability.md)
 ## Yönet
-### [SQL Server IaaS Aracısı Uzantısını kullanma](virtual-machines-windows-classic-sql-server-agent-extension.md)
+### [SQL Server Iaas Aracısı uzantısı Hello kullanın](virtual-machines-windows-classic-sql-server-agent-extension.md)
 ### [Otomatik Düzeltme Eki Uygulama](virtual-machines-windows-classic-sql-automated-patching.md)
 ### [Azure Anahtar Kasası Tümleştirme Yapılandırması](virtual-machines-windows-classic-ps-sql-keyvault.md)
 ### [Premium Depolamayı kullanma](virtual-machines-windows-classic-sql-server-premium-storage.md)
@@ -30,7 +30,7 @@
 ## İş Zekası
 ### [Azure Sanal Makineler’de SQL Server İş Zekası](virtual-machines-windows-classic-ps-sql-bi.md)
 ### [Azure'da barındırılan bir web sitesinde ReportViewer kullanma](virtual-machines-windows-classic-sql-server-reportviewer.md)
-### [Rapor Sunucusu ile Azure VM oluşturmak için PowerShell kullanma](virtual-machines-windows-classic-ps-sql-report.md)
+### [Rapor sunucusu ile bir Azure VM PowerShell toocreate kullanın](virtual-machines-windows-classic-ps-sql-report.md)
 ## [Performans için en iyi uygulamalar](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Uygulama desenleri](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 

@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme Sigortası ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Sigortası arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Sigortası arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,206 +14,206 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a91e22faced9e126043bebefd85c307dbdf933d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 720ed8af0b5de1e3bee5a40353ca0ee661766864
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fuse"></a><span data-ttu-id="35da3-103">Öğretici: Azure Active Directory Tümleştirme Sigortası ile</span><span class="sxs-lookup"><span data-stu-id="35da3-103">Tutorial: Azure Active Directory integration with Fuse</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-fuse"></a><span data-ttu-id="e001d-103">Öğretici: Azure Active Directory Tümleştirme Sigortası ile</span><span class="sxs-lookup"><span data-stu-id="e001d-103">Tutorial: Azure Active Directory integration with Fuse</span></span>
 
-<span data-ttu-id="35da3-104">Bu öğreticide, Azure Active Directory (Azure AD) ile Sigortası tümleştirmek öğrenin.</span><span class="sxs-lookup"><span data-stu-id="35da3-104">In this tutorial, you learn how to integrate Fuse with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="e001d-104">Bu öğreticide, bilgi nasıl toointegrate Sigortası Azure Active Directory (Azure AD) ile.</span><span class="sxs-lookup"><span data-stu-id="e001d-104">In this tutorial, you learn how toointegrate Fuse with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="35da3-105">Sigortası Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="35da3-105">Integrating Fuse with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="e001d-105">Sigortası Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="e001d-105">Integrating Fuse with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="35da3-106">Sigortası erişimi, Azure AD'de kontrol edebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="35da3-106">You can control in Azure AD who has access to Fuse.</span></span>
-- <span data-ttu-id="35da3-107">Otomatik olarak için Sigortası (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="35da3-107">You can enable your users to automatically get signed-on to Fuse (Single Sign-On) with their Azure AD accounts.</span></span>
-- <span data-ttu-id="35da3-108">Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.</span><span class="sxs-lookup"><span data-stu-id="35da3-108">You can manage your accounts in one central location - the Azure portal.</span></span>
+- <span data-ttu-id="e001d-106">Erişim tooFuse sahip Azure AD'de kontrol edebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="e001d-106">You can control in Azure AD who has access tooFuse.</span></span>
+- <span data-ttu-id="e001d-107">Kullanıcıların tooautomatically get açan tooFuse (çoklu oturum açma) Azure AD hesaplarına ile etkinleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="e001d-107">You can enable your users tooautomatically get signed-on tooFuse (Single Sign-On) with their Azure AD accounts.</span></span>
+- <span data-ttu-id="e001d-108">Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir.</span><span class="sxs-lookup"><span data-stu-id="e001d-108">You can manage your accounts in one central location - hello Azure portal.</span></span>
 
-<span data-ttu-id="35da3-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="35da3-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="e001d-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="e001d-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="35da3-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="35da3-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="e001d-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="e001d-110">Prerequisites</span></span>
 
-<span data-ttu-id="35da3-111">Azure AD tümleştirme Sigortası ile yapılandırmak için aşağıdaki öğeleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="35da3-111">To configure Azure AD integration with Fuse, you need the following items:</span></span>
+<span data-ttu-id="e001d-111">tooconfigure Azure AD tümleştirme Sigortası ile aşağıdaki öğelerindeki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="e001d-111">tooconfigure Azure AD integration with Fuse, you need hello following items:</span></span>
 
-- <span data-ttu-id="35da3-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="35da3-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="35da3-113">Bir Sigortası çoklu oturum açma abonelik etkin</span><span class="sxs-lookup"><span data-stu-id="35da3-113">A Fuse single sign-on enabled subscription</span></span>
+- <span data-ttu-id="e001d-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="e001d-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="e001d-113">Bir Sigortası çoklu oturum açma abonelik etkin</span><span class="sxs-lookup"><span data-stu-id="e001d-113">A Fuse single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="35da3-114">Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="35da3-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="e001d-114">tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="e001d-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="35da3-115">Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="35da3-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="e001d-115">Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:</span><span class="sxs-lookup"><span data-stu-id="e001d-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="35da3-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="35da3-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="35da3-117">Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="35da3-117">If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="e001d-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="e001d-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="e001d-117">Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="e001d-117">If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="35da3-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="35da3-118">Scenario description</span></span>
-<span data-ttu-id="35da3-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="35da3-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="35da3-120">Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="35da3-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="e001d-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="e001d-118">Scenario description</span></span>
+<span data-ttu-id="e001d-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="e001d-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="e001d-120">Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="e001d-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="35da3-121">Galeriden Sigortası ekleme</span><span class="sxs-lookup"><span data-stu-id="35da3-121">Add Fuse from the gallery</span></span>
-2. <span data-ttu-id="35da3-122">Yapılandırma ve Azure AD çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="35da3-122">Configure and test Azure AD single sign-on</span></span>
+1. <span data-ttu-id="e001d-121">Merhaba Galerisi'nden Sigortası ekleme</span><span class="sxs-lookup"><span data-stu-id="e001d-121">Add Fuse from hello gallery</span></span>
+2. <span data-ttu-id="e001d-122">Yapılandırma ve Azure AD çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="e001d-122">Configure and test Azure AD single sign-on</span></span>
 
-## <a name="add-fuse-from-the-gallery"></a><span data-ttu-id="35da3-123">Galeriden Sigortası ekleme</span><span class="sxs-lookup"><span data-stu-id="35da3-123">Add Fuse from the gallery</span></span>
-<span data-ttu-id="35da3-124">Azure AD Sigortası tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Sigortası eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="35da3-124">To configure the integration of Fuse into Azure AD, you need to add Fuse from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="add-fuse-from-hello-gallery"></a><span data-ttu-id="e001d-123">Merhaba Galerisi'nden Sigortası ekleme</span><span class="sxs-lookup"><span data-stu-id="e001d-123">Add Fuse from hello gallery</span></span>
+<span data-ttu-id="e001d-124">Azure AD'ye tooconfigure hello tümleştirme sigortası, tooadd Sigortası hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.</span><span class="sxs-lookup"><span data-stu-id="e001d-124">tooconfigure hello integration of Fuse into Azure AD, you need tooadd Fuse from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="35da3-125">**Galeriden Sigortası eklemek için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="35da3-125">**To add Fuse from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="e001d-125">**tooadd hello galerisinden Sigortası hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="e001d-125">**tooadd Fuse from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="35da3-126">İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="35da3-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="e001d-126">Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="e001d-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
-    ![Azure Active Directory düğmesi][1]
+    ![Hello Azure Active Directory düğmesi][1]
 
-2. <span data-ttu-id="35da3-128">Gidin **kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="35da3-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="35da3-129">Ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="35da3-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="e001d-128">Çok gidin**kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="e001d-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="e001d-129">Çok Git**tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="e001d-129">Then go too**All applications**.</span></span>
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Merhaba kurumsal uygulamalar dikey penceresi][2]
     
-3. <span data-ttu-id="35da3-131">Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.</span><span class="sxs-lookup"><span data-stu-id="35da3-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="e001d-131">tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.</span><span class="sxs-lookup"><span data-stu-id="e001d-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Merhaba yeni uygulama düğmesi][3]
 
-4. <span data-ttu-id="35da3-133">Arama kutusuna **Sigortası**seçin **Sigortası** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.</span><span class="sxs-lookup"><span data-stu-id="35da3-133">In the search box, type **Fuse**, select **Fuse** from result panel then click **Add** button to add the application.</span></span>
+4. <span data-ttu-id="e001d-133">Merhaba arama kutusuna yazın **Sigortası**seçin **Sigortası** sonuç panelinden ardından **Ekle** düğmesini tooadd Merhaba uygulaması.</span><span class="sxs-lookup"><span data-stu-id="e001d-133">In hello search box, type **Fuse**, select **Fuse** from result panel then click **Add** button tooadd hello application.</span></span>
 
-    ![Sonuçlar listesinde Sigortası](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_addfromgallery.png)
+    ![Merhaba sonuçlar listesinde Sigortası](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a><span data-ttu-id="35da3-135">Yapılandırma ve Azure AD çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="35da3-135">Configure and test Azure AD single sign-on</span></span>
+## <a name="configure-and-test-azure-ad-single-sign-on"></a><span data-ttu-id="e001d-135">Yapılandırma ve Azure AD çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="e001d-135">Configure and test Azure AD single sign-on</span></span>
 
-<span data-ttu-id="35da3-136">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Sigortası sınayın.</span><span class="sxs-lookup"><span data-stu-id="35da3-136">In this section, you configure and test Azure AD single sign-on with Fuse based on a test user called "Britta Simon".</span></span>
+<span data-ttu-id="e001d-136">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Sigortası sınayın.</span><span class="sxs-lookup"><span data-stu-id="e001d-136">In this section, you configure and test Azure AD single sign-on with Fuse based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="35da3-137">Tekli çalışmaya oturum için Azure AD Sigortası karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister.</span><span class="sxs-lookup"><span data-stu-id="35da3-137">For single sign-on to work, Azure AD needs to know what the counterpart user in Fuse is to a user in Azure AD.</span></span> <span data-ttu-id="35da3-138">Diğer bir deyişle, bir Azure AD kullanıcısının Sigortası ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.</span><span class="sxs-lookup"><span data-stu-id="35da3-138">In other words, a link relationship between an Azure AD user and the related user in Fuse needs to be established.</span></span>
+<span data-ttu-id="e001d-137">Tek toowork'ın oturum açma hangi hello karşılık gelen Sigortası içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir.</span><span class="sxs-lookup"><span data-stu-id="e001d-137">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Fuse is tooa user in Azure AD.</span></span> <span data-ttu-id="e001d-138">Diğer bir deyişle, bir bağlantı bir Azure AD kullanıcı ve kullanıcı arasındaki ilişki hello ilgili kurulan Sigortası gereksinimlerini toobe içinde.</span><span class="sxs-lookup"><span data-stu-id="e001d-138">In other words, a link relationship between an Azure AD user and hello related user in Fuse needs toobe established.</span></span>
 
-<span data-ttu-id="35da3-139">Değeri Sigortası içinde atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="35da3-139">In Fuse, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="e001d-139">Merhaba hello değeri Sigortası içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.</span><span class="sxs-lookup"><span data-stu-id="e001d-139">In Fuse, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="35da3-140">Yapılandırma ve Azure AD çoklu oturum açma Sigortası ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="35da3-140">To configure and test Azure AD single sign-on with Fuse, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="e001d-140">tooconfigure ve Sigortası ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="e001d-140">tooconfigure and test Azure AD single sign-on with Fuse, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="35da3-141">**[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="35da3-141">**[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="35da3-142">**[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.</span><span class="sxs-lookup"><span data-stu-id="35da3-142">**[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="35da3-143">**[Sigortası test kullanıcısı oluşturma](#create-a-fuse-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Sigortası sağlamak için.</span><span class="sxs-lookup"><span data-stu-id="35da3-143">**[Create a Fuse test user](#create-a-fuse-test-user)** - to have a counterpart of Britta Simon in Fuse that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="35da3-144">**[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="35da3-144">**[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="35da3-145">**[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="35da3-145">**[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="e001d-141">**[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.</span><span class="sxs-lookup"><span data-stu-id="e001d-141">**[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="e001d-142">**[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.</span><span class="sxs-lookup"><span data-stu-id="e001d-142">**[Create an Azure AD test user](#create-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="e001d-143">**[Sigortası test kullanıcısı oluşturma](#create-a-fuse-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Sigortası içinde karşılık gelen.</span><span class="sxs-lookup"><span data-stu-id="e001d-143">**[Create a Fuse test user](#create-a-fuse-test-user)** - toohave a counterpart of Britta Simon in Fuse that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="e001d-144">**[Hello Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="e001d-144">**[Assign hello Azure AD test user](#assign-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="e001d-145">**[Test çoklu oturum açma](#test-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.</span><span class="sxs-lookup"><span data-stu-id="e001d-145">**[Test single sign-on](#test-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configure-azure-ad-single-sign-on"></a><span data-ttu-id="35da3-146">Azure AD çoklu oturum açmayı yapılandırın</span><span class="sxs-lookup"><span data-stu-id="35da3-146">Configure Azure AD single sign-on</span></span>
+### <a name="configure-azure-ad-single-sign-on"></a><span data-ttu-id="e001d-146">Azure AD çoklu oturum açmayı yapılandırın</span><span class="sxs-lookup"><span data-stu-id="e001d-146">Configure Azure AD single sign-on</span></span>
 
-<span data-ttu-id="35da3-147">Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Sigortası uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="35da3-147">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Fuse application.</span></span>
+<span data-ttu-id="e001d-147">Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Sigortası uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="e001d-147">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Fuse application.</span></span>
 
-<span data-ttu-id="35da3-148">**Azure AD çoklu oturum açma ile Sigortası yapılandırmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="35da3-148">**To configure Azure AD single sign-on with Fuse, perform the following steps:**</span></span>
+<span data-ttu-id="e001d-148">**Azure AD çoklu oturum açma tooconfigure Sigortası ile Merhaba aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="e001d-148">**tooconfigure Azure AD single sign-on with Fuse, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="35da3-149">Azure portalında üzerinde **Sigortası** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="35da3-149">In the Azure portal, on the **Fuse** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="e001d-149">Merhaba hello üzerinde Azure portal'ın **Sigortası** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="e001d-149">In hello Azure portal, on hello **Fuse** application integration page, click **Single sign-on**.</span></span>
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. <span data-ttu-id="35da3-151">Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="35da3-151">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="e001d-151">Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="e001d-151">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_samlbase.png)
 
-3. <span data-ttu-id="35da3-153">Üzerinde **Sigortası etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="35da3-153">On the **Fuse Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="e001d-153">Merhaba üzerinde **Sigortası etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="e001d-153">On hello **Fuse Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Etki alanı ve URL'leri tek oturum açma bilgilerini Sigortası](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_url.png)
     
-    <span data-ttu-id="35da3-155">İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<tenant name>.fusion-universal.com/`</span><span class="sxs-lookup"><span data-stu-id="35da3-155">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant name>.fusion-universal.com/`</span></span>
+    <span data-ttu-id="e001d-155">Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<tenant name>.fusion-universal.com/`</span><span class="sxs-lookup"><span data-stu-id="e001d-155">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<tenant name>.fusion-universal.com/`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="35da3-156">Bu değer gerçek değil.</span><span class="sxs-lookup"><span data-stu-id="35da3-156">This value is not real.</span></span> <span data-ttu-id="35da3-157">Bu değer gerçek oturum açma URL'si ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="35da3-157">Update this value with the actual Sign-On URL.</span></span> <span data-ttu-id="35da3-158">Kişi [Sigortası istemci destek ekibi](mailto:support@fusion-universal.com) bu değeri alınamıyor.</span><span class="sxs-lookup"><span data-stu-id="35da3-158">Contact [Fuse Client support team](mailto:support@fusion-universal.com) to get this value.</span></span> 
+    > <span data-ttu-id="e001d-156">Bu değer gerçek değil.</span><span class="sxs-lookup"><span data-stu-id="e001d-156">This value is not real.</span></span> <span data-ttu-id="e001d-157">Bu değer ile Merhaba güncelleştirme gerçek oturum açma URL'si.</span><span class="sxs-lookup"><span data-stu-id="e001d-157">Update this value with hello actual Sign-On URL.</span></span> <span data-ttu-id="e001d-158">Kişi [Sigortası istemci destek ekibi](mailto:support@fusion-universal.com) tooget bu değer.</span><span class="sxs-lookup"><span data-stu-id="e001d-158">Contact [Fuse Client support team](mailto:support@fusion-universal.com) tooget this value.</span></span> 
  
-4. <span data-ttu-id="35da3-159">Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (ham)** ve sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="35da3-159">On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.</span></span>
+4. <span data-ttu-id="e001d-159">Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (ham)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="e001d-159">On hello **SAML Signing Certificate** section, click **Certificate (Raw)** and then save hello certificate file on your computer.</span></span>
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_certificate.png) 
+    ![Merhaba sertifika indirme bağlantısı](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_certificate.png) 
 
-5. <span data-ttu-id="35da3-161">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="35da3-161">Click **Save** button.</span></span>
+5. <span data-ttu-id="e001d-161">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="e001d-161">Click **Save** button.</span></span>
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-fuse-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="35da3-163">Üzerinde **Sigortası yapılandırma** 'yi tıklatın **yapılandırma Sigortası** açmak için **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="35da3-163">On the **Fuse Configuration** section, click **Configure Fuse** to open **Configure sign-on** window.</span></span> <span data-ttu-id="35da3-164">Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="35da3-164">Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="e001d-163">Merhaba üzerinde **Sigortası yapılandırma** 'yi tıklatın **yapılandırma Sigortası** tooopen **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="e001d-163">On hello **Fuse Configuration** section, click **Configure Fuse** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="e001d-164">Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="e001d-164">Copy hello **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Sigortası yapılandırma](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_configure.png) 
 
-7. <span data-ttu-id="35da3-166">Uygulamanız için yapılandırılmış SSO almak için başvurun [Sigortası destek ekibi](mailto:support@fusion-universal.com) ve ile aşağıdakileri sağlar:</span><span class="sxs-lookup"><span data-stu-id="35da3-166">To get SSO configured for your application, contact [Fuse support team](mailto:support@fusion-universal.com) and provide them with the following:</span></span>
+7. <span data-ttu-id="e001d-166">tooget SSO yapılandırılmış uygulamanızın, kişi [Sigortası destek ekibi](mailto:support@fusion-universal.com) ve ile Merhaba aşağıdakileri sağlar:</span><span class="sxs-lookup"><span data-stu-id="e001d-166">tooget SSO configured for your application, contact [Fuse support team](mailto:support@fusion-universal.com) and provide them with hello following:</span></span>
 
-    * <span data-ttu-id="35da3-167">İndirilen **(ham) sertifika dosyası**</span><span class="sxs-lookup"><span data-stu-id="35da3-167">The downloaded **Certificate (Raw) file**</span></span>
-    * <span data-ttu-id="35da3-168">**SAML çoklu oturum açma hizmeti URL'si**</span><span class="sxs-lookup"><span data-stu-id="35da3-168">The **SAML Single Sign-On Service URL**</span></span>
-    * <span data-ttu-id="35da3-169">**SAML varlık kimliği**</span><span class="sxs-lookup"><span data-stu-id="35da3-169">The **SAML Entity ID**</span></span>
-    * <span data-ttu-id="35da3-170">**Oturum kapatma URL'si**</span><span class="sxs-lookup"><span data-stu-id="35da3-170">The **Sign-Out URL**</span></span>
+    * <span data-ttu-id="e001d-167">indirilen hello **(ham) sertifika dosyası**</span><span class="sxs-lookup"><span data-stu-id="e001d-167">hello downloaded **Certificate (Raw) file**</span></span>
+    * <span data-ttu-id="e001d-168">Merhaba **SAML çoklu oturum açma hizmet URL'si**</span><span class="sxs-lookup"><span data-stu-id="e001d-168">hello **SAML Single Sign-On Service URL**</span></span>
+    * <span data-ttu-id="e001d-169">Merhaba **SAML varlık kimliği**</span><span class="sxs-lookup"><span data-stu-id="e001d-169">hello **SAML Entity ID**</span></span>
+    * <span data-ttu-id="e001d-170">Merhaba **Sign-Out URL'si**</span><span class="sxs-lookup"><span data-stu-id="e001d-170">hello **Sign-Out URL**</span></span>
 
 > [!TIP]
-> <span data-ttu-id="35da3-171">Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="35da3-171">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="35da3-172">Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm.</span><span class="sxs-lookup"><span data-stu-id="35da3-172">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="35da3-173">Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="35da3-173">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="e001d-171">Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="e001d-171">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="e001d-172">Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına.</span><span class="sxs-lookup"><span data-stu-id="e001d-172">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="e001d-173">Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="e001d-173">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="35da3-174">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="35da3-174">Create an Azure AD test user</span></span>
+### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="e001d-174">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="e001d-174">Create an Azure AD test user</span></span>
 
-<span data-ttu-id="35da3-175">Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="35da3-175">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+<span data-ttu-id="e001d-175">Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.</span><span class="sxs-lookup"><span data-stu-id="e001d-175">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-<span data-ttu-id="35da3-177">**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="35da3-177">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="e001d-177">**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="e001d-177">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="35da3-178">Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="35da3-178">In the Azure portal, in the left pane, click the **Azure Active Directory** button.</span></span>
+1. <span data-ttu-id="e001d-178">Merhaba hello sol bölmede Azure portal hello tıklatın **Azure Active Directory** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="e001d-178">In hello Azure portal, in hello left pane, click hello **Azure Active Directory** button.</span></span>
 
-    ![Azure Active Directory düğmesi](./media/active-directory-saas-fuse-tutorial/create_aaduser_01.png)
+    ![Hello Azure Active Directory düğmesi](./media/active-directory-saas-fuse-tutorial/create_aaduser_01.png)
 
-2. <span data-ttu-id="35da3-180">Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="35da3-180">To display the list of users, go to **Users and groups**, and then click **All users**.</span></span>
+2. <span data-ttu-id="e001d-180">Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="e001d-180">toodisplay hello list of users, go too**Users and groups**, and then click **All users**.</span></span>
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-fuse-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" Merhaba "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-fuse-tutorial/create_aaduser_02.png)
 
-3. <span data-ttu-id="35da3-182">Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.</span><span class="sxs-lookup"><span data-stu-id="35da3-182">To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.</span></span>
+3. <span data-ttu-id="e001d-182">tooopen hello **kullanıcı** iletişim kutusu, tıklatın **Ekle** hello hello üstündeki **tüm kullanıcılar** iletişim kutusu.</span><span class="sxs-lookup"><span data-stu-id="e001d-182">tooopen hello **User** dialog box, click **Add** at hello top of hello **All Users** dialog box.</span></span>
 
-    ![Ekle düğmesi](./media/active-directory-saas-fuse-tutorial/create_aaduser_03.png)
+    ![Merhaba Ekle düğmesi](./media/active-directory-saas-fuse-tutorial/create_aaduser_03.png)
 
-4. <span data-ttu-id="35da3-184">İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="35da3-184">In the **User** dialog box, perform the following steps:</span></span>
+4. <span data-ttu-id="e001d-184">Merhaba, **kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="e001d-184">In hello **User** dialog box, perform hello following steps:</span></span>
 
-    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-fuse-tutorial/create_aaduser_04.png)
+    ![Merhaba kullanıcı iletişim kutusu](./media/active-directory-saas-fuse-tutorial/create_aaduser_04.png)
 
-    <span data-ttu-id="35da3-186">a.</span><span class="sxs-lookup"><span data-stu-id="35da3-186">a.</span></span> <span data-ttu-id="35da3-187">İçinde **adı** kutusuna **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="35da3-187">In the **Name** box, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="e001d-186">a.</span><span class="sxs-lookup"><span data-stu-id="e001d-186">a.</span></span> <span data-ttu-id="e001d-187">Merhaba, **adı** kutusuna **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="e001d-187">In hello **Name** box, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="35da3-188">b.</span><span class="sxs-lookup"><span data-stu-id="35da3-188">b.</span></span> <span data-ttu-id="35da3-189">İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.</span><span class="sxs-lookup"><span data-stu-id="35da3-189">In the **User name** box, type the email address of user Britta Simon.</span></span>
+    <span data-ttu-id="e001d-188">b.</span><span class="sxs-lookup"><span data-stu-id="e001d-188">b.</span></span> <span data-ttu-id="e001d-189">Merhaba, **kullanıcı adı** kutusuna, kullanıcının Britta Simon hello e-posta adresini yazın.</span><span class="sxs-lookup"><span data-stu-id="e001d-189">In hello **User name** box, type hello email address of user Britta Simon.</span></span>
 
-    <span data-ttu-id="35da3-190">c.</span><span class="sxs-lookup"><span data-stu-id="35da3-190">c.</span></span> <span data-ttu-id="35da3-191">Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.</span><span class="sxs-lookup"><span data-stu-id="35da3-191">Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.</span></span>
+    <span data-ttu-id="e001d-190">c.</span><span class="sxs-lookup"><span data-stu-id="e001d-190">c.</span></span> <span data-ttu-id="e001d-191">Select hello **Göster parola** onay kutusunu işaretleyin ve ardından hello görüntülenen hello değerini aşağı yazma **parola** kutusu.</span><span class="sxs-lookup"><span data-stu-id="e001d-191">Select hello **Show Password** check box, and then write down hello value that's displayed in hello **Password** box.</span></span>
 
-    <span data-ttu-id="35da3-192">d.</span><span class="sxs-lookup"><span data-stu-id="35da3-192">d.</span></span> <span data-ttu-id="35da3-193">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="35da3-193">Click **Create**.</span></span>
+    <span data-ttu-id="e001d-192">d.</span><span class="sxs-lookup"><span data-stu-id="e001d-192">d.</span></span> <span data-ttu-id="e001d-193">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="e001d-193">Click **Create**.</span></span>
  
-### <a name="create-a-fuse-test-user"></a><span data-ttu-id="35da3-194">Sigortası test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="35da3-194">Create a Fuse test user</span></span>
+### <a name="create-a-fuse-test-user"></a><span data-ttu-id="e001d-194">Sigortası test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="e001d-194">Create a Fuse test user</span></span>
 
-<span data-ttu-id="35da3-195">Bu bölümde, içinde Sigortası Britta Simon adlı bir kullanıcı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="35da3-195">In this section, you create a user called Britta Simon in Fuse.</span></span> <span data-ttu-id="35da3-196">Lütfen çalışmak [Sigortası destek ekibi](mailto:support@fusion-universal.com) Sigortası platform kullanıcıları eklemek için.</span><span class="sxs-lookup"><span data-stu-id="35da3-196">Please work with [Fuse support team](mailto:support@fusion-universal.com) to add the users in the Fuse platform.</span></span>
+<span data-ttu-id="e001d-195">Bu bölümde, içinde Sigortası Britta Simon adlı bir kullanıcı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="e001d-195">In this section, you create a user called Britta Simon in Fuse.</span></span> <span data-ttu-id="e001d-196">Lütfen çalışmak [Sigortası destek ekibi](mailto:support@fusion-universal.com) tooadd hello kullanıcılar hello Sigortası Platform.</span><span class="sxs-lookup"><span data-stu-id="e001d-196">Please work with [Fuse support team](mailto:support@fusion-universal.com) tooadd hello users in hello Fuse platform.</span></span>
 
 
-### <a name="assign-the-azure-ad-test-user"></a><span data-ttu-id="35da3-197">Azure AD test kullanıcısı atayın</span><span class="sxs-lookup"><span data-stu-id="35da3-197">Assign the Azure AD test user</span></span>
+### <a name="assign-hello-azure-ad-test-user"></a><span data-ttu-id="e001d-197">Hello Azure AD test kullanıcısı atayın</span><span class="sxs-lookup"><span data-stu-id="e001d-197">Assign hello Azure AD test user</span></span>
 
-<span data-ttu-id="35da3-198">Bu bölümde, Britta sigortası için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="35da3-198">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Fuse.</span></span>
+<span data-ttu-id="e001d-198">Bu bölümde, erişim tooFuse vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="e001d-198">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooFuse.</span></span>
 
-![Kullanıcı rolü atayın][200] 
+![Merhaba kullanıcı rolü atayın][200] 
 
-<span data-ttu-id="35da3-200">**Britta Simon sigortası için atamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="35da3-200">**To assign Britta Simon to Fuse, perform the following steps:**</span></span>
+<span data-ttu-id="e001d-200">**tooassign Britta Simon tooFuse hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="e001d-200">**tooassign Britta Simon tooFuse, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="35da3-201">Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="35da3-201">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="e001d-201">Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="e001d-201">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Kullanıcı atama][201] 
 
-2. <span data-ttu-id="35da3-203">Uygulamalar listesinde **Sigortası**.</span><span class="sxs-lookup"><span data-stu-id="35da3-203">In the applications list, select **Fuse**.</span></span>
+2. <span data-ttu-id="e001d-203">Merhaba uygulamalar listesinde **Sigortası**.</span><span class="sxs-lookup"><span data-stu-id="e001d-203">In hello applications list, select **Fuse**.</span></span>
 
-    ![Uygulamalar listesinde Sigortası bağlantı](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_app.png)  
+    ![Merhaba Sigortası bağlantı hello uygulamalar listesinde](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_app.png)  
 
-3. <span data-ttu-id="35da3-205">Soldaki menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="35da3-205">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="e001d-205">Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="e001d-205">In hello menu on hello left, click **Users and groups**.</span></span>
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    ![Merhaba "Kullanıcılar ve Gruplar" bağlantı][202]
 
-4. <span data-ttu-id="35da3-207">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="35da3-207">Click **Add** button.</span></span> <span data-ttu-id="35da3-208">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="35da3-208">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="e001d-207">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="e001d-207">Click **Add** button.</span></span> <span data-ttu-id="e001d-208">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="e001d-208">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
-    ![Ekleme atama bölmesi][203]
+    ![Merhaba eklemek atama bölmesi][203]
 
-5. <span data-ttu-id="35da3-210">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="35da3-210">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="e001d-210">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="e001d-210">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="35da3-211">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="35da3-211">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="e001d-211">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="e001d-211">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="35da3-212">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="35da3-212">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="e001d-212">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="e001d-212">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="test-single-sign-on"></a><span data-ttu-id="35da3-213">Çoklu oturum açmayı test edin</span><span class="sxs-lookup"><span data-stu-id="35da3-213">Test single sign-on</span></span>
+### <a name="test-single-sign-on"></a><span data-ttu-id="e001d-213">Çoklu oturum açmayı test edin</span><span class="sxs-lookup"><span data-stu-id="e001d-213">Test single sign-on</span></span>
 
-<span data-ttu-id="35da3-214">Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="35da3-214">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="e001d-214">Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="e001d-214">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="35da3-215">Erişim paneli Sigortası parçasında tıklattığınızda, otomatik olarak Sigortası uygulamanıza açan.</span><span class="sxs-lookup"><span data-stu-id="35da3-215">When you click the Fuse tile in the Access Panel, you should get automatically signed-on to your Fuse application.</span></span>
-<span data-ttu-id="35da3-216">Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="35da3-216">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="e001d-215">Merhaba Sigortası hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Sigortası uygulama almanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="e001d-215">When you click hello Fuse tile in hello Access Panel, you should get automatically signed-on tooyour Fuse application.</span></span>
+<span data-ttu-id="e001d-216">Erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="e001d-216">For more information about the Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="35da3-217">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="35da3-217">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="e001d-217">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="e001d-217">Additional resources</span></span>
 
-* [<span data-ttu-id="35da3-218">Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi</span><span class="sxs-lookup"><span data-stu-id="35da3-218">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="35da3-219">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="35da3-219">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="e001d-218">İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları</span><span class="sxs-lookup"><span data-stu-id="e001d-218">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="e001d-219">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="e001d-219">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetme | Microsoft Docs"
-description: "Bu öğretici, C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek alınmaktadır"
+title: "C# kullanarak Azure zaman serisi Öngörüler ortamı için aaaManage başvuru verileri | Microsoft Docs"
+description: "Bu öğretici nasıl toomanage başvuru verileri Azure zaman serisi Öngörüler ortamı için C# kullanarak kapsar"
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: d3afa81286227fa0cc270c5911a8dd5913eb7e6c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 77b85aa7f9a5dc46c132afa56c82df48f41577fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a><span data-ttu-id="07fc6-103">C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetme</span><span class="sxs-lookup"><span data-stu-id="07fc6-103">Manage reference data for an Azure Time Series Insights environment by using C#</span></span>
+# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a><span data-ttu-id="3d753-103">C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetme</span><span class="sxs-lookup"><span data-stu-id="3d753-103">Manage reference data for an Azure Time Series Insights environment by using C#</span></span>
 
-<span data-ttu-id="07fc6-104">Bu C# örnek bir Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="07fc6-104">This C# sample demonstrates how to manage reference data for an Azure Time Series Insights environment.</span></span>
-<span data-ttu-id="07fc6-105">Örneği çalıştırmadan önce aşağıdaki adımların tamamlandığından emin olun.</span><span class="sxs-lookup"><span data-stu-id="07fc6-105">Before running the sample, ensure the following steps are completed.</span></span>
-1. <span data-ttu-id="07fc6-106">Bir başvuru veri kümesi kullanılarak oluşturulup oluşturulmadığını [bu makalede](time-series-insights-add-reference-data-set.md).</span><span class="sxs-lookup"><span data-stu-id="07fc6-106">A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).</span></span>
-2. <span data-ttu-id="07fc6-107">Uygulama çalışırken kullanılan erişim belirteci Azure Active Directory API aracılığıyla alınır.</span><span class="sxs-lookup"><span data-stu-id="07fc6-107">The access token used when running the application is acquired through the Azure Active Directory API.</span></span> <span data-ttu-id="07fc6-108">Bu belirteç geçirilmesi `Authorization` her sorgu API isteği üstbilgisi.</span><span class="sxs-lookup"><span data-stu-id="07fc6-108">This token should be passed in the `Authorization` header of every Query API request.</span></span> <span data-ttu-id="07fc6-109">Etkileşimli olmayan uygulamalar için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md) makalesi.</span><span class="sxs-lookup"><span data-stu-id="07fc6-109">For setting up non-interactive applications, see the [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.</span></span>
-3. <span data-ttu-id="07fc6-110">Örnek başında tanımlanan tüm sabit doğru şekilde ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="07fc6-110">All the constants defined at the beginning of the sample are correctly set.</span></span>
+<span data-ttu-id="3d753-104">Bu C# örnek nasıl toomanage başvuru verileri Azure zaman serisi Öngörüler ortamı için gösterir.</span><span class="sxs-lookup"><span data-stu-id="3d753-104">This C# sample demonstrates how toomanage reference data for an Azure Time Series Insights environment.</span></span>
+<span data-ttu-id="3d753-105">Çalışan hello örnek önce aşağıdaki adımları hello tamamlandı emin olun.</span><span class="sxs-lookup"><span data-stu-id="3d753-105">Before running hello sample, ensure hello following steps are completed.</span></span>
+1. <span data-ttu-id="3d753-106">Bir başvuru veri kümesi kullanılarak oluşturulup oluşturulmadığını [bu makalede](time-series-insights-add-reference-data-set.md).</span><span class="sxs-lookup"><span data-stu-id="3d753-106">A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).</span></span>
+2. <span data-ttu-id="3d753-107">Merhaba uygulaması çalıştıran hello Azure Active Directory API'si alındığında kullanılan hello erişim belirteci.</span><span class="sxs-lookup"><span data-stu-id="3d753-107">hello access token used when running hello application is acquired through hello Azure Active Directory API.</span></span> <span data-ttu-id="3d753-108">Bu belirteç hello iletilmesi gereken `Authorization` her sorgu API isteği üstbilgisi.</span><span class="sxs-lookup"><span data-stu-id="3d753-108">This token should be passed in hello `Authorization` header of every Query API request.</span></span> <span data-ttu-id="3d753-109">Merhaba etkileşimli olmayan uygulamalar ayarlamak için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md) makalesi.</span><span class="sxs-lookup"><span data-stu-id="3d753-109">For setting up non-interactive applications, see hello [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.</span></span>
+3. <span data-ttu-id="3d753-110">Merhaba hello örnek başında tanımlanan tüm hello sabitleri doğru şekilde ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="3d753-110">All hello constants defined at hello beginning of hello sample are correctly set.</span></span>
 
-## <a name="c-sample"></a><span data-ttu-id="07fc6-111">C# örneği</span><span class="sxs-lookup"><span data-stu-id="07fc6-111">C# sample</span></span>
+## <a name="c-sample"></a><span data-ttu-id="3d753-111">C# örneği</span><span class="sxs-lookup"><span data-stu-id="3d753-111">C# sample</span></span>
 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -46,24 +46,24 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 {
     public static class Program
     {
-        // SET the environment fqdn.
+        // SET hello environment fqdn.
         private static string EnvironmentFqdn = "#DUMMY#.env.timeseries.azure.com";
 
-        // SET the environment reference data set name used when creating it.
+        // SET hello environment reference data set name used when creating it.
         private static string EnvironmentReferenceDataSetName = "#DUMMY#";
 
         // For automated execution under application identity,
         // use application created in Active Directory.
-        // To create the application in AAD, follow the steps provided here:
+        // toocreate hello application in AAD, follow hello steps provided here:
         // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
 
-        // SET the application ID of application registered in your Azure Active Directory
+        // SET hello application ID of application registered in your Azure Active Directory
         private static string ApplicationClientId = "#DUMMY#";
 
-        // SET the application key of the application registered in your Azure Active Directory
+        // SET hello application key of hello application registered in your Azure Active Directory
         private static string ApplicationClientSecret = "#DUMMY#";
 
-        // SET the Azure Active Directory tenant.
+        // SET hello Azure Active Directory tenant.
         private static string Tenant = "#DUMMY#.onmicrosoft.com";
 
         private static async Task DemoReferenceDataAsync()
@@ -155,7 +155,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
+                    $"Use hello link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} tooupdate hello values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
@@ -168,7 +168,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
                     clientId: ApplicationClientId,
                     clientSecret: ApplicationClientSecret));
 
-            // Show interactive logon dialog to acquire token on behalf of the user.
+            // Show interactive logon dialog tooacquire token on behalf of hello user.
             // Suitable for native apps, and not on server-side of a web application.
             //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
             //    resource: "https://api.timeseries.azure.com/",
@@ -232,6 +232,6 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="07fc6-112">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="07fc6-112">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="3d753-112">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="3d753-112">Next steps</span></span>
 
-<span data-ttu-id="07fc6-113">Tam API başvurusu için [Başvuru Verileri API'si](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) belgesine bakın.</span><span class="sxs-lookup"><span data-stu-id="07fc6-113">For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.</span></span>
+<span data-ttu-id="3d753-113">Merhaba tam API başvuru için bkz: [başvuru veri API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) belge.</span><span class="sxs-lookup"><span data-stu-id="3d753-113">For hello complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.</span></span>

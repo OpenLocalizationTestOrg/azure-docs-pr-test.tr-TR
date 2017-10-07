@@ -1,6 +1,6 @@
 ---
-title: "Uçuş gecikme verilerini hdınsight'ta - Azure Hadoop ile çözümleme | Microsoft Docs"
-description: "Hdınsight kümesi oluşturmak, bir Hive işi çalıştırın, Sqoop işini çalıştırın ve kümeyi silmek için bir Windows PowerShell komut dosyası kullanmayı öğrenin."
+title: "hdınsight'ta - Azure Hadoop ile aaaAnalyze uçuş gecikme veri | Microsoft Docs"
+description: "Merhaba kümesini silmek ve Sqoop iş Hive işini çalıştır toouse bir Windows PowerShell komut dosyası toocreate bir Hdınsight kümesi çalışma şeklini öğrenin."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -15,85 +15,85 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77790136c9bd3a4e3f7dcabea2fbe0bcffb6eafe
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6ebaee65d9b270e5dc2141dd1265011d372f497d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a><span data-ttu-id="881c7-103">Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme</span><span class="sxs-lookup"><span data-stu-id="881c7-103">Analyze flight delay data by using Hive in HDInsight</span></span>
-<span data-ttu-id="881c7-104">Hive sağlar Hadoop MapReduce işleri adlı bir SQL benzeri komut dosyası dili ile çalışan bir  *[HiveQL][hadoop-hiveql]*, hangi uygulanabilir özetlemeye doğrultusunda, sorgulama, ve büyük miktarda veriyi analiz etme.</span><span class="sxs-lookup"><span data-stu-id="881c7-104">Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data.</span></span>
+# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a><span data-ttu-id="39bf3-103">Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme</span><span class="sxs-lookup"><span data-stu-id="39bf3-103">Analyze flight delay data by using Hive in HDInsight</span></span>
+<span data-ttu-id="39bf3-104">Hive sağlar Hadoop MapReduce işleri adlı bir SQL benzeri komut dosyası dili ile çalışan bir  *[HiveQL][hadoop-hiveql]*, hangi uygulanabilir özetlemeye doğrultusunda, sorgulama, ve büyük miktarda veriyi analiz etme.</span><span class="sxs-lookup"><span data-stu-id="39bf3-104">Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="881c7-105">Bu belgede yer alan adımlar Windows tabanlı Hdınsight kümesi gerektirir.</span><span class="sxs-lookup"><span data-stu-id="881c7-105">The steps in this document require a Windows-based HDInsight cluster.</span></span> <span data-ttu-id="881c7-106">Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir.</span><span class="sxs-lookup"><span data-stu-id="881c7-106">Linux is the only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="881c7-107">Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span><span class="sxs-lookup"><span data-stu-id="881c7-107">For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span></span> <span data-ttu-id="881c7-108">Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümlemek](hdinsight-analyze-flight-delay-data-linux.md).</span><span class="sxs-lookup"><span data-stu-id="881c7-108">For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).</span></span>
+> <span data-ttu-id="39bf3-105">Merhaba bu belgedeki adımlar Windows tabanlı Hdınsight kümesi gerektirir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-105">hello steps in this document require a Windows-based HDInsight cluster.</span></span> <span data-ttu-id="39bf3-106">Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-106">Linux is hello only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="39bf3-107">Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span><span class="sxs-lookup"><span data-stu-id="39bf3-107">For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span></span> <span data-ttu-id="39bf3-108">Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümlemek](hdinsight-analyze-flight-delay-data-linux.md).</span><span class="sxs-lookup"><span data-stu-id="39bf3-108">For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).</span></span>
 
-<span data-ttu-id="881c7-109">Azure Hdınsight, büyük avantajlarından biri veri depolama ve işlem ayrılmasıdır.</span><span class="sxs-lookup"><span data-stu-id="881c7-109">One of the major benefits of Azure HDInsight is the separation of data storage and compute.</span></span> <span data-ttu-id="881c7-110">Hdınsight Azure Blob Depolama, veri depolaması için kullanır.</span><span class="sxs-lookup"><span data-stu-id="881c7-110">HDInsight uses Azure Blob storage for data storage.</span></span> <span data-ttu-id="881c7-111">Tipik bir işi üç bölümden oluşur:</span><span class="sxs-lookup"><span data-stu-id="881c7-111">A typical job involves three parts:</span></span>
+<span data-ttu-id="39bf3-109">Merhaba önemli yararlarından biri Azure Hdınsight hello veri depolama ve işlem ayrılmasıdır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-109">One of hello major benefits of Azure HDInsight is hello separation of data storage and compute.</span></span> <span data-ttu-id="39bf3-110">Hdınsight Azure Blob Depolama, veri depolaması için kullanır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-110">HDInsight uses Azure Blob storage for data storage.</span></span> <span data-ttu-id="39bf3-111">Tipik bir işi üç bölümden oluşur:</span><span class="sxs-lookup"><span data-stu-id="39bf3-111">A typical job involves three parts:</span></span>
 
-1. <span data-ttu-id="881c7-112">**Verileri Azure Blob Depolama alanında depolar.**</span><span class="sxs-lookup"><span data-stu-id="881c7-112">**Store data in Azure Blob storage.**</span></span>  <span data-ttu-id="881c7-113">Örneğin, verileri, algılayıcı verilerini, web günlükleri hava durumu ve bu durumda, uçuş gecikme verileri Azure Blob depolama alanına kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="881c7-113">For example, weather data, sensor data, web logs, and in this case, flight delay data are saved into Azure Blob storage.</span></span>
-2. <span data-ttu-id="881c7-114">**İşlerini çalıştırın.**</span><span class="sxs-lookup"><span data-stu-id="881c7-114">**Run jobs.**</span></span> <span data-ttu-id="881c7-115">Verileri bir Hdınsight kümesi oluşturmak için bir Windows PowerShell komut dosyası (veya bir istemci uygulaması) çalıştırmadan işleme zamanı geldiğinde işleri çalıştırma ve küme silin.</span><span class="sxs-lookup"><span data-stu-id="881c7-115">When it is time to process the data, you run a Windows PowerShell script (or a client application) to create an HDInsight cluster, run jobs, and delete the cluster.</span></span> <span data-ttu-id="881c7-116">İşlerini çıktı verileri Azure Blob depolama alanına kaydedin.</span><span class="sxs-lookup"><span data-stu-id="881c7-116">The jobs save output data to Azure Blob storage.</span></span> <span data-ttu-id="881c7-117">Küme bile silindikten sonra çıktı verileri korunur.</span><span class="sxs-lookup"><span data-stu-id="881c7-117">The output data is retained even after the cluster is deleted.</span></span> <span data-ttu-id="881c7-118">Bu şekilde, yalnızca ne, tüketilen için ücret ödersiniz.</span><span class="sxs-lookup"><span data-stu-id="881c7-118">This way, you pay for only what you have consumed.</span></span>
-3. <span data-ttu-id="881c7-119">**Çıktı Azure Blob Depolama'dan alın**, veya Bu öğreticide, verileri bir Azure SQL veritabanına verebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="881c7-119">**Retrieve the output from Azure Blob storage**, or in this tutorial, export the data to an Azure SQL database.</span></span>
+1. <span data-ttu-id="39bf3-112">**Verileri Azure Blob Depolama alanında depolar.**</span><span class="sxs-lookup"><span data-stu-id="39bf3-112">**Store data in Azure Blob storage.**</span></span>  <span data-ttu-id="39bf3-113">Örneğin, verileri, algılayıcı verilerini, web günlükleri hava durumu ve bu durumda, uçuş gecikme verileri Azure Blob depolama alanına kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-113">For example, weather data, sensor data, web logs, and in this case, flight delay data are saved into Azure Blob storage.</span></span>
+2. <span data-ttu-id="39bf3-114">**İşlerini çalıştırın.**</span><span class="sxs-lookup"><span data-stu-id="39bf3-114">**Run jobs.**</span></span> <span data-ttu-id="39bf3-115">Zaman tooprocess hello veriler olduğunda, bir Windows PowerShell komut dosyası (veya bir istemci uygulaması) çalıştırmak toocreate bir Hdınsight kümesi işleri çalıştırma ve hello küme silin.</span><span class="sxs-lookup"><span data-stu-id="39bf3-115">When it is time tooprocess hello data, you run a Windows PowerShell script (or a client application) toocreate an HDInsight cluster, run jobs, and delete hello cluster.</span></span> <span data-ttu-id="39bf3-116">Çıktı veri tooAzure Blob Depolama kaydetme Hello işler.</span><span class="sxs-lookup"><span data-stu-id="39bf3-116">hello jobs save output data tooAzure Blob storage.</span></span> <span data-ttu-id="39bf3-117">hatta hello kümesi silindikten sonra hello çıktı verileri korunur.</span><span class="sxs-lookup"><span data-stu-id="39bf3-117">hello output data is retained even after hello cluster is deleted.</span></span> <span data-ttu-id="39bf3-118">Bu şekilde, yalnızca ne, tüketilen için ücret ödersiniz.</span><span class="sxs-lookup"><span data-stu-id="39bf3-118">This way, you pay for only what you have consumed.</span></span>
+3. <span data-ttu-id="39bf3-119">**Azure Blob depolama alanından Hello çıkış almak**, veya Bu öğreticide, hello veri tooan Azure SQL veritabanını dışa aktarın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-119">**Retrieve hello output from Azure Blob storage**, or in this tutorial, export hello data tooan Azure SQL database.</span></span>
 
-<span data-ttu-id="881c7-120">Aşağıdaki diyagram, senaryo ve bu öğreticinin yapısını gösterir:</span><span class="sxs-lookup"><span data-stu-id="881c7-120">The following diagram illustrates the scenario and the structure of this tutorial:</span></span>
+<span data-ttu-id="39bf3-120">Merhaba Aşağıdaki diyagramda hello senaryo ve bu öğreticinin hello yapısı gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="39bf3-120">hello following diagram illustrates hello scenario and hello structure of this tutorial:</span></span>
 
 ![HDI. FlightDelays.flow][img-hdi-flightdelays-flow]
 
-<span data-ttu-id="881c7-122">Diyagramdaki sayıları bölüm başlıkları karşılık unutmayın.</span><span class="sxs-lookup"><span data-stu-id="881c7-122">Note that the numbers in the diagram correspond to the section titles.</span></span> <span data-ttu-id="881c7-123">**M** için ana işlem anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="881c7-123">**M** stands for the main process.</span></span> <span data-ttu-id="881c7-124">**A** ek içerik için anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="881c7-124">**A** stands for the content in the appendix.</span></span>
+<span data-ttu-id="39bf3-122">Merhaba diyagramı Hello numaraları toohello bölüm başlıkları karşılık unutmayın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-122">Note that hello numbers in hello diagram correspond toohello section titles.</span></span> <span data-ttu-id="39bf3-123">**M** hello ana işlem için anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-123">**M** stands for hello main process.</span></span> <span data-ttu-id="39bf3-124">**A** hello ek hello içeriği anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-124">**A** stands for hello content in hello appendix.</span></span>
 
-<span data-ttu-id="881c7-125">Öğreticinin ana bölümü, bir Windows PowerShell Betiği aşağıdaki görevleri gerçekleştirmek için nasıl kullanılacağını gösterir:</span><span class="sxs-lookup"><span data-stu-id="881c7-125">The main portion of the tutorial shows you how to use one Windows PowerShell script to perform the following tasks:</span></span>
+<span data-ttu-id="39bf3-125">Merhaba ana bölümü hello öğreticinin nasıl toouse bir Windows PowerShell komut dosyası tooperform hello aşağıdaki görevleri gösterir:</span><span class="sxs-lookup"><span data-stu-id="39bf3-125">hello main portion of hello tutorial shows you how toouse one Windows PowerShell script tooperform hello following tasks:</span></span>
 
-* <span data-ttu-id="881c7-126">Hdınsight kümesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="881c7-126">Create an HDInsight cluster.</span></span>
-* <span data-ttu-id="881c7-127">Ortalama gecikmelerden havaalanları hesaplamak için küme üzerinde bir Hive işi çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="881c7-127">Run a Hive job on the cluster to calculate average delays at airports.</span></span> <span data-ttu-id="881c7-128">Uçuş gecikme veriler bir Azure Blob Depolama hesabında depolanır.</span><span class="sxs-lookup"><span data-stu-id="881c7-128">The flight delay data is stored in an Azure Blob storage account.</span></span>
-* <span data-ttu-id="881c7-129">Hive işi çıkışı bir Azure SQL veritabanı için dışarı aktarmak için bir Sqoop işi çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="881c7-129">Run a Sqoop job to export the Hive job output to an Azure SQL database.</span></span>
-* <span data-ttu-id="881c7-130">Hdınsight kümesi silin.</span><span class="sxs-lookup"><span data-stu-id="881c7-130">Delete the HDInsight cluster.</span></span>
+* <span data-ttu-id="39bf3-126">Hdınsight kümesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="39bf3-126">Create an HDInsight cluster.</span></span>
+* <span data-ttu-id="39bf3-127">Bir Hive işi hello küme toocalculate ortalama gecikme üzerinde havaalanları çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-127">Run a Hive job on hello cluster toocalculate average delays at airports.</span></span> <span data-ttu-id="39bf3-128">Merhaba uçuş gecikme veriler bir Azure Blob Depolama hesabında depolanır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-128">hello flight delay data is stored in an Azure Blob storage account.</span></span>
+* <span data-ttu-id="39bf3-129">Sqoop iş tooexport hello Hive işi çıkış tooan Azure SQL veritabanı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-129">Run a Sqoop job tooexport hello Hive job output tooan Azure SQL database.</span></span>
+* <span data-ttu-id="39bf3-130">Merhaba Hdınsight kümesi silin.</span><span class="sxs-lookup"><span data-stu-id="39bf3-130">Delete hello HDInsight cluster.</span></span>
 
-<span data-ttu-id="881c7-131">İlişkisini, uçuş gecikme veri yüklemek, Hive sorgu dizesi oluşturma/yükleme ve Azure SQL veritabanı için Sqoop işi hazırlama için yönergeler bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="881c7-131">In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.</span></span>
+<span data-ttu-id="39bf3-131">Merhaba çok içinde uçuş gecikme veri yüklemek, Hive sorgu dizesi oluşturma/yükleme ve hello Azure SQL veritabanı için hello Sqoop işi hazırlama hello yönergelerini bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="39bf3-131">In hello appendixes, you can find hello instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing hello Azure SQL database for hello Sqoop job.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="881c7-132">Bu belgede yer alan adımlar Windows tabanlı Hdınsight kümelerine özeldir.</span><span class="sxs-lookup"><span data-stu-id="881c7-132">The steps in this document are specific to Windows-based HDInsight clusters.</span></span> <span data-ttu-id="881c7-133">Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verileri analiz](hdinsight-analyze-flight-delay-data-linux.md)</span><span class="sxs-lookup"><span data-stu-id="881c7-133">For steps that work with a Linux-based cluster, see [Analyze flight delay data using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)</span></span>
+> <span data-ttu-id="39bf3-132">Merhaba bu belgedeki belirli tooWindows tabanlı Hdınsight kümeleri adımlardır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-132">hello steps in this document are specific tooWindows-based HDInsight clusters.</span></span> <span data-ttu-id="39bf3-133">Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verileri analiz](hdinsight-analyze-flight-delay-data-linux.md)</span><span class="sxs-lookup"><span data-stu-id="39bf3-133">For steps that work with a Linux-based cluster, see [Analyze flight delay data using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)</span></span>
 
-### <a name="prerequisites"></a><span data-ttu-id="881c7-134">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="881c7-134">Prerequisites</span></span>
-<span data-ttu-id="881c7-135">Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="881c7-135">Before you begin this tutorial, you must have the following items:</span></span>
+### <a name="prerequisites"></a><span data-ttu-id="39bf3-134">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="39bf3-134">Prerequisites</span></span>
+<span data-ttu-id="39bf3-135">Bu öğreticiye başlamadan önce aşağıdaki öğelerindeki hello sahip olmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="39bf3-135">Before you begin this tutorial, you must have hello following items:</span></span>
 
-* <span data-ttu-id="881c7-136">**Bir Azure aboneliği**.</span><span class="sxs-lookup"><span data-stu-id="881c7-136">**An Azure subscription**.</span></span> <span data-ttu-id="881c7-137">Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</span><span class="sxs-lookup"><span data-stu-id="881c7-137">See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</span></span>
-* <span data-ttu-id="881c7-138">**Azure PowerShell içeren bir iş istasyonu**.</span><span class="sxs-lookup"><span data-stu-id="881c7-138">**A workstation with Azure PowerShell**.</span></span>
+* <span data-ttu-id="39bf3-136">**Bir Azure aboneliği**.</span><span class="sxs-lookup"><span data-stu-id="39bf3-136">**An Azure subscription**.</span></span> <span data-ttu-id="39bf3-137">Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</span><span class="sxs-lookup"><span data-stu-id="39bf3-137">See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</span></span>
+* <span data-ttu-id="39bf3-138">**Azure PowerShell içeren bir iş istasyonu**.</span><span class="sxs-lookup"><span data-stu-id="39bf3-138">**A workstation with Azure PowerShell**.</span></span>
 
     > [!IMPORTANT]
-    > <span data-ttu-id="881c7-139">Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır.</span><span class="sxs-lookup"><span data-stu-id="881c7-139">Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and was removed on January 1, 2017.</span></span> <span data-ttu-id="881c7-140">Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.</span><span class="sxs-lookup"><span data-stu-id="881c7-140">The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.</span></span>
+    > <span data-ttu-id="39bf3-139">Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-139">Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and was removed on January 1, 2017.</span></span> <span data-ttu-id="39bf3-140">Azure Resource Manager ile çalışan hello adımları bu belgenin kullanımı hello yeni Hdınsight cmdlet'lerini.</span><span class="sxs-lookup"><span data-stu-id="39bf3-140">hello steps in this document use hello new HDInsight cmdlets that work with Azure Resource Manager.</span></span>
     >
-    > <span data-ttu-id="881c7-141">Azure PowerShell’in en son sürümünü yüklemek için lütfen [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)’daki adımları uygulayın.</span><span class="sxs-lookup"><span data-stu-id="881c7-141">Please follow the steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell.</span></span> <span data-ttu-id="881c7-142">Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="881c7-142">If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.</span></span>
+    > <span data-ttu-id="39bf3-141">Lütfen başlangıç adımları izleyin [yüklemek ve Azure PowerShell yapılandırma](/powershell/azureps-cmdlets-docs) tooinstall hello en son Azure PowerShell sürümü.</span><span class="sxs-lookup"><span data-stu-id="39bf3-141">Please follow hello steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) tooinstall hello latest version of Azure PowerShell.</span></span> <span data-ttu-id="39bf3-142">Komut dosyalarınız varsa bu gereksinimi toobe Azure Resource Manager ile çalışma toouse hello yeni cmdlet'leri değişiklik için bkz: [geçiş tooAzure Resource Manager tabanlı geliştirme araçları Hdınsight kümeleri için](hdinsight-hadoop-development-using-azure-resource-manager.md) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="39bf3-142">If you have scripts that need toobe modified toouse hello new cmdlets that work with Azure Resource Manager, see [Migrating tooAzure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.</span></span>
 
-<span data-ttu-id="881c7-143">**Bu öğreticide kullanılan dosyaları**</span><span class="sxs-lookup"><span data-stu-id="881c7-143">**Files used in this tutorial**</span></span>
+<span data-ttu-id="39bf3-143">**Bu öğreticide kullanılan dosyaları**</span><span class="sxs-lookup"><span data-stu-id="39bf3-143">**Files used in this tutorial**</span></span>
 
-<span data-ttu-id="881c7-144">Bu öğretici uçak uçuş verileri zamanında performansını kullanır [araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik Enstitüsü veya RITA][rita-website].</span><span class="sxs-lookup"><span data-stu-id="881c7-144">This tutorial uses the on-time performance of airline flight data from [Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA][rita-website].</span></span>
-<span data-ttu-id="881c7-145">Verilerin bir kopyasını ortak Blob erişim izni olan bir Azure Blob Depolama kapsayıcısını karşıya yüklendi.</span><span class="sxs-lookup"><span data-stu-id="881c7-145">A copy of the data has been uploaded to an Azure Blob storage container with the Public Blob access permission.</span></span>
-<span data-ttu-id="881c7-146">PowerShell Betiği parçası Veri kümenizi varsayılan blob kapsayıcısına ortak blob kapsayıcısından kopyalar.</span><span class="sxs-lookup"><span data-stu-id="881c7-146">A part of your PowerShell script copies the data from the public blob container to the default blob container of your cluster.</span></span> <span data-ttu-id="881c7-147">HiveQL betiğini de Blob kapsayıcıya kopyalanır.</span><span class="sxs-lookup"><span data-stu-id="881c7-147">The HiveQL script is also copied to the same Blob container.</span></span>
-<span data-ttu-id="881c7-148">Get/kendi depolama hesabına veri yükleme etme ve HiveQL komut dosyası oluşturun/karşıya yükleme, bkz bilgi edinmek istiyorsanız [ek A](#appendix-a) ve [ek B](#appendix-b).</span><span class="sxs-lookup"><span data-stu-id="881c7-148">If you want to learn how to get/upload the data to your own Storage account, and how to create/upload the HiveQL script file, see [Appendix A](#appendix-a) and [Appendix B](#appendix-b).</span></span>
+<span data-ttu-id="39bf3-144">Bu öğretici hello zamanında performans uçak uçuş verilerini kullanır [araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik Enstitüsü veya RITA][rita-website].</span><span class="sxs-lookup"><span data-stu-id="39bf3-144">This tutorial uses hello on-time performance of airline flight data from [Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA][rita-website].</span></span>
+<span data-ttu-id="39bf3-145">Veriler hello kopyasını tooan Azure Blob Depolama kapsayıcısını hello ortak Blob erişim iznine sahip karşıya yüklendi.</span><span class="sxs-lookup"><span data-stu-id="39bf3-145">A copy of hello data has been uploaded tooan Azure Blob storage container with hello Public Blob access permission.</span></span>
+<span data-ttu-id="39bf3-146">PowerShell Betiği parçası hello ortak blob kapsayıcısı toohello varsayılan blob kapsayıcısından kümenizin hello verileri kopyalar.</span><span class="sxs-lookup"><span data-stu-id="39bf3-146">A part of your PowerShell script copies hello data from hello public blob container toohello default blob container of your cluster.</span></span> <span data-ttu-id="39bf3-147">Merhaba betiğidir de HiveQL kopyalanan toohello aynı Blob kapsayıcısı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-147">hello HiveQL script is also copied toohello same Blob container.</span></span>
+<span data-ttu-id="39bf3-148">Toolearn istiyorsanız tooget/karşıya yükleme hello veri tooyour nasıl kendi depolama hesabı ve nasıl toocreate/karşıya yükleme hello HiveQL komut dosyası, bkz: [ek A](#appendix-a) ve [ek B](#appendix-b).</span><span class="sxs-lookup"><span data-stu-id="39bf3-148">If you want toolearn how tooget/upload hello data tooyour own Storage account, and how toocreate/upload hello HiveQL script file, see [Appendix A](#appendix-a) and [Appendix B](#appendix-b).</span></span>
 
-<span data-ttu-id="881c7-149">Aşağıdaki tabloda, bu öğreticide kullanılan dosyaları listeler:</span><span class="sxs-lookup"><span data-stu-id="881c7-149">The following table lists the files used in this tutorial:</span></span>
+<span data-ttu-id="39bf3-149">Merhaba aşağıdaki tabloda Bu öğreticide kullanılan hello dosyaları listeler:</span><span class="sxs-lookup"><span data-stu-id="39bf3-149">hello following table lists hello files used in this tutorial:</span></span>
 
 <table border="1">
-<tr><th><span data-ttu-id="881c7-150">Dosyalar</span><span class="sxs-lookup"><span data-stu-id="881c7-150">Files</span></span></th><th><span data-ttu-id="881c7-151">Açıklama</span><span class="sxs-lookup"><span data-stu-id="881c7-151">Description</span></span></th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td><span data-ttu-id="881c7-152">Hive işi tarafından kullanılan HiveQL komut dosyası.</span><span class="sxs-lookup"><span data-stu-id="881c7-152">The HiveQL script file used by the Hive job.</span></span> <span data-ttu-id="881c7-153">Bu komut dosyasını bir Azure Blob Depolama hesabına genel erişim ile karşıya yüklendi.</span><span class="sxs-lookup"><span data-stu-id="881c7-153">This script has been uploaded to an Azure Blob storage account with the public access.</span></span> <span data-ttu-id="881c7-154"><a href="#appendix-b">Ek B</a> yönergeler hazırlama ve bu dosyayı karşıya yüklemeyi kendi Azure Blob storage hesabına sahiptir.</span><span class="sxs-lookup"><span data-stu-id="881c7-154"><a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.</span></span></td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td><span data-ttu-id="881c7-155">Hive işi için giriş verileri.</span><span class="sxs-lookup"><span data-stu-id="881c7-155">Input data for the Hive job.</span></span> <span data-ttu-id="881c7-156">Verileri Azure Blob Depolama hesabına genel erişim ile karşıya yüklendi.</span><span class="sxs-lookup"><span data-stu-id="881c7-156">The data has been uploaded to an Azure Blob storage account with the public access.</span></span> <span data-ttu-id="881c7-157"><a href="#appendix-a">Ek A</a> verileri almak ve veri kendi Azure Blob Depolama hesabına yükleniyor yönergeleri açmıştır.</span><span class="sxs-lookup"><span data-stu-id="881c7-157"><a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</span></span></td></tr>
-<tr><td><span data-ttu-id="881c7-158">\tutorials\flightdelays\output</span><span class="sxs-lookup"><span data-stu-id="881c7-158">\tutorials\flightdelays\output</span></span></td><td><span data-ttu-id="881c7-159">Hive işi için çıkış yolu.</span><span class="sxs-lookup"><span data-stu-id="881c7-159">The output path for the Hive job.</span></span> <span data-ttu-id="881c7-160">Varsayılan kapsayıcı, çıktı verilerini depolamak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-160">The default container is used for storing the output data.</span></span></td></tr>
-<tr><td><span data-ttu-id="881c7-161">\tutorials\flightdelays\jobstatus</span><span class="sxs-lookup"><span data-stu-id="881c7-161">\tutorials\flightdelays\jobstatus</span></span></td><td><span data-ttu-id="881c7-162">Varsayılan kapsayıcı Hive işi durumu klasör.</span><span class="sxs-lookup"><span data-stu-id="881c7-162">The Hive job status folder on the default container.</span></span></td></tr>
+<tr><th><span data-ttu-id="39bf3-150">Dosyalar</span><span class="sxs-lookup"><span data-stu-id="39bf3-150">Files</span></span></th><th><span data-ttu-id="39bf3-151">Açıklama</span><span class="sxs-lookup"><span data-stu-id="39bf3-151">Description</span></span></th></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td><span data-ttu-id="39bf3-152">Merhaba HiveQL komut dosyası tarafından hello Hive işi kullanılır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-152">hello HiveQL script file used by hello Hive job.</span></span> <span data-ttu-id="39bf3-153">Bu komut dosyasını karşıya yüklenen tooan hello genel erişim ile Azure Blob Depolama hesabı olmuştur.</span><span class="sxs-lookup"><span data-stu-id="39bf3-153">This script has been uploaded tooan Azure Blob storage account with hello public access.</span></span> <span data-ttu-id="39bf3-154"><a href="#appendix-b">Ek B</a> hazırlama ve bu dosyayı tooyour kendi Azure Blob Depolama hesabı karşıya yükleme hakkında yönergeler vardır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-154"><a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file tooyour own Azure Blob storage account.</span></span></td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td><span data-ttu-id="39bf3-155">Merhaba Hive işi için giriş verileri.</span><span class="sxs-lookup"><span data-stu-id="39bf3-155">Input data for hello Hive job.</span></span> <span data-ttu-id="39bf3-156">Merhaba verileri karşıya yüklenen tooan hello genel erişim ile Azure Blob Depolama hesabı olmuştur.</span><span class="sxs-lookup"><span data-stu-id="39bf3-156">hello data has been uploaded tooan Azure Blob storage account with hello public access.</span></span> <span data-ttu-id="39bf3-157"><a href="#appendix-a">Ek A</a> hello verileri almak ve hello veri tooyour kendi Azure Blob Depolama hesabı karşıya yükleme yönergeleri açmıştır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-157"><a href="#appendix-a">Appendix A</a> has instructions on getting hello data and uploading hello data tooyour own Azure Blob storage account.</span></span></td></tr>
+<tr><td><span data-ttu-id="39bf3-158">\tutorials\flightdelays\output</span><span class="sxs-lookup"><span data-stu-id="39bf3-158">\tutorials\flightdelays\output</span></span></td><td><span data-ttu-id="39bf3-159">Merhaba Hive işi Hello çıkış yolu.</span><span class="sxs-lookup"><span data-stu-id="39bf3-159">hello output path for hello Hive job.</span></span> <span data-ttu-id="39bf3-160">Merhaba varsayılan kapsayıcı hello çıktı verilerini depolamak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-160">hello default container is used for storing hello output data.</span></span></td></tr>
+<tr><td><span data-ttu-id="39bf3-161">\tutorials\flightdelays\jobstatus</span><span class="sxs-lookup"><span data-stu-id="39bf3-161">\tutorials\flightdelays\jobstatus</span></span></td><td><span data-ttu-id="39bf3-162">Merhaba Hive işi durumu klasör hello varsayılan kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-162">hello Hive job status folder on hello default container.</span></span></td></tr>
 </table>
 
-## <a name="create-cluster-and-run-hivesqoop-jobs"></a><span data-ttu-id="881c7-163">Küme oluşturma ve Hive/Sqoop işleri çalıştırma</span><span class="sxs-lookup"><span data-stu-id="881c7-163">Create cluster and run Hive/Sqoop jobs</span></span>
-<span data-ttu-id="881c7-164">Hadoop MapReduce toplu işlemesidir.</span><span class="sxs-lookup"><span data-stu-id="881c7-164">Hadoop MapReduce is batch processing.</span></span> <span data-ttu-id="881c7-165">Hive işi çalıştırmak için en uygun maliyetli iş için bir küme oluşturmak ve işi tamamlandıktan sonra işi silmek için yoludur.</span><span class="sxs-lookup"><span data-stu-id="881c7-165">The most cost-effective way to run a Hive job is to create a cluster for the job, and delete the job after the job is completed.</span></span> <span data-ttu-id="881c7-166">Aşağıdaki komut dosyası tüm işlem kapsar.</span><span class="sxs-lookup"><span data-stu-id="881c7-166">The following script covers the whole process.</span></span>
-<span data-ttu-id="881c7-167">Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazla bilgi için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri] [ hdinsight-provision] ve [Hdınsight ile Hive kullanma] [hdinsight-use-hive].</span><span class="sxs-lookup"><span data-stu-id="881c7-167">For more information on creating an HDInsight cluster and running Hive jobs, see [Create Hadoop clusters in HDInsight][hdinsight-provision] and [Use Hive with HDInsight][hdinsight-use-hive].</span></span>
+## <a name="create-cluster-and-run-hivesqoop-jobs"></a><span data-ttu-id="39bf3-163">Küme oluşturma ve Hive/Sqoop işleri çalıştırma</span><span class="sxs-lookup"><span data-stu-id="39bf3-163">Create cluster and run Hive/Sqoop jobs</span></span>
+<span data-ttu-id="39bf3-164">Hadoop MapReduce toplu işlemesidir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-164">Hadoop MapReduce is batch processing.</span></span> <span data-ttu-id="39bf3-165">Merhaba en uygun maliyetli şekilde toorun Hive işi toocreate hello işi için bir kümedir ve hello iş tamamlandıktan sonra hello işi silin.</span><span class="sxs-lookup"><span data-stu-id="39bf3-165">hello most cost-effective way toorun a Hive job is toocreate a cluster for hello job, and delete hello job after hello job is completed.</span></span> <span data-ttu-id="39bf3-166">Merhaba aşağıdaki betiği hello tüm işlem kapsar.</span><span class="sxs-lookup"><span data-stu-id="39bf3-166">hello following script covers hello whole process.</span></span>
+<span data-ttu-id="39bf3-167">Hdınsight kümesi oluşturma ve Hive işleri çalıştırma hakkında daha fazla bilgi için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri] [ hdinsight-provision] ve [Hdınsight ile Hive kullanma] [hdinsight-use-hive].</span><span class="sxs-lookup"><span data-stu-id="39bf3-167">For more information on creating an HDInsight cluster and running Hive jobs, see [Create Hadoop clusters in HDInsight][hdinsight-provision] and [Use Hive with HDInsight][hdinsight-use-hive].</span></span>
 
-<span data-ttu-id="881c7-168">**Azure PowerShell ile Hive sorguları çalıştırmak için**</span><span class="sxs-lookup"><span data-stu-id="881c7-168">**To run the Hive queries by Azure PowerShell**</span></span>
+<span data-ttu-id="39bf3-168">**Azure PowerShell toorun hello Hive sorguları**</span><span class="sxs-lookup"><span data-stu-id="39bf3-168">**toorun hello Hive queries by Azure PowerShell**</span></span>
 
-1. <span data-ttu-id="881c7-169">' Ndaki yönergeleri kullanarak bir Azure SQL veritabanı ve tablo Sqoop iş çıktısı için oluşturma [ek C](#appendix-c).</span><span class="sxs-lookup"><span data-stu-id="881c7-169">Create an Azure SQL database and the table for the Sqoop job output by using the instructions in [Appendix C](#appendix-c).</span></span>
-2. <span data-ttu-id="881c7-170">Windows PowerShell ISE açın ve aşağıdaki komut dosyasını çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="881c7-170">Open Windows PowerShell ISE, and run the following script:</span></span>
+1. <span data-ttu-id="39bf3-169">Merhaba yönergeleri kullanarak hello Sqoop iş çıktısı için bir Azure SQL veritabanı ve hello tablo oluşturma [ek C](#appendix-c).</span><span class="sxs-lookup"><span data-stu-id="39bf3-169">Create an Azure SQL database and hello table for hello Sqoop job output by using hello instructions in [Appendix C](#appendix-c).</span></span>
+2. <span data-ttu-id="39bf3-170">Windows PowerShell ISE açın ve komut dosyası izleyen hello çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="39bf3-170">Open Windows PowerShell ISE, and run hello following script:</span></span>
 
     ```powershell
     $subscriptionID = "<Azure Subscription ID>"
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure hello follwing variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -102,10 +102,10 @@ ms.lasthandoff: 08/03/2017
     $existingSqlDatabaseName = "<Azure SQL Database name>"
 
     $localFolder = "E:\Tutorials\Downloads\" # A temp location for copying files.
-    $azcopyPath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy" # depends on the version, the folder can be different
+    $azcopyPath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy" # depends on hello version, hello folder can be different
 
     ###########################################
-    # (Optional) configure the following variables
+    # (Optional) configure hello following variables
     ###########################################
 
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -115,10 +115,10 @@ ms.lasthandoff: 08/03/2017
 
     $HDInsightClusterName = $namePrefix + "hdi"
     $httpUserName = "admin"
-    $httpPassword = "<Enter the Password>"
+    $httpPassword = "<Enter hello Password>"
 
     $defaultStorageAccountName = $namePrefix + "store"
-    $defaultBlobContainerName = $HDInsightClusterName # use the cluster name
+    $defaultBlobContainerName = $HDInsightClusterName # use hello cluster name
 
     $existingSqlDatabaseTableName = "AvgDelays"
     $sqlDatabaseConnectionString = "jdbc:sqlserver://$existingSqlDatabaseServerName.database.windows.net;user=$existingSqlDatabaseLogin@$existingSqlDatabaseServerName;password=$existingSqlDatabaseLogin;database=$existingSqlDatabaseName"
@@ -145,15 +145,15 @@ ms.lasthandoff: 08/03/2017
     # Create ARM group
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-    # Create the default storage account
+    # Create hello default storage account
     New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
 
-    # Create the default Blob container
+    # Create hello default Blob container
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
     New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext
 
-    # Create the HDInsight cluster
+    # Create hello HDInsight cluster
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
@@ -170,25 +170,25 @@ ms.lasthandoff: 08/03/2017
         -DefaultStorageContainer $existingDefaultBlobContainerName
 
     ###########################################
-    # Prepare the HiveQL script and source data
+    # Prepare hello HiveQL script and source data
     ###########################################
 
-    # Create the temp location
+    # Create hello temp location
     New-Item -Path $localFolder -ItemType Directory -Force
 
-    # Download the sample file from Azure Blob storage
+    # Download hello sample file from Azure Blob storage
     $context = New-AzureStorageContext -StorageAccountName "hditutorialdata" -Anonymous
     $blobs = Get-AzureStorageBlob -Container "flightdelay" -Context $context
     #$blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
 
-    # Upload data to default container
+    # Upload data toodefault container
 
     $azcopycmd = "cmd.exe /C '$azcopyPath\azcopy.exe' /S /Source:'$localFolder' /Dest:'https://$defaultStorageAccountName.blob.core.windows.net/$defaultBlobContainerName/tutorials/flightdelays' /DestKey:$defaultStorageAccountKey"
 
     Invoke-Expression -Command:$azcopycmd
 
     ###########################################
-    # Submit the Hive job
+    # Submit hello Hive job
     ###########################################
     Use-AzureRmHDInsightCluster -ClusterName $HDInsightClusterName -HttpCredential $httpCredential
     $response = Invoke-AzureRmHDInsightHiveJob `
@@ -201,7 +201,7 @@ ms.lasthandoff: 08/03/2017
     write-Host $response
 
     ###########################################
-    # Submit the Sqoop job
+    # Submit hello Sqoop job
     ###########################################
     $exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
 
@@ -231,161 +231,161 @@ ms.lasthandoff: 08/03/2017
         -DisplayOutputType StandardError
 
     ###########################################
-    # Delete the cluster
+    # Delete hello cluster
     ###########################################
     Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
     ```
-3. <span data-ttu-id="881c7-171">SQL veritabanına bağlama ve AvgDelays tablo şehirde ortalama uçuş gecikmelerinden bakın:</span><span class="sxs-lookup"><span data-stu-id="881c7-171">Connect to your SQL database and see average flight delays by city in the AvgDelays table:</span></span>
+3. <span data-ttu-id="39bf3-171">Tooyour SQL veritabanına bağlanmak ve hello AvgDelays tablo şehirde ortalama uçuş gecikmelerinden bakın:</span><span class="sxs-lookup"><span data-stu-id="39bf3-171">Connect tooyour SQL database and see average flight delays by city in hello AvgDelays table:</span></span>
 
     ![HDI. FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
 - - -
 
-## <span data-ttu-id="881c7-173"><a id="appendix-a"></a>Ek A - karşıya yükleme uçuş gecikme verileri Azure Blob Depolama</span><span class="sxs-lookup"><span data-stu-id="881c7-173"><a id="appendix-a"></a>Appendix A - Upload flight delay data to Azure Blob storage</span></span>
-<span data-ttu-id="881c7-174">Veri dosyası ve HiveQL komut dosyaları karşıya yükleme (bkz [ek B](#appendix-b)) bazı planlama gerektirir.</span><span class="sxs-lookup"><span data-stu-id="881c7-174">Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-b)) requires some planning.</span></span> <span data-ttu-id="881c7-175">Veri dosyaları ve Hdınsight kümesi oluşturma ve Hive işi çalıştırma önce HiveQL dosyasını depolamak için kullanılan uygulamadır.</span><span class="sxs-lookup"><span data-stu-id="881c7-175">The idea is to store the data files and the HiveQL file before creating an HDInsight cluster and running the Hive job.</span></span> <span data-ttu-id="881c7-176">İki seçeneğiniz vardır:</span><span class="sxs-lookup"><span data-stu-id="881c7-176">You have two options:</span></span>
+## <span data-ttu-id="39bf3-173"><a id="appendix-a"></a>Ek A - karşıya yükleme uçuş gecikme veri tooAzure Blob Depolama</span><span class="sxs-lookup"><span data-stu-id="39bf3-173"><a id="appendix-a"></a>Appendix A - Upload flight delay data tooAzure Blob storage</span></span>
+<span data-ttu-id="39bf3-174">Merhaba veri dosyası ve hello HiveQL komut dosyaları karşıya yükleme (bkz [ek B](#appendix-b)) bazı planlama gerektirir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-174">Uploading hello data file and hello HiveQL script files (see [Appendix B](#appendix-b)) requires some planning.</span></span> <span data-ttu-id="39bf3-175">Merhaba toostore hello veri dosyaları ve Hdınsight kümesi oluşturma ve hello Hive işi çalıştırma önce hello HiveQL dosya olur.</span><span class="sxs-lookup"><span data-stu-id="39bf3-175">hello idea is toostore hello data files and hello HiveQL file before creating an HDInsight cluster and running hello Hive job.</span></span> <span data-ttu-id="39bf3-176">İki seçeneğiniz vardır:</span><span class="sxs-lookup"><span data-stu-id="39bf3-176">You have two options:</span></span>
 
-* <span data-ttu-id="881c7-177">**Varsayılan dosya sistemi olarak Hdınsight küme tarafından kullanılacak aynı Azure depolama hesabı kullanın.**</span><span class="sxs-lookup"><span data-stu-id="881c7-177">**Use the same Azure Storage account that will be used by the HDInsight cluster as the default file system.**</span></span> <span data-ttu-id="881c7-178">Hdınsight kümesi depolama hesabı erişim tuşu sahip olacağından ek değişiklik gerekmez.</span><span class="sxs-lookup"><span data-stu-id="881c7-178">Because the HDInsight cluster will have the Storage account access key, you don't need to make any additional changes.</span></span>
-* <span data-ttu-id="881c7-179">**Hdınsight küme varsayılan dosya sistemi farklı bir Azure Storage hesabını kullanın.**</span><span class="sxs-lookup"><span data-stu-id="881c7-179">**Use a different Azure Storage account from the HDInsight cluster default file system.**</span></span> <span data-ttu-id="881c7-180">Bu durumda, Windows PowerShell komut dosyası bulundu oluşturma parçası değiştirmelisiniz [oluşturma Hdınsight kümesi ve çalışma Hive/Sqoop işleri](#runjob) ek depolama alanı hesabı olarak depolama hesabı bağlamak için.</span><span class="sxs-lookup"><span data-stu-id="881c7-180">If this is the case, you must modify the creation part of the Windows PowerShell script found in [Create HDInsight cluster and run Hive/Sqoop jobs](#runjob) to link the Storage account as an additional Storage account.</span></span> <span data-ttu-id="881c7-181">Yönergeler için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri][hdinsight-provision].</span><span class="sxs-lookup"><span data-stu-id="881c7-181">For instructions, see [Create Hadoop clusters in HDInsight][hdinsight-provision].</span></span> <span data-ttu-id="881c7-182">Hdınsight kümesi sonra depolama hesabının erişim anahtarı bilir.</span><span class="sxs-lookup"><span data-stu-id="881c7-182">The HDInsight cluster then knows the access key for the Storage account.</span></span>
+* <span data-ttu-id="39bf3-177">**Kullanım hello aynı hello Hdınsight küme tarafından hello varsayılan dosya sistemi olarak kullanılacak Azure depolama hesabı.**</span><span class="sxs-lookup"><span data-stu-id="39bf3-177">**Use hello same Azure Storage account that will be used by hello HDInsight cluster as hello default file system.**</span></span> <span data-ttu-id="39bf3-178">Merhaba Hdınsight kümesi hello depolama hesabının erişim anahtarı olacağı için ek değişiklikler toomake gerekmez.</span><span class="sxs-lookup"><span data-stu-id="39bf3-178">Because hello HDInsight cluster will have hello Storage account access key, you don't need toomake any additional changes.</span></span>
+* <span data-ttu-id="39bf3-179">**Merhaba Hdınsight küme varsayılan dosya sistemi farklı bir Azure Storage hesabını kullanın.**</span><span class="sxs-lookup"><span data-stu-id="39bf3-179">**Use a different Azure Storage account from hello HDInsight cluster default file system.**</span></span> <span data-ttu-id="39bf3-180">Merhaba Durum buysa, hello oluşturma hello Windows PowerShell komut dosyası bulundu parçası değiştirmelisiniz [oluşturma Hdınsight kümesi ve çalışma Hive/Sqoop işleri](#runjob) toolink hello ek depolama alanı hesabı olarak depolama hesabı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-180">If this is hello case, you must modify hello creation part of hello Windows PowerShell script found in [Create HDInsight cluster and run Hive/Sqoop jobs](#runjob) toolink hello Storage account as an additional Storage account.</span></span> <span data-ttu-id="39bf3-181">Yönergeler için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri][hdinsight-provision].</span><span class="sxs-lookup"><span data-stu-id="39bf3-181">For instructions, see [Create Hadoop clusters in HDInsight][hdinsight-provision].</span></span> <span data-ttu-id="39bf3-182">Merhaba Hdınsight kümesi sonra hello hello depolama hesabı için erişim anahtarı bilir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-182">hello HDInsight cluster then knows hello access key for hello Storage account.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="881c7-183">Blob Depolama yolu veri dosyası için HiveQL komut dosyasında kodlanmış zordur.</span><span class="sxs-lookup"><span data-stu-id="881c7-183">The Blob storage path for the data file is hard coded in the HiveQL script file.</span></span> <span data-ttu-id="881c7-184">Buna uygun şekilde güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="881c7-184">You must update it accordingly.</span></span>
+> <span data-ttu-id="39bf3-183">Merhaba Blob Depolama yolu hello veri dosyası için sabit kodlanmış içinde hello HiveQL komut dosyasıdır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-183">hello Blob storage path for hello data file is hard coded in hello HiveQL script file.</span></span> <span data-ttu-id="39bf3-184">Buna uygun şekilde güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-184">You must update it accordingly.</span></span>
 
-<span data-ttu-id="881c7-185">**Uçuş veri indirmek için**</span><span class="sxs-lookup"><span data-stu-id="881c7-185">**To download the flight data**</span></span>
+<span data-ttu-id="39bf3-185">**toodownload hello uçuş veri**</span><span class="sxs-lookup"><span data-stu-id="39bf3-185">**toodownload hello flight data**</span></span>
 
-1. <span data-ttu-id="881c7-186">Gözat [araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik kuruluşu][rita-website].</span><span class="sxs-lookup"><span data-stu-id="881c7-186">Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].</span></span>
-2. <span data-ttu-id="881c7-187">Sayfasında, aşağıdaki değerleri seçin:</span><span class="sxs-lookup"><span data-stu-id="881c7-187">On the page, select the following values:</span></span>
+1. <span data-ttu-id="39bf3-186">Çok Gözat[araştırma ve yenilikçi teknoloji yönetim, taşıma İstatistik Enstitüsü][rita-website].</span><span class="sxs-lookup"><span data-stu-id="39bf3-186">Browse too[Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].</span></span>
+2. <span data-ttu-id="39bf3-187">Başlangıç sayfasında, aşağıdaki değerleri hello seçin:</span><span class="sxs-lookup"><span data-stu-id="39bf3-187">On hello page, select hello following values:</span></span>
 
     <table border="1">
-    <tr><th><span data-ttu-id="881c7-188">Ad</span><span class="sxs-lookup"><span data-stu-id="881c7-188">Name</span></span></th><th><span data-ttu-id="881c7-189">Değer</span><span class="sxs-lookup"><span data-stu-id="881c7-189">Value</span></span></th></tr>
-    <tr><td><span data-ttu-id="881c7-190">Filtre yıl</span><span class="sxs-lookup"><span data-stu-id="881c7-190">Filter Year</span></span></td><td><span data-ttu-id="881c7-191">2013</span><span class="sxs-lookup"><span data-stu-id="881c7-191">2013</span></span> </td></tr>
-    <tr><td><span data-ttu-id="881c7-192">Dönem filtre</span><span class="sxs-lookup"><span data-stu-id="881c7-192">Filter Period</span></span></td><td><span data-ttu-id="881c7-193">Ocak</span><span class="sxs-lookup"><span data-stu-id="881c7-193">January</span></span></td></tr>
-    <tr><td><span data-ttu-id="881c7-194">Alanları</span><span class="sxs-lookup"><span data-stu-id="881c7-194">Fields</span></span></td><td><span data-ttu-id="881c7-195">*Yıl*, *FlightDate*, *UniqueCarrier*, *taşıyıcı*, *FlightNum*, *OriginAirportID* , *Kaynak*, *OriginCityName*, *OriginState*, *DestAirportID*, *hedef* , *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (diğer tüm alanlar Temizle)</span><span class="sxs-lookup"><span data-stu-id="881c7-195">*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</span></span></td></tr>
-    </table><span data-ttu-id="881c7-196">
-3.Tıklatın **karşıdan**.</span><span class="sxs-lookup"><span data-stu-id="881c7-196">
+    <tr><th><span data-ttu-id="39bf3-188">Ad</span><span class="sxs-lookup"><span data-stu-id="39bf3-188">Name</span></span></th><th><span data-ttu-id="39bf3-189">Değer</span><span class="sxs-lookup"><span data-stu-id="39bf3-189">Value</span></span></th></tr>
+    <tr><td><span data-ttu-id="39bf3-190">Filtre yıl</span><span class="sxs-lookup"><span data-stu-id="39bf3-190">Filter Year</span></span></td><td><span data-ttu-id="39bf3-191">2013</span><span class="sxs-lookup"><span data-stu-id="39bf3-191">2013</span></span> </td></tr>
+    <tr><td><span data-ttu-id="39bf3-192">Dönem filtre</span><span class="sxs-lookup"><span data-stu-id="39bf3-192">Filter Period</span></span></td><td><span data-ttu-id="39bf3-193">Ocak</span><span class="sxs-lookup"><span data-stu-id="39bf3-193">January</span></span></td></tr>
+    <tr><td><span data-ttu-id="39bf3-194">Alanları</span><span class="sxs-lookup"><span data-stu-id="39bf3-194">Fields</span></span></td><td><span data-ttu-id="39bf3-195">*Yıl*, *FlightDate*, *UniqueCarrier*, *taşıyıcı*, *FlightNum*, *OriginAirportID* , *Kaynak*, *OriginCityName*, *OriginState*, *DestAirportID*, *hedef* , *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (diğer tüm alanlar Temizle)</span><span class="sxs-lookup"><span data-stu-id="39bf3-195">*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</span></span></td></tr>
+    </table><span data-ttu-id="39bf3-196">
+3.Tıklatın **karşıdan**.</span><span class="sxs-lookup"><span data-stu-id="39bf3-196">
 3. Click **Download**.</span></span>
-<span data-ttu-id="881c7-197">4.</span><span class="sxs-lookup"><span data-stu-id="881c7-197">4.</span></span> <span data-ttu-id="881c7-198">Dosyanın sıkıştırmasını açın **C:\Tutorials\FlightDelay\2013Data** klasör.</span><span class="sxs-lookup"><span data-stu-id="881c7-198">Unzip the file to the **C:\Tutorials\FlightDelay\2013Data** folder.</span></span> <span data-ttu-id="881c7-199">Her dosya, bir CSV dosyası ve yaklaşık 60 GB boyutunda.</span><span class="sxs-lookup"><span data-stu-id="881c7-199">Each file is a CSV file and is approximately 60GB in size.</span></span>
-<span data-ttu-id="881c7-200">5.</span><span class="sxs-lookup"><span data-stu-id="881c7-200">5.</span></span> <span data-ttu-id="881c7-201">Dosya verilerini içeren ayın adını yeniden adlandırın.</span><span class="sxs-lookup"><span data-stu-id="881c7-201">Rename the file to the name of the month that it contains data for.</span></span> <span data-ttu-id="881c7-202">Örneğin, Ocak verilerini içeren dosyayı adlı *January.csv*.</span><span class="sxs-lookup"><span data-stu-id="881c7-202">For example, the file containing the January data would be named *January.csv*.</span></span>
-<span data-ttu-id="881c7-203">6.</span><span class="sxs-lookup"><span data-stu-id="881c7-203">6.</span></span> <span data-ttu-id="881c7-204">2 ve her 12 ay 2013'te bir dosyayı indirmek için 5. adımları yineleyin.</span><span class="sxs-lookup"><span data-stu-id="881c7-204">Repeat steps 2 and 5 to download a file for each of the 12 months in 2013.</span></span> <span data-ttu-id="881c7-205">Öğretici çalıştırmak için bir dosya en az gerekir.</span><span class="sxs-lookup"><span data-stu-id="881c7-205">You will need a minimum of one file to run the tutorial.</span></span>
+<span data-ttu-id="39bf3-197">4.</span><span class="sxs-lookup"><span data-stu-id="39bf3-197">4.</span></span> <span data-ttu-id="39bf3-198">Merhaba dosya toohello sıkıştırmasını **C:\Tutorials\FlightDelay\2013Data** klasör.</span><span class="sxs-lookup"><span data-stu-id="39bf3-198">Unzip hello file toohello **C:\Tutorials\FlightDelay\2013Data** folder.</span></span> <span data-ttu-id="39bf3-199">Her dosya, bir CSV dosyası ve yaklaşık 60 GB boyutunda.</span><span class="sxs-lookup"><span data-stu-id="39bf3-199">Each file is a CSV file and is approximately 60GB in size.</span></span>
+<span data-ttu-id="39bf3-200">5.</span><span class="sxs-lookup"><span data-stu-id="39bf3-200">5.</span></span> <span data-ttu-id="39bf3-201">Merhaba toohello verilerini içeren hello ayın yeniden adlandırın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-201">Rename hello file toohello name of hello month that it contains data for.</span></span> <span data-ttu-id="39bf3-202">Örneğin, hello dosya hello Ocak verileri içeren adlandırılmış *January.csv*.</span><span class="sxs-lookup"><span data-stu-id="39bf3-202">For example, hello file containing hello January data would be named *January.csv*.</span></span>
+<span data-ttu-id="39bf3-203">6.</span><span class="sxs-lookup"><span data-stu-id="39bf3-203">6.</span></span> <span data-ttu-id="39bf3-204">Adım 2 ve 5 toodownload bir dosyayı her hello için 12 ay 2013'te yineleyin.</span><span class="sxs-lookup"><span data-stu-id="39bf3-204">Repeat steps 2 and 5 toodownload a file for each of hello 12 months in 2013.</span></span> <span data-ttu-id="39bf3-205">En az bir dosya toorun hello öğreticinin gerekir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-205">You will need a minimum of one file toorun hello tutorial.</span></span>
 
-<span data-ttu-id="881c7-206">**Uçuş gecikme verileri Azure Blob depolama alanına yüklemek için**</span><span class="sxs-lookup"><span data-stu-id="881c7-206">**To upload the flight delay data to Azure Blob storage**</span></span>
+<span data-ttu-id="39bf3-206">**tooupload hello uçuş gecikme veri tooAzure Blob Depolama**</span><span class="sxs-lookup"><span data-stu-id="39bf3-206">**tooupload hello flight delay data tooAzure Blob storage**</span></span>
 
-1. <span data-ttu-id="881c7-207">Parametreleri hazırlayın:</span><span class="sxs-lookup"><span data-stu-id="881c7-207">Prepare the parameters:</span></span>
+1. <span data-ttu-id="39bf3-207">Merhaba parametreleri hazırlayın:</span><span class="sxs-lookup"><span data-stu-id="39bf3-207">Prepare hello parameters:</span></span>
 
     <table border="1">
-    <tr><th><span data-ttu-id="881c7-208">Değişken adı</span><span class="sxs-lookup"><span data-stu-id="881c7-208">Variable Name</span></span></th><th><span data-ttu-id="881c7-209">Notlar</span><span class="sxs-lookup"><span data-stu-id="881c7-209">Notes</span></span></th></tr>
-    <tr><td><span data-ttu-id="881c7-210">$storageAccountName</span><span class="sxs-lookup"><span data-stu-id="881c7-210">$storageAccountName</span></span></td><td><span data-ttu-id="881c7-211">Verileri karşıya yüklemek istediğiniz Azure depolama hesabı.</span><span class="sxs-lookup"><span data-stu-id="881c7-211">The Azure Storage account where you want to upload the data to.</span></span></td></tr>
-    <tr><td><span data-ttu-id="881c7-212">$blobContainerName</span><span class="sxs-lookup"><span data-stu-id="881c7-212">$blobContainerName</span></span></td><td><span data-ttu-id="881c7-213">Verileri karşıya yüklemek istediğiniz Blob kapsayıcısı.</span><span class="sxs-lookup"><span data-stu-id="881c7-213">The Blob container where you want to upload the data to.</span></span></td></tr>
+    <tr><th><span data-ttu-id="39bf3-208">Değişken adı</span><span class="sxs-lookup"><span data-stu-id="39bf3-208">Variable Name</span></span></th><th><span data-ttu-id="39bf3-209">Notlar</span><span class="sxs-lookup"><span data-stu-id="39bf3-209">Notes</span></span></th></tr>
+    <tr><td><span data-ttu-id="39bf3-210">$storageAccountName</span><span class="sxs-lookup"><span data-stu-id="39bf3-210">$storageAccountName</span></span></td><td><span data-ttu-id="39bf3-211">Merhaba tooupload hello verilerin istediğiniz Azure depolama hesabı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-211">hello Azure Storage account where you want tooupload hello data to.</span></span></td></tr>
+    <tr><td><span data-ttu-id="39bf3-212">$blobContainerName</span><span class="sxs-lookup"><span data-stu-id="39bf3-212">$blobContainerName</span></span></td><td><span data-ttu-id="39bf3-213">Blob kapsayıcısı tooupload hello verilerin istediğiniz hello.</span><span class="sxs-lookup"><span data-stu-id="39bf3-213">hello Blob container where you want tooupload hello data to.</span></span></td></tr>
     </table>
-2. <span data-ttu-id="881c7-214">Azure PowerShell ISE açın.</span><span class="sxs-lookup"><span data-stu-id="881c7-214">Open Azure PowerShell ISE.</span></span>
-<span data-ttu-id="881c7-215">3.</span><span class="sxs-lookup"><span data-stu-id="881c7-215">3.</span></span> <span data-ttu-id="881c7-216">Aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:</span><span class="sxs-lookup"><span data-stu-id="881c7-216">Paste the following script into the script pane:</span></span>
+2. <span data-ttu-id="39bf3-214">Azure PowerShell ISE açın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-214">Open Azure PowerShell ISE.</span></span>
+<span data-ttu-id="39bf3-215">3.</span><span class="sxs-lookup"><span data-stu-id="39bf3-215">3.</span></span> <span data-ttu-id="39bf3-216">Komut dosyası hello betik bölmesine aşağıdaki hello yapıştırın:</span><span class="sxs-lookup"><span data-stu-id="39bf3-216">Paste hello following script into hello script pane:</span></span>
 
     ```powershell
     [CmdletBinding()]
     Param(
 
         [Parameter(Mandatory=$True,
-                    HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
+                    HelpMessage="Enter hello Azure storage account name for creating a new HDInsight cluster. If hello account doesn't exist, hello script will create one.")]
         [String]$storageAccountName,
 
         [Parameter(Mandatory=$True,
-                    HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
+                    HelpMessage="Enter hello Azure blob container name for creating a new HDInsight cluster. If not specified, hello HDInsight cluster name will be used.")]
         [String]$blobContainerName
     )
 
     #Region - Variables
-    $localFolder = "C:\Tutorials\FlightDelay\2013Data"  # The source folder
-    $destFolder = "tutorials/flightdelay/2013data"     #The blob name prefix for the files to be uploaded
+    $localFolder = "C:\Tutorials\FlightDelay\2013Data"  # hello source folder
+    $destFolder = "tutorials/flightdelay/2013data"     #hello blob name prefix for hello files toobe uploaded
     #EndRegion
 
-    #Region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #Region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
-    Write-Host "`nValidating the Azure Storage account and the Blob container..." -ForegroundColor Green
-    # Validate the Storage account
+    Write-Host "`nValidating hello Azure Storage account and hello Blob container..." -ForegroundColor Green
+    # Validate hello Storage account
     if (-not (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}))
     {
-        Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
+        Write-Host "hello storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
         exit
     }
     else{
         $resourceGroupName = (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}).ResourceGroupName
     }
 
-    # Validate the container
+    # Validate hello container
     $storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
     if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
     {
-        Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
+        Write-Host "hello Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
         Exit
     }
     #EngRegion
 
-    #Region - Copy the file from local workstation to Azure Blob storage
+    #Region - Copy hello file from local workstation tooAzure Blob storage
     if (test-path -Path $localFolder)
     {
         foreach ($item in Get-ChildItem -Path $localFolder){
             $fileName = "$localFolder\$item"
             $blobName = "$destFolder/$item"
 
-            Write-Host "Copying $fileName to $blobName" -ForegroundColor Green
+            Write-Host "Copying $fileName too$blobName" -ForegroundColor Green
 
             Set-AzureStorageBlobContent -File $fileName -Container $blobContainerName -Blob $blobName -Context $storageContext
         }
     }
     else
     {
-        Write-Host "The source folder on the workstation doesn't exist" -ForegroundColor Red
+        Write-Host "hello source folder on hello workstation doesn't exist" -ForegroundColor Red
     }
 
-    # List the uploaded files on HDInsight
+    # List hello uploaded files on HDInsight
     Get-AzureStorageBlob -Container $blobContainerName  -Context $storageContext -Prefix $destFolder
     #EndRegion
     ```
-4. <span data-ttu-id="881c7-217">Betiği çalıştırmak için **F5**'e basın.</span><span class="sxs-lookup"><span data-stu-id="881c7-217">Press **F5** to run the script.</span></span>
+4. <span data-ttu-id="39bf3-217">Tuşuna **F5** toorun hello komut dosyası.</span><span class="sxs-lookup"><span data-stu-id="39bf3-217">Press **F5** toorun hello script.</span></span>
 
-<span data-ttu-id="881c7-218">Dosyaları yüklemek için farklı bir yöntem kullanmayı tercih ederseniz, lütfen flightdelay/öğreticileri/veri dosya yolu olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="881c7-218">If you choose to use a different method for uploading the files, please make sure the file path is tutorials/flightdelay/data.</span></span> <span data-ttu-id="881c7-219">Dosyalara erişmek için sözdizimi aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="881c7-219">The syntax for accessing the files is:</span></span>
+<span data-ttu-id="39bf3-218">Lütfen hello dosyaları karşıya yükleme için farklı bir yöntem toouse seçerseniz, flightdelay/öğreticileri/veri hello dosya yolu olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="39bf3-218">If you choose toouse a different method for uploading hello files, please make sure hello file path is tutorials/flightdelay/data.</span></span> <span data-ttu-id="39bf3-219">Merhaba dosyalara erişmek için hello sözdizimi aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="39bf3-219">hello syntax for accessing hello files is:</span></span>
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
-<span data-ttu-id="881c7-220">Öğreticiler/flightdelay/veri yolu dosyaları karşıya yüklediğiniz sırada oluşturulan sanal klasörüdür.</span><span class="sxs-lookup"><span data-stu-id="881c7-220">The path tutorials/flightdelay/data is the virtual folder you created when you uploaded the files.</span></span> <span data-ttu-id="881c7-221">12 dosyaları, her ay için bir tane olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="881c7-221">Verify that there are 12 files, one for each month.</span></span>
+<span data-ttu-id="39bf3-220">Merhaba yolu öğreticileri/flightdelay/verilerini hello dosyaları karşıya yüklediğiniz sırada oluşturulan hello sanal klasörüdür.</span><span class="sxs-lookup"><span data-stu-id="39bf3-220">hello path tutorials/flightdelay/data is hello virtual folder you created when you uploaded hello files.</span></span> <span data-ttu-id="39bf3-221">12 dosyaları, her ay için bir tane olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="39bf3-221">Verify that there are 12 files, one for each month.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="881c7-222">Yeni konumdan okumak için Hive sorgusu güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="881c7-222">You must update the Hive query to read from the new location.</span></span>
+> <span data-ttu-id="39bf3-222">Merhaba Hive sorgusu tooread hello yeni konumdan güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-222">You must update hello Hive query tooread from hello new location.</span></span>
 >
-> <span data-ttu-id="881c7-223">Genel veya Hdınsight kümesi için depolama hesabı bağlamak için kapsayıcı erişim izni ya da yapılandırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="881c7-223">You must either configure the container access permission to be public or bind the Storage account to the HDInsight cluster.</span></span> <span data-ttu-id="881c7-224">Aksi takdirde, Hive sorgu dizesi veri dosyalarına erişmesini mümkün olmaz.</span><span class="sxs-lookup"><span data-stu-id="881c7-224">Otherwise, the Hive query string will not be able to access the data files.</span></span>
+> <span data-ttu-id="39bf3-223">Merhaba kapsayıcı erişim izni toobe ortak yapılandırmak veya hello depolama hesabı toohello Hdınsight kümesine bağlayın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-223">You must either configure hello container access permission toobe public or bind hello Storage account toohello HDInsight cluster.</span></span> <span data-ttu-id="39bf3-224">Aksi takdirde hello Hive sorgu dizesi mümkün tooaccess hello veri dosyalarını olmaz.</span><span class="sxs-lookup"><span data-stu-id="39bf3-224">Otherwise, hello Hive query string will not be able tooaccess hello data files.</span></span>
 
 - - -
 
-## <span data-ttu-id="881c7-225"><a id="appendix-b"></a>Ek B - oluşturun ve HiveQL betiğini yükleyin</span><span class="sxs-lookup"><span data-stu-id="881c7-225"><a id="appendix-b"></a>Appendix B - Create and upload a HiveQL script</span></span>
-<span data-ttu-id="881c7-226">Azure PowerShell kullanarak, aynı anda birden çok HiveQL ifadelerini bir çalıştırma veya bir komut dosyası HiveQL ifadesine paket.</span><span class="sxs-lookup"><span data-stu-id="881c7-226">Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file.</span></span> <span data-ttu-id="881c7-227">Bu bölümde HiveQL komut dosyası oluşturabilir ve Azure PowerShell kullanarak Azure Blob depolama alanına komut dosyasını karşıya gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="881c7-227">This section shows you how to create a HiveQL script and upload the script to Azure Blob storage by using Azure PowerShell.</span></span> <span data-ttu-id="881c7-228">Hive Azure Blob Depolama alanında depolanacak HiveQL betikleri gerektirir.</span><span class="sxs-lookup"><span data-stu-id="881c7-228">Hive requires the HiveQL scripts to be stored in Azure Blob storage.</span></span>
+## <span data-ttu-id="39bf3-225"><a id="appendix-b"></a>Ek B - oluşturun ve HiveQL betiğini yükleyin</span><span class="sxs-lookup"><span data-stu-id="39bf3-225"><a id="appendix-b"></a>Appendix B - Create and upload a HiveQL script</span></span>
+<span data-ttu-id="39bf3-226">Azure PowerShell kullanarak, birden çok HiveQL ifadelerini tek bir saat veya paket hello HiveQL deyimi bir komut dosyasına çalıştırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="39bf3-226">Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package hello HiveQL statement into a script file.</span></span> <span data-ttu-id="39bf3-227">Bu bölümde, nasıl toocreate HiveQL betiğini ve karşıya yükleme hello tooAzure Blob Depolama Azure PowerShell kullanarak komut dosyası gösterir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-227">This section shows you how toocreate a HiveQL script and upload hello script tooAzure Blob storage by using Azure PowerShell.</span></span> <span data-ttu-id="39bf3-228">Hive Azure Blob depolamada depolanan hello HiveQL betikleri toobe gerektirir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-228">Hive requires hello HiveQL scripts toobe stored in Azure Blob storage.</span></span>
 
-<span data-ttu-id="881c7-229">HiveQL betiğini aşağıdakileri gerçekleştirir:</span><span class="sxs-lookup"><span data-stu-id="881c7-229">The HiveQL script will perform the following:</span></span>
+<span data-ttu-id="39bf3-229">Merhaba HiveQL betiğini hello aşağıdakileri gerçekleştirir:</span><span class="sxs-lookup"><span data-stu-id="39bf3-229">hello HiveQL script will perform hello following:</span></span>
 
-1. <span data-ttu-id="881c7-230">**Delays_raw tablo bırakma**, tablo zaten mevcut durumda.</span><span class="sxs-lookup"><span data-stu-id="881c7-230">**Drop the delays_raw table**, in case the table already exists.</span></span>
-2. <span data-ttu-id="881c7-231">**Delays_raw dış Hive tablosu oluşturmak** uçuş gecikme dosyalarıyla Blob depolama konumuna işaret eden.</span><span class="sxs-lookup"><span data-stu-id="881c7-231">**Create the delays_raw external Hive table** pointing to the Blob storage location with the flight delay files.</span></span> <span data-ttu-id="881c7-232">Bu sorgu alanları tarafından sınırlandırılır belirtir "," ve "tarafından \n" satırları sonlandırılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-232">This query specifies that fields are delimited by "," and that lines are terminated by "\n".</span></span> <span data-ttu-id="881c7-233">Alan değerleri virgül içerdiğinde Hive alan sınırlayıcı virgül ve alan değeri parçası olan bir tane arasında ayrım çünkü bu bir sorun oluşturur (kaynak için alan değerlerini durumda olduğu\_ŞEHİR\_adı ve hedef\_ ŞEHİR\_adı).</span><span class="sxs-lookup"><span data-stu-id="881c7-233">This poses a problem when field values contain commas because Hive cannot differentiate between a comma that is a field delimiter and a one that is part of a field value (which is the case in field values for ORIGIN\_CITY\_NAME and DEST\_CITY\_NAME).</span></span> <span data-ttu-id="881c7-234">Bu sorunu çözmek için yanlış sütunlara bölme verileri tutmak için TEMP sütunları sorgu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="881c7-234">To address this, the query creates TEMP columns to hold data that is incorrectly split into columns.</span></span>
-3. <span data-ttu-id="881c7-235">**Gecikmeler tablo bırakma**, tablo zaten mevcut durumda.</span><span class="sxs-lookup"><span data-stu-id="881c7-235">**Drop the delays table**, in case the table already exists.</span></span>
-4. <span data-ttu-id="881c7-236">**Gecikmeler tablosu oluşturma**.</span><span class="sxs-lookup"><span data-stu-id="881c7-236">**Create the delays table**.</span></span> <span data-ttu-id="881c7-237">Daha fazla işleme önce verileri temizlemek yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="881c7-237">It is helpful to clean up the data before further processing.</span></span> <span data-ttu-id="881c7-238">Bu sorgu yeni bir tablo oluşturur *gecikmeler*, delays_raw tablosundan.</span><span class="sxs-lookup"><span data-stu-id="881c7-238">This query creates a new table, *delays*, from the delays_raw table.</span></span> <span data-ttu-id="881c7-239">(Daha önce belirtildiği gibi) TEMP sütunları kopyalanmadı Not ve **substring** işlevi tırnak işaretleri verileri kaldırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-239">Note that the TEMP columns (as mentioned previously) are not copied, and that the **substring** function is used to remove quotation marks from the data.</span></span>
-5. <span data-ttu-id="881c7-240">**Ortalama hava durumu gecikmesi ve test sonuçlarını gruplar Şehir ada göre işlem.**</span><span class="sxs-lookup"><span data-stu-id="881c7-240">**Compute the average weather delay and groups the results by city name.**</span></span> <span data-ttu-id="881c7-241">Ayrıca Blob Depolama sonuçları çıktı.</span><span class="sxs-lookup"><span data-stu-id="881c7-241">It will also output the results to Blob storage.</span></span> <span data-ttu-id="881c7-242">Sorgu kesme verileri kaldırır ve dışlayacak Not satırları değeri **weather_delay** null.</span><span class="sxs-lookup"><span data-stu-id="881c7-242">Note that the query will remove apostrophes from the data and will exclude rows where the value for **weather_delay** is null.</span></span> <span data-ttu-id="881c7-243">Daha sonra Bu öğreticide kullanılan Sqoop, bu değerler varsayılan olarak işleyebilmesini değil çünkü bu gereklidir.</span><span class="sxs-lookup"><span data-stu-id="881c7-243">This is necessary because Sqoop, used later in this tutorial, doesn't handle those values gracefully by default.</span></span>
+1. <span data-ttu-id="39bf3-230">**Merhaba delays_raw tablo bırakma**, hello tablo zaten mevcut durumda.</span><span class="sxs-lookup"><span data-stu-id="39bf3-230">**Drop hello delays_raw table**, in case hello table already exists.</span></span>
+2. <span data-ttu-id="39bf3-231">**Merhaba delays_raw dış Hive tablosu oluşturmak** hello uçuş gecikme dosyalarıyla toohello Blob depolama konumuna işaret eden.</span><span class="sxs-lookup"><span data-stu-id="39bf3-231">**Create hello delays_raw external Hive table** pointing toohello Blob storage location with hello flight delay files.</span></span> <span data-ttu-id="39bf3-232">Bu sorgu alanları tarafından sınırlandırılır belirtir "," ve "tarafından \n" satırları sonlandırılır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-232">This query specifies that fields are delimited by "," and that lines are terminated by "\n".</span></span> <span data-ttu-id="39bf3-233">Alan değerleri virgül içerdiğinde Hive alan sınırlayıcı virgül ve alan değeri parçası olan bir tane arasında ayrım çünkü bu bir sorun oluşturur (kaynak için alan değerlerini hello durumda olduğu\_ŞEHİR\_adı ve hedef\_ ŞEHİR\_adı).</span><span class="sxs-lookup"><span data-stu-id="39bf3-233">This poses a problem when field values contain commas because Hive cannot differentiate between a comma that is a field delimiter and a one that is part of a field value (which is hello case in field values for ORIGIN\_CITY\_NAME and DEST\_CITY\_NAME).</span></span> <span data-ttu-id="39bf3-234">tooaddress Bu, hello sorgu sütunlara yanlış bölme toohold veri TEMP sütunları oluşturur.</span><span class="sxs-lookup"><span data-stu-id="39bf3-234">tooaddress this, hello query creates TEMP columns toohold data that is incorrectly split into columns.</span></span>
+3. <span data-ttu-id="39bf3-235">**Başlangıç gecikmeleri tablo bırakma**, hello tablo zaten mevcut durumda.</span><span class="sxs-lookup"><span data-stu-id="39bf3-235">**Drop hello delays table**, in case hello table already exists.</span></span>
+4. <span data-ttu-id="39bf3-236">**Merhaba gecikmeler tablosu oluşturma**.</span><span class="sxs-lookup"><span data-stu-id="39bf3-236">**Create hello delays table**.</span></span> <span data-ttu-id="39bf3-237">Merhaba verileri yararlı tooclean başka bir işleme önce yoktur.</span><span class="sxs-lookup"><span data-stu-id="39bf3-237">It is helpful tooclean up hello data before further processing.</span></span> <span data-ttu-id="39bf3-238">Bu sorgu yeni bir tablo oluşturur *gecikmeler*, hello delays_raw tablosundan.</span><span class="sxs-lookup"><span data-stu-id="39bf3-238">This query creates a new table, *delays*, from hello delays_raw table.</span></span> <span data-ttu-id="39bf3-239">(Daha önce belirtildiği gibi) hello TEMP sütunları kopyalanmadı Not ve o hello **substring** kullanılan tooremove tırnak işaretleri hello verilerden işlevdir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-239">Note that hello TEMP columns (as mentioned previously) are not copied, and that hello **substring** function is used tooremove quotation marks from hello data.</span></span>
+5. <span data-ttu-id="39bf3-240">**Merhaba ortalama hava durumu gecikme ve grupları hello sonuçları Şehir ada göre işlem.**</span><span class="sxs-lookup"><span data-stu-id="39bf3-240">**Compute hello average weather delay and groups hello results by city name.**</span></span> <span data-ttu-id="39bf3-241">Ayrıca hello sonuçları tooBlob depolama çıktı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-241">It will also output hello results tooBlob storage.</span></span> <span data-ttu-id="39bf3-242">Hello sorgulayan kesme hello verilerden kaldıracak ve burada hello değeri için satır dışladığı Not **weather_delay** null.</span><span class="sxs-lookup"><span data-stu-id="39bf3-242">Note that hello query will remove apostrophes from hello data and will exclude rows where hello value for **weather_delay** is null.</span></span> <span data-ttu-id="39bf3-243">Daha sonra Bu öğreticide kullanılan Sqoop, bu değerler varsayılan olarak işleyebilmesini değil çünkü bu gereklidir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-243">This is necessary because Sqoop, used later in this tutorial, doesn't handle those values gracefully by default.</span></span>
 
-<span data-ttu-id="881c7-244">HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-hiveql].</span><span class="sxs-lookup"><span data-stu-id="881c7-244">For a full list of the HiveQL commands, see [Hive Data Definition Language][hadoop-hiveql].</span></span> <span data-ttu-id="881c7-245">Noktalı virgül Sonlandır her HiveQL komutu gerekir.</span><span class="sxs-lookup"><span data-stu-id="881c7-245">Each HiveQL command must terminate with a semicolon.</span></span>
+<span data-ttu-id="39bf3-244">Merhaba HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-hiveql].</span><span class="sxs-lookup"><span data-stu-id="39bf3-244">For a full list of hello HiveQL commands, see [Hive Data Definition Language][hadoop-hiveql].</span></span> <span data-ttu-id="39bf3-245">Noktalı virgül Sonlandır her HiveQL komutu gerekir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-245">Each HiveQL command must terminate with a semicolon.</span></span>
 
-<span data-ttu-id="881c7-246">**HiveQL komut dosyası oluşturmak için**</span><span class="sxs-lookup"><span data-stu-id="881c7-246">**To create a HiveQL script file**</span></span>
+<span data-ttu-id="39bf3-246">**toocreate HiveQL komut dosyası**</span><span class="sxs-lookup"><span data-stu-id="39bf3-246">**toocreate a HiveQL script file**</span></span>
 
-1. <span data-ttu-id="881c7-247">Parametreleri hazırlayın:</span><span class="sxs-lookup"><span data-stu-id="881c7-247">Prepare the parameters:</span></span>
+1. <span data-ttu-id="39bf3-247">Merhaba parametreleri hazırlayın:</span><span class="sxs-lookup"><span data-stu-id="39bf3-247">Prepare hello parameters:</span></span>
 
     <table border="1">
-    <tr><th><span data-ttu-id="881c7-248">Değişken adı</span><span class="sxs-lookup"><span data-stu-id="881c7-248">Variable Name</span></span></th><th><span data-ttu-id="881c7-249">Notlar</span><span class="sxs-lookup"><span data-stu-id="881c7-249">Notes</span></span></th></tr>
-    <tr><td><span data-ttu-id="881c7-250">$storageAccountName</span><span class="sxs-lookup"><span data-stu-id="881c7-250">$storageAccountName</span></span></td><td><span data-ttu-id="881c7-251">HiveQL betiğini karşıya yüklemek istediğiniz Azure depolama hesabı.</span><span class="sxs-lookup"><span data-stu-id="881c7-251">The Azure Storage account where you want to upload the HiveQL script to.</span></span></td></tr>
-    <tr><td><span data-ttu-id="881c7-252">$blobContainerName</span><span class="sxs-lookup"><span data-stu-id="881c7-252">$blobContainerName</span></span></td><td><span data-ttu-id="881c7-253">HiveQL betiğini karşıya yüklemek istediğiniz Blob kapsayıcısı.</span><span class="sxs-lookup"><span data-stu-id="881c7-253">The Blob container where you want to upload the HiveQL script to.</span></span></td></tr>
+    <tr><th><span data-ttu-id="39bf3-248">Değişken adı</span><span class="sxs-lookup"><span data-stu-id="39bf3-248">Variable Name</span></span></th><th><span data-ttu-id="39bf3-249">Notlar</span><span class="sxs-lookup"><span data-stu-id="39bf3-249">Notes</span></span></th></tr>
+    <tr><td><span data-ttu-id="39bf3-250">$storageAccountName</span><span class="sxs-lookup"><span data-stu-id="39bf3-250">$storageAccountName</span></span></td><td><span data-ttu-id="39bf3-251">Merhaba tooupload hello HiveQL betiğini istediğiniz Azure depolama hesabı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-251">hello Azure Storage account where you want tooupload hello HiveQL script to.</span></span></td></tr>
+    <tr><td><span data-ttu-id="39bf3-252">$blobContainerName</span><span class="sxs-lookup"><span data-stu-id="39bf3-252">$blobContainerName</span></span></td><td><span data-ttu-id="39bf3-253">Blob kapsayıcısı tooupload hello HiveQL betiğini istediğiniz hello.</span><span class="sxs-lookup"><span data-stu-id="39bf3-253">hello Blob container where you want tooupload hello HiveQL script to.</span></span></td></tr>
     </table>
-2. <span data-ttu-id="881c7-254">Azure PowerShell ISE açın.</span><span class="sxs-lookup"><span data-stu-id="881c7-254">Open Azure PowerShell ISE.</span></span>
-<span data-ttu-id="881c7-255">3.</span><span class="sxs-lookup"><span data-stu-id="881c7-255">3.</span></span> <span data-ttu-id="881c7-256">Kopyalayın ve aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:</span><span class="sxs-lookup"><span data-stu-id="881c7-256">Copy and paste the following script into the script pane:</span></span>
+2. <span data-ttu-id="39bf3-254">Azure PowerShell ISE açın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-254">Open Azure PowerShell ISE.</span></span>
+<span data-ttu-id="39bf3-255">3.</span><span class="sxs-lookup"><span data-stu-id="39bf3-255">3.</span></span> <span data-ttu-id="39bf3-256">Kopyalama ve yapıştırma hello betik bölmesine komut dosyası izleyen hello:</span><span class="sxs-lookup"><span data-stu-id="39bf3-256">Copy and paste hello following script into hello script pane:</span></span>
 
     ```powershell
     [CmdletBinding()]
@@ -393,11 +393,11 @@ ms.lasthandoff: 08/03/2017
 
         # Azure Blob storage variables
         [Parameter(Mandatory=$True,
-                    HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
+                    HelpMessage="Enter hello Azure storage account name for creating a new HDInsight cluster. If hello account doesn't exist, hello script will create one.")]
         [String]$storageAccountName,
 
         [Parameter(Mandatory=$True,
-                    HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
+                    HelpMessage="Enter hello Azure blob container name for creating a new HDInsight cluster. If not specified, hello HDInsight cluster name will be used.")]
         [String]$blobContainerName
     )
 
@@ -405,53 +405,53 @@ ms.lasthandoff: 08/03/2017
     # Treat all errors as terminating
     $ErrorActionPreference = "Stop"
 
-    # The HiveQL script file is exported as this file before it's uploaded to Blob storage
+    # hello HiveQL script file is exported as this file before it's uploaded tooBlob storage
     $hqlLocalFileName = "e:\tutorials\flightdelay\flightdelays.hql"
 
-    # The HiveQL script file will be uploaded to Blob storage as this blob name
+    # hello HiveQL script file will be uploaded tooBlob storage as this blob name
     $hqlBlobName = "tutorials/flightdelay/flightdelays.hql"
 
-    # These two constants are used by the HiveQL script file
+    # These two constants are used by hello HiveQL script file
     #$srcDataFolder = "tutorials/flightdelay/data"
     $dstDataFolder = "/tutorials/flightdelay/output"
     #endregion
 
-    #Region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #Region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #EndRegion
 
     #Region - Validate user input
-    Write-Host "`nValidating the Azure Storage account and the Blob container..." -ForegroundColor Green
-    # Validate the Storage account
+    Write-Host "`nValidating hello Azure Storage account and hello Blob container..." -ForegroundColor Green
+    # Validate hello Storage account
     if (-not (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}))
     {
-        Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
+        Write-Host "hello storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
         exit
     }
     else{
         $resourceGroupName = (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}).ResourceGroupName
     }
 
-    # Validate the container
+    # Validate hello container
     $storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
     if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
     {
-        Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
+        Write-Host "hello Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
         Exit
     }
     #EngRegion
 
-    #region - Validate the file and file path
+    #region - Validate hello file and file path
 
-    # Check if a file with the same file name already exists on the workstation
-    Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
+    # Check if a file with hello same file name already exists on hello workstation
+    Write-Host "`nvalidating hello folder structure on hello workstation for saving hello HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'hello file, ' $hqlLocalFileName ', exists.  Do you want toooverwirte it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {
@@ -459,7 +459,7 @@ ms.lasthandoff: 08/03/2017
         }
     }
 
-    # Create the folder if it doesn't exist
+    # Create hello folder if it doesn't exist
     $folder = split-path $hqlLocalFileName
     if (-not (test-path $folder))
     {
@@ -469,8 +469,8 @@ ms.lasthandoff: 08/03/2017
     }
     #end region
 
-    #region - Write the Hive script into a local file
-    Write-Host "`nWriting the Hive script into a file on your workstation ..." `
+    #region - Write hello Hive script into a local file
+    Write-Host "`nWriting hello Hive script into a file on your workstation ..." `
                 -ForegroundColor Green
 
     $hqlDropDelaysRaw = "DROP TABLE delays_raw;"
@@ -540,42 +540,42 @@ ms.lasthandoff: 08/03/2017
     $hqlScript | Out-File $hqlLocalFileName -Encoding ascii -Force
     #endregion
 
-    #region - Upload the Hive script to the default Blob container
-    Write-Host "`nUploading the Hive script to the default Blob container ..." -ForegroundColor Green
+    #region - Upload hello Hive script toohello default Blob container
+    Write-Host "`nUploading hello Hive script toohello default Blob container ..." -ForegroundColor Green
 
     # Create a storage context object
     $storageAccountKey = (Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-    # Upload the file from local workstation to Blob storage
+    # Upload hello file from local workstation tooBlob storage
     Set-AzureStorageBlobContent -File $hqlLocalFileName -Container $blobContainerName -Blob $hqlBlobName -Context $destContext
     #endregion
 
-    Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
+    Write-host "`nEnd of hello PowerShell script" -ForegroundColor Green
     ```
 
-    <span data-ttu-id="881c7-257">Komut dosyasında kullanılan değişkenleri şunlardır:</span><span class="sxs-lookup"><span data-stu-id="881c7-257">Here are the variables used in the script:</span></span>
+    <span data-ttu-id="39bf3-257">Merhaba komut dosyasında kullanılan hello değişkenleri şunlardır:</span><span class="sxs-lookup"><span data-stu-id="39bf3-257">Here are hello variables used in hello script:</span></span>
 
-   * <span data-ttu-id="881c7-258">**$hqlLocalFileName** -komut dosyası HiveQL komut dosyası yerel olarak Blob depolama alanına karşıya yüklemeden önce kaydeder.</span><span class="sxs-lookup"><span data-stu-id="881c7-258">**$hqlLocalFileName** - The script saves the HiveQL script file locally before uploading it to Blob storage.</span></span> <span data-ttu-id="881c7-259">Bu dosya adı değil.</span><span class="sxs-lookup"><span data-stu-id="881c7-259">This is the file name.</span></span> <span data-ttu-id="881c7-260">Varsayılan değer <u>C:\tutorials\flightdelay\flightdelays.hql</u>.</span><span class="sxs-lookup"><span data-stu-id="881c7-260">The default value is <u>C:\tutorials\flightdelay\flightdelays.hql</u>.</span></span>
-   * <span data-ttu-id="881c7-261">**$hqlBlobName** -Azure Blob depolama alanına kullanılan HiveQL komut dosyası blob adı budur.</span><span class="sxs-lookup"><span data-stu-id="881c7-261">**$hqlBlobName** - This is the HiveQL script file blob name used in the Azure Blob storage.</span></span> <span data-ttu-id="881c7-262">Tutorials/flightdelay/flightdelays.hql varsayılan değerdir.</span><span class="sxs-lookup"><span data-stu-id="881c7-262">The default value is tutorials/flightdelay/flightdelays.hql.</span></span> <span data-ttu-id="881c7-263">Dosyayı doğrudan Azure Blob depolama alanına yazılır, var olmadığından bir "/" blob adının başında.</span><span class="sxs-lookup"><span data-stu-id="881c7-263">Because the file will be written directly to Azure Blob storage, there is NOT a "/" at the beginning of the blob name.</span></span> <span data-ttu-id="881c7-264">Blob depolama alanından dosyaya erişmek istiyorsanız, bir "/" dosya adının başında eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="881c7-264">If you want to access the file from Blob storage, you will need to add a "/" at the beginning of the file name.</span></span>
-   * <span data-ttu-id="881c7-265">**$srcDataFolder** ve **$dstDataFolder** -"flightdelay/öğreticileri/data" = "flightdelay/öğreticileri/çıktı" =</span><span class="sxs-lookup"><span data-stu-id="881c7-265">**$srcDataFolder** and **$dstDataFolder** - = "tutorials/flightdelay/data" = "tutorials/flightdelay/output"</span></span>
+   * <span data-ttu-id="39bf3-258">**$hqlLocalFileName** -hello betik kaydeder hello HiveQL komut dosyası yerel olarak yüklemeden önce tooBlob depolama.</span><span class="sxs-lookup"><span data-stu-id="39bf3-258">**$hqlLocalFileName** - hello script saves hello HiveQL script file locally before uploading it tooBlob storage.</span></span> <span data-ttu-id="39bf3-259">Merhaba dosya adı değil.</span><span class="sxs-lookup"><span data-stu-id="39bf3-259">This is hello file name.</span></span> <span data-ttu-id="39bf3-260">Merhaba varsayılan değer <u>C:\tutorials\flightdelay\flightdelays.hql</u>.</span><span class="sxs-lookup"><span data-stu-id="39bf3-260">hello default value is <u>C:\tutorials\flightdelay\flightdelays.hql</u>.</span></span>
+   * <span data-ttu-id="39bf3-261">**$hqlBlobName** -hello Azure Blob Depolama kullanılan hello HiveQL komut dosyası blob adı budur.</span><span class="sxs-lookup"><span data-stu-id="39bf3-261">**$hqlBlobName** - This is hello HiveQL script file blob name used in hello Azure Blob storage.</span></span> <span data-ttu-id="39bf3-262">tutorials/flightdelay/flightdelays.hql Hello varsayılan değerdir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-262">hello default value is tutorials/flightdelay/flightdelays.hql.</span></span> <span data-ttu-id="39bf3-263">Merhaba dosyasını doğrudan tooAzure Blob depolama alanına yazılır, var olmadığından bir "/" Merhaba başında hello blob adı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-263">Because hello file will be written directly tooAzure Blob storage, there is NOT a "/" at hello beginning of hello blob name.</span></span> <span data-ttu-id="39bf3-264">Blob depolama biriminden tooaccess hello dosyanın istiyorsanız, tooadd gerekir bir "/" Merhaba başında hello dosya adı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-264">If you want tooaccess hello file from Blob storage, you will need tooadd a "/" at hello beginning of hello file name.</span></span>
+   * <span data-ttu-id="39bf3-265">**$srcDataFolder** ve **$dstDataFolder** -"flightdelay/öğreticileri/data" = "flightdelay/öğreticileri/çıktı" =</span><span class="sxs-lookup"><span data-stu-id="39bf3-265">**$srcDataFolder** and **$dstDataFolder** - = "tutorials/flightdelay/data" = "tutorials/flightdelay/output"</span></span>
 
 - - -
-## <span data-ttu-id="881c7-266"><a id="appendix-c"></a>Ek C - Sqoop iş çıktısı Azure SQL veritabanını hazırlama</span><span class="sxs-lookup"><span data-stu-id="881c7-266"><a id="appendix-c"></a>Appendix C - Prepare an Azure SQL database for the Sqoop job output</span></span>
-<span data-ttu-id="881c7-267">**SQL veritabanını hazırlamak için (Sqoop komut dosyasıyla Birleştir)**</span><span class="sxs-lookup"><span data-stu-id="881c7-267">**To prepare the SQL database (merge this with the Sqoop script)**</span></span>
+## <span data-ttu-id="39bf3-266"><a id="appendix-c"></a>Ek C - hello Sqoop iş çıktısı için bir Azure SQL veritabanı hazırlama</span><span class="sxs-lookup"><span data-stu-id="39bf3-266"><a id="appendix-c"></a>Appendix C - Prepare an Azure SQL database for hello Sqoop job output</span></span>
+<span data-ttu-id="39bf3-267">**tooprepare hello SQL veritabanı (Merhaba Sqoop betik ile Birleştir)**</span><span class="sxs-lookup"><span data-stu-id="39bf3-267">**tooprepare hello SQL database (merge this with hello Sqoop script)**</span></span>
 
-1. <span data-ttu-id="881c7-268">Parametreleri hazırlayın:</span><span class="sxs-lookup"><span data-stu-id="881c7-268">Prepare the parameters:</span></span>
+1. <span data-ttu-id="39bf3-268">Merhaba parametreleri hazırlayın:</span><span class="sxs-lookup"><span data-stu-id="39bf3-268">Prepare hello parameters:</span></span>
 
     <table border="1">
-    <tr><th><span data-ttu-id="881c7-269">Değişken adı</span><span class="sxs-lookup"><span data-stu-id="881c7-269">Variable Name</span></span></th><th><span data-ttu-id="881c7-270">Notlar</span><span class="sxs-lookup"><span data-stu-id="881c7-270">Notes</span></span></th></tr>
-    <tr><td><span data-ttu-id="881c7-271">$sqlDatabaseServerName</span><span class="sxs-lookup"><span data-stu-id="881c7-271">$sqlDatabaseServerName</span></span></td><td><span data-ttu-id="881c7-272">Azure SQL veritabanı sunucusu adı.</span><span class="sxs-lookup"><span data-stu-id="881c7-272">The name of the Azure SQL database server.</span></span> <span data-ttu-id="881c7-273">Yeni bir sunucu oluşturmak için hiçbir şey girin.</span><span class="sxs-lookup"><span data-stu-id="881c7-273">Enter nothing to create a new server.</span></span></td></tr>
-    <tr><td><span data-ttu-id="881c7-274">$sqlDatabaseUsername</span><span class="sxs-lookup"><span data-stu-id="881c7-274">$sqlDatabaseUsername</span></span></td><td><span data-ttu-id="881c7-275">Azure SQL veritabanı sunucusu için oturum açma adı.</span><span class="sxs-lookup"><span data-stu-id="881c7-275">The login name for the Azure SQL database server.</span></span> <span data-ttu-id="881c7-276">$SqlDatabaseServerName var olan bir sunucu ise, oturum açma ve oturum açma parolası sunucunun kimliğini doğrulamak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-276">If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server.</span></span> <span data-ttu-id="881c7-277">Aksi halde bunlar yeni bir sunucu oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-277">Otherwise they are used to create a new server.</span></span></td></tr>
-    <tr><td><span data-ttu-id="881c7-278">$sqlDatabasePassword</span><span class="sxs-lookup"><span data-stu-id="881c7-278">$sqlDatabasePassword</span></span></td><td><span data-ttu-id="881c7-279">Azure SQL veritabanı sunucusu için oturum açma parolası.</span><span class="sxs-lookup"><span data-stu-id="881c7-279">The login password for the Azure SQL database server.</span></span></td></tr>
-    <tr><td><span data-ttu-id="881c7-280">$sqlDatabaseLocation</span><span class="sxs-lookup"><span data-stu-id="881c7-280">$sqlDatabaseLocation</span></span></td><td><span data-ttu-id="881c7-281">Yalnızca yeni bir Azure veritabanı sunucusu oluştururken bu değeri kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-281">This value is used only when you're creating a new Azure database server.</span></span></td></tr>
-    <tr><td><span data-ttu-id="881c7-282">$sqlDatabaseName</span><span class="sxs-lookup"><span data-stu-id="881c7-282">$sqlDatabaseName</span></span></td><td><span data-ttu-id="881c7-283">Sqoop iş AvgDelays tablo oluşturmak için kullanılan SQL veritabanı.</span><span class="sxs-lookup"><span data-stu-id="881c7-283">The SQL database used to create the AvgDelays table for the Sqoop job.</span></span> <span data-ttu-id="881c7-284">Boş bırakarak HDISqoop adlı bir veritabanı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="881c7-284">Leaving it blank will create a database called HDISqoop.</span></span> <span data-ttu-id="881c7-285">AvgDelays Sqoop iş çıktısı için tablo adıdır.</span><span class="sxs-lookup"><span data-stu-id="881c7-285">The table name for the Sqoop job output is AvgDelays.</span></span> </td></tr>
+    <tr><th><span data-ttu-id="39bf3-269">Değişken adı</span><span class="sxs-lookup"><span data-stu-id="39bf3-269">Variable Name</span></span></th><th><span data-ttu-id="39bf3-270">Notlar</span><span class="sxs-lookup"><span data-stu-id="39bf3-270">Notes</span></span></th></tr>
+    <tr><td><span data-ttu-id="39bf3-271">$sqlDatabaseServerName</span><span class="sxs-lookup"><span data-stu-id="39bf3-271">$sqlDatabaseServerName</span></span></td><td><span data-ttu-id="39bf3-272">hello Azure SQL veritabanı sunucusunun adını Hello.</span><span class="sxs-lookup"><span data-stu-id="39bf3-272">hello name of hello Azure SQL database server.</span></span> <span data-ttu-id="39bf3-273">Hiçbir şey girin toocreate yeni bir sunucu.</span><span class="sxs-lookup"><span data-stu-id="39bf3-273">Enter nothing toocreate a new server.</span></span></td></tr>
+    <tr><td><span data-ttu-id="39bf3-274">$sqlDatabaseUsername</span><span class="sxs-lookup"><span data-stu-id="39bf3-274">$sqlDatabaseUsername</span></span></td><td><span data-ttu-id="39bf3-275">hello Azure SQL veritabanı sunucusu için Hello oturum açma adı.</span><span class="sxs-lookup"><span data-stu-id="39bf3-275">hello login name for hello Azure SQL database server.</span></span> <span data-ttu-id="39bf3-276">$SqlDatabaseServerName var olan bir sunucu varsa hello oturum açma ve oturum açma parolası hello sunucusuyla kullanılan tooauthenticate edilir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-276">If $sqlDatabaseServerName is an existing server, hello login and login password are used tooauthenticate with hello server.</span></span> <span data-ttu-id="39bf3-277">Aksi takdirde kullanılan toocreate yeni bir sunucu oldukları.</span><span class="sxs-lookup"><span data-stu-id="39bf3-277">Otherwise they are used toocreate a new server.</span></span></td></tr>
+    <tr><td><span data-ttu-id="39bf3-278">$sqlDatabasePassword</span><span class="sxs-lookup"><span data-stu-id="39bf3-278">$sqlDatabasePassword</span></span></td><td><span data-ttu-id="39bf3-279">hello Azure SQL veritabanı sunucusuna Hello oturum açma parolası.</span><span class="sxs-lookup"><span data-stu-id="39bf3-279">hello login password for hello Azure SQL database server.</span></span></td></tr>
+    <tr><td><span data-ttu-id="39bf3-280">$sqlDatabaseLocation</span><span class="sxs-lookup"><span data-stu-id="39bf3-280">$sqlDatabaseLocation</span></span></td><td><span data-ttu-id="39bf3-281">Yalnızca yeni bir Azure veritabanı sunucusu oluştururken bu değeri kullanılır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-281">This value is used only when you're creating a new Azure database server.</span></span></td></tr>
+    <tr><td><span data-ttu-id="39bf3-282">$sqlDatabaseName</span><span class="sxs-lookup"><span data-stu-id="39bf3-282">$sqlDatabaseName</span></span></td><td><span data-ttu-id="39bf3-283">Merhaba SQL veritabanı toocreate hello AvgDelays tablo hello Sqoop işi için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-283">hello SQL database used toocreate hello AvgDelays table for hello Sqoop job.</span></span> <span data-ttu-id="39bf3-284">Boş bırakarak HDISqoop adlı bir veritabanı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="39bf3-284">Leaving it blank will create a database called HDISqoop.</span></span> <span data-ttu-id="39bf3-285">Merhaba tablo hello Sqoop iş çıktısı AvgDelays adıdır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-285">hello table name for hello Sqoop job output is AvgDelays.</span></span> </td></tr>
     </table>
-2. <span data-ttu-id="881c7-286">Azure PowerShell ISE açın.</span><span class="sxs-lookup"><span data-stu-id="881c7-286">Open Azure PowerShell ISE.</span></span>
-<span data-ttu-id="881c7-287">3.</span><span class="sxs-lookup"><span data-stu-id="881c7-287">3.</span></span> <span data-ttu-id="881c7-288">Kopyalayın ve aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:</span><span class="sxs-lookup"><span data-stu-id="881c7-288">Copy and paste the following script into the script pane:</span></span>
+2. <span data-ttu-id="39bf3-286">Azure PowerShell ISE açın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-286">Open Azure PowerShell ISE.</span></span>
+<span data-ttu-id="39bf3-287">3.</span><span class="sxs-lookup"><span data-stu-id="39bf3-287">3.</span></span> <span data-ttu-id="39bf3-288">Kopyalama ve yapıştırma hello betik bölmesine komut dosyası izleyen hello:</span><span class="sxs-lookup"><span data-stu-id="39bf3-288">Copy and paste hello following script into hello script pane:</span></span>
 
     ```powershell
     [CmdletBinding()]
@@ -583,30 +583,30 @@ ms.lasthandoff: 08/03/2017
 
         # Azure Resource group variables
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the Azure resource group name. It will be created if it doesn't exist.")]
+                HelpMessage="Enter hello Azure resource group name. It will be created if it doesn't exist.")]
         [String]$resourceGroupName,
 
         # SQL database server variables
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the Azure SQL Database Server Name. It will be created if it doesn't exist.")]
+                HelpMessage="Enter hello Azure SQL Database Server Name. It will be created if it doesn't exist.")]
         [String]$sqlDatabaseServer,
 
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the Azure SQL Database admin user.")]
+                HelpMessage="Enter hello Azure SQL Database admin user.")]
         [String]$sqlDatabaseLogin,
 
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the Azure SQL Database admin user password.")]
+                HelpMessage="Enter hello Azure SQL Database admin user password.")]
         [String]$sqlDatabasePassword,
 
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the region to create the Database in.")]
+                HelpMessage="Enter hello region toocreate hello Database in.")]
         [String]$sqlDatabaseLocation,   #For example, West US.
 
         # SQL database variables
         [Parameter(Mandatory=$True,
-                HelpMessage="Enter the database name. It will be created if it doesn't exist.")]
-        [String]$sqlDatabaseName # specify the database name if you have one created. Otherwise use "" to have the script create one for you.
+                HelpMessage="Enter hello database name. It will be created if it doesn't exist.")]
+        [String]$sqlDatabaseName # specify hello database name if you have one created. Otherwise use "" toohave hello script create one for you.
     )
 
     # Treat all errors as terminating
@@ -633,8 +633,8 @@ ms.lasthandoff: 08/03/2017
             )"
     #endregion
 
-    #Region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #Region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #EndRegion
@@ -665,7 +665,7 @@ ms.lasthandoff: 08/03/2017
         $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
         New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -FirewallRuleName "$fireWallRuleName-workstation" -StartIpAddress $workstationIPAddress -EndIpAddress $workstationIPAddress
 
-        #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from any Azure subscription to access the server.
+        #tooallow other Azure services tooaccess hello server add a firewall rule and set both hello StartIpAddress and EndIpAddress too0.0.0.0. Note that this allows Azure traffic from any Azure subscription tooaccess hello server.
         New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -FirewallRuleName "$fireWallRuleName-Azureservices" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
     }
 
@@ -683,7 +683,7 @@ ms.lasthandoff: 08/03/2017
 
     #endregion
 
-    #region -  Execute an SQL command to create the AvgDelays table
+    #region -  Execute an SQL command toocreate hello AvgDelays table
 
     Write-Host "`nCreating SQL Database table ..."  -ForegroundColor Green
     $conn = New-Object System.Data.SqlClient.SqlConnection
@@ -696,30 +696,30 @@ ms.lasthandoff: 08/03/2017
 
     $conn.close()
 
-    Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
+    Write-host "`nEnd of hello PowerShell script" -ForegroundColor Green
     ```
 
    > [!NOTE]
-   > <span data-ttu-id="881c7-289">Komut dosyasını bir temsili durum aktarımı (REST) hizmeti http://bot.whatismyipaddress.com, dış IP adresi almak için kullanır.</span><span class="sxs-lookup"><span data-stu-id="881c7-289">The script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, to retrieve your external IP address.</span></span> <span data-ttu-id="881c7-290">IP adresi, SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-290">The IP address is used for creating a firewall rule for your SQL database server.</span></span>
+   > <span data-ttu-id="39bf3-289">Merhaba komut dosyası kullanan bir temsili durum aktarımı (REST) hizmeti, http://bot.whatismyipaddress.com, tooretrieve dış IP adresi.</span><span class="sxs-lookup"><span data-stu-id="39bf3-289">hello script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, tooretrieve your external IP address.</span></span> <span data-ttu-id="39bf3-290">Başlangıç IP adresi, SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-290">hello IP address is used for creating a firewall rule for your SQL database server.</span></span>
 
-    <span data-ttu-id="881c7-291">Komut dosyasında kullanılan bazı değişkenler şunlardır:</span><span class="sxs-lookup"><span data-stu-id="881c7-291">Here are some variables used in the script:</span></span>
+    <span data-ttu-id="39bf3-291">Merhaba komut dosyasında kullanılan bazı değişkenler şunlardır:</span><span class="sxs-lookup"><span data-stu-id="39bf3-291">Here are some variables used in hello script:</span></span>
 
-   * <span data-ttu-id="881c7-292">**$ipAddressRestService** -http://bot.whatismyipaddress.com varsayılan değerdir.</span><span class="sxs-lookup"><span data-stu-id="881c7-292">**$ipAddressRestService** - The default value is http://bot.whatismyipaddress.com.</span></span> <span data-ttu-id="881c7-293">Bir ortak IP adresi, dış IP adresi almak için REST hizmeti değil.</span><span class="sxs-lookup"><span data-stu-id="881c7-293">It is a public IP address REST service for getting your external IP address.</span></span> <span data-ttu-id="881c7-294">İsterseniz diğer hizmetler kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="881c7-294">You can use other services if you want.</span></span> <span data-ttu-id="881c7-295">Böylece (bir Windows PowerShell komut dosyası kullanarak) veritabanı istasyonunuzdan erişebilirsiniz hizmet aracılığıyla alınan dış IP adresi, Azure SQL veritabanı sunucusu için bir güvenlik duvarı kuralı oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-295">The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).</span></span>
-   * <span data-ttu-id="881c7-296">**$fireWallRuleName** -güvenlik duvarı kuralı adı Azure SQL veritabanı sunucusu budur.</span><span class="sxs-lookup"><span data-stu-id="881c7-296">**$fireWallRuleName** - This is the name of the firewall rule for the Azure SQL database server.</span></span> <span data-ttu-id="881c7-297">Varsayılan ad <u>FlightDelay</u>.</span><span class="sxs-lookup"><span data-stu-id="881c7-297">The default name is <u>FlightDelay</u>.</span></span> <span data-ttu-id="881c7-298">İstiyorsanız, onu yeniden adlandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="881c7-298">You can rename it if you want.</span></span>
-   * <span data-ttu-id="881c7-299">**$sqlDatabaseMaxSizeGB** -yalnızca yeni bir Azure SQL veritabanı sunucusu oluştururken bu değer kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-299">**$sqlDatabaseMaxSizeGB** - This value is used only when you're creating a new Azure SQL database server.</span></span> <span data-ttu-id="881c7-300">Varsayılan değer 10 GB'tır.</span><span class="sxs-lookup"><span data-stu-id="881c7-300">The default value is 10GB.</span></span> <span data-ttu-id="881c7-301">Bu öğretici için 10GB yeterlidir.</span><span class="sxs-lookup"><span data-stu-id="881c7-301">10GB is sufficient for this tutorial.</span></span>
-   * <span data-ttu-id="881c7-302">**$sqlDatabaseName** -yalnızca yeni bir Azure SQL veritabanı oluştururken bu değer kullanılır.</span><span class="sxs-lookup"><span data-stu-id="881c7-302">**$sqlDatabaseName** - This value is used only when you're creating a new Azure SQL database.</span></span> <span data-ttu-id="881c7-303">HDISqoop varsayılan değerdir.</span><span class="sxs-lookup"><span data-stu-id="881c7-303">The default value is HDISqoop.</span></span> <span data-ttu-id="881c7-304">Adlandırırsanız, Sqoop Windows PowerShell komut dosyasını uygun şekilde güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="881c7-304">If you rename it, you must update the Sqoop Windows PowerShell script accordingly.</span></span>
-4. <span data-ttu-id="881c7-305">Betiği çalıştırmak için **F5**'e basın.</span><span class="sxs-lookup"><span data-stu-id="881c7-305">Press **F5** to run the script.</span></span>
-5. <span data-ttu-id="881c7-306">Komut dosyası çıkışını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="881c7-306">Validate the script output.</span></span> <span data-ttu-id="881c7-307">Komut dosyası başarıyla çalıştırıldığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="881c7-307">Make sure the script ran successfully.</span></span>
+   * <span data-ttu-id="39bf3-292">**$ipAddressRestService** -hello varsayılan değerdir http://bot.whatismyipaddress.com. Bir ortak IP adresi, dış IP adresi almak için REST hizmeti değil.</span><span class="sxs-lookup"><span data-stu-id="39bf3-292">**$ipAddressRestService** - hello default value is http://bot.whatismyipaddress.com. It is a public IP address REST service for getting your external IP address.</span></span> <span data-ttu-id="39bf3-293">İsterseniz diğer hizmetler kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="39bf3-293">You can use other services if you want.</span></span> <span data-ttu-id="39bf3-294">(bir Windows PowerShell komut dosyası kullanarak) istasyonunuzdan hello veritabanı erişebilmeniz hello hizmeti aracılığıyla alınan hello dış IP adresi kullanılan toocreate Azure SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı olacaktır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-294">hello external IP address retrieved through hello service will be used toocreate a firewall rule for your Azure SQL database server, so that you can access hello database from your workstation (by using a Windows PowerShell script).</span></span>
+   * <span data-ttu-id="39bf3-295">**$fireWallRuleName** -bu hello hello güvenlik duvarı kuralı hello Azure SQL veritabanı sunucusunun adıdır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-295">**$fireWallRuleName** - This is hello name of hello firewall rule for hello Azure SQL database server.</span></span> <span data-ttu-id="39bf3-296">Merhaba varsayılan ad <u>FlightDelay</u>.</span><span class="sxs-lookup"><span data-stu-id="39bf3-296">hello default name is <u>FlightDelay</u>.</span></span> <span data-ttu-id="39bf3-297">İstiyorsanız, onu yeniden adlandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="39bf3-297">You can rename it if you want.</span></span>
+   * <span data-ttu-id="39bf3-298">**$sqlDatabaseMaxSizeGB** -yalnızca yeni bir Azure SQL veritabanı sunucusu oluştururken bu değer kullanılır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-298">**$sqlDatabaseMaxSizeGB** - This value is used only when you're creating a new Azure SQL database server.</span></span> <span data-ttu-id="39bf3-299">Merhaba varsayılan değer 10 GB'tır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-299">hello default value is 10GB.</span></span> <span data-ttu-id="39bf3-300">Bu öğretici için 10GB yeterlidir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-300">10GB is sufficient for this tutorial.</span></span>
+   * <span data-ttu-id="39bf3-301">**$sqlDatabaseName** -yalnızca yeni bir Azure SQL veritabanı oluştururken bu değer kullanılır.</span><span class="sxs-lookup"><span data-stu-id="39bf3-301">**$sqlDatabaseName** - This value is used only when you're creating a new Azure SQL database.</span></span> <span data-ttu-id="39bf3-302">HDISqoop Hello varsayılan değerdir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-302">hello default value is HDISqoop.</span></span> <span data-ttu-id="39bf3-303">Adlandırırsanız, hello Sqoop Windows PowerShell Betiği uygun şekilde güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="39bf3-303">If you rename it, you must update hello Sqoop Windows PowerShell script accordingly.</span></span>
+4. <span data-ttu-id="39bf3-304">Tuşuna **F5** toorun hello komut dosyası.</span><span class="sxs-lookup"><span data-stu-id="39bf3-304">Press **F5** toorun hello script.</span></span>
+5. <span data-ttu-id="39bf3-305">Merhaba komut dosyası çıkışını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-305">Validate hello script output.</span></span> <span data-ttu-id="39bf3-306">Merhaba komut dosyası başarıyla çalıştırıldığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="39bf3-306">Make sure hello script ran successfully.</span></span>
 
-## <span data-ttu-id="881c7-308"><a id="nextsteps"></a> Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="881c7-308"><a id="nextsteps"></a> Next steps</span></span>
-<span data-ttu-id="881c7-309">Şimdi bir dosyayı Azure Blob depolama alanına yüklemek nasıl, verileri Azure Blob depolama biriminden kullanarak bir Hive tablosu doldurmak nasıl, Hive sorgularını çalıştırma ve Sqoop veri HDFS bir Azure SQL veritabanı için dışarı aktarmak için nasıl kullanılacağını anlayın.</span><span class="sxs-lookup"><span data-stu-id="881c7-309">Now you understand how to upload a file to Azure Blob storage, how to populate a Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to an Azure SQL database.</span></span> <span data-ttu-id="881c7-310">Daha fazla bilgi için aşağıdaki makalelere bakın:</span><span class="sxs-lookup"><span data-stu-id="881c7-310">To learn more, see the following articles:</span></span>
+## <span data-ttu-id="39bf3-307"><a id="nextsteps"></a> Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="39bf3-307"><a id="nextsteps"></a> Next steps</span></span>
+<span data-ttu-id="39bf3-308">Anladığınızdan artık nasıl tooupload dosya tooAzure Blob storage, toopopulate bir Hive tablosu nasıl hello verileri Azure Blob depolama biriminden kullanarak nasıl toorun Hive sorguları ve nasıl toouse HDFS tooan Azure SQL veritabanından Sqoop tooexport veri.</span><span class="sxs-lookup"><span data-stu-id="39bf3-308">Now you understand how tooupload a file tooAzure Blob storage, how toopopulate a Hive table by using hello data from Azure Blob storage, how toorun Hive queries, and how toouse Sqoop tooexport data from HDFS tooan Azure SQL database.</span></span> <span data-ttu-id="39bf3-309">toolearn daha makaleler hello bakın:</span><span class="sxs-lookup"><span data-stu-id="39bf3-309">toolearn more, see hello following articles:</span></span>
 
-* <span data-ttu-id="881c7-311">[Hdınsight kullanmaya başlama][hdinsight-get-started]</span><span class="sxs-lookup"><span data-stu-id="881c7-311">[Get started with HDInsight][hdinsight-get-started]</span></span>
-* <span data-ttu-id="881c7-312">[HDInsight ile Hive kullanma][hdinsight-use-hive]</span><span class="sxs-lookup"><span data-stu-id="881c7-312">[Use Hive with HDInsight][hdinsight-use-hive]</span></span>
-* <span data-ttu-id="881c7-313">[Oozie Hdınsight ile kullanma][hdinsight-use-oozie]</span><span class="sxs-lookup"><span data-stu-id="881c7-313">[Use Oozie with HDInsight][hdinsight-use-oozie]</span></span>
-* <span data-ttu-id="881c7-314">[Hdınsight ile Sqoop kullanma][hdinsight-use-sqoop]</span><span class="sxs-lookup"><span data-stu-id="881c7-314">[Use Sqoop with HDInsight][hdinsight-use-sqoop]</span></span>
-* <span data-ttu-id="881c7-315">[HDInsight ile Pig kullanma][hdinsight-use-pig]</span><span class="sxs-lookup"><span data-stu-id="881c7-315">[Use Pig with HDInsight][hdinsight-use-pig]</span></span>
-* <span data-ttu-id="881c7-316">[Hdınsight için Java MapReduce programlar geliştirmek][hdinsight-develop-mapreduce]</span><span class="sxs-lookup"><span data-stu-id="881c7-316">[Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]</span></span>
+* <span data-ttu-id="39bf3-310">[Hdınsight kullanmaya başlama][hdinsight-get-started]</span><span class="sxs-lookup"><span data-stu-id="39bf3-310">[Get started with HDInsight][hdinsight-get-started]</span></span>
+* <span data-ttu-id="39bf3-311">[HDInsight ile Hive kullanma][hdinsight-use-hive]</span><span class="sxs-lookup"><span data-stu-id="39bf3-311">[Use Hive with HDInsight][hdinsight-use-hive]</span></span>
+* <span data-ttu-id="39bf3-312">[Oozie Hdınsight ile kullanma][hdinsight-use-oozie]</span><span class="sxs-lookup"><span data-stu-id="39bf3-312">[Use Oozie with HDInsight][hdinsight-use-oozie]</span></span>
+* <span data-ttu-id="39bf3-313">[Hdınsight ile Sqoop kullanma][hdinsight-use-sqoop]</span><span class="sxs-lookup"><span data-stu-id="39bf3-313">[Use Sqoop with HDInsight][hdinsight-use-sqoop]</span></span>
+* <span data-ttu-id="39bf3-314">[HDInsight ile Pig kullanma][hdinsight-use-pig]</span><span class="sxs-lookup"><span data-stu-id="39bf3-314">[Use Pig with HDInsight][hdinsight-use-pig]</span></span>
+* <span data-ttu-id="39bf3-315">[Hdınsight için Java MapReduce programlar geliştirmek][hdinsight-develop-mapreduce]</span><span class="sxs-lookup"><span data-stu-id="39bf3-315">[Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]</span></span>
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

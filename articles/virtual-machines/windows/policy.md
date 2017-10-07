@@ -1,6 +1,6 @@
 ---
-title: "Windows sanal makineleri Azure üzerinde ilkeleri ile güvenlik zorlama | Microsoft Docs"
-description: "Bir Azure Kaynak Yöneticisi'ni Windows sanal makine için bir ilke uygulama"
+title: "Windows sanal makineleri Azure üzerinde ilkeleriyle aaaEnforce güvenlik | Microsoft Docs"
+description: "Nasıl tooapply İlkesi tooan Azure Resource Manager Windows sanal makine"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 246f5958478fd6d9afc9ba990413ab08429bd25d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b31c8a03ecf8eed6a929f97fe4146ea14364404f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a><span data-ttu-id="db0d1-103">Azure Resource Manager ile Windows sanal makineleri için geçerlidir</span><span class="sxs-lookup"><span data-stu-id="db0d1-103">Apply policies to Windows VMs with Azure Resource Manager</span></span>
-<span data-ttu-id="db0d1-104">İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuruluş genelinde kuralları zorunlu kılabilir.</span><span class="sxs-lookup"><span data-stu-id="db0d1-104">By using policies, an organization can enforce various conventions and rules throughout the enterprise.</span></span> <span data-ttu-id="db0d1-105">İstenen davranışı zorlama kuruluşun başarısı için katkıda bulunan sırasında risk azaltılmasına yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="db0d1-105">Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.</span></span> <span data-ttu-id="db0d1-106">Bu makalede, kuruluşunuzun sanal makineler için istenen davranışı tanımlamak için Azure Resource Manager ilkelerini nasıl kullanabileceğinizi açıklar.</span><span class="sxs-lookup"><span data-stu-id="db0d1-106">In this article, we describe how you can use Azure Resource Manager policies to define the desired behavior for your organization’s Virtual Machines.</span></span>
+# <a name="apply-policies-toowindows-vms-with-azure-resource-manager"></a><span data-ttu-id="ba60c-103">İlkeleri tooWindows VM'ler Azure Resource Manager ile uygulama</span><span class="sxs-lookup"><span data-stu-id="ba60c-103">Apply policies tooWindows VMs with Azure Resource Manager</span></span>
+<span data-ttu-id="ba60c-104">İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuralları hello kuruluş genelinde zorunlu kılabilir.</span><span class="sxs-lookup"><span data-stu-id="ba60c-104">By using policies, an organization can enforce various conventions and rules throughout hello enterprise.</span></span> <span data-ttu-id="ba60c-105">İstenen hello davranış zorlama hello kuruluş toohello başarısını katkıda bulunan sırasında risk azaltılmasına yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="ba60c-105">Enforcement of hello desired behavior can help mitigate risk while contributing toohello success of hello organization.</span></span> <span data-ttu-id="ba60c-106">Bu makalede, Azure Resource Manager ilkeleri toodefine istenen hello davranışı, kuruluşunuzun sanal makineler için nasıl kullanabileceğiniz açıklanır.</span><span class="sxs-lookup"><span data-stu-id="ba60c-106">In this article, we describe how you can use Azure Resource Manager policies toodefine hello desired behavior for your organization’s Virtual Machines.</span></span>
 
-<span data-ttu-id="db0d1-107">İlkeleri giriş için bkz: [kaynakları yönetmek ve erişimi denetlemek için ilke kullanma](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="db0d1-107">For an introduction to policies, see [Use Policy to manage resources and control access](../../azure-resource-manager/resource-manager-policy.md).</span></span>
+<span data-ttu-id="ba60c-107">Bir giriş toopolicies için bkz: [kullanım ilkesi toomanage kaynakları ve erişimi denetleme](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="ba60c-107">For an introduction toopolicies, see [Use Policy toomanage resources and control access](../../azure-resource-manager/resource-manager-policy.md).</span></span>
 
-## <a name="permitted-virtual-machines"></a><span data-ttu-id="db0d1-108">İzin verilen sanal makineler</span><span class="sxs-lookup"><span data-stu-id="db0d1-108">Permitted Virtual Machines</span></span>
-<span data-ttu-id="db0d1-109">Sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olduğundan emin olmak için izin verilen işletim sistemleri sınırlandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="db0d1-109">To ensure that virtual machines for your organization are compatible with an application, you can restrict the permitted operating systems.</span></span> <span data-ttu-id="db0d1-110">Aşağıdaki ilke örnekte, yalnızca Windows Server 2012 R2 Datacenter oluşturulması için sanal makineleri izin ver:</span><span class="sxs-lookup"><span data-stu-id="db0d1-110">In the following policy example, you allow only Windows Server 2012 R2 Datacenter Virtual Machines to be created:</span></span>
+## <a name="permitted-virtual-machines"></a><span data-ttu-id="ba60c-108">İzin verilen sanal makineler</span><span class="sxs-lookup"><span data-stu-id="ba60c-108">Permitted Virtual Machines</span></span>
+<span data-ttu-id="ba60c-109">sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olduğunu tooensure izin işletim sistemleri hello kısıtlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ba60c-109">tooensure that virtual machines for your organization are compatible with an application, you can restrict hello permitted operating systems.</span></span> <span data-ttu-id="ba60c-110">Aşağıdaki ilke örneğine hello oluşturulan Windows Server 2012 R2 Datacenter sanal makineleri toobe izin ver:</span><span class="sxs-lookup"><span data-stu-id="ba60c-110">In hello following policy example, you allow only Windows Server 2012 R2 Datacenter Virtual Machines toobe created:</span></span>
 
 ```json
 {
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-<span data-ttu-id="db0d1-111">Herhangi bir Windows Server Datacenter görüntü izin vermek için önceki ilkeyi değiştirmek için joker kullanın:</span><span class="sxs-lookup"><span data-stu-id="db0d1-111">Use a wild card to modify the preceding policy to allow any Windows Server Datacenter image:</span></span>
+<span data-ttu-id="ba60c-111">Herhangi bir Windows Server Datacenter görüntü İlkesi tooallow önceki bir joker karakter toomodify hello kullan:</span><span class="sxs-lookup"><span data-stu-id="ba60c-111">Use a wild card toomodify hello preceding policy tooallow any Windows Server Datacenter image:</span></span>
 
 ```json
 {
@@ -88,7 +88,7 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-<span data-ttu-id="db0d1-112">Herhangi bir Windows Server 2012 R2 Datacenter veya daha yüksek görüntü izin vermek için önceki ilkeyi değiştirmek için herhangi kullanın:</span><span class="sxs-lookup"><span data-stu-id="db0d1-112">Use anyOf to modify the preceding policy to allow any Windows Server 2012 R2 Datacenter or higher image:</span></span>
+<span data-ttu-id="ba60c-112">Herhangi bir Windows Server 2012 R2 Datacenter veya daha yüksek görüntü İlkesi tooallow önceki herhangi toomodify hello kullan:</span><span class="sxs-lookup"><span data-stu-id="ba60c-112">Use anyOf toomodify hello preceding policy tooallow any Windows Server 2012 R2 Datacenter or higher image:</span></span>
 
 ```json
 {
@@ -105,11 +105,11 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-<span data-ttu-id="db0d1-113">İlke alanlarını hakkında daha fazla bilgi için bkz: [İlkesi diğer adlar](../../azure-resource-manager/resource-manager-policy.md#aliases).</span><span class="sxs-lookup"><span data-stu-id="db0d1-113">For information about policy fields, see [Policy aliases](../../azure-resource-manager/resource-manager-policy.md#aliases).</span></span>
+<span data-ttu-id="ba60c-113">İlke alanlarını hakkında daha fazla bilgi için bkz: [İlkesi diğer adlar](../../azure-resource-manager/resource-manager-policy.md#aliases).</span><span class="sxs-lookup"><span data-stu-id="ba60c-113">For information about policy fields, see [Policy aliases](../../azure-resource-manager/resource-manager-policy.md#aliases).</span></span>
 
-## <a name="managed-disks"></a><span data-ttu-id="db0d1-114">Yönetilen diskler</span><span class="sxs-lookup"><span data-stu-id="db0d1-114">Managed disks</span></span>
+## <a name="managed-disks"></a><span data-ttu-id="ba60c-114">Yönetilen diskler</span><span class="sxs-lookup"><span data-stu-id="ba60c-114">Managed disks</span></span>
 
-<span data-ttu-id="db0d1-115">Yönetilen disklerin gerektirmek için aşağıdaki ilke kullanın:</span><span class="sxs-lookup"><span data-stu-id="db0d1-115">To require the use of managed disks, use the following policy:</span></span>
+<span data-ttu-id="ba60c-115">toorequire hello kullanımı yönetilen diskler, ilke aşağıdaki kullanım hello:</span><span class="sxs-lookup"><span data-stu-id="ba60c-115">toorequire hello use of managed disks, use hello following policy:</span></span>
 
 ```json
 {
@@ -155,11 +155,11 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-## <a name="images-for-virtual-machines"></a><span data-ttu-id="db0d1-116">Sanal makineler için görüntüleri</span><span class="sxs-lookup"><span data-stu-id="db0d1-116">Images for Virtual Machines</span></span>
+## <a name="images-for-virtual-machines"></a><span data-ttu-id="ba60c-116">Sanal makineler için görüntüleri</span><span class="sxs-lookup"><span data-stu-id="ba60c-116">Images for Virtual Machines</span></span>
 
-<span data-ttu-id="db0d1-117">Güvenlik nedenleriyle, yalnızca onaylanan özel resimler ortamınızda dağıtılan gerektirebilir.</span><span class="sxs-lookup"><span data-stu-id="db0d1-117">For security reasons, you can require that only approved custom images are deployed in your environment.</span></span> <span data-ttu-id="db0d1-118">Özel resimler onaylanmış veya onaylanan görüntüleri içeren kaynak grubu ya da belirtebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="db0d1-118">You can specify either the resource group that contains the approved images, or the specific approved images.</span></span>
+<span data-ttu-id="ba60c-117">Güvenlik nedenleriyle, yalnızca onaylanan özel resimler ortamınızda dağıtılan gerektirebilir.</span><span class="sxs-lookup"><span data-stu-id="ba60c-117">For security reasons, you can require that only approved custom images are deployed in your environment.</span></span> <span data-ttu-id="ba60c-118">Onaylanan hello görüntüleri içeren hello kaynak grubu ya da hello belirli onayladığı yansımaları belirtebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ba60c-118">You can specify either hello resource group that contains hello approved images, or hello specific approved images.</span></span>
 
-<span data-ttu-id="db0d1-119">Aşağıdaki örnek, onaylanan kaynak grubu görüntülerden gerektirir:</span><span class="sxs-lookup"><span data-stu-id="db0d1-119">The following example requires images from an approved resource group:</span></span>
+<span data-ttu-id="ba60c-119">Aşağıdaki örnek hello onaylanan kaynak grubu görüntülerden gerektirir:</span><span class="sxs-lookup"><span data-stu-id="ba60c-119">hello following example requires images from an approved resource group:</span></span>
 
 ```json
 {
@@ -186,7 +186,7 @@ ms.lasthandoff: 08/29/2017
 } 
 ```
 
-<span data-ttu-id="db0d1-120">Aşağıdaki örnek, onaylanan resim kimlikleri belirtir:</span><span class="sxs-lookup"><span data-stu-id="db0d1-120">The following example specifies the approved image IDs:</span></span>
+<span data-ttu-id="ba60c-120">Merhaba aşağıdaki örnek onaylanmış hello resim kimlikleri belirtir:</span><span class="sxs-lookup"><span data-stu-id="ba60c-120">hello following example specifies hello approved image IDs:</span></span>
 
 ```json
 {
@@ -195,9 +195,9 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-## <a name="virtual-machine-extensions"></a><span data-ttu-id="db0d1-121">Sanal makine uzantıları</span><span class="sxs-lookup"><span data-stu-id="db0d1-121">Virtual Machine extensions</span></span>
+## <a name="virtual-machine-extensions"></a><span data-ttu-id="ba60c-121">Sanal makine uzantıları</span><span class="sxs-lookup"><span data-stu-id="ba60c-121">Virtual Machine extensions</span></span>
 
-<span data-ttu-id="db0d1-122">Belirli türde bir uzantıları kullanımını yasaklamaz isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="db0d1-122">You may want to forbid usage of certain types of extensions.</span></span> <span data-ttu-id="db0d1-123">Örneğin, bir uzantı belirli özel bir sanal makine görüntüleri ile uyumlu olmayabilir.</span><span class="sxs-lookup"><span data-stu-id="db0d1-123">For example, an extension may not be compatible with certain custom virtual machine images.</span></span> <span data-ttu-id="db0d1-124">Aşağıdaki örnek, belirli bir uzantıya engelleme gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="db0d1-124">The following example shows how to block a specific extension.</span></span> <span data-ttu-id="db0d1-125">Yayımcı ve türüne engellemek için hangi uzantısı belirlemek için kullanır.</span><span class="sxs-lookup"><span data-stu-id="db0d1-125">It uses publisher and type to determine which extension to block.</span></span>
+<span data-ttu-id="ba60c-122">Belirli türde bir uzantıları kullanımını tooforbid isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ba60c-122">You may want tooforbid usage of certain types of extensions.</span></span> <span data-ttu-id="ba60c-123">Örneğin, bir uzantı belirli özel bir sanal makine görüntüleri ile uyumlu olmayabilir.</span><span class="sxs-lookup"><span data-stu-id="ba60c-123">For example, an extension may not be compatible with certain custom virtual machine images.</span></span> <span data-ttu-id="ba60c-124">örnekte gösterildiği nasıl aşağıdaki hello tooblock belirli bir uzantıya.</span><span class="sxs-lookup"><span data-stu-id="ba60c-124">hello following example shows how tooblock a specific extension.</span></span> <span data-ttu-id="ba60c-125">Yayımcı ve türüne toodetermine hangi uzantısı tooblock kullanır.</span><span class="sxs-lookup"><span data-stu-id="ba60c-125">It uses publisher and type toodetermine which extension tooblock.</span></span>
 
 ```json
 {
@@ -225,9 +225,9 @@ ms.lasthandoff: 08/29/2017
 ```
 
 
-## <a name="azure-hybrid-use-benefit"></a><span data-ttu-id="db0d1-126">Azure karma kullanımı avantajı</span><span class="sxs-lookup"><span data-stu-id="db0d1-126">Azure Hybrid Use Benefit</span></span>
+## <a name="azure-hybrid-use-benefit"></a><span data-ttu-id="ba60c-126">Azure karma kullanımı avantajı</span><span class="sxs-lookup"><span data-stu-id="ba60c-126">Azure Hybrid Use Benefit</span></span>
 
-<span data-ttu-id="db0d1-127">Bir şirket içi lisansı olduğunda, sanal makinelere lisans ücret kaydedebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="db0d1-127">When you have an on-premise license, you can save the license fee on your virtual machines.</span></span> <span data-ttu-id="db0d1-128">Lisansına sahip olmadığınız durumlarda seçeneği yasaklamaz.</span><span class="sxs-lookup"><span data-stu-id="db0d1-128">When you don't have the license, you should forbid the option.</span></span> <span data-ttu-id="db0d1-129">Aşağıdaki ilke kullanım Azure karma kullanımı Avantajı (AHUB) engelliyor:</span><span class="sxs-lookup"><span data-stu-id="db0d1-129">The following policy forbids usage of Azure Hybrid Use Benefit (AHUB):</span></span>
+<span data-ttu-id="ba60c-127">Bir şirket içi lisansı olduğunda, sanal makinelere hello lisans ücret kaydedebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ba60c-127">When you have an on-premise license, you can save hello license fee on your virtual machines.</span></span> <span data-ttu-id="ba60c-128">Merhaba lisansına sahip olmadığınız durumlarda hello seçeneği yasaklamaz.</span><span class="sxs-lookup"><span data-stu-id="ba60c-128">When you don't have hello license, you should forbid hello option.</span></span> <span data-ttu-id="ba60c-129">ilke aşağıdaki hello kullanım Azure karma kullanımı Avantajı (AHUB) engelliyor:</span><span class="sxs-lookup"><span data-stu-id="ba60c-129">hello following policy forbids usage of Azure Hybrid Use Benefit (AHUB):</span></span>
 
 ```json
 {
@@ -249,7 +249,7 @@ ms.lasthandoff: 08/29/2017
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="db0d1-130">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="db0d1-130">Next steps</span></span>
-* <span data-ttu-id="db0d1-131">(Yukarıdaki örneklerde gösterildiği gibi) bir ilke kuralı tanımladıktan sonra ilke tanımı oluşturun ve bir kapsama atamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="db0d1-131">After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope.</span></span> <span data-ttu-id="db0d1-132">Kapsamı bir abonelik, kaynak grubu veya kaynak olabilir.</span><span class="sxs-lookup"><span data-stu-id="db0d1-132">The scope can be a subscription, resource group, or resource.</span></span> <span data-ttu-id="db0d1-133">Portal üzerinden ilkeler atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için kullanım Azure portal](../../azure-resource-manager/resource-manager-policy-portal.md).</span><span class="sxs-lookup"><span data-stu-id="db0d1-133">To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).</span></span> <span data-ttu-id="db0d1-134">REST API'si, PowerShell veya Azure CLI aracılığıyla ilkeleri atamak için bkz: [atayın ve komut dosyası aracılığıyla ilkelerini yönetme](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span><span class="sxs-lookup"><span data-stu-id="db0d1-134">To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span></span>
-* <span data-ttu-id="db0d1-135">Kaynak ilkelerini giriş için bkz: [kaynak ilkesine genel bakış](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="db0d1-135">For an introduction to resource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).</span></span>
-* <span data-ttu-id="db0d1-136">Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](../../azure-resource-manager/resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="db0d1-136">For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="ba60c-130">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="ba60c-130">Next steps</span></span>
+* <span data-ttu-id="ba60c-131">(Örnekler önceki hello gösterildiği gibi) bir ilke kuralı tanımlama sonra toocreate hello ilke tanımı gerekir ve tooa kapsamı atayın.</span><span class="sxs-lookup"><span data-stu-id="ba60c-131">After defining a policy rule (as shown in hello preceding examples), you need toocreate hello policy definition and assign it tooa scope.</span></span> <span data-ttu-id="ba60c-132">Merhaba kapsam abonelik, kaynak grubu veya kaynak olabilir.</span><span class="sxs-lookup"><span data-stu-id="ba60c-132">hello scope can be a subscription, resource group, or resource.</span></span> <span data-ttu-id="ba60c-133">Merhaba portal aracılığıyla tooassign ilkeleri Bkz [kullanım Azure portal tooassign ve kaynak ilkelerini yönetme](../../azure-resource-manager/resource-manager-policy-portal.md).</span><span class="sxs-lookup"><span data-stu-id="ba60c-133">tooassign policies through hello portal, see [Use Azure portal tooassign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).</span></span> <span data-ttu-id="ba60c-134">REST API'si, PowerShell veya Azure CLI aracılığıyla tooassign ilkeleri Bkz [atayın ve komut dosyası aracılığıyla ilkelerini yönetme](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span><span class="sxs-lookup"><span data-stu-id="ba60c-134">tooassign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span></span>
+* <span data-ttu-id="ba60c-135">Bir giriş tooresource ilkeleri için bkz: [kaynak ilkesine genel bakış](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="ba60c-135">For an introduction tooresource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).</span></span>
+* <span data-ttu-id="ba60c-136">Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](../../azure-resource-manager/resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="ba60c-136">For guidance on how enterprises can use Resource Manager tooeffectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).</span></span>
