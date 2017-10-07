@@ -1,6 +1,6 @@
 ---
-title: "Yay önyükleme Starter bir Azure Cosmos DB DocumentDB API'si ile kullanma"
-description: "Yay Önyükleme Başlatıcısı Azure Cosmos DB DocumentDB API'si ile oluşturulan bir uygulama yapılandırma konusunda bilgi edinin."
+title: "aaaHow toouse hello yay önyükleme Starter bir Azure Cosmos DB DocumentDB API'si"
+description: "Bir uygulama tooconfigure hello yay önyükleme Başlatıcı hello Azure Cosmos DB DocumentDB API ile birlikte nasıl oluşturulacağını öğrenin."
 services: cosmos-db
 documentationcenter: java
 author: rmcmurray
@@ -15,96 +15,96 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: robmcm;yungez;kevinzha
-ms.openlocfilehash: 273cc750857c5e466882060a38ac0f3475811e98
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a2c6de678f850676cb2887e224e5c12950db0e53
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a><span data-ttu-id="e3ac3-104">Yay önyükleme Starter Azure Cosmos DB DocumentDB API'si ile kullanma</span><span class="sxs-lookup"><span data-stu-id="e3ac3-104">How to use the Spring Boot Starter with Azure Cosmos DB DocumentDB API</span></span>
+# <a name="how-toouse-hello-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a><span data-ttu-id="f1468-104">Nasıl toouse hello Azure Cosmos DB DocumentDB API ile yay önyükleme Başlatıcı</span><span class="sxs-lookup"><span data-stu-id="f1468-104">How toouse hello Spring Boot Starter with Azure Cosmos DB DocumentDB API</span></span>
 
-## <a name="overview"></a><span data-ttu-id="e3ac3-105">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="e3ac3-105">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="f1468-105">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="f1468-105">Overview</span></span>
 
-<span data-ttu-id="e3ac3-106"> **[Yay Framework]**  Java geliştiriciler kuruluş düzeyinde uygulamalar oluşturmanıza yardımcı olan bir açık kaynaklı bir çözümdür.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-106">The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications.</span></span> <span data-ttu-id="e3ac3-107">Yerleşik daha popüler projelerden biri üzerinde üst o platformudur [yay önyükleme], tek başına Java uygulamaları oluşturmak için basitleştirilmiş bir yaklaşım sağlar.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-107">One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.</span></span> <span data-ttu-id="e3ac3-108">Yay önyükleme ile çalışmaya başlama geliştiricilerin yardımcı olmak için birkaç örnek yay önyükleme paketleri kullanılabilir <https://github.com/spring-guides/>.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-108">To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>.</span></span> <span data-ttu-id="e3ac3-109">Temel yay önyükleme projeleri, listeden seçerek ek olarak  **[yay Initializr]**  özel yay önyükleme uygulamalar oluşturmaya başlamak geliştiricilere yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-109">In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.</span></span>
+<span data-ttu-id="f1468-106">Merhaba  **[yay Framework]**  Java geliştiriciler kuruluş düzeyinde uygulamalar oluşturmanıza yardımcı olan bir açık kaynaklı bir çözümdür.</span><span class="sxs-lookup"><span data-stu-id="f1468-106">hello **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications.</span></span> <span data-ttu-id="f1468-107">Yerleşik hello daha popüler projelerden biri üzerinde üst o platformudur [yay önyükleme], tek başına Java uygulamaları oluşturmak için basitleştirilmiş bir yaklaşım sağlar.</span><span class="sxs-lookup"><span data-stu-id="f1468-107">One of hello more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications.</span></span> <span data-ttu-id="f1468-108">toohelp geliştiriciler yay önyüklemesini Başlarken, birkaç örnek yay önyükleme paketleri kullanılabilir <https://github.com/spring-guides/>.</span><span class="sxs-lookup"><span data-stu-id="f1468-108">toohelp developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>.</span></span> <span data-ttu-id="f1468-109">Buna ek olarak temel yay önyükleme hello listesinden toochoosing, hello projeleri  **[yay Initializr]**  özel yay önyükleme uygulamalar oluşturmaya başlamak geliştiricilere yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="f1468-109">In addition toochoosing from hello list of basic Spring Boot projects, hello **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.</span></span>
 
-<span data-ttu-id="e3ac3-110">Azure Cosmos DB DocumentDB, MongoDB, grafik ve tablo API'leri gibi standart API'leri çeşitli kullanarak verileri geliştiricilerin izin veren bir genel dağıtılmış veritabanı hizmetidir.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-110">Azure Cosmos DB is a globally-distributed database service that allows developers to work with data using a variety of standard APIs, such as DocumentDB, MongoDB, Graph, and Table APIs.</span></span> <span data-ttu-id="e3ac3-111">Microsoft'un yay önyükleme Starter kolayca DocumentDB API'lerini kullanarak Azure Cosmos DB ile tümleştirmek yay önyükleme uygulamaları kullanmak geliştiricilere sağlar.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-111">Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using DocumentDB APIs.</span></span>
+<span data-ttu-id="f1468-110">Azure Cosmos DB, geliştiricilerin sağlayan bir genel dağıtılmış veritabanı hizmetidir toowork DocumentDB, MongoDB, grafik ve tablo API'leri gibi standart API'leri çeşitli kullanarak verileri.</span><span class="sxs-lookup"><span data-stu-id="f1468-110">Azure Cosmos DB is a globally-distributed database service that allows developers toowork with data using a variety of standard APIs, such as DocumentDB, MongoDB, Graph, and Table APIs.</span></span> <span data-ttu-id="f1468-111">Microsoft'un yay önyükleme Starter kolayca DocumentDB API'lerini kullanarak Azure Cosmos DB ile tümleştirmek geliştiriciler toouse yay önyükleme uygulamaları etkinleştirir.</span><span class="sxs-lookup"><span data-stu-id="f1468-111">Microsoft's Spring Boot Starter enables developers toouse Spring Boot applications that easily integrate with Azure Cosmos DB by using DocumentDB APIs.</span></span>
 
-<span data-ttu-id="e3ac3-112">Bu makale bir Azure Cosmos Azure Portalı'nı kullanarak, daha sonra kullanarak DB oluşturmayı gösterir **yay Initializr** özel java uygulaması oluşturmak ve özel uygulamanızı yay önyükleme Starter işlevselliği eklemek için verileri depolamak ve DocumentDB API'sini kullanarak Azure Cosmos Veritabanından veri alın.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-112">This article demonstrates creating an Azure Cosmos DB using the Azure portal, then using the **Spring Initializr** to create a custom java application, and then add the Spring Boot Starter functionality to your custom application to store data in and retrieve data from your Azure Cosmos DB by using the DocumentDB API.</span></span>
+<span data-ttu-id="f1468-112">Bu makale bir Azure Cosmos hello Azure portal kullanarak, daha sonra hello kullanarak DB oluşturmayı gösterir **yay Initializr** toocreate özel java uygulaması ve hello yay önyükleme Starter işlevselliği tooyour özel ekleyin Uygulama toostore verileri ve DB'den, Azure Cosmos hello DocumentDB API kullanarak verileri almak.</span><span class="sxs-lookup"><span data-stu-id="f1468-112">This article demonstrates creating an Azure Cosmos DB using hello Azure portal, then using hello **Spring Initializr** toocreate a custom java application, and then add hello Spring Boot Starter functionality tooyour custom application toostore data in and retrieve data from your Azure Cosmos DB by using hello DocumentDB API.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="e3ac3-113">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="e3ac3-113">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="f1468-113">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="f1468-113">Prerequisites</span></span>
 
-<span data-ttu-id="e3ac3-114">Bu makaledeki adımları için aşağıdaki önkoşullar gereklidir:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-114">The following prerequisites are required in order to follow the steps in this article:</span></span>
+<span data-ttu-id="f1468-114">Önkoşullar aşağıdaki hello bu makaledeki sipariş toofollow hello adımlar gereklidir:</span><span class="sxs-lookup"><span data-stu-id="f1468-114">hello following prerequisites are required in order toofollow hello steps in this article:</span></span>
 
-* <span data-ttu-id="e3ac3-115">Bir Azure aboneliği; bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Avantajlarınızı] veya kaydolun bir [ücretsiz Azure hesabı].</span><span class="sxs-lookup"><span data-stu-id="e3ac3-115">An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].</span></span>
+* <span data-ttu-id="f1468-115">Bir Azure aboneliği; bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Avantajlarınızı] veya kaydolun bir [ücretsiz Azure hesabı].</span><span class="sxs-lookup"><span data-stu-id="f1468-115">An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [free Azure account].</span></span>
 
-* <span data-ttu-id="e3ac3-116">A [Java Geliştirme Seti (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), 1,7 veya sonraki bir sürümü.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-116">A [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), version 1.7 or later.</span></span>
+* <span data-ttu-id="f1468-116">A [Java Geliştirme Seti (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), 1,7 veya sonraki bir sürümü.</span><span class="sxs-lookup"><span data-stu-id="f1468-116">A [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), version 1.7 or later.</span></span>
 
-* <span data-ttu-id="e3ac3-117">[Apache Maven](http://maven.apache.org/), sürüm 3.0 veya üstü.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-117">[Apache Maven](http://maven.apache.org/), version 3.0 or later.</span></span>
+* <span data-ttu-id="f1468-117">[Apache Maven](http://maven.apache.org/), sürüm 3.0 veya üstü.</span><span class="sxs-lookup"><span data-stu-id="f1468-117">[Apache Maven](http://maven.apache.org/), version 3.0 or later.</span></span>
 
-## <a name="create-an-azure-cosmos-db-by-using-the-azure-portal"></a><span data-ttu-id="e3ac3-118">Azure portalı kullanarak bir Azure Cosmos DB oluştur</span><span class="sxs-lookup"><span data-stu-id="e3ac3-118">Create an Azure Cosmos DB by using the Azure portal</span></span>
+## <a name="create-an-azure-cosmos-db-by-using-hello-azure-portal"></a><span data-ttu-id="f1468-118">Bir Azure Cosmos DB hello Azure portal kullanarak oluşturma</span><span class="sxs-lookup"><span data-stu-id="f1468-118">Create an Azure Cosmos DB by using hello Azure portal</span></span>
 
-1. <span data-ttu-id="e3ac3-119">Azure portalında göz <https://portal.azure.com/> tıklatıp **+ yeni**.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-119">Browse to the Azure portal at <https://portal.azure.com/> and click **+New**.</span></span>
+1. <span data-ttu-id="f1468-119">Toohello Azure göz atın, portal <https://portal.azure.com/> tıklatıp **+ yeni**.</span><span class="sxs-lookup"><span data-stu-id="f1468-119">Browse toohello Azure portal at <https://portal.azure.com/> and click **+New**.</span></span>
 
    ![Azure portalına][AZ01]
 
-1. <span data-ttu-id="e3ac3-121">Tıklatın **veritabanları**ve ardından **Azure Cosmos DB**.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-121">Click **Databases**, and then click **Azure Cosmos DB**.</span></span>
+1. <span data-ttu-id="f1468-121">Tıklatın **veritabanları**ve ardından **Azure Cosmos DB**.</span><span class="sxs-lookup"><span data-stu-id="f1468-121">Click **Databases**, and then click **Azure Cosmos DB**.</span></span>
 
    ![Azure portalına][AZ02]
 
-1. <span data-ttu-id="e3ac3-123">Üzerinde **Azure Cosmos DB** sayfasında, aşağıdaki bilgileri girin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-123">On the **Azure Cosmos DB** page, enter the following information:</span></span>
+1. <span data-ttu-id="f1468-123">Merhaba üzerinde **Azure Cosmos DB** sayfasında, aşağıdaki bilgilerle hello girin:</span><span class="sxs-lookup"><span data-stu-id="f1468-123">On hello **Azure Cosmos DB** page, enter hello following information:</span></span>
 
-   * <span data-ttu-id="e3ac3-124">Benzersiz bir girin **kimliği**, veritabanınız için URI olarak kullanacağı.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-124">Enter a unique **ID**, which you will use as the URI for your database.</span></span> <span data-ttu-id="e3ac3-125">Örneğin: *wingtiptoysdata.documents.azure.com*.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-125">For example: *wingtiptoysdata.documents.azure.com*.</span></span>
-   * <span data-ttu-id="e3ac3-126">Seçin **SQL (belge DB)** API'si.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-126">Choose **SQL (Document DB)** for the API.</span></span>
-   * <span data-ttu-id="e3ac3-127">Seçin **abonelik** veritabanınız için kullanmak istediğiniz.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-127">Choose the **Subscription** you want to use for your database.</span></span>
-   * <span data-ttu-id="e3ac3-128">Yeni bir oluşturulup oluşturulmayacağını belirtin **kaynak grubu** , veritabanı veya varolan bir kaynak grubu seçin.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-128">Specify whether to create a new **Resource group** for your database, or choose an existing resource group.</span></span>
-   * <span data-ttu-id="e3ac3-129">Belirtin **konumu** veritabanınız için.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-129">Specify the **Location** for your database.</span></span>
+   * <span data-ttu-id="f1468-124">Benzersiz bir girin **kimliği**, veritabanınız için URI hello olarak kullanacağı.</span><span class="sxs-lookup"><span data-stu-id="f1468-124">Enter a unique **ID**, which you will use as hello URI for your database.</span></span> <span data-ttu-id="f1468-125">Örneğin: *wingtiptoysdata.documents.azure.com*.</span><span class="sxs-lookup"><span data-stu-id="f1468-125">For example: *wingtiptoysdata.documents.azure.com*.</span></span>
+   * <span data-ttu-id="f1468-126">Seçin **SQL (belge DB)** hello API için.</span><span class="sxs-lookup"><span data-stu-id="f1468-126">Choose **SQL (Document DB)** for hello API.</span></span>
+   * <span data-ttu-id="f1468-127">Merhaba seçin **abonelik** veritabanınız için toouse istiyor.</span><span class="sxs-lookup"><span data-stu-id="f1468-127">Choose hello **Subscription** you want toouse for your database.</span></span>
+   * <span data-ttu-id="f1468-128">Belirtin olup olmadığını toocreate yeni bir **kaynak grubu** , veritabanı veya varolan bir kaynak grubu seçin.</span><span class="sxs-lookup"><span data-stu-id="f1468-128">Specify whether toocreate a new **Resource group** for your database, or choose an existing resource group.</span></span>
+   * <span data-ttu-id="f1468-129">Merhaba belirtin **konumu** veritabanınız için.</span><span class="sxs-lookup"><span data-stu-id="f1468-129">Specify hello **Location** for your database.</span></span>
    
-   <span data-ttu-id="e3ac3-130">Bu seçenek belirtildiğinde tıklatın **oluşturma** veritabanınızı oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-130">When you have specified these options, click **Create** to create your database.</span></span>
+   <span data-ttu-id="f1468-130">Bu seçenek belirtildiğinde tıklatın **oluşturma** toocreate veritabanınızı.</span><span class="sxs-lookup"><span data-stu-id="f1468-130">When you have specified these options, click **Create** toocreate your database.</span></span>
 
    ![Azure portalına][AZ03]
 
-1. <span data-ttu-id="e3ac3-132">Veritabanınızı oluşturduğunuzda, Azure üzerinde listelenir **Pano**altında da olarak **tüm kaynakları** ve **Azure Cosmos DB** sayfaları.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-132">When your database has been created, it is listed on your Azure **Dashboard**, as well as under the **All Resources** and **Azure Cosmos DB** pages.</span></span> <span data-ttu-id="e3ac3-133">Veritabanınızı önbelleğiniz için Özellikler sayfasını açmak için bu konumların hiçbirinde tıklatabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-133">You can click on your database on any of those locations to open the properties page for your cache.</span></span>
+1. <span data-ttu-id="f1468-132">Veritabanınızı oluşturduğunuzda, Azure üzerinde listelenir **Pano**, hello gibi altında yanı **tüm kaynakları** ve **Azure Cosmos DB** sayfaları.</span><span class="sxs-lookup"><span data-stu-id="f1468-132">When your database has been created, it is listed on your Azure **Dashboard**, as well as under hello **All Resources** and **Azure Cosmos DB** pages.</span></span> <span data-ttu-id="f1468-133">Veritabanınızın herhangi bu konumları tooopen hello Özellikler sayfasının önbelleğiniz için tıklatabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f1468-133">You can click on your database on any of those locations tooopen hello properties page for your cache.</span></span>
 
    ![Azure portalına][AZ04]
 
-1. <span data-ttu-id="e3ac3-135">Özellikler sayfasında Veritabanınızı görüntülenen için tıklattığınızda **erişim anahtarları** ve veritabanınız için URI ve erişim anahtarlarınızı kopyalayın; yay önyükleme uygulamanızda bu değerleri kullanır.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-135">When the properties page for your database is displayed, click **Access keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.</span></span>
+1. <span data-ttu-id="f1468-135">Veritabanınız için Hello Özellikler sayfası görüntülendiğinde tıklayın **erişim anahtarları** ve veritabanınız için URI ve erişim anahtarlarınızı kopyalayın; yay önyükleme uygulamanızda bu değerleri kullanır.</span><span class="sxs-lookup"><span data-stu-id="f1468-135">When hello properties page for your database is displayed, click **Access keys** and copy your URI and access keys for your database; you will use these values in your Spring Boot application.</span></span>
 
    ![Azure portalına][AZ05]
 
-## <a name="create-a-simple-spring-boot-application-with-the-spring-initializr"></a><span data-ttu-id="e3ac3-137">Yay Initializr ile basit bir yay önyükleme uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="e3ac3-137">Create a simple Spring Boot application with the Spring Initializr</span></span>
+## <a name="create-a-simple-spring-boot-application-with-hello-spring-initializr"></a><span data-ttu-id="f1468-137">Yay Initializr hello ile basit bir yay önyükleme uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="f1468-137">Create a simple Spring Boot application with hello Spring Initializr</span></span>
 
-1. <span data-ttu-id="e3ac3-138">Gözat <https://start.spring.io/>.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-138">Browse to <https://start.spring.io/>.</span></span>
+1. <span data-ttu-id="f1468-138">Çok Gözat<https://start.spring.io/>.</span><span class="sxs-lookup"><span data-stu-id="f1468-138">Browse too<https://start.spring.io/>.</span></span>
 
-1. <span data-ttu-id="e3ac3-139">Oluşturmak istediğiniz belirtin bir **Maven** ile proje **Java**, girin **grup** ve **yapı** adları, uygulamanız için ve düğmesini tıklatıp **proje oluştur**.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-139">Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application, and then click the button to **Generate Project**.</span></span>
+1. <span data-ttu-id="f1468-139">Toogenerate istediğinizi belirtin bir **Maven** ile proje **Java**, hello girin **grup** ve **yapı** , uygulamanız için adları ve ardından hello çok düğmesini**proje oluştur**.</span><span class="sxs-lookup"><span data-stu-id="f1468-139">Specify that you want toogenerate a **Maven** project with **Java**, enter hello **Group** and **Artifact** names for your application, and then click hello button too**Generate Project**.</span></span>
 
    ![Basic yay Initializr seçenekleri][SI01]
 
    > [!NOTE]
    >
-   > <span data-ttu-id="e3ac3-141">Yay Initializr kullanır **grup** ve **yapı** paket adı; oluşturmak için adlarını, örneğin: *com.example.wintiptoys*.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-141">The Spring Initializr uses the **Group** and **Artifact** names to create the package name; for example: *com.example.wintiptoys*.</span></span>
+   > <span data-ttu-id="f1468-141">Merhaba yay Initializr kullanan hello **grup** ve **yapı** adları toocreate hello paket adı; örneğin: *com.example.wintiptoys*.</span><span class="sxs-lookup"><span data-stu-id="f1468-141">hello Spring Initializr uses hello **Group** and **Artifact** names toocreate hello package name; for example: *com.example.wintiptoys*.</span></span>
    >
 
-1. <span data-ttu-id="e3ac3-142">İstendiğinde, yerel bilgisayarınızda bir yola projenizi indirin.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-142">When prompted, download the project to a path on your local computer.</span></span>
+1. <span data-ttu-id="f1468-142">İstendiğinde, yerel bilgisayarınızda hello proje tooa yolu indirin.</span><span class="sxs-lookup"><span data-stu-id="f1468-142">When prompted, download hello project tooa path on your local computer.</span></span>
 
    ![Özel yay önyükleme projenizi indirin][SI02]
 
-1. <span data-ttu-id="e3ac3-144">Yerel sisteminizde dosyaları ayıkladıktan sonra basit yay önyükleme uygulamanızı düzenlemek için hazır olacaktır.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-144">After you have extracted the files on your local system, your simple Spring Boot application will be ready for editing.</span></span>
+1. <span data-ttu-id="f1468-144">Yerel sisteminizde hello dosyaları ayıkladıktan sonra basit yay önyükleme uygulamanızı düzenlemek için hazır olacaktır.</span><span class="sxs-lookup"><span data-stu-id="f1468-144">After you have extracted hello files on your local system, your simple Spring Boot application will be ready for editing.</span></span>
 
    ![Özel yay önyükleme proje dosyaları][SI03]
 
-## <a name="configure-your-spring-boot-app-to-use-the-azure-spring-boot-starter"></a><span data-ttu-id="e3ac3-146">Yay önyükleme uygulamanızı Azure yay önyükleme Starter kullanacak şekilde yapılandırma</span><span class="sxs-lookup"><span data-stu-id="e3ac3-146">Configure your Spring Boot app to use the Azure Spring Boot Starter</span></span>
+## <a name="configure-your-spring-boot-app-toouse-hello-azure-spring-boot-starter"></a><span data-ttu-id="f1468-146">Yay önyükleme uygulama toouse hello Azure yay önyükleme Starter yapılandırın</span><span class="sxs-lookup"><span data-stu-id="f1468-146">Configure your Spring Boot app toouse hello Azure Spring Boot Starter</span></span>
 
-1. <span data-ttu-id="e3ac3-147">Bulun *pom.xml* , uygulamanızın; dizindeki dosyayı örneğin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-147">Locate the *pom.xml* file in the directory of your app; for example:</span></span>
+1. <span data-ttu-id="f1468-147">Merhaba bulun *pom.xml* , uygulamanızın; hello dizindeki dosyayı örneğin:</span><span class="sxs-lookup"><span data-stu-id="f1468-147">Locate hello *pom.xml* file in hello directory of your app; for example:</span></span>
 
    `C:\SpringBoot\wingtiptoys\pom.xml`
 
-   <span data-ttu-id="e3ac3-148">-veya-</span><span class="sxs-lookup"><span data-stu-id="e3ac3-148">-or-</span></span>
+   <span data-ttu-id="f1468-148">-veya-</span><span class="sxs-lookup"><span data-stu-id="f1468-148">-or-</span></span>
 
    `/users/example/home/wingtiptoys/pom.xml`
 
-   ![Pom.xml dosyasını bulun][PM01]
+   ![Merhaba pom.xml dosyasını bulun][PM01]
 
-1. <span data-ttu-id="e3ac3-150">Açık *pom.xml* dosyasını bir metin düzenleyicisinde açın ve aşağıdaki satırları listesine eklemek `<dependencies>`:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-150">Open the *pom.xml* file in a text editor, and add the following lines to list of `<dependencies>`:</span></span>
+1. <span data-ttu-id="f1468-150">Açık hello *pom.xml* dosyasını bir metin düzenleyicisinde ve satırları toolist, aşağıdaki hello ekleyin `<dependencies>`:</span><span class="sxs-lookup"><span data-stu-id="f1468-150">Open hello *pom.xml* file in a text editor, and add hello following lines toolist of `<dependencies>`:</span></span>
 
    ```xml
    <dependency>
@@ -114,48 +114,48 @@ ms.lasthandoff: 08/18/2017
    </dependency>
    ```
 
-   ![Pom.xml dosyasını düzenleme][PM02]
+   ![Merhaba pom.xml dosyasını düzenleme][PM02]
 
-1. <span data-ttu-id="e3ac3-152">Kaydet ve Kapat *pom.xml* dosya.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-152">Save and close the *pom.xml* file.</span></span>
+1. <span data-ttu-id="f1468-152">Kaydet ve Kapat hello *pom.xml* dosya.</span><span class="sxs-lookup"><span data-stu-id="f1468-152">Save and close hello *pom.xml* file.</span></span>
 
-## <a name="configure-your-spring-boot-app-to-use-your-azure-cosmos-db"></a><span data-ttu-id="e3ac3-153">Yay önyükleme uygulamanızı Azure Cosmos DB kullanacak şekilde yapılandırma</span><span class="sxs-lookup"><span data-stu-id="e3ac3-153">Configure your Spring Boot app to use your Azure Cosmos DB</span></span>
+## <a name="configure-your-spring-boot-app-toouse-your-azure-cosmos-db"></a><span data-ttu-id="f1468-153">Yay önyükleme uygulama toouse Azure Cosmos DB yapılandırın</span><span class="sxs-lookup"><span data-stu-id="f1468-153">Configure your Spring Boot app toouse your Azure Cosmos DB</span></span>
 
-1. <span data-ttu-id="e3ac3-154">Bulun *application.properties* dosyasını *kaynakları* , uygulamanızın dizin; örneğin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-154">Locate the *application.properties* file in the *resources* directory of your app; for example:</span></span>
+1. <span data-ttu-id="f1468-154">Merhaba bulun *application.properties* hello dosyasında *kaynakları* , uygulamanızın dizin; örneğin:</span><span class="sxs-lookup"><span data-stu-id="f1468-154">Locate hello *application.properties* file in hello *resources* directory of your app; for example:</span></span>
 
    `C:\SpringBoot\wingtiptoys\src\main\resources\application.properties`
 
-   <span data-ttu-id="e3ac3-155">-veya-</span><span class="sxs-lookup"><span data-stu-id="e3ac3-155">-or-</span></span>
+   <span data-ttu-id="f1468-155">-veya-</span><span class="sxs-lookup"><span data-stu-id="f1468-155">-or-</span></span>
 
    `/users/example/home/wingtiptoys/src/main/resources/application.properties`
 
-   ![Application.properties dosyasını bulun][RE01]
+   ![Merhaba application.properties dosyasını bulun][RE01]
 
-1. <span data-ttu-id="e3ac3-157">Açık *application.properties* dosyasını bir metin düzenleyicisinde dosyasına aşağıdaki satırları ekleyin ve veritabanınız için uygun özelliklere sahip örnek değerleri değiştirin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-157">Open the *application.properties* file in a text editor, and add the following lines to the file, and replace the sample values with the appropriate properties for your database:</span></span>
+1. <span data-ttu-id="f1468-157">Açık hello *application.properties* dosyasını bir metin düzenleyicisinde ve aşağıdaki satırları toohello dosyasına hello ekleyin ve hello veritabanınız için uygun özelliklere sahip hello örnek değerleri değiştirin:</span><span class="sxs-lookup"><span data-stu-id="f1468-157">Open hello *application.properties* file in a text editor, and add hello following lines toohello file, and replace hello sample values with hello appropriate properties for your database:</span></span>
 
    ```yaml
-   # Specify the DNS URI of your Azure Cosmos DB.
+   # Specify hello DNS URI of your Azure Cosmos DB.
    azure.documentdb.uri=https://wingtiptoys.documents.azure.com:443/
 
-   # Specify the access key for your database.
+   # Specify hello access key for your database.
    azure.documentdb.key=57686f6120447564652c20426f6220526f636b73==
 
-   # Specify the name of your database.
+   # Specify hello name of your database.
    azure.documentdb.database=wingtiptoysdata
    ```
 
-   ![Application.properties dosya düzenleme][RE02]
+   ![Merhaba application.properties dosya düzenleme][RE02]
 
-1. <span data-ttu-id="e3ac3-159">Kaydet ve Kapat *application.properties* dosya.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-159">Save and close the *application.properties* file.</span></span>
+1. <span data-ttu-id="f1468-159">Kaydet ve Kapat hello *application.properties* dosya.</span><span class="sxs-lookup"><span data-stu-id="f1468-159">Save and close hello *application.properties* file.</span></span>
 
-## <a name="add-sample-code-to-implement-basic-database-functionality"></a><span data-ttu-id="e3ac3-160">Temel veritabanı işlevselliği uygulamak için örnek kod ekleme</span><span class="sxs-lookup"><span data-stu-id="e3ac3-160">Add sample code to implement basic database functionality</span></span>
+## <a name="add-sample-code-tooimplement-basic-database-functionality"></a><span data-ttu-id="f1468-160">Örnek kod tooimplement temel veritabanı işlevselliği ekleme</span><span class="sxs-lookup"><span data-stu-id="f1468-160">Add sample code tooimplement basic database functionality</span></span>
 
-<span data-ttu-id="e3ac3-161">Bu bölümde kullanıcı verilerini depolamak için iki Java sınıf oluşturun ve ardından kullanıcı sınıfının bir örneğini oluşturup, veritabanına kaydetmek için ana uygulama sınıfı değiştirin.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-161">In this section you create two Java classes for storing user data, and then you modify your main application class to create an instance of the user class and save it to your database.</span></span>
+<span data-ttu-id="f1468-161">Bu bölümde, kullanıcı verilerini depolamak için iki Java sınıfları oluşturmak ve ardından ana uygulama sınıfı toocreate hello kullanıcı sınıfının bir örneğini değiştirmek ve tooyour veritabanına kaydedin.</span><span class="sxs-lookup"><span data-stu-id="f1468-161">In this section you create two Java classes for storing user data, and then you modify your main application class toocreate an instance of hello user class and save it tooyour database.</span></span>
 
-### <a name="define-a-basic-class-for-storing-user-data"></a><span data-ttu-id="e3ac3-162">Kullanıcı verilerini depolamak için bir temel sınıf tanımlama</span><span class="sxs-lookup"><span data-stu-id="e3ac3-162">Define a basic class for storing user data</span></span>
+### <a name="define-a-basic-class-for-storing-user-data"></a><span data-ttu-id="f1468-162">Kullanıcı verilerini depolamak için bir temel sınıf tanımlama</span><span class="sxs-lookup"><span data-stu-id="f1468-162">Define a basic class for storing user data</span></span>
 
-1. <span data-ttu-id="e3ac3-163">Adlı yeni bir dosya oluşturun *User.java* ana uygulama Java dosyası ile aynı dizinde.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-163">Create a new file named *User.java* in the same directory as your main application Java file.</span></span>
+1. <span data-ttu-id="f1468-163">Adlı yeni bir dosya oluşturun *User.java* hello içindeki ana uygulama Java dosyası ile aynı dizinde.</span><span class="sxs-lookup"><span data-stu-id="f1468-163">Create a new file named *User.java* in hello same directory as your main application Java file.</span></span>
 
-1. <span data-ttu-id="e3ac3-164">Açık *User.java* dosyasını bir metin düzenleyicisinde ve dosyasını depolayan ve veritabanınızdaki değerleri almak genel kullanıcı sınıfı tanımlamak için aşağıdaki satırları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-164">Open the *User.java* file in a text editor, and add the following lines to the file to define a generic user class that stores and retrieve values in your database:</span></span>
+1. <span data-ttu-id="f1468-164">Açık hello *User.java* dosyasını bir metin düzenleyicisinde ve hello aşağıdaki depolayan ve veritabanınızdaki değerleri almak genel kullanıcı sınıfı toohello dosya toodefine satırları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="f1468-164">Open hello *User.java* file in a text editor, and add hello following lines toohello file toodefine a generic user class that stores and retrieve values in your database:</span></span>
 
    ```java
    package com.example.wingtiptoys;
@@ -202,13 +202,13 @@ ms.lasthandoff: 08/18/2017
    }
    ```
 
-1. <span data-ttu-id="e3ac3-165">Kaydet ve Kapat *User.java* dosya.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-165">Save and close the *User.java* file.</span></span>
+1. <span data-ttu-id="f1468-165">Kaydet ve Kapat hello *User.java* dosya.</span><span class="sxs-lookup"><span data-stu-id="f1468-165">Save and close hello *User.java* file.</span></span>
 
-### <a name="define-a-data-repository-interface"></a><span data-ttu-id="e3ac3-166">Bir veri deposu arabirimi tanımlayın</span><span class="sxs-lookup"><span data-stu-id="e3ac3-166">Define a data repository interface</span></span>
+### <a name="define-a-data-repository-interface"></a><span data-ttu-id="f1468-166">Bir veri deposu arabirimi tanımlayın</span><span class="sxs-lookup"><span data-stu-id="f1468-166">Define a data repository interface</span></span>
 
-1. <span data-ttu-id="e3ac3-167">Adlı yeni bir dosya oluşturun *UserRepository.java* ana uygulama Java dosyası ile aynı dizinde.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-167">Create a new file named *UserRepository.java* in the same directory as your main application Java file.</span></span>
+1. <span data-ttu-id="f1468-167">Adlı yeni bir dosya oluşturun *UserRepository.java* hello içindeki ana uygulama Java dosyası ile aynı dizinde.</span><span class="sxs-lookup"><span data-stu-id="f1468-167">Create a new file named *UserRepository.java* in hello same directory as your main application Java file.</span></span>
 
-1. <span data-ttu-id="e3ac3-168">Açık *UserRepository.java* dosyasını bir metin düzenleyicisinde açın ve dosyanın varsayılan DocumentDB depo arabirimi genişleten bir kullanıcı deposu arabirimi tanımlamak için aşağıdaki satırları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-168">Open the *UserRepository.java* file in a text editor, and add the following lines to the file to define a user repository interface that extends the default DocumentDB repository interface:</span></span>
+1. <span data-ttu-id="f1468-168">Açık hello *UserRepository.java* dosyasını bir metin düzenleyicisinde ve hello aşağıdaki hello varsayılan DocumentDB depo arabirimi genişleten bir kullanıcı deposu arabirimi toohello dosya toodefine satırları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="f1468-168">Open hello *UserRepository.java* file in a text editor, and add hello following lines toohello file toodefine a user repository interface that extends hello default DocumentDB repository interface:</span></span>
 
    ```java
    package com.example.wingtiptoys;
@@ -220,21 +220,21 @@ ms.lasthandoff: 08/18/2017
    public interface UserRepository extends DocumentDbRepository<User, String> {}   
    ```
 
-1. <span data-ttu-id="e3ac3-169">Kaydet ve Kapat *UserRepository.java* dosya.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-169">Save and close the *UserRepository.java* file.</span></span>
+1. <span data-ttu-id="f1468-169">Kaydet ve Kapat hello *UserRepository.java* dosya.</span><span class="sxs-lookup"><span data-stu-id="f1468-169">Save and close hello *UserRepository.java* file.</span></span>
 
-### <a name="modify-the-main-application-class"></a><span data-ttu-id="e3ac3-170">Ana uygulama sınıfını değiştirme</span><span class="sxs-lookup"><span data-stu-id="e3ac3-170">Modify the main application class</span></span>
+### <a name="modify-hello-main-application-class"></a><span data-ttu-id="f1468-170">Merhaba ana uygulama sınıfını değiştirme</span><span class="sxs-lookup"><span data-stu-id="f1468-170">Modify hello main application class</span></span>
 
-1. <span data-ttu-id="e3ac3-171">Ana uygulama Java dosyası, uygulamanızın paket dizinini bulun; Örneğin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-171">Locate the main application Java file in the package directory of your app; for example:</span></span>
+1. <span data-ttu-id="f1468-171">Merhaba ana uygulama Java dosyası, uygulamanızın paket dizinine hello bulun; Örneğin:</span><span class="sxs-lookup"><span data-stu-id="f1468-171">Locate hello main application Java file in hello package directory of your app; for example:</span></span>
 
    `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
 
-   <span data-ttu-id="e3ac3-172">-veya-</span><span class="sxs-lookup"><span data-stu-id="e3ac3-172">-or-</span></span>
+   <span data-ttu-id="f1468-172">-veya-</span><span class="sxs-lookup"><span data-stu-id="f1468-172">-or-</span></span>
 
    `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
 
-   ![Uygulama Java dosyasını bulun][JV01]
+   ![Merhaba uygulama Java dosyasını bulun][JV01]
 
-1. <span data-ttu-id="e3ac3-174">Ana uygulama Java dosyasını bir metin düzenleyicisinde açın ve aşağıdaki satırları dosyaya ekleyin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-174">Open the main application Java file in a text editor, and add the following lines to the file:</span></span>
+1. <span data-ttu-id="f1468-174">Merhaba ana uygulama Java dosyası bir metin düzenleyicisinde açın ve aşağıdaki satırları toohello dosyasına hello ekleyin:</span><span class="sxs-lookup"><span data-stu-id="f1468-174">Open hello main application Java file in a text editor, and add hello following lines toohello file:</span></span>
 
    ```java
    package com.example.wingtiptoys;
@@ -267,62 +267,62 @@ ms.lasthandoff: 08/18/2017
    }
    ```
 
-1. <span data-ttu-id="e3ac3-175">Ana uygulama Java dosyasını kaydedip kapatın.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-175">Save and close the main application Java file.</span></span>
+1. <span data-ttu-id="f1468-175">Merhaba ana uygulama Java dosyasını kaydedip kapatın.</span><span class="sxs-lookup"><span data-stu-id="f1468-175">Save and close hello main application Java file.</span></span>
 
-## <a name="build-and-test-your-app"></a><span data-ttu-id="e3ac3-176">Derleme ve uygulamanızı test etme</span><span class="sxs-lookup"><span data-stu-id="e3ac3-176">Build and test your app</span></span>
+## <a name="build-and-test-your-app"></a><span data-ttu-id="f1468-176">Derleme ve uygulamanızı test etme</span><span class="sxs-lookup"><span data-stu-id="f1468-176">Build and test your app</span></span>
 
-1. <span data-ttu-id="e3ac3-177">Bir komut istemi açın ve dizin klasörüne geçin Burada, *pom.xml* dosyasının bulunduğu; örneğin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-177">Open a command prompt and change directory to the folder where your *pom.xml* file is located; for example:</span></span>
+1. <span data-ttu-id="f1468-177">Bir komut istemi açın ve dizin toohello klasörü Değiştir Burada, *pom.xml* dosyasının bulunduğu; örneğin:</span><span class="sxs-lookup"><span data-stu-id="f1468-177">Open a command prompt and change directory toohello folder where your *pom.xml* file is located; for example:</span></span>
 
    `cd C:\SpringBoot\wingtiptoys`
 
-   <span data-ttu-id="e3ac3-178">-veya-</span><span class="sxs-lookup"><span data-stu-id="e3ac3-178">-or-</span></span>
+   <span data-ttu-id="f1468-178">-veya-</span><span class="sxs-lookup"><span data-stu-id="f1468-178">-or-</span></span>
 
    `cd /users/example/home/wingtiptoys`
 
-1. <span data-ttu-id="e3ac3-179">Yay önyükleme uygulamanızı Maven ile ve çalıştırın; Örneğin:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-179">Build your Spring Boot application with Maven and run it; for example:</span></span>
+1. <span data-ttu-id="f1468-179">Yay önyükleme uygulamanızı Maven ile ve çalıştırın; Örneğin:</span><span class="sxs-lookup"><span data-stu-id="f1468-179">Build your Spring Boot application with Maven and run it; for example:</span></span>
 
    ```shell
    mvn package
    java -jar target/wingtiptoys-0.0.1-SNAPSHOT.jar
    ```
 
-1. <span data-ttu-id="e3ac3-180">Uygulamanız birden fazla çalışma zamanı iletileri görüntülenir ve iletiyi görmelisiniz. `User: testFirstName testLastName` değerleri başarıyla depolanan ve, veritabanından alınan olduğunu belirtmek için görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-180">Your application will display several runtime messages, and you should see the message `User: testFirstName testLastName` displayed to indicate that values have been successfully stored and retrieved from your database.</span></span>
+1. <span data-ttu-id="f1468-180">Uygulamanız birden fazla çalışma zamanı iletileri görüntülenir ve selamlama iletisine görmelisiniz. `User: testFirstName testLastName` değerleri başarıyla depolanan ve, veritabanından alınan olduğunu tooindicate görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="f1468-180">Your application will display several runtime messages, and you should see hello message `User: testFirstName testLastName` displayed tooindicate that values have been successfully stored and retrieved from your database.</span></span>
 
-   ![Uygulama başarılı çıktısı][JV02]
+   ![Merhaba uygulaması başarılı çıktısı][JV02]
 
-1. <span data-ttu-id="e3ac3-182">İsteğe bağlı: Tıklayarak veritabanınız için Özellikler sayfasında, Azure Cosmos DB'den içeriğini görüntülemek için Azure portalını kullanabilirsiniz **belge Gezgini**ve ardından seçerek ve görüntülenen listeyi öğesinden içeriği görüntülemek için.</span><span class="sxs-lookup"><span data-stu-id="e3ac3-182">OPTIONAL: You can use the Azure portal to view the contents of your Azure Cosmos DB from the properties page for your database by clicking  **Document Explorer**, and then selecting and item from the displayed list to view the contents.</span></span>
+1. <span data-ttu-id="f1468-182">İsteğe bağlı: Hello Azure portal tooview hello hello özellikleri sayfasında, Azure Cosmos DB'den içeriğini veritabanınız için tıklayarak kullanabileceğiniz **belge Gezgini**ve ardından seçerek ve de görüntülenen hello listesi tooview hello öğesinden içeriği.</span><span class="sxs-lookup"><span data-stu-id="f1468-182">OPTIONAL: You can use hello Azure portal tooview hello contents of your Azure Cosmos DB from hello properties page for your database by clicking  **Document Explorer**, and then selecting and item from hello displayed list tooview hello contents.</span></span>
 
-   ![Verilerinizi görüntülemek için belge Gezgini kullanma][JV03]
+   ![Verilerinizi Hello belge Gezgini tooview kullanma][JV03]
 
-## <a name="next-steps"></a><span data-ttu-id="e3ac3-184">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="e3ac3-184">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="f1468-184">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="f1468-184">Next steps</span></span>
 
-<span data-ttu-id="e3ac3-185">Azure Cosmos DB ve Java kullanma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-185">For more information about using Azure Cosmos DB and Java, see the following articles:</span></span>
+<span data-ttu-id="f1468-185">Azure Cosmos DB ve Java kullanma hakkında daha fazla bilgi için aşağıdaki makaleler hello bakın:</span><span class="sxs-lookup"><span data-stu-id="f1468-185">For more information about using Azure Cosmos DB and Java, see hello following articles:</span></span>
 
-* <span data-ttu-id="e3ac3-186">[Azure Cosmos DB belgelerine].</span><span class="sxs-lookup"><span data-stu-id="e3ac3-186">[Azure Cosmos DB Documentation].</span></span>
+* <span data-ttu-id="f1468-186">[Azure Cosmos DB belgelerine].</span><span class="sxs-lookup"><span data-stu-id="f1468-186">[Azure Cosmos DB Documentation].</span></span>
 
-* <span data-ttu-id="e3ac3-187">[Azure Cosmos DB: Java ve Azure portal ile bir DocumentDB API uygulaması oluşturma][Build a DocumentDB API app with Java]</span><span class="sxs-lookup"><span data-stu-id="e3ac3-187">[Azure Cosmos DB: Build a DocumentDB API app with Java and the Azure portal][Build a DocumentDB API app with Java]</span></span>
+* <span data-ttu-id="f1468-187">[Azure Cosmos DB: Java ile DocumentDB API uygulaması oluşturma ve Azure portal hello][Build a DocumentDB API app with Java]</span><span class="sxs-lookup"><span data-stu-id="f1468-187">[Azure Cosmos DB: Build a DocumentDB API app with Java and hello Azure portal][Build a DocumentDB API app with Java]</span></span>
 
-<span data-ttu-id="e3ac3-188">Azure üzerinde yay önyükleme uygulamalarında kullanma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:</span><span class="sxs-lookup"><span data-stu-id="e3ac3-188">For more information about using Spring Boot applications on Azure, see the following articles:</span></span>
+<span data-ttu-id="f1468-188">Azure üzerinde yay önyükleme uygulamalarında kullanma hakkında daha fazla bilgi için aşağıdaki makaleler hello bakın:</span><span class="sxs-lookup"><span data-stu-id="f1468-188">For more information about using Spring Boot applications on Azure, see hello following articles:</span></span>
 
-* [<span data-ttu-id="e3ac3-189">Azure için yay önyükleme DocumenDB Başlatıcı</span><span class="sxs-lookup"><span data-stu-id="e3ac3-189">Spring Boot DocumenDB Starter for Azure</span></span>](https://github.com/Microsoft/azure-spring-boot-starters/tree/master/azure-documentdb-spring-boot-starter-sample)
+* [<span data-ttu-id="f1468-189">Azure için yay önyükleme DocumenDB Başlatıcı</span><span class="sxs-lookup"><span data-stu-id="f1468-189">Spring Boot DocumenDB Starter for Azure</span></span>](https://github.com/Microsoft/azure-spring-boot-starters/tree/master/azure-documentdb-spring-boot-starter-sample)
 
-* [<span data-ttu-id="e3ac3-190">Yay önyükleme uygulamasını Azure App Service'e dağıtma</span><span class="sxs-lookup"><span data-stu-id="e3ac3-190">Deploy a Spring Boot Application to the Azure App Service</span></span>](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
+* [<span data-ttu-id="f1468-190">Yay önyükleme uygulama toohello Azure App Service'e dağıtma</span><span class="sxs-lookup"><span data-stu-id="f1468-190">Deploy a Spring Boot Application toohello Azure App Service</span></span>](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
 
-* [<span data-ttu-id="e3ac3-191">Azure kapsayıcı hizmeti Kubernetes kümesinde bir yay önyükleme uygulama çalıştıran</span><span class="sxs-lookup"><span data-stu-id="e3ac3-191">Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service</span></span>](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* [<span data-ttu-id="f1468-191">Yay önyükleme uygulama hello Azure kapsayıcı hizmeti Kubernetes kümede çalışan</span><span class="sxs-lookup"><span data-stu-id="f1468-191">Running a Spring Boot Application on a Kubernetes Cluster in hello Azure Container Service</span></span>](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
-<span data-ttu-id="e3ac3-192">Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure Java Geliştirici Merkezi] ve [Visual Studio Team Services için Java Araçları].</span><span class="sxs-lookup"><span data-stu-id="e3ac3-192">For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].</span></span>
+<span data-ttu-id="f1468-192">Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Java Geliştirici Merkezi] ve hello [Visual Studio Team Services için Java Araçları].</span><span class="sxs-lookup"><span data-stu-id="f1468-192">For more information about using Azure with Java, see hello [Azure Java Developer Center] and hello [Java Tools for Visual Studio Team Services].</span></span>
 
 <!-- URL List -->
 
-<span data-ttu-id="e3ac3-193">[Azure Cosmos DB belgelerine]: /azure/cosmos-db/</span><span class="sxs-lookup"><span data-stu-id="e3ac3-193">[Azure Cosmos DB Documentation]: /azure/cosmos-db/</span></span>
-<span data-ttu-id="e3ac3-194">[Azure Java Geliştirici Merkezi]: https://azure.microsoft.com/develop/java/</span><span class="sxs-lookup"><span data-stu-id="e3ac3-194">[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/</span></span>
+[Azure Cosmos DB belgelerine]: /azure/cosmos-db/
+[Azure Java Geliştirici Merkezi]: https://azure.microsoft.com/develop/java/
 [Build a DocumentDB API app with Java]: https://docs.microsoft.com/azure/cosmos-db/create-documentdb-java
-<span data-ttu-id="e3ac3-195">[ücretsiz Azure hesabı]: https://azure.microsoft.com/pricing/free-trial/</span><span class="sxs-lookup"><span data-stu-id="e3ac3-195">[free Azure account]: https://azure.microsoft.com/pricing/free-trial/</span></span>
-<span data-ttu-id="e3ac3-196">[Visual Studio Team Services için Java Araçları]: https://java.visualstudio.com/</span><span class="sxs-lookup"><span data-stu-id="e3ac3-196">[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/</span></span>
-<span data-ttu-id="e3ac3-197">[MSDN abone Avantajlarınızı]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/</span><span class="sxs-lookup"><span data-stu-id="e3ac3-197">[MSDN subscriber benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/</span></span>
-<span data-ttu-id="e3ac3-198">[yay önyükleme]: http://projects.spring.io/spring-boot/</span><span class="sxs-lookup"><span data-stu-id="e3ac3-198">[Spring Boot]: http://projects.spring.io/spring-boot/</span></span>
-<span data-ttu-id="e3ac3-199">[yay Initializr]: https://start.spring.io/</span><span class="sxs-lookup"><span data-stu-id="e3ac3-199">[Spring Initializr]: https://start.spring.io/</span></span>
-<span data-ttu-id="e3ac3-200">[Yay Framework]: https://spring.io/</span><span class="sxs-lookup"><span data-stu-id="e3ac3-200">[Spring Framework]: https://spring.io/</span></span>
+[ücretsiz Azure hesabı]: https://azure.microsoft.com/pricing/free-trial/
+[Visual Studio Team Services için Java Araçları]: https://java.visualstudio.com/
+[MSDN abone Avantajlarınızı]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[yay önyükleme]: http://projects.spring.io/spring-boot/
+[yay Initializr]: https://start.spring.io/
+[yay Framework]: https://spring.io/
 
 <!-- IMG List -->
 

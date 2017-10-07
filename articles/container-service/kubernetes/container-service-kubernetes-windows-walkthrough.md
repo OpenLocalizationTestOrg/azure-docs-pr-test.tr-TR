@@ -1,6 +1,6 @@
 ---
-title: "Hızlı Başlangıç - Windows için Azure Kubernetes kümesi | Microsoft Docs"
-description: "Azure CLI ile Azure Container Service'te Windows kapsayıcıları için Kubernetes kümesi oluşturmayı hızlı bir şekilde öğrenin."
+title: "aaaQuickstart - Windows için Azure Kubernetes küme | Microsoft Docs"
+description: "Hızlı bir şekilde toocreate bir Kubernetes kümesi için Windows hello Azure CLI ile Azure kapsayıcı hizmeti kapsayıcı öğrenin."
 documentationcenter: 
 author: dlepow
 manager: timlt
@@ -16,40 +16,40 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f9bf4c4094addfa9654e3b99d91add03079ee045
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 85fe65a46ae8c78797e8a8a097c2a37f06329335
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-kubernetes-cluster-for-windows-containers"></a><span data-ttu-id="d48c7-103">Windows kapsayıcıları için Kubernetes kümesi dağıtma</span><span class="sxs-lookup"><span data-stu-id="d48c7-103">Deploy Kubernetes cluster for Windows containers</span></span>
+# <a name="deploy-kubernetes-cluster-for-windows-containers"></a><span data-ttu-id="bc553-103">Windows kapsayıcıları için Kubernetes kümesi dağıtma</span><span class="sxs-lookup"><span data-stu-id="bc553-103">Deploy Kubernetes cluster for Windows containers</span></span>
 
-<span data-ttu-id="d48c7-104">Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="d48c7-104">The Azure CLI is used to create and manage Azure resources from the command line or in scripts.</span></span> <span data-ttu-id="d48c7-105">Bu kılavuzda, [Azure Container Service](../container-service-intro.md)'te [Kubernetes](https://kubernetes.io/docs/home/) kümesi dağıtmak için Azure CLI'yi nasıl kullanacağınız ayrıntılı olarak açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="d48c7-105">This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](../container-service-intro.md).</span></span> <span data-ttu-id="d48c7-106">Küme dağıtıldıktan sonra, Kubernetes `kubectl` komut satırı aracı ile kümeye bağlanır ve ilk Windows kapsayıcınızı dağıtırsınız.</span><span class="sxs-lookup"><span data-stu-id="d48c7-106">Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Windows container.</span></span>
+<span data-ttu-id="bc553-104">Hello Azure CLI kullanılan toocreate olan ve hello komut satırından veya komut dosyalarında Azure kaynaklarını yönetin.</span><span class="sxs-lookup"><span data-stu-id="bc553-104">hello Azure CLI is used toocreate and manage Azure resources from hello command line or in scripts.</span></span> <span data-ttu-id="bc553-105">Hello Azure CLI toodeploy kullanarak bu kılavuzu ayrıntılarını bir [Kubernetes](https://kubernetes.io/docs/home/) kümesi [Azure kapsayıcı hizmeti](../container-service-intro.md).</span><span class="sxs-lookup"><span data-stu-id="bc553-105">This guide details using hello Azure CLI toodeploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](../container-service-intro.md).</span></span> <span data-ttu-id="bc553-106">Merhaba küme dağıtıldıktan sonra Kubernetes hello ile tooit bağlanmak `kubectl` komut satırı aracı ve dağıtmak, ilk Windows kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="bc553-106">Once hello cluster is deployed, you connect tooit with hello Kubernetes `kubectl` command-line tool, and you deploy your first Windows container.</span></span>
 
-<span data-ttu-id="d48c7-107">Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d48c7-107">If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.</span></span>
+<span data-ttu-id="bc553-107">Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.</span><span class="sxs-lookup"><span data-stu-id="bc553-107">If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.</span></span>
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-<span data-ttu-id="d48c7-108">CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="d48c7-108">If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later.</span></span> <span data-ttu-id="d48c7-109">Sürümü bulmak için `az --version` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d48c7-109">Run `az --version` to find the version.</span></span> <span data-ttu-id="d48c7-110">Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="d48c7-110">If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
+<span data-ttu-id="bc553-108">Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu hızlı başlangıç hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü.</span><span class="sxs-lookup"><span data-stu-id="bc553-108">If you choose tooinstall and use hello CLI locally, this quickstart requires that you are running hello Azure CLI version 2.0.4 or later.</span></span> <span data-ttu-id="bc553-109">Çalıştırma `az --version` toofind hello sürümü.</span><span class="sxs-lookup"><span data-stu-id="bc553-109">Run `az --version` toofind hello version.</span></span> <span data-ttu-id="bc553-110">Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="bc553-110">If you need tooinstall or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
 
 > [!NOTE]
-> <span data-ttu-id="d48c7-111">Azure Container Service'te Kubernetes için Windows kapsayıcıları desteği önizleme aşamasındadır.</span><span class="sxs-lookup"><span data-stu-id="d48c7-111">Support for Windows containers on Kubernetes in Azure Container Service is in preview.</span></span> 
+> <span data-ttu-id="bc553-111">Azure Container Service'te Kubernetes için Windows kapsayıcıları desteği önizleme aşamasındadır.</span><span class="sxs-lookup"><span data-stu-id="bc553-111">Support for Windows containers on Kubernetes in Azure Container Service is in preview.</span></span> 
 >
 
-## <a name="create-a-resource-group"></a><span data-ttu-id="d48c7-112">Kaynak grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="d48c7-112">Create a resource group</span></span>
+## <a name="create-a-resource-group"></a><span data-ttu-id="bc553-112">Kaynak grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="bc553-112">Create a resource group</span></span>
 
-<span data-ttu-id="d48c7-113">[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d48c7-113">Create a resource group with the [az group create](/cli/azure/group#create) command.</span></span> <span data-ttu-id="d48c7-114">Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur.</span><span class="sxs-lookup"><span data-stu-id="d48c7-114">An Azure resource group is a logical group in which Azure resources are deployed and managed.</span></span> 
+<span data-ttu-id="bc553-113">Bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu.</span><span class="sxs-lookup"><span data-stu-id="bc553-113">Create a resource group with hello [az group create](/cli/azure/group#create) command.</span></span> <span data-ttu-id="bc553-114">Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur.</span><span class="sxs-lookup"><span data-stu-id="bc553-114">An Azure resource group is a logical group in which Azure resources are deployed and managed.</span></span> 
 
-<span data-ttu-id="d48c7-115">Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="d48c7-115">The following example creates a resource group named *myResourceGroup* in the *eastus* location.</span></span>
+<span data-ttu-id="bc553-115">Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *eastus* konumu.</span><span class="sxs-lookup"><span data-stu-id="bc553-115">hello following example creates a resource group named *myResourceGroup* in hello *eastus* location.</span></span>
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-kubernetes-cluster"></a><span data-ttu-id="d48c7-116">Kubernetes kümesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="d48c7-116">Create Kubernetes cluster</span></span>
-<span data-ttu-id="d48c7-117">Azure Container Service'te [az acs create](/cli/azure/acs#create) komutuyla Kubernetes kümesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d48c7-117">Create a Kubernetes cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command.</span></span> 
+## <a name="create-kubernetes-cluster"></a><span data-ttu-id="bc553-116">Kubernetes kümesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="bc553-116">Create Kubernetes cluster</span></span>
+<span data-ttu-id="bc553-117">Kubernetes küme Azure kapsayıcı hizmeti ile Merhaba oluşturmak [az acs oluşturmak](/cli/azure/acs#create) komutu.</span><span class="sxs-lookup"><span data-stu-id="bc553-117">Create a Kubernetes cluster in Azure Container Service with hello [az acs create](/cli/azure/acs#create) command.</span></span> 
 
-<span data-ttu-id="d48c7-118">Aşağıdaki örnekte, bir Linux ana düğümü ve iki Windows aracı düğümüyle *myK8sCluster* adlı bir küme oluşturulmuştur.</span><span class="sxs-lookup"><span data-stu-id="d48c7-118">The following example creates a cluster named *myK8sCluster* with one Linux master node and two Windows agent nodes.</span></span> <span data-ttu-id="d48c7-119">Bu örnekte, Linux ana düğümüne bağlanmak için gereken SSH anahtarları oluşturulmuştur.</span><span class="sxs-lookup"><span data-stu-id="d48c7-119">This example creates SSH keys needed to connect to the Linux master.</span></span> <span data-ttu-id="d48c7-120">Bu örnekte, yönetici kullanıcı adı olarak *azureuser*, Windows düğümlerindeki parola olarak ise *myPassword12* kullanılmıştır.</span><span class="sxs-lookup"><span data-stu-id="d48c7-120">This example uses *azureuser* for an administrative user name and *myPassword12* as the password on the Windows nodes.</span></span> <span data-ttu-id="d48c7-121">Bu değerleri ortamınız için uygun olan bir değerle güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="d48c7-121">Update these values to something appropriate to your environment.</span></span> 
+<span data-ttu-id="bc553-118">Merhaba aşağıdaki örnek adlı bir küme oluşturur *myK8sCluster* ile bir Linux ana düğüm ve iki Windows aracı düğümü.</span><span class="sxs-lookup"><span data-stu-id="bc553-118">hello following example creates a cluster named *myK8sCluster* with one Linux master node and two Windows agent nodes.</span></span> <span data-ttu-id="bc553-119">Bu örnek SSH anahtarları gerekli tooconnect toohello Linux ana oluşturur.</span><span class="sxs-lookup"><span data-stu-id="bc553-119">This example creates SSH keys needed tooconnect toohello Linux master.</span></span> <span data-ttu-id="bc553-120">Bu örnekte *azureuser* bir yönetici kullanıcı adı ve *myPassword12* hello parolasını hello Windows düğümlerinde olarak.</span><span class="sxs-lookup"><span data-stu-id="bc553-120">This example uses *azureuser* for an administrative user name and *myPassword12* as hello password on hello Windows nodes.</span></span> <span data-ttu-id="bc553-121">Bu değerleri toosomething uygun tooyour ortamı güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="bc553-121">Update these values toosomething appropriate tooyour environment.</span></span> 
 
 
 
@@ -63,36 +63,36 @@ az acs create --orchestrator-type=kubernetes \
     --admin-password myPassword12
 ```
 
-<span data-ttu-id="d48c7-122">Birkaç dakika sonra komut tamamlanır ve size dağıtımınız hakkındaki bilgiler gösterilir.</span><span class="sxs-lookup"><span data-stu-id="d48c7-122">After several minutes, the command completes, and shows you information about your deployment.</span></span>
+<span data-ttu-id="bc553-122">Birkaç dakika sonra hello komut tamamlandıktan ve dağıtımınız hakkında bilgi gösterir.</span><span class="sxs-lookup"><span data-stu-id="bc553-122">After several minutes, hello command completes, and shows you information about your deployment.</span></span>
 
-## <a name="install-kubectl"></a><span data-ttu-id="d48c7-123">Kubectl yükleyin</span><span class="sxs-lookup"><span data-stu-id="d48c7-123">Install kubectl</span></span>
+## <a name="install-kubectl"></a><span data-ttu-id="bc553-123">Kubectl yükleyin</span><span class="sxs-lookup"><span data-stu-id="bc553-123">Install kubectl</span></span>
 
-<span data-ttu-id="d48c7-124">İstemci bilgisayarınızdan Kubernetes kümesine bağlanmak için Kubernetes’in komut satırı istemcisini ([`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)) kullanın.</span><span class="sxs-lookup"><span data-stu-id="d48c7-124">To connect to the Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client.</span></span> 
+<span data-ttu-id="bc553-124">tooconnect toohello Kubernetes küme kullanımı, istemci bilgisayardan [ `kubectl` ](https://kubernetes.io/docs/user-guide/kubectl/), hello Kubernetes komut satırı istemcisi.</span><span class="sxs-lookup"><span data-stu-id="bc553-124">tooconnect toohello Kubernetes cluster from your client computer, use [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), hello Kubernetes command-line client.</span></span> 
 
-<span data-ttu-id="d48c7-125">Azure CloudShell'i kullanıyorsanız `kubectl` zaten yüklüdür.</span><span class="sxs-lookup"><span data-stu-id="d48c7-125">If you're using Azure CloudShell, `kubectl` is already installed.</span></span> <span data-ttu-id="d48c7-126">Yerel olarak yüklemek istiyorsanız [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) komutunu kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d48c7-126">If you want to install it locally, you can use the [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.</span></span>
+<span data-ttu-id="bc553-125">Azure CloudShell'i kullanıyorsanız `kubectl` zaten yüklüdür.</span><span class="sxs-lookup"><span data-stu-id="bc553-125">If you're using Azure CloudShell, `kubectl` is already installed.</span></span> <span data-ttu-id="bc553-126">Tooinstall isterseniz, yerel olarak kullanabileceğiniz hello [az acs kubernetes yükleme-CLI](/cli/azure/acs/kubernetes#install-cli) komutu.</span><span class="sxs-lookup"><span data-stu-id="bc553-126">If you want tooinstall it locally, you can use hello [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) command.</span></span>
 
-<span data-ttu-id="d48c7-127">Aşağıdaki Azure CLI örneğinde `kubectl`, sisteminize yüklenir.</span><span class="sxs-lookup"><span data-stu-id="d48c7-127">The following Azure CLI example installs `kubectl` to your system.</span></span> <span data-ttu-id="d48c7-128">Windows'da bu komutu yönetici olarak çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d48c7-128">On Windows, run this command as an administrator.</span></span>
+<span data-ttu-id="bc553-127">Azure CLI örnek yükler aşağıdaki hello `kubectl` tooyour sistem.</span><span class="sxs-lookup"><span data-stu-id="bc553-127">hello following Azure CLI example installs `kubectl` tooyour system.</span></span> <span data-ttu-id="bc553-128">Windows'da bu komutu yönetici olarak çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="bc553-128">On Windows, run this command as an administrator.</span></span>
 
 ```azurecli-interactive 
 az acs kubernetes install-cli
 ```
 
 
-## <a name="connect-with-kubectl"></a><span data-ttu-id="d48c7-129">kubectl ile bağlanma</span><span class="sxs-lookup"><span data-stu-id="d48c7-129">Connect with kubectl</span></span>
+## <a name="connect-with-kubectl"></a><span data-ttu-id="bc553-129">kubectl ile bağlanma</span><span class="sxs-lookup"><span data-stu-id="bc553-129">Connect with kubectl</span></span>
 
-<span data-ttu-id="d48c7-130">`kubectl` öğesini Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d48c7-130">To configure `kubectl` to connect to your Kubernetes cluster, run the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command.</span></span> <span data-ttu-id="d48c7-131">Aşağıdaki örnekte, Kubernetes kümeniz için küme yapılandırması indirilmiştir.</span><span class="sxs-lookup"><span data-stu-id="d48c7-131">The following example downloads the cluster configuration for your Kubernetes cluster.</span></span>
+<span data-ttu-id="bc553-130">tooconfigure `kubectl` tooconnect tooyour Kubernetes küme hello çalıştırmak, [az acs kubernetes get-kimlik](/cli/azure/acs/kubernetes#get-credentials) komutu.</span><span class="sxs-lookup"><span data-stu-id="bc553-130">tooconfigure `kubectl` tooconnect tooyour Kubernetes cluster, run hello [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command.</span></span> <span data-ttu-id="bc553-131">Merhaba aşağıdaki örnek Kubernetes kümenizin hello küme yapılandırmasını indirir.</span><span class="sxs-lookup"><span data-stu-id="bc553-131">hello following example downloads hello cluster configuration for your Kubernetes cluster.</span></span>
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-<span data-ttu-id="d48c7-132">Makinenizden küme bağlantısını doğrulamak için şunu çalıştırmayı deneyin:</span><span class="sxs-lookup"><span data-stu-id="d48c7-132">To verify the connection to your cluster from your machine, try running:</span></span>
+<span data-ttu-id="bc553-132">tooverify hello bağlantı tooyour küme makinenizden, çalıştırmayı deneyin:</span><span class="sxs-lookup"><span data-stu-id="bc553-132">tooverify hello connection tooyour cluster from your machine, try running:</span></span>
 
 ```azurecli-interactive
 kubectl get nodes
 ```
 
-<span data-ttu-id="d48c7-133">`kubectl`, ana ve aracı düğümleri listeler.</span><span class="sxs-lookup"><span data-stu-id="d48c7-133">`kubectl` lists the master and agent nodes.</span></span>
+<span data-ttu-id="bc553-133">`kubectl`Hello Yöneticisi ve Aracısı düğümleri listeler.</span><span class="sxs-lookup"><span data-stu-id="bc553-133">`kubectl` lists hello master and agent nodes.</span></span>
 
 ```azurecli-interactive
 NAME                    STATUS                     AGE       VERSION
@@ -102,13 +102,13 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ```
 
-## <a name="deploy-a-windows-iis-container"></a><span data-ttu-id="d48c7-134">Windows IIS kapsayıcısı dağıtma</span><span class="sxs-lookup"><span data-stu-id="d48c7-134">Deploy a Windows IIS container</span></span>
+## <a name="deploy-a-windows-iis-container"></a><span data-ttu-id="bc553-134">Windows IIS kapsayıcısı dağıtma</span><span class="sxs-lookup"><span data-stu-id="bc553-134">Deploy a Windows IIS container</span></span>
 
-<span data-ttu-id="d48c7-135">Bir veya daha fazla kapsayıcı içeren bir Kubernetes *pod*'unun içinde Docker kapsayıcısı çalıştırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d48c7-135">You can run a Docker container inside a Kubernetes *pod*, which contains one or more containers.</span></span> 
+<span data-ttu-id="bc553-135">Bir veya daha fazla kapsayıcı içeren bir Kubernetes *pod*'unun içinde Docker kapsayıcısı çalıştırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="bc553-135">You can run a Docker container inside a Kubernetes *pod*, which contains one or more containers.</span></span> 
 
-<span data-ttu-id="d48c7-136">Bu temel örnekte Microsoft Internet Information Server (IIS) kapsayıcısı belirtmek için bir JSON dosyası kullanılmış ve ardından `kubctl apply` komutu kullanılarak pod oluşturulmuştur.</span><span class="sxs-lookup"><span data-stu-id="d48c7-136">This basic example uses a JSON file to specify a Microsoft Internet Information Server (IIS) container, and then creates the pod using the `kubctl apply` command.</span></span> 
+<span data-ttu-id="bc553-136">Bu temel örnek bir JSON dosyası toospecify Microsoft Internet Information Server (IIS) kapsayıcı kullanır ve ardından hello kullanarak hello pod oluşturur `kubctl apply` komutu.</span><span class="sxs-lookup"><span data-stu-id="bc553-136">This basic example uses a JSON file toospecify a Microsoft Internet Information Server (IIS) container, and then creates hello pod using hello `kubctl apply` command.</span></span> 
 
-<span data-ttu-id="d48c7-137">`iis.json` adlı bir yerel dosya oluşturun ve aşağıdaki metni kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="d48c7-137">Create a local file named `iis.json` and copy the following text.</span></span> <span data-ttu-id="d48c7-138">Bu dosya Kubernetes'e, Windows Server 2016 Nano Server üzerinde, [Docker Hub](https://hub.docker.com/r/nanoserver/iis/)'daki genel bir görüntüyü kullanarak IIS çalıştırmasını söyler.</span><span class="sxs-lookup"><span data-stu-id="d48c7-138">This file tells Kubernetes to run IIS on Windows Server 2016 Nano Server, using a public container image from [Docker Hub](https://hub.docker.com/r/nanoserver/iis/).</span></span> <span data-ttu-id="d48c7-139">Kapsayıcı 80 numaralı bağlantı noktasını kullanır, ancak başlangıçta yalnızca küme ağından erişim sağlanabilir.</span><span class="sxs-lookup"><span data-stu-id="d48c7-139">The container uses port 80, but initially is only accessible within the cluster network.</span></span>
+<span data-ttu-id="bc553-137">Adlı bir yerel dosya oluşturma `iis.json` ve kopyalama hello aşağıdaki metin.</span><span class="sxs-lookup"><span data-stu-id="bc553-137">Create a local file named `iis.json` and copy hello following text.</span></span> <span data-ttu-id="bc553-138">Bu dosya, bir ortak kapsayıcı görüntüsünü kullanarak Windows Server 2016 Nano Server üzerinde Kubernetes toorun IIS söyler [Docker hub'a](https://hub.docker.com/r/nanoserver/iis/).</span><span class="sxs-lookup"><span data-stu-id="bc553-138">This file tells Kubernetes toorun IIS on Windows Server 2016 Nano Server, using a public container image from [Docker Hub](https://hub.docker.com/r/nanoserver/iis/).</span></span> <span data-ttu-id="bc553-139">Merhaba kapsayıcı 80 numaralı bağlantı noktasını kullanır, ancak başlangıçta yalnızca hello küme ağdan erişilebilir.</span><span class="sxs-lookup"><span data-stu-id="bc553-139">hello container uses port 80, but initially is only accessible within hello cluster network.</span></span>
 
  ```JSON
  {
@@ -139,42 +139,42 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
  }
  ```
 
-<span data-ttu-id="d48c7-140">Pod'u başlatmak için şunları yazın:</span><span class="sxs-lookup"><span data-stu-id="d48c7-140">To start the pod, type:</span></span>
+<span data-ttu-id="bc553-140">toostart hello pod, türü:</span><span class="sxs-lookup"><span data-stu-id="bc553-140">toostart hello pod, type:</span></span>
   
 ```azurecli-interactive
 kubectl apply -f iis.json
 ```  
 
-<span data-ttu-id="d48c7-141">Dağıtımı izlemek için şunları yazın:</span><span class="sxs-lookup"><span data-stu-id="d48c7-141">To track the deployment, type:</span></span>
+<span data-ttu-id="bc553-141">tootrack hello dağıtım türü:</span><span class="sxs-lookup"><span data-stu-id="bc553-141">tootrack hello deployment, type:</span></span>
   
 ```azurecli-interactive
 kubectl get pods
 ```
 
-<span data-ttu-id="d48c7-142">Pod dağıtılırken durum şudur: `ContainerCreating`.</span><span class="sxs-lookup"><span data-stu-id="d48c7-142">While the pod is deploying, the status is `ContainerCreating`.</span></span> <span data-ttu-id="d48c7-143">Kapsayıcının `Running` durumuna geçmesi birkaç dakika sürebilir.</span><span class="sxs-lookup"><span data-stu-id="d48c7-143">It can take a few minutes for the container to enter the `Running` state.</span></span>
+<span data-ttu-id="bc553-142">Merhaba pod dağıtma sırasında hello durumudur `ContainerCreating`.</span><span class="sxs-lookup"><span data-stu-id="bc553-142">While hello pod is deploying, hello status is `ContainerCreating`.</span></span> <span data-ttu-id="bc553-143">Merhaba kapsayıcı tooenter hello birkaç dakika sürebilir `Running` durumu.</span><span class="sxs-lookup"><span data-stu-id="bc553-143">It can take a few minutes for hello container tooenter hello `Running` state.</span></span>
 
 ```azurecli-interactive
 NAME     READY        STATUS        RESTARTS    AGE
 iis      1/1          Running       0           32s
 ```
 
-## <a name="view-the-iis-welcome-page"></a><span data-ttu-id="d48c7-144">IIS karşılama sayfasını görüntüleme</span><span class="sxs-lookup"><span data-stu-id="d48c7-144">View the IIS welcome page</span></span>
+## <a name="view-hello-iis-welcome-page"></a><span data-ttu-id="bc553-144">Görünüm hello IIS Karşılama sayfası</span><span class="sxs-lookup"><span data-stu-id="bc553-144">View hello IIS welcome page</span></span>
 
-<span data-ttu-id="d48c7-145">Pod'u genel bir IP adresiyle herkesin kullanımına sunmak için aşağıdaki komutu yazın:</span><span class="sxs-lookup"><span data-stu-id="d48c7-145">To expose the pod to the world with a public IP address, type the following command:</span></span>
+<span data-ttu-id="bc553-145">tooexpose hello pod toohello dünyayla komutu aşağıdaki türü hello bir ortak IP adresi:</span><span class="sxs-lookup"><span data-stu-id="bc553-145">tooexpose hello pod toohello world with a public IP address, type hello following command:</span></span>
 
 ```azurecli-interactive
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-<span data-ttu-id="d48c7-146">Bu komutla Kubernetes, hizmet için genel bir IP adresiyle birlikte bir hizmet ve [Azure yük dengeleyici kuralı](container-service-kubernetes-load-balancing.md) oluşturur.</span><span class="sxs-lookup"><span data-stu-id="d48c7-146">With this command, Kubernetes creates a service and an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address for the service.</span></span> 
+<span data-ttu-id="bc553-146">Bu komutla bir hizmet Kubernetes oluşturur ve bir [Azure yük dengeleyici kuralı](container-service-kubernetes-load-balancing.md) hello hizmeti için genel IP adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="bc553-146">With this command, Kubernetes creates a service and an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address for hello service.</span></span> 
 
-<span data-ttu-id="d48c7-147">Hizmetin durumunu görmek için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d48c7-147">Run the following command to see the status of the service.</span></span>
+<span data-ttu-id="bc553-147">Komut toosee hello hello hizmetinin durumunu izleyen hello çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="bc553-147">Run hello following command toosee hello status of hello service.</span></span>
 
 ```azurecli-interactive
 kubectl get svc
 ```
 
-<span data-ttu-id="d48c7-148">IP adresi başlangıçta `pending` olarak görünür.</span><span class="sxs-lookup"><span data-stu-id="d48c7-148">Initially the IP address appears as `pending`.</span></span> <span data-ttu-id="d48c7-149">Birkaç dakika sonra, `iis` pod'unun dış IP adresi şu şekilde ayarlanır:</span><span class="sxs-lookup"><span data-stu-id="d48c7-149">After a few minutes, the external IP address of the `iis` pod is set:</span></span>
+<span data-ttu-id="bc553-148">Başlangıç IP adresi başlangıçta görünür `pending`.</span><span class="sxs-lookup"><span data-stu-id="bc553-148">Initially hello IP address appears as `pending`.</span></span> <span data-ttu-id="bc553-149">Birkaç dakika sonra hello dış IP adresi hello `iis` pod ayarlanır:</span><span class="sxs-lookup"><span data-stu-id="bc553-149">After a few minutes, hello external IP address of hello `iis` pod is set:</span></span>
   
 ```azurecli-interactive
 NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
@@ -182,22 +182,22 @@ kubernetes   10.0.0.1       <none>          443/TCP        21h
 iis          10.0.111.25    13.64.158.233   80/TCP         22m
 ```
 
-<span data-ttu-id="d48c7-150">Dış IP adresinde varsayılan IIS karşılama sayfasını görmek için istediğiniz bir web tarayıcısını kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="d48c7-150">You can use a web browser of your choice to see the default IIS welcome page at the external IP address:</span></span>
+<span data-ttu-id="bc553-150">Merhaba dış IP adresinde seçim toosee hello varsayılan IIS Karşılama sayfasını bir web tarayıcısı kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="bc553-150">You can use a web browser of your choice toosee hello default IIS welcome page at hello external IP address:</span></span>
 
-![IIS’e göz atma görüntüsü](./media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
+![TooIIS göz atma görüntüsü](./media/container-service-kubernetes-windows-walkthrough/kubernetes-iis.png)  
 
 
-## <a name="delete-cluster"></a><span data-ttu-id="d48c7-152">Kümeyi silme</span><span class="sxs-lookup"><span data-stu-id="d48c7-152">Delete cluster</span></span>
-<span data-ttu-id="d48c7-153">Kümeye artık ihtiyacınız yoksa [az group delete](/cli/azure/group#delete) komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d48c7-153">When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.</span></span>
+## <a name="delete-cluster"></a><span data-ttu-id="bc553-152">Kümeyi silme</span><span class="sxs-lookup"><span data-stu-id="bc553-152">Delete cluster</span></span>
+<span data-ttu-id="bc553-153">Merhaba küme artık gerekli olmadığında hello kullanabilirsiniz [az grubu Sil](/cli/azure/group#delete) tooremove hello kaynak grubu, kapsayıcı hizmeti ve ilgili tüm kaynakları komutu.</span><span class="sxs-lookup"><span data-stu-id="bc553-153">When hello cluster is no longer needed, you can use hello [az group delete](/cli/azure/group#delete) command tooremove hello resource group, container service, and all related resources.</span></span>
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a><span data-ttu-id="d48c7-154">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d48c7-154">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="bc553-154">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="bc553-154">Next steps</span></span>
 
-<span data-ttu-id="d48c7-155">Bu hızlı başlangıçta, `kubectl` bağlantılı bir Kubernetes kümesi ve IIS kapsayıcısı ile birlikte bir pod dağıttınız.</span><span class="sxs-lookup"><span data-stu-id="d48c7-155">In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an IIS container.</span></span> <span data-ttu-id="d48c7-156">Azure Container Service hakkında daha fazla bilgi edinmek için Kubernetes öğreticisine geçin.</span><span class="sxs-lookup"><span data-stu-id="d48c7-156">To learn more about Azure Container Service, continue to the Kubernetes tutorial.</span></span>
+<span data-ttu-id="bc553-155">Bu hızlı başlangıçta, `kubectl` bağlantılı bir Kubernetes kümesi ve IIS kapsayıcısı ile birlikte bir pod dağıttınız.</span><span class="sxs-lookup"><span data-stu-id="bc553-155">In this quick start, you deployed a Kubernetes cluster, connected with `kubectl`, and deployed a pod with an IIS container.</span></span> <span data-ttu-id="bc553-156">Azure kapsayıcı hizmeti hakkında daha fazla toolearn toohello Kubernetes öğretici devam edin.</span><span class="sxs-lookup"><span data-stu-id="bc553-156">toolearn more about Azure Container Service, continue toohello Kubernetes tutorial.</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="d48c7-157">ACS Kubernetes kümesini yönetme</span><span class="sxs-lookup"><span data-stu-id="d48c7-157">Manage an ACS Kubernetes cluster</span></span>](container-service-tutorial-kubernetes-prepare-app.md)
+> [<span data-ttu-id="bc553-157">ACS Kubernetes kümesini yönetme</span><span class="sxs-lookup"><span data-stu-id="bc553-157">Manage an ACS Kubernetes cluster</span></span>](container-service-tutorial-kubernetes-prepare-app.md)

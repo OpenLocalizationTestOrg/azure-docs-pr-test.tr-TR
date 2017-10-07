@@ -1,6 +1,6 @@
 ---
-title: "Linux VHD Azure'dan karşıdan | Microsoft Docs"
-description: "Azure CLI ve Azure portalını kullanarak bir Linux VHD indirin."
+title: aaaDownload Azure Linux VHD'den | Microsoft Docs
+description: Hello Azure CLI kullanarak bir Linux VHD indirin ve Azure portal hello.
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7e08e985a64a6be581b8f5eedcce60fbd314eaf1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="download-a-linux-vhd-from-azure"></a><span data-ttu-id="558f5-103">Azure'dan Linux VHD indirin</span><span class="sxs-lookup"><span data-stu-id="558f5-103">Download a Linux VHD from Azure</span></span>
+# <a name="download-a-linux-vhd-from-azure"></a><span data-ttu-id="783c7-103">Azure'dan Linux VHD indirin</span><span class="sxs-lookup"><span data-stu-id="783c7-103">Download a Linux VHD from Azure</span></span>
 
-<span data-ttu-id="558f5-104">Bu makalede, nasıl yükleneceği hakkında bilgi edineceksiniz bir [Linux sanal sabit disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Azure CLI ve Azure portalını kullanarak Azure dosyasından.</span><span class="sxs-lookup"><span data-stu-id="558f5-104">In this article, you learn how to download a [Linux virtual hard disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) file from Azure using the Azure CLI and Azure portal.</span></span> 
+<span data-ttu-id="783c7-104">Bu makalede, bilgi nasıl toodownload bir [Linux sanal sabit disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Azure kullanarak bir dosyadan hello Azure CLI ve Azure portalı.</span><span class="sxs-lookup"><span data-stu-id="783c7-104">In this article, you learn how toodownload a [Linux virtual hard disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) file from Azure using hello Azure CLI and Azure portal.</span></span> 
 
-<span data-ttu-id="558f5-105">Sanal makineler (VM'ler) Azure kullanımda [diskleri](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak.</span><span class="sxs-lookup"><span data-stu-id="558f5-105">Virtual machines (VMs) in Azure use [disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) as a place to store an operating system, applications, and data.</span></span> <span data-ttu-id="558f5-106">Tüm Azure VM'ler en az iki disk – bir Windows işletim sistemi diski ve geçici bir diski var.</span><span class="sxs-lookup"><span data-stu-id="558f5-106">All Azure VMs have at least two disks – a Windows operating system disk and a temporary disk.</span></span> <span data-ttu-id="558f5-107">İşletim sistemi diski başlangıçta görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün VHD'leri bir Azure depolama hesabında depolanır.</span><span class="sxs-lookup"><span data-stu-id="558f5-107">The operating system disk is initially created from an image, and both the operating system disk and the image are VHDs stored in an Azure storage account.</span></span> <span data-ttu-id="558f5-108">Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir.</span><span class="sxs-lookup"><span data-stu-id="558f5-108">Virtual machines also can have one or more data disks, that are also stored as VHDs.</span></span>
+<span data-ttu-id="783c7-105">Sanal makineler (VM'ler) Azure kullanımda [diskleri](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) yer toostore bir işletim sistemini, uygulamaları ve verileri olarak.</span><span class="sxs-lookup"><span data-stu-id="783c7-105">Virtual machines (VMs) in Azure use [disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) as a place toostore an operating system, applications, and data.</span></span> <span data-ttu-id="783c7-106">Tüm Azure VM'ler en az iki disk – bir Windows işletim sistemi diski ve geçici bir diski var.</span><span class="sxs-lookup"><span data-stu-id="783c7-106">All Azure VMs have at least two disks – a Windows operating system disk and a temporary disk.</span></span> <span data-ttu-id="783c7-107">Merhaba işletim sistemi diski başlangıçta görüntüden oluşturulur ve hem hello işletim sistemi diski ve hello görüntü VHD'leri bir Azure depolama hesabında depolanır.</span><span class="sxs-lookup"><span data-stu-id="783c7-107">hello operating system disk is initially created from an image, and both hello operating system disk and hello image are VHDs stored in an Azure storage account.</span></span> <span data-ttu-id="783c7-108">Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir.</span><span class="sxs-lookup"><span data-stu-id="783c7-108">Virtual machines also can have one or more data disks, that are also stored as VHDs.</span></span>
 
-<span data-ttu-id="558f5-109">Zaten yapmadıysanız, yükleme [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).</span><span class="sxs-lookup"><span data-stu-id="558f5-109">If you haven't already done so, install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).</span></span>
+<span data-ttu-id="783c7-109">Zaten yapmadıysanız, yükleme [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).</span><span class="sxs-lookup"><span data-stu-id="783c7-109">If you haven't already done so, install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).</span></span>
 
-## <a name="stop-the-vm"></a><span data-ttu-id="558f5-110">VM’yi durdurma</span><span class="sxs-lookup"><span data-stu-id="558f5-110">Stop the VM</span></span>
+## <a name="stop-hello-vm"></a><span data-ttu-id="783c7-110">Merhaba VM Durdur</span><span class="sxs-lookup"><span data-stu-id="783c7-110">Stop hello VM</span></span>
 
-<span data-ttu-id="558f5-111">Çalışan bir VM bağlıysa VHD Azure'dan indirilemiyor.</span><span class="sxs-lookup"><span data-stu-id="558f5-111">A VHD can’t be downloaded from Azure if it's attached to a running VM.</span></span> <span data-ttu-id="558f5-112">Bir VHD yüklemek için VM durdurmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="558f5-112">You need to stop the VM to download a VHD.</span></span> <span data-ttu-id="558f5-113">Bir VHD'yi kullanılabilir olarak kullanmak istiyorsanız bir [görüntü](tutorial-custom-images.md) diğer VM'ler ile yeni diskler oluşturmak için yetkisini kaldırma ve dosyada bulunan işletim sistemini genelleştirir ve VM'yi durdurun gerekir.</span><span class="sxs-lookup"><span data-stu-id="558f5-113">If you want to use a VHD as an [image](tutorial-custom-images.md) to create other VMs with new disks, you need to deprovision and generalize the operating system contained in the file and stop the VM.</span></span> <span data-ttu-id="558f5-114">VHD'yi yeni bir örneğini bir var olan VM veya veri diski için disk olarak kullanmak için yalnızca durdurun ve VM ayırması gerekir.</span><span class="sxs-lookup"><span data-stu-id="558f5-114">To use the VHD as a disk for a new instance of an existing VM or data disk, you only need to stop and deallocate the VM.</span></span>
+<span data-ttu-id="783c7-111">Azure'dan bir VHD onu bağlıysa indirilemiyor VM çalıştıran tooa.</span><span class="sxs-lookup"><span data-stu-id="783c7-111">A VHD can’t be downloaded from Azure if it's attached tooa running VM.</span></span> <span data-ttu-id="783c7-112">Toostop hello VM toodownload VHD gerekir.</span><span class="sxs-lookup"><span data-stu-id="783c7-112">You need toostop hello VM toodownload a VHD.</span></span> <span data-ttu-id="783c7-113">Bir VHD olarak toouse istiyorsanız bir [görüntü](tutorial-custom-images.md) toocreate diğer sanal makineleri yeni disklerle toodeprovision gerekir ve hello bulunan hello işletim sistemini genelleştirir dosya ve hello VM durdurun.</span><span class="sxs-lookup"><span data-stu-id="783c7-113">If you want toouse a VHD as an [image](tutorial-custom-images.md) toocreate other VMs with new disks, you need toodeprovision and generalize hello operating system contained in hello file and stop hello VM.</span></span> <span data-ttu-id="783c7-114">toouse hello VHD bir var olan VM veya veri diski yeni bir örneği için bir disk olarak yalnızca toostop gerekir ve hello VM serbest bırakma.</span><span class="sxs-lookup"><span data-stu-id="783c7-114">toouse hello VHD as a disk for a new instance of an existing VM or data disk, you only need toostop and deallocate hello VM.</span></span>
 
-<span data-ttu-id="558f5-115">VHD diğer sanal makineleri oluşturmak için bir resim olarak kullanmak için aşağıdaki adımları tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="558f5-115">To use the VHD as an image to create other VMs, complete these steps:</span></span>
+<span data-ttu-id="783c7-115">toouse VHD görüntüsü toocreate diğer VM'ler Merhaba, aşağıdaki adımları tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="783c7-115">toouse hello VHD as an image toocreate other VMs, complete these steps:</span></span>
 
-1. <span data-ttu-id="558f5-116">SSH, hesap adını ve VM genel IP adresi bağlanmak ve bu yetkisini kaldırma için kullanın.</span><span class="sxs-lookup"><span data-stu-id="558f5-116">Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it.</span></span> <span data-ttu-id="558f5-117">+ Kullanıcı parametresi son sağlanan kullanıcı hesabının da kaldırır.</span><span class="sxs-lookup"><span data-stu-id="558f5-117">The +user parameter also removes the last provisioned user account.</span></span> <span data-ttu-id="558f5-118">Hesap kimlik bilgilerini VM Fırında pişirme bu bırakın + kullanıcı parametresi.</span><span class="sxs-lookup"><span data-stu-id="558f5-118">If you are baking account credentials in to the VM, leave out this +user parameter.</span></span> <span data-ttu-id="558f5-119">Aşağıdaki örnek, son sağlanan kullanıcı hesabını kaldırır:</span><span class="sxs-lookup"><span data-stu-id="558f5-119">The following example removes the last provisioned user account:</span></span>
+1. <span data-ttu-id="783c7-116">SSH, hello hesap adı ve hello VM tooconnect tooit hello genel IP adresi kullanın ve onu sağlamayı sonlandırın.</span><span class="sxs-lookup"><span data-stu-id="783c7-116">Use SSH, hello account name, and hello public IP address of hello VM tooconnect tooit and deprovision it.</span></span> <span data-ttu-id="783c7-117">Merhaba + kullanıcı parametresi hello son sağlanan kullanıcı hesabının da kaldırır.</span><span class="sxs-lookup"><span data-stu-id="783c7-117">hello +user parameter also removes hello last provisioned user account.</span></span> <span data-ttu-id="783c7-118">Toohello VM hesabı kimlik bilgilerini Fırında pişirme bu bırakın + kullanıcı parametresi.</span><span class="sxs-lookup"><span data-stu-id="783c7-118">If you are baking account credentials in toohello VM, leave out this +user parameter.</span></span> <span data-ttu-id="783c7-119">Merhaba aşağıdaki örnek hello son sağlanan kullanıcı hesabını kaldırır:</span><span class="sxs-lookup"><span data-stu-id="783c7-119">hello following example removes hello last provisioned user account:</span></span>
 
     ```bash
     ssh azureuser@40.118.249.235
@@ -43,50 +43,50 @@ ms.lasthandoff: 08/29/2017
     exit 
     ```
 
-2. <span data-ttu-id="558f5-120">Azure hesabınızda oturum açın [az oturum açma](https://docs.microsoft.com/cli/azure/#login).</span><span class="sxs-lookup"><span data-stu-id="558f5-120">Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/#login).</span></span>
-3. <span data-ttu-id="558f5-121">Durdurun ve VM serbest bırakma.</span><span class="sxs-lookup"><span data-stu-id="558f5-121">Stop and deallocate the VM.</span></span>
+2. <span data-ttu-id="783c7-120">İçinde tooyour Azure hesabı ile oturum [az oturum açma](https://docs.microsoft.com/cli/azure/#login).</span><span class="sxs-lookup"><span data-stu-id="783c7-120">Sign in tooyour Azure account with [az login](https://docs.microsoft.com/cli/azure/#login).</span></span>
+3. <span data-ttu-id="783c7-121">Durdurun ve hello VM serbest bırakma.</span><span class="sxs-lookup"><span data-stu-id="783c7-121">Stop and deallocate hello VM.</span></span>
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-4. <span data-ttu-id="558f5-122">VM genelleştirin.</span><span class="sxs-lookup"><span data-stu-id="558f5-122">Generalize the VM.</span></span> 
+4. <span data-ttu-id="783c7-122">Merhaba VM genelleştirin.</span><span class="sxs-lookup"><span data-stu-id="783c7-122">Generalize hello VM.</span></span> 
 
     ```azurecli
     az vm generalize --resource-group myResourceGroup --name myVM
     ``` 
 
-<span data-ttu-id="558f5-123">VHD'yi yeni bir örneğini bir var olan VM veya veri diski için disk olarak kullanmak için aşağıdaki adımları tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="558f5-123">To use the VHD as a disk for a new instance of an existing VM or data disk, complete these steps:</span></span>
+<span data-ttu-id="783c7-123">toouse hello VHD bir var olan VM veya veri diski, yeni bir örneği için bir disk olarak aşağıdaki adımları tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="783c7-123">toouse hello VHD as a disk for a new instance of an existing VM or data disk, complete these steps:</span></span>
 
-1.  <span data-ttu-id="558f5-124">[Azure Portal](https://portal.azure.com/) oturum açın.</span><span class="sxs-lookup"><span data-stu-id="558f5-124">Sign in to the [Azure portal](https://portal.azure.com/).</span></span>
-2.  <span data-ttu-id="558f5-125">Hub menüsünde, **Virtual Machines**’e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="558f5-125">On the Hub menu, click **Virtual Machines**.</span></span>
-3.  <span data-ttu-id="558f5-126">VM listeden seçin.</span><span class="sxs-lookup"><span data-stu-id="558f5-126">Select the VM from the list.</span></span>
-4.  <span data-ttu-id="558f5-127">VM için dikey penceresinde **durdurmak**.</span><span class="sxs-lookup"><span data-stu-id="558f5-127">On the blade for the VM, click **Stop**.</span></span>
+1.  <span data-ttu-id="783c7-124">İçinde toohello oturum [Azure portal](https://portal.azure.com/).</span><span class="sxs-lookup"><span data-stu-id="783c7-124">Sign in toohello [Azure portal](https://portal.azure.com/).</span></span>
+2.  <span data-ttu-id="783c7-125">Merhaba Hub menüsünde **sanal makineleri**.</span><span class="sxs-lookup"><span data-stu-id="783c7-125">On hello Hub menu, click **Virtual Machines**.</span></span>
+3.  <span data-ttu-id="783c7-126">Merhaba VM hello listeden seçin.</span><span class="sxs-lookup"><span data-stu-id="783c7-126">Select hello VM from hello list.</span></span>
+4.  <span data-ttu-id="783c7-127">Merhaba VM için Hello dikey penceresinde **durdurmak**.</span><span class="sxs-lookup"><span data-stu-id="783c7-127">On hello blade for hello VM, click **Stop**.</span></span>
 
     ![VM'yi Durdur](./media/download-vhd/export-stop.png)
 
-## <a name="generate-sas-url"></a><span data-ttu-id="558f5-129">SAS URL oluştur</span><span class="sxs-lookup"><span data-stu-id="558f5-129">Generate SAS URL</span></span>
+## <a name="generate-sas-url"></a><span data-ttu-id="783c7-129">SAS URL oluştur</span><span class="sxs-lookup"><span data-stu-id="783c7-129">Generate SAS URL</span></span>
 
-<span data-ttu-id="558f5-130">VHD dosyasını indirmek için oluşturmak gereken bir [paylaşılan erişim imzası (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL.</span><span class="sxs-lookup"><span data-stu-id="558f5-130">To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL.</span></span> <span data-ttu-id="558f5-131">URL oluşturulduğunda, sona erme süresi URL atanır.</span><span class="sxs-lookup"><span data-stu-id="558f5-131">When the URL is generated, an expiration time is assigned to the URL.</span></span>
+<span data-ttu-id="783c7-130">toodownload hello VHD dosyasına ihtiyacınız toogenerate bir [paylaşılan erişim imzası (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL.</span><span class="sxs-lookup"><span data-stu-id="783c7-130">toodownload hello VHD file, you need toogenerate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL.</span></span> <span data-ttu-id="783c7-131">Merhaba URL oluşturulduğunda, sona erme süresi toohello URL atanır.</span><span class="sxs-lookup"><span data-stu-id="783c7-131">When hello URL is generated, an expiration time is assigned toohello URL.</span></span>
 
-1.  <span data-ttu-id="558f5-132">VM için dikey pencerenin menüsünde **diskleri**.</span><span class="sxs-lookup"><span data-stu-id="558f5-132">On the menu of the blade for the VM, click **Disks**.</span></span>
-2.  <span data-ttu-id="558f5-133">VM için işletim sistemi diski seçin ve ardından **verme**.</span><span class="sxs-lookup"><span data-stu-id="558f5-133">Select the operating system disk for the VM, and then click **Export**.</span></span>
-3.  <span data-ttu-id="558f5-134">Tıklatın **URL'yi oluşturmak**.</span><span class="sxs-lookup"><span data-stu-id="558f5-134">Click **Generate URL**.</span></span>
+1.  <span data-ttu-id="783c7-132">Merhaba VM hello dikey penceresinde Hello menüsünde tıklatın **diskleri**.</span><span class="sxs-lookup"><span data-stu-id="783c7-132">On hello menu of hello blade for hello VM, click **Disks**.</span></span>
+2.  <span data-ttu-id="783c7-133">Merhaba hello VM için işletim sistemi diski seçin ve ardından **verme**.</span><span class="sxs-lookup"><span data-stu-id="783c7-133">Select hello operating system disk for hello VM, and then click **Export**.</span></span>
+3.  <span data-ttu-id="783c7-134">Tıklatın **URL'yi oluşturmak**.</span><span class="sxs-lookup"><span data-stu-id="783c7-134">Click **Generate URL**.</span></span>
 
     ![URL'yi oluşturmak](./media/download-vhd/export-generate.png)
 
-## <a name="download-vhd"></a><span data-ttu-id="558f5-136">VHD indirin</span><span class="sxs-lookup"><span data-stu-id="558f5-136">Download VHD</span></span>
+## <a name="download-vhd"></a><span data-ttu-id="783c7-136">VHD indirin</span><span class="sxs-lookup"><span data-stu-id="783c7-136">Download VHD</span></span>
 
-1.  <span data-ttu-id="558f5-137">Oluşturulan URL altında VHD dosyasını yükle'yi tıklatın.</span><span class="sxs-lookup"><span data-stu-id="558f5-137">Under the URL that was generated, click Download the VHD file.</span></span>
+1.  <span data-ttu-id="783c7-137">Oluşturulan hello URL altında indirme hello VHD dosyası'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="783c7-137">Under hello URL that was generated, click Download hello VHD file.</span></span>
 
     ![VHD indirin](./media/download-vhd/export-download.png)
 
-2.  <span data-ttu-id="558f5-139">' İ tıklatmanız gerekir **kaydetmek** karşıdan yüklemeyi başlatmak için tarayıcıda.</span><span class="sxs-lookup"><span data-stu-id="558f5-139">You may need to click **Save** in the browser to start the download.</span></span> <span data-ttu-id="558f5-140">VHD dosyası için varsayılan ad *abcd*.</span><span class="sxs-lookup"><span data-stu-id="558f5-140">The default name for the VHD file is *abcd*.</span></span>
+2.  <span data-ttu-id="783c7-139">Tooclick gerekebilir **kaydetmek** hello tarayıcı toostart hello indirme içinde.</span><span class="sxs-lookup"><span data-stu-id="783c7-139">You may need tooclick **Save** in hello browser toostart hello download.</span></span> <span data-ttu-id="783c7-140">Merhaba varsayılan ad hello VHD dosyası için *abcd*.</span><span class="sxs-lookup"><span data-stu-id="783c7-140">hello default name for hello VHD file is *abcd*.</span></span>
 
-    ![Tarayıcıda Kaydet'e tıklayın.](./media/download-vhd/export-save.png)
+    ![Merhaba tarayıcıda Kaydet'e tıklayın.](./media/download-vhd/export-save.png)
 
-## <a name="next-steps"></a><span data-ttu-id="558f5-142">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="558f5-142">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="783c7-142">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="783c7-142">Next steps</span></span>
 
-- <span data-ttu-id="558f5-143">Bilgi edinmek için nasıl [karşıya yükleyin ve Azure CLI 2.0 ile özel diskten bir Linux VM oluşturma](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="558f5-143">Learn how to [upload and create a Linux VM from custom disk with the Azure CLI 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span> 
-- <span data-ttu-id="558f5-144">[Azure diskleri Azure CLI yönetmek](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="558f5-144">[Manage Azure disks the Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
+- <span data-ttu-id="783c7-143">Nasıl çok öğrenin[karşıya yükleme ve hello Azure CLI 2.0 ile özel diskten bir Linux VM oluşturma](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="783c7-143">Learn how too[upload and create a Linux VM from custom disk with hello Azure CLI 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span> 
+- <span data-ttu-id="783c7-144">[Azure diskleri hello Azure CLI yönetmek](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="783c7-144">[Manage Azure disks hello Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
 

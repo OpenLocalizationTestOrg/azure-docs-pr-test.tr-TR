@@ -12,7 +12,7 @@
 ### [Azaltma](biztalk-throttling-thresholds.md)
 ### [Hizmet ayarları ve izleme](biztalk-dashboard-monitor-scale-tabs.md)
 ## Geçiş
-### [BizTalk Server EDI Çözümlerini BizTalk Services’a](biztalk-migrating-to-edi-guide.md)
+### [BizTalk Server EDI çözümleri tooBizTalk Hizmetleri](biztalk-migrating-to-edi-guide.md)
 ## İzleme
 ### [Hizmet durumlarına bağımlı görevler](biztalk-service-state-chart.md)
 ## Güvenlik

@@ -1,6 +1,6 @@
 ---
-title: ".NET SDK'sı akış uç noktalarını yönetin. | Microsoft Belgeleri"
-description: "Bu konu Azure portal ile akış uç noktalarını yönetme gösterir."
+title: "Akış uç noktaları .NET SDK'sı aaaManage. | Microsoft Belgeleri"
+description: "Bu konu, nasıl Azure portal ile toomanage akış uç noktalarını hello gösterir."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 30c092a8ebf4e2b2902392f4cf98f46d812ccdbc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a><span data-ttu-id="33e75-104">.NET SDK'sı akış uç noktalarını yönetme</span><span class="sxs-lookup"><span data-stu-id="33e75-104">Manage streaming endpoints with .NET SDK</span></span>
+# <a name="manage-streaming-endpoints-with-net-sdk"></a><span data-ttu-id="4d88a-104">.NET SDK'sı akış uç noktalarını yönetme</span><span class="sxs-lookup"><span data-stu-id="4d88a-104">Manage streaming endpoints with .NET SDK</span></span>
 
 >[!NOTE]
-><span data-ttu-id="33e75-105">Gözden geçirdiğinizden emin olun [genel bakış](media-services-streaming-endpoints-overview.md) konu.</span><span class="sxs-lookup"><span data-stu-id="33e75-105">Make sure to review the [overview](media-services-streaming-endpoints-overview.md) topic.</span></span> <span data-ttu-id="33e75-106">Ayrıca, gözden [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).</span><span class="sxs-lookup"><span data-stu-id="33e75-106">Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).</span></span>
+><span data-ttu-id="4d88a-105">Tooreview hello emin olun [genel bakış](media-services-streaming-endpoints-overview.md) konu.</span><span class="sxs-lookup"><span data-stu-id="4d88a-105">Make sure tooreview hello [overview](media-services-streaming-endpoints-overview.md) topic.</span></span> <span data-ttu-id="4d88a-106">Ayrıca, gözden [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).</span><span class="sxs-lookup"><span data-stu-id="4d88a-106">Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).</span></span>
 
-<span data-ttu-id="33e75-107">Bu konudaki kod Azure Media Services .NET SDK kullanarak aşağıdaki görevlerin nasıl yapılacağını gösterir:</span><span class="sxs-lookup"><span data-stu-id="33e75-107">The code in this topic shows how to do the following tasks using the Azure Media Services .NET SDK:</span></span>
+<span data-ttu-id="4d88a-107">Bu konudaki Hello kod nasıl toodo hello kullanarak görevleri aşağıdaki hello Azure Media Services .NET SDK'sı gösterir:</span><span class="sxs-lookup"><span data-stu-id="4d88a-107">hello code in this topic shows how toodo hello following tasks using hello Azure Media Services .NET SDK:</span></span>
 
-- <span data-ttu-id="33e75-108">Varsayılan akış uç inceleyin.</span><span class="sxs-lookup"><span data-stu-id="33e75-108">Examine the default streaming endpoint.</span></span>
-- <span data-ttu-id="33e75-109">Oluşturma/yeni akış uç noktası ekleyin.</span><span class="sxs-lookup"><span data-stu-id="33e75-109">Create/add new streaming endpoint.</span></span>
+- <span data-ttu-id="4d88a-108">Merhaba varsayılan akış uç noktası inceleyin.</span><span class="sxs-lookup"><span data-stu-id="4d88a-108">Examine hello default streaming endpoint.</span></span>
+- <span data-ttu-id="4d88a-109">Oluşturma/yeni akış uç noktası ekleyin.</span><span class="sxs-lookup"><span data-stu-id="4d88a-109">Create/add new streaming endpoint.</span></span>
 
-    <span data-ttu-id="33e75-110">Farklı CDN'ler veya CDN ve doğrudan erişimi olmasını planlıyorsanız, birden çok akış uç noktalarını sahip olmak isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="33e75-110">You might want to have multiple streaming endpoints if you plan to have different CDNs or a CDN and direct access.</span></span>
+    <span data-ttu-id="4d88a-110">Toohave düşünüyorsanız, birden çok akış uç noktalarını toohave isteyebilirsiniz farklı CDN'ler veya CDN ve doğrudan erişim.</span><span class="sxs-lookup"><span data-stu-id="4d88a-110">You might want toohave multiple streaming endpoints if you plan toohave different CDNs or a CDN and direct access.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="33e75-111">Akış uç noktanızı çalışır durumda olduğunda yalnızca faturalandırılır.</span><span class="sxs-lookup"><span data-stu-id="33e75-111">You are only billed when your Streaming Endpoint is in running state.</span></span>
+    > <span data-ttu-id="4d88a-111">Akış uç noktanızı çalışır durumda olduğunda yalnızca faturalandırılır.</span><span class="sxs-lookup"><span data-stu-id="4d88a-111">You are only billed when your Streaming Endpoint is in running state.</span></span>
     
-- <span data-ttu-id="33e75-112">Akış uç noktasını güncelleyin.</span><span class="sxs-lookup"><span data-stu-id="33e75-112">Update the streaming endpoint.</span></span>
+- <span data-ttu-id="4d88a-112">Akış uç noktası hello güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="4d88a-112">Update hello streaming endpoint.</span></span>
     
-    <span data-ttu-id="33e75-113">Update() işlevi çağırdığınızdan emin olun.</span><span class="sxs-lookup"><span data-stu-id="33e75-113">Make sure to call the Update() function.</span></span>
+    <span data-ttu-id="4d88a-113">Toocall hello Update() işlevi emin olun.</span><span class="sxs-lookup"><span data-stu-id="4d88a-113">Make sure toocall hello Update() function.</span></span>
 
-- <span data-ttu-id="33e75-114">Akış uç silin.</span><span class="sxs-lookup"><span data-stu-id="33e75-114">Delete the streaming endpoint.</span></span>
+- <span data-ttu-id="4d88a-114">Akış uç noktası hello silin.</span><span class="sxs-lookup"><span data-stu-id="4d88a-114">Delete hello streaming endpoint.</span></span>
 
     >[!NOTE]
-    ><span data-ttu-id="33e75-115">Varsayılan akış uç silinemiyor.</span><span class="sxs-lookup"><span data-stu-id="33e75-115">The default streaming endpoint cannot be deleted.</span></span>
+    ><span data-ttu-id="4d88a-115">Merhaba varsayılan akış uç noktası silinemiyor.</span><span class="sxs-lookup"><span data-stu-id="4d88a-115">hello default streaming endpoint cannot be deleted.</span></span>
 
-<span data-ttu-id="33e75-116">Akış uç ölçeklendirme hakkında daha fazla bilgi için bkz: [bu](media-services-portal-scale-streaming-endpoints.md) konu.</span><span class="sxs-lookup"><span data-stu-id="33e75-116">For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.</span></span>
+<span data-ttu-id="4d88a-116">Nasıl tooscale hello akış uç noktası hakkında daha fazla bilgi için bkz: [bu](media-services-portal-scale-streaming-endpoints.md) konu.</span><span class="sxs-lookup"><span data-stu-id="4d88a-116">For information about how tooscale hello streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.</span></span>
 
-## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="33e75-117">Visual Studio projesi oluşturup yapılandırma</span><span class="sxs-lookup"><span data-stu-id="33e75-117">Create and configure a Visual Studio project</span></span>
+## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="4d88a-117">Visual Studio projesi oluşturup yapılandırma</span><span class="sxs-lookup"><span data-stu-id="4d88a-117">Create and configure a Visual Studio project</span></span>
 
-<span data-ttu-id="33e75-118">Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun.</span><span class="sxs-lookup"><span data-stu-id="33e75-118">Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
+<span data-ttu-id="4d88a-118">Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="4d88a-118">Set up your development environment and populate hello app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
 
-## <a name="add-code-that-manages-streaming-endpoints"></a><span data-ttu-id="33e75-119">Akış uç noktalarını yönetir kodu ekleyin</span><span class="sxs-lookup"><span data-stu-id="33e75-119">Add code that manages streaming endpoints</span></span>
+## <a name="add-code-that-manages-streaming-endpoints"></a><span data-ttu-id="4d88a-119">Akış uç noktalarını yönetir kodu ekleyin</span><span class="sxs-lookup"><span data-stu-id="4d88a-119">Add code that manages streaming endpoints</span></span>
     
-<span data-ttu-id="33e75-120">Program.cs kodu aşağıdaki kodla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="33e75-120">Replace the code in the Program.cs with the following code:</span></span>
+<span data-ttu-id="4d88a-120">Merhaba Program.cs Hello kodda koddan hello ile değiştirin:</span><span class="sxs-lookup"><span data-stu-id="4d88a-120">Replace hello code in hello Program.cs with hello following code:</span></span>
 
     using System;
     using System.Configuration;
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/29/2017
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -132,11 +132,11 @@ ms.lasthandoff: 08/29/2017
     }
 
 
-## <a name="next-steps"></a><span data-ttu-id="33e75-121">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="33e75-121">Next steps</span></span>
-<span data-ttu-id="33e75-122">Media Services öğrenme yollarını gözden geçirin.</span><span class="sxs-lookup"><span data-stu-id="33e75-122">Review Media Services learning paths.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="4d88a-121">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="4d88a-121">Next steps</span></span>
+<span data-ttu-id="4d88a-122">Media Services öğrenme yollarını gözden geçirin.</span><span class="sxs-lookup"><span data-stu-id="4d88a-122">Review Media Services learning paths.</span></span>
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="33e75-123">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="33e75-123">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="4d88a-123">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="4d88a-123">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

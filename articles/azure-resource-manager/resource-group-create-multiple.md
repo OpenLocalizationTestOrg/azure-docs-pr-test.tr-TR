@@ -1,6 +1,6 @@
 ---
-title: "Birden çok örneğini Azure kaynaklarınızı dağıtma | Microsoft Docs"
-description: "Kopyalama işlemi ve kullanma diziler bir Azure Resource Manager şablonu yinelemek için birden çok kez kaynakları dağıtırken."
+title: "aaaDeploy Azure kaynaklarını birden çok örneğini | Microsoft Docs"
+description: "Kopyalama işlemi ve Azure Resource Manager şablonu tooiterate dizilerde birden çok kez kaynakları dağıtırken kullanın."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3bd42f694053317c30b639c33dc4efae41a9a9b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a><span data-ttu-id="7954f-103">Bir kaynak veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma</span><span class="sxs-lookup"><span data-stu-id="7954f-103">Deploy multiple instances of a resource or property in Azure Resource Manager templates</span></span>
-<span data-ttu-id="7954f-104">Bu konu bir kaynak birden çok örneğini veya bir özelliği birden çok örneği üzerinde bir kaynak oluşturmak için Azure Resource Manager şablonu yineleme gösterir.</span><span class="sxs-lookup"><span data-stu-id="7954f-104">This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource, or multiple instances of a property on a resource.</span></span>
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a><span data-ttu-id="4b761-103">Bir kaynak veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma</span><span class="sxs-lookup"><span data-stu-id="4b761-103">Deploy multiple instances of a resource or property in Azure Resource Manager templates</span></span>
+<span data-ttu-id="4b761-104">Bu konu, nasıl gösterir, Azure Resource Manager şablonu toocreate tooiterate kaynak birden çok örneğini veya birden çok örneğini bir kaynakta bir özellik.</span><span class="sxs-lookup"><span data-stu-id="4b761-104">This topic shows you how tooiterate in your Azure Resource Manager template toocreate multiple instances of a resource, or multiple instances of a property on a resource.</span></span>
 
-<span data-ttu-id="7954f-105">Kaynak dağıtılabilir olup olmadığını belirlemek bkz olanak tanıyan şablonunuza mantığı eklemeniz gerekiyorsa, [koşullu kaynağını dağıtma](#conditionally-deploy-resource).</span><span class="sxs-lookup"><span data-stu-id="7954f-105">If you need to add logic to your template that enables you to specify whether a resource is deployed, see [Conditionally deploy resource](#conditionally-deploy-resource).</span></span>
+<span data-ttu-id="4b761-105">Toospecify sağlayan tooadd mantık tooyour şablonu gerekiyorsa bir kaynak olup olmadığını dağıtılır, bkz: [koşullu kaynağını dağıtma](#conditionally-deploy-resource).</span><span class="sxs-lookup"><span data-stu-id="4b761-105">If you need tooadd logic tooyour template that enables you toospecify whether a resource is deployed, see [Conditionally deploy resource](#conditionally-deploy-resource).</span></span>
 
-## <a name="resource-iteration"></a><span data-ttu-id="7954f-106">Kaynak yineleme</span><span class="sxs-lookup"><span data-stu-id="7954f-106">Resource iteration</span></span>
-<span data-ttu-id="7954f-107">Bir kaynak türü birden çok örneğini oluşturmak için Ekle bir `copy` öğesi için kaynak türü.</span><span class="sxs-lookup"><span data-stu-id="7954f-107">To create multiple instances of a resource type, add a `copy` element to the resource type.</span></span> <span data-ttu-id="7954f-108">Copy öğesinde sayısı yinelemeleri ve bu döngü için bir ad belirtin.</span><span class="sxs-lookup"><span data-stu-id="7954f-108">In the copy element, you specify the number of iterations and a name for this loop.</span></span> <span data-ttu-id="7954f-109">Sayaç değerinin pozitif bir tamsayı olmalıdır ve 800 aşamaz.</span><span class="sxs-lookup"><span data-stu-id="7954f-109">The count value must be a positive integer and cannot exceed 800.</span></span> <span data-ttu-id="7954f-110">Resource Manager kaynakları paralel olarak oluşturur.</span><span class="sxs-lookup"><span data-stu-id="7954f-110">Resource Manager creates the resources in parallel.</span></span> <span data-ttu-id="7954f-111">Bu nedenle, oluşturulan siparişi garanti edilmez.</span><span class="sxs-lookup"><span data-stu-id="7954f-111">Therefore, the order in which they are created is not guaranteed.</span></span> <span data-ttu-id="7954f-112">Sırayla tekrarlayan kaynakları oluşturmak için bkz [seri kopyalama](#serial-copy).</span><span class="sxs-lookup"><span data-stu-id="7954f-112">To create iterated resources in sequence, see [Serial copy](#serial-copy).</span></span> 
+## <a name="resource-iteration"></a><span data-ttu-id="4b761-106">Kaynak yineleme</span><span class="sxs-lookup"><span data-stu-id="4b761-106">Resource iteration</span></span>
+<span data-ttu-id="4b761-107">bir kaynak türü birden çok örneğini toocreate eklemek bir `copy` öğesi toohello kaynak türü.</span><span class="sxs-lookup"><span data-stu-id="4b761-107">toocreate multiple instances of a resource type, add a `copy` element toohello resource type.</span></span> <span data-ttu-id="4b761-108">Merhaba copy öğesinde hello sayısını yineleme ve bu döngü için bir ad belirtin.</span><span class="sxs-lookup"><span data-stu-id="4b761-108">In hello copy element, you specify hello number of iterations and a name for this loop.</span></span> <span data-ttu-id="4b761-109">Merhaba sayısı değeri pozitif bir tamsayı olmalıdır ve 800 aşamaz.</span><span class="sxs-lookup"><span data-stu-id="4b761-109">hello count value must be a positive integer and cannot exceed 800.</span></span> <span data-ttu-id="4b761-110">Resource Manager hello kaynakları paralel olarak oluşturur.</span><span class="sxs-lookup"><span data-stu-id="4b761-110">Resource Manager creates hello resources in parallel.</span></span> <span data-ttu-id="4b761-111">Bu nedenle, oluşturulan hello sipariş garanti edilmez.</span><span class="sxs-lookup"><span data-stu-id="4b761-111">Therefore, hello order in which they are created is not guaranteed.</span></span> <span data-ttu-id="4b761-112">sıralı yinelendiğinde toocreate kaynaklara bakın [seri kopyalama](#serial-copy).</span><span class="sxs-lookup"><span data-stu-id="4b761-112">toocreate iterated resources in sequence, see [Serial copy](#serial-copy).</span></span> 
 
-<span data-ttu-id="7954f-113">Kaynak birden çok kez oluşturmak için aşağıdaki biçimi alır:</span><span class="sxs-lookup"><span data-stu-id="7954f-113">The resource to create multiple times takes the following format:</span></span>
+<span data-ttu-id="4b761-113">Merhaba kaynak toocreate birden çok kez biçimini izleyen hello alır:</span><span class="sxs-lookup"><span data-stu-id="4b761-113">hello resource toocreate multiple times takes hello following format:</span></span>
 
 ```json
 {
@@ -55,31 +55,31 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-<span data-ttu-id="7954f-114">Her bir kaynağın adını içeren bildirim `copyIndex()` geçerli yineleme döngüde döndürür işlevi.</span><span class="sxs-lookup"><span data-stu-id="7954f-114">Notice that the name of each resource includes the `copyIndex()` function, which returns the current iteration in the loop.</span></span> <span data-ttu-id="7954f-115">`copyIndex()`sıfır tabanlı olur.</span><span class="sxs-lookup"><span data-stu-id="7954f-115">`copyIndex()` is zero-based.</span></span> <span data-ttu-id="7954f-116">Bunu, aşağıdaki örnek:</span><span class="sxs-lookup"><span data-stu-id="7954f-116">So, the following example:</span></span>
+<span data-ttu-id="4b761-114">Bu hello fark her bir kaynağın adını içeren hello `copyIndex()` hello geçerli yineleme hello döngüde döndürür işlevi.</span><span class="sxs-lookup"><span data-stu-id="4b761-114">Notice that hello name of each resource includes hello `copyIndex()` function, which returns hello current iteration in hello loop.</span></span> <span data-ttu-id="4b761-115">`copyIndex()`sıfır tabanlı olur.</span><span class="sxs-lookup"><span data-stu-id="4b761-115">`copyIndex()` is zero-based.</span></span> <span data-ttu-id="4b761-116">Bu nedenle, örnek hello:</span><span class="sxs-lookup"><span data-stu-id="4b761-116">So, hello following example:</span></span>
 
 ```json
 "name": "[concat('storage', copyIndex())]",
 ```
 
-<span data-ttu-id="7954f-117">Bu adları oluşturur:</span><span class="sxs-lookup"><span data-stu-id="7954f-117">Creates these names:</span></span>
+<span data-ttu-id="4b761-117">Bu adları oluşturur:</span><span class="sxs-lookup"><span data-stu-id="4b761-117">Creates these names:</span></span>
 
-* <span data-ttu-id="7954f-118">storage0</span><span class="sxs-lookup"><span data-stu-id="7954f-118">storage0</span></span>
-* <span data-ttu-id="7954f-119">storage1</span><span class="sxs-lookup"><span data-stu-id="7954f-119">storage1</span></span>
-* <span data-ttu-id="7954f-120">storage2.</span><span class="sxs-lookup"><span data-stu-id="7954f-120">storage2.</span></span>
+* <span data-ttu-id="4b761-118">storage0</span><span class="sxs-lookup"><span data-stu-id="4b761-118">storage0</span></span>
+* <span data-ttu-id="4b761-119">storage1</span><span class="sxs-lookup"><span data-stu-id="4b761-119">storage1</span></span>
+* <span data-ttu-id="4b761-120">storage2.</span><span class="sxs-lookup"><span data-stu-id="4b761-120">storage2.</span></span>
 
-<span data-ttu-id="7954f-121">Dizin değeri uzaklığı copyındex () işlevini bir değer geçirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="7954f-121">To offset the index value, you can pass a value in the copyIndex() function.</span></span> <span data-ttu-id="7954f-122">Gerçekleştirmek için yineleme sayısı hala copy öğesinde belirtilen ancak Copyındex değeri belirtilen değere uzaklığı.</span><span class="sxs-lookup"><span data-stu-id="7954f-122">The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value.</span></span> <span data-ttu-id="7954f-123">Bunu, aşağıdaki örnek:</span><span class="sxs-lookup"><span data-stu-id="7954f-123">So, the following example:</span></span>
+<span data-ttu-id="4b761-121">toooffset hello dizin değeri hello copyındex () işlevini bir değer geçirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4b761-121">toooffset hello index value, you can pass a value in hello copyIndex() function.</span></span> <span data-ttu-id="4b761-122">Merhaba yineleme tooperform sayısı hala hello copy öğesinde belirtildi, ancak Copyındex hello değeri tarafından belirtilen başlangıç uzaklık değeri.</span><span class="sxs-lookup"><span data-stu-id="4b761-122">hello number of iterations tooperform is still specified in hello copy element, but hello value of copyIndex is offset by hello specified value.</span></span> <span data-ttu-id="4b761-123">Bu nedenle, örnek hello:</span><span class="sxs-lookup"><span data-stu-id="4b761-123">So, hello following example:</span></span>
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
 ```
 
-<span data-ttu-id="7954f-124">Bu adları oluşturur:</span><span class="sxs-lookup"><span data-stu-id="7954f-124">Creates these names:</span></span>
+<span data-ttu-id="4b761-124">Bu adları oluşturur:</span><span class="sxs-lookup"><span data-stu-id="4b761-124">Creates these names:</span></span>
 
-* <span data-ttu-id="7954f-125">storage1</span><span class="sxs-lookup"><span data-stu-id="7954f-125">storage1</span></span>
-* <span data-ttu-id="7954f-126">storage2</span><span class="sxs-lookup"><span data-stu-id="7954f-126">storage2</span></span>
-* <span data-ttu-id="7954f-127">Depolaması3</span><span class="sxs-lookup"><span data-stu-id="7954f-127">storage3</span></span>
+* <span data-ttu-id="4b761-125">storage1</span><span class="sxs-lookup"><span data-stu-id="4b761-125">storage1</span></span>
+* <span data-ttu-id="4b761-126">storage2</span><span class="sxs-lookup"><span data-stu-id="4b761-126">storage2</span></span>
+* <span data-ttu-id="4b761-127">Depolaması3</span><span class="sxs-lookup"><span data-stu-id="4b761-127">storage3</span></span>
 
-<span data-ttu-id="7954f-128">Kopyalama işlemi, dizideki her öğe aracılığıyla yineleyebilirsiniz çünkü dizilerle çalışırken yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="7954f-128">The copy operation is helpful when working with arrays because you can iterate through each element in the array.</span></span> <span data-ttu-id="7954f-129">Kullanım `length` yineleme sayısını belirtmek için dizisindeki işlevi ve `copyIndex` dizideki geçerli dizini alınamadı.</span><span class="sxs-lookup"><span data-stu-id="7954f-129">Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.</span></span> <span data-ttu-id="7954f-130">Bunu, aşağıdaki örnek:</span><span class="sxs-lookup"><span data-stu-id="7954f-130">So, the following example:</span></span>
+<span data-ttu-id="4b761-128">Merhaba kopyalama işlemi hello dizideki her öğe aracılığıyla yineleyebilirsiniz çünkü dizilerle çalışırken yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="4b761-128">hello copy operation is helpful when working with arrays because you can iterate through each element in hello array.</span></span> <span data-ttu-id="4b761-129">Kullanım hello `length` yineleme için hello dizi toospecify hello sayısı işlevini ve `copyIndex` tooretrieve hello geçerli dizinde hello dizi.</span><span class="sxs-lookup"><span data-stu-id="4b761-129">Use hello `length` function on hello array toospecify hello count for iterations, and `copyIndex` tooretrieve hello current index in hello array.</span></span> <span data-ttu-id="4b761-130">Bu nedenle, örnek hello:</span><span class="sxs-lookup"><span data-stu-id="4b761-130">So, hello following example:</span></span>
 
 ```json
 "parameters": { 
@@ -104,17 +104,17 @@ ms.lasthandoff: 07/11/2017
 ]
 ```
 
-<span data-ttu-id="7954f-131">Bu adları oluşturur:</span><span class="sxs-lookup"><span data-stu-id="7954f-131">Creates these names:</span></span>
+<span data-ttu-id="4b761-131">Bu adları oluşturur:</span><span class="sxs-lookup"><span data-stu-id="4b761-131">Creates these names:</span></span>
 
-* <span data-ttu-id="7954f-132">storagecontoso</span><span class="sxs-lookup"><span data-stu-id="7954f-132">storagecontoso</span></span>
-* <span data-ttu-id="7954f-133">storagefabrikam</span><span class="sxs-lookup"><span data-stu-id="7954f-133">storagefabrikam</span></span>
-* <span data-ttu-id="7954f-134">storagecoho</span><span class="sxs-lookup"><span data-stu-id="7954f-134">storagecoho</span></span>
+* <span data-ttu-id="4b761-132">storagecontoso</span><span class="sxs-lookup"><span data-stu-id="4b761-132">storagecontoso</span></span>
+* <span data-ttu-id="4b761-133">storagefabrikam</span><span class="sxs-lookup"><span data-stu-id="4b761-133">storagefabrikam</span></span>
+* <span data-ttu-id="4b761-134">storagecoho</span><span class="sxs-lookup"><span data-stu-id="4b761-134">storagecoho</span></span>
 
-## <a name="serial-copy"></a><span data-ttu-id="7954f-135">Seri kopyalama</span><span class="sxs-lookup"><span data-stu-id="7954f-135">Serial copy</span></span>
+## <a name="serial-copy"></a><span data-ttu-id="4b761-135">Seri kopyalama</span><span class="sxs-lookup"><span data-stu-id="4b761-135">Serial copy</span></span>
 
-<span data-ttu-id="7954f-136">Bir kaynak türü, kaynak yöneticisi, varsayılan olarak, birden çok örneğini oluşturmak için kopyalama öğesi kullandığınızda bu örneklerde paralel dağıtır.</span><span class="sxs-lookup"><span data-stu-id="7954f-136">When you use the copy element to create multiple instances of a resource type, Resource Manager, by default, deploys those instances in parallel.</span></span> <span data-ttu-id="7954f-137">Ancak, kaynakları sırayla dağıtılan belirtmek isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="7954f-137">However, you may want to specify that the resources are deployed in sequence.</span></span> <span data-ttu-id="7954f-138">Örneğin, bir üretim ortamında güncelleştirirken, güncelleştirmeleri bu nedenle kademelendirebilirsiniz isteyebilirsiniz yalnızca belirli sayıda herhangi bir zamanda güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="7954f-138">For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.</span></span>
+<span data-ttu-id="4b761-136">Merhaba kopyalama öğesi toocreate kullandığınızda bir kaynak türü, kaynak yöneticisi, varsayılan olarak, birden çok örneğini Bu örneklerde paralel dağıtır.</span><span class="sxs-lookup"><span data-stu-id="4b761-136">When you use hello copy element toocreate multiple instances of a resource type, Resource Manager, by default, deploys those instances in parallel.</span></span> <span data-ttu-id="4b761-137">Ancak, kaynakları sırayla dağıtılan o hello toospecify isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4b761-137">However, you may want toospecify that hello resources are deployed in sequence.</span></span> <span data-ttu-id="4b761-138">Örneğin, bir üretim ortamında güncelleştirirken, toostagger hello güncelleştirmeleri yalnızca belirli sayıda isteyebilirsiniz herhangi bir zamanda güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="4b761-138">For example, when updating a production environment, you may want toostagger hello updates so only a certain number are updated at any one time.</span></span>
 
-<span data-ttu-id="7954f-139">Resource Manager seri olarak birden çok örneği dağıtmanıza olanak sağlayan kopyalama öğede özellikleri sunar.</span><span class="sxs-lookup"><span data-stu-id="7954f-139">Resource Manager provides properties on the copy element that enable you to serially deploy multiple instances.</span></span> <span data-ttu-id="7954f-140">Kopya öğe kümesindeki `mode` için **seri** ve `batchSize` aynı anda dağıtılacak örnek sayısı.</span><span class="sxs-lookup"><span data-stu-id="7954f-140">In the copy element, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time.</span></span> <span data-ttu-id="7954f-141">Önceki toplu iş tamamlanana kadar tek bir toplu başlamıyor şekilde seri moduyla, Resource Manager döngü önceki durumlarda bir bağımlılık oluşturur.</span><span class="sxs-lookup"><span data-stu-id="7954f-141">With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it does not start one batch until the previous batch completes.</span></span>
+<span data-ttu-id="4b761-139">Resource Manager, tooserially sağlayan özellikleri hello kopyalama öğede birden çok örneği dağıtmak sunar.</span><span class="sxs-lookup"><span data-stu-id="4b761-139">Resource Manager provides properties on hello copy element that enable you tooserially deploy multiple instances.</span></span> <span data-ttu-id="4b761-140">Merhaba kopyalama öğe kümesindeki `mode` çok**seri** ve `batchSize` örnekleri toodeploy birer birer toohello sayısı.</span><span class="sxs-lookup"><span data-stu-id="4b761-140">In hello copy element, set `mode` too**serial** and `batchSize` toohello number of instances toodeploy at a time.</span></span> <span data-ttu-id="4b761-141">Merhaba önceki toplu iş tamamlanana kadar tek bir toplu başlamıyor şekilde seri moduyla, Resource Manager hello Döngüdeki önceki örnekleri bir bağımlılık oluşturur.</span><span class="sxs-lookup"><span data-stu-id="4b761-141">With serial mode, Resource Manager creates a dependency on earlier instances in hello loop, so it does not start one batch until hello previous batch completes.</span></span>
 
 ```json
 "copy": {
@@ -125,9 +125,9 @@ ms.lasthandoff: 07/11/2017
 },
 ```
 
-<span data-ttu-id="7954f-142">Mode özelliğini de kabul eder **paralel**, varsayılan değer olan.</span><span class="sxs-lookup"><span data-stu-id="7954f-142">The mode property also accepts **parallel**, which is the default value.</span></span>
+<span data-ttu-id="4b761-142">Merhaba modu özelliği de kabul eder **paralel**, hello varsayılan değeri olduğu.</span><span class="sxs-lookup"><span data-stu-id="4b761-142">hello mode property also accepts **parallel**, which is hello default value.</span></span>
 
-<span data-ttu-id="7954f-143">Fiili kaynaklar oluşturmadan seri kopyalama test etmek için boş iç içe geçmiş şablonları dağıtır aşağıdaki şablonu kullanın:</span><span class="sxs-lookup"><span data-stu-id="7954f-143">To test serial copy without creating actual resources, use the following template that deploys empty nested templates:</span></span>
+<span data-ttu-id="4b761-143">Fiili kaynaklar oluşturmadan tootest seri kopya boş iç içe geçmiş şablonları dağıtır şablon aşağıdaki kullanım hello:</span><span class="sxs-lookup"><span data-stu-id="4b761-143">tootest serial copy without creating actual resources, use hello following template that deploys empty nested templates:</span></span>
 
 ```json
 {
@@ -170,11 +170,11 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-<span data-ttu-id="7954f-144">Dağıtım geçmişi iç içe geçmiş dağıtımları sırada işlenir dikkat edin.</span><span class="sxs-lookup"><span data-stu-id="7954f-144">In the deployment history, notice that the nested deployments are processed in sequence.</span></span>
+<span data-ttu-id="4b761-144">Hello dağıtım geçmişini iç içe geçmiş dağıtımları hello bildirimi sırada işlenir.</span><span class="sxs-lookup"><span data-stu-id="4b761-144">In hello deployment history, notice that hello nested deployments are processed in sequence.</span></span>
 
 ![Seri dağıtımı](./media/resource-group-create-multiple/serial-copy.png)
 
-<span data-ttu-id="7954f-146">Daha gerçekçi bir senaryo için aşağıdaki örnekte iki örneği birer birer iç içe geçmiş bir şablondan bir Linux VM dağıtır:</span><span class="sxs-lookup"><span data-stu-id="7954f-146">For a more realistic scenario, the following example deploys two instances at a time of a Linux VM from a nested template:</span></span>
+<span data-ttu-id="4b761-146">Daha gerçekçi bir senaryo için aşağıdaki örneğine hello birer birer iç içe geçmiş bir şablondan bir Linux VM, iki örnek dağıtır:</span><span class="sxs-lookup"><span data-stu-id="4b761-146">For a more realistic scenario, hello following example deploys two instances at a time of a Linux VM from a nested template:</span></span>
 
 ```json
 {
@@ -184,19 +184,19 @@ ms.lasthandoff: 07/11/2017
         "adminUsername": {
             "type": "string",
             "metadata": {
-                "description": "User name for the Virtual Machine."
+                "description": "User name for hello Virtual Machine."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "description": "Password for the Virtual Machine."
+                "description": "Password for hello Virtual Machine."
             }
         },
         "dnsLabelPrefix": {
             "type": "string",
             "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+                "description": "Unique DNS Name for hello Public IP used tooaccess hello Virtual Machine."
             }
         },
         "ubuntuOSVersion": {
@@ -209,7 +209,7 @@ ms.lasthandoff: 07/11/2017
                 "16.04.0-LTS"
             ],
             "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
+                "description": "hello Ubuntu version for hello VM. This will pick a fully patched image of this given Ubuntu version."
             }
         }
     },
@@ -256,15 +256,15 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-## <a name="property-iteration"></a><span data-ttu-id="7954f-147">Özellik yineleme</span><span class="sxs-lookup"><span data-stu-id="7954f-147">Property iteration</span></span>
+## <a name="property-iteration"></a><span data-ttu-id="4b761-147">Özellik yineleme</span><span class="sxs-lookup"><span data-stu-id="4b761-147">Property iteration</span></span>
 
-<span data-ttu-id="7954f-148">Bir özellik için birden çok değer bir kaynak oluşturmak için Ekle bir `copy` özellikler öğesindeki dizi.</span><span class="sxs-lookup"><span data-stu-id="7954f-148">To create multiple values for a property on a resource, add a `copy` array in the properties element.</span></span> <span data-ttu-id="7954f-149">Bu dizi nesnelerini içerir ve her nesnesi aşağıdaki özelliklere sahiptir:</span><span class="sxs-lookup"><span data-stu-id="7954f-149">This array contains objects, and each object has the following properties:</span></span>
+<span data-ttu-id="4b761-148">bir kaynak, bir özellik için birden çok değer toocreate eklemek bir `copy` hello özellikler öğesindeki dizi.</span><span class="sxs-lookup"><span data-stu-id="4b761-148">toocreate multiple values for a property on a resource, add a `copy` array in hello properties element.</span></span> <span data-ttu-id="4b761-149">Bu dizi nesnelerini içerir ve her nesne hello aşağıdaki özelliklere sahiptir:</span><span class="sxs-lookup"><span data-stu-id="4b761-149">This array contains objects, and each object has hello following properties:</span></span>
 
-* <span data-ttu-id="7954f-150">ad - için birden çok değer oluşturmak için özelliğinin adı</span><span class="sxs-lookup"><span data-stu-id="7954f-150">name - the name of the property to create multiple values for</span></span>
-* <span data-ttu-id="7954f-151">sayısı - oluşturulacak değer sayısı</span><span class="sxs-lookup"><span data-stu-id="7954f-151">count - the number of values to create</span></span>
-* <span data-ttu-id="7954f-152">Giriş - özellik atama değerleri içeren bir nesne</span><span class="sxs-lookup"><span data-stu-id="7954f-152">input - an object that contains the values to assign to the property</span></span>  
+* <span data-ttu-id="4b761-150">ad - hello hello özelliği toocreate için birden çok değer</span><span class="sxs-lookup"><span data-stu-id="4b761-150">name - hello name of hello property toocreate multiple values for</span></span>
+* <span data-ttu-id="4b761-151">sayısı - değerleri toocreate hello sayısı</span><span class="sxs-lookup"><span data-stu-id="4b761-151">count - hello number of values toocreate</span></span>
+* <span data-ttu-id="4b761-152">Giriş - hello değerleri tooassign toohello özelliği içeren bir nesne</span><span class="sxs-lookup"><span data-stu-id="4b761-152">input - an object that contains hello values tooassign toohello property</span></span>  
 
-<span data-ttu-id="7954f-153">Aşağıdaki örnekte nasıl uygulanacağını gösterir `copy` bir sanal makinede dataDisks özelliğine:</span><span class="sxs-lookup"><span data-stu-id="7954f-153">The following example shows how to apply `copy` to the dataDisks property on a virtual machine:</span></span>
+<span data-ttu-id="4b761-153">örnekte gösterildiği nasıl aşağıdaki hello tooapply `copy` toohello dataDisks özelliği bir sanal makinede:</span><span class="sxs-lookup"><span data-stu-id="4b761-153">hello following example shows how tooapply `copy` toohello dataDisks property on a virtual machine:</span></span>
 
 ```json
 {
@@ -285,9 +285,9 @@ ms.lasthandoff: 07/11/2017
       ...
 ```
 
-<span data-ttu-id="7954f-154">Kullanırken dikkat `copyIndex` özelliği yineleme içinde yineleme adı sağlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="7954f-154">Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration.</span></span> <span data-ttu-id="7954f-155">Kaynak bir yineleme kullanıldığında ad gerekmez.</span><span class="sxs-lookup"><span data-stu-id="7954f-155">You do not have to provide the name when used with resource iteration.</span></span>
+<span data-ttu-id="4b761-154">Kullanırken dikkat `copyIndex` özelliği yineleme içinde hello yineleme hello adı sağlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="4b761-154">Notice that when using `copyIndex` inside a property iteration, you must provide hello name of hello iteration.</span></span> <span data-ttu-id="4b761-155">Kaynak bir yineleme kullanıldığında tooprovide hello ada sahip değil.</span><span class="sxs-lookup"><span data-stu-id="4b761-155">You do not have tooprovide hello name when used with resource iteration.</span></span>
 
-<span data-ttu-id="7954f-156">Kaynak Yöneticisi'ni genişletir `copy` dağıtımı sırasında dizi.</span><span class="sxs-lookup"><span data-stu-id="7954f-156">Resource Manager expands the `copy` array during deployment.</span></span> <span data-ttu-id="7954f-157">Dizi adı özelliğinin adı haline gelir.</span><span class="sxs-lookup"><span data-stu-id="7954f-157">The name of the array becomes the name of the property.</span></span> <span data-ttu-id="7954f-158">Giriş değerleri nesne özellikleri haline gelir.</span><span class="sxs-lookup"><span data-stu-id="7954f-158">The input values become the object properties.</span></span> <span data-ttu-id="7954f-159">Dağıtılan şablonu olur:</span><span class="sxs-lookup"><span data-stu-id="7954f-159">The deployed template becomes:</span></span>
+<span data-ttu-id="4b761-156">Kaynak Yöneticisi'ni genişletir hello `copy` dağıtımı sırasında dizi.</span><span class="sxs-lookup"><span data-stu-id="4b761-156">Resource Manager expands hello `copy` array during deployment.</span></span> <span data-ttu-id="4b761-157">Merhaba dizi Hello adı hello özelliğinin hello adı haline gelir.</span><span class="sxs-lookup"><span data-stu-id="4b761-157">hello name of hello array becomes hello name of hello property.</span></span> <span data-ttu-id="4b761-158">Merhaba giriş değerleri hello nesne özellikleri haline gelir.</span><span class="sxs-lookup"><span data-stu-id="4b761-158">hello input values become hello object properties.</span></span> <span data-ttu-id="4b761-159">dağıtılan hello şablonu olur:</span><span class="sxs-lookup"><span data-stu-id="4b761-159">hello deployed template becomes:</span></span>
 
 ```json
 {
@@ -316,7 +316,7 @@ ms.lasthandoff: 07/11/2017
       ...
 ```
 
-<span data-ttu-id="7954f-160">Kaynak ve özellik yineleme birlikte kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="7954f-160">You can use resource and property iteration together.</span></span> <span data-ttu-id="7954f-161">Özellik yineleme adlarıyla başvurmalıdır.</span><span class="sxs-lookup"><span data-stu-id="7954f-161">Reference the property iteration by name.</span></span>
+<span data-ttu-id="4b761-160">Kaynak ve özellik yineleme birlikte kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4b761-160">You can use resource and property iteration together.</span></span> <span data-ttu-id="4b761-161">Ada göre başvuru hello özelliği yineleme.</span><span class="sxs-lookup"><span data-stu-id="4b761-161">Reference hello property iteration by name.</span></span>
 
 ```json
 {
@@ -350,7 +350,7 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-<span data-ttu-id="7954f-162">Yalnızca bir kopya öğesi her bir kaynağın özelliklerini ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="7954f-162">You can only include one copy element in the properties for each resource.</span></span> <span data-ttu-id="7954f-163">Birden fazla özellik için bir yineleme döngüsü belirtmek için kopya dizideki birden çok nesneleri tanımlar.</span><span class="sxs-lookup"><span data-stu-id="7954f-163">To specify an iteration loop for more than one property, define multiple objects in the copy array.</span></span> <span data-ttu-id="7954f-164">Her nesneyi ayrı olarak yinelendiğinde.</span><span class="sxs-lookup"><span data-stu-id="7954f-164">Each object is iterated separately.</span></span> <span data-ttu-id="7954f-165">Örneğin, her ikisini birden çok örneğini oluşturmak için `frontendIPConfigurations` özelliği ve `loadBalancingRules` bir yük dengeleyici özelliği tek bir kopya öğesinde hem nesnelerini tanımlayın:</span><span class="sxs-lookup"><span data-stu-id="7954f-165">For example, to create multiple instances of both the `frontendIPConfigurations` property and the `loadBalancingRules` property on a load balancer, define both objects in a single copy element:</span></span> 
+<span data-ttu-id="4b761-162">Her kaynak için hello özelliklerinde bir kopya öğe yalnızca içerebilir.</span><span class="sxs-lookup"><span data-stu-id="4b761-162">You can only include one copy element in hello properties for each resource.</span></span> <span data-ttu-id="4b761-163">toospecify birden fazla özellik için bir yineleme döngüsü hello kopyalama dizideki birden çok nesne tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="4b761-163">toospecify an iteration loop for more than one property, define multiple objects in hello copy array.</span></span> <span data-ttu-id="4b761-164">Her nesneyi ayrı olarak yinelendiğinde.</span><span class="sxs-lookup"><span data-stu-id="4b761-164">Each object is iterated separately.</span></span> <span data-ttu-id="4b761-165">Örneğin, toocreate hem hello birden çok örneğini `frontendIPConfigurations` özelliği ve hello `loadBalancingRules` bir yük dengeleyici özelliği tek bir kopya öğesinde hem nesnelerini tanımlayın:</span><span class="sxs-lookup"><span data-stu-id="4b761-165">For example, toocreate multiple instances of both hello `frontendIPConfigurations` property and hello `loadBalancingRules` property on a load balancer, define both objects in a single copy element:</span></span> 
 
 ```json
 {
@@ -397,8 +397,8 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-## <a name="depend-on-resources-in-a-loop"></a><span data-ttu-id="7954f-166">Döngü kaynakları bağlıdır</span><span class="sxs-lookup"><span data-stu-id="7954f-166">Depend on resources in a loop</span></span>
-<span data-ttu-id="7954f-167">Bir kaynak sonra başka bir kaynak kullanarak dağıtılmış belirttiğiniz `dependsOn` öğesi.</span><span class="sxs-lookup"><span data-stu-id="7954f-167">You specify that a resource is deployed after another resource by using the `dependsOn` element.</span></span> <span data-ttu-id="7954f-168">Döngü kaynaklar topluluğu bağımlı bir kaynak dağıtmak için ' dependsOn'öğesinde kopyalama döngüsü adını sağlayın.</span><span class="sxs-lookup"><span data-stu-id="7954f-168">To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element.</span></span> <span data-ttu-id="7954f-169">Aşağıdaki örnekte, sanal makineyi dağıtmadan önce üç depolama hesapları dağıtmayı gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="7954f-169">The following example shows how to deploy three storage accounts before deploying the Virtual Machine.</span></span> <span data-ttu-id="7954f-170">Tam sanal makine tanımı gösterilmez.</span><span class="sxs-lookup"><span data-stu-id="7954f-170">The full Virtual Machine definition is not shown.</span></span> <span data-ttu-id="7954f-171">Copy öğesi kümesine adı olduğuna dikkat edin `storagecopy` ve sanal makineler için dependsOn öğesini de ayarlamak `storagecopy`.</span><span class="sxs-lookup"><span data-stu-id="7954f-171">Notice that the copy element has name set to `storagecopy` and the dependsOn element for the Virtual Machines is also set to `storagecopy`.</span></span>
+## <a name="depend-on-resources-in-a-loop"></a><span data-ttu-id="4b761-166">Döngü kaynakları bağlıdır</span><span class="sxs-lookup"><span data-stu-id="4b761-166">Depend on resources in a loop</span></span>
+<span data-ttu-id="4b761-167">Hello kullanarak bir kaynak sonra başka bir kaynak dağıtıldığını belirten `dependsOn` öğesi.</span><span class="sxs-lookup"><span data-stu-id="4b761-167">You specify that a resource is deployed after another resource by using hello `dependsOn` element.</span></span> <span data-ttu-id="4b761-168">toodeploy bir döngü kaynaklarında hello koleksiyonunu bağımlı bir kaynak hello kopyalama döngüsü hello dependsOn öğesindeki hello adını sağlayın.</span><span class="sxs-lookup"><span data-stu-id="4b761-168">toodeploy a resource that depends on hello collection of resources in a loop, provide hello name of hello copy loop in hello dependsOn element.</span></span> <span data-ttu-id="4b761-169">Aşağıdaki örnek hello nasıl sanal makine dağıtmadan önce toodeploy üç depolama hesapları hello gösterir.</span><span class="sxs-lookup"><span data-stu-id="4b761-169">hello following example shows how toodeploy three storage accounts before deploying hello Virtual Machine.</span></span> <span data-ttu-id="4b761-170">Merhaba tam sanal makine tanımı gösterilmez.</span><span class="sxs-lookup"><span data-stu-id="4b761-170">hello full Virtual Machine definition is not shown.</span></span> <span data-ttu-id="4b761-171">Bu hello kopyalama öğe adı çok ayarlanmış sahip dikkat edin`storagecopy` ve hello dependsOn öğesi hello sanal makineler için de ayarlanmış çok`storagecopy`.</span><span class="sxs-lookup"><span data-stu-id="4b761-171">Notice that hello copy element has name set too`storagecopy` and hello dependsOn element for hello Virtual Machines is also set too`storagecopy`.</span></span>
 
 ```json
 {
@@ -433,10 +433,10 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a><span data-ttu-id="7954f-172">Bir alt kaynak birden çok örneğini oluşturma</span><span class="sxs-lookup"><span data-stu-id="7954f-172">Create multiple instances of a child resource</span></span>
-<span data-ttu-id="7954f-173">Bir alt kaynak kopyalama döngüsü kullanamazsınız.</span><span class="sxs-lookup"><span data-stu-id="7954f-173">You cannot use a copy loop for a child resource.</span></span> <span data-ttu-id="7954f-174">Birden çok örneğini genellikle başka bir kaynak içinde iç içe olarak tanımlayan bir kaynak oluşturmak için bunun yerine, kaynak en üst düzey bir kaynak olarak oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="7954f-174">To create multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource.</span></span> <span data-ttu-id="7954f-175">İlişki türü ve adı özellikleri aracılığıyla üst kaynakla tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="7954f-175">You define the relationship with the parent resource through the type and name properties.</span></span>
+## <a name="create-multiple-instances-of-a-child-resource"></a><span data-ttu-id="4b761-172">Bir alt kaynak birden çok örneğini oluşturma</span><span class="sxs-lookup"><span data-stu-id="4b761-172">Create multiple instances of a child resource</span></span>
+<span data-ttu-id="4b761-173">Bir alt kaynak kopyalama döngüsü kullanamazsınız.</span><span class="sxs-lookup"><span data-stu-id="4b761-173">You cannot use a copy loop for a child resource.</span></span> <span data-ttu-id="4b761-174">içindeki başka bir kaynak birden çok örneğini tipik olarak tanımlayan kaynak içe toocreate, bunun yerine bu kaynak en üst düzey bir kaynak olarak oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="4b761-174">toocreate multiple instances of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource.</span></span> <span data-ttu-id="4b761-175">Merhaba ilişkisi hello türü ve adı özellikleri aracılığıyla hello üst kaynakla tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="4b761-175">You define hello relationship with hello parent resource through hello type and name properties.</span></span>
 
-<span data-ttu-id="7954f-176">Örneğin, data factory içinde alt kaynağı olarak bir veri kümesini tanımlama varsayalım.</span><span class="sxs-lookup"><span data-stu-id="7954f-176">For example, suppose you typically define a dataset as a child resource within a data factory.</span></span>
+<span data-ttu-id="4b761-176">Örneğin, data factory içinde alt kaynağı olarak bir veri kümesini tanımlama varsayalım.</span><span class="sxs-lookup"><span data-stu-id="4b761-176">For example, suppose you typically define a dataset as a child resource within a data factory.</span></span>
 
 ```json
 "resources": [
@@ -456,11 +456,11 @@ ms.lasthandoff: 07/11/2017
 }]
 ```
 
-<span data-ttu-id="7954f-177">Veri kümeleri birden çok örneğini oluşturmak için veri fabrikası dışında taşıyın.</span><span class="sxs-lookup"><span data-stu-id="7954f-177">To create multiple instances of data sets, move it outside of the data factory.</span></span> <span data-ttu-id="7954f-178">Veri kümesi, veri fabrikası aynı düzeyde olması gerekir, ancak hala bir alt kaynak data Factory değildir.</span><span class="sxs-lookup"><span data-stu-id="7954f-178">The dataset must be at the same level as the data factory, but it is still a child resource of the data factory.</span></span> <span data-ttu-id="7954f-179">Veri kümesi ve veri fabrikası türü ve adı özellikleri aracılığıyla arasındaki ilişkiyi korur.</span><span class="sxs-lookup"><span data-stu-id="7954f-179">You preserve the relationship between data set and data factory through the type and name properties.</span></span> <span data-ttu-id="7954f-180">Türü artık şablonda onun konumdan çıkarsanabileceği olduğundan, tam olarak nitelenmiş tür biçimde sağlamanız gerekir: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.</span><span class="sxs-lookup"><span data-stu-id="7954f-180">Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.</span></span>
+<span data-ttu-id="4b761-177">toocreate veri kümeleri, birden çok örneğini taşıyın hello veri fabrikası dışında.</span><span class="sxs-lookup"><span data-stu-id="4b761-177">toocreate multiple instances of data sets, move it outside of hello data factory.</span></span> <span data-ttu-id="4b761-178">Merhaba veri kümesi hello veri fabrikası aynı düzeydeki hello olmalıdır, ancak hala bir alt kaynak hello veri fabrikasının değildir.</span><span class="sxs-lookup"><span data-stu-id="4b761-178">hello dataset must be at hello same level as hello data factory, but it is still a child resource of hello data factory.</span></span> <span data-ttu-id="4b761-179">Veri kümesi ve veri fabrikası hello türü ve adı özellikleri aracılığıyla arasındaki hello ilişki korur.</span><span class="sxs-lookup"><span data-stu-id="4b761-179">You preserve hello relationship between data set and data factory through hello type and name properties.</span></span> <span data-ttu-id="4b761-180">Türü artık hello şablonda onun konumdan çıkarsanabileceği beri hello biçiminde hello tam olarak nitelenmiş tür sağlamanız gerekir: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.</span><span class="sxs-lookup"><span data-stu-id="4b761-180">Since type can no longer be inferred from its position in hello template, you must provide hello fully qualified type in hello format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.</span></span>
 
-<span data-ttu-id="7954f-181">Veri Fabrikası örneğiyle birlikte bir üst/alt ilişkisi oluşturmak için üst kaynak adını içeren bir veri kümesi için bir ad sağlayın.</span><span class="sxs-lookup"><span data-stu-id="7954f-181">To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name.</span></span> <span data-ttu-id="7954f-182">Biçimi kullanın: `{parent-resource-name}/{child-resource-name}`.</span><span class="sxs-lookup"><span data-stu-id="7954f-182">Use the format: `{parent-resource-name}/{child-resource-name}`.</span></span>  
+<span data-ttu-id="4b761-181">tooestablish hello veri fabrikası örneği ile bir üst/alt ilişkisi hello üst kaynak adını içeren bir hello veri kümesi için bir ad sağlayın.</span><span class="sxs-lookup"><span data-stu-id="4b761-181">tooestablish a parent/child relationship with an instance of hello data factory, provide a name for hello data set that includes hello parent resource name.</span></span> <span data-ttu-id="4b761-182">Kullanım hello biçimi: `{parent-resource-name}/{child-resource-name}`.</span><span class="sxs-lookup"><span data-stu-id="4b761-182">Use hello format: `{parent-resource-name}/{child-resource-name}`.</span></span>  
 
-<span data-ttu-id="7954f-183">Aşağıdaki örnek uygulamasını gösterir:</span><span class="sxs-lookup"><span data-stu-id="7954f-183">The following example shows the implementation:</span></span>
+<span data-ttu-id="4b761-183">Merhaba aşağıdaki örnek hello uygulamasını gösterir:</span><span class="sxs-lookup"><span data-stu-id="4b761-183">hello following example shows hello implementation:</span></span>
 
 ```json
 "resources": [
@@ -483,9 +483,9 @@ ms.lasthandoff: 07/11/2017
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a><span data-ttu-id="7954f-184">Koşullu kaynağını dağıtma</span><span class="sxs-lookup"><span data-stu-id="7954f-184">Conditionally deploy resource</span></span>
+## <a name="conditionally-deploy-resource"></a><span data-ttu-id="4b761-184">Koşullu kaynağını dağıtma</span><span class="sxs-lookup"><span data-stu-id="4b761-184">Conditionally deploy resource</span></span>
 
-<span data-ttu-id="7954f-185">Bir kaynak dağıtılabilir olup olmadığını belirtmek için kullanın `condition` öğesi.</span><span class="sxs-lookup"><span data-stu-id="7954f-185">To specify whether a resource is deployed, use the `condition` element.</span></span> <span data-ttu-id="7954f-186">Bu öğe için değer true veya false değerine çözümler.</span><span class="sxs-lookup"><span data-stu-id="7954f-186">The value for this element resolves to true or false.</span></span> <span data-ttu-id="7954f-187">Değer doğru olduğunda, kaynak dağıtılır.</span><span class="sxs-lookup"><span data-stu-id="7954f-187">When the value is true, the resource is deployed.</span></span> <span data-ttu-id="7954f-188">Değer false olduğunda, kaynak dağıtılmaz.</span><span class="sxs-lookup"><span data-stu-id="7954f-188">When the value is false, the resource is not deployed.</span></span> <span data-ttu-id="7954f-189">Örneğin, yeni bir depolama hesabı dağıtılan ya da mevcut bir depolama hesabını kullanılan belirtmek için kullanın:</span><span class="sxs-lookup"><span data-stu-id="7954f-189">For example, to specify whether a new storage account is deployed or an existing storage account is used, use:</span></span>
+<span data-ttu-id="4b761-185">toospecify kaynak dağıtmış olup olmadığını hello kullan `condition` öğesi.</span><span class="sxs-lookup"><span data-stu-id="4b761-185">toospecify whether a resource is deployed, use hello `condition` element.</span></span> <span data-ttu-id="4b761-186">Bu öğe için başlangıç değerini tootrue ya da yanlış çözümler.</span><span class="sxs-lookup"><span data-stu-id="4b761-186">hello value for this element resolves tootrue or false.</span></span> <span data-ttu-id="4b761-187">Merhaba değer doğru olduğunda hello kaynak dağıtılır.</span><span class="sxs-lookup"><span data-stu-id="4b761-187">When hello value is true, hello resource is deployed.</span></span> <span data-ttu-id="4b761-188">Merhaba değeri false olduğunda hello kaynak dağıtılmaz.</span><span class="sxs-lookup"><span data-stu-id="4b761-188">When hello value is false, hello resource is not deployed.</span></span> <span data-ttu-id="4b761-189">Örneğin, yeni bir depolama hesabı dağıtılan veya varolan bir depolama hesabı kullanılır, toospecify kullanın:</span><span class="sxs-lookup"><span data-stu-id="4b761-189">For example, toospecify whether a new storage account is deployed or an existing storage account is used, use:</span></span>
 
 ```json
 {
@@ -502,11 +502,11 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-<span data-ttu-id="7954f-190">Yeni veya mevcut bir kaynağı kullanarak bir örnek için bkz: [yeni veya varolan bir koşul şablonu](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).</span><span class="sxs-lookup"><span data-stu-id="7954f-190">For an example of using a new or existing resource, see [New or existing condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).</span></span>
+<span data-ttu-id="4b761-190">Yeni veya mevcut bir kaynağı kullanarak bir örnek için bkz: [yeni veya varolan bir koşul şablonu](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).</span><span class="sxs-lookup"><span data-stu-id="4b761-190">For an example of using a new or existing resource, see [New or existing condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).</span></span>
 
-<span data-ttu-id="7954f-191">Sanal makineyi dağıtmak için bir parola veya SSH anahtarı kullanarak bir örnek için bkz: [kullanıcı adı veya SSH koşul şablon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).</span><span class="sxs-lookup"><span data-stu-id="7954f-191">For an example of using a password or SSH key to deploy virtual machine, see [Username or SSH condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).</span></span>
+<span data-ttu-id="4b761-191">Bir parola veya SSH anahtar toodeploy sanal makine kullanarak bir örnek için bkz: [kullanıcı adı veya SSH koşul şablon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).</span><span class="sxs-lookup"><span data-stu-id="4b761-191">For an example of using a password or SSH key toodeploy virtual machine, see [Username or SSH condition template](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="7954f-192">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="7954f-192">Next steps</span></span>
-* <span data-ttu-id="7954f-193">Bir şablon bölümleri hakkında bilgi edinmek istiyorsanız, bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).</span><span class="sxs-lookup"><span data-stu-id="7954f-193">If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).</span></span>
-* <span data-ttu-id="7954f-194">Şablonunuzu dağıtma hakkında bilgi edinmek için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).</span><span class="sxs-lookup"><span data-stu-id="7954f-194">To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="4b761-192">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="4b761-192">Next steps</span></span>
+* <span data-ttu-id="4b761-193">Bir şablon hello bölümlerini hakkında toolearn istiyorsanız, bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).</span><span class="sxs-lookup"><span data-stu-id="4b761-193">If you want toolearn about hello sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).</span></span>
+* <span data-ttu-id="4b761-194">toolearn nasıl toodeploy, şablonunuzu bkz [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).</span><span class="sxs-lookup"><span data-stu-id="4b761-194">toolearn how toodeploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).</span></span>
 

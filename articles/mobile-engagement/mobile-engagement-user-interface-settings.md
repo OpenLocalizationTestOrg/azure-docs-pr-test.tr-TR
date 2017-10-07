@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - ayarlar"
-description: "Azure Mobile Engagement kullanarak uygulamanızı genel ayarlarını yönetmeyi öğrenin"
+title: "aaaAzure Mobile Engagement kullanıcı arabirimi - ayarlar"
+description: "Nasıl toomanage hello Azure Mobile Engagement kullanarak uygulamanızın genel ayarları öğrenin"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,85 +14,85 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 02d4a36c591fc5e097410b7e931d1c9ce81d68d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-manage-the-global-settings-of-your-application"></a><span data-ttu-id="8d9fc-103">Uygulamanızın genel ayarlarını yönetme</span><span class="sxs-lookup"><span data-stu-id="8d9fc-103">How to manage the global settings of your application</span></span>
-<span data-ttu-id="8d9fc-104">**Ayarları** menü seçeneklerini uygulama ve size verildi uygulama için izinler platforma bağlı olarak bir uygulama ayırmayı için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-104">The **Settings** menu options available for an application vary, depending on the platform of the application and the permissions you have been granted for the application.</span></span> <span data-ttu-id="8d9fc-105">Ayarları aşağıdakileri içerir: ayrıntıları, projeler, yerel gönderim, anında iletme hız, etiket (uygulama bilgisi) ve Ticari baskının.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-105">Settings include the following: Details, Projects, Native Push, Push Speed, Tag (app info), and Commercial Pressure.</span></span> <span data-ttu-id="8d9fc-106">Etiket (uygulama bilgisi) menü seçeneği ayarları bölümünün uygulamanız (SDK'yı kullanarak) veya (cihaz API'sini kullanarak), arka uç tarafından yönetilebilir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-106">The Tag (app info) menu option of the Settings section can be managed by your application (using the SDK) or by your backend (using the Device API).</span></span> 
+# <a name="how-toomanage-hello-global-settings-of-your-application"></a><span data-ttu-id="041db-103">Nasıl toomanage Merhaba, uygulamanızın genel ayarları</span><span class="sxs-lookup"><span data-stu-id="041db-103">How toomanage hello global settings of your application</span></span>
+<span data-ttu-id="041db-104">Merhaba **ayarları** menü seçeneklerini hello platform hello uygulama ve hello izinler, verildi hello uygulama için bağlı olarak bir uygulama ayırmayı için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="041db-104">hello **Settings** menu options available for an application vary, depending on hello platform of hello application and hello permissions you have been granted for hello application.</span></span> <span data-ttu-id="041db-105">Ayarlar hello aşağıdakileri içerir: ayrıntıları, projeler, yerel gönderim, anında iletme hız, etiket (uygulama bilgisi) ve Ticari baskının.</span><span class="sxs-lookup"><span data-stu-id="041db-105">Settings include hello following: Details, Projects, Native Push, Push Speed, Tag (app info), and Commercial Pressure.</span></span> <span data-ttu-id="041db-106">Merhaba etiketi (uygulama bilgisi) menü seçeneği hello ayarları bölümünün, uygulamanız (SDK hello kullanarak) veya (Merhaba Device API'sini kullanarak), arka uç tarafından yönetilebilir.</span><span class="sxs-lookup"><span data-stu-id="041db-106">hello Tag (app info) menu option of hello Settings section can be managed by your application (using hello SDK) or by your backend (using hello Device API).</span></span> 
 
 > [!NOTE]
-> <span data-ttu-id="8d9fc-107">Birçok bölümlerini **Mobile Engagement** portal UI içeren **YARDIMINI Göster** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-107">Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button.</span></span> <span data-ttu-id="8d9fc-108">Bir bölümü hakkında daha fazla kavramsal bilgi almak için bu düğmesine basın.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-108">Press this button to get more contextual information about a section.</span></span>
+> <span data-ttu-id="041db-107">Merhaba birçok bölümlerini **Mobile Engagement** portal UI içeren hello **YARDIMINI Göster** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="041db-107">Many sections of hello **Mobile Engagement** portal UI contain hello **SHOW HELP** button.</span></span> <span data-ttu-id="041db-108">Bu düğme tooget bir bölümü hakkında daha fazla kavramsal bilgi tuşuna basın.</span><span class="sxs-lookup"><span data-stu-id="041db-108">Press this button tooget more contextual information about a section.</span></span>
 > 
 > 
 
-## <a name="details"></a><span data-ttu-id="8d9fc-109">Ayrıntılar</span><span class="sxs-lookup"><span data-stu-id="8d9fc-109">Details</span></span>
-<span data-ttu-id="8d9fc-110">Ad ve açıklama, uygulamanızın değiştirmenize izin verir, uygulamanızı ve rol izinlerinizi sahibi görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-110">Allows you to change the name and description of your application, view the owner of your application and your role permissions.</span></span> 
+## <a name="details"></a><span data-ttu-id="041db-109">Ayrıntılar</span><span class="sxs-lookup"><span data-stu-id="041db-109">Details</span></span>
+<span data-ttu-id="041db-110">Toochange hello adını ve uygulama, uygulamanızı ve rol izinlerinizi görünüm hello sahibi açıklamasını sağlar.</span><span class="sxs-lookup"><span data-stu-id="041db-110">Allows you toochange hello name and description of your application, view hello owner of your application and your role permissions.</span></span> 
 
-<span data-ttu-id="8d9fc-111">Analizi Yapılandırması hafta başlatmak gün ve gün bekletme zamanında görüntülemek veya değiştirmek etkinleştirir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-111">Analytics configuration enables  you to view or change the day weeks start on and the retention time in day(s).</span></span>
+<span data-ttu-id="041db-111">Analizi Yapılandırması sağlar hafta Başlat tooview ya da değişiklik hello gün ve hello bekletme süresini gün cinsinden.</span><span class="sxs-lookup"><span data-stu-id="041db-111">Analytics configuration enables  you tooview or change hello day weeks start on and hello retention time in day(s).</span></span>
 
   ![Ayarları1][46]
 
-## <a name="projects"></a><span data-ttu-id="8d9fc-113">Projeleri</span><span class="sxs-lookup"><span data-stu-id="8d9fc-113">Projects</span></span>
-<span data-ttu-id="8d9fc-114">Uygulamanızın görünmesini istediğiniz tüm projeleri seçmenize olanak sağlar.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-114">Allows you to select all projects you want your application to appear in.</span></span> 
+## <a name="projects"></a><span data-ttu-id="041db-113">Projeleri</span><span class="sxs-lookup"><span data-stu-id="041db-113">Projects</span></span>
+<span data-ttu-id="041db-114">Tooselect sağlayan tüm projeleri, uygulama tooappear istediğiniz.</span><span class="sxs-lookup"><span data-stu-id="041db-114">Allows you tooselect all projects you want your application tooappear in.</span></span> 
 
-<span data-ttu-id="8d9fc-115">Ayrıca, proje için arama ve adı, açıklama, sahibi ve rol izinleri, uygulamanın parçası olduğu projesinin görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-115">You can also search for a project and view the name, description, owner and your role permissions of any project your application is part of.</span></span>
+<span data-ttu-id="041db-115">Aynı zamanda arayabilirsiniz bir proje ve görünüm hello adı, açıklaması, sahibi ve rol izinlerinizi herhangi projesinin uygulamanız bir parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="041db-115">You can also search for a project and view hello name, description, owner and your role permissions of any project your application is part of.</span></span>
 
-<span data-ttu-id="8d9fc-116">Daha fazla bilgi için bkz: [UI belgelerine – giriş][Link 13]</span><span class="sxs-lookup"><span data-stu-id="8d9fc-116">For more information, see: [UI Documentation – Home][Link 13]</span></span>
+<span data-ttu-id="041db-116">Daha fazla bilgi için bkz: [UI belgelerine – giriş][Link 13]</span><span class="sxs-lookup"><span data-stu-id="041db-116">For more information, see: [UI Documentation – Home][Link 13]</span></span>
 
   ![settings3][48]
 
-## <a name="native-push"></a><span data-ttu-id="8d9fc-118">Yerel gönderim</span><span class="sxs-lookup"><span data-stu-id="8d9fc-118">Native Push</span></span>
-<span data-ttu-id="8d9fc-119">Yeni bir sertifika veya Sil ve kullanmak için var olan sertifika ile yerel gönderim kaydetmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-119">Allows you to register a new certificate or delete and existing certificate for use with native push.</span></span> <span data-ttu-id="8d9fc-120">Yerel gönderim sağlayan herhangi bir zamanda uygulamanıza göndermek Azure Mobile Engagement bile zaman çalışır durumda.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-120">Native Push enables Azure Mobile Engagement to push to your application at any time, even when it is not running.</span></span> 
+## <a name="native-push"></a><span data-ttu-id="041db-118">Yerel gönderim</span><span class="sxs-lookup"><span data-stu-id="041db-118">Native Push</span></span>
+<span data-ttu-id="041db-119">Yeni bir sertifika veya silin ve var olan sertifikasının ile yerel gönderim kullanmak tooregister sağlar.</span><span class="sxs-lookup"><span data-stu-id="041db-119">Allows you tooregister a new certificate or delete and existing certificate for use with native push.</span></span> <span data-ttu-id="041db-120">Yerel gönderim Azure Mobile Engagement toopush tooyour uygulama herhangi bir anda çalışır durumda değilken bile sağlar.</span><span class="sxs-lookup"><span data-stu-id="041db-120">Native Push enables Azure Mobile Engagement toopush tooyour application at any time, even when it is not running.</span></span> 
 
-<span data-ttu-id="8d9fc-121">Kimlik bilgileri veya sertifikalar için en az bir yerel gönderim hizmet sağladıktan sonra "Herhangi bir zaman" seçebilirsiniz Reach kampanyaları ve ayrıca kullan "bildirim" parametresi anında API oluştururken.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-121">After providing credentials or certificates for at least one Native Push service, you can select "Any time" when creating Reach Campaigns, and also use the "notifier" parameter in the PUSH API.</span></span>
+<span data-ttu-id="041db-121">Kimlik bilgileri veya sertifikalar için en az bir yerel gönderim hizmet sağladıktan sonra "Herhangi bir zaman" seçebilirsiniz Reach kampanyaları ve ayrıca kullan hello "bildirim" parametresi hello İTME API oluştururken.</span><span class="sxs-lookup"><span data-stu-id="041db-121">After providing credentials or certificates for at least one Native Push service, you can select "Any time" when creating Reach Campaigns, and also use hello "notifier" parameter in hello PUSH API.</span></span>
 
-### <a name="apple-push-notification-service-apns"></a><span data-ttu-id="8d9fc-122">Apple anında iletilen bildirim servisi (APNS)</span><span class="sxs-lookup"><span data-stu-id="8d9fc-122">Apple Push Notification Service (APNS)</span></span>
-<span data-ttu-id="8d9fc-123">Apple anında iletilen bildirim Servisi'ni kullanarak yerel gönderim özelliğini etkinleştirmek için sertifikanızı kaydetmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-123">To enable Native Push using the Apple Push Notification Service you will need to register your certificate.</span></span> <span data-ttu-id="8d9fc-124">Sertifika türü geliştirme (Geliştirme) veya üretim (üretim) olarak belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-124">You will need to specify the type of certificate as either development (DEV) or production (PROD).</span></span> <span data-ttu-id="8d9fc-125">Ardından, sertifikanızı ve parola karşıya.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-125">Then you will need upload your certificate and the password.</span></span>
+### <a name="apple-push-notification-service-apns"></a><span data-ttu-id="041db-122">Apple anında iletilen bildirim servisi (APNS)</span><span class="sxs-lookup"><span data-stu-id="041db-122">Apple Push Notification Service (APNS)</span></span>
+<span data-ttu-id="041db-123">tooenable hello Apple anında iletilen bildirim Servisi'ni kullanarak yerel gönderim özelliğini sertifikanızı tooregister gerekir.</span><span class="sxs-lookup"><span data-stu-id="041db-123">tooenable Native Push using hello Apple Push Notification Service you will need tooregister your certificate.</span></span> <span data-ttu-id="041db-124">Geliştirme (Geliştirme) veya üretim (üretim) olarak sertifika toospecify hello türü gerekir.</span><span class="sxs-lookup"><span data-stu-id="041db-124">You will need toospecify hello type of certificate as either development (DEV) or production (PROD).</span></span> <span data-ttu-id="041db-125">Ardından, sertifika ve hello parolanızı karşıya.</span><span class="sxs-lookup"><span data-stu-id="041db-125">Then you will need upload your certificate and hello password.</span></span>
 
-<span data-ttu-id="8d9fc-126">Daha fazla bilgi için bkz: [SDK Belgeleri - iOS - uygulamanız Apple anında iletme bildirimleri için hazırlama][Link 5]</span><span class="sxs-lookup"><span data-stu-id="8d9fc-126">For more information, see: [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications][Link 5]</span></span>
+<span data-ttu-id="041db-126">Daha fazla bilgi için bkz: [- iOS - SDK belgeleri nasıl tooPrepare uygulamanız için Apple anında iletme bildirimleri][Link 5]</span><span class="sxs-lookup"><span data-stu-id="041db-126">For more information, see: [SDK Documentation - iOS - How tooPrepare your Application for Apple Push notifications][Link 5]</span></span>
 
 ![settings4][49]
 
-### <a name="windows-push-notification-service-wpns"></a><span data-ttu-id="8d9fc-128">Windows anında bildirim hizmeti (WPNS)</span><span class="sxs-lookup"><span data-stu-id="8d9fc-128">Windows Push Notification Service (WPNS)</span></span>
-<span data-ttu-id="8d9fc-129">Windows Bildirim Hizmeti'ni kullanarak Yerel Gönderim özelliğini etkinleştirmek için uygulamanızın kimlik bilgilerini sağlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-129">To enable Native Push using Windows Notification Service, you must provide your application's credentials.</span></span> <span data-ttu-id="8d9fc-130">Paket güvenlik tanımlayıcınızı (SID) ve gizli anahtarınızı gerekir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-130">You will need your Package security identifier (SID) and your Secret key.</span></span>
+### <a name="windows-push-notification-service-wpns"></a><span data-ttu-id="041db-128">Windows anında bildirim hizmeti (WPNS)</span><span class="sxs-lookup"><span data-stu-id="041db-128">Windows Push Notification Service (WPNS)</span></span>
+<span data-ttu-id="041db-129">tooenable Windows bildirim Hizmeti'ni kullanarak yerel gönderim, uygulamanızın kimlik bilgilerini sağlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="041db-129">tooenable Native Push using Windows Notification Service, you must provide your application's credentials.</span></span> <span data-ttu-id="041db-130">Paket güvenlik tanımlayıcınızı (SID) ve gizli anahtarınızı gerekir.</span><span class="sxs-lookup"><span data-stu-id="041db-130">You will need your Package security identifier (SID) and your Secret key.</span></span>
 
 ![settings5][50]
 
-### <a name="google-cloud-messaging-for-android-gcm"></a><span data-ttu-id="8d9fc-132">Google Cloud Messaging (GCM) Android için</span><span class="sxs-lookup"><span data-stu-id="8d9fc-132">Google Cloud Messaging for Android (GCM)</span></span>
-<span data-ttu-id="8d9fc-133">GCM kullanarak yerel gönderim özelliğini etkinleştirmek için Google yönergeleri izleyerek gerekir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-133">To enable Native Push using GCM, you need to follow the instructions from Google.</span></span> <span data-ttu-id="8d9fc-134">Bir sunucu basit API anahtarı yapıştırmanız gerekir sonra IP kısıtlamaları yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-134">Then you must paste a server simple API key, configured without IP restrictions.</span></span> <span data-ttu-id="8d9fc-135">Android v1.12.0 + için SDK'sı ile tümleştirme gerektirir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-135">Requires integration with the SDK for Android v1.12.0+.</span></span>
+### <a name="google-cloud-messaging-for-android-gcm"></a><span data-ttu-id="041db-132">Google Cloud Messaging (GCM) Android için</span><span class="sxs-lookup"><span data-stu-id="041db-132">Google Cloud Messaging for Android (GCM)</span></span>
+<span data-ttu-id="041db-133">tooenable GCM kullanarak yerel gönderim özelliğini, Google toofollow hello yönergeleri gerekir.</span><span class="sxs-lookup"><span data-stu-id="041db-133">tooenable Native Push using GCM, you need toofollow hello instructions from Google.</span></span> <span data-ttu-id="041db-134">Bir sunucu basit API anahtarı yapıştırmanız gerekir sonra IP kısıtlamaları yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="041db-134">Then you must paste a server simple API key, configured without IP restrictions.</span></span> <span data-ttu-id="041db-135">Android v1.12.0 + için hello SDK'sı ile tümleştirme gerektirir.</span><span class="sxs-lookup"><span data-stu-id="041db-135">Requires integration with hello SDK for Android v1.12.0+.</span></span>
 
-<span data-ttu-id="8d9fc-136">Daha fazla bilgi için bkz.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-136">For more information, see:</span></span> 
+<span data-ttu-id="041db-136">Daha fazla bilgi için bkz.</span><span class="sxs-lookup"><span data-stu-id="041db-136">For more information, see:</span></span> 
 
-* <span data-ttu-id="8d9fc-137">[SDK Belgeleri Android GCM tümleştirme][Link 5]</span><span class="sxs-lookup"><span data-stu-id="8d9fc-137">[SDK Documentation Android How to Integrate GCM][Link 5]</span></span>
-* [<span data-ttu-id="8d9fc-138">Google Developer GCM Kılavuzu</span><span class="sxs-lookup"><span data-stu-id="8d9fc-138">Google Developer GCM Guide</span></span>](http://developer.android.com/guide/google/gcm/gs.html)
+* <span data-ttu-id="041db-137">[SDK Belgeleri Android nasıl tooIntegrate GCM][Link 5]</span><span class="sxs-lookup"><span data-stu-id="041db-137">[SDK Documentation Android How tooIntegrate GCM][Link 5]</span></span>
+* [<span data-ttu-id="041db-138">Google Developer GCM Kılavuzu</span><span class="sxs-lookup"><span data-stu-id="041db-138">Google Developer GCM Guide</span></span>](http://developer.android.com/guide/google/gcm/gs.html)
 
-### <a name="amazon-device-messaging-for-android-adm"></a><span data-ttu-id="8d9fc-139">Amazon cihaz Mesajlaşma (ADM) Android için</span><span class="sxs-lookup"><span data-stu-id="8d9fc-139">Amazon Device Messaging for Android (ADM)</span></span>
-<span data-ttu-id="8d9fc-140">ADM kullanarak yerel gönderim özelliğini etkinleştirmek için Amazon sağlayın <OAuth credentials> oluşan bir istemci kimliği ve istemci parolası (SDK'sı ile tümleştirme gerektiren Android v2.1.0 + için).</span><span class="sxs-lookup"><span data-stu-id="8d9fc-140">To enable Native Push using ADM, you must provide Amazon <OAuth credentials> consisting of a Client ID and Client Secret (Requires integration with SDK for Android v2.1.0+).</span></span>
+### <a name="amazon-device-messaging-for-android-adm"></a><span data-ttu-id="041db-139">Amazon cihaz Mesajlaşma (ADM) Android için</span><span class="sxs-lookup"><span data-stu-id="041db-139">Amazon Device Messaging for Android (ADM)</span></span>
+<span data-ttu-id="041db-140">tooenable yerel gönderim ADM kullanarak, Amazon sağlamalısınız <OAuth credentials> oluşan bir istemci kimliği ve istemci parolası (SDK'sı ile tümleştirme gerektiren Android v2.1.0 + için).</span><span class="sxs-lookup"><span data-stu-id="041db-140">tooenable Native Push using ADM, you must provide Amazon <OAuth credentials> consisting of a Client ID and Client Secret (Requires integration with SDK for Android v2.1.0+).</span></span>
 
-<span data-ttu-id="8d9fc-141">Daha fazla bilgi için bkz.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-141">For more information, see:</span></span> 
+<span data-ttu-id="041db-141">Daha fazla bilgi için bkz.</span><span class="sxs-lookup"><span data-stu-id="041db-141">For more information, see:</span></span> 
 
-* <span data-ttu-id="8d9fc-142">[SDK Belgeleri Android ADM tümleştirme][Link 5]</span><span class="sxs-lookup"><span data-stu-id="8d9fc-142">[SDK Documentation Android How to Integrate ADM][Link 5]</span></span>
-* [<span data-ttu-id="8d9fc-143">Amazon Geliştirici ADM belgeleri</span><span class="sxs-lookup"><span data-stu-id="8d9fc-143">Amazon Developer ADM Documentation</span></span>](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
+* <span data-ttu-id="041db-142">[SDK Belgeleri Android nasıl tooIntegrate ADM][Link 5]</span><span class="sxs-lookup"><span data-stu-id="041db-142">[SDK Documentation Android How tooIntegrate ADM][Link 5]</span></span>
+* [<span data-ttu-id="041db-143">Amazon Geliştirici ADM belgeleri</span><span class="sxs-lookup"><span data-stu-id="041db-143">Amazon Developer ADM Documentation</span></span>](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
 
-## <a name="push-speed"></a><span data-ttu-id="8d9fc-145">Gönderim hızı</span><span class="sxs-lookup"><span data-stu-id="8d9fc-145">Push Speed</span></span>
-<span data-ttu-id="8d9fc-146">Uygulamanızın gönderim hızını tanımlamanıza olanak sağlar ve geçerli, uygulamanızın gönderim hızını gösterir.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-146">Shows the current push speed of your application and allows you to define the push speed of your application.</span></span>
+## <a name="push-speed"></a><span data-ttu-id="041db-145">Gönderim hızı</span><span class="sxs-lookup"><span data-stu-id="041db-145">Push Speed</span></span>
+<span data-ttu-id="041db-146">Merhaba geçerli gönderim hızı, uygulamanızın gösterir ve toodefine Merhaba, uygulamanızın gönderim hızını sağlar.</span><span class="sxs-lookup"><span data-stu-id="041db-146">Shows hello current push speed of your application and allows you toodefine hello push speed of your application.</span></span>
 
   ![settings7][52]
 
-## <a name="tag-app-info"></a><span data-ttu-id="8d9fc-148">Etiket (uygulama bilgisi)</span><span class="sxs-lookup"><span data-stu-id="8d9fc-148">Tag (app info)</span></span>
+## <a name="tag-app-info"></a><span data-ttu-id="041db-148">Etiket (uygulama bilgisi)</span><span class="sxs-lookup"><span data-stu-id="041db-148">Tag (app info)</span></span>
 ![settings11][56]
 
-## <a name="commercial-pressure"></a><span data-ttu-id="8d9fc-150">Ticari baskının</span><span class="sxs-lookup"><span data-stu-id="8d9fc-150">Commercial Pressure</span></span>
+## <a name="commercial-pressure"></a><span data-ttu-id="041db-150">Ticari baskının</span><span class="sxs-lookup"><span data-stu-id="041db-150">Commercial Pressure</span></span>
 ![settings12][57]
 
-## <a name="see-also"></a><span data-ttu-id="8d9fc-152">Ayrıca bkz.</span><span class="sxs-lookup"><span data-stu-id="8d9fc-152">See also</span></span>
-* <span data-ttu-id="8d9fc-153">[Kavramları][Link 6]</span><span class="sxs-lookup"><span data-stu-id="8d9fc-153">[Concepts][Link 6]</span></span>
-* <span data-ttu-id="8d9fc-154">[Sorun giderme kılavuzu hizmeti][Link 24]</span><span class="sxs-lookup"><span data-stu-id="8d9fc-154">[Troubleshooting Guide Service][Link 24]</span></span>
+## <a name="see-also"></a><span data-ttu-id="041db-152">Ayrıca bkz.</span><span class="sxs-lookup"><span data-stu-id="041db-152">See also</span></span>
+* <span data-ttu-id="041db-153">[Kavramları][Link 6]</span><span class="sxs-lookup"><span data-stu-id="041db-153">[Concepts][Link 6]</span></span>
+* <span data-ttu-id="041db-154">[Sorun giderme kılavuzu hizmeti][Link 24]</span><span class="sxs-lookup"><span data-stu-id="041db-154">[Troubleshooting Guide Service][Link 24]</span></span>
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

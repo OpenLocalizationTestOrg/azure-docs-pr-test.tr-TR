@@ -1,6 +1,6 @@
 ---
-title: "Azure Time Series Insights Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Tam olarak yönetilen olay işlemeyle bulutta nasıl IoT analizi çalıştıracağınızı öğrenin. Uygulamalardan, algılayıcılardan, cihazlardan ve diğer kaynaklardan gelen verileri gerçek zamanlı olarak analiz edin."
+title: "aaaAzure zaman serisi Öngörüler belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Merhaba toorun IOT analizleri tam olarak yönetilen olay işleme ile nasıl bulut öğrenin. Uygulamalardan, algılayıcılardan, cihazlardan ve diğer kaynaklardan gelen verileri gerçek zamanlı olarak analiz edin."
 services: time-series-insights
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2017
 ms.author: carolz
-ms.openlocfilehash: d22a3f0484da78d03dbe8411e74eb408185b1f30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2301d20aa2fb685279e2efc657ffcd41571af0c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-time-series-insights-documentation"></a>Azure Time Series Insights Belgeleri 
  
-Time Series Insights ortamını ayarlama hakkında bilgi edinin, IoT çözümlerinizin veya bağlı öğelerin zaman serisi verilerini araştırıp çözümleyin. Belgelerde önkoşullar, nasıl yapılır bilgileri, API başvuruları ve birkaç dakika için çalışmaya başlamanıza yardımcı olacak diğer belgeler bulunur. 
+Nasıl tooset zaman serisi Öngörüler çevresi keşfedin ve zaman serisi veri IOT çözümlerinizi çözümlemek veya şeyler bağlı öğrenin. Belge paylaşır hello Önkoşullar nasıl için API başvuruyor ve diğer belgeleri toohelp, tooget dakika cinsinden başlatıldı. 
  
 <ul class="panelContent cardsFTitle"> 
     <li> 

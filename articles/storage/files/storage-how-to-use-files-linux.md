@@ -1,6 +1,6 @@
 ---
-title: "Azure File storage'ı Linux ile kullanma | Microsoft Docs"
-description: "Bir Azure dosya paylaşımı üzerinden SMB Linux'ta bağlama öğrenin."
+title: Azure File storage ile Linux aaaUse | Microsoft Docs
+description: "Nasıl toomount bir Azure dosya paylaşımı Linux'ta SMB üzerinden öğrenin."
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -14,105 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
-ms.openlocfilehash: d8987082c559a374b8d19fd69e20cf5e81cb25ef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: eeaa24b7f9e646724c5d86ae1e80dfdadaff34fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-file-storage-with-linux"></a><span data-ttu-id="8da73-103">Azure File storage'ı Linux ile kullanma</span><span class="sxs-lookup"><span data-stu-id="8da73-103">Use Azure File storage with Linux</span></span>
-<span data-ttu-id="8da73-104">[Azure Dosya depolama](../storage-dotnet-how-to-use-files.md), Windows’un kolay kullanılan bulut dosya sistemidir.</span><span class="sxs-lookup"><span data-stu-id="8da73-104">[Azure File storage](../storage-dotnet-how-to-use-files.md) is Microsoft's easy to use cloud file system.</span></span> <span data-ttu-id="8da73-105">Azure dosya paylaşımları kullanarak Linux dağıtımları içinde takılı [CIFS yardımcı programları paket](https://wiki.samba.org/index.php/LinuxCIFS_utils) gelen [Samba proje](https://www.samba.org/).</span><span class="sxs-lookup"><span data-stu-id="8da73-105">Azure File shares can be mounted in Linux distributions using the [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from the [Samba project](https://www.samba.org/).</span></span> <span data-ttu-id="8da73-106">Bu makale bir Azure dosya paylaşımı bağlamak için iki yol gösterir: isteğe bağlı ile `mount` komut ve üzerinde önyükleme bir girişe oluşturarak `/etc/fstab`.</span><span class="sxs-lookup"><span data-stu-id="8da73-106">This article shows two ways to mount an Azure File share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.</span></span>
+# <a name="use-azure-file-storage-with-linux"></a><span data-ttu-id="3d426-103">Azure File storage'ı Linux ile kullanma</span><span class="sxs-lookup"><span data-stu-id="3d426-103">Use Azure File storage with Linux</span></span>
+<span data-ttu-id="3d426-104">[Azure File storage](../storage-dotnet-how-to-use-files.md) Microsoft'un kolay toouse bulut dosya sistemidir.</span><span class="sxs-lookup"><span data-stu-id="3d426-104">[Azure File storage](../storage-dotnet-how-to-use-files.md) is Microsoft's easy toouse cloud file system.</span></span> <span data-ttu-id="3d426-105">Azure dosya paylaşımları hello kullanarak Linux dağıtımları içinde takılı [CIFS yardımcı programları paket](https://wiki.samba.org/index.php/LinuxCIFS_utils) hello gelen [Samba proje](https://www.samba.org/).</span><span class="sxs-lookup"><span data-stu-id="3d426-105">Azure File shares can be mounted in Linux distributions using hello [cifs-utils package](https://wiki.samba.org/index.php/LinuxCIFS_utils) from hello [Samba project](https://www.samba.org/).</span></span> <span data-ttu-id="3d426-106">Bu makale bir Azure dosya paylaşımı iki yolu toomount gösterir: isteğe bağlı hello ile `mount` komut ve üzerinde önyükleme bir girişe oluşturarak `/etc/fstab`.</span><span class="sxs-lookup"><span data-stu-id="3d426-106">This article shows two ways toomount an Azure File share: on-demand with hello `mount` command and on-boot by creating an entry in `/etc/fstab`.</span></span>
 
 > [!NOTE]  
-> <span data-ttu-id="8da73-107">Azure dışında bir Azure dosya paylaşımı bağlamak için bu, şirket içi gibi veya farklı bir bölgede Azure, işletim sistemi barındırıldığı bölgeyi SMB 3.0 şifreleme işlevlerini desteklemesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="8da73-107">In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0.</span></span> <span data-ttu-id="8da73-108">Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde sunulmuştur.</span><span class="sxs-lookup"><span data-stu-id="8da73-108">Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel.</span></span> <span data-ttu-id="8da73-109">Bu özellik Azure dosya paylaşımının şirket içi veya farklı bir Azure bölgesindeki bağlama sağlar.</span><span class="sxs-lookup"><span data-stu-id="8da73-109">This feature enables mounting of Azure File share from on-premises or a different Azure region.</span></span> <span data-ttu-id="8da73-110">Yayımlama zaman bu işlevselliği 16.04 ve yukarıdaki backported Ubuntu için bırakıldı.</span><span class="sxs-lookup"><span data-stu-id="8da73-110">At the time of publishing, this functionality has been backported to Ubuntu from 16.04 and above.</span></span>
+> <span data-ttu-id="3d426-107">Sipariş toomount hello dışında bir Azure dosya paylaşımı, bu, şirket içi gibi veya farklı bir bölgede Azure, hello OS barındırıldığı Azure bölgesi SMB 3.0 hello şifreleme işlevlerini desteklemesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="3d426-107">In order toomount an Azure File share outside of hello Azure region it is hosted in, such as on-premises or in a different Azure region, hello OS must support hello encryption functionality of SMB 3.0.</span></span> <span data-ttu-id="3d426-108">Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde sunulmuştur.</span><span class="sxs-lookup"><span data-stu-id="3d426-108">Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel.</span></span> <span data-ttu-id="3d426-109">Bu özellik Azure dosya paylaşımının şirket içi veya farklı bir Azure bölgesindeki bağlama sağlar.</span><span class="sxs-lookup"><span data-stu-id="3d426-109">This feature enables mounting of Azure File share from on-premises or a different Azure region.</span></span> <span data-ttu-id="3d426-110">Yayımlama Hello anda bu işlevselliği backported tooUbuntu 16.04 ve yukarıdaki olmuştur.</span><span class="sxs-lookup"><span data-stu-id="3d426-110">At hello time of publishing, this functionality has been backported tooUbuntu from 16.04 and above.</span></span>
 
 
-## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a><span data-ttu-id="8da73-111">Bir Azure dosya bağlanması için ön koşullar paylaşımı Linux ve yardımcı programları CIFS paketi</span><span class="sxs-lookup"><span data-stu-id="8da73-111">Prerequisities for mounting an Azure File share with Linux and the cifs-utils package</span></span>
-* <span data-ttu-id="8da73-112">**Yüklü CIFS yardımcı programları paketi olabilir Linux dağıtım çekme**: Microsoft Azure görüntü Galerisi içinde aşağıdaki Linux dağıtımları önerir:</span><span class="sxs-lookup"><span data-stu-id="8da73-112">**Pick a Linux distribution that can have the cifs-utils package installed**: Microsoft recommends the following Linux distributions in the Azure image gallery:</span></span>
+## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-hello-cifs-utils-package"></a><span data-ttu-id="3d426-111">Linux ve hello CIFS yardımcı programları paketine sahip bir Azure dosya paylaşımına bağlanması için ön koşullar</span><span class="sxs-lookup"><span data-stu-id="3d426-111">Prerequisities for mounting an Azure File share with Linux and hello cifs-utils package</span></span>
+* <span data-ttu-id="3d426-112">**Merhaba CIFS yardımcı programları paketi yüklü olan bir Linux dağıtım çekme**: Microsoft hello Azure görüntü Galerisi Linux dağıtımları aşağıdaki hello önerir:</span><span class="sxs-lookup"><span data-stu-id="3d426-112">**Pick a Linux distribution that can have hello cifs-utils package installed**: Microsoft recommends hello following Linux distributions in hello Azure image gallery:</span></span>
 
-    * <span data-ttu-id="8da73-113">Ubuntu Server 14.04 +</span><span class="sxs-lookup"><span data-stu-id="8da73-113">Ubuntu Server 14.04+</span></span>
-    * <span data-ttu-id="8da73-114">RHEL 7 +</span><span class="sxs-lookup"><span data-stu-id="8da73-114">RHEL 7+</span></span>
-    * <span data-ttu-id="8da73-115">CentOS 7 +</span><span class="sxs-lookup"><span data-stu-id="8da73-115">CentOS 7+</span></span>
-    * <span data-ttu-id="8da73-116">Debian 8</span><span class="sxs-lookup"><span data-stu-id="8da73-116">Debian 8</span></span>
-    * <span data-ttu-id="8da73-117">openSUSE 13.2 +</span><span class="sxs-lookup"><span data-stu-id="8da73-117">openSUSE 13.2+</span></span>
-    * <span data-ttu-id="8da73-118">SUSE Linux Enterprise Server 12</span><span class="sxs-lookup"><span data-stu-id="8da73-118">SUSE Linux Enterprise Server 12</span></span>
+    * <span data-ttu-id="3d426-113">Ubuntu Server 14.04 +</span><span class="sxs-lookup"><span data-stu-id="3d426-113">Ubuntu Server 14.04+</span></span>
+    * <span data-ttu-id="3d426-114">RHEL 7 +</span><span class="sxs-lookup"><span data-stu-id="3d426-114">RHEL 7+</span></span>
+    * <span data-ttu-id="3d426-115">CentOS 7 +</span><span class="sxs-lookup"><span data-stu-id="3d426-115">CentOS 7+</span></span>
+    * <span data-ttu-id="3d426-116">Debian 8</span><span class="sxs-lookup"><span data-stu-id="3d426-116">Debian 8</span></span>
+    * <span data-ttu-id="3d426-117">openSUSE 13.2 +</span><span class="sxs-lookup"><span data-stu-id="3d426-117">openSUSE 13.2+</span></span>
+    * <span data-ttu-id="3d426-118">SUSE Linux Enterprise Server 12</span><span class="sxs-lookup"><span data-stu-id="3d426-118">SUSE Linux Enterprise Server 12</span></span>
 
-* <span data-ttu-id="8da73-119"><a id="install-cifs-utils"></a>**CIFS yardımcı programları paketinin yüklü olduğu**: yardımcı programları CIFS tercih ettiğiniz Linux dağıtım noktasında Paket Yöneticisi kullanılarak yüklenebilir.</span><span class="sxs-lookup"><span data-stu-id="8da73-119"><a id="install-cifs-utils"></a>**The cifs-utils package is installed**: The cifs-utils can be installed using the package manager on the Linux distribution of your choice.</span></span> 
+* <span data-ttu-id="3d426-119"><a id="install-cifs-utils"></a>**Merhaba CIFS yardımcı programları paketinin yüklü olduğu**: hello CIFS yardımcı programları, tercih ettiğiniz hello Linux dağıtım noktasında hello Paket Yöneticisi kullanılarak yüklenebilir.</span><span class="sxs-lookup"><span data-stu-id="3d426-119"><a id="install-cifs-utils"></a>**hello cifs-utils package is installed**: hello cifs-utils can be installed using hello package manager on hello Linux distribution of your choice.</span></span> 
 
-    <span data-ttu-id="8da73-120">Üzerinde **Ubuntu** ve **Debian tabanlı** dağıtımları kullanın `apt-get` Paket Yöneticisi:</span><span class="sxs-lookup"><span data-stu-id="8da73-120">On **Ubuntu** and **Debian-based** distributions, use the `apt-get` package manager:</span></span>
+    <span data-ttu-id="3d426-120">Üzerinde **Ubuntu** ve **Debian tabanlı** dağıtımları, hello kullan `apt-get` Paket Yöneticisi:</span><span class="sxs-lookup"><span data-stu-id="3d426-120">On **Ubuntu** and **Debian-based** distributions, use hello `apt-get` package manager:</span></span>
 
     ```
     sudo apt-get update
     sudo apt-get install cifs-utils
     ```
 
-    <span data-ttu-id="8da73-121">Üzerinde **RHEL** ve **CentOS**, kullanın `yum` Paket Yöneticisi:</span><span class="sxs-lookup"><span data-stu-id="8da73-121">On **RHEL** and **CentOS**, use the `yum` package manager:</span></span>
+    <span data-ttu-id="3d426-121">Üzerinde **RHEL** ve **CentOS**, hello kullan `yum` Paket Yöneticisi:</span><span class="sxs-lookup"><span data-stu-id="3d426-121">On **RHEL** and **CentOS**, use hello `yum` package manager:</span></span>
 
     ```
     sudo yum install samba-client samba-common cifs-utils
     ```
 
-    <span data-ttu-id="8da73-122">Üzerinde **openSUSE**, kullanın `zypper` Paket Yöneticisi:</span><span class="sxs-lookup"><span data-stu-id="8da73-122">On **openSUSE**, use the `zypper` package manager:</span></span>
+    <span data-ttu-id="3d426-122">Üzerinde **openSUSE**, hello kullan `zypper` Paket Yöneticisi:</span><span class="sxs-lookup"><span data-stu-id="3d426-122">On **openSUSE**, use hello `zypper` package manager:</span></span>
 
     ```
     sudo zypper install samba*
     ```
 
-    <span data-ttu-id="8da73-123">Diğer dağıtımlar üzerinde uygun Paket Yöneticisi'ni kullanın veya [derleme kaynağından](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).</span><span class="sxs-lookup"><span data-stu-id="8da73-123">On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).</span></span>
+    <span data-ttu-id="3d426-123">Diğer dağıtımları hello uygun Paket Yöneticisi'ni kullanın veya [derleme kaynağından](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).</span><span class="sxs-lookup"><span data-stu-id="3d426-123">On other distributions, use hello appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).</span></span>
 
-* <span data-ttu-id="8da73-124">**Bağlanılan paylaşımı dizin/dosya izinlerini karar**: 0777 kullanırız aşağıdaki örneklerde, okuma, yazma ve Yürütme izinleri tüm kullanıcılara.</span><span class="sxs-lookup"><span data-stu-id="8da73-124">**Decide on the directory/file permissions of the mounted share**: In the examples below, we use 0777, to give read, write, and execute permissions to all users.</span></span> <span data-ttu-id="8da73-125">Diğer değiştirebileceğiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod) istenen şekilde.</span><span class="sxs-lookup"><span data-stu-id="8da73-125">You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired.</span></span> 
+* <span data-ttu-id="3d426-124">**Merhaba dizin/dosya izinlerini hello takılı paylaşımının karar**: 0777, kullandığımız hello aşağıdaki örnekte, toogive okuma, yazma ve Yürütme izinleri tooall kullanıcılar.</span><span class="sxs-lookup"><span data-stu-id="3d426-124">**Decide on hello directory/file permissions of hello mounted share**: In hello examples below, we use 0777, toogive read, write, and execute permissions tooall users.</span></span> <span data-ttu-id="3d426-125">Diğer değiştirebileceğiniz [chmod izinleri](https://en.wikipedia.org/wiki/Chmod) istenen şekilde.</span><span class="sxs-lookup"><span data-stu-id="3d426-125">You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired.</span></span> 
 
-* <span data-ttu-id="8da73-126">**Depolama Hesabı Adı**: Azure Dosya paylaşımını bağlayabilmeniz için depolama hesabınızın adı gerekir.</span><span class="sxs-lookup"><span data-stu-id="8da73-126">**Storage Account Name**: To mount an Azure File share, you will need the name of the storage account.</span></span>
+* <span data-ttu-id="3d426-126">**Depolama hesabı adı**: toomount bir Azure dosya paylaşımı, hello depolama hesabının adını hello.</span><span class="sxs-lookup"><span data-stu-id="3d426-126">**Storage Account Name**: toomount an Azure File share, you will need hello name of hello storage account.</span></span>
 
-* <span data-ttu-id="8da73-127">**Depolama Hesabı Anahtarı**: Azure Dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir.</span><span class="sxs-lookup"><span data-stu-id="8da73-127">**Storage Account Key**: To mount an Azure File share, you will need the primary (or secondary) storage key.</span></span> <span data-ttu-id="8da73-128">SAS anahtarları şu an bağlama için desteklenmemektedir.</span><span class="sxs-lookup"><span data-stu-id="8da73-128">SAS keys are not currently supported for mounting.</span></span>
+* <span data-ttu-id="3d426-127">**Depolama hesabı anahtarı**: toomount bir Azure dosya paylaşımı, birincil (veya ikincil) depolama anahtarı hello.</span><span class="sxs-lookup"><span data-stu-id="3d426-127">**Storage Account Key**: toomount an Azure File share, you will need hello primary (or secondary) storage key.</span></span> <span data-ttu-id="3d426-128">SAS anahtarları şu an bağlama için desteklenmemektedir.</span><span class="sxs-lookup"><span data-stu-id="3d426-128">SAS keys are not currently supported for mounting.</span></span>
 
-* <span data-ttu-id="8da73-129">**445 bağlantı noktası açık olduğundan emin olun**: SMB 445 - TCP bağlantı noktası üzerinden iletişim kurar, güvenlik duvarının TCP engellemediğinden varsa görmek için istemci makineden 445 bağlantı noktalarını kontrol edin.</span><span class="sxs-lookup"><span data-stu-id="8da73-129">**Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.</span></span>
+* <span data-ttu-id="3d426-129">**445 bağlantı noktası açık olduğundan emin olun**: SMB 445 - TCP bağlantı noktası üzerinden iletişim kurar, güvenlik duvarının TCP engellemediğinden varsa toosee istemci makineden 445 bağlantı noktalarını kontrol edin.</span><span class="sxs-lookup"><span data-stu-id="3d426-129">**Ensure port 445 is open**: SMB communicates over TCP port 445 - check toosee if your firewall is not blocking TCP ports 445 from client machine.</span></span>
 
-## <a name="mount-the-azure-file-share-on-demand-with-mount"></a><span data-ttu-id="8da73-130">Azure dosya paylaşımı isteğe bağlı ile bağlama`mount`</span><span class="sxs-lookup"><span data-stu-id="8da73-130">Mount the Azure File share on-demand with `mount`</span></span>
-1. <span data-ttu-id="8da73-131">**[Linux dağıtımınızı CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.</span><span class="sxs-lookup"><span data-stu-id="8da73-131">**[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.</span></span>
+## <a name="mount-hello-azure-file-share-on-demand-with-mount"></a><span data-ttu-id="3d426-130">Azure dosya paylaşımı isteğe bağlı ile Merhaba bağlama`mount`</span><span class="sxs-lookup"><span data-stu-id="3d426-130">Mount hello Azure File share on-demand with `mount`</span></span>
+1. <span data-ttu-id="3d426-131">**[Linux dağıtımınız için Hello CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.</span><span class="sxs-lookup"><span data-stu-id="3d426-131">**[Install hello cifs-utils package for your Linux distribution](#install-cifs-utils)**.</span></span>
 
-2. <span data-ttu-id="8da73-132">**Bağlama noktası için bir klasör oluşturun**: Bu dosya sisteminde herhangi bir yere yapılabilir.</span><span class="sxs-lookup"><span data-stu-id="8da73-132">**Create a folder for the mount point**: This can be done anywhere on the file system.</span></span>
+2. <span data-ttu-id="3d426-132">**Merhaba bağlama noktası için bir klasör oluşturun**: herhangi bir yere hello dosya sisteminde yapılabilir.</span><span class="sxs-lookup"><span data-stu-id="3d426-132">**Create a folder for hello mount point**: This can be done anywhere on hello file system.</span></span>
 
     ```
     mkdir mymountpoint
     ```
 
-3. <span data-ttu-id="8da73-133">**Azure dosya paylaşımını bağlama için bağlama komutunu kullanın**: değiştirmek unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` uygun bilgilerle.</span><span class="sxs-lookup"><span data-stu-id="8da73-133">**Use the mount command to mount the Azure File share**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.</span></span>
+3. <span data-ttu-id="3d426-133">**Kullanım hello bağlama komutu toomount hello Azure dosya paylaşımı**: tooreplace unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` hello uygun bilgilerle.</span><span class="sxs-lookup"><span data-stu-id="3d426-133">**Use hello mount command toomount hello Azure File share**: Remember tooreplace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with hello proper information.</span></span>
 
     ```
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
-> <span data-ttu-id="8da73-134">İşiniz bittiğinde Azure dosya paylaşımı kullanarak `sudo umount ./mymountpoint` paylaşım çıkaramadı.</span><span class="sxs-lookup"><span data-stu-id="8da73-134">When you are done using the Azure File share, you may use `sudo umount ./mymountpoint` to unmount the share.</span></span>
+> <span data-ttu-id="3d426-134">İşiniz bittiğinde hello Azure dosya paylaşımı kullanarak, kullanabilirsiniz `sudo umount ./mymountpoint` toounmount hello paylaşımı.</span><span class="sxs-lookup"><span data-stu-id="3d426-134">When you are done using hello Azure File share, you may use `sudo umount ./mymountpoint` toounmount hello share.</span></span>
 
-## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a><span data-ttu-id="8da73-135">Azure dosya paylaşımının için kalıcı bağlama noktası oluştur`/etc/fstab`</span><span class="sxs-lookup"><span data-stu-id="8da73-135">Create a persistent mount point for the Azure File share with `/etc/fstab`</span></span>
-1. <span data-ttu-id="8da73-136">**[Linux dağıtımınızı CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.</span><span class="sxs-lookup"><span data-stu-id="8da73-136">**[Install the cifs-utils package for your Linux distribution](#install-cifs-utils)**.</span></span>
+## <a name="create-a-persistent-mount-point-for-hello-azure-file-share-with-etcfstab"></a><span data-ttu-id="3d426-135">Hello Azure dosya paylaşımının için kalıcı bağlama noktası oluştur`/etc/fstab`</span><span class="sxs-lookup"><span data-stu-id="3d426-135">Create a persistent mount point for hello Azure File share with `/etc/fstab`</span></span>
+1. <span data-ttu-id="3d426-136">**[Linux dağıtımınız için Hello CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.</span><span class="sxs-lookup"><span data-stu-id="3d426-136">**[Install hello cifs-utils package for your Linux distribution](#install-cifs-utils)**.</span></span>
 
-2. <span data-ttu-id="8da73-137">**Bağlama noktası için bir klasör oluşturun**: Bu dosya sisteminde herhangi bir yere yapılabilir, ancak klasör mutlak yolu not gerekir.</span><span class="sxs-lookup"><span data-stu-id="8da73-137">**Create a folder for the mount point**: This can be done anywhere on the file system, but you need to note the absolute path of the folder.</span></span> <span data-ttu-id="8da73-138">Aşağıdaki örnek, kök altında bir klasör oluşturur.</span><span class="sxs-lookup"><span data-stu-id="8da73-138">The following example creates a folder under root.</span></span>
+2. <span data-ttu-id="3d426-137">**Merhaba bağlama noktası için bir klasör oluşturun**: herhangi bir yere hello dosya sisteminde yapılabilir, ancak toonote hello hello klasörünün mutlak bir yol gerekir.</span><span class="sxs-lookup"><span data-stu-id="3d426-137">**Create a folder for hello mount point**: This can be done anywhere on hello file system, but you need toonote hello absolute path of hello folder.</span></span> <span data-ttu-id="3d426-138">Aşağıdaki örnek hello kök altında bir klasör oluşturur.</span><span class="sxs-lookup"><span data-stu-id="3d426-138">hello following example creates a folder under root.</span></span>
 
     ```
     sudo mkdir /mymountpoint
     ```
 
-3. <span data-ttu-id="8da73-139">**Aşağıdaki satırı eklemek için aşağıdaki komutu kullanın `/etc/fstab`** : değiştirmek unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` uygun bilgilerle.</span><span class="sxs-lookup"><span data-stu-id="8da73-139">**Use the following command to append the following line to `/etc/fstab`**: Remember to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with the proper information.</span></span>
+3. <span data-ttu-id="3d426-139">**Kullanım hello aşağıdaki komut satırı çok aşağıdaki tooappend hello`/etc/fstab`**: tooreplace unutmayın `<storage-account-name>`, `<share-name>`, ve `<storage-account-key>` hello uygun bilgilerle.</span><span class="sxs-lookup"><span data-stu-id="3d426-139">**Use hello following command tooappend hello following line too`/etc/fstab`**: Remember tooreplace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with hello proper information.</span></span>
 
     ```
     sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  
-> <span data-ttu-id="8da73-140">Kullanabileceğiniz `sudo mount -a` düzenledikten sonra Azure dosya paylaşımını bağlama için `/etc/fstab` yerine yeniden başlatılıyor.</span><span class="sxs-lookup"><span data-stu-id="8da73-140">You can use `sudo mount -a` to mount the Azure File share after editing `/etc/fstab` instead of rebooting.</span></span>
+> <span data-ttu-id="3d426-140">Kullanabileceğiniz `sudo mount -a` düzenleme sonrasında toomount hello Azure dosya paylaşımı `/etc/fstab` yerine yeniden başlatılıyor.</span><span class="sxs-lookup"><span data-stu-id="3d426-140">You can use `sudo mount -a` toomount hello Azure File share after editing `/etc/fstab` instead of rebooting.</span></span>
 
-## <a name="feedback"></a><span data-ttu-id="8da73-141">Geri Bildirim</span><span class="sxs-lookup"><span data-stu-id="8da73-141">Feedback</span></span>
-<span data-ttu-id="8da73-142">Linux kullanıcıları, sizden duymak istiyoruz!</span><span class="sxs-lookup"><span data-stu-id="8da73-142">Linux users, we want to hear from you!</span></span>
+## <a name="feedback"></a><span data-ttu-id="3d426-141">Geri Bildirim</span><span class="sxs-lookup"><span data-stu-id="3d426-141">Feedback</span></span>
+<span data-ttu-id="3d426-142">Linux kullanıcıları, sizden toohear bekliyoruz!</span><span class="sxs-lookup"><span data-stu-id="3d426-142">Linux users, we want toohear from you!</span></span>
 
-<span data-ttu-id="8da73-143">Azure File storage Linux Kullanıcıları grubu için bir forum değerlendirin ve File storage Linux'ı benimsemeyi olarak geri bildirim paylaşmanızı sağlar.</span><span class="sxs-lookup"><span data-stu-id="8da73-143">The Azure File storage for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux.</span></span> <span data-ttu-id="8da73-144">E-posta [Azure File storage Linux kullanıcıları](mailto:azurefileslinuxusers@microsoft.com) kullanıcıların Gruba katılmak için.</span><span class="sxs-lookup"><span data-stu-id="8da73-144">Email [Azure File storage Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.</span></span>
+<span data-ttu-id="3d426-143">değerlendirin ve File storage Linux'ı benimsemeyi gibi hello Azure File storage Linux Kullanıcıları grubu için bir forum sizin için tooshare geri bildirim sağlar.</span><span class="sxs-lookup"><span data-stu-id="3d426-143">hello Azure File storage for Linux users' group provides a forum for you tooshare feedback as you evaluate and adopt File storage on Linux.</span></span> <span data-ttu-id="3d426-144">E-posta [Azure File storage Linux kullanıcıları](mailto:azurefileslinuxusers@microsoft.com) toojoin hello kullanıcıların Grup.</span><span class="sxs-lookup"><span data-stu-id="3d426-144">Email [Azure File storage Linux Users](mailto:azurefileslinuxusers@microsoft.com) toojoin hello users' group.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="8da73-145">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="8da73-145">Next steps</span></span>
-<span data-ttu-id="8da73-146">Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.</span><span class="sxs-lookup"><span data-stu-id="8da73-146">See these links for more information about Azure File storage.</span></span>
-* [<span data-ttu-id="8da73-147">Dosya Hizmeti REST API başvurusu</span><span class="sxs-lookup"><span data-stu-id="8da73-147">File Service REST API reference</span></span>](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [<span data-ttu-id="8da73-148">Microsoft Azure storage ile AzCopy kullanma</span><span class="sxs-lookup"><span data-stu-id="8da73-148">How to use AzCopy with Microsoft Azure storage</span></span>](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [<span data-ttu-id="8da73-149">Azure storage ile Azure CLI kullanma</span><span class="sxs-lookup"><span data-stu-id="8da73-149">Using the Azure CLI with Azure storage</span></span>](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [<span data-ttu-id="8da73-150">SSS</span><span class="sxs-lookup"><span data-stu-id="8da73-150">FAQ</span></span>](../storage-files-faq.md)
-* [<span data-ttu-id="8da73-151">Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="8da73-151">Troubleshooting</span></span>](storage-troubleshoot-linux-file-connection-problems.md)
+## <a name="next-steps"></a><span data-ttu-id="3d426-145">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="3d426-145">Next steps</span></span>
+<span data-ttu-id="3d426-146">Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.</span><span class="sxs-lookup"><span data-stu-id="3d426-146">See these links for more information about Azure File storage.</span></span>
+* [<span data-ttu-id="3d426-147">Dosya Hizmeti REST API başvurusu</span><span class="sxs-lookup"><span data-stu-id="3d426-147">File Service REST API reference</span></span>](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+* [<span data-ttu-id="3d426-148">Nasıl Microsoft Azure storage ile AzCopy toouse</span><span class="sxs-lookup"><span data-stu-id="3d426-148">How toouse AzCopy with Microsoft Azure storage</span></span>](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [<span data-ttu-id="3d426-149">Azure storage ile Hello Azure CLI kullanma</span><span class="sxs-lookup"><span data-stu-id="3d426-149">Using hello Azure CLI with Azure storage</span></span>](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [<span data-ttu-id="3d426-150">SSS</span><span class="sxs-lookup"><span data-stu-id="3d426-150">FAQ</span></span>](../storage-files-faq.md)
+* [<span data-ttu-id="3d426-151">Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="3d426-151">Troubleshooting</span></span>](storage-troubleshoot-linux-file-connection-problems.md)

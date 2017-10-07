@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management'te API şablonları | Microsoft Docs"
-description: "Azure API Management'ta Geliştirici portalını API sayfalarında içeriğini özelleştirmeyi öğrenin."
+title: "Azure API Management'te aaaAPI şablonları | Microsoft Docs"
+description: "Nasıl toocustomize hello hello Azure API Management'ta Geliştirici portalını hello API sayfalarında içeriğini öğrenin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 3802868470f0f74cd1f895a00195259861ea16f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fdfa76167cfaf3b23b22d6321904f34da077fecb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="api-templates-in-azure-api-management"></a><span data-ttu-id="4c253-103">Azure API Management'te API şablonları</span><span class="sxs-lookup"><span data-stu-id="4c253-103">API templates in Azure API Management</span></span>
-<span data-ttu-id="4c253-104">Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-104">Azure API Management provides you the ability to customize the content of developer portal pages using a set of templates that configure their content.</span></span> <span data-ttu-id="4c253-105">Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.</span><span class="sxs-lookup"><span data-stu-id="4c253-105">Using [DotLiquid](http://dotliquidmarkup.org/) syntax and the editor of your choice, such as [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), and a provided set of localized [String resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), and [Page controls](api-management-page-controls.md), you have great flexibility to configure the content of the pages as you see fit using these templates.</span></span>  
+# <a name="api-templates-in-azure-api-management"></a><span data-ttu-id="14677-103">Azure API Management'te API şablonları</span><span class="sxs-lookup"><span data-stu-id="14677-103">API templates in Azure API Management</span></span>
+<span data-ttu-id="14677-104">Azure API Management yeteneği toocustomize hello Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriğini hello sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-104">Azure API Management provides you hello ability toocustomize hello content of developer portal pages using a set of templates that configure their content.</span></span> <span data-ttu-id="14677-105">Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve hello düzenleyiciyi, gibi [tasarımcıları için DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [ Karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde hello sayfaların büyük esneklik tooconfigure hello içeriğe sahip.</span><span class="sxs-lookup"><span data-stu-id="14677-105">Using [DotLiquid](http://dotliquidmarkup.org/) syntax and hello editor of your choice, such as [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), and a provided set of localized [String resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), and [Page controls](api-management-page-controls.md), you have great flexibility tooconfigure hello content of hello pages as you see fit using these templates.</span></span>  
   
- <span data-ttu-id="4c253-106">Bu bölümdeki şablonları Geliştirici Portalı API sayfalarında içeriğini özelleştirmenize olanak sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-106">The templates in this section allow you to customize the content of the API pages in the developer portal.</span></span>  
+ <span data-ttu-id="14677-106">Bu bölümdeki Hello şablonları hello Geliştirici Portalı'nda toocustomize hello hello API sayfaların içeriğini sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-106">hello templates in this section allow you toocustomize hello content of hello API pages in hello developer portal.</span></span>  
   
--   [<span data-ttu-id="4c253-107">API listesi</span><span class="sxs-lookup"><span data-stu-id="4c253-107">API list</span></span>](#APIList)  
--   [<span data-ttu-id="4c253-108">İşlem</span><span class="sxs-lookup"><span data-stu-id="4c253-108">Operation</span></span>](#Product)  
--   [<span data-ttu-id="4c253-109">Kod örnekleri</span><span class="sxs-lookup"><span data-stu-id="4c253-109">Code samples</span></span>](#CodeSamples)  
-    -   [<span data-ttu-id="4c253-110">Curl</span><span class="sxs-lookup"><span data-stu-id="4c253-110">Curl</span></span>](#Curl)  
-    -   [<span data-ttu-id="4c253-111">C#</span><span class="sxs-lookup"><span data-stu-id="4c253-111">C#</span></span>](#CSharp)  
-    -   [<span data-ttu-id="4c253-112">Java</span><span class="sxs-lookup"><span data-stu-id="4c253-112">Java</span></span>](#Stub)  
-    -   [<span data-ttu-id="4c253-113">JavaScript</span><span class="sxs-lookup"><span data-stu-id="4c253-113">JavaScript</span></span>](#JavaScript)  
-    -   [<span data-ttu-id="4c253-114">Objective C</span><span class="sxs-lookup"><span data-stu-id="4c253-114">Objective C</span></span>](#ObjectiveC)  
-    -   [<span data-ttu-id="4c253-115">PHP</span><span class="sxs-lookup"><span data-stu-id="4c253-115">PHP</span></span>](#PHP)  
-    -   [<span data-ttu-id="4c253-116">Python</span><span class="sxs-lookup"><span data-stu-id="4c253-116">Python</span></span>](#Python)  
-    -   [<span data-ttu-id="4c253-117">Ruby</span><span class="sxs-lookup"><span data-stu-id="4c253-117">Ruby</span></span>](#Ruby)  
+-   [<span data-ttu-id="14677-107">API listesi</span><span class="sxs-lookup"><span data-stu-id="14677-107">API list</span></span>](#APIList)  
+-   [<span data-ttu-id="14677-108">İşlem</span><span class="sxs-lookup"><span data-stu-id="14677-108">Operation</span></span>](#Product)  
+-   [<span data-ttu-id="14677-109">Kod örnekleri</span><span class="sxs-lookup"><span data-stu-id="14677-109">Code samples</span></span>](#CodeSamples)  
+    -   [<span data-ttu-id="14677-110">Curl</span><span class="sxs-lookup"><span data-stu-id="14677-110">Curl</span></span>](#Curl)  
+    -   [<span data-ttu-id="14677-111">C#</span><span class="sxs-lookup"><span data-stu-id="14677-111">C#</span></span>](#CSharp)  
+    -   [<span data-ttu-id="14677-112">Java</span><span class="sxs-lookup"><span data-stu-id="14677-112">Java</span></span>](#Stub)  
+    -   [<span data-ttu-id="14677-113">JavaScript</span><span class="sxs-lookup"><span data-stu-id="14677-113">JavaScript</span></span>](#JavaScript)  
+    -   [<span data-ttu-id="14677-114">Objective C</span><span class="sxs-lookup"><span data-stu-id="14677-114">Objective C</span></span>](#ObjectiveC)  
+    -   [<span data-ttu-id="14677-115">PHP</span><span class="sxs-lookup"><span data-stu-id="14677-115">PHP</span></span>](#PHP)  
+    -   [<span data-ttu-id="14677-116">Python</span><span class="sxs-lookup"><span data-stu-id="14677-116">Python</span></span>](#Python)  
+    -   [<span data-ttu-id="14677-117">Ruby</span><span class="sxs-lookup"><span data-stu-id="14677-117">Ruby</span></span>](#Ruby)  
 
 > [!NOTE]
->  <span data-ttu-id="4c253-118">Örnek varsayılan şablonları aşağıdaki belgelerde yer alır ancak değişikliği sürekli geliştirmeler nedeniyle tabidir.</span><span class="sxs-lookup"><span data-stu-id="4c253-118">Sample default templates are included in the following documentation, but are subject to change due to continuous improvements.</span></span> <span data-ttu-id="4c253-119">İstenen tek tek şablonları giderek Geliştirici Portalı'nda Canlı varsayılan şablonları görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4c253-119">You can view the live default templates in the developer portal by navigating to the desired individual templates.</span></span> <span data-ttu-id="4c253-120">Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).</span><span class="sxs-lookup"><span data-stu-id="4c253-120">For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).</span></span>  
+>  <span data-ttu-id="14677-118">Örnek varsayılan şablonları belgelerine aşağıdaki hello dahil olan, ancak konu toochange toocontinuous geliştirmeler nedeniyle.</span><span class="sxs-lookup"><span data-stu-id="14677-118">Sample default templates are included in hello following documentation, but are subject toochange due toocontinuous improvements.</span></span> <span data-ttu-id="14677-119">İstenen toohello tek tek şablonları giderek hello Canlı varsayılan şablonları hello Geliştirici Portalı'nda görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="14677-119">You can view hello live default templates in hello developer portal by navigating toohello desired individual templates.</span></span> <span data-ttu-id="14677-120">Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).</span><span class="sxs-lookup"><span data-stu-id="14677-120">For more information about working with templates, see [How toocustomize hello API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).</span></span>  
   
-##  <span data-ttu-id="4c253-121"><a name="APIList"></a>API listesi</span><span class="sxs-lookup"><span data-stu-id="4c253-121"><a name="APIList"></a> API list</span></span>  
- <span data-ttu-id="4c253-122">**API listesi** şablonu Geliştirici portalında API listesi sayfasının gövdesi özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-122">The **API list** template allows you to customize the body of the API list page in the developer portal.</span></span>  
+##  <span data-ttu-id="14677-121"><a name="APIList"></a>API listesi</span><span class="sxs-lookup"><span data-stu-id="14677-121"><a name="APIList"></a> API list</span></span>  
+ <span data-ttu-id="14677-122">Merhaba **API listesi** şablonu verir hello API listesi sayfasının toocustomize hello gövdesi hello Geliştirici Portalı'nda.</span><span class="sxs-lookup"><span data-stu-id="14677-122">hello **API list** template allows you toocustomize hello body of hello API list page in hello developer portal.</span></span>  
   
- <span data-ttu-id="4c253-123">![Geliştirici Portalı API listesi](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Geliştirici Portalı şablonları API listesi")</span><span class="sxs-lookup"><span data-stu-id="4c253-123">![Developer Portal API List](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal Templates API List")</span></span>  
+ <span data-ttu-id="14677-123">![Geliştirici Portalı API listesi](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Geliştirici Portalı şablonları API listesi")</span><span class="sxs-lookup"><span data-stu-id="14677-123">![Developer Portal API List](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal Templates API List")</span></span>  
   
-### <a name="default-template"></a><span data-ttu-id="4c253-124">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-124">Default template</span></span>  
+### <a name="default-template"></a><span data-ttu-id="14677-124">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-124">Default template</span></span>  
   
 ```xml  
 <search-control></search-control>  
@@ -75,20 +75,20 @@ ms.lasthandoff: 07/11/2017
 </div>  
 ```  
   
-### <a name="controls"></a><span data-ttu-id="4c253-125">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-125">Controls</span></span>  
- <span data-ttu-id="4c253-126">`API list` Şablonu, aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-126">The `API list` template may use the following [page controls](api-management-page-controls.md).</span></span>  
+### <a name="controls"></a><span data-ttu-id="14677-125">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-125">Controls</span></span>  
+ <span data-ttu-id="14677-126">Merhaba `API list` şablonu hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-126">hello `API list` template may use hello following [page controls](api-management-page-controls.md).</span></span>  
   
--   [<span data-ttu-id="4c253-127">disk belleği denetimi</span><span class="sxs-lookup"><span data-stu-id="4c253-127">paging-control</span></span>](api-management-page-controls.md#paging-control)  
+-   [<span data-ttu-id="14677-127">disk belleği denetimi</span><span class="sxs-lookup"><span data-stu-id="14677-127">paging-control</span></span>](api-management-page-controls.md#paging-control)  
   
--   [<span data-ttu-id="4c253-128">arama denetimi</span><span class="sxs-lookup"><span data-stu-id="4c253-128">search-control</span></span>](api-management-page-controls.md#search-control)  
+-   [<span data-ttu-id="14677-128">arama denetimi</span><span class="sxs-lookup"><span data-stu-id="14677-128">search-control</span></span>](api-management-page-controls.md#search-control)  
   
-### <a name="data-model"></a><span data-ttu-id="4c253-129">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-129">Data model</span></span>  
+### <a name="data-model"></a><span data-ttu-id="14677-129">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-129">Data model</span></span>  
   
-|<span data-ttu-id="4c253-130">Özellik</span><span class="sxs-lookup"><span data-stu-id="4c253-130">Property</span></span>|<span data-ttu-id="4c253-131">Tür</span><span class="sxs-lookup"><span data-stu-id="4c253-131">Type</span></span>|<span data-ttu-id="4c253-132">Açıklama</span><span class="sxs-lookup"><span data-stu-id="4c253-132">Description</span></span>|  
+|<span data-ttu-id="14677-130">Özellik</span><span class="sxs-lookup"><span data-stu-id="14677-130">Property</span></span>|<span data-ttu-id="14677-131">Tür</span><span class="sxs-lookup"><span data-stu-id="14677-131">Type</span></span>|<span data-ttu-id="14677-132">Açıklama</span><span class="sxs-lookup"><span data-stu-id="14677-132">Description</span></span>|  
 |--------------|----------|-----------------|  
-|<span data-ttu-id="4c253-133">API'leri</span><span class="sxs-lookup"><span data-stu-id="4c253-133">apis</span></span>|<span data-ttu-id="4c253-134">Koleksiyonu [API özeti](api-management-template-data-model-reference.md#APISummary) varlıklar.</span><span class="sxs-lookup"><span data-stu-id="4c253-134">Collection of [API summary](api-management-template-data-model-reference.md#APISummary) entities.</span></span>|<span data-ttu-id="4c253-135">API'ler geçerli kullanıcıya görünür.</span><span class="sxs-lookup"><span data-stu-id="4c253-135">The APIs visible to the current user.</span></span>|  
+|<span data-ttu-id="14677-133">API'leri</span><span class="sxs-lookup"><span data-stu-id="14677-133">apis</span></span>|<span data-ttu-id="14677-134">Koleksiyonu [API özeti](api-management-template-data-model-reference.md#APISummary) varlıklar.</span><span class="sxs-lookup"><span data-stu-id="14677-134">Collection of [API summary](api-management-template-data-model-reference.md#APISummary) entities.</span></span>|<span data-ttu-id="14677-135">Merhaba API'leri görünür toohello geçerli kullanıcı.</span><span class="sxs-lookup"><span data-stu-id="14677-135">hello APIs visible toohello current user.</span></span>|  
   
-### <a name="sample-template-data"></a><span data-ttu-id="4c253-136">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-136">Sample template data</span></span>  
+### <a name="sample-template-data"></a><span data-ttu-id="14677-136">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-136">Sample template data</span></span>  
   
 ```json  
 {  
@@ -108,12 +108,12 @@ ms.lasthandoff: 07/11/2017
 }  
 ```  
   
-##  <span data-ttu-id="4c253-137"><a name="Product"></a>İşlemi</span><span class="sxs-lookup"><span data-stu-id="4c253-137"><a name="Product"></a> Operation</span></span>  
- <span data-ttu-id="4c253-138">**İşlemi** şablonu Geliştirici portalında işlemi sayfasının gövdesi özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-138">The **Operation** template allows you to customize the body of the operation page in the developer portal.</span></span>  
+##  <span data-ttu-id="14677-137"><a name="Product"></a>İşlemi</span><span class="sxs-lookup"><span data-stu-id="14677-137"><a name="Product"></a> Operation</span></span>  
+ <span data-ttu-id="14677-138">Merhaba **işlemi** şablonu verir hello işlemi sayfasının toocustomize hello gövdesi hello Geliştirici Portalı'nda.</span><span class="sxs-lookup"><span data-stu-id="14677-138">hello **Operation** template allows you toocustomize hello body of hello operation page in hello developer portal.</span></span>  
   
- <span data-ttu-id="4c253-139">![Geliştirici Portalı işlemi sayfa](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Geliştirici Portalı şablonlarını işlemi")</span><span class="sxs-lookup"><span data-stu-id="4c253-139">![Developer Portal Operation page](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer Portal templates Operation page")</span></span>  
+ <span data-ttu-id="14677-139">![Geliştirici Portalı işlemi sayfa](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Geliştirici Portalı şablonlarını işlemi")</span><span class="sxs-lookup"><span data-stu-id="14677-139">![Developer Portal Operation page](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer Portal templates Operation page")</span></span>  
   
-### <a name="default-template"></a><span data-ttu-id="4c253-140">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-140">Default template</span></span>  
+### <a name="default-template"></a><span data-ttu-id="14677-140">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-140">Default template</span></span>  
   
 ```xml  
 <h2>{{api.name}}</h2>  
@@ -334,24 +334,24 @@ ms.lasthandoff: 07/11/2017
 </div>  
 ```  
   
-### <a name="controls"></a><span data-ttu-id="4c253-141">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-141">Controls</span></span>  
- <span data-ttu-id="4c253-142">`Operation` Şablonu herhangi kullanılmasına izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-142">The `Operation` template does not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+### <a name="controls"></a><span data-ttu-id="14677-141">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-141">Controls</span></span>  
+ <span data-ttu-id="14677-142">Merhaba `Operation` şablon herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-142">hello `Operation` template does not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-### <a name="data-model"></a><span data-ttu-id="4c253-143">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-143">Data model</span></span>  
+### <a name="data-model"></a><span data-ttu-id="14677-143">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-143">Data model</span></span>  
   
-|<span data-ttu-id="4c253-144">Özellik</span><span class="sxs-lookup"><span data-stu-id="4c253-144">Property</span></span>|<span data-ttu-id="4c253-145">Tür</span><span class="sxs-lookup"><span data-stu-id="4c253-145">Type</span></span>|<span data-ttu-id="4c253-146">Açıklama</span><span class="sxs-lookup"><span data-stu-id="4c253-146">Description</span></span>|  
+|<span data-ttu-id="14677-144">Özellik</span><span class="sxs-lookup"><span data-stu-id="14677-144">Property</span></span>|<span data-ttu-id="14677-145">Tür</span><span class="sxs-lookup"><span data-stu-id="14677-145">Type</span></span>|<span data-ttu-id="14677-146">Açıklama</span><span class="sxs-lookup"><span data-stu-id="14677-146">Description</span></span>|  
 |--------------|----------|-----------------|  
-|<span data-ttu-id="4c253-147">ApiId</span><span class="sxs-lookup"><span data-stu-id="4c253-147">apiId</span></span>|<span data-ttu-id="4c253-148">Dize</span><span class="sxs-lookup"><span data-stu-id="4c253-148">string</span></span>|<span data-ttu-id="4c253-149">Geçerli API kimliği.</span><span class="sxs-lookup"><span data-stu-id="4c253-149">The id of the current API.</span></span>|  
-|<span data-ttu-id="4c253-150">apiName</span><span class="sxs-lookup"><span data-stu-id="4c253-150">apiName</span></span>|<span data-ttu-id="4c253-151">Dize</span><span class="sxs-lookup"><span data-stu-id="4c253-151">string</span></span>|<span data-ttu-id="4c253-152">API adı.</span><span class="sxs-lookup"><span data-stu-id="4c253-152">The name of the API.</span></span>|  
-|<span data-ttu-id="4c253-153">apiDescription</span><span class="sxs-lookup"><span data-stu-id="4c253-153">apiDescription</span></span>|<span data-ttu-id="4c253-154">Dize</span><span class="sxs-lookup"><span data-stu-id="4c253-154">string</span></span>|<span data-ttu-id="4c253-155">API açıklaması.</span><span class="sxs-lookup"><span data-stu-id="4c253-155">A description of the API.</span></span>|  
-|<span data-ttu-id="4c253-156">api</span><span class="sxs-lookup"><span data-stu-id="4c253-156">api</span></span>|<span data-ttu-id="4c253-157">[API özeti](api-management-template-data-model-reference.md#APISummary) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-157">[API summary](api-management-template-data-model-reference.md#APISummary) entity.</span></span>|<span data-ttu-id="4c253-158">Geçerli API.</span><span class="sxs-lookup"><span data-stu-id="4c253-158">The current API.</span></span>|  
-|<span data-ttu-id="4c253-159">işlemi</span><span class="sxs-lookup"><span data-stu-id="4c253-159">operation</span></span>|[<span data-ttu-id="4c253-160">İşlem</span><span class="sxs-lookup"><span data-stu-id="4c253-160">Operation</span></span>](api-management-template-data-model-reference.md#Operation)|<span data-ttu-id="4c253-161">Şu anda görüntülenen işlemi.</span><span class="sxs-lookup"><span data-stu-id="4c253-161">The currently displayed operation.</span></span>|  
-|<span data-ttu-id="4c253-162">sampleUrl</span><span class="sxs-lookup"><span data-stu-id="4c253-162">sampleUrl</span></span>|<span data-ttu-id="4c253-163">Dize</span><span class="sxs-lookup"><span data-stu-id="4c253-163">string</span></span>|<span data-ttu-id="4c253-164">Geçerli işlem için URL.</span><span class="sxs-lookup"><span data-stu-id="4c253-164">The URL for the current operation.</span></span>|  
-|<span data-ttu-id="4c253-165">operationMenu</span><span class="sxs-lookup"><span data-stu-id="4c253-165">operationMenu</span></span>|[<span data-ttu-id="4c253-166">İşlemi menüsü</span><span class="sxs-lookup"><span data-stu-id="4c253-166">Operation menu</span></span>](api-management-template-data-model-reference.md#Menu)|<span data-ttu-id="4c253-167">Bu API işlemlerinin menüsü.</span><span class="sxs-lookup"><span data-stu-id="4c253-167">A menu of operations for this API.</span></span>|  
-|<span data-ttu-id="4c253-168">consoleUrl</span><span class="sxs-lookup"><span data-stu-id="4c253-168">consoleUrl</span></span>|<span data-ttu-id="4c253-169">URI</span><span class="sxs-lookup"><span data-stu-id="4c253-169">URI</span></span>|<span data-ttu-id="4c253-170">URI'sini **deneyin** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="4c253-170">The URI for the **Try it** button.</span></span>|  
-|<span data-ttu-id="4c253-171">Örnekleri</span><span class="sxs-lookup"><span data-stu-id="4c253-171">samples</span></span>|<span data-ttu-id="4c253-172">Koleksiyonu [kod örneği](api-management-template-data-model-reference.md#Sample) varlıklar.</span><span class="sxs-lookup"><span data-stu-id="4c253-172">Collection of [Code sample](api-management-template-data-model-reference.md#Sample) entities.</span></span>|<span data-ttu-id="4c253-173">Geçerli işlem için kod örnekleri...</span><span class="sxs-lookup"><span data-stu-id="4c253-173">The code samples for the current operation..</span></span>|  
+|<span data-ttu-id="14677-147">ApiId</span><span class="sxs-lookup"><span data-stu-id="14677-147">apiId</span></span>|<span data-ttu-id="14677-148">Dize</span><span class="sxs-lookup"><span data-stu-id="14677-148">string</span></span>|<span data-ttu-id="14677-149">Merhaba geçerli API Hello kimliği.</span><span class="sxs-lookup"><span data-stu-id="14677-149">hello id of hello current API.</span></span>|  
+|<span data-ttu-id="14677-150">apiName</span><span class="sxs-lookup"><span data-stu-id="14677-150">apiName</span></span>|<span data-ttu-id="14677-151">Dize</span><span class="sxs-lookup"><span data-stu-id="14677-151">string</span></span>|<span data-ttu-id="14677-152">Merhaba API Hello adı.</span><span class="sxs-lookup"><span data-stu-id="14677-152">hello name of hello API.</span></span>|  
+|<span data-ttu-id="14677-153">apiDescription</span><span class="sxs-lookup"><span data-stu-id="14677-153">apiDescription</span></span>|<span data-ttu-id="14677-154">Dize</span><span class="sxs-lookup"><span data-stu-id="14677-154">string</span></span>|<span data-ttu-id="14677-155">Merhaba API açıklaması.</span><span class="sxs-lookup"><span data-stu-id="14677-155">A description of hello API.</span></span>|  
+|<span data-ttu-id="14677-156">api</span><span class="sxs-lookup"><span data-stu-id="14677-156">api</span></span>|<span data-ttu-id="14677-157">[API özeti](api-management-template-data-model-reference.md#APISummary) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-157">[API summary](api-management-template-data-model-reference.md#APISummary) entity.</span></span>|<span data-ttu-id="14677-158">Merhaba geçerli API.</span><span class="sxs-lookup"><span data-stu-id="14677-158">hello current API.</span></span>|  
+|<span data-ttu-id="14677-159">işlemi</span><span class="sxs-lookup"><span data-stu-id="14677-159">operation</span></span>|[<span data-ttu-id="14677-160">İşlem</span><span class="sxs-lookup"><span data-stu-id="14677-160">Operation</span></span>](api-management-template-data-model-reference.md#Operation)|<span data-ttu-id="14677-161">şu anda görüntülenen hello işlemi.</span><span class="sxs-lookup"><span data-stu-id="14677-161">hello currently displayed operation.</span></span>|  
+|<span data-ttu-id="14677-162">sampleUrl</span><span class="sxs-lookup"><span data-stu-id="14677-162">sampleUrl</span></span>|<span data-ttu-id="14677-163">Dize</span><span class="sxs-lookup"><span data-stu-id="14677-163">string</span></span>|<span data-ttu-id="14677-164">Merhaba geçerli işlem için Hello URL.</span><span class="sxs-lookup"><span data-stu-id="14677-164">hello URL for hello current operation.</span></span>|  
+|<span data-ttu-id="14677-165">operationMenu</span><span class="sxs-lookup"><span data-stu-id="14677-165">operationMenu</span></span>|[<span data-ttu-id="14677-166">İşlemi menüsü</span><span class="sxs-lookup"><span data-stu-id="14677-166">Operation menu</span></span>](api-management-template-data-model-reference.md#Menu)|<span data-ttu-id="14677-167">Bu API işlemlerinin menüsü.</span><span class="sxs-lookup"><span data-stu-id="14677-167">A menu of operations for this API.</span></span>|  
+|<span data-ttu-id="14677-168">consoleUrl</span><span class="sxs-lookup"><span data-stu-id="14677-168">consoleUrl</span></span>|<span data-ttu-id="14677-169">URI</span><span class="sxs-lookup"><span data-stu-id="14677-169">URI</span></span>|<span data-ttu-id="14677-170">Merhaba URI hello **deneyin** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="14677-170">hello URI for hello **Try it** button.</span></span>|  
+|<span data-ttu-id="14677-171">Örnekleri</span><span class="sxs-lookup"><span data-stu-id="14677-171">samples</span></span>|<span data-ttu-id="14677-172">Koleksiyonu [kod örneği](api-management-template-data-model-reference.md#Sample) varlıklar.</span><span class="sxs-lookup"><span data-stu-id="14677-172">Collection of [Code sample](api-management-template-data-model-reference.md#Sample) entities.</span></span>|<span data-ttu-id="14677-173">Merhaba kod örnekleri hello geçerli işlem için...</span><span class="sxs-lookup"><span data-stu-id="14677-173">hello code samples for hello current operation..</span></span>|  
   
-### <a name="sample-template-data"></a><span data-ttu-id="4c253-174">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-174">Sample template data</span></span>  
+### <a name="sample-template-data"></a><span data-ttu-id="14677-174">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-174">Sample template data</span></span>  
   
 ```json  
 {  
@@ -376,7 +376,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -456,7 +456,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -480,7 +480,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -504,7 +504,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -528,7 +528,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -552,7 +552,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -576,7 +576,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -600,7 +600,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -624,7 +624,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -638,31 +638,31 @@ ms.lasthandoff: 07/11/2017
 }  
 ```  
   
-##  <span data-ttu-id="4c253-175"><a name="CodeSamples"></a>Kod örnekleri</span><span class="sxs-lookup"><span data-stu-id="4c253-175"><a name="CodeSamples"></a> Code samples</span></span>  
- <span data-ttu-id="4c253-176">Aşağıdaki şablonlardan işlemi sayfasında tek tek kod örnekleri gövdesi özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-176">The following templates allow you to customize the body of the individual code samples on the operation page.</span></span>  
+##  <span data-ttu-id="14677-175"><a name="CodeSamples"></a>Kod örnekleri</span><span class="sxs-lookup"><span data-stu-id="14677-175"><a name="CodeSamples"></a> Code samples</span></span>  
+ <span data-ttu-id="14677-176">Merhaba aşağıdaki şablonlardan toocustomize hello gövde hello tek tek kod örnekleri hello işlemi sayfasında sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-176">hello following templates allow you toocustomize hello body of hello individual code samples on hello operation page.</span></span>  
   
- <span data-ttu-id="4c253-177">![Geliştirici Portalı şablonları kod örnekleri](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Geliştirici Portalı şablonları kod örnekleri")</span><span class="sxs-lookup"><span data-stu-id="4c253-177">![Developer Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Code samples")</span></span>  
+ <span data-ttu-id="14677-177">![Geliştirici Portalı şablonları kod örnekleri](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Geliştirici Portalı şablonları kod örnekleri")</span><span class="sxs-lookup"><span data-stu-id="14677-177">![Developer Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Code samples")</span></span>  
   
--   [<span data-ttu-id="4c253-178">Curl</span><span class="sxs-lookup"><span data-stu-id="4c253-178">Curl</span></span>](#Curl)  
+-   [<span data-ttu-id="14677-178">Curl</span><span class="sxs-lookup"><span data-stu-id="14677-178">Curl</span></span>](#Curl)  
   
--   [<span data-ttu-id="4c253-179">C#</span><span class="sxs-lookup"><span data-stu-id="4c253-179">C#</span></span>](#CSharp)  
+-   [<span data-ttu-id="14677-179">C#</span><span class="sxs-lookup"><span data-stu-id="14677-179">C#</span></span>](#CSharp)  
   
--   [<span data-ttu-id="4c253-180">Java</span><span class="sxs-lookup"><span data-stu-id="4c253-180">Java</span></span>](#Stub)  
+-   [<span data-ttu-id="14677-180">Java</span><span class="sxs-lookup"><span data-stu-id="14677-180">Java</span></span>](#Stub)  
   
--   [<span data-ttu-id="4c253-181">JavaScript</span><span class="sxs-lookup"><span data-stu-id="4c253-181">JavaScript</span></span>](#JavaScript)  
+-   [<span data-ttu-id="14677-181">JavaScript</span><span class="sxs-lookup"><span data-stu-id="14677-181">JavaScript</span></span>](#JavaScript)  
   
--   [<span data-ttu-id="4c253-182">Objective C</span><span class="sxs-lookup"><span data-stu-id="4c253-182">Objective C</span></span>](#ObjectiveC)  
+-   [<span data-ttu-id="14677-182">Objective C</span><span class="sxs-lookup"><span data-stu-id="14677-182">Objective C</span></span>](#ObjectiveC)  
   
--   [<span data-ttu-id="4c253-183">PHP</span><span class="sxs-lookup"><span data-stu-id="4c253-183">PHP</span></span>](#PHP)  
+-   [<span data-ttu-id="14677-183">PHP</span><span class="sxs-lookup"><span data-stu-id="14677-183">PHP</span></span>](#PHP)  
   
--   [<span data-ttu-id="4c253-184">Python</span><span class="sxs-lookup"><span data-stu-id="4c253-184">Python</span></span>](#Python)  
+-   [<span data-ttu-id="14677-184">Python</span><span class="sxs-lookup"><span data-stu-id="14677-184">Python</span></span>](#Python)  
   
--   [<span data-ttu-id="4c253-185">Ruby</span><span class="sxs-lookup"><span data-stu-id="4c253-185">Ruby</span></span>](#Ruby)  
+-   [<span data-ttu-id="14677-185">Ruby</span><span class="sxs-lookup"><span data-stu-id="14677-185">Ruby</span></span>](#Ruby)  
   
-###  <span data-ttu-id="4c253-186"><a name="Curl"></a>Curl</span><span class="sxs-lookup"><span data-stu-id="4c253-186"><a name="Curl"></a> Curl</span></span>  
- <span data-ttu-id="4c253-187">**DocumentationSamplesCurl** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-187">The **DocumentationSamplesCurl** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="14677-186"><a name="Curl"></a>Curl</span><span class="sxs-lookup"><span data-stu-id="14677-186"><a name="Curl"></a> Curl</span></span>  
+ <span data-ttu-id="14677-187">Merhaba **DocumentationSamplesCurl** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-187">hello **DocumentationSamplesCurl** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="4c253-188">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-188">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="14677-188">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-188">Default template</span></span>  
   
 ```xml  
 @ECHO OFF  
@@ -677,13 +677,13 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="4c253-189">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-189">Controls</span></span>  
- <span data-ttu-id="4c253-190">Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-190">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="14677-189">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-189">Controls</span></span>  
+ <span data-ttu-id="14677-190">Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-190">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="4c253-191">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-191">Data model</span></span>  
- <span data-ttu-id="4c253-192">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-192">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="14677-191">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-191">Data model</span></span>  
+ <span data-ttu-id="14677-192">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-192">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="4c253-193">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-193">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="14677-193">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-193">Sample template data</span></span>  
   
 ```json  
 {  
@@ -700,7 +700,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -712,10 +712,10 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <span data-ttu-id="4c253-194"><a name="CSharp"></a>C#</span><span class="sxs-lookup"><span data-stu-id="4c253-194"><a name="CSharp"></a> C#</span></span>  
- <span data-ttu-id="4c253-195">**DocumentationSamplesCsharp** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-195">The **DocumentationSamplesCsharp** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="14677-194"><a name="CSharp"></a>C#</span><span class="sxs-lookup"><span data-stu-id="14677-194"><a name="CSharp"></a> C#</span></span>  
+ <span data-ttu-id="14677-195">Merhaba **DocumentationSamplesCsharp** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-195">hello **DocumentationSamplesCsharp** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="4c253-196">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-196">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="14677-196">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-196">Default template</span></span>  
   
 ```xml  
 using System;  
@@ -731,7 +731,7 @@ namespace CSHttpClientSample
         static void Main()  
         {  
             MakeRequest();  
-            Console.WriteLine("Hit ENTER to exit...");  
+            Console.WriteLine("Hit ENTER tooexit...");  
             Console.ReadLine();  
         }  
   
@@ -856,13 +856,13 @@ namespace CSHttpClientSample
 }     
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="4c253-197">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-197">Controls</span></span>  
- <span data-ttu-id="4c253-198">Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-198">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="14677-197">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-197">Controls</span></span>  
+ <span data-ttu-id="14677-198">Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-198">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="4c253-199">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-199">Data model</span></span>  
- <span data-ttu-id="4c253-200">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-200">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="14677-199">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-199">Data model</span></span>  
+ <span data-ttu-id="14677-200">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-200">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="4c253-201">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-201">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="14677-201">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-201">Sample template data</span></span>  
   
 ```json  
 {  
@@ -879,7 +879,7 @@ namespace CSHttpClientSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -891,13 +891,13 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <span data-ttu-id="4c253-202"><a name="Stub"></a>Java</span><span class="sxs-lookup"><span data-stu-id="4c253-202"><a name="Stub"></a> Java</span></span>  
- <span data-ttu-id="4c253-203">**DocumentationSamplesJava** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-203">The **DocumentationSamplesJava** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="14677-202"><a name="Stub"></a>Java</span><span class="sxs-lookup"><span data-stu-id="14677-202"><a name="Stub"></a> Java</span></span>  
+ <span data-ttu-id="14677-203">Merhaba **DocumentationSamplesJava** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-203">hello **DocumentationSamplesJava** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="4c253-204">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-204">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="14677-204">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-204">Default template</span></span>  
   
 ```xml  
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// // This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
 import org.apache.http.HttpResponse;  
@@ -952,13 +952,13 @@ public class JavaSample
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="4c253-205">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-205">Controls</span></span>  
- <span data-ttu-id="4c253-206">Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-206">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="14677-205">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-205">Controls</span></span>  
+ <span data-ttu-id="14677-206">Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-206">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="4c253-207">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-207">Data model</span></span>  
- <span data-ttu-id="4c253-208">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-208">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="14677-207">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-207">Data model</span></span>  
+ <span data-ttu-id="14677-208">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-208">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="4c253-209">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-209">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="14677-209">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-209">Sample template data</span></span>  
   
 ```json  
 {  
@@ -975,7 +975,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -987,10 +987,10 @@ public class JavaSample
 }  
 ```  
   
-###  <span data-ttu-id="4c253-210"><a name="JavaScript"></a>JavaScript</span><span class="sxs-lookup"><span data-stu-id="4c253-210"><a name="JavaScript"></a> JavaScript</span></span>  
- <span data-ttu-id="4c253-211">**DocumentationSamplesJs** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-211">The **DocumentationSamplesJs** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="14677-210"><a name="JavaScript"></a>JavaScript</span><span class="sxs-lookup"><span data-stu-id="14677-210"><a name="JavaScript"></a> JavaScript</span></span>  
+ <span data-ttu-id="14677-211">Merhaba **DocumentationSamplesJs** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-211">hello **DocumentationSamplesJs** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="4c253-212">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-212">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="14677-212">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-212">Default template</span></span>  
   
 ```xml  
 <!DOCTYPE html>  
@@ -1041,13 +1041,13 @@ public class JavaSample
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="4c253-213">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-213">Controls</span></span>  
- <span data-ttu-id="4c253-214">Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-214">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="14677-213">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-213">Controls</span></span>  
+ <span data-ttu-id="14677-214">Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-214">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="4c253-215">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-215">Data model</span></span>  
- <span data-ttu-id="4c253-216">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-216">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="14677-215">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-215">Data model</span></span>  
+ <span data-ttu-id="14677-216">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-216">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="4c253-217">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-217">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="14677-217">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-217">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1064,7 +1064,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1076,10 +1076,10 @@ public class JavaSample
 }  
 ```  
   
-###  <span data-ttu-id="4c253-218"><a name="ObjectiveC"></a>Objective C</span><span class="sxs-lookup"><span data-stu-id="4c253-218"><a name="ObjectiveC"></a> Objective C</span></span>  
- <span data-ttu-id="4c253-219">**DocumentationSamplesObjc** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-219">The **DocumentationSamplesObjc** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="14677-218"><a name="ObjectiveC"></a>Objective C</span><span class="sxs-lookup"><span data-stu-id="14677-218"><a name="ObjectiveC"></a> Objective C</span></span>  
+ <span data-ttu-id="14677-219">Merhaba **DocumentationSamplesObjc** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-219">hello **DocumentationSamplesObjc** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="4c253-220">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-220">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="14677-220">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-220">Default template</span></span>  
   
 ```xml  
 #import <Foundation/Foundation.h>  
@@ -1153,13 +1153,13 @@ int main(int argc, const char * argv[])
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="4c253-221">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-221">Controls</span></span>  
- <span data-ttu-id="4c253-222">Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-222">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="14677-221">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-221">Controls</span></span>  
+ <span data-ttu-id="14677-222">Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-222">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="4c253-223">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-223">Data model</span></span>  
- <span data-ttu-id="4c253-224">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-224">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="14677-223">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-223">Data model</span></span>  
+ <span data-ttu-id="14677-224">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-224">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="4c253-225">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-225">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="14677-225">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-225">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1176,7 +1176,7 @@ int main(int argc, const char * argv[])
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1188,14 +1188,14 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <span data-ttu-id="4c253-226"><a name="PHP"></a>PHP</span><span class="sxs-lookup"><span data-stu-id="4c253-226"><a name="PHP"></a> PHP</span></span>  
- <span data-ttu-id="4c253-227">**DocumentationSamplesPhp** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-227">The **DocumentationSamplesPhp** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="14677-226"><a name="PHP"></a>PHP</span><span class="sxs-lookup"><span data-stu-id="14677-226"><a name="PHP"></a> PHP</span></span>  
+ <span data-ttu-id="14677-227">Merhaba **DocumentationSamplesPhp** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-227">hello **DocumentationSamplesPhp** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="4c253-228">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-228">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="14677-228">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-228">Default template</span></span>  
   
 ```xml  
 <?php  
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 require_once 'HTTP/Request2.php';  
   
 $request = new Http_Request2('{{scheme}}://{{host}}{{path}}');  
@@ -1243,13 +1243,13 @@ catch (HttpException $ex)
 ?>  
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="4c253-229">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-229">Controls</span></span>  
- <span data-ttu-id="4c253-230">Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-230">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="14677-229">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-229">Controls</span></span>  
+ <span data-ttu-id="14677-230">Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-230">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="4c253-231">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-231">Data model</span></span>  
- <span data-ttu-id="4c253-232">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-232">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="14677-231">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-231">Data model</span></span>  
+ <span data-ttu-id="14677-232">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-232">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="4c253-233">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-233">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="14677-233">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-233">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1266,7 +1266,7 @@ catch (HttpException $ex)
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1278,10 +1278,10 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <span data-ttu-id="4c253-234"><a name="Python"></a>Python</span><span class="sxs-lookup"><span data-stu-id="4c253-234"><a name="Python"></a> Python</span></span>  
- <span data-ttu-id="4c253-235">**DocumentationSamplesPython** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-235">The **DocumentationSamplesPython** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="14677-234"><a name="Python"></a>Python</span><span class="sxs-lookup"><span data-stu-id="14677-234"><a name="Python"></a> Python</span></span>  
+ <span data-ttu-id="14677-235">Merhaba **DocumentationSamplesPython** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-235">hello **DocumentationSamplesPython** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="4c253-236">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-236">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="14677-236">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-236">Default template</span></span>  
   
 ```xml  
 ########### Python 2.7 #############  
@@ -1361,13 +1361,13 @@ except Exception as e:
 ####################################  
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="4c253-237">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-237">Controls</span></span>  
- <span data-ttu-id="4c253-238">Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-238">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="14677-237">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-237">Controls</span></span>  
+ <span data-ttu-id="14677-238">Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-238">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="4c253-239">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-239">Data model</span></span>  
- <span data-ttu-id="4c253-240">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-240">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="14677-239">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-239">Data model</span></span>  
+ <span data-ttu-id="14677-240">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-240">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="4c253-241">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-241">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="14677-241">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-241">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1384,7 +1384,7 @@ except Exception as e:
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1396,10 +1396,10 @@ except Exception as e:
 }  
 ```  
   
-###  <span data-ttu-id="4c253-242"><a name="Ruby"></a>Ruby</span><span class="sxs-lookup"><span data-stu-id="4c253-242"><a name="Ruby"></a> Ruby</span></span>  
- <span data-ttu-id="4c253-243">**DocumentationSamplesRuby** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="4c253-243">The **DocumentationSamplesRuby** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="14677-242"><a name="Ruby"></a>Ruby</span><span class="sxs-lookup"><span data-stu-id="14677-242"><a name="Ruby"></a> Ruby</span></span>  
+ <span data-ttu-id="14677-243">Merhaba **DocumentationSamplesRuby** şablon hello işlemi sayfasının hello kod örnekleri bölümünde örnek kod toocustomize sağlar.</span><span class="sxs-lookup"><span data-stu-id="14677-243">hello **DocumentationSamplesRuby** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="4c253-244">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="4c253-244">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="14677-244">Varsayılan şablonu</span><span class="sxs-lookup"><span data-stu-id="14677-244">Default template</span></span>  
   
 ```xml  
 require 'net/http'  
@@ -1432,13 +1432,13 @@ puts response.body
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="4c253-245">Denetimler</span><span class="sxs-lookup"><span data-stu-id="4c253-245">Controls</span></span>  
- <span data-ttu-id="4c253-246">Kod örnek şablonları herhangi kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-246">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="14677-245">Denetimler</span><span class="sxs-lookup"><span data-stu-id="14677-245">Controls</span></span>  
+ <span data-ttu-id="14677-246">Merhaba kod örnek şablonları herhangi hello kullanımını izin verme [sayfasında denetimleri](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="14677-246">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="4c253-247">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="4c253-247">Data model</span></span>  
- <span data-ttu-id="4c253-248">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="4c253-248">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="14677-247">Veri modeli</span><span class="sxs-lookup"><span data-stu-id="14677-247">Data model</span></span>  
+ <span data-ttu-id="14677-248">[Kod örneği](api-management-template-data-model-reference.md#Sample) varlık.</span><span class="sxs-lookup"><span data-stu-id="14677-248">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="4c253-249">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="4c253-249">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="14677-249">Örnek şablon verileri</span><span class="sxs-lookup"><span data-stu-id="14677-249">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1455,7 +1455,7 @@ puts response.body
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1467,5 +1467,5 @@ puts response.body
 }  
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="4c253-250">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="4c253-250">Next steps</span></span>
-<span data-ttu-id="4c253-251">Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).</span><span class="sxs-lookup"><span data-stu-id="4c253-251">For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="14677-250">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="14677-250">Next steps</span></span>
+<span data-ttu-id="14677-251">Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).</span><span class="sxs-lookup"><span data-stu-id="14677-251">For more information about working with templates, see [How toocustomize hello API Management developer portal using templates](api-management-developer-portal-templates.md).</span></span>

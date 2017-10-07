@@ -1,6 +1,6 @@
 ---
-title: "Azure DNS Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Azure Etki Alanı Adı Sistemi’ni kullanarak DNS kayıtlarınızı nasıl yönetebileceğinizi öğrenin. Belgelerde etki alanı adları için DNS bölgeleri ve kayıtları ayarlama ve bunları yönetme hakkında bilgi sağlanmıştır."
+title: "aaaAzure DNS belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Bilgi nasıl toomanage Azure etki alanı adı sistemi kullanarak DNS kayıtları. Belge gösterir nasıl tooset ayarlama ve DNS bölgeleri ve etki alanı adları kayıtlarını yönetme."
 services: dns
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 659e0989e3a1f7114796c2211606e5d629cf68fd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 64804b1d6cbfefdeab3f9a79bca26848e37e64f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="dns-documentation"></a>DNS Belgeleri
 
-Bir barındırma hizmeti olan Azure Etki Alanı Adı Sistemi’ni kullanarak DNS kayıtlarınızı nasıl yönetebileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, etki alanı adları için DNS bölgeleri ve kayıtları ayarlama ve bunları yönetme hakkında bilgi sağlanmıştır.
+Nasıl toomanage Azure etki alanı adı sistemi, bir barındırma kullanarak DNS kayıtlarınızı hizmet öğrenin. Öğreticiler, API başvuru ve diğer belgeleri göster, nasıl tooset ayarlama ve DNS bölgeleri ve etki alanı adları kayıtlarını yönetme.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -52,7 +52,7 @@ Bir barındırma hizmeti olan Azure Etki Alanı Adı Sistemi’ni kullanarak DNS
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Portal ile Azure DNS’i kullanmaya başlama</h3>
+                        <h3>Azure hello Azure Portal kullanarak DNS ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Bir barındırma hizmeti olan Azure Etki Alanı Adı Sistemi’ni kullanarak DNS
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure CLI kullanarak Azure DNS ile çalışmaya başlama</h3>
+                        <h3>Azure hello Azure CLI kullanarak DNS ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
-title: "CLI oluşturmak örnek bir Azure SQL veritabanı | Microsoft Docs"
-description: "Bir SQL veritabanı oluşturmak için azure CLI örnek betik"
+title: "bir Azure SQL veritabanı aaaCLI örnek-create | Microsoft Docs"
+description: "Azure CLI örnek komut dosyası toocreate bir SQL veritabanı"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,49 +16,49 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 908898ca691d2b53b9f54afa60c41e091163bd50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d54e284e19f16387813e24d7beb7ab048a39263
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a><span data-ttu-id="12f6b-103">Tek bir Azure SQL veritabanı oluşturma ve bir güvenlik duvarı kuralı yapılandırmak için CLI kullanın</span><span class="sxs-lookup"><span data-stu-id="12f6b-103">Use CLI to create a single Azure SQL database and configure a firewall rule</span></span>
+# <a name="use-cli-toocreate-a-single-azure-sql-database-and-configure-a-firewall-rule"></a><span data-ttu-id="db40a-103">CLI toocreate tek bir Azure SQL veritabanı kullanın ve bir güvenlik duvarı kuralı yapılandırın</span><span class="sxs-lookup"><span data-stu-id="db40a-103">Use CLI toocreate a single Azure SQL database and configure a firewall rule</span></span>
 
-<span data-ttu-id="12f6b-104">Bu Azure CLI betik örnek bir Azure SQL veritabanı oluşturur ve bir sunucu düzeyinde güvenlik duvarı kuralı yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="12f6b-104">This Azure CLI script example creates an Azure SQL database and configure a server-level firewall rule.</span></span> <span data-ttu-id="12f6b-105">Betik başarılı şekilde gerçekleştirildikten sonra SQL veritabanı tüm Azure hizmetlerini ve yapılandırılan IP adresi erişilebilir.</span><span class="sxs-lookup"><span data-stu-id="12f6b-105">Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address.</span></span> 
+<span data-ttu-id="db40a-104">Bu Azure CLI betik örnek bir Azure SQL veritabanı oluşturur ve bir sunucu düzeyinde güvenlik duvarı kuralı yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="db40a-104">This Azure CLI script example creates an Azure SQL database and configure a server-level firewall rule.</span></span> <span data-ttu-id="db40a-105">Hello betik başarılı şekilde gerçekleştirildikten sonra SQL veritabanı tüm Azure hizmetlerinden erişilebilir hello ve başlangıç IP adresi yapılandırılır.</span><span class="sxs-lookup"><span data-stu-id="db40a-105">Once hello script has been successfully run, hello SQL Database can be accessed from all Azure services and hello configured IP address.</span></span> 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-<span data-ttu-id="12f6b-106">CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="12f6b-106">If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later.</span></span> <span data-ttu-id="12f6b-107">Sürümü bulmak için `az --version` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="12f6b-107">Run `az --version` to find the version.</span></span> <span data-ttu-id="12f6b-108">Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="12f6b-108">If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
+<span data-ttu-id="db40a-106">Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir.</span><span class="sxs-lookup"><span data-stu-id="db40a-106">If you choose tooinstall and use hello CLI locally, this topic requires that you are running hello Azure CLI version 2.0 or later.</span></span> <span data-ttu-id="db40a-107">Çalıştırma `az --version` toofind hello sürümü.</span><span class="sxs-lookup"><span data-stu-id="db40a-107">Run `az --version` toofind hello version.</span></span> <span data-ttu-id="db40a-108">Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="db40a-108">If you need tooinstall or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
 
-## <a name="sample-script"></a><span data-ttu-id="12f6b-109">Örnek komut dosyası</span><span class="sxs-lookup"><span data-stu-id="12f6b-109">Sample script</span></span>
+## <a name="sample-script"></a><span data-ttu-id="db40a-109">Örnek komut dosyası</span><span class="sxs-lookup"><span data-stu-id="db40a-109">Sample script</span></span>
 
-<span data-ttu-id="12f6b-110">[!code-azurecli-interactive[Ana](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "SQL veritabanı oluşturma")]</span><span class="sxs-lookup"><span data-stu-id="12f6b-110">[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]</span></span>
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
 
-## <a name="clean-up-deployment"></a><span data-ttu-id="12f6b-111">Dağıtımı temizleme</span><span class="sxs-lookup"><span data-stu-id="12f6b-111">Clean up deployment</span></span>
+## <a name="clean-up-deployment"></a><span data-ttu-id="db40a-110">Dağıtımı temizleme</span><span class="sxs-lookup"><span data-stu-id="db40a-110">Clean up deployment</span></span>
 
-<span data-ttu-id="12f6b-112">Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="12f6b-112">After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.</span></span>
+<span data-ttu-id="db40a-111">Merhaba komut dosyası örneği çalıştırdıktan sonra komutu aşağıdaki hello kullanılan tooremove hello kaynak grubu ve onunla ilişkili tüm kaynakları olabilir.</span><span class="sxs-lookup"><span data-stu-id="db40a-111">After hello script sample has been run, hello following command can be used tooremove hello resource group and all resources associated with it.</span></span>
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a><span data-ttu-id="12f6b-113">Komut dosyası açıklaması</span><span class="sxs-lookup"><span data-stu-id="12f6b-113">Script explanation</span></span>
+## <a name="script-explanation"></a><span data-ttu-id="db40a-112">Komut dosyası açıklaması</span><span class="sxs-lookup"><span data-stu-id="db40a-112">Script explanation</span></span>
 
-<span data-ttu-id="12f6b-114">Bu komut dosyasını aşağıdaki komutları kullanır.</span><span class="sxs-lookup"><span data-stu-id="12f6b-114">This script uses the following commands.</span></span> <span data-ttu-id="12f6b-115">Komut belirli belgeleri tablo bağlanan her komut.</span><span class="sxs-lookup"><span data-stu-id="12f6b-115">Each command in the table links to command specific documentation.</span></span>
+<span data-ttu-id="db40a-113">Bu komut dosyası komutları aşağıdaki hello kullanır.</span><span class="sxs-lookup"><span data-stu-id="db40a-113">This script uses hello following commands.</span></span> <span data-ttu-id="db40a-114">Her komut hello tablosundaki toocommand belirli belgeleri bağlar.</span><span class="sxs-lookup"><span data-stu-id="db40a-114">Each command in hello table links toocommand specific documentation.</span></span>
 
-| <span data-ttu-id="12f6b-116">Komut</span><span class="sxs-lookup"><span data-stu-id="12f6b-116">Command</span></span> | <span data-ttu-id="12f6b-117">Notlar</span><span class="sxs-lookup"><span data-stu-id="12f6b-117">Notes</span></span> |
+| <span data-ttu-id="db40a-115">Komut</span><span class="sxs-lookup"><span data-stu-id="db40a-115">Command</span></span> | <span data-ttu-id="db40a-116">Notlar</span><span class="sxs-lookup"><span data-stu-id="db40a-116">Notes</span></span> |
 |---|---|
-| [<span data-ttu-id="12f6b-118">az grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="12f6b-118">az group create</span></span>](/cli/azure/group#create) | <span data-ttu-id="12f6b-119">Tüm kaynaklar depolandığı bir kaynak grubu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="12f6b-119">Creates a resource group in which all resources are stored.</span></span> |
-| [<span data-ttu-id="12f6b-120">az sql server oluşturun</span><span class="sxs-lookup"><span data-stu-id="12f6b-120">az sql server create</span></span>](/cli/azure/sql/server#create) | <span data-ttu-id="12f6b-121">SQL veritabanı barındıran bir mantıksal sunucu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="12f6b-121">Creates a logical server that hosts the SQL Database.</span></span> |
-| [<span data-ttu-id="12f6b-122">az sql server güvenlik duvarı oluşturma</span><span class="sxs-lookup"><span data-stu-id="12f6b-122">az sql server firewall create</span></span>](/cli/azure/sql/server/firewall-rule#create) | <span data-ttu-id="12f6b-123">Girilen IP adresi aralığından sunucusundaki tüm SQL veritabanlarına erişim sağlamak için bir güvenlik duvarı kuralı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="12f6b-123">Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range.</span></span> |
-| [<span data-ttu-id="12f6b-124">az sql db oluştur</span><span class="sxs-lookup"><span data-stu-id="12f6b-124">az sql db create</span></span>](/cli/azure/sql/db#create) | <span data-ttu-id="12f6b-125">SQL Database mantıksal sunucu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="12f6b-125">Creates the SQL Database in the logical server.</span></span> |
-| [<span data-ttu-id="12f6b-126">az grubu Sil</span><span class="sxs-lookup"><span data-stu-id="12f6b-126">az group delete</span></span>](/cli/azure/resource#delete) | <span data-ttu-id="12f6b-127">Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler.</span><span class="sxs-lookup"><span data-stu-id="12f6b-127">Deletes a resource group including all nested resources.</span></span> |
+| [<span data-ttu-id="db40a-117">az grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="db40a-117">az group create</span></span>](/cli/azure/group#create) | <span data-ttu-id="db40a-118">Tüm kaynaklar depolandığı bir kaynak grubu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="db40a-118">Creates a resource group in which all resources are stored.</span></span> |
+| [<span data-ttu-id="db40a-119">az sql server oluşturun</span><span class="sxs-lookup"><span data-stu-id="db40a-119">az sql server create</span></span>](/cli/azure/sql/server#create) | <span data-ttu-id="db40a-120">Konaklar SQL veritabanı hello mantıksal sunucu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="db40a-120">Creates a logical server that hosts hello SQL Database.</span></span> |
+| [<span data-ttu-id="db40a-121">az sql server güvenlik duvarı oluşturma</span><span class="sxs-lookup"><span data-stu-id="db40a-121">az sql server firewall create</span></span>](/cli/azure/sql/server/firewall-rule#create) | <span data-ttu-id="db40a-122">Merhaba girilen IP adresi aralığından hello sunucusunda bir güvenlik duvarı kuralı tooallow erişim tooall SQL veritabanları oluşturur.</span><span class="sxs-lookup"><span data-stu-id="db40a-122">Creates a firewall rule tooallow access tooall SQL Databases on hello server from hello entered IP address range.</span></span> |
+| [<span data-ttu-id="db40a-123">az sql db oluştur</span><span class="sxs-lookup"><span data-stu-id="db40a-123">az sql db create</span></span>](/cli/azure/sql/db#create) | <span data-ttu-id="db40a-124">SQL veritabanı Hello hello mantıksal Server'da oluşturur.</span><span class="sxs-lookup"><span data-stu-id="db40a-124">Creates hello SQL Database in hello logical server.</span></span> |
+| [<span data-ttu-id="db40a-125">az grubu Sil</span><span class="sxs-lookup"><span data-stu-id="db40a-125">az group delete</span></span>](/cli/azure/resource#delete) | <span data-ttu-id="db40a-126">Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler.</span><span class="sxs-lookup"><span data-stu-id="db40a-126">Deletes a resource group including all nested resources.</span></span> |
 
-## <a name="next-steps"></a><span data-ttu-id="12f6b-128">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="12f6b-128">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="db40a-127">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="db40a-127">Next steps</span></span>
 
-<span data-ttu-id="12f6b-129">Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="12f6b-129">For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
+<span data-ttu-id="db40a-128">Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="db40a-128">For more information on hello Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
 
-<span data-ttu-id="12f6b-130">Ek SQL veritabanı CLI kod örnekleri bulunabilir [Azure SQL veritabanı belgeleri](../sql-database-cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="12f6b-130">Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).</span></span>
+<span data-ttu-id="db40a-129">Ek SQL veritabanı CLI kod örnekleri hello bulunabilir [Azure SQL veritabanı belgeleri](../sql-database-cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="db40a-129">Additional SQL Database CLI script samples can be found in hello [Azure SQL Database documentation](../sql-database-cli-samples.md).</span></span>
 

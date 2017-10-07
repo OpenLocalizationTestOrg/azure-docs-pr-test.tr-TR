@@ -1,6 +1,6 @@
 ---
-title: "KİMLİĞİ kullanarak yedek anahtarları oluşturma | Microsoft Docs"
-description: "KİMLİK tablolarınızı yedek anahtarlar oluşturmak için nasıl kullanılacağını öğrenin."
+title: "KİMLİK kullanarak aaaCreate yedek anahtarları | Microsoft Docs"
+description: "Nasıl toouse kimlik toocreate yedek tablolarınızı anahtarları hakkında bilgi edinin."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 06/13/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 3ab5d159e6eaeb830135fe134e108b0e4de4b7d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 502cdd2b510b229b2a19c1f78b11862a7386ae3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-surrogate-keys-by-using-identity"></a><span data-ttu-id="3c16c-103">Yedek anahtarları kimliği kullanarak oluşturma</span><span class="sxs-lookup"><span data-stu-id="3c16c-103">Create surrogate keys by using IDENTITY</span></span>
+# <a name="create-surrogate-keys-by-using-identity"></a><span data-ttu-id="d1135-103">Yedek anahtarları kimliği kullanarak oluşturma</span><span class="sxs-lookup"><span data-stu-id="d1135-103">Create surrogate keys by using IDENTITY</span></span>
 > [!div class="op_single_selector"]
-> * <span data-ttu-id="3c16c-104">[Genel bakış][Overview]</span><span class="sxs-lookup"><span data-stu-id="3c16c-104">[Overview][Overview]</span></span>
-> * <span data-ttu-id="3c16c-105">[Veri türleri][Data Types]</span><span class="sxs-lookup"><span data-stu-id="3c16c-105">[Data types][Data Types]</span></span>
-> * <span data-ttu-id="3c16c-106">[Dağıt][Distribute]</span><span class="sxs-lookup"><span data-stu-id="3c16c-106">[Distribute][Distribute]</span></span>
-> * <span data-ttu-id="3c16c-107">[Dizin][Index]</span><span class="sxs-lookup"><span data-stu-id="3c16c-107">[Index][Index]</span></span>
-> * <span data-ttu-id="3c16c-108">[Bölüm][Partition]</span><span class="sxs-lookup"><span data-stu-id="3c16c-108">[Partition][Partition]</span></span>
-> * <span data-ttu-id="3c16c-109">[İstatistikleri][Statistics]</span><span class="sxs-lookup"><span data-stu-id="3c16c-109">[Statistics][Statistics]</span></span>
-> * <span data-ttu-id="3c16c-110">[Geçici][Temporary]</span><span class="sxs-lookup"><span data-stu-id="3c16c-110">[Temporary][Temporary]</span></span>
-> * <span data-ttu-id="3c16c-111">[Kimlik][Identity]</span><span class="sxs-lookup"><span data-stu-id="3c16c-111">[Identity][Identity]</span></span>
+> * <span data-ttu-id="d1135-104">[Genel bakış][Overview]</span><span class="sxs-lookup"><span data-stu-id="d1135-104">[Overview][Overview]</span></span>
+> * <span data-ttu-id="d1135-105">[Veri türleri][Data Types]</span><span class="sxs-lookup"><span data-stu-id="d1135-105">[Data types][Data Types]</span></span>
+> * <span data-ttu-id="d1135-106">[Dağıt][Distribute]</span><span class="sxs-lookup"><span data-stu-id="d1135-106">[Distribute][Distribute]</span></span>
+> * <span data-ttu-id="d1135-107">[Dizin][Index]</span><span class="sxs-lookup"><span data-stu-id="d1135-107">[Index][Index]</span></span>
+> * <span data-ttu-id="d1135-108">[Bölüm][Partition]</span><span class="sxs-lookup"><span data-stu-id="d1135-108">[Partition][Partition]</span></span>
+> * <span data-ttu-id="d1135-109">[İstatistikleri][Statistics]</span><span class="sxs-lookup"><span data-stu-id="d1135-109">[Statistics][Statistics]</span></span>
+> * <span data-ttu-id="d1135-110">[Geçici][Temporary]</span><span class="sxs-lookup"><span data-stu-id="d1135-110">[Temporary][Temporary]</span></span>
+> * <span data-ttu-id="d1135-111">[Kimlik][Identity]</span><span class="sxs-lookup"><span data-stu-id="d1135-111">[Identity][Identity]</span></span>
 > 
 > 
 
-<span data-ttu-id="3c16c-112">Veri ambarı modelleri tasarlarken kendi tablolarda yedek anahtarlar oluşturmak çok sayıda veri modelers gibi.</span><span class="sxs-lookup"><span data-stu-id="3c16c-112">Many data modelers like to create surrogate keys on their tables when they design data warehouse models.</span></span> <span data-ttu-id="3c16c-113">IDENTİTY özelliği yükü performansınızı etkilemeden sadece ve etkili bir şekilde bu hedefe ulaşmak için kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3c16c-113">You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance.</span></span> 
+<span data-ttu-id="d1135-112">Veri ambarı modelleri tasarlarken birçok veri modelers tablolarıyla toocreate yedek anahtarları ister.</span><span class="sxs-lookup"><span data-stu-id="d1135-112">Many data modelers like toocreate surrogate keys on their tables when they design data warehouse models.</span></span> <span data-ttu-id="d1135-113">Merhaba kimlik özelliği tooachieve sadece ve etkili bir şekilde bu hedef yükü performansınızı etkilemeden kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d1135-113">You can use hello IDENTITY property tooachieve this goal simply and effectively without affecting load performance.</span></span> 
 
-## <a name="get-started-with-identity"></a><span data-ttu-id="3c16c-114">KİMLİĞİ ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="3c16c-114">Get started with IDENTITY</span></span>
-<span data-ttu-id="3c16c-115">Aşağıdaki deyime benzer sözdizimini kullanarak ilk tablonun oluşturduğunuzda kimlik özelliğine sahip olarak bir tablo tanımlayabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="3c16c-115">You can define a table as having the IDENTITY property when you first create the table by using syntax that is similar to the following statement:</span></span>
+## <a name="get-started-with-identity"></a><span data-ttu-id="d1135-114">KİMLİĞİ ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="d1135-114">Get started with IDENTITY</span></span>
+<span data-ttu-id="d1135-115">Aşağıdaki ifadeyi benzer toohello olan sözdizimini kullanarak ilk hello tablo oluşturduğunuzda hello kimlik özelliğine sahip olarak bir tablo tanımlayabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="d1135-115">You can define a table as having hello IDENTITY property when you first create hello table by using syntax that is similar toohello following statement:</span></span>
 
 ```sql
 CREATE TABLE dbo.T1
@@ -50,15 +50,15 @@ WITH
 ;
 ```
 
-<span data-ttu-id="3c16c-116">Daha sonra kullanabilirsiniz `INSERT..SELECT` tabloyu doldurmak için.</span><span class="sxs-lookup"><span data-stu-id="3c16c-116">You can then use `INSERT..SELECT` to populate the table.</span></span>
+<span data-ttu-id="d1135-116">Daha sonra `INSERT..SELECT` toopopulate hello tablo.</span><span class="sxs-lookup"><span data-stu-id="d1135-116">You can then use `INSERT..SELECT` toopopulate hello table.</span></span>
 
-## <a name="behavior"></a><span data-ttu-id="3c16c-117">Davranışı</span><span class="sxs-lookup"><span data-stu-id="3c16c-117">Behavior</span></span>
-<span data-ttu-id="3c16c-118">KİMLİK özelliği, veri ambarındaki tüm dağıtımlar arasında yük performanslarını etkilemeden genişletmek için tasarlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="3c16c-118">The IDENTITY property is designed to scale out across all the distributions in the data warehouse without affecting load performance.</span></span> <span data-ttu-id="3c16c-119">Bu nedenle, kimlik bu hedeflere ulaşmak doğru yönlendirilmiş uygulamasıdır.</span><span class="sxs-lookup"><span data-stu-id="3c16c-119">Therefore, the implementation of IDENTITY is oriented toward achieving these goals.</span></span> <span data-ttu-id="3c16c-120">Bu bölümde daha eksiksiz anlamanıza yardımcı olması için uygulama nüanslarını vurgular.</span><span class="sxs-lookup"><span data-stu-id="3c16c-120">This section highlights the nuances of the implementation to help you understand them more fully.</span></span>  
+## <a name="behavior"></a><span data-ttu-id="d1135-117">Davranışı</span><span class="sxs-lookup"><span data-stu-id="d1135-117">Behavior</span></span>
+<span data-ttu-id="d1135-118">Merhaba kimlik özelliği çıkışı tasarlanmış tooscale yük performanslarını etkilemeden hello veri ambarındaki tüm hello dağıtımlar arasında değil.</span><span class="sxs-lookup"><span data-stu-id="d1135-118">hello IDENTITY property is designed tooscale out across all hello distributions in hello data warehouse without affecting load performance.</span></span> <span data-ttu-id="d1135-119">Bu nedenle, hello kimlik bu hedeflere ulaşmak doğru yönlendirilmiş uygulamasıdır.</span><span class="sxs-lookup"><span data-stu-id="d1135-119">Therefore, hello implementation of IDENTITY is oriented toward achieving these goals.</span></span> <span data-ttu-id="d1135-120">Bu bölüm hello nüanslarını vurgular hello uygulama toohelp siz bunları daha tam olarak anlamak.</span><span class="sxs-lookup"><span data-stu-id="d1135-120">This section highlights hello nuances of hello implementation toohelp you understand them more fully.</span></span>  
 
-### <a name="allocation-of-values"></a><span data-ttu-id="3c16c-121">Değerlerin ayırma</span><span class="sxs-lookup"><span data-stu-id="3c16c-121">Allocation of values</span></span>
-<span data-ttu-id="3c16c-122">KİMLİK özelliği, SQL Server ve Azure SQL veritabanı davranışını yansıtan, yedek değerleri ayrılmış, sipariş garanti etmez.</span><span class="sxs-lookup"><span data-stu-id="3c16c-122">The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database.</span></span> <span data-ttu-id="3c16c-123">Ancak, Azure SQL veri ambarı'nda bir garanti yokluğu daha belirgin olur.</span><span class="sxs-lookup"><span data-stu-id="3c16c-123">However, in Azure SQL Data Warehouse, the absence of a guarantee is more pronounced.</span></span> 
+### <a name="allocation-of-values"></a><span data-ttu-id="d1135-121">Değerlerin ayırma</span><span class="sxs-lookup"><span data-stu-id="d1135-121">Allocation of values</span></span>
+<span data-ttu-id="d1135-122">Merhaba kimlik özelliği hangi hello ayrılan yedek değerleri, SQL Server ve Azure SQL veritabanı hello davranışını yansıtan hello sipariş garanti etmez.</span><span class="sxs-lookup"><span data-stu-id="d1135-122">hello IDENTITY property doesn't guarantee hello order in which hello surrogate values are allocated, which reflects hello behavior of SQL Server and Azure SQL Database.</span></span> <span data-ttu-id="d1135-123">Ancak, Azure SQL veri ambarı'nda bir garanti hello yokluğu daha belirgin olur.</span><span class="sxs-lookup"><span data-stu-id="d1135-123">However, in Azure SQL Data Warehouse, hello absence of a guarantee is more pronounced.</span></span> 
 
-<span data-ttu-id="3c16c-124">Aşağıdaki çizim bir örnektir:</span><span class="sxs-lookup"><span data-stu-id="3c16c-124">The following example is an illustration:</span></span>
+<span data-ttu-id="d1135-124">Aşağıdaki örnek hello çizim şöyledir:</span><span class="sxs-lookup"><span data-stu-id="d1135-124">hello following example is an illustration:</span></span>
 
 ```sql
 CREATE TABLE dbo.T1
@@ -83,29 +83,29 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-<span data-ttu-id="3c16c-125">Önceki örnekte, iki satır dağıtım 1 landed.</span><span class="sxs-lookup"><span data-stu-id="3c16c-125">In the preceding example, two rows landed in distribution 1.</span></span> <span data-ttu-id="3c16c-126">İlk satırı sütun yedek değeri 1 olan `C1`, ve ikinci satırında 61 yedek değerine sahip.</span><span class="sxs-lookup"><span data-stu-id="3c16c-126">The first row has the surrogate value of 1 in column `C1`, and the second row has the surrogate value of 61.</span></span> <span data-ttu-id="3c16c-127">Bu değerlerin her ikisi de kimlik özelliği tarafından üretildi.</span><span class="sxs-lookup"><span data-stu-id="3c16c-127">Both of these values were generated by the IDENTITY property.</span></span> <span data-ttu-id="3c16c-128">Ancak, değerleri ayırma bitişik değil.</span><span class="sxs-lookup"><span data-stu-id="3c16c-128">However, the allocation of the values is not contiguous.</span></span> <span data-ttu-id="3c16c-129">Bu davranış tasarım gereğidir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-129">This behavior is by design.</span></span>
+<span data-ttu-id="d1135-125">Örnek önceki hello iki satır dağıtım 1 landed.</span><span class="sxs-lookup"><span data-stu-id="d1135-125">In hello preceding example, two rows landed in distribution 1.</span></span> <span data-ttu-id="d1135-126">Hello ilk satır sütununda hello yedek değeri 1 olan `C1`, ve hello ikinci satırında 61 hello yedek değeri.</span><span class="sxs-lookup"><span data-stu-id="d1135-126">hello first row has hello surrogate value of 1 in column `C1`, and hello second row has hello surrogate value of 61.</span></span> <span data-ttu-id="d1135-127">Bu değerlerin her ikisi de hello kimlik özelliği tarafından üretildi.</span><span class="sxs-lookup"><span data-stu-id="d1135-127">Both of these values were generated by hello IDENTITY property.</span></span> <span data-ttu-id="d1135-128">Ancak, hello ayırma hello değerlerin bitişik değil.</span><span class="sxs-lookup"><span data-stu-id="d1135-128">However, hello allocation of hello values is not contiguous.</span></span> <span data-ttu-id="d1135-129">Bu davranış tasarım gereğidir.</span><span class="sxs-lookup"><span data-stu-id="d1135-129">This behavior is by design.</span></span>
 
-### <a name="skewed-data"></a><span data-ttu-id="3c16c-130">Çarpık veri</span><span class="sxs-lookup"><span data-stu-id="3c16c-130">Skewed data</span></span> 
-<span data-ttu-id="3c16c-131">Veri türü için değer aralığını dağıtımlar arasında eşit olarak yayılır.</span><span class="sxs-lookup"><span data-stu-id="3c16c-131">The range of values for the data type are spread evenly across the distributions.</span></span> <span data-ttu-id="3c16c-132">Dağıtılmış bir tablo çarpık verileri varsa, ardından veri türü için kullanılabilir değerleri aralığı erken tükendi.</span><span class="sxs-lookup"><span data-stu-id="3c16c-132">If a distributed table suffers from skewed data, then the range of values available to the datatype can be exhausted prematurely.</span></span> <span data-ttu-id="3c16c-133">Tüm verileri sona eriyor, tek bir dağıtım Örneğin, ardından etkili bir şekilde tablo yalnızca bir-sixtieth veri türü değerlerinin erişebilir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-133">For example, if all the data ends up in a single distribution, then effectively the table has access to only one-sixtieth of the values of the data type.</span></span> <span data-ttu-id="3c16c-134">Bu nedenle, kimlik özelliği sınırlıdır `INT` ve `BIGINT` veri türleri yalnızca.</span><span class="sxs-lookup"><span data-stu-id="3c16c-134">For this reason, the IDENTITY property is limited to `INT` and `BIGINT` data types only.</span></span>
+### <a name="skewed-data"></a><span data-ttu-id="d1135-130">Çarpık veri</span><span class="sxs-lookup"><span data-stu-id="d1135-130">Skewed data</span></span> 
+<span data-ttu-id="d1135-131">Merhaba hello veri türünün değer aralığını hello dağıtımlar arasında eşit olarak yayılır.</span><span class="sxs-lookup"><span data-stu-id="d1135-131">hello range of values for hello data type are spread evenly across hello distributions.</span></span> <span data-ttu-id="d1135-132">Dağıtılmış bir tablo çarpık verileri varsa, kullanılabilir toohello datatype erken tükenmiş olabilir değerlerin hello.</span><span class="sxs-lookup"><span data-stu-id="d1135-132">If a distributed table suffers from skewed data, then hello range of values available toohello datatype can be exhausted prematurely.</span></span> <span data-ttu-id="d1135-133">Tüm hello verileri sona eriyor, tek bir dağıtım, örneğin, etkili bir şekilde hello tablo hello veri türünün hello değerlerin erişim tooonly bir sixtieth yoktur.</span><span class="sxs-lookup"><span data-stu-id="d1135-133">For example, if all hello data ends up in a single distribution, then effectively hello table has access tooonly one-sixtieth of hello values of hello data type.</span></span> <span data-ttu-id="d1135-134">Bu nedenle, hello kimlik özelliği çok sınırlı`INT` ve `BIGINT` veri türleri yalnızca.</span><span class="sxs-lookup"><span data-stu-id="d1135-134">For this reason, hello IDENTITY property is limited too`INT` and `BIGINT` data types only.</span></span>
 
-### <a name="selectinto"></a><span data-ttu-id="3c16c-135">SEÇİN... İÇİNE</span><span class="sxs-lookup"><span data-stu-id="3c16c-135">SELECT..INTO</span></span>
-<span data-ttu-id="3c16c-136">Varolan bir kimlik sütunu yeni bir tabloya seçildiğinde, yeni bir sütun aşağıdaki koşullardan biri doğru olmadıkça kimlik özelliği alır:</span><span class="sxs-lookup"><span data-stu-id="3c16c-136">When an existing IDENTITY column is selected into a new table, the new column inherits the IDENTITY property, unless one of the following conditions is true:</span></span>
-- <span data-ttu-id="3c16c-137">SELECT deyimi bir birleştirme içerir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-137">The SELECT statement contains a join.</span></span>
-- <span data-ttu-id="3c16c-138">Birden çok SELECT deyimine birleşim kullanılarak birleştirilmiştir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-138">Multiple SELECT statements are joined by using UNION.</span></span>
-- <span data-ttu-id="3c16c-139">KİMLİK sütunu SELECT listesinde birden fazla kez listelenir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-139">The IDENTITY column is listed more than one time in the SELECT list.</span></span>
-- <span data-ttu-id="3c16c-140">KİMLİK sütunu bir ifadenin bir parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="3c16c-140">The IDENTITY column is part of an expression.</span></span>
+### <a name="selectinto"></a><span data-ttu-id="d1135-135">SEÇİN... İÇİNE</span><span class="sxs-lookup"><span data-stu-id="d1135-135">SELECT..INTO</span></span>
+<span data-ttu-id="d1135-136">Varolan bir kimlik sütunu yeni bir tabloya seçildiğinde, hello koşullar aşağıdaki koşullardan biri sürece hello yeni bir sütun hello kimlik özelliği alır:</span><span class="sxs-lookup"><span data-stu-id="d1135-136">When an existing IDENTITY column is selected into a new table, hello new column inherits hello IDENTITY property, unless one of hello following conditions is true:</span></span>
+- <span data-ttu-id="d1135-137">Merhaba SELECT deyimi bir birleştirme içerir.</span><span class="sxs-lookup"><span data-stu-id="d1135-137">hello SELECT statement contains a join.</span></span>
+- <span data-ttu-id="d1135-138">Birden çok SELECT deyimine birleşim kullanılarak birleştirilmiştir.</span><span class="sxs-lookup"><span data-stu-id="d1135-138">Multiple SELECT statements are joined by using UNION.</span></span>
+- <span data-ttu-id="d1135-139">Merhaba kimlik sütunu hello SELECT listesinde birden fazla kez listelenir.</span><span class="sxs-lookup"><span data-stu-id="d1135-139">hello IDENTITY column is listed more than one time in hello SELECT list.</span></span>
+- <span data-ttu-id="d1135-140">Merhaba kimlik sütunu bir ifadenin bir parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="d1135-140">hello IDENTITY column is part of an expression.</span></span>
     
-<span data-ttu-id="3c16c-141">Bu koşulların herhangi biri doğruysa, sütun kimlik özelliğini devralan yerine NOT NULL oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="3c16c-141">If any one of these conditions is true, the column is created NOT NULL instead of inheriting the IDENTITY property.</span></span>
+<span data-ttu-id="d1135-141">Bu koşulların herhangi biri doğruysa hello sütun hello kimlik özelliğini devralan yerine NOT NULL oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="d1135-141">If any one of these conditions is true, hello column is created NOT NULL instead of inheriting hello IDENTITY property.</span></span>
 
-### <a name="create-table-as-select"></a><span data-ttu-id="3c16c-142">TABLE AS SELECT OLUŞTURMA</span><span class="sxs-lookup"><span data-stu-id="3c16c-142">CREATE TABLE AS SELECT</span></span>
-<span data-ttu-id="3c16c-143">OLUŞTURMA tablo AS seçin (CTAS) için SELECT belgelenen aynı SQL Server davranışı izleyen... .</span><span class="sxs-lookup"><span data-stu-id="3c16c-143">CREATE TABLE AS SELECT (CTAS) follows the same SQL Server behavior that's documented for SELECT..INTO.</span></span> <span data-ttu-id="3c16c-144">Ancak, bir kimlik özelliği sütun tanımında belirtemezsiniz `CREATE TABLE` deyim parçası.</span><span class="sxs-lookup"><span data-stu-id="3c16c-144">However, you can't specify an IDENTITY property in the column definition of the `CREATE TABLE` part of the statement.</span></span> <span data-ttu-id="3c16c-145">Ayrıca kimlik işlevinde kullanamazsınız `SELECT` CTAS bir parçası.</span><span class="sxs-lookup"><span data-stu-id="3c16c-145">You also can't use the IDENTITY function in the `SELECT` part of the CTAS.</span></span> <span data-ttu-id="3c16c-146">Bir tabloyu doldurmak için kullanmanız gerekir `CREATE TABLE` arkasından tablosu tanımlamak için `INSERT..SELECT` onu doldurmak için.</span><span class="sxs-lookup"><span data-stu-id="3c16c-146">To populate a table, you need to use `CREATE TABLE` to define the table followed by `INSERT..SELECT` to populate it.</span></span>
+### <a name="create-table-as-select"></a><span data-ttu-id="d1135-142">TABLE AS SELECT OLUŞTURMA</span><span class="sxs-lookup"><span data-stu-id="d1135-142">CREATE TABLE AS SELECT</span></span>
+<span data-ttu-id="d1135-143">OLUŞTURMA tablo AS seçin (CTAS) aşağıdaki seçim belgelenen aynı SQL Server davranışı hello... .</span><span class="sxs-lookup"><span data-stu-id="d1135-143">CREATE TABLE AS SELECT (CTAS) follows hello same SQL Server behavior that's documented for SELECT..INTO.</span></span> <span data-ttu-id="d1135-144">Ancak, bir kimlik özelliği hello sütun tanımında hello belirtemezsiniz `CREATE TABLE` hello deyimi parçası.</span><span class="sxs-lookup"><span data-stu-id="d1135-144">However, you can't specify an IDENTITY property in hello column definition of hello `CREATE TABLE` part of hello statement.</span></span> <span data-ttu-id="d1135-145">Merhaba kimlik işlevi hello kullanamazsınız `SELECT` hello CTAS bir parçası.</span><span class="sxs-lookup"><span data-stu-id="d1135-145">You also can't use hello IDENTITY function in hello `SELECT` part of hello CTAS.</span></span> <span data-ttu-id="d1135-146">toopopulate bir tablo, gereksinim duyduğunuz toouse `CREATE TABLE` toodefine hello tablo arkasından `INSERT..SELECT` toopopulate onu.</span><span class="sxs-lookup"><span data-stu-id="d1135-146">toopopulate a table, you need toouse `CREATE TABLE` toodefine hello table followed by `INSERT..SELECT` toopopulate it.</span></span>
 
-## <a name="explicitly-insert-values-into-an-identity-column"></a><span data-ttu-id="3c16c-147">Açıkça değerleri bir kimlik sütununa ekleme</span><span class="sxs-lookup"><span data-stu-id="3c16c-147">Explicitly insert values into an IDENTITY column</span></span> 
-<span data-ttu-id="3c16c-148">SQL veri ambarı destekleyen `SET IDENTITY_INSERT <your table> ON|OFF` sözdizimi.</span><span class="sxs-lookup"><span data-stu-id="3c16c-148">SQL Data Warehouse supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax.</span></span> <span data-ttu-id="3c16c-149">Açıkça kimlik sütununa değerleri eklemek için şu sözdizimini kullanın.</span><span class="sxs-lookup"><span data-stu-id="3c16c-149">You can use this syntax to explicitly insert values into the IDENTITY column.</span></span>
+## <a name="explicitly-insert-values-into-an-identity-column"></a><span data-ttu-id="d1135-147">Açıkça değerleri bir kimlik sütununa ekleme</span><span class="sxs-lookup"><span data-stu-id="d1135-147">Explicitly insert values into an IDENTITY column</span></span> 
+<span data-ttu-id="d1135-148">SQL veri ambarı destekleyen `SET IDENTITY_INSERT <your table> ON|OFF` sözdizimi.</span><span class="sxs-lookup"><span data-stu-id="d1135-148">SQL Data Warehouse supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax.</span></span> <span data-ttu-id="d1135-149">Merhaba kimlik sütununa Bu sözdizimi tooexplicitly Ekle değerlerini kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d1135-149">You can use this syntax tooexplicitly insert values into hello IDENTITY column.</span></span>
 
-<span data-ttu-id="3c16c-150">Birçok veri modelers kendi boyutlarını belirli satırlar için önceden tanımlanmış negatif değerler kullanmak ister.</span><span class="sxs-lookup"><span data-stu-id="3c16c-150">Many data modelers like to use predefined negative values for certain rows in their dimensions.</span></span> <span data-ttu-id="3c16c-151">-1 veya "Bilinmeyen bir üyeye" satır örneğidir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-151">An example is the -1 or "unknown member" row.</span></span> 
+<span data-ttu-id="d1135-150">Toouse önceden tanımlanmış negatif belirli kendi boyutlarını satır değerleri gibi çok sayıda veri modelers.</span><span class="sxs-lookup"><span data-stu-id="d1135-150">Many data modelers like toouse predefined negative values for certain rows in their dimensions.</span></span> <span data-ttu-id="d1135-151">Merhaba -1 veya "Bilinmeyen bir üyeye" satır örneğidir.</span><span class="sxs-lookup"><span data-stu-id="d1135-151">An example is hello -1 or "unknown member" row.</span></span> 
 
-<span data-ttu-id="3c16c-152">Sonraki komut dosyası açıkça AYARLAMAK IDENTITY_INSERT kullanarak bu satır eklemek nasıl gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="3c16c-152">The next script shows how to explicitly add this row by using SET IDENTITY_INSERT:</span></span>
+<span data-ttu-id="d1135-152">Merhaba sonraki komut dosyası nasıl tooexplicitly eklemek bu satır KÜMESİ IDENTITY_INSERT kullanarak gösterir:</span><span class="sxs-lookup"><span data-stu-id="d1135-152">hello next script shows how tooexplicitly add this row by using SET IDENTITY_INSERT:</span></span>
 
 ```sql
 SET IDENTITY_INSERT dbo.T1 ON;
@@ -124,14 +124,14 @@ FROM    dbo.T1
 ;
 ```    
 
-## <a name="load-data-into-a-table-with-identity"></a><span data-ttu-id="3c16c-153">KİMLİĞİNE sahip bir tabloya veri yükleme</span><span class="sxs-lookup"><span data-stu-id="3c16c-153">Load data into a table with IDENTITY</span></span>
+## <a name="load-data-into-a-table-with-identity"></a><span data-ttu-id="d1135-153">KİMLİĞİNE sahip bir tabloya veri yükleme</span><span class="sxs-lookup"><span data-stu-id="d1135-153">Load data into a table with IDENTITY</span></span>
 
-<span data-ttu-id="3c16c-154">IDENTİTY özelliği varlığını veri yükleme kodunuza bazı etkilere sahiptir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-154">The presence of the IDENTITY property has some implications to your data-loading code.</span></span> <span data-ttu-id="3c16c-155">Bu bölüm kimliği kullanarak verileri tablolara yüklemek için bazı temel düzenlerden vurgular.</span><span class="sxs-lookup"><span data-stu-id="3c16c-155">This section highlights some basic patterns for loading data into tables by using IDENTITY.</span></span> 
+<span data-ttu-id="d1135-154">Merhaba kimlik özelliği Hello varlığını bazı etkileri tooyour veri yükleme koduna sahip.</span><span class="sxs-lookup"><span data-stu-id="d1135-154">hello presence of hello IDENTITY property has some implications tooyour data-loading code.</span></span> <span data-ttu-id="d1135-155">Bu bölüm kimliği kullanarak verileri tablolara yüklemek için bazı temel düzenlerden vurgular.</span><span class="sxs-lookup"><span data-stu-id="d1135-155">This section highlights some basic patterns for loading data into tables by using IDENTITY.</span></span> 
 
-### <a name="load-data-with-polybase"></a><span data-ttu-id="3c16c-156">PolyBase ile veri yükleyin</span><span class="sxs-lookup"><span data-stu-id="3c16c-156">Load data with PolyBase</span></span>
-<span data-ttu-id="3c16c-157">Verileri bir tabloya yüklemek ve bir yedek anahtar kimliği kullanarak oluşturmak, tablo oluştur ve Ekle kullanmak için... Seç veya Ekle... Yükleme gerçekleştirmek için değerler.</span><span class="sxs-lookup"><span data-stu-id="3c16c-157">To load data into a table and generate a surrogate key by using IDENTITY, create the table and then use INSERT..SELECT or INSERT..VALUES to perform the load.</span></span>
+### <a name="load-data-with-polybase"></a><span data-ttu-id="d1135-156">PolyBase ile veri yükleyin</span><span class="sxs-lookup"><span data-stu-id="d1135-156">Load data with PolyBase</span></span>
+<span data-ttu-id="d1135-157">bir tabloya tooload veri ve kimliği kullanarak bir yedek anahtar oluşturmak, hello tablo oluşturmayı ve ardından Ekle... Seç veya Ekle... DEĞERLERİ tooperform hello yük.</span><span class="sxs-lookup"><span data-stu-id="d1135-157">tooload data into a table and generate a surrogate key by using IDENTITY, create hello table and then use INSERT..SELECT or INSERT..VALUES tooperform hello load.</span></span>
 
-<span data-ttu-id="3c16c-158">Aşağıdaki örnek temel düzeni vurgular:</span><span class="sxs-lookup"><span data-stu-id="3c16c-158">The following example highlights the basic pattern:</span></span>
+<span data-ttu-id="d1135-158">Merhaba aşağıdaki örnek hello temel düzeni vurgular:</span><span class="sxs-lookup"><span data-stu-id="d1135-158">hello following example highlights hello basic pattern:</span></span>
  
 ```sql
 --CREATE TABLE with IDENTITY
@@ -145,7 +145,7 @@ WITH
 )
 ;
 
---Use INSERT..SELECT to populate the table from an external table
+--Use INSERT..SELECT toopopulate hello table from an external table
 INSERT INTO dbo.T1
 (C2)
 SELECT  C2
@@ -160,28 +160,28 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> <span data-ttu-id="3c16c-159">Kullanmak mümkün değil `CREATE TABLE AS SELECT` şu anda verileri bir kimlik sütunu olan bir tabloya yüklenirken.</span><span class="sxs-lookup"><span data-stu-id="3c16c-159">It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.</span></span>
+> <span data-ttu-id="d1135-159">Olası toouse değil `CREATE TABLE AS SELECT` şu anda verileri bir kimlik sütunu olan bir tabloya yüklenirken.</span><span class="sxs-lookup"><span data-stu-id="d1135-159">It's not possible toouse `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.</span></span>
 > 
 
-<span data-ttu-id="3c16c-160">Toplu kopyalama programı (BCP) aracını kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:</span><span class="sxs-lookup"><span data-stu-id="3c16c-160">For more information on loading data by using the bulk copy program (BCP) tool, see the following articles:</span></span>
+<span data-ttu-id="d1135-160">Merhaba toplu kopyalama programı (BCP) aracını kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makaleler hello bakın:</span><span class="sxs-lookup"><span data-stu-id="d1135-160">For more information on loading data by using hello bulk copy program (BCP) tool, see hello following articles:</span></span>
 
-- <span data-ttu-id="3c16c-161">[PolyBase ile yükleme][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-161">[Load with PolyBase][]</span></span>
-- <span data-ttu-id="3c16c-162">[PolyBase en iyi uygulamalar][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-162">[PolyBase best practices][]</span></span>
+- <span data-ttu-id="d1135-161">[PolyBase ile yükleme][]</span><span class="sxs-lookup"><span data-stu-id="d1135-161">[Load with PolyBase][]</span></span>
+- <span data-ttu-id="d1135-162">[PolyBase en iyi uygulamalar][]</span><span class="sxs-lookup"><span data-stu-id="d1135-162">[PolyBase best practices][]</span></span>
 
-### <a name="load-data-with-bcp"></a><span data-ttu-id="3c16c-163">BCP ile veri yükleme</span><span class="sxs-lookup"><span data-stu-id="3c16c-163">Load data with BCP</span></span>
-<span data-ttu-id="3c16c-164">BCP SQL Data Warehouse'a veri yüklemek için kullanabileceğiniz bir komut satırı aracıdır.</span><span class="sxs-lookup"><span data-stu-id="3c16c-164">BCP is a command-line tool that you can use to load data into SQL Data Warehouse.</span></span> <span data-ttu-id="3c16c-165">Parametrelerinden biri (-E) verileri bir kimlik sütunu olan bir tabloya yüklenirken BCP davranışını denetler.</span><span class="sxs-lookup"><span data-stu-id="3c16c-165">One of its parameters (-E) controls the behavior of BCP when loading data into a table with an IDENTITY column.</span></span> 
+### <a name="load-data-with-bcp"></a><span data-ttu-id="d1135-163">BCP ile veri yükleme</span><span class="sxs-lookup"><span data-stu-id="d1135-163">Load data with BCP</span></span>
+<span data-ttu-id="d1135-164">BCP, SQL Data Warehouse'a tooload veri kullanabileceğiniz bir komut satırı aracıdır.</span><span class="sxs-lookup"><span data-stu-id="d1135-164">BCP is a command-line tool that you can use tooload data into SQL Data Warehouse.</span></span> <span data-ttu-id="d1135-165">Parametrelerinden biri (-E) denetimleri hello BCP davranışını verileri bir kimlik sütunu olan bir tabloya yüklenirken.</span><span class="sxs-lookup"><span data-stu-id="d1135-165">One of its parameters (-E) controls hello behavior of BCP when loading data into a table with an IDENTITY column.</span></span> 
 
-<span data-ttu-id="3c16c-166">-E belirtildiğinde, sütun için giriş dosyasındaki KİMLİKLE tutulan değerleri korunur.</span><span class="sxs-lookup"><span data-stu-id="3c16c-166">When -E is specified, the values held in the input file for the column with IDENTITY are retained.</span></span> <span data-ttu-id="3c16c-167">-E ise *değil* belirtilen sonra da bu sütundaki değerleri yoksayılır.</span><span class="sxs-lookup"><span data-stu-id="3c16c-167">If -E is *not* specified, then the values in this column are ignored.</span></span> <span data-ttu-id="3c16c-168">Kimlik sütununun dahil edilmezse, verileri normal olarak yüklenir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-168">If the identity column is not included, then the data is loaded as normal.</span></span> <span data-ttu-id="3c16c-169">Değerleri özelliği artırma ve çekirdek ilkesine göre oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="3c16c-169">The values are generated according to the increment and seed policy of the property.</span></span>
+<span data-ttu-id="d1135-166">-E belirtildiğinde, hello sütun için hello giriş dosyasındaki KİMLİKLE tutulan hello değerleri korunur.</span><span class="sxs-lookup"><span data-stu-id="d1135-166">When -E is specified, hello values held in hello input file for hello column with IDENTITY are retained.</span></span> <span data-ttu-id="d1135-167">-E ise *değil* hello bu sütundaki değerleri yoksayılır belirtilen.</span><span class="sxs-lookup"><span data-stu-id="d1135-167">If -E is *not* specified, then hello values in this column are ignored.</span></span> <span data-ttu-id="d1135-168">Merhaba kimlik sütunu dahil edilmezse, hello veriler normal olarak yüklenir.</span><span class="sxs-lookup"><span data-stu-id="d1135-168">If hello identity column is not included, then hello data is loaded as normal.</span></span> <span data-ttu-id="d1135-169">Merhaba değerleri toohello artırma ve çekirdek İlkesi hello özelliğinin göre oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="d1135-169">hello values are generated according toohello increment and seed policy of hello property.</span></span>
 
-<span data-ttu-id="3c16c-170">BCP kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makalelere bakın:</span><span class="sxs-lookup"><span data-stu-id="3c16c-170">For more information on loading data by using BCP, see the following articles:</span></span>
+<span data-ttu-id="d1135-170">BCP kullanarak veri yükleme ile ilgili daha fazla bilgi için aşağıdaki makaleler hello bakın:</span><span class="sxs-lookup"><span data-stu-id="d1135-170">For more information on loading data by using BCP, see hello following articles:</span></span>
 
-- <span data-ttu-id="3c16c-171">[BCP ile yükleme][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-171">[Load with BCP][]</span></span>
-- <span data-ttu-id="3c16c-172">[BCP MSDN'de][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-172">[BCP in MSDN][]</span></span>
+- <span data-ttu-id="d1135-171">[BCP ile yükleme][]</span><span class="sxs-lookup"><span data-stu-id="d1135-171">[Load with BCP][]</span></span>
+- <span data-ttu-id="d1135-172">[BCP MSDN'de][]</span><span class="sxs-lookup"><span data-stu-id="d1135-172">[BCP in MSDN][]</span></span>
 
-## <a name="catalog-views"></a><span data-ttu-id="3c16c-173">Katalog görünümleri</span><span class="sxs-lookup"><span data-stu-id="3c16c-173">Catalog views</span></span>
-<span data-ttu-id="3c16c-174">SQL veri ambarı destekleyen `sys.identity_columns` Katalog görünümü.</span><span class="sxs-lookup"><span data-stu-id="3c16c-174">SQL Data Warehouse supports the `sys.identity_columns` catalog view.</span></span> <span data-ttu-id="3c16c-175">Bu görünüm, kimlik özelliğine sahip bir sütunu tanımlamak için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-175">This view can be used to identify a column that has the IDENTITY property.</span></span>
+## <a name="catalog-views"></a><span data-ttu-id="d1135-173">Katalog görünümleri</span><span class="sxs-lookup"><span data-stu-id="d1135-173">Catalog views</span></span>
+<span data-ttu-id="d1135-174">SQL veri ambarı destekleyen hello `sys.identity_columns` Katalog görünümü.</span><span class="sxs-lookup"><span data-stu-id="d1135-174">SQL Data Warehouse supports hello `sys.identity_columns` catalog view.</span></span> <span data-ttu-id="d1135-175">Bu görünüm, kullanılan tooidentify hello kimlik özelliğine sahip bir sütun olabilir.</span><span class="sxs-lookup"><span data-stu-id="d1135-175">This view can be used tooidentify a column that has hello IDENTITY property.</span></span>
 
-<span data-ttu-id="3c16c-176">Veritabanı şeması daha iyi anlamanıza yardımcı olması için bu örnek nasıl tümleştirileceği gösterir `sys.identity_columns` diğer sistem Katalog görünümleri ile:</span><span class="sxs-lookup"><span data-stu-id="3c16c-176">To help you better understand the database schema, this example shows how to integrate `sys.identity_columns` with other system catalog views:</span></span>
+<span data-ttu-id="d1135-176">Bu örnek hello veritabanı şeması daha iyi anlamak toohelp gösterir nasıl toointegrate `sys.identity_columns` diğer sistem Katalog görünümleri ile:</span><span class="sxs-lookup"><span data-stu-id="d1135-176">toohelp you better understand hello database schema, this example shows how toointegrate `sys.identity_columns` with other system catalog views:</span></span>
 
 ```sql
 SELECT  sm.name
@@ -201,40 +201,40 @@ AND     tb.name = 'T1'
 ;
 ```
 
-## <a name="limitations"></a><span data-ttu-id="3c16c-177">Sınırlamalar</span><span class="sxs-lookup"><span data-stu-id="3c16c-177">Limitations</span></span>
-<span data-ttu-id="3c16c-178">KİMLİK özelliği aşağıdaki senaryolarda kullanılamaz:</span><span class="sxs-lookup"><span data-stu-id="3c16c-178">The IDENTITY property can't be used in the following scenarios:</span></span>
-- <span data-ttu-id="3c16c-179">Burada sütun veri türü tamsayı veya büyük tamsayı değil</span><span class="sxs-lookup"><span data-stu-id="3c16c-179">Where the column data type is not INT or BIGINT</span></span>
-- <span data-ttu-id="3c16c-180">Sütun dağıtım anahtarı da olduğu</span><span class="sxs-lookup"><span data-stu-id="3c16c-180">Where the column is also the distribution key</span></span>
-- <span data-ttu-id="3c16c-181">Tablo bir dış tablo olduğu</span><span class="sxs-lookup"><span data-stu-id="3c16c-181">Where the table is an external table</span></span> 
+## <a name="limitations"></a><span data-ttu-id="d1135-177">Sınırlamalar</span><span class="sxs-lookup"><span data-stu-id="d1135-177">Limitations</span></span>
+<span data-ttu-id="d1135-178">Merhaba kimlik özelliği senaryoları aşağıdaki hello kullanılamaz:</span><span class="sxs-lookup"><span data-stu-id="d1135-178">hello IDENTITY property can't be used in hello following scenarios:</span></span>
+- <span data-ttu-id="d1135-179">Burada hello sütun veri türü tamsayı veya büyük tamsayı değil</span><span class="sxs-lookup"><span data-stu-id="d1135-179">Where hello column data type is not INT or BIGINT</span></span>
+- <span data-ttu-id="d1135-180">Merhaba sütun hello dağıtım anahtarı da olduğu</span><span class="sxs-lookup"><span data-stu-id="d1135-180">Where hello column is also hello distribution key</span></span>
+- <span data-ttu-id="d1135-181">Merhaba tablosu bir dış tablo olduğu</span><span class="sxs-lookup"><span data-stu-id="d1135-181">Where hello table is an external table</span></span> 
 
-<span data-ttu-id="3c16c-182">SQL veri ambarı'nda aşağıdaki ilgili işlevleri desteklenmez:</span><span class="sxs-lookup"><span data-stu-id="3c16c-182">The following related functions are not supported in SQL Data Warehouse:</span></span>
+<span data-ttu-id="d1135-182">ilgili işlevleri aşağıdaki hello SQL veri ambarı'nda desteklenmez:</span><span class="sxs-lookup"><span data-stu-id="d1135-182">hello following related functions are not supported in SQL Data Warehouse:</span></span>
 
-- <span data-ttu-id="3c16c-183">[IDENTITY()][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-183">[IDENTITY()][]</span></span>
-- <span data-ttu-id="3c16c-184">[@@IDENTITY][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-184">[@@IDENTITY][]</span></span>
-- <span data-ttu-id="3c16c-185">[SCOPE_IDENTITY][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-185">[SCOPE_IDENTITY][]</span></span>
-- <span data-ttu-id="3c16c-186">[IDENT_CURRENT][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-186">[IDENT_CURRENT][]</span></span>
-- <span data-ttu-id="3c16c-187">[IDENT_INCR][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-187">[IDENT_INCR][]</span></span>
-- <span data-ttu-id="3c16c-188">[IDENT_SEED][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-188">[IDENT_SEED][]</span></span>
-- <span data-ttu-id="3c16c-189">[DBCC CHECK_IDENT()][]</span><span class="sxs-lookup"><span data-stu-id="3c16c-189">[DBCC CHECK_IDENT()][]</span></span>
+- <span data-ttu-id="d1135-183">[IDENTITY()][]</span><span class="sxs-lookup"><span data-stu-id="d1135-183">[IDENTITY()][]</span></span>
+- <span data-ttu-id="d1135-184">[@@IDENTITY][]</span><span class="sxs-lookup"><span data-stu-id="d1135-184">[@@IDENTITY][]</span></span>
+- <span data-ttu-id="d1135-185">[SCOPE_IDENTITY][]</span><span class="sxs-lookup"><span data-stu-id="d1135-185">[SCOPE_IDENTITY][]</span></span>
+- <span data-ttu-id="d1135-186">[IDENT_CURRENT][]</span><span class="sxs-lookup"><span data-stu-id="d1135-186">[IDENT_CURRENT][]</span></span>
+- <span data-ttu-id="d1135-187">[IDENT_INCR][]</span><span class="sxs-lookup"><span data-stu-id="d1135-187">[IDENT_INCR][]</span></span>
+- <span data-ttu-id="d1135-188">[IDENT_SEED][]</span><span class="sxs-lookup"><span data-stu-id="d1135-188">[IDENT_SEED][]</span></span>
+- <span data-ttu-id="d1135-189">[DBCC CHECK_IDENT()][]</span><span class="sxs-lookup"><span data-stu-id="d1135-189">[DBCC CHECK_IDENT()][]</span></span>
 
-## <a name="tasks"></a><span data-ttu-id="3c16c-190">Görevler</span><span class="sxs-lookup"><span data-stu-id="3c16c-190">Tasks</span></span>
+## <a name="tasks"></a><span data-ttu-id="d1135-190">Görevler</span><span class="sxs-lookup"><span data-stu-id="d1135-190">Tasks</span></span>
 
-<span data-ttu-id="3c16c-191">Bu bölümde kimlik sütunu ile çalışırken ortak görevleri gerçekleştirmek için kullanabileceğiniz bazı örnek kodu sağlıyor.</span><span class="sxs-lookup"><span data-stu-id="3c16c-191">This section provides some sample code you can use to perform common tasks when you work with IDENTITY columns.</span></span>
+<span data-ttu-id="d1135-191">Bu bölümde bazı örnek kod, kimlik sütunu ile çalışırken tooperform ortak görevleri kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d1135-191">This section provides some sample code you can use tooperform common tasks when you work with IDENTITY columns.</span></span>
 
 > [!NOTE] 
-> <span data-ttu-id="3c16c-192">Sütun C1 tüm aşağıdaki görevler kimliğidir.</span><span class="sxs-lookup"><span data-stu-id="3c16c-192">Column C1 is the IDENTITY in all the following tasks.</span></span>
+> <span data-ttu-id="d1135-192">Sütun C1 hello kimlik görevleri aşağıdaki tüm hello ' dir.</span><span class="sxs-lookup"><span data-stu-id="d1135-192">Column C1 is hello IDENTITY in all hello following tasks.</span></span>
 > 
  
-### <a name="find-the-highest-allocated-value-for-a-table"></a><span data-ttu-id="3c16c-193">Bir tablo için en yüksek ayrılmış değeri Bul</span><span class="sxs-lookup"><span data-stu-id="3c16c-193">Find the highest allocated value for a table</span></span>
-<span data-ttu-id="3c16c-194">Kullanım `MAX()` işlevi dağıtılmış bir tablo için ayrılan en yüksek değeri belirlemek için:</span><span class="sxs-lookup"><span data-stu-id="3c16c-194">Use the `MAX()` function to determine the highest value allocated for a distributed table:</span></span>
+### <a name="find-hello-highest-allocated-value-for-a-table"></a><span data-ttu-id="d1135-193">Bir tablo için ayrılan hello en yüksek değeri Bul</span><span class="sxs-lookup"><span data-stu-id="d1135-193">Find hello highest allocated value for a table</span></span>
+<span data-ttu-id="d1135-194">Kullanım hello `MAX()` işlev dağıtılmış bir tablo için ayrılan toodetermine hello en yüksek değer:</span><span class="sxs-lookup"><span data-stu-id="d1135-194">Use hello `MAX()` function toodetermine hello highest value allocated for a distributed table:</span></span>
 
 ```sql
 SELECT  MAX(C1)
 FROM    dbo.T1
 ``` 
 
-### <a name="find-the-seed-and-increment-for-the-identity-property"></a><span data-ttu-id="3c16c-195">Çekirdek ve Artım kimlik özelliği için Bul</span><span class="sxs-lookup"><span data-stu-id="3c16c-195">Find the seed and increment for the IDENTITY property</span></span>
-<span data-ttu-id="3c16c-196">Katalog görünümleri aşağıdaki sorguyu kullanarak bir tablo için kimlik artırma ve çekirdek yapılandırma değerlerini bulmak için kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="3c16c-196">You can use the catalog views to discover the identity increment and seed configuration values for a table by using the following query:</span></span> 
+### <a name="find-hello-seed-and-increment-for-hello-identity-property"></a><span data-ttu-id="d1135-195">Merhaba çekirdek ve Artım Merhaba kimlik özelliği Bul</span><span class="sxs-lookup"><span data-stu-id="d1135-195">Find hello seed and increment for hello IDENTITY property</span></span>
+<span data-ttu-id="d1135-196">Sorgu aşağıdaki hello kullanarak bir tablo için hello Katalog görünümleri toodiscover hello kimlik artırma ve çekirdek yapılandırma değerlerini kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="d1135-196">You can use hello catalog views toodiscover hello identity increment and seed configuration values for a table by using hello following query:</span></span> 
 
 ```sql
 SELECT  sm.name
@@ -252,10 +252,10 @@ AND     tb.name = 'T1'
 ;
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="3c16c-197">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="3c16c-197">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="d1135-197">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d1135-197">Next steps</span></span>
 
-* <span data-ttu-id="3c16c-198">Tabloları geliştirme hakkında daha fazla bilgi için bkz: [tablo genel bakış][Overview], [tablo veri türleri][Data Types], [bir tabloDağıt] [ Distribute], [Tablo dizin][Index], [tablo bölüm][Partition], ve [ Geçici tablolara][Temporary].</span><span class="sxs-lookup"><span data-stu-id="3c16c-198">To learn more about developing tables, see [Table overview][Overview], [Table data types][Data Types], [Distribute a table][Distribute], [Index a table][Index], [Partition a table][Partition], and [Temporary tables][Temporary].</span></span> 
-* <span data-ttu-id="3c16c-199">En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi yöntemler][SQL Data Warehouse Best Practices].</span><span class="sxs-lookup"><span data-stu-id="3c16c-199">For more information about best practices, see [SQL Data Warehouse best practices][SQL Data Warehouse Best Practices].</span></span>  
+* <span data-ttu-id="d1135-198">tablolar, geliştirme hakkında daha fazla toolearn bkz [tablo genel bakışı][Overview], [tablo veri türleri][Data Types], [bir tabloDağıt] [ Distribute], [Tablo dizin][Index], [tablo bölüm][Partition], ve [ Geçici tablolara][Temporary].</span><span class="sxs-lookup"><span data-stu-id="d1135-198">toolearn more about developing tables, see [Table overview][Overview], [Table data types][Data Types], [Distribute a table][Distribute], [Index a table][Index], [Partition a table][Partition], and [Temporary tables][Temporary].</span></span> 
+* <span data-ttu-id="d1135-199">En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi yöntemler][SQL Data Warehouse Best Practices].</span><span class="sxs-lookup"><span data-stu-id="d1135-199">For more information about best practices, see [SQL Data Warehouse best practices][SQL Data Warehouse Best Practices].</span></span>  
 
 <!--Image references-->
 
@@ -270,23 +270,23 @@ AND     tb.name = 'T1'
 [Identity]: ./sql-data-warehouse-tables-identity.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
-<span data-ttu-id="3c16c-200">[BCP ile yükleme]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp/</span><span class="sxs-lookup"><span data-stu-id="3c16c-200">[Load with bcp]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp/</span></span>
-<span data-ttu-id="3c16c-201">[PolyBase ile yükleme]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/</span><span class="sxs-lookup"><span data-stu-id="3c16c-201">[Load with PolyBase]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/</span></span>
-<span data-ttu-id="3c16c-202">[PolyBase en iyi uygulamalar]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide/</span><span class="sxs-lookup"><span data-stu-id="3c16c-202">[PolyBase best practices]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide/</span></span>
+[BCP ile yükleme]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-with-bcp/
+[PolyBase ile yükleme]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
+[PolyBase en iyi uygulamalar]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide/
 
 
 <!--MSDN references-->
 [Identity property]: https://msdn.microsoft.com/library/ms186775.aspx
 [sys.identity_columns]: https://msdn.microsoft.com/library/ms187334.aspx
-<span data-ttu-id="3c16c-203">[IDENTITY()]: https://msdn.microsoft.com/library/ms189838.aspx</span><span class="sxs-lookup"><span data-stu-id="3c16c-203">[IDENTITY()]: https://msdn.microsoft.com/library/ms189838.aspx</span></span>
-<span data-ttu-id="3c16c-204">[@@IDENTITY]: https://msdn.microsoft.com/library/ms187342.aspx</span><span class="sxs-lookup"><span data-stu-id="3c16c-204">[@@IDENTITY]: https://msdn.microsoft.com/library/ms187342.aspx</span></span>
-<span data-ttu-id="3c16c-205">[SCOPE_IDENTITY]: https://msdn.microsoft.com/library/ms190315.aspx</span><span class="sxs-lookup"><span data-stu-id="3c16c-205">[SCOPE_IDENTITY]: https://msdn.microsoft.com/library/ms190315.aspx</span></span>
-<span data-ttu-id="3c16c-206">[IDENT_CURRENT]: https://msdn.microsoft.com/library/ms175098.aspx</span><span class="sxs-lookup"><span data-stu-id="3c16c-206">[IDENT_CURRENT]: https://msdn.microsoft.com/library/ms175098.aspx</span></span>
-<span data-ttu-id="3c16c-207">[IDENT_INCR]: https://msdn.microsoft.com/library/ms189795.aspx</span><span class="sxs-lookup"><span data-stu-id="3c16c-207">[IDENT_INCR]: https://msdn.microsoft.com/library/ms189795.aspx</span></span>
-<span data-ttu-id="3c16c-208">[IDENT_SEED]: https://msdn.microsoft.com/library/ms189834.aspx</span><span class="sxs-lookup"><span data-stu-id="3c16c-208">[IDENT_SEED]: https://msdn.microsoft.com/library/ms189834.aspx</span></span>
-<span data-ttu-id="3c16c-209">[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/library/ms176057.aspx</span><span class="sxs-lookup"><span data-stu-id="3c16c-209">[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/library/ms176057.aspx</span></span>
+[IDENTITY()]: https://msdn.microsoft.com/library/ms189838.aspx
+[@@IDENTITY]: https://msdn.microsoft.com/library/ms187342.aspx
+[SCOPE_IDENTITY]: https://msdn.microsoft.com/library/ms190315.aspx
+[IDENT_CURRENT]: https://msdn.microsoft.com/library/ms175098.aspx
+[IDENT_INCR]: https://msdn.microsoft.com/library/ms189795.aspx
+[IDENT_SEED]: https://msdn.microsoft.com/library/ms189834.aspx
+[DBCC CHECK_IDENT()]: https://msdn.microsoft.com/library/ms176057.aspx
 
-<span data-ttu-id="3c16c-210">[BCP MSDN'de]: https://msdn.microsoft.com/library/ms162802.aspx</span><span class="sxs-lookup"><span data-stu-id="3c16c-210">[bcp in MSDN]: https://msdn.microsoft.com/library/ms162802.aspx</span></span>
+[BCP MSDN'de]: https://msdn.microsoft.com/library/ms162802.aspx
   
 
 <!--Other Web references-->  

@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı örnekleri sorunlarını giderme"
-description: "Azure kapsayıcı örnekleri ile ilgili sorunları giderme hakkında bilgi edinin"
+title: "aaaTroubleshooting Azure kapsayıcı örnekleri"
+description: "Azure kapsayıcı örnekleriyle tootroubleshoot nasıl sorunları öğrenin"
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -17,25 +17,25 @@ ms.workload: na
 ms.date: 08/03/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 86fa4b7dca7c362f95c0243a33f03d1f2dd3ab42
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: dfec636a0a174c74a6f2e9d9c4da6e871f8d2fda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a><span data-ttu-id="5971c-103">Azure kapsayıcı örnekleri dağıtım sorunlarını giderme</span><span class="sxs-lookup"><span data-stu-id="5971c-103">Troubleshoot deployment issues with Azure Container Instances</span></span>
+# <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a><span data-ttu-id="f21e9-103">Azure kapsayıcı örnekleri dağıtım sorunlarını giderme</span><span class="sxs-lookup"><span data-stu-id="f21e9-103">Troubleshoot deployment issues with Azure Container Instances</span></span>
 
-<span data-ttu-id="5971c-104">Bu makalede kapsayıcıları Azure kapsayıcı örnekleri dağıtırken ilgili sorunları gidermek nasıl gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="5971c-104">This article shows how to troubleshoot issues when deploying containers to Azure Container Instances.</span></span> <span data-ttu-id="5971c-105">Ayrıca bazı içine çalışabilir yaygın sorunları açıklar.</span><span class="sxs-lookup"><span data-stu-id="5971c-105">It also describes some of the common issues you may run into.</span></span>
+<span data-ttu-id="f21e9-104">Bu makalede nasıl tootroubleshoot kapsayıcıları tooAzure kapsayıcı örnekleri dağıtırken sorunları gösterir.</span><span class="sxs-lookup"><span data-stu-id="f21e9-104">This article shows how tootroubleshoot issues when deploying containers tooAzure Container Instances.</span></span> <span data-ttu-id="f21e9-105">Ayrıca bazı içine çalışabilir hello yaygın sorunları açıklar.</span><span class="sxs-lookup"><span data-stu-id="f21e9-105">It also describes some of hello common issues you may run into.</span></span>
 
-## <a name="getting-diagnostic-events"></a><span data-ttu-id="5971c-106">Tanılama Olayları Alma</span><span class="sxs-lookup"><span data-stu-id="5971c-106">Getting diagnostic events</span></span>
+## <a name="getting-diagnostic-events"></a><span data-ttu-id="f21e9-106">Tanılama Olayları Alma</span><span class="sxs-lookup"><span data-stu-id="f21e9-106">Getting diagnostic events</span></span>
 
-<span data-ttu-id="5971c-107">Bir kapsayıcı içindeki uygulama kodunuzdan günlükleri görüntülemek için kullanabileceğiniz [az kapsayıcı günlükleri](/cli/azure/container#logs) komutu.</span><span class="sxs-lookup"><span data-stu-id="5971c-107">To view logs from your application code within a container, you can use the [az container logs](/cli/azure/container#logs) command.</span></span> <span data-ttu-id="5971c-108">Ancak, kapsayıcı başarıyla dağıtma, Azure kapsayıcı örnekleri kaynak sağlayıcısı tarafından sağlanan tanı bilgilerini gözden geçirmek gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="5971c-108">But if your container does not deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider.</span></span> <span data-ttu-id="5971c-109">Kapsayıcı olayları görüntülemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="5971c-109">To view the events for your container, run the following command:</span></span>
+<span data-ttu-id="f21e9-107">bir kapsayıcı içindeki uygulama kodunuzdan tooview günlükleri, kullanabileceğiniz hello [az kapsayıcı günlükleri](/cli/azure/container#logs) komutu.</span><span class="sxs-lookup"><span data-stu-id="f21e9-107">tooview logs from your application code within a container, you can use hello [az container logs](/cli/azure/container#logs) command.</span></span> <span data-ttu-id="f21e9-108">Ancak, kapsayıcı başarıyla dağıtma, hello Azure kapsayıcı örnekleri kaynak sağlayıcısı tarafından sağlanan tooreview hello tanılama bilgileri gerekir.</span><span class="sxs-lookup"><span data-stu-id="f21e9-108">But if your container does not deploy successfully, you need tooreview hello diagnostic information provided by hello Azure Container Instances resource provider.</span></span> <span data-ttu-id="f21e9-109">tooview hello olayları hello aşağıdaki komutu çalıştırın, kapsayıcı için:</span><span class="sxs-lookup"><span data-stu-id="f21e9-109">tooview hello events for your container, run hello following command:</span></span>
 
 ```azurecli-interactive
 az container show -n mycontainername -g myresourcegroup
 ```
 
-<span data-ttu-id="5971c-110">Çıktı dağıtım olayları yanı sıra, kapsayıcı çekirdek özelliklerini içerir:</span><span class="sxs-lookup"><span data-stu-id="5971c-110">The output includes the core properties of your container, along with deployment events:</span></span>
+<span data-ttu-id="f21e9-110">Merhaba çıktı dağıtım olayları yanı sıra, kapsayıcının hello çekirdek özellikleri içerir:</span><span class="sxs-lookup"><span data-stu-id="f21e9-110">hello output includes hello core properties of your container, along with deployment events:</span></span>
 
 ```bash
 {
@@ -87,13 +87,13 @@ az container show -n mycontainername -g myresourcegroup
 }
 ```
 
-## <a name="common-deployment-issues"></a><span data-ttu-id="5971c-111">Genel dağıtım sorunları</span><span class="sxs-lookup"><span data-stu-id="5971c-111">Common deployment issues</span></span>
+## <a name="common-deployment-issues"></a><span data-ttu-id="f21e9-111">Genel dağıtım sorunları</span><span class="sxs-lookup"><span data-stu-id="f21e9-111">Common deployment issues</span></span>
 
-<span data-ttu-id="5971c-112">Bu hesaba hataların çoğu dağıtımda bazı yaygın sorunlar vardır.</span><span class="sxs-lookup"><span data-stu-id="5971c-112">There are a few common issues that account for most errors in deployment.</span></span>
+<span data-ttu-id="f21e9-112">Bu hesaba hataların çoğu dağıtımda bazı yaygın sorunlar vardır.</span><span class="sxs-lookup"><span data-stu-id="f21e9-112">There are a few common issues that account for most errors in deployment.</span></span>
 
-### <a name="unable-to-pull-image"></a><span data-ttu-id="5971c-113">Çekme görüntü oluşturulamıyor</span><span class="sxs-lookup"><span data-stu-id="5971c-113">Unable to pull image</span></span>
+### <a name="unable-toopull-image"></a><span data-ttu-id="f21e9-113">%S toopull görüntüsü</span><span class="sxs-lookup"><span data-stu-id="f21e9-113">Unable toopull image</span></span>
 
-<span data-ttu-id="5971c-114">Azure kapsayıcı örnek görüntünüzü başlangıçta çekmesini kaydedemediği sonunda başarısız önce belirli bir süre için yeniden dener.</span><span class="sxs-lookup"><span data-stu-id="5971c-114">If Azure Container Instances is unable to pull your image initially, it retries for some period before eventually failing.</span></span> <span data-ttu-id="5971c-115">Görüntü çekilen, olayları aşağıdaki gibi gösterilir:</span><span class="sxs-lookup"><span data-stu-id="5971c-115">If the image cannot be pulled, events like the following are shown:</span></span>
+<span data-ttu-id="f21e9-114">Azure kapsayıcı örneği oluşturulamıyor toopull ise görüntünüzü başlangıçta, onu sonunda başarısız önce belirli bir süre için yeniden deneme sayısı.</span><span class="sxs-lookup"><span data-stu-id="f21e9-114">If Azure Container Instances is unable toopull your image initially, it retries for some period before eventually failing.</span></span> <span data-ttu-id="f21e9-115">Merhaba görüntü çekilen, olayları hello aşağıdaki gibi gösterilir:</span><span class="sxs-lookup"><span data-stu-id="f21e9-115">If hello image cannot be pulled, events like hello following are shown:</span></span>
 
 ```bash
 "events": [
@@ -108,7 +108,7 @@ az container show -n mycontainername -g myresourcegroup
     "count": 1,
     "firstTimestamp": "2017-08-03T22:19:32+00:00",
     "lastTimestamp": "2017-08-03T22:19:32+00:00",
-    "message": "Failed: Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
+    "message": "Failed: Failed toopull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
     "type": "Warning"
   },
   {
@@ -121,11 +121,11 @@ az container show -n mycontainername -g myresourcegroup
 ]
 ```
 
-<span data-ttu-id="5971c-116">Çözümlemek için kapsayıcıyı silin ve görüntü adı doğru yazdığınızı ödeyen Kapat dikkat dağıtımınızı yeniden deneyin.</span><span class="sxs-lookup"><span data-stu-id="5971c-116">To resolve, delete the container and retry your deployment, paying close attention that you have typed the image name correctly.</span></span>
+<span data-ttu-id="f21e9-116">tooresolve, hello kapsayıcısını silmek ve hello görüntü adı doğru yazdığınızı ödeyen Kapat dikkat dağıtımınızı yeniden deneyin.</span><span class="sxs-lookup"><span data-stu-id="f21e9-116">tooresolve, delete hello container and retry your deployment, paying close attention that you have typed hello image name correctly.</span></span>
 
-### <a name="container-continually-exits-and-restarts"></a><span data-ttu-id="5971c-117">Kapsayıcı sürekli olarak çıkar ve yeniden başlatır</span><span class="sxs-lookup"><span data-stu-id="5971c-117">Container continually exits and restarts</span></span>
+### <a name="container-continually-exits-and-restarts"></a><span data-ttu-id="f21e9-117">Kapsayıcı sürekli olarak çıkar ve yeniden başlatır</span><span class="sxs-lookup"><span data-stu-id="f21e9-117">Container continually exits and restarts</span></span>
 
-<span data-ttu-id="5971c-118">Şu anda, Azure kapsayıcı örnekleri yalnızca uzun süre çalışan hizmetleri destekler.</span><span class="sxs-lookup"><span data-stu-id="5971c-118">Currently, Azure Container Instances only supports long-running services.</span></span> <span data-ttu-id="5971c-119">Kapsayıcı tamamlama ve çıkar çalıştırıyorsa, otomatik olarak yeniden başlatılır ve yeniden çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="5971c-119">If your container runs to completion and exits, it automatically restarts and runs again.</span></span> <span data-ttu-id="5971c-120">Bu durumda, olayları olanlar aşağıdaki gibi gösterilir.</span><span class="sxs-lookup"><span data-stu-id="5971c-120">If this happens, events like those following are shown.</span></span> <span data-ttu-id="5971c-121">Kapsayıcı sorunsuz başlatıldıktan sonra hızlı bir şekilde yeniden unutmayın.</span><span class="sxs-lookup"><span data-stu-id="5971c-121">Note that the container successfully starts, then quickly restarts.</span></span> <span data-ttu-id="5971c-122">Kapsayıcı örnekleri API içeren bir `retryCount` belirli bir kapsayıcıda kaç kez gösteren özelliği başlatıldıktan.</span><span class="sxs-lookup"><span data-stu-id="5971c-122">The Container Instances API includes a `retryCount` property that shows how many times a particular container has restarted.</span></span>
+<span data-ttu-id="f21e9-118">Şu anda, Azure kapsayıcı örnekleri yalnızca uzun süre çalışan hizmetleri destekler.</span><span class="sxs-lookup"><span data-stu-id="f21e9-118">Currently, Azure Container Instances only supports long-running services.</span></span> <span data-ttu-id="f21e9-119">Kapsayıcı toocompletion ve çıkış çalıştırıyorsa, otomatik olarak yeniden başlatılır ve yeniden çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="f21e9-119">If your container runs toocompletion and exits, it automatically restarts and runs again.</span></span> <span data-ttu-id="f21e9-120">Bu durumda, olayları olanlar aşağıdaki gibi gösterilir.</span><span class="sxs-lookup"><span data-stu-id="f21e9-120">If this happens, events like those following are shown.</span></span> <span data-ttu-id="f21e9-121">Bu hello kapsayıcı başarıyla başlar, sonra hızlı bir şekilde yeniden unutmayın.</span><span class="sxs-lookup"><span data-stu-id="f21e9-121">Note that hello container successfully starts, then quickly restarts.</span></span> <span data-ttu-id="f21e9-122">Merhaba kapsayıcı örnekleri API içeren bir `retryCount` belirli bir kapsayıcıda kaç kez gösteren özelliği başlatıldıktan.</span><span class="sxs-lookup"><span data-stu-id="f21e9-122">hello Container Instances API includes a `retryCount` property that shows how many times a particular container has restarted.</span></span>
 
 ```bash
 "events": [
@@ -189,25 +189,25 @@ az container show -n mycontainername -g myresourcegroup
 ```
 
 > [!NOTE]
-> <span data-ttu-id="5971c-123">Linux dağıtımları için çoğu kapsayıcı görüntüleri bash gibi bir kabuk varsayılan komut olarak ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="5971c-123">Most container images for Linux distributions set a shell, such as bash, as the default command.</span></span> <span data-ttu-id="5971c-124">Kendi başına bir kabuk uzun süre çalışan hizmet olmadığından, bu kapsayıcılar hemen çıkmak ve yeniden başlatma döngüye ayrılır.</span><span class="sxs-lookup"><span data-stu-id="5971c-124">Since a shell on its own is not a long-running service, these containers immediately exit and fall into a restart loop.</span></span>
+> <span data-ttu-id="f21e9-123">Linux dağıtımları için çoğu kapsayıcı görüntüleri bash gibi bir kabuk hello varsayılan komut olarak ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="f21e9-123">Most container images for Linux distributions set a shell, such as bash, as hello default command.</span></span> <span data-ttu-id="f21e9-124">Kendi başına bir kabuk uzun süre çalışan hizmet olmadığından, bu kapsayıcılar hemen çıkmak ve yeniden başlatma döngüye ayrılır.</span><span class="sxs-lookup"><span data-stu-id="f21e9-124">Since a shell on its own is not a long-running service, these containers immediately exit and fall into a restart loop.</span></span>
 
-### <a name="container-takes-a-long-time-to-start"></a><span data-ttu-id="5971c-125">Kapsayıcı başlatmak için çok uzun sürüyor</span><span class="sxs-lookup"><span data-stu-id="5971c-125">Container takes a long time to start</span></span>
+### <a name="container-takes-a-long-time-toostart"></a><span data-ttu-id="f21e9-125">Uzun süre toostart kapsayıcı alır</span><span class="sxs-lookup"><span data-stu-id="f21e9-125">Container takes a long time toostart</span></span>
 
-<span data-ttu-id="5971c-126">Kapsayıcı başlatma, ancak sonuç uzun süren, başarılı, kapsayıcı görüntünüzü boyutta bakarak başlatın.</span><span class="sxs-lookup"><span data-stu-id="5971c-126">If your container takes a long time to start, but eventually succeeds, start by looking at the size of your container image.</span></span> <span data-ttu-id="5971c-127">Azure kapsayıcı örnekleri kapsayıcı görüntünüzü isteğe bağlı olarak çeker çünkü karşılaştığınız başlangıç zamanını boyutuna doğrudan ilişkilidir.</span><span class="sxs-lookup"><span data-stu-id="5971c-127">Because Azure Container Instances pulls your container image on demand, the startup time you experience is directly related to its size.</span></span>
+<span data-ttu-id="f21e9-126">Kapsayıcı uzun süre toostart alır, ancak sonunda başarılı, kapsayıcı görüntünüzü hello boyutta bakarak başlatın.</span><span class="sxs-lookup"><span data-stu-id="f21e9-126">If your container takes a long time toostart, but eventually succeeds, start by looking at hello size of your container image.</span></span> <span data-ttu-id="f21e9-127">Azure kapsayıcı örnekleri kapsayıcı görüntünüzü isteğe bağlı olarak çeker, karşılaştığınız hello başlangıç zamanını doğrudan ilgili tooits çünkü boyutu.</span><span class="sxs-lookup"><span data-stu-id="f21e9-127">Because Azure Container Instances pulls your container image on demand, hello startup time you experience is directly related tooits size.</span></span>
 
-<span data-ttu-id="5971c-128">Docker CLI kullanarak kapsayıcı görüntünüzün boyutunu görüntüleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="5971c-128">You can view the size of your container image using the Docker CLI:</span></span>
+<span data-ttu-id="f21e9-128">Kapsayıcı görüntünüzün hello Docker CLI kullanarak hello boyutunu görüntüleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="f21e9-128">You can view hello size of your container image using hello Docker CLI:</span></span>
 
 ```bash
 docker images
 ```
 
-<span data-ttu-id="5971c-129">Çıktı:</span><span class="sxs-lookup"><span data-stu-id="5971c-129">Output:</span></span>
+<span data-ttu-id="f21e9-129">Çıktı:</span><span class="sxs-lookup"><span data-stu-id="f21e9-129">Output:</span></span>
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-<span data-ttu-id="5971c-130">Görüntü boyutları küçük tutmak için anahtarı son görüntünüzü çalışma zamanında gerekli olmayan bir şey içermediğinden emin olmaktır.</span><span class="sxs-lookup"><span data-stu-id="5971c-130">The key to keeping image sizes small is ensuring that your final image does not contain anything that is not required at runtime.</span></span> <span data-ttu-id="5971c-131">Yapmanın bir yolu bu olan [çok aşama derlemeleri](https://docs.docker.com/engine/userguide/eng-image/multistage-build/).</span><span class="sxs-lookup"><span data-stu-id="5971c-131">One way to do this is with [multi-stage builds](https://docs.docker.com/engine/userguide/eng-image/multistage-build/).</span></span> <span data-ttu-id="5971c-132">Çok aşama yapma, yalnızca uygulamanız için gereksinim duyduğunuz yapıları son görüntüsünü içeren ve herhangi bir ek içerik sağlamak kolay derleme zamanında gerekli oluşturur.</span><span class="sxs-lookup"><span data-stu-id="5971c-132">Multi-stage builds make it easy to ensure that the final image contains only the artifacts you need for your application, and not any of the extra content that was required at build time.</span></span>
+<span data-ttu-id="f21e9-130">Merhaba anahtar tookeeping görüntü boyutları küçük olduğundan olmanın son görüntünüzü çalışma zamanında gerekli olmayan bir şey içermediğini.</span><span class="sxs-lookup"><span data-stu-id="f21e9-130">hello key tookeeping image sizes small is ensuring that your final image does not contain anything that is not required at runtime.</span></span> <span data-ttu-id="f21e9-131">Bu durumdayken tek yönlü toodo [çok aşama derlemeleri](https://docs.docker.com/engine/userguide/eng-image/multistage-build/).</span><span class="sxs-lookup"><span data-stu-id="f21e9-131">One way toodo this is with [multi-stage builds](https://docs.docker.com/engine/userguide/eng-image/multistage-build/).</span></span> <span data-ttu-id="f21e9-132">Çok aşama derlemeleri kolay tooensure sunun hello son görüntüsünü içeren, uygulamanız için gereken tek hello yapıları ve herhangi bir ek hello içerik derleme zamanında gerekli.</span><span class="sxs-lookup"><span data-stu-id="f21e9-132">Multi-stage builds make it easy tooensure that hello final image contains only hello artifacts you need for your application, and not any of hello extra content that was required at build time.</span></span>
 
-<span data-ttu-id="5971c-133">Kapsayıcının başlangıç zamanında görüntü çekme etkisini azaltmak için diğer Azure kapsayıcı örneği kullanmak istiyorsanız, aynı bölgede Azure kapsayıcı kayıt defterini kullanarak kapsayıcı görüntüsü barındırmak için bir yoludur.</span><span class="sxs-lookup"><span data-stu-id="5971c-133">The other way to reduce the impact of the image pull on your container's startup time is to host the container image using the Azure Container Registry in the same region where you intend to use Azure Container Instances.</span></span> <span data-ttu-id="5971c-134">Bu, kapsayıcı görüntü seyahat gereken ağ yolu önemli ölçüde karşıdan yükleme süresini kısaltmak kısaltır.</span><span class="sxs-lookup"><span data-stu-id="5971c-134">This shortens the network path that the container image needs to travel, significantly shortening the download time.</span></span>
+<span data-ttu-id="f21e9-133">Merhaba diğer yolu tooreduce hello hello görüntü çekme, kapsayıcının başlangıç zamanında hello Azure kapsayıcı kayıt defteri hello kullanarak toohost hello kapsayıcı görüntüsü etkisidir düşündüğünüz nerede toouse Azure kapsayıcı örnekleri aynı bölgede.</span><span class="sxs-lookup"><span data-stu-id="f21e9-133">hello other way tooreduce hello impact of hello image pull on your container's startup time is toohost hello container image using hello Azure Container Registry in hello same region where you intend toouse Azure Container Instances.</span></span> <span data-ttu-id="f21e9-134">Bu kapsayıcı görüntü gereksinimlerini tootravel, önemli ölçüde hello karşıdan yükleme süresini kısaltmak hello hello ağ yolu kısaltır.</span><span class="sxs-lookup"><span data-stu-id="f21e9-134">This shortens hello network path that hello container image needs tootravel, significantly shortening hello download time.</span></span>

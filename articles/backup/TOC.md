@@ -14,26 +14,26 @@
 ### Yükleme veya yükseltme
 #### [Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup.md)
 #### [Klasik Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup-classic.md)
-#### [Azure Backup Sunucusu’na depolama alanı ekleme](backup-mabs-add-storage.md)
-#### [Azure Backup Sunucusu’nu v.2’ye yükseltme](backup-mabs-upgrade-to-v2.md)
+#### [Depolama tooAzure Yedekleme Sunucusu Ekle](backup-mabs-add-storage.md)
+#### [Azure Backup sunucusu toov.2 yükseltme](backup-mabs-upgrade-to-v2.md)
 #### [Azure Backup Sunucusu için katılımsız yükleme](backup-mabs-unattended-install.md)
 ### İş yüklerini koruma
-#### [Bir VMware sunucusunu yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-backup-server-vmware.md)
-#### [Exchange’i yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-exchange-mabs.md)
-#### [Bir SharePoint grubunu yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-backup-sharepoint-mabs.md)
-#### [SQL’i yedeklemek için Azure Backup Sunucusu kullanma](backup-azure-sql-mabs.md)
+#### [Bir VMware sunucusu Azure yedekleme sunucusu tooback kullanın](backup-azure-backup-server-vmware.md)
+#### [Azure yedekleme sunucusu tooback Exchange yukarı kullanın](backup-azure-exchange-mabs.md)
+#### [Bir SharePoint çiftliğinin Azure yedekleme sunucusu tooback kullanın](backup-azure-backup-sharepoint-mabs.md)
+#### [Azure yedekleme sunucusu tooback SQL yukarı kullanın](backup-azure-sql-mabs.md)
 #### [Sistem durumunu koruma ve tam kurtarma](backup-mabs-system-state-and-bmr.md)
 ### [Azure Backup Sunucusu’ndan veri kurtarma](backup-azure-alternate-dpm-server.md)
 
 ## Azure VM’leri
-### VM’yi hazırlama
+### Merhaba VM hazırlama
 #### [Resource Manager ile dağıtılan sanal makineleri hazırlama](backup-azure-arm-vms-prepare.md)
 #### [Uygulama ile tutarlı Linux VM yedekleri](backup-azure-linux-app-consistent.md)
 #### [Azure sanal makineleri hazırlama](backup-azure-vms-prepare.md)
 ### Ortamınızı planlama
 #### [VM yedekleme altyapısını planlama](backup-azure-vms-introduction.md)
 ### VM’leri yedekleme
-#### [Azure sanal makinelerini bir Kurtarma Hizmetleri kasasına yedekleme](backup-azure-arm-vms.md)
+#### [Geri Azure sanal makinelerini tooa kurtarma Hizmetleri kasası](backup-azure-arm-vms.md)
 #### [Şifrelenmiş sanal makineleri yedekleme](backup-azure-vms-encryption.md)
 #### [Azure sanal makinelerini yedekleme](backup-azure-vms.md)
 ### VM’leri yönetme ve izleme
@@ -55,10 +55,10 @@
 ## Data Protection Manager
 ### [Azure portalında DPM iş yükleri hazırlama](backup-azure-dpm-introduction.md)
 ### [Klasik portalda DPM iş yükleri hazırlama](backup-azure-dpm-introduction-classic.md)
-### [Exchange sunucusunu yedeklemek için System Center DPM'yi kullanma](backup-azure-backup-exchange-server.md)
-### [Verileri başka bir DPM sunucusuna kurtarma](backup-azure-alternate-dpm-server.md)
-### [SQL Server iş yüklerini yedeklemek için DPM'yi kullanma](backup-azure-backup-sql.md)
-### [SharePoint grubunu yedeklemek için DPM'yi kullanma](backup-azure-backup-sharepoint.md)
+### [System Center DPM tooback Exchange sunucusu kullanın](backup-azure-backup-exchange-server.md)
+### [Veri tooan alternatif DPM sunucusunu kurtarma](backup-azure-alternate-dpm-server.md)
+### [SQL Server iş yüklerini DPM tooback kullanın](backup-azure-backup-sql.md)
+### [SharePoint grubunun kurulumu DPM tooback kullanın](backup-azure-backup-sharepoint.md)
 
 ## PowerShell kullanma
 ### [Azure portalındaki Azure VM'leri](backup-azure-vms-automation.md)
@@ -77,23 +77,23 @@
 ## Windows Server
 ### [Windows Server dosyalarını ve klasörlerini yedekleme](backup-configure-vault.md)
 ### [Windows Server Sistem Durumunu yedekleme](backup-azure-system-state.md)
-### [Azure’dan Windows Server’a dosya kurtarma](backup-azure-restore-windows-server.md)
+### [Dosyaları Azure tooWindows Server kurtarma](backup-azure-restore-windows-server.md)
 ### [Windows Server Sistem Durumunu geri yükleme](backup-azure-restore-system-state.md)
 ### [Kurtarma Hizmetleri kasalarını izleme ve yönetme](backup-azure-manage-windows-server.md)
-### Klasik portalı kullanarak yedekleme ve geri yükleme
-#### [Klasik dağıtım modelini kullanan Windows Server](backup-configure-vault-classic.md)
-#### [Klasik dağıtım modelini kullanarak Backup kasalarını yönetme](backup-azure-manage-windows-server-classic.md)
-#### [Klasik dağıtım modelini kullanarak dosyaları Windows Server'a kurtarma](backup-azure-restore-windows-server-classic.md)
+### Ve hello Klasik portalı kullanarak geri yükleme
+#### [Windows hello Klasik dağıtım modeli kullanılarak sunucu](backup-configure-vault-classic.md)
+#### [Merhaba Klasik dağıtım modeli kullanılarak yedekleme kasalarını yönetme](backup-azure-manage-windows-server-classic.md)
+#### [Dosyaları tooa Windows Server kurtarmak hello Klasik dağıtım modeli kullanılarak](backup-azure-restore-windows-server-classic.md)
 
 ## Kurtarma Hizmetleri kasası
 ### [Kurtarma Hizmetleri kasalarına genel bakış](backup-azure-recovery-services-vault-overview.md)
-### [Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişi](backup-azure-upgrade-backup-to-recovery-services.md)
+### [Bir yedekleme kasası tooRecovery Hizmetleri kasası yükseltme](backup-azure-upgrade-backup-to-recovery-services.md)
 ### [Kurtarma Hizmetleri kasası silme](backup-azure-delete-vault.md)
 
 ## Sorun giderme
 ### [Azure portalındaki Azure VM yedekleme sorunları](backup-azure-vms-troubleshoot.md)
 ### [Klasik portaldaki Azure VM yedekleme sorunları](backup-azure-vms-troubleshoot-classic.md)
-### [Azure VM Yedeklemesi başarısız oluyor: Anlık görüntü durumu için VM aracısı ile iletişim kurulamadı - Anlık görüntü VM alt görevi zaman aşımına uğradı](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
+### [Azure VM yedekleme başarısız oluyor: anlık görüntü durum için hello VM Aracısı ile iletişim kuramadı - Snapshot VM alt görev zaman aşımına uğradı](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Azure Backup'ta dosya ve klasörlerin yavaş yedeklenmesi](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 ### [Azure Backup Sunucusu sorunlarını giderme](backup-azure-mabs-troubleshoot.md)
 

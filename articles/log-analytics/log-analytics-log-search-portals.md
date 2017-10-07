@@ -1,0 +1,53 @@
+---
+title: "oluşturma ve Azure günlük analizi günlük sorgularda düzenleme aaaPortals | Microsoft Docs"
+description: "Bu makalede Azure günlük analizi toocreate kullanın ve günlük aramaları düzenleme hello portalları açıklanmaktadır."
+services: log-analytics
+documentationcenter: 
+author: bwren
+manager: carmonm
+editor: 
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/25/2017
+ms.author: bwren
+ms.openlocfilehash: 7a2657574a132b2c4298511bb31259e68113ac91
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a><span data-ttu-id="7db6e-103">Oluşturma ve Azure günlük analizi günlük sorgularda düzenleme için portalları</span><span class="sxs-lookup"><span data-stu-id="7db6e-103">Portals for creating and editing log queries in Azure Log Analytics</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="7db6e-104">Bu makalede Azure günlük analizi hello yeni sorgu dili kullanarak portallarında açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="7db6e-104">This article describes portals in Azure Log Analytics using hello new query language.</span></span>  <span data-ttu-id="7db6e-105">Merhaba yeni dil hakkında daha fazla bilgi ve çalışma alanı hello yordamı tooupgrade almak [Azure günlük analizi çalışma alanı toonew günlük aramanızı yükseltme](log-analytics-log-search-upgrade.md).</span><span class="sxs-lookup"><span data-stu-id="7db6e-105">You can learn more about hello new language and get hello procedure tooupgrade your workspace at [Upgrade your Azure Log Analytics workspace toonew log search](log-analytics-log-search-upgrade.md).</span></span>  
+>
+> <span data-ttu-id="7db6e-106">Çalışma alanınızı yükseltilmiş toohello yeni sorgu dili bırakılmamışsa, çok başvurmalıdır[Bul günlük aramaları günlük analizi kullanarak verileri](log-analytics-log-searches.md) hello hello günlük arama Portalı'nın geçerli sürümü hakkında bilgi için.</span><span class="sxs-lookup"><span data-stu-id="7db6e-106">If your workspace hasn't been upgraded toohello new query language, you should refer too[Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on hello current version of hello Log Search portal.</span></span>
+
+<span data-ttu-id="7db6e-107">Günlük analizi tooretrieve veri yerlerde çeşitli günlük aramaları hello çalışma alanından kullanın.</span><span class="sxs-lookup"><span data-stu-id="7db6e-107">You use log searches in a variety of places throughout Log Analytics tooretrieve data from hello workspace.</span></span>  <span data-ttu-id="7db6e-108">Gerçekte oluşturmak ve sorguları düzenleme için aşağıda açıklanan iki seçeneğiniz vardır, ayrıca tooworking etkileşimli olarak ile veri ancak döndürdü.</span><span class="sxs-lookup"><span data-stu-id="7db6e-108">For actually creating and editing queries in addition tooworking interactively with returned data though, you have two options that are described below.</span></span>  
+
+## <a name="log-search-portal"></a><span data-ttu-id="7db6e-109">Günlük arama portalı</span><span class="sxs-lookup"><span data-stu-id="7db6e-109">Log search portal</span></span>
+<span data-ttu-id="7db6e-110">Merhaba günlük arama portal hello Azure portal veya hello OMS portalı erişilebilir.</span><span class="sxs-lookup"><span data-stu-id="7db6e-110">hello Log Search portal is accessible from hello Azure portal or hello OMS portal.</span></span>  <span data-ttu-id="7db6e-111">Tek bir satıra oluşturulabilir temel sorguları oluşturmak için uygundur.</span><span class="sxs-lookup"><span data-stu-id="7db6e-111">It's suitable for creating basic queries that can be created on a single line.</span></span>  <span data-ttu-id="7db6e-112">bir dış portal başlatmadan Hello günlük arama portal kullanılabilir ve tooperform işlevleri, çeşitli uyarı kuralları oluşturma, bilgisayar gruplarını oluşturma ve hello hello sorgunun sonuçlarını dışarı aktarma gibi günlük aramaları ile kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="7db6e-112">hello Log Search portal can be used without launching an external portal, and you can use it tooperform a variety of functions with log searches including creating alert rules, creating computer groups, and exporting hello results of hello query.</span></span>  
+
+<span data-ttu-id="7db6e-113">Merhaba günlük arama portal hello sorgu dili hakkında tam bilgi gerek kalmadan hello sorguyu düzenlemek için birden çok özellik sağlar.</span><span class="sxs-lookup"><span data-stu-id="7db6e-113">hello Log Search portal provides multiple features for editing hello query without having a full knowledge of hello query language.</span></span>  <span data-ttu-id="7db6e-114">Bu özelliklerin özetini almak [oluşturma günlük hello günlük arama portalı kullanarak Azure günlük analizi aramalarda](log-analytics-log-search-log-search-portal.md).</span><span class="sxs-lookup"><span data-stu-id="7db6e-114">You can get a summary of these features in [Create log searches in Azure Log Analytics using hello Log Search portal](log-analytics-log-search-log-search-portal.md).</span></span>
+
+
+![Arama portalında oturum açın](media/log-analytics-log-search-portals/log-search-portal.png)
+
+## <a name="advanced-analytics-portal"></a><span data-ttu-id="7db6e-116">Gelişmiş Analytics portalı</span><span class="sxs-lookup"><span data-stu-id="7db6e-116">Advanced Analytics portal</span></span>
+<span data-ttu-id="7db6e-117">Merhaba gelişmiş analizler portal hello günlük arama Portalı'nda kullanılamıyor gelişmiş işlevselliği sağlayan adanmış bir portalıdır.</span><span class="sxs-lookup"><span data-stu-id="7db6e-117">hello Advanced Analytics portal is a dedicated portal that provides advanced functionality not available in hello Log Search portal.</span></span>  <span data-ttu-id="7db6e-118">Özellikler hello özelliği tooedit sorguda birden çok satıra içerir, seçime bağlı olarak kod, içeriğe duyarlı IntelliSense ve akıllı Analytics yürütün.</span><span class="sxs-lookup"><span data-stu-id="7db6e-118">Features include hello ability tooedit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics.</span></span>  <span data-ttu-id="7db6e-119">Merhaba Advanced Analytics portal ya da günlük arama kaydedilmiş veya kopyalanır ve diğer günlük analizi elemanlara yapıştırılan karmaşık sorgular tasarlamak için en uygun durumda.</span><span class="sxs-lookup"><span data-stu-id="7db6e-119">hello Advanced Analytics portal is most suitable for designing complex queries that are either saved as a log search or copied and pasted into other Log Analytics elements.</span></span>  <span data-ttu-id="7db6e-120">Merhaba Advanced Analytics portalından hello günlük arama Portalı'nda bir bağlantıyı başlatın.</span><span class="sxs-lookup"><span data-stu-id="7db6e-120">You launch hello Advanced Analytics portal from a link in hello Log Search portal.</span></span>
+
+![Gelişmiş Analytics portalı](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
+
+
+<span data-ttu-id="7db6e-122">Gelişmiş özelliklerini nedeniyle, genellikle hello gelişmiş analizler portal birincil aracınız olarak oluşturmak ve sorguları düzenleme için kullanırsınız.</span><span class="sxs-lookup"><span data-stu-id="7db6e-122">Because of its advanced features, you'll usually use hello Advanced Analytics portal as your primary tool for creating and editing queries.</span></span>  <span data-ttu-id="7db6e-123">Merhaba sorgu beklendiği gibi çalışır ve ardından kopyalayıp hello günlük arama portalı veya Görünüm Tasarımcısı gibi başka bir yere yapıştırın saptadıktan sonra.</span><span class="sxs-lookup"><span data-stu-id="7db6e-123">Once you've determined that hello query works as expected, then you'll copy and paste it elsewhere such as hello Log Search portal or View Designer.</span></span>  <span data-ttu-id="7db6e-124">Merhaba Advanced Analytics portalı birden fazla satır sorgularıyla ancak desteklediğinden, bir sorgu bu portaldan kopyalarken tootake hello aşağıdakileri göz önünde bulundurmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="7db6e-124">Because hello Advanced Analytics portal supports queries with multiple lines though, you need tootake hello following into consideration when copying a query from this portal.</span></span>
+
+- <span data-ttu-id="7db6e-125">Kopyalanır ve başka bir konuma yapıştırılan önce açıklamaları hello sorgudan kaldırılması gerekir.</span><span class="sxs-lookup"><span data-stu-id="7db6e-125">Comments must be removed from hello query before it's copied and pasted into another location.</span></span>  <span data-ttu-id="7db6e-126">İki eğik çizgi ile koyarak bir satır yorum yapabileceği (/ /).</span><span class="sxs-lookup"><span data-stu-id="7db6e-126">You can comment a line by preceding it with two slashes (//).</span></span>  <span data-ttu-id="7db6e-127">Tek bir satıra birden çok satır sorgu yapıştırın, satır sonları kaldırılır.</span><span class="sxs-lookup"><span data-stu-id="7db6e-127">When you paste a multiple line query into a single line, line breaks are removed.</span></span>  <span data-ttu-id="7db6e-128">Yorumlar eklenirse hello ilk açıklama sonra tüm karakterleri hello yorum bir parçası olarak kabul edilir.</span><span class="sxs-lookup"><span data-stu-id="7db6e-128">If comments are included, all characters after hello first comment are considered part of hello comment.</span></span>
+
+
+## <a name="next-steps"></a><span data-ttu-id="7db6e-129">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="7db6e-129">Next steps</span></span>
+
+- <span data-ttu-id="7db6e-130">Bir öğreticide hello kullanarak yol [günlük arama portal](log-analytics-log-search-log-search-portal.md) veya hello [Advanced Analytics portalı](https://go.microsoft.com/fwlink/?linkid=856587) toocreate sorgular.</span><span class="sxs-lookup"><span data-stu-id="7db6e-130">Walk through a tutorial on using hello [Log Search portal](log-analytics-log-search-log-search-portal.md) or hello [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587) toocreate queries.</span></span>
+- <span data-ttu-id="7db6e-131">Kullanıma bir [sorgu yazmakla ilgili öğretici](https://go.microsoft.com/fwlink/?linkid=856078) hello yeni sorgu dilini kullanma.</span><span class="sxs-lookup"><span data-stu-id="7db6e-131">Check out a [tutorial on writing queries](https://go.microsoft.com/fwlink/?linkid=856078) using hello new query language.</span></span>

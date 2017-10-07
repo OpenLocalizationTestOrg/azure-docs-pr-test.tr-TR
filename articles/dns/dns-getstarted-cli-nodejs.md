@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 1.0 ile Azure DNS kullanmaya başlama | Microsoft Docs"
-description: "Azure DNS'te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure CLI 1.0 kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
+title: "aaaGet Azure Azure CLI 1.0 kullanarak DNS ile başlatılan | Microsoft Docs"
+description: "Bilgi nasıl toocreate bir DNS bölgesi ve Azure DNS kaydında. Bu adım adım kılavuzu toocreate ve ilk DNS bölgesi ve kayıt hello Azure CLI 1.0 kullanarak yönetin."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,78 +15,78 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e200c848ad261160e593306dbb8a1d92bf26880b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-dns-using-azure-cli-10"></a><span data-ttu-id="1cd09-104">Azure CLI 1.0 kullanarak Azure DNS ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="1cd09-104">Get started with Azure DNS using Azure CLI 1.0</span></span>
+# <a name="get-started-with-azure-dns-using-azure-cli-10"></a><span data-ttu-id="33587-104">Azure CLI 1.0 kullanarak Azure DNS ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="33587-104">Get started with Azure DNS using Azure CLI 1.0</span></span>
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="1cd09-105">Azure portal</span><span class="sxs-lookup"><span data-stu-id="1cd09-105">Azure portal</span></span>](dns-getstarted-portal.md)
-> * [<span data-ttu-id="1cd09-106">PowerShell</span><span class="sxs-lookup"><span data-stu-id="1cd09-106">PowerShell</span></span>](dns-getstarted-powershell.md)
-> * [<span data-ttu-id="1cd09-107">Azure CLI 1.0</span><span class="sxs-lookup"><span data-stu-id="1cd09-107">Azure CLI 1.0</span></span>](dns-getstarted-cli-nodejs.md)
-> * [<span data-ttu-id="1cd09-108">Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="1cd09-108">Azure CLI 2.0</span></span>](dns-getstarted-cli.md)
+> * [<span data-ttu-id="33587-105">Azure portal</span><span class="sxs-lookup"><span data-stu-id="33587-105">Azure portal</span></span>](dns-getstarted-portal.md)
+> * [<span data-ttu-id="33587-106">PowerShell</span><span class="sxs-lookup"><span data-stu-id="33587-106">PowerShell</span></span>](dns-getstarted-powershell.md)
+> * [<span data-ttu-id="33587-107">Azure CLI 1.0</span><span class="sxs-lookup"><span data-stu-id="33587-107">Azure CLI 1.0</span></span>](dns-getstarted-cli-nodejs.md)
+> * [<span data-ttu-id="33587-108">Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="33587-108">Azure CLI 2.0</span></span>](dns-getstarted-cli.md)
 
-<span data-ttu-id="1cd09-109">Bu makale Windows, Mac ve Linux platformlarında kullanılabilen platformlar arası Azure CLI 1.0'ı kullanarak ilk DNS bölgenizi ve kaydınızı oluşturma adımlarında size rehberlik yapacaktır.</span><span class="sxs-lookup"><span data-stu-id="1cd09-109">This article walks you through the steps to create your first DNS zone and record using the cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux.</span></span> <span data-ttu-id="1cd09-110">Ayrıca, Azure portal veya Azure PowerShell kullanarak aşağıdaki adımları gerçekleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1cd09-110">You can also perform these steps using the Azure portal or Azure PowerShell.</span></span>
+<span data-ttu-id="33587-109">Bu makalede ilk DNS bölgenizi hello adımları toocreate anlatılmaktadır ve kaydını kullanarak hello platformlar arası Azure CLI 1.0, Windows, Mac ve Linux için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="33587-109">This article walks you through hello steps toocreate your first DNS zone and record using hello cross-platform Azure CLI 1.0, which is available for Windows, Mac and Linux.</span></span> <span data-ttu-id="33587-110">Hello Azure portalında veya Azure PowerShell kullanarak aşağıdaki adımları de gerçekleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="33587-110">You can also perform these steps using hello Azure portal or Azure PowerShell.</span></span>
 
-<span data-ttu-id="1cd09-111">DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="1cd09-111">A DNS zone is used to host the DNS records for a particular domain.</span></span> <span data-ttu-id="1cd09-112">Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="1cd09-112">To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name.</span></span> <span data-ttu-id="1cd09-113">Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="1cd09-113">Each DNS record for your domain is then created inside this DNS zone.</span></span> <span data-ttu-id="1cd09-114">Son olarak, DNS bölgenizi Internet'te yayımlamak için etki alanının ad sunucularını yapılandırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="1cd09-114">Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain.</span></span> <span data-ttu-id="1cd09-115">Bu adımların her biri aşağıda açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="1cd09-115">Each of these steps is described below.</span></span>
+<span data-ttu-id="33587-111">Bir DNS bölgesi belirli bir etki alanı için kullanılan toohost hello DNS kayıtlarını ' dir.</span><span class="sxs-lookup"><span data-stu-id="33587-111">A DNS zone is used toohost hello DNS records for a particular domain.</span></span> <span data-ttu-id="33587-112">Azure DNS, etki alanınızda barındırma toostart toocreate bir DNS bölgesi için o etki alanı adı gerekiyor.</span><span class="sxs-lookup"><span data-stu-id="33587-112">toostart hosting your domain in Azure DNS, you need toocreate a DNS zone for that domain name.</span></span> <span data-ttu-id="33587-113">Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="33587-113">Each DNS record for your domain is then created inside this DNS zone.</span></span> <span data-ttu-id="33587-114">Son olarak, toopublish, DNS bölge toohello Internet tooconfigure hello ad sunucuları hello etki alanı için gerekir.</span><span class="sxs-lookup"><span data-stu-id="33587-114">Finally, toopublish your DNS zone toohello Internet, you need tooconfigure hello name servers for hello domain.</span></span> <span data-ttu-id="33587-115">Bu adımların her biri aşağıda açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="33587-115">Each of these steps is described below.</span></span>
 
-<span data-ttu-id="1cd09-116">Bu yönergeler, Azure CLI 1.0’ı zaten yüklediğinizi ve oturum açtığınızı varsayar.</span><span class="sxs-lookup"><span data-stu-id="1cd09-116">These instructions assume you have already installed and signed in to Azure CLI 1.0.</span></span> <span data-ttu-id="1cd09-117">Yardım için bkz. [Azure CLI 1.0 ile DNS bölgelerini yönetme](dns-operations-dnszones-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="1cd09-117">For help, see [How to manage DNS zones using Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md).</span></span>
+<span data-ttu-id="33587-116">Bu yönergeler, zaten yüklü ve tooAzure CLI 1.0 imzalanan varsayalım.</span><span class="sxs-lookup"><span data-stu-id="33587-116">These instructions assume you have already installed and signed in tooAzure CLI 1.0.</span></span> <span data-ttu-id="33587-117">Yardım için bkz. [nasıl Azure CLI 1.0 kullanarak toomanage DNS bölgeleri](dns-operations-dnszones-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="33587-117">For help, see [How toomanage DNS zones using Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md).</span></span>
 
-## <a name="create-the-resource-group"></a><span data-ttu-id="1cd09-118">Kaynak grubunu oluşturma</span><span class="sxs-lookup"><span data-stu-id="1cd09-118">Create the resource group</span></span>
+## <a name="create-hello-resource-group"></a><span data-ttu-id="33587-118">Merhaba kaynak grubu oluştur</span><span class="sxs-lookup"><span data-stu-id="33587-118">Create hello resource group</span></span>
 
-<span data-ttu-id="1cd09-119">DNS bölgesini oluşturmadan önce, DNS Bölgesi’ni içerecek bir kaynak grubu oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="1cd09-119">Before creating the DNS zone, a resource group is created to contain the DNS Zone.</span></span> <span data-ttu-id="1cd09-120">Aşağıda, komut gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="1cd09-120">The following shows the command.</span></span>
+<span data-ttu-id="33587-119">Merhaba DNS bölgesi oluşturmadan önce bir kaynak grubu toocontain hello DNS bölgesi oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="33587-119">Before creating hello DNS zone, a resource group is created toocontain hello DNS Zone.</span></span> <span data-ttu-id="33587-120">Merhaba aşağıdaki hello komut gösterir.</span><span class="sxs-lookup"><span data-stu-id="33587-120">hello following shows hello command.</span></span>
 
 ```azurecli
 azure group create --name MyResourceGroup --location "West US"
 ```
 
-## <a name="create-a-dns-zone"></a><span data-ttu-id="1cd09-121">DNS bölgesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="1cd09-121">Create a DNS zone</span></span>
+## <a name="create-a-dns-zone"></a><span data-ttu-id="33587-121">DNS bölgesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="33587-121">Create a DNS zone</span></span>
 
-<span data-ttu-id="1cd09-122">DNS bölgesi, `azure network dns zone create` komutu kullanılarak oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="1cd09-122">A DNS zone is created using the `azure network dns zone create` command.</span></span> <span data-ttu-id="1cd09-123">Bu komutla ilgili yardım içeriğini görmek için `azure network dns zone create -h` yazın.</span><span class="sxs-lookup"><span data-stu-id="1cd09-123">To see help for this command, type `azure network dns zone create -h`.</span></span>
+<span data-ttu-id="33587-122">Bir DNS bölgesi hello kullanılarak oluşturulan `azure network dns zone create` komutu.</span><span class="sxs-lookup"><span data-stu-id="33587-122">A DNS zone is created using hello `azure network dns zone create` command.</span></span> <span data-ttu-id="33587-123">Bu komutun toosee yardımını yazın `azure network dns zone create -h`.</span><span class="sxs-lookup"><span data-stu-id="33587-123">toosee help for this command, type `azure network dns zone create -h`.</span></span>
 
-<span data-ttu-id="1cd09-124">Aşağıdaki örnek, *MyResourceGroup* adlı kaynak grubunda *contoso.com* adlı bir DNS bölgesi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="1cd09-124">The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*.</span></span> <span data-ttu-id="1cd09-125">Değerleri kendinizinkilerle değiştirerek DNS bölgesini oluşturmak için örneği kullanın.</span><span class="sxs-lookup"><span data-stu-id="1cd09-125">Use the example to create a DNS zone, substituting the values for your own.</span></span>
+<span data-ttu-id="33587-124">Merhaba aşağıdaki örnek adlı bir DNS bölgesi oluşturur *contoso.com* adlı hello kaynak grubunda *MyResourceGroup*.</span><span class="sxs-lookup"><span data-stu-id="33587-124">hello following example creates a DNS zone called *contoso.com* in hello resource group called *MyResourceGroup*.</span></span> <span data-ttu-id="33587-125">Merhaba örnek toocreate bir DNS bölgesi Hello değerleri kendinizinkilerle değiştirerek kullanın.</span><span class="sxs-lookup"><span data-stu-id="33587-125">Use hello example toocreate a DNS zone, substituting hello values for your own.</span></span>
 
 ```azurecli
 azure network dns zone create MyResourceGroup contoso.com
 ```
 
 
-## <a name="create-a-dns-record"></a><span data-ttu-id="1cd09-126">DNS kaydı oluşturma</span><span class="sxs-lookup"><span data-stu-id="1cd09-126">Create a DNS record</span></span>
+## <a name="create-a-dns-record"></a><span data-ttu-id="33587-126">DNS kaydı oluşturma</span><span class="sxs-lookup"><span data-stu-id="33587-126">Create a DNS record</span></span>
 
-<span data-ttu-id="1cd09-127">DNS kaydı oluşturmak için `azure network dns record-set add-record` komutunu kullanın.</span><span class="sxs-lookup"><span data-stu-id="1cd09-127">To create a DNS record, use the `azure network dns record-set add-record` command.</span></span> <span data-ttu-id="1cd09-128">Yardım için bkz. `azure network dns record-set add-record -h`.</span><span class="sxs-lookup"><span data-stu-id="1cd09-128">For help, see `azure network dns record-set add-record -h`.</span></span>
+<span data-ttu-id="33587-127">toocreate bir DNS kaydı kullanmak hello `azure network dns record-set add-record` komutu.</span><span class="sxs-lookup"><span data-stu-id="33587-127">toocreate a DNS record, use hello `azure network dns record-set add-record` command.</span></span> <span data-ttu-id="33587-128">Yardım için bkz. `azure network dns record-set add-record -h`.</span><span class="sxs-lookup"><span data-stu-id="33587-128">For help, see `azure network dns record-set add-record -h`.</span></span>
 
-<span data-ttu-id="1cd09-129">Aşağıdaki örnekte, "MyResourceGroup" kaynak grubu içindeki "contoso.com" DNS Bölgesinde göreli adı "www" olan bir kaynak oluşturulmaktadır.</span><span class="sxs-lookup"><span data-stu-id="1cd09-129">The following example creates a record with the relative name "www" in the DNS Zone "contoso.com", in resource group "MyResourceGroup".</span></span> <span data-ttu-id="1cd09-130">"www.contoso.com", kayıt kümesinin tam adıdır.</span><span class="sxs-lookup"><span data-stu-id="1cd09-130">The fully-qualified name of the record set is "www.contoso.com".</span></span> <span data-ttu-id="1cd09-131">Kayıt türü "A", IP adresi "1.2.3.4" ve varsayılan TTL değeri 3600 saniyedir (1 saat).</span><span class="sxs-lookup"><span data-stu-id="1cd09-131">The record type is "A", with IP address "1.2.3.4", and a default TTL of 3600 seconds (1 hour) is used.</span></span>
+<span data-ttu-id="33587-129">Merhaba aşağıdaki örnekte bir kayıt hello göreli adı "www" hello "contoso.com", "Contoso.com" kaynak grubunda DNS bölgesi içinde oluşturur.</span><span class="sxs-lookup"><span data-stu-id="33587-129">hello following example creates a record with hello relative name "www" in hello DNS Zone "contoso.com", in resource group "MyResourceGroup".</span></span> <span data-ttu-id="33587-130">Merhaba tam hello kayıt kümesi "www.contoso.com" adıdır.</span><span class="sxs-lookup"><span data-stu-id="33587-130">hello fully-qualified name of hello record set is "www.contoso.com".</span></span> <span data-ttu-id="33587-131">Merhaba kayıt türü "A", "1.2.3.4" IP adresiyle olduğundan ve varsayılan TTL 3600 saniye (1 saat) kullanılır.</span><span class="sxs-lookup"><span data-stu-id="33587-131">hello record type is "A", with IP address "1.2.3.4", and a default TTL of 3600 seconds (1 hour) is used.</span></span>
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-<span data-ttu-id="1cd09-132">Diğer kayıt türleri, birden fazla kayıt içerek kayıt kümeleri, alternatif TTL değerleri ve var olan kayıtların değiştirilmesi hakkında bilgi için bkz. [Azure CLI 1.0 kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="1cd09-132">For other record types, for record sets with more than one record, for alternative TTL values, and to modify existing records, see [Manage DNS records and record sets using the Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md).</span></span>
+<span data-ttu-id="33587-132">Alternatif TTL değerleri ve toomodify mevcut kayıtları için birden fazla kayıtla kayıt kümeleri için diğer kayıt türleri için bkz: [yönetmek DNS kayıtlarını ve kayıt kümelerini kullanarak hello Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="33587-132">For other record types, for record sets with more than one record, for alternative TTL values, and toomodify existing records, see [Manage DNS records and record sets using hello Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md).</span></span>
 
 
-## <a name="view-records"></a><span data-ttu-id="1cd09-133">Kayıtları görüntüleme</span><span class="sxs-lookup"><span data-stu-id="1cd09-133">View records</span></span>
+## <a name="view-records"></a><span data-ttu-id="33587-133">Kayıtları görüntüleme</span><span class="sxs-lookup"><span data-stu-id="33587-133">View records</span></span>
 
-<span data-ttu-id="1cd09-134">Bölgenizdeki DNS kayıtlarını listelemek için şu seçenekleri kullanın:</span><span class="sxs-lookup"><span data-stu-id="1cd09-134">To list the DNS records in your zone, use:</span></span>
+<span data-ttu-id="33587-134">toolist hello DNS kayıtları, bölge içindeki kullanın:</span><span class="sxs-lookup"><span data-stu-id="33587-134">toolist hello DNS records in your zone, use:</span></span>
 
 ```azurecli
 azure network dns record-set list MyResourceGroup contoso.com
 ```
 
 
-## <a name="update-name-servers"></a><span data-ttu-id="1cd09-135">Ad sunucularını güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="1cd09-135">Update name servers</span></span>
+## <a name="update-name-servers"></a><span data-ttu-id="33587-135">Ad sunucularını güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="33587-135">Update name servers</span></span>
 
-<span data-ttu-id="1cd09-136">DNS bölgenizin ve kayıtlarınızın doğru şekilde ayarlandığına karar verdikten sonra, Azure DNS ad sunucularını kullanmak için etki alanınızın adını yapılandırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="1cd09-136">Once you are satisfied that your DNS zone and records have been set up correctly, you need to configure your domain name to use the Azure DNS name servers.</span></span> <span data-ttu-id="1cd09-137">Bunun yapılması, İnternet üzerindeki diğer kullanıcıların DNS kayıtlarınızı bulmasını sağlar.</span><span class="sxs-lookup"><span data-stu-id="1cd09-137">This enables other users on the Internet to find your DNS records.</span></span>
+<span data-ttu-id="33587-136">Sonra DNS bölgesi ve kayıtları doğru şekilde ayarlanan, tooconfigure gerek memnun, etki alanı adı toouse hello Azure DNS ad sunucuları.</span><span class="sxs-lookup"><span data-stu-id="33587-136">Once you are satisfied that your DNS zone and records have been set up correctly, you need tooconfigure your domain name toouse hello Azure DNS name servers.</span></span> <span data-ttu-id="33587-137">Bu DNS kayıtlarınızı hello Internet toofind üzerindeki diğer kullanıcılarla sağlar.</span><span class="sxs-lookup"><span data-stu-id="33587-137">This enables other users on hello Internet toofind your DNS records.</span></span>
 
-<span data-ttu-id="1cd09-138">Bölgenizin ad sunucuları `azure network dns zone show` komutu tarafından belirtilir:</span><span class="sxs-lookup"><span data-stu-id="1cd09-138">The name servers for your zone are given by the `azure network dns zone show` command:</span></span>
+<span data-ttu-id="33587-138">Merhaba bölgenizin ad sunucuları tarafından hello verilen `azure network dns zone show` komutu:</span><span class="sxs-lookup"><span data-stu-id="33587-138">hello name servers for your zone are given by hello `azure network dns zone show` command:</span></span>
 
 ```azurecli
 azure network dns zone show MyResourceGroup contoso.com
 
 info:    Executing command network dns zone show
-+ Looking up the dns zone "contoso.com"
++ Looking up hello dns zone "contoso.com"
 data:    Id                              : /subscriptions/a385a691-bd93-41b0-8084-8213ebc5bff7/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com
 data:    Name                            : contoso.com
 data:    Type                            : Microsoft.Network/dnszones
@@ -102,21 +102,21 @@ data:    Tags                            :
 info:    network dns zone show command OK
 ```
 
-<span data-ttu-id="1cd09-139">Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın aldığınız şirket) ile birlikte yapılandırılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="1cd09-139">These name servers should be configured with the domain name registrar (where you purchased the domain name).</span></span> <span data-ttu-id="1cd09-140">Kayıt şirketiniz, etki alanı için ad sunucularını ayarlama seçeneğini sunar.</span><span class="sxs-lookup"><span data-stu-id="1cd09-140">Your registrar will offer the option to set up the name servers for the domain.</span></span> <span data-ttu-id="1cd09-141">Daha fazla bilgi için bkz. [Etki alanınızı Azure DNS’e devretme](dns-domain-delegation.md).</span><span class="sxs-lookup"><span data-stu-id="1cd09-141">For more information, see [Delegate your domain to Azure DNS](dns-domain-delegation.md).</span></span>
+<span data-ttu-id="33587-139">Bu ad sunucuları hello etki alanı adı kayıt (Merhaba etki alanı adı satın aldığınız yerden) ile yapılandırılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="33587-139">These name servers should be configured with hello domain name registrar (where you purchased hello domain name).</span></span> <span data-ttu-id="33587-140">Şirketiniz hello seçeneği tooset hello ad sunucuları hello etki alanı için yukarı sunar.</span><span class="sxs-lookup"><span data-stu-id="33587-140">Your registrar will offer hello option tooset up hello name servers for hello domain.</span></span> <span data-ttu-id="33587-141">Daha fazla bilgi için bkz: [, etki alanı tooAzure DNS temsilci](dns-domain-delegation.md).</span><span class="sxs-lookup"><span data-stu-id="33587-141">For more information, see [Delegate your domain tooAzure DNS](dns-domain-delegation.md).</span></span>
 
-## <a name="delete-all-resources"></a><span data-ttu-id="1cd09-142">Tüm kaynakları silme</span><span class="sxs-lookup"><span data-stu-id="1cd09-142">Delete all resources</span></span>
+## <a name="delete-all-resources"></a><span data-ttu-id="33587-142">Tüm kaynakları silme</span><span class="sxs-lookup"><span data-stu-id="33587-142">Delete all resources</span></span>
  
-<span data-ttu-id="1cd09-143">Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="1cd09-143">To delete all resources created in this article, take the following step:</span></span>
+<span data-ttu-id="33587-143">Bu makalede, adım aşağıdaki Al hello oluşturulan tüm kaynakları toodelete:</span><span class="sxs-lookup"><span data-stu-id="33587-143">toodelete all resources created in this article, take hello following step:</span></span>
 
 ```azurecli
 azure group delete --name MyResourceGroup
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="1cd09-144">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="1cd09-144">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="33587-144">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="33587-144">Next steps</span></span>
 
-<span data-ttu-id="1cd09-145">Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'e genel bakış](dns-overview.md).</span><span class="sxs-lookup"><span data-stu-id="1cd09-145">To learn more about Azure DNS, see [Azure DNS overview](dns-overview.md).</span></span>
+<span data-ttu-id="33587-145">Azure DNS hakkında daha fazla toolearn bkz [Azure DNS'ye genel bakış](dns-overview.md).</span><span class="sxs-lookup"><span data-stu-id="33587-145">toolearn more about Azure DNS, see [Azure DNS overview](dns-overview.md).</span></span>
 
-<span data-ttu-id="1cd09-146">Azure DNS’te DNS bölgelerini yönetme hakkında daha fazla bilgi için bkz. [Azure CLI 1.0 ile Azure DNS’te DNS bölgelerini yönetme](dns-operations-dnszones-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="1cd09-146">To learn more about managing DNS zones in Azure DNS, see [Manage DNS zones in Azure DNS using Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md).</span></span>
+<span data-ttu-id="33587-146">Azure DNS'de DNS bölgelerini yönetme hakkında daha fazla toolearn bkz [yönetmek DNS bölgeleri Azure CLI 1.0 kullanarak Azure DNS'de](dns-operations-dnszones-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="33587-146">toolearn more about managing DNS zones in Azure DNS, see [Manage DNS zones in Azure DNS using Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md).</span></span>
 
-<span data-ttu-id="1cd09-147">Azure DNS’te DNS kayıtlarını yönetme hakkında daha fazla bilgi için bkz. [Azure CLI 1.0 ile Azure DNS’te DNS kayıtlarını yönetme](dns-operations-recordsets-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="1cd09-147">To learn more about managing DNS records in Azure DNS, see [Manage DNS records and record sets in Azure DNS using Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md).</span></span>
+<span data-ttu-id="33587-147">Azure DNS'de DNS kayıtlarını yönetme hakkında daha fazla toolearn bkz [yönetmek DNS kayıtlarını ve kayıt kümelerini Azure CLI 1.0 kullanarak Azure DNS'de](dns-operations-recordsets-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="33587-147">toolearn more about managing DNS records in Azure DNS, see [Manage DNS records and record sets in Azure DNS using Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md).</span></span>
 

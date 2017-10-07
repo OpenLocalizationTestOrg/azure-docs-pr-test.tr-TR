@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Hub'ı (Node) kullanmaya başlama | Microsoft Docs"
-description: "Node.js için IoT SDK’larını kullanarak Azure IoT Hub’a cihazdan buluta ileti göndermeyi öğrenin. IoT hub’a cihazınızı kaydetmek, ileti göndermek ve ileti okumak için sanal cihaz ve hizmet uygulamaları oluşturun."
+title: "aaaGet başlatılan Azure IOT Hub (düğüm) | Microsoft Docs"
+description: "Nasıl tooAzure IOT Hub'ın IOT SDK'ları için Node.js kullanarak toosend cihaz-bulut iletileri öğrenin. Sanal cihazı ve hizmet uygulamaları tooregister Cihazınızı oluşturmak, iletileri gönderir ve IOT hub'ından iletileri okur."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,64 +15,64 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b27a34c0f1f127628912ad68a002e15cc838b4d0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d0747895365f2359a9c38ea1e85a5881d6efec0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a><span data-ttu-id="a21f4-104">Node kullanarak sanal cihazınızı IoT hub’ınıza bağlama</span><span class="sxs-lookup"><span data-stu-id="a21f4-104">Connect your simulated device to your IoT hub using Node</span></span>
+# <a name="connect-your-simulated-device-tooyour-iot-hub-using-node"></a><span data-ttu-id="fc3f1-104">Düğüm kullanarak sanal cihaz tooyour IOT hub'ınıza bağlanın</span><span class="sxs-lookup"><span data-stu-id="fc3f1-104">Connect your simulated device tooyour IoT hub using Node</span></span>
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-<span data-ttu-id="a21f4-105">Bu öğreticinin sonunda üç Node.js konsol uygulamanız olacak:</span><span class="sxs-lookup"><span data-stu-id="a21f4-105">At the end of this tutorial, you have three Node.js console apps:</span></span>
+<span data-ttu-id="fc3f1-105">Bu öğretici Hello sonunda üç Node.js konsol uygulamaları vardır:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-105">At hello end of this tutorial, you have three Node.js console apps:</span></span>
 
-* <span data-ttu-id="a21f4-106">Bir cihaz kimliği ve sanal cihaz uygulamanızı bağlamak için ilişkili güvenlik anahtarı oluşturan **CreateDeviceIdentity.js**.</span><span class="sxs-lookup"><span data-stu-id="a21f4-106">**CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device app.</span></span>
-* <span data-ttu-id="a21f4-107">Sanal cihaz uygulamanız tarafından gönderilen telemetriyi gösteren **ReadDeviceToCloudMessages.js**.</span><span class="sxs-lookup"><span data-stu-id="a21f4-107">**ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device app.</span></span>
-* <span data-ttu-id="a21f4-108">Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınıza bağlanan ve MQTT protokolünü kullanarak her saniye bir telemetri iletisi gönderen **SimulatedDevice.js**.</span><span class="sxs-lookup"><span data-stu-id="a21f4-108">**SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the MQTT protocol.</span></span>
+* <span data-ttu-id="fc3f1-106">**Createdeviceıdentity.js**ilişkili güvenlik anahtarı tooconnect sanal cihaz uygulamanız ve bir cihaz kimliği oluşturur.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-106">**CreateDeviceIdentity.js**, which creates a device identity and associated security key tooconnect your simulated device app.</span></span>
+* <span data-ttu-id="fc3f1-107">**ReadDeviceToCloudMessages.js**, sanal cihaz uygulamanız tarafından gönderilen hello telemetri görüntüler.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-107">**ReadDeviceToCloudMessages.js**, which displays hello telemetry sent by your simulated device app.</span></span>
+* <span data-ttu-id="fc3f1-108">**SimulatedDevice.js**, hangi tooyour IOT hub'ı daha önce oluşturduğunuz hello cihaz kimliği bağlanır ve hello MQTT protokolünü kullanarak her saniye bir telemetri iletisi gönderir.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-108">**SimulatedDevice.js**, which connects tooyour IoT hub with hello device identity created earlier, and sends a telemetry message every second using hello MQTT protocol.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a21f4-109">[IoT Hub SDK'ları][lnk-hub-sdks] makalesi, hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK’ları hakkında bilgi içerir.</span><span class="sxs-lookup"><span data-stu-id="a21f4-109">The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.</span></span>
+> <span data-ttu-id="fc3f1-109">Merhaba makale [Azure IOT SDK'ları] [ lnk-hub-sdks] aygıtlar ve çözüm arka ucunuz hem uygulamalar toorun toobuild kullanabileceğiniz hello Azure IOT SDK'ları hakkında bilgi sağlar.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-109">hello article [Azure IoT SDKs][lnk-hub-sdks] provides information about hello Azure IoT SDKs that you can use toobuild both applications toorun on devices and your solution back end.</span></span>
 > 
 > 
 
-<span data-ttu-id="a21f4-110">Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:</span><span class="sxs-lookup"><span data-stu-id="a21f4-110">To complete this tutorial, you need the following:</span></span>
+<span data-ttu-id="fc3f1-110">toocomplete Bu öğretici, aşağıdaki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-110">toocomplete this tutorial, you need hello following:</span></span>
 
-* <span data-ttu-id="a21f4-111">Node.js 0.10.x sürümü veya sonraki bir sürüm.</span><span class="sxs-lookup"><span data-stu-id="a21f4-111">Node.js version 0.10.x or later.</span></span>
-* <span data-ttu-id="a21f4-112">Etkin bir Azure hesabı.</span><span class="sxs-lookup"><span data-stu-id="a21f4-112">An active Azure account.</span></span> <span data-ttu-id="a21f4-113">(Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)</span><span class="sxs-lookup"><span data-stu-id="a21f4-113">(If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)</span></span>
+* <span data-ttu-id="fc3f1-111">Node.js 0.10.x sürümü veya sonraki bir sürüm.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-111">Node.js version 0.10.x or later.</span></span>
+* <span data-ttu-id="fc3f1-112">Etkin bir Azure hesabı.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-112">An active Azure account.</span></span> <span data-ttu-id="fc3f1-113">(Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)</span><span class="sxs-lookup"><span data-stu-id="fc3f1-113">(If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)</span></span>
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-<span data-ttu-id="a21f4-114">IoT Hub’ınızı oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="a21f4-114">You have now created your IoT hub.</span></span> <span data-ttu-id="a21f4-115">Bu öğreticinin geri kalanını tamamlamak için gereken IoT Hub ana bilgisayar adına ve IoT Hub bağlantı dizesine sahipsiniz.</span><span class="sxs-lookup"><span data-stu-id="a21f4-115">You have the IoT Hub host name and the IoT Hub connection string that you need to complete the rest of this tutorial.</span></span>
+<span data-ttu-id="fc3f1-114">IoT Hub’ınızı oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-114">You have now created your IoT hub.</span></span> <span data-ttu-id="fc3f1-115">Merhaba IOT Hub ana bilgisayar adı ve hello IOT Hub bağlantı dizesine toocomplete hello Bu öğreticinin geri kalanını ihtiyacınız var.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-115">You have hello IoT Hub host name and hello IoT Hub connection string that you need toocomplete hello rest of this tutorial.</span></span>
 
-## <a name="create-a-device-identity"></a><span data-ttu-id="a21f4-116">Cihaz kimliği oluşturma</span><span class="sxs-lookup"><span data-stu-id="a21f4-116">Create a device identity</span></span>
-<span data-ttu-id="a21f4-117">Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği oluşturan bir Node.js konsol uygulaması oluşturacaksınız.</span><span class="sxs-lookup"><span data-stu-id="a21f4-117">In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub.</span></span> <span data-ttu-id="a21f4-118">Yalnızca kimlik kayıt defterinde girişi olan cihazlar IoT hub'ına bağlanabilir.</span><span class="sxs-lookup"><span data-stu-id="a21f4-118">A device can only connect to IoT hub if it has an entry in the identity registry.</span></span> <span data-ttu-id="a21f4-119">Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity]'nun **Kimlik Kayıt Defteri** bölümüne bakın.</span><span class="sxs-lookup"><span data-stu-id="a21f4-119">For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity].</span></span> <span data-ttu-id="a21f4-120">Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="a21f4-120">When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.</span></span>
+## <a name="create-a-device-identity"></a><span data-ttu-id="fc3f1-116">Cihaz kimliği oluşturma</span><span class="sxs-lookup"><span data-stu-id="fc3f1-116">Create a device identity</span></span>
+<span data-ttu-id="fc3f1-117">Bu bölümde, hello kimlik IOT hub'ınızı kayıt defterinde bir cihaz kimliği oluşturan bir Node.js konsol uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-117">In this section, you create a Node.js console app that creates a device identity in hello identity registry in your IoT hub.</span></span> <span data-ttu-id="fc3f1-118">Bir aygıt tooIoT hub hello kimlik kayıt defterinde girişi olmayan yalnızca bağlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-118">A device can only connect tooIoT hub if it has an entry in hello identity registry.</span></span> <span data-ttu-id="fc3f1-119">Daha fazla bilgi için bkz: Merhaba **kimlik kayıt defteri** hello bölümünü [IOT Hub Geliştirici Kılavuzu][lnk-devguide-identity].</span><span class="sxs-lookup"><span data-stu-id="fc3f1-119">For more information, see hello **Identity Registry** section of hello [IoT Hub developer guide][lnk-devguide-identity].</span></span> <span data-ttu-id="fc3f1-120">Bu konsol uygulamasını çalıştırdığınızda, benzersiz cihaz kimliği oluşturur ve cihaz bulut gönderdiğinde Cihazınızı tooidentify kendisini kullanabileceğiniz anahtar tooIoT Hub iletileri.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-120">When you run this console app, it generates a unique device ID and key that your device can use tooidentify itself when it sends device-to-cloud messages tooIoT Hub.</span></span>
 
-1. <span data-ttu-id="a21f4-121">**createdeviceidentity** adlı yeni bir boş klasör oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-121">Create a new empty folder called **createdeviceidentity**.</span></span> <span data-ttu-id="a21f4-122">Komut isteminizde aşağıdaki komutu kullanarak **createdeviceidentity** klasöründe bir package.json dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-122">In the **createdeviceidentity** folder, create a package.json file using the following command at your command prompt.</span></span> <span data-ttu-id="a21f4-123">Tüm varsayılanları kabul edin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-123">Accept all the defaults:</span></span>
+1. <span data-ttu-id="fc3f1-121">**createdeviceidentity** adlı yeni bir boş klasör oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-121">Create a new empty folder called **createdeviceidentity**.</span></span> <span data-ttu-id="fc3f1-122">Merhaba, **createdeviceidentity** klasörü, komut, komut isteminde aşağıdaki hello kullanarak bir package.json dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-122">In hello **createdeviceidentity** folder, create a package.json file using hello following command at your command prompt.</span></span> <span data-ttu-id="fc3f1-123">Tüm hello Varsayılanları kabul edin:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-123">Accept all hello defaults:</span></span>
    
     ```
     npm init
     ```
-2. <span data-ttu-id="a21f4-124">Komut isteminizde **createdeviceidentity** klasöründe **azure-iothub** Hizmet SDK paketini yüklemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a21f4-124">At your command prompt in the **createdeviceidentity** folder, run the following command to install the **azure-iothub** Service SDK package:</span></span>
+2. <span data-ttu-id="fc3f1-124">Merhaba, komut isteminde **createdeviceidentity** klasörüne, komut tooinstall hello aşağıdaki hello **azure-iothub** hizmet SDK paketi:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-124">At your command prompt in hello **createdeviceidentity** folder, run hello following command tooinstall hello **azure-iothub** Service SDK package:</span></span>
    
     ```
     npm install azure-iothub --save
     ```
-3. <span data-ttu-id="a21f4-125">Bir metin düzenleyicisi kullanarak **createdeviceidentity** klasöründe bir **CreateDeviceIdentity.js** dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-125">Using a text editor, create a **CreateDeviceIdentity.js** file in the **createdeviceidentity** folder.</span></span>
-4. <span data-ttu-id="a21f4-126">Aşağıdaki `require` deyimini **CreateDeviceIdentity.js** dosyasının başlangıcına ekleyin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-126">Add the following `require` statement at the start of the **CreateDeviceIdentity.js** file:</span></span>
+3. <span data-ttu-id="fc3f1-125">Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **Createdeviceıdentity.js** hello dosyasında **createdeviceidentity** klasör.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-125">Using a text editor, create a **CreateDeviceIdentity.js** file in hello **createdeviceidentity** folder.</span></span>
+4. <span data-ttu-id="fc3f1-126">Merhaba aşağıdakileri ekleyin `require` hello hello başlangıç deyiminin **Createdeviceıdentity.js** dosyası:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-126">Add hello following `require` statement at hello start of hello **CreateDeviceIdentity.js** file:</span></span>
    
     ```
     'use strict';
    
     var iothub = require('azure-iothub');
     ```
-5. <span data-ttu-id="a21f4-127">Aşağıdaki kodu **CreateDeviceIdentity.js** dosyasına ekleyin ve yer tutucu değerini önceki bölümde oluşturduğunuz hub'ın IoT Hub'ı bağlantı dizesiyle değiştirin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-127">Add the following code to the **CreateDeviceIdentity.js** file and replace the placeholder value with the IoT Hub connection string for the hub you created in the previous section:</span></span> 
+5. <span data-ttu-id="fc3f1-127">Aşağıdaki kodu toohello hello eklemek **Createdeviceıdentity.js** dosya ve hello yer tutucu değerini hello hello önceki bölümde oluşturduğunuz hello hub için IOT Hub bağlantı dizesi ile değiştirin:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-127">Add hello following code toohello **CreateDeviceIdentity.js** file and replace hello placeholder value with hello IoT Hub connection string for hello hub you created in hello previous section:</span></span> 
    
     ```
     var connectionString = '{iothub connection string}';
    
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
-6. <span data-ttu-id="a21f4-128">IoT hub'ınızın kimlik kayıt defterinde bir cihaz tanımı oluşturmak için aşağıdaki kodu ekleyin.</span><span class="sxs-lookup"><span data-stu-id="a21f4-128">Add the following code to create a device definition in the identity registry in your IoT hub.</span></span> <span data-ttu-id="a21f4-129">Bu kod, cihaz kimliği kayıt defterinde yoksa bir cihaz oluşturur, aksi halde var olan cihazın anahtarını döndürür:</span><span class="sxs-lookup"><span data-stu-id="a21f4-129">This code creates a device if the device ID does not exist in the identity registry, otherwise it returns the key of the existing device:</span></span>
+6. <span data-ttu-id="fc3f1-128">Aşağıdaki kod toocreate hello kimlik IOT hub'ınızı kayıt defterinde bir cihaz tanımında hello ekleyin.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-128">Add hello following code toocreate a device definition in hello identity registry in your IoT hub.</span></span> <span data-ttu-id="fc3f1-129">Merhaba cihaz kimliği hello kimlik kayıt defterinde yoksa, bu kod bir cihaz oluşturur, aksi takdirde hello mevcut aygıt hello anahtarını döndürür:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-129">This code creates a device if hello device ID does not exist in hello identity registry, otherwise it returns hello key of hello existing device:</span></span>
    
     ```
     var device = {
@@ -96,52 +96,52 @@ ms.lasthandoff: 08/29/2017
     ```
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-7. <span data-ttu-id="a21f4-130">**CreateDeviceIdentity.js** dosyasını kaydedin ve kapatın.</span><span class="sxs-lookup"><span data-stu-id="a21f4-130">Save and close **CreateDeviceIdentity.js** file.</span></span>
-8. <span data-ttu-id="a21f4-131">**createdeviceidentity** uygulamasını çalıştırmak için, createdeviceidentity klasöründeki komut isteminde aşağıdaki komutu yürütün:</span><span class="sxs-lookup"><span data-stu-id="a21f4-131">To run the **createdeviceidentity** application, execute the following command at the command prompt in the createdeviceidentity folder:</span></span>
+7. <span data-ttu-id="fc3f1-130">**CreateDeviceIdentity.js** dosyasını kaydedin ve kapatın.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-130">Save and close **CreateDeviceIdentity.js** file.</span></span>
+8. <span data-ttu-id="fc3f1-131">toorun hello **createdeviceidentity** uygulamayı, komut hello hello createdeviceidentity klasöründeki komut isteminde aşağıdaki hello yürütün:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-131">toorun hello **createdeviceidentity** application, execute hello following command at hello command prompt in hello createdeviceidentity folder:</span></span>
    
     ```
     node CreateDeviceIdentity.js 
     ```
-9. <span data-ttu-id="a21f4-132">**Cihaz kimliği** ve **Cihaz anahtarını** not edin.</span><span class="sxs-lookup"><span data-stu-id="a21f4-132">Make a note of the **Device ID** and **Device key**.</span></span> <span data-ttu-id="a21f4-133">İleride IoT Hub'a bir cihaz olarak bağlanan bir uygulama oluşturduğunuzda bu değerlere ihtiyacınız olur.</span><span class="sxs-lookup"><span data-stu-id="a21f4-133">You need these values later when you create an application that connects to IoT Hub as a device.</span></span>
+9. <span data-ttu-id="fc3f1-132">Merhaba Not **cihaz kimliği** ve **aygıt anahtarı**.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-132">Make a note of hello **Device ID** and **Device key**.</span></span> <span data-ttu-id="fc3f1-133">TooIoT hub'a bir cihaz olarak bağlanan bir uygulama oluşturduğunuzda, bu değerleri daha sonra gerekir.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-133">You need these values later when you create an application that connects tooIoT Hub as a device.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a21f4-134">IoT Hub kimlik kayıt defteri, yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz kimliklerini depolar.</span><span class="sxs-lookup"><span data-stu-id="a21f4-134">The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub.</span></span> <span data-ttu-id="a21f4-135">Güvenlik kimlik bilgileri olarak kullanılmak üzere cihaz kimliklerini ve anahtarlarını ve tek bir cihaza erişimi devre dışı bırakmak için kullanabileceğiniz etkin/devre dışı bayrağını depolar.</span><span class="sxs-lookup"><span data-stu-id="a21f4-135">It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device.</span></span> <span data-ttu-id="a21f4-136">Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir.</span><span class="sxs-lookup"><span data-stu-id="a21f4-136">If your application needs to store other device-specific metadata, it should use an application-specific store.</span></span> <span data-ttu-id="a21f4-137">Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].</span><span class="sxs-lookup"><span data-stu-id="a21f4-137">For more information, see the [IoT Hub developer guide][lnk-devguide-identity].</span></span>
+> <span data-ttu-id="fc3f1-134">Merhaba IOT Hub kimlik kayıt defteri, yalnızca cihaz kimlikleri tooenable güvenli erişim toohello IOT hub'ı depolar.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-134">hello IoT Hub identity registry only stores device identities tooenable secure access toohello IoT hub.</span></span> <span data-ttu-id="fc3f1-135">Cihaz kimliklerini ve anahtarlarını toouse güvenlik kimlik bilgileri ve toodisable erişim için tek bir cihaza kullanabilirsiniz bir etkin/devre dışı bayrağını depolar.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-135">It stores device IDs and keys toouse as security credentials and an enabled/disabled flag that you can use toodisable access for an individual device.</span></span> <span data-ttu-id="fc3f1-136">Uygulamanızın cihaza özgü diğer meta verileri toostore gerekiyorsa, bir uygulamaya özgü depo kullanması gerekir.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-136">If your application needs toostore other device-specific metadata, it should use an application-specific store.</span></span> <span data-ttu-id="fc3f1-137">Daha fazla bilgi için bkz: Merhaba [IOT Hub Geliştirici Kılavuzu][lnk-devguide-identity].</span><span class="sxs-lookup"><span data-stu-id="fc3f1-137">For more information, see hello [IoT Hub developer guide][lnk-devguide-identity].</span></span>
 > 
 > 
 
 <a id="D2C_node"></a>
-## <a name="receive-device-to-cloud-messages"></a><span data-ttu-id="a21f4-138">Cihazdan buluta iletileri alma</span><span class="sxs-lookup"><span data-stu-id="a21f4-138">Receive device-to-cloud messages</span></span>
-<span data-ttu-id="a21f4-139">Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uygulaması oluşturacaksınız.</span><span class="sxs-lookup"><span data-stu-id="a21f4-139">In this section, you create a Node.js console app that reads device-to-cloud messages from IoT Hub.</span></span> <span data-ttu-id="a21f4-140">IoT hub'ı, cihazdan buluta iletilerini okumanızı sağlamak için [Event Hubs][lnk-event-hubs-overview] ile uyumlu bir uç noktasını kullanıma sunar.</span><span class="sxs-lookup"><span data-stu-id="a21f4-140">An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages.</span></span> <span data-ttu-id="a21f4-141">Sade ve basit bir anlatım gözetildiği için bu öğretici yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="a21f4-141">To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment.</span></span> <span data-ttu-id="a21f4-142">[Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisi, cihazdan buluta iletilerin ölçekli olarak nasıl işleneceğini gösterir.</span><span class="sxs-lookup"><span data-stu-id="a21f4-142">The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale.</span></span> <span data-ttu-id="a21f4-143">[Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisi, Event Hubs'dan alınan iletilerin nasıl işleneceği hakkında daha fazla bilgi sağlar; IoT Hub ve Event Hub ile uyumlu uç noktalar için geçerlidir.</span><span class="sxs-lookup"><span data-stu-id="a21f4-143">The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.</span></span>
+## <a name="receive-device-to-cloud-messages"></a><span data-ttu-id="fc3f1-138">Cihazdan buluta iletileri alma</span><span class="sxs-lookup"><span data-stu-id="fc3f1-138">Receive device-to-cloud messages</span></span>
+<span data-ttu-id="fc3f1-139">Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uygulaması oluşturacaksınız.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-139">In this section, you create a Node.js console app that reads device-to-cloud messages from IoT Hub.</span></span> <span data-ttu-id="fc3f1-140">IOT hub'ı kullanıma sunan bir [Event Hubs][lnk-event-hubs-overview]-uyumlu bir uç noktasını tooenable, tooread cihaz bulut iletilerini.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-140">An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint tooenable you tooread device-to-cloud messages.</span></span> <span data-ttu-id="fc3f1-141">tookeep şeyler basit, Bu öğretici, bir yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-141">tookeep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment.</span></span> <span data-ttu-id="fc3f1-142">Merhaba [cihaz-bulut iletileri] [ lnk-process-d2c-tutorial] öğretici gösterir, ölçekli olarak nasıl tooprocess cihaz-bulut iletileri.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-142">hello [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how tooprocess device-to-cloud messages at scale.</span></span> <span data-ttu-id="fc3f1-143">Merhaba [Event Hubs ile çalışmaya başlama] [ lnk-eventhubs-tutorial] Eğitmeni nasıl tooprocess olay hub'larından iletileri ve geçerli toohello IOT Hub ve Event Hub ile uyumlu uç noktalar hakkında daha fazla bilgi sağlar.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-143">hello [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how tooprocess messages from Event Hubs and is applicable toohello IoT Hub Event Hub-compatible endpoints.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a21f4-144">Cihazdan buluta iletileri okumak için Event Hub ile uyumlu uç nokta her zaman AMQP protokolünü kullanır.</span><span class="sxs-lookup"><span data-stu-id="a21f4-144">The Event Hub-compatible endpoint for reading device-to-cloud messages always uses the AMQP protocol.</span></span>
+> <span data-ttu-id="fc3f1-144">Merhaba cihaz bulut iletilerini her zaman okumak için Event Hub ile uyumlu uç nokta hello AMQP protokolünü kullanır.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-144">hello Event Hub-compatible endpoint for reading device-to-cloud messages always uses hello AMQP protocol.</span></span>
 > 
 > 
 
-1. <span data-ttu-id="a21f4-145">**readdevicetocloudmessages** adlı boş bir klasör oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-145">Create an empty folder called **readdevicetocloudmessages**.</span></span> <span data-ttu-id="a21f4-146">Komut isteminizde aşağıdaki komutu kullanarak **readdevicetocloudmessages** klasöründe bir package.json dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-146">In the **readdevicetocloudmessages** folder, create a package.json file using the following command at your command prompt.</span></span> <span data-ttu-id="a21f4-147">Tüm varsayılanları kabul edin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-147">Accept all the defaults:</span></span>
+1. <span data-ttu-id="fc3f1-145">**readdevicetocloudmessages** adlı boş bir klasör oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-145">Create an empty folder called **readdevicetocloudmessages**.</span></span> <span data-ttu-id="fc3f1-146">Merhaba, **readdevicetocloudmessages** klasörü, komut, komut isteminde aşağıdaki hello kullanarak bir package.json dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-146">In hello **readdevicetocloudmessages** folder, create a package.json file using hello following command at your command prompt.</span></span> <span data-ttu-id="fc3f1-147">Tüm hello Varsayılanları kabul edin:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-147">Accept all hello defaults:</span></span>
    
     ```
     npm init
     ```
-2. <span data-ttu-id="a21f4-148">Komut isteminizde **readdevicetocloudmessages** klasöründe **azure-event-hubs** paketini yüklemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a21f4-148">At your command prompt in the **readdevicetocloudmessages** folder, run the following command to install the **azure-event-hubs** package:</span></span>
+2. <span data-ttu-id="fc3f1-148">Merhaba, komut isteminde **readdevicetocloudmessages** klasörüne, komut tooinstall hello aşağıdaki hello **azure event hubs** paketi:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-148">At your command prompt in hello **readdevicetocloudmessages** folder, run hello following command tooinstall hello **azure-event-hubs** package:</span></span>
    
     ```
     npm install azure-event-hubs --save
     ```
-3. <span data-ttu-id="a21f4-149">Bir metin düzenleyicisi kullanarak **readdevicetocloudmessages** klasöründe bir **ReadDeviceToCloudMessages.js** dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-149">Using a text editor, create a **ReadDeviceToCloudMessages.js** file in the **readdevicetocloudmessages** folder.</span></span>
-4. <span data-ttu-id="a21f4-150">Aşağıdaki `require` deyimlerini **ReadDeviceToCloudMessages.js** dosyasının başlangıcına ekleyin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-150">Add the following `require` statements at the start of the **ReadDeviceToCloudMessages.js** file:</span></span>
+3. <span data-ttu-id="fc3f1-149">Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **ReadDeviceToCloudMessages.js** hello dosyasında **readdevicetocloudmessages** klasör.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-149">Using a text editor, create a **ReadDeviceToCloudMessages.js** file in hello **readdevicetocloudmessages** folder.</span></span>
+4. <span data-ttu-id="fc3f1-150">Merhaba aşağıdakileri ekleyin `require` hello deyimlerini başlatmak hello **ReadDeviceToCloudMessages.js** dosyası:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-150">Add hello following `require` statements at hello start of hello **ReadDeviceToCloudMessages.js** file:</span></span>
    
     ```
     'use strict';
    
     var EventHubClient = require('azure-event-hubs').Client;
     ```
-5. <span data-ttu-id="a21f4-151">Aşağıdaki değişken bildirimini ekleyin ve yer tutucu değerini hub'ınızın IoT Hub'ı bağlantı dizesiyle değiştirin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-151">Add the following variable declaration and replace the placeholder value with the IoT Hub connection string for your hub:</span></span>
+5. <span data-ttu-id="fc3f1-151">Değişken bildirimi aşağıdaki hello ekleyin ve hello hub'ınız için IOT Hub bağlantı dizesine sahip hello yer tutucu değerini değiştirin:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-151">Add hello following variable declaration and replace hello placeholder value with hello IoT Hub connection string for your hub:</span></span>
    
     ```
     var connectionString = '{iothub connection string}';
     ```
-6. <span data-ttu-id="a21f4-152">Konsola çıktı yazdıran aşağıdaki iki işlevi ekleyin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-152">Add the following two functions that print output to the console:</span></span>
+6. <span data-ttu-id="fc3f1-152">Yazdırma çıktı toohello Konsolu iki işlevleri aşağıdaki hello ekleyin:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-152">Add hello following two functions that print output toohello console:</span></span>
    
     ```
     var printError = function (err) {
@@ -154,7 +154,7 @@ ms.lasthandoff: 08/29/2017
       console.log('');
     };
     ```
-7. <span data-ttu-id="a21f4-153">**EventHubClient** oluşturmak, IoT Hub bağlantısını açmak ve her bölüme yönelik bir alıcı oluşturmak için aşağıdaki kodu ekleyin.</span><span class="sxs-lookup"><span data-stu-id="a21f4-153">Add the following code to create the **EventHubClient**, open the connection to your IoT Hub, and create a receiver for each partition.</span></span> <span data-ttu-id="a21f4-154">Bu uygulama alıcı oluştururken bir filtre kullanır, böylece bir alıcı çalışmaya başladıktan sonra IoT Hub'a gönderilen iletileri yalnızca okur.</span><span class="sxs-lookup"><span data-stu-id="a21f4-154">This application uses a filter when it creates a receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running.</span></span> <span data-ttu-id="a21f4-155">Bu filtre, yalnızca geçerli ileti kümesini görmeniz açısından bir test ortamında kullanışlıdır.</span><span class="sxs-lookup"><span data-stu-id="a21f4-155">This filter is useful in a test environment so you see just the current set of messages.</span></span> <span data-ttu-id="a21f4-156">Bir üretim ortamında, kodunuzun tüm iletileri işlediğinden emin olmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="a21f4-156">In a production environment, your code should make sure that it processes all the messages.</span></span> <span data-ttu-id="a21f4-157">Daha fazla bilgi için [IoT Hub cihazdan buluta iletiler nasıl işlenir?][lnk-process-d2c-tutorial] öğreticisine bakın:</span><span class="sxs-lookup"><span data-stu-id="a21f4-157">For more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial:</span></span>
+7. <span data-ttu-id="fc3f1-153">Aşağıdaki kod toocreate hello hello eklemek **EventHubClient**hello bağlantı tooyour IOT hub'ı açın ve her bölüm için alıcı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-153">Add hello following code toocreate hello **EventHubClient**, open hello connection tooyour IoT Hub, and create a receiver for each partition.</span></span> <span data-ttu-id="fc3f1-154">Bu uygulama Hello alıcı çalışmaya başladıktan sonra hello alıcı yalnızca gönderilen iletileri tooIoT Hub okur böylece bir alıcı oluştururken bir filtre kullanır.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-154">This application uses a filter when it creates a receiver so that hello receiver only reads messages sent tooIoT Hub after hello receiver starts running.</span></span> <span data-ttu-id="fc3f1-155">Yalnızca hello geçerli iletiler kümesini görmek için bu filtre bir test ortamında kullanışlıdır.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-155">This filter is useful in a test environment so you see just hello current set of messages.</span></span> <span data-ttu-id="fc3f1-156">Bir üretim ortamında kodunuzun tüm hello iletileri işlediğinden emin olmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-156">In a production environment, your code should make sure that it processes all hello messages.</span></span> <span data-ttu-id="fc3f1-157">Daha fazla bilgi için bkz: Merhaba [nasıl tooprocess IOT Hub cihaz bulut iletilerini] [ lnk-process-d2c-tutorial] Öğreticisi:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-157">For more information, see hello [How tooprocess IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial:</span></span>
    
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -171,23 +171,23 @@ ms.lasthandoff: 08/29/2017
         })
         .catch(printError);
     ```
-8. <span data-ttu-id="a21f4-158">**ReadDeviceToCloudMessages.js** dosyasını kaydedin ve kapatın.</span><span class="sxs-lookup"><span data-stu-id="a21f4-158">Save and close the **ReadDeviceToCloudMessages.js** file.</span></span>
+8. <span data-ttu-id="fc3f1-158">Kaydet ve Kapat hello **ReadDeviceToCloudMessages.js** dosya.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-158">Save and close hello **ReadDeviceToCloudMessages.js** file.</span></span>
 
-## <a name="create-a-simulated-device-app"></a><span data-ttu-id="a21f4-159">Sanal cihaz uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="a21f4-159">Create a simulated device app</span></span>
-<span data-ttu-id="a21f4-160">Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim yapan bir Node.js konsol uygulaması oluşturacaksınız.</span><span class="sxs-lookup"><span data-stu-id="a21f4-160">In this section, you create a Node.js console app that simulates a device that sends device-to-cloud messages to an IoT hub.</span></span>
+## <a name="create-a-simulated-device-app"></a><span data-ttu-id="fc3f1-159">Sanal cihaz uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="fc3f1-159">Create a simulated device app</span></span>
+<span data-ttu-id="fc3f1-160">Bu bölümde, tooan IOT hub'ı cihaz-bulut iletileri gönderen bir cihaza benzetim yapan bir Node.js konsol uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-160">In this section, you create a Node.js console app that simulates a device that sends device-to-cloud messages tooan IoT hub.</span></span>
 
-1. <span data-ttu-id="a21f4-161">**simulateddevice** adlı boş bir klasör oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-161">Create an empty folder called **simulateddevice**.</span></span> <span data-ttu-id="a21f4-162">Komut isteminizde aşağıdaki komutu kullanarak **simulateddevice** klasöründe bir package.json dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-162">In the **simulateddevice** folder, create a package.json file using the following command at your command prompt.</span></span> <span data-ttu-id="a21f4-163">Tüm varsayılanları kabul edin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-163">Accept all the defaults:</span></span>
+1. <span data-ttu-id="fc3f1-161">**simulateddevice** adlı boş bir klasör oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-161">Create an empty folder called **simulateddevice**.</span></span> <span data-ttu-id="fc3f1-162">Merhaba, **simulateddevice** klasörü, komut, komut isteminde aşağıdaki hello kullanarak bir package.json dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-162">In hello **simulateddevice** folder, create a package.json file using hello following command at your command prompt.</span></span> <span data-ttu-id="fc3f1-163">Tüm hello Varsayılanları kabul edin:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-163">Accept all hello defaults:</span></span>
    
     ```
     npm init
     ```
-2. <span data-ttu-id="a21f4-164">Komut isteminizde **simulateddevice** klasöründe **azure-iot-device** Cihaz SDK paketini ve **azure-iot-device-mqtt** paketini yüklemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a21f4-164">At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:</span></span>
+2. <span data-ttu-id="fc3f1-164">Merhaba, komut isteminde **simulateddevice** klasörüne, komut tooinstall hello aşağıdaki hello **azure IOT cihaz** cihaz SDK'sı paketinin ve **azure-IOT-cihaz-mqtt**paketi:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-164">At your command prompt in hello **simulateddevice** folder, run hello following command tooinstall hello **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:</span></span>
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. <span data-ttu-id="a21f4-165">Bir metin düzenleyicisi kullanarak **simulateddevice** klasöründe bir **SimulatedDevice.js** dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a21f4-165">Using a text editor, create a **SimulatedDevice.js** file in the **simulateddevice** folder.</span></span>
-4. <span data-ttu-id="a21f4-166">Aşağıdaki `require` deyimlerini **SimulatedDevice.js** dosyasının başlangıcına ekleyin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-166">Add the following `require` statements at the start of the **SimulatedDevice.js** file:</span></span>
+3. <span data-ttu-id="fc3f1-165">Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **SimulatedDevice.js** hello dosyasında **simulateddevice** klasör.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-165">Using a text editor, create a **SimulatedDevice.js** file in hello **simulateddevice** folder.</span></span>
+4. <span data-ttu-id="fc3f1-166">Merhaba aşağıdakileri ekleyin `require` hello deyimlerini başlatmak hello **SimulatedDevice.js** dosyası:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-166">Add hello following `require` statements at hello start of hello **SimulatedDevice.js** file:</span></span>
    
     ```
     'use strict';
@@ -195,14 +195,14 @@ ms.lasthandoff: 08/29/2017
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
-5. <span data-ttu-id="a21f4-167">Bir **connectionString** değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın.</span><span class="sxs-lookup"><span data-stu-id="a21f4-167">Add a **connectionString** variable and use it to create a **Client** instance.</span></span> <span data-ttu-id="a21f4-168">**{youriothostname}** yerine, *IoT Hub oluşturma* bölümünde oluşturduğunuz IoT hub'ın adını girin.</span><span class="sxs-lookup"><span data-stu-id="a21f4-168">Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section.</span></span> <span data-ttu-id="a21f4-169">**{yourdevicekey}** yerine, *Cihaz kimliği oluşturma* bölümünde oluşturduğunuz cihaz anahtarı değerini girin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-169">Replace **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:</span></span>
+5. <span data-ttu-id="fc3f1-167">Ekleme bir **connectionString** değişken ve toocreate kullanan bir **istemci** örneği.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-167">Add a **connectionString** variable and use it toocreate a **Client** instance.</span></span> <span data-ttu-id="fc3f1-168">Değiştir **{youriothostname}** hello IOT hub'ı hello adı ile oluşturduğunuz hello *IOT Hub oluşturma* bölümü.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-168">Replace **{youriothostname}** with hello name of hello IoT hub you created hello *Create an IoT Hub* section.</span></span> <span data-ttu-id="fc3f1-169">Değiştir **{yourdevicekey}** hello oluşturulan hello aygıt anahtarı değerine sahip *bir cihaz kimliği oluşturma* bölümü:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-169">Replace **{yourdevicekey}** with hello device key value you generated in hello *Create a device identity* section:</span></span>
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
    
     var client = clientFromConnectionString(connectionString);
     ```
-6. <span data-ttu-id="a21f4-170">Uygulamadan çıktı görüntülemek için aşağıdaki işlevi ekleyin:</span><span class="sxs-lookup"><span data-stu-id="a21f4-170">Add the following function to display output from the application:</span></span>
+6. <span data-ttu-id="fc3f1-170">Merhaba uygulamadan işlevi toodisplay çıktı aşağıdaki hello ekleyin:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-170">Add hello following function toodisplay output from hello application:</span></span>
    
     ```
     function printResultFor(op) {
@@ -212,7 +212,7 @@ ms.lasthandoff: 08/29/2017
       };
     }
     ```
-7. <span data-ttu-id="a21f4-171">Bir geri çağırma oluşturun ve IoT hub'ınıza her saniye bir ileti göndermek için **setInterval** işlevini kullanın:</span><span class="sxs-lookup"><span data-stu-id="a21f4-171">Create a callback and use the **setInterval** function to send a message to your IoT hub every second:</span></span>
+7. <span data-ttu-id="fc3f1-171">Bir geri çağırma oluşturun ve hello kullan **setInterval** saniyede bir ileti tooyour IOT hub'ı toosend işlev:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-171">Create a callback and use hello **setInterval** function toosend a message tooyour IoT hub every second:</span></span>
    
     ```
     var connectCallback = function (err) {
@@ -221,7 +221,7 @@ ms.lasthandoff: 08/29/2017
       } else {
         console.log('Client connected');
    
-        // Create a message and send it to the IoT Hub every second
+        // Create a message and send it toohello IoT Hub every second
         setInterval(function(){
             var temperature = 20 + (Math.random() * 15);
             var humidity = 60 + (Math.random() * 20);            
@@ -234,49 +234,49 @@ ms.lasthandoff: 08/29/2017
       }
     };
     ```
-8. <span data-ttu-id="a21f4-172">IoT Hub'ınıza bağlantıyı açın ve iletileri göndermeye başlayın:</span><span class="sxs-lookup"><span data-stu-id="a21f4-172">Open the connection to your IoT Hub and start sending messages:</span></span>
+8. <span data-ttu-id="fc3f1-172">Merhaba bağlantı tooyour IOT hub'ı açın ve iletileri göndermeye başlayın:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-172">Open hello connection tooyour IoT Hub and start sending messages:</span></span>
    
     ```
     client.open(connectCallback);
     ```
-9. <span data-ttu-id="a21f4-173">**SimulatedDevice.js** dosyasını kaydedin ve kapatın.</span><span class="sxs-lookup"><span data-stu-id="a21f4-173">Save and close the **SimulatedDevice.js** file.</span></span>
+9. <span data-ttu-id="fc3f1-173">Kaydet ve Kapat hello **SimulatedDevice.js** dosya.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-173">Save and close hello **SimulatedDevice.js** file.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a21f4-174">Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz.</span><span class="sxs-lookup"><span data-stu-id="a21f4-174">To keep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="a21f4-175">[Geçici Hata İşleme][lnk-transient-faults] adlı MSDN makalesinde önerildiği üzere, üretim kodunda yeniden deneme ilkelerini (üstel geri alma gibi) uygulamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="a21f4-175">In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].</span></span>
+> <span data-ttu-id="fc3f1-174">tookeep şeyler basit, Bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-174">tookeep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="fc3f1-175">Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), önerilen hello MSDN makalesinde uygulamalıdır [geçici hata işleme][lnk-transient-faults].</span><span class="sxs-lookup"><span data-stu-id="fc3f1-175">In production code, you should implement retry policies (such as an exponential backoff), as suggested in hello MSDN article [Transient Fault Handling][lnk-transient-faults].</span></span>
 > 
 > 
 
-## <a name="run-the-apps"></a><span data-ttu-id="a21f4-176">Uygulamaları çalıştırma</span><span class="sxs-lookup"><span data-stu-id="a21f4-176">Run the apps</span></span>
-<span data-ttu-id="a21f4-177">Şimdi uygulamaları çalıştırmaya hazırsınız.</span><span class="sxs-lookup"><span data-stu-id="a21f4-177">You are now ready to run the apps.</span></span>
+## <a name="run-hello-apps"></a><span data-ttu-id="fc3f1-176">Merhaba uygulamaları çalıştırma</span><span class="sxs-lookup"><span data-stu-id="fc3f1-176">Run hello apps</span></span>
+<span data-ttu-id="fc3f1-177">Hazır toorun hello uygulamaları sunulmuştur.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-177">You are now ready toorun hello apps.</span></span>
 
-1. <span data-ttu-id="a21f4-178">**readdevicetocloudmessages** klasöründeki bir komut isteminde IoT hub'ınızı izlemeye başlamak için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a21f4-178">At a command prompt in the **readdevicetocloudmessages** folder, run the following command to begin monitoring your IoT hub:</span></span>
+1. <span data-ttu-id="fc3f1-178">Bir komut isteminde hello **readdevicetocloudmessages** klasörü, IOT hub'ınızı izleme komut toobegin aşağıdaki hello çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-178">At a command prompt in hello **readdevicetocloudmessages** folder, run hello following command toobegin monitoring your IoT hub:</span></span>
    
     ```
     node ReadDeviceToCloudMessages.js 
     ```
    
-    ![Cihazdan buluta iletileri izlemeye yönelik Node.js IoT Hub hizmet uygulaması][7]
-2. <span data-ttu-id="a21f4-180">**simulateddevice** klasöründeki bir komut isteminde IoT hub'ınıza telemetri verileri göndermeye başlamak için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a21f4-180">At a command prompt in the **simulateddevice** folder, run the following command to begin sending telemetry data to your IoT hub:</span></span>
+    ![Node.js IOT Hub hizmeti uygulama toomonitor cihaz-bulut iletileri][7]
+2. <span data-ttu-id="fc3f1-180">Bir komut isteminde hello **simulateddevice** klasörü, telemetri verileri tooyour IOT hub'ı gönderme komutu toobegin aşağıdaki hello çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-180">At a command prompt in hello **simulateddevice** folder, run hello following command toobegin sending telemetry data tooyour IoT hub:</span></span>
    
     ```
     node SimulatedDevice.js
     ```
    
-    ![Cihazdan buluta iletileri göndermeye yönelik Node.js IoT Hub cihaz uygulaması][8]
-3. <span data-ttu-id="a21f4-182">[Azure portalındaki][lnk-portal] **Kullanım** kutucuğu, IoT hub'ına gönderilen ileti sayısını gösterir:</span><span class="sxs-lookup"><span data-stu-id="a21f4-182">The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the IoT hub:</span></span>
+    ![Node.js IOT Hub cihaz uygulaması toosend cihaz bulut iletilerini][8]
+3. <span data-ttu-id="fc3f1-182">Merhaba **kullanım** döşeme hello [Azure portal] [ lnk-portal] gösterir hello gönderilen iletileri toohello IOT hub'ı sayısı:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-182">hello **Usage** tile in hello [Azure portal][lnk-portal] shows hello number of messages sent toohello IoT hub:</span></span>
    
-    ![IoT Hub’a gönderilen ileti sayısını gösteren Azure portalı Kullanım kutucuğu][43]
+    ![Azure portalı kullanım kutucuğu sayısını gösteren gönderilen iletileri tooIoT Hub][43]
 
-## <a name="next-steps"></a><span data-ttu-id="a21f4-184">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="a21f4-184">Next steps</span></span>
-<span data-ttu-id="a21f4-185">Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="a21f4-185">In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry.</span></span> <span data-ttu-id="a21f4-186">Bu cihaz kimliğini, sanal cihaz uygulamasının, IoT hub'ına cihazdan buluta iletileri göndermesini sağlamak için kullandınız.</span><span class="sxs-lookup"><span data-stu-id="a21f4-186">You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub.</span></span> <span data-ttu-id="a21f4-187">Ayrıca, IoT hub’ı tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="a21f4-187">You also created an app that displays the messages received by the IoT hub.</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="fc3f1-184">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="fc3f1-184">Next steps</span></span>
+<span data-ttu-id="fc3f1-185">Bu öğreticide hello Azure portalında yeni bir IOT hub yapılandırılmış ve ardından hello IOT hub'ın kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-185">In this tutorial, you configured a new IoT hub in hello Azure portal, and then created a device identity in hello IoT hub's identity registry.</span></span> <span data-ttu-id="fc3f1-186">Bu cihaz kimliğini tooenable benzetimli hello cihaz uygulama toosend cihaz bulut iletilerini toohello IOT hub kullanılır.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-186">You used this device identity tooenable hello simulated device app toosend device-to-cloud messages toohello IoT hub.</span></span> <span data-ttu-id="fc3f1-187">Merhaba hello IOT hub tarafından alınan iletileri görüntüleyen bir uygulama da oluşturmuş.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-187">You also created an app that displays hello messages received by hello IoT hub.</span></span> 
 
-<span data-ttu-id="a21f4-188">IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:</span><span class="sxs-lookup"><span data-stu-id="a21f4-188">To continue getting started with IoT Hub and to explore other IoT scenarios, see:</span></span>
+<span data-ttu-id="fc3f1-188">Başlarken toocontinue IOT Hub ve tooexplore diğer IOT senaryolarını bakın:</span><span class="sxs-lookup"><span data-stu-id="fc3f1-188">toocontinue getting started with IoT Hub and tooexplore other IoT scenarios, see:</span></span>
 
-* <span data-ttu-id="a21f4-189">[Cihazınızı bağlama][lnk-connect-device]</span><span class="sxs-lookup"><span data-stu-id="a21f4-189">[Connecting your device][lnk-connect-device]</span></span>
-* <span data-ttu-id="a21f4-190">[Cihaz yönetimini kullanmaya başlama][lnk-device-management]</span><span class="sxs-lookup"><span data-stu-id="a21f4-190">[Getting started with device management][lnk-device-management]</span></span>
-* <span data-ttu-id="a21f4-191">[Azure IoT Edge’i kullanmaya başlama][lnk-iot-edge]</span><span class="sxs-lookup"><span data-stu-id="a21f4-191">[Getting started with Azure IoT Edge][lnk-iot-edge]</span></span>
+* <span data-ttu-id="fc3f1-189">[Cihazınızı bağlama][lnk-connect-device]</span><span class="sxs-lookup"><span data-stu-id="fc3f1-189">[Connecting your device][lnk-connect-device]</span></span>
+* <span data-ttu-id="fc3f1-190">[Cihaz yönetimini kullanmaya başlama][lnk-device-management]</span><span class="sxs-lookup"><span data-stu-id="fc3f1-190">[Getting started with device management][lnk-device-management]</span></span>
+* <span data-ttu-id="fc3f1-191">[Azure IoT Edge’i kullanmaya başlama][lnk-iot-edge]</span><span class="sxs-lookup"><span data-stu-id="fc3f1-191">[Getting started with Azure IoT Edge][lnk-iot-edge]</span></span>
 
-<span data-ttu-id="a21f4-192">IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin doğru ölçekte nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.</span><span class="sxs-lookup"><span data-stu-id="a21f4-192">To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.</span></span>
+<span data-ttu-id="fc3f1-192">toolearn tooextend, IOT çözümü ve işlem cihaz bulut iletilerini ölçekli olarak nasıl görürüm hello [cihaz-bulut iletileri] [ lnk-process-d2c-tutorial] Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="fc3f1-192">toolearn how tooextend your IoT solution and process device-to-cloud messages at scale, see hello [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.</span></span>
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 

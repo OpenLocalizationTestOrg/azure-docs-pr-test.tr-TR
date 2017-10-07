@@ -1,6 +1,6 @@
 ---
-title: "Mevcut ağ Azure CLI 1.0 ile içine Linux VM'ler dağıtma | Microsoft Docs"
-description: "Bir varolan sanal Azure CLI 1.0 kullanarak ağınıza bir Linux VM dağıtma"
+title: "mevcut ağ Azure CLI 1.0 ile içine aaaDeploy Linux VM'ler | Microsoft Docs"
+description: "Nasıl toodeploy kullanarak varolan bir sanal ağ içinde bir Linux VM hello Azure CLI 1.0"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 767a3f7cadba6b1e71e5a8f5995a9db090e419dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e660f1563d386efc7788bd236f8b067145ea09bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-deploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-the-azure-cli-10"></a><span data-ttu-id="44bc0-103">Mevcut Azure sanal ağda Azure CLI 1.0 ile Linux sanal makine dağıtma</span><span class="sxs-lookup"><span data-stu-id="44bc0-103">How to deploy a Linux virtual machine into an existing Azure Virtual Network with the Azure CLI 1.0</span></span>
+# <a name="how-toodeploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-hello-azure-cli-10"></a><span data-ttu-id="19fc0-103">Nasıl toodeploy mevcut Azure sanal ağda hello Azure CLI 1.0 ile Linux sanal makine</span><span class="sxs-lookup"><span data-stu-id="19fc0-103">How toodeploy a Linux virtual machine into an existing Azure Virtual Network with hello Azure CLI 1.0</span></span>
 
-<span data-ttu-id="44bc0-104">Bu makalede Azure CLI 1.0 var olan bir sanal ağa (VNet) sanal makine (VM) dağıtmak için nasıl kullanılacağı gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-104">This article shows you how to use Azure CLI 1.0 to deploy a virtual machine (VM) into an existing Virtual Network (VNet).</span></span> <span data-ttu-id="44bc0-105">Gereksinimler şunlardır:</span><span class="sxs-lookup"><span data-stu-id="44bc0-105">The requirements are:</span></span>
+<span data-ttu-id="19fc0-104">Bu makale size nasıl gösterir toouse Azure CLI 1.0 toodeploy mevcut sanal ağda (VNet) sanal makine (VM).</span><span class="sxs-lookup"><span data-stu-id="19fc0-104">This article shows you how toouse Azure CLI 1.0 toodeploy a virtual machine (VM) into an existing Virtual Network (VNet).</span></span> <span data-ttu-id="19fc0-105">Hello gereksinimleri şunlardır:</span><span class="sxs-lookup"><span data-stu-id="19fc0-105">hello requirements are:</span></span>
 
-- [<span data-ttu-id="44bc0-106">Bir Azure hesabı</span><span class="sxs-lookup"><span data-stu-id="44bc0-106">an Azure account</span></span>](https://azure.microsoft.com/pricing/free-trial/)
-- [<span data-ttu-id="44bc0-107">SSH ortak ve özel anahtar dosyaları</span><span class="sxs-lookup"><span data-stu-id="44bc0-107">SSH public and private key files</span></span>](mac-create-ssh-keys.md)
-
-
-## <a name="cli-versions-to-complete-the-task"></a><span data-ttu-id="44bc0-108">Görevi tamamlamak için kullanılacak CLI sürümleri</span><span class="sxs-lookup"><span data-stu-id="44bc0-108">CLI versions to complete the task</span></span>
-<span data-ttu-id="44bc0-109">Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="44bc0-109">You can complete the task using one of the following CLI versions:</span></span>
-
-- <span data-ttu-id="44bc0-110">[Azure CLI 1.0](#quick-commands) – bizim CLI Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)</span><span class="sxs-lookup"><span data-stu-id="44bc0-110">[Azure CLI 1.0](#quick-commands) – our CLI for the classic and resource management deployment models (this article)</span></span>
-- <span data-ttu-id="44bc0-111">[Azure CLI 2.0](deploy-linux-vm-into-existing-vnet-using-cli.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız</span><span class="sxs-lookup"><span data-stu-id="44bc0-111">[Azure CLI 2.0](deploy-linux-vm-into-existing-vnet-using-cli.md) - our next generation CLI for the resource management deployment model</span></span>
+- [<span data-ttu-id="19fc0-106">Bir Azure hesabı</span><span class="sxs-lookup"><span data-stu-id="19fc0-106">an Azure account</span></span>](https://azure.microsoft.com/pricing/free-trial/)
+- [<span data-ttu-id="19fc0-107">SSH ortak ve özel anahtar dosyaları</span><span class="sxs-lookup"><span data-stu-id="19fc0-107">SSH public and private key files</span></span>](mac-create-ssh-keys.md)
 
 
-## <a name="quick-commands"></a><span data-ttu-id="44bc0-112">Hızlı Komutlar</span><span class="sxs-lookup"><span data-stu-id="44bc0-112">Quick Commands</span></span>
+## <a name="cli-versions-toocomplete-hello-task"></a><span data-ttu-id="19fc0-108">CLI sürümleri toocomplete hello görevi</span><span class="sxs-lookup"><span data-stu-id="19fc0-108">CLI versions toocomplete hello task</span></span>
+<span data-ttu-id="19fc0-109">CLI sürümleri aşağıdaki hello birini kullanarak hello görevi tamamlamak:</span><span class="sxs-lookup"><span data-stu-id="19fc0-109">You can complete hello task using one of hello following CLI versions:</span></span>
 
-<span data-ttu-id="44bc0-113">Hızlı bir şekilde görevi gerçekleştirmek gerekiyorsa, aşağıdaki bölümde gerekli komutları ayrıntıları verilmektedir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-113">If you need to quickly accomplish the task, the following section details the commands needed.</span></span> <span data-ttu-id="44bc0-114">Her adım, belgenin geri kalanında bulunabilir bilgi ve içerik daha ayrıntılı [burada başlangıç](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).</span><span class="sxs-lookup"><span data-stu-id="44bc0-114">More detailed information and context for each step can be found the rest of the document, [starting here](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).</span></span>
+- <span data-ttu-id="19fc0-110">[Azure CLI 1.0](#quick-commands) – bizim CLI hello Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)</span><span class="sxs-lookup"><span data-stu-id="19fc0-110">[Azure CLI 1.0](#quick-commands) – our CLI for hello classic and resource management deployment models (this article)</span></span>
+- <span data-ttu-id="19fc0-111">[Azure CLI 2.0](deploy-linux-vm-into-existing-vnet-using-cli.md) -bizim nesil CLI hello kaynak yönetimi dağıtım modeli için</span><span class="sxs-lookup"><span data-stu-id="19fc0-111">[Azure CLI 2.0](deploy-linux-vm-into-existing-vnet-using-cli.md) - our next generation CLI for hello resource management deployment model</span></span>
 
-<span data-ttu-id="44bc0-115">Ön gereksinimlerini: SSH ile kaynak grubu, VNet, NSG gelen, alt ağ.</span><span class="sxs-lookup"><span data-stu-id="44bc0-115">Pre-requirements: Resource Group, VNet, NSG with SSH inbound, Subnet.</span></span> <span data-ttu-id="44bc0-116">Tüm örnekleri kendi ayarlarınızla değiştirin.</span><span class="sxs-lookup"><span data-stu-id="44bc0-116">Replace any examples with your own settings.</span></span>
 
-### <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a><span data-ttu-id="44bc0-117">VM sanal ağ altyapısını dağıtma</span><span class="sxs-lookup"><span data-stu-id="44bc0-117">Deploy the VM into the virtual network infrastructure</span></span>
+## <a name="quick-commands"></a><span data-ttu-id="19fc0-112">Hızlı Komutlar</span><span class="sxs-lookup"><span data-stu-id="19fc0-112">Quick Commands</span></span>
+
+<span data-ttu-id="19fc0-113">Tooquickly gerekiyorsa hello görevi, gerekli hello komutları bölümden hello ayrıntıları.</span><span class="sxs-lookup"><span data-stu-id="19fc0-113">If you need tooquickly accomplish hello task, hello following section details hello commands needed.</span></span> <span data-ttu-id="19fc0-114">Her adım hello belgenin hello kalan bulunabilir bilgi ve içerik daha ayrıntılı [burada başlangıç](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).</span><span class="sxs-lookup"><span data-stu-id="19fc0-114">More detailed information and context for each step can be found hello rest of hello document, [starting here](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).</span></span>
+
+<span data-ttu-id="19fc0-115">Ön gereksinimlerini: SSH ile kaynak grubu, VNet, NSG gelen, alt ağ.</span><span class="sxs-lookup"><span data-stu-id="19fc0-115">Pre-requirements: Resource Group, VNet, NSG with SSH inbound, Subnet.</span></span> <span data-ttu-id="19fc0-116">Tüm örnekleri kendi ayarlarınızla değiştirin.</span><span class="sxs-lookup"><span data-stu-id="19fc0-116">Replace any examples with your own settings.</span></span>
+
+### <a name="deploy-hello-vm-into-hello-virtual-network-infrastructure"></a><span data-ttu-id="19fc0-117">Merhaba VM hello sanal ağ altyapısıyla dağıtma</span><span class="sxs-lookup"><span data-stu-id="19fc0-117">Deploy hello VM into hello virtual network infrastructure</span></span>
 
 ```azurecli
 azure vm create myVM \
@@ -59,21 +59,21 @@ azure vm create myVM \
     -N myVNic
 ```
 
-## <a name="detailed-walkthrough"></a><span data-ttu-id="44bc0-118">Ayrıntılı kılavuz</span><span class="sxs-lookup"><span data-stu-id="44bc0-118">Detailed walkthrough</span></span>
+## <a name="detailed-walkthrough"></a><span data-ttu-id="19fc0-118">Ayrıntılı kılavuz</span><span class="sxs-lookup"><span data-stu-id="19fc0-118">Detailed walkthrough</span></span>
 
-<span data-ttu-id="44bc0-119">Sanal ağlar Azure varlıklar gibi ve ağ güvenlik grupları nadiren dağıtılan kaynakları uzun ömürlü ve statik olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-119">Azure assets like the VNets and network security groups should be static and long lived resources that are rarely deployed.</span></span> <span data-ttu-id="44bc0-120">Bir VNet dağıtıldıktan sonra hiçbir olumsuz etkiler altyapısı olmadan yeni dağıtımlar tarafından yeniden.</span><span class="sxs-lookup"><span data-stu-id="44bc0-120">Once a VNet has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure.</span></span> <span data-ttu-id="44bc0-121">Geleneksel donanım ağ anahtarı olarak VNet düşünün.</span><span class="sxs-lookup"><span data-stu-id="44bc0-121">Think about a VNet as being a traditional hardware network switch.</span></span> <span data-ttu-id="44bc0-122">Yepyeni bir donanım anahtarı ile her bir dağıtım yapılandırmak ihtiyaç duymaz.</span><span class="sxs-lookup"><span data-stu-id="44bc0-122">You would not need to configure a brand new hardware switch with each deployment.</span></span> <span data-ttu-id="44bc0-123">Doğru yapılandırılmış bir VNet ile birlikte, yeni sunucuları bu Vnet'i tekrar tekrar VNet ömrü boyunca gereken birkaç varsa, değişikliklerle dağıtmak, devam edebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="44bc0-123">With a correctly configured VNet, you can continue to deploy new servers into that VNet over and over with few, if any, changes required over the life of the VNet.</span></span>
+<span data-ttu-id="19fc0-119">Azure varlıklar hello sanal ağlar gibi ve ağ güvenlik grupları nadiren dağıtılan kaynakları uzun ömürlü ve statik olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-119">Azure assets like hello VNets and network security groups should be static and long lived resources that are rarely deployed.</span></span> <span data-ttu-id="19fc0-120">Bir VNet dağıtıldıktan sonra herhangi bir olumsuz etkiler toohello altyapı olmadan yeni dağıtımlar tarafından yeniden.</span><span class="sxs-lookup"><span data-stu-id="19fc0-120">Once a VNet has been deployed, it can be reused by new deployments without any adverse affects toohello infrastructure.</span></span> <span data-ttu-id="19fc0-121">Geleneksel donanım ağ anahtarı olarak VNet düşünün.</span><span class="sxs-lookup"><span data-stu-id="19fc0-121">Think about a VNet as being a traditional hardware network switch.</span></span> <span data-ttu-id="19fc0-122">Yeni donanım ile her bir dağıtım geçiş tooconfigure ihtiyaç duymaz.</span><span class="sxs-lookup"><span data-stu-id="19fc0-122">You would not need tooconfigure a brand new hardware switch with each deployment.</span></span> <span data-ttu-id="19fc0-123">Doğru yapılandırılmış bir VNet ile birlikte toodeploy yeni sunucuları bu sanal ağ içinde tekrar tekrar hello VNet hello ömrü boyunca gereken birkaç varsa, değişikliklerle devam edebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="19fc0-123">With a correctly configured VNet, you can continue toodeploy new servers into that VNet over and over with few, if any, changes required over hello life of hello VNet.</span></span>
 
-## <a name="create-the-resource-group"></a><span data-ttu-id="44bc0-124">Kaynak grubunu oluşturma</span><span class="sxs-lookup"><span data-stu-id="44bc0-124">Create the resource group</span></span>
+## <a name="create-hello-resource-group"></a><span data-ttu-id="19fc0-124">Merhaba kaynak grubu oluştur</span><span class="sxs-lookup"><span data-stu-id="19fc0-124">Create hello resource group</span></span>
 
-<span data-ttu-id="44bc0-125">İlk olarak, bu kılavuzda oluşturduğunuz her şeyi düzenlemek için bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="44bc0-125">First, create a resource group to organize everything you create in this walkthrough.</span></span> <span data-ttu-id="44bc0-126">Kaynak grupları hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md)</span><span class="sxs-lookup"><span data-stu-id="44bc0-126">For more information about resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)</span></span>
+<span data-ttu-id="19fc0-125">İlk olarak, bir kaynak grubu tooorganize bu kılavuzda oluşturduğunuz her şeyi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="19fc0-125">First, create a resource group tooorganize everything you create in this walkthrough.</span></span> <span data-ttu-id="19fc0-126">Kaynak grupları hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md)</span><span class="sxs-lookup"><span data-stu-id="19fc0-126">For more information about resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)</span></span>
 
 ```azurecli
 azure group create myResourceGroup --location eastus
 ```
 
-## <a name="create-the-vnet"></a><span data-ttu-id="44bc0-127">Sanal ağ oluşturma</span><span class="sxs-lookup"><span data-stu-id="44bc0-127">Create the VNet</span></span>
+## <a name="create-hello-vnet"></a><span data-ttu-id="19fc0-127">Merhaba VNet oluşturma</span><span class="sxs-lookup"><span data-stu-id="19fc0-127">Create hello VNet</span></span>
 
-<span data-ttu-id="44bc0-128">İlk adım, içine sanal makineleri başlatmak için bir VNet oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="44bc0-128">The first step is to build a VNet to launch the VMs into.</span></span> <span data-ttu-id="44bc0-129">Sanal ağ Bu izlenecek yol için bir alt ağ içerir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-129">The VNet contains one subnet for this walkthrough.</span></span> <span data-ttu-id="44bc0-130">Azure sanal ağlar hakkında daha fazla bilgi için bkz: [Azure CLI kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)</span><span class="sxs-lookup"><span data-stu-id="44bc0-130">For more information on Azure VNets, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)</span></span>
+<span data-ttu-id="19fc0-128">Merhaba ilk VNet toolaunch hello VM'ler içine toobuild adımdır.</span><span class="sxs-lookup"><span data-stu-id="19fc0-128">hello first step is toobuild a VNet toolaunch hello VMs into.</span></span> <span data-ttu-id="19fc0-129">Merhaba VNet Bu izlenecek yol için bir alt ağ içerir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-129">hello VNet contains one subnet for this walkthrough.</span></span> <span data-ttu-id="19fc0-130">Azure sanal ağlar hakkında daha fazla bilgi için bkz: [hello Azure CLI kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)</span><span class="sxs-lookup"><span data-stu-id="19fc0-130">For more information on Azure VNets, see [Create a virtual network by using hello Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)</span></span>
 
 ```azurecli
 azure network vnet create myVNet \
@@ -82,9 +82,9 @@ azure network vnet create myVNet \
     --location eastus
 ```
 
-## <a name="create-the-network-security-group"></a><span data-ttu-id="44bc0-131">Ağ güvenlik grubu oluşturun</span><span class="sxs-lookup"><span data-stu-id="44bc0-131">Create the network security group</span></span>
+## <a name="create-hello-network-security-group"></a><span data-ttu-id="19fc0-131">Merhaba ağ güvenlik grubu oluşturun</span><span class="sxs-lookup"><span data-stu-id="19fc0-131">Create hello network security group</span></span>
 
-<span data-ttu-id="44bc0-132">Alt ardındaki var olan bir ağda yerleşik güvenlik grubu böylece alt önce ağ güvenlik grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="44bc0-132">The subnet is built behind an existing network security group so build the network security group before the subnet.</span></span> <span data-ttu-id="44bc0-133">Azure ağ güvenlik grupları, bir Güvenlik Duvarı'nı ağ katmanında eşdeğerdir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-133">Azure network security groups are equivalent to a firewall at the network layer.</span></span> <span data-ttu-id="44bc0-134">Azure ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları Azure CLI oluşturma](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)</span><span class="sxs-lookup"><span data-stu-id="44bc0-134">For more information on Azure network security groups, see [How to create network security groups in the Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)</span></span>
+<span data-ttu-id="19fc0-132">Merhaba alt varolan bir ağ güvenlik grubu yerleşik şekilde hello alt önce hello ağ güvenlik grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="19fc0-132">hello subnet is built behind an existing network security group so build hello network security group before hello subnet.</span></span> <span data-ttu-id="19fc0-133">Azure ağ güvenlik grupları hello ağ katmanı eşdeğer tooa güvenlik duvarında değildir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-133">Azure network security groups are equivalent tooa firewall at hello network layer.</span></span> <span data-ttu-id="19fc0-134">Azure ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [nasıl hello Azure CLI toocreate ağ güvenlik grupları](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)</span><span class="sxs-lookup"><span data-stu-id="19fc0-134">For more information on Azure network security groups, see [How toocreate network security groups in hello Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)</span></span>
 
 ```azurecli
 azure network nsg create myNetworkSecurityGroup \
@@ -92,9 +92,9 @@ azure network nsg create myNetworkSecurityGroup \
     --location eastus
 ```
 
-## <a name="add-an-inbound-ssh-allow-rule"></a><span data-ttu-id="44bc0-135">Gelen bir SSH izin ver Kuralı Ekle</span><span class="sxs-lookup"><span data-stu-id="44bc0-135">Add an inbound SSH allow rule</span></span>
+## <a name="add-an-inbound-ssh-allow-rule"></a><span data-ttu-id="19fc0-135">Gelen bir SSH izin ver Kuralı Ekle</span><span class="sxs-lookup"><span data-stu-id="19fc0-135">Add an inbound SSH allow rule</span></span>
 
-<span data-ttu-id="44bc0-136">Gelen bağlantı noktası 22 trafiği ağ üzerinden bağlantı noktası 22 VM geçirilmesine izin veren bir kural gerektiği şekilde VM internet erişimi olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="44bc0-136">The VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the VM is needed.</span></span>
+<span data-ttu-id="19fc0-136">Merhaba VM gelen bağlantı noktası 22 trafiği toobe veren bir kural hello ağ tooport 22 hello VM üzerinde geçirilen şekilde Internet gerekli hello erişimden gerekir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-136">hello VM needs access from hello internet so a rule allowing inbound port 22 traffic toobe passed through hello network tooport 22 on hello VM is needed.</span></span>
 
 ```azurecli
 azure network nsg rule create inboundSSH \
@@ -110,9 +110,9 @@ azure network nsg rule create inboundSSH \
     --destination-port-range 22
 ```
 
-## <a name="add-a-subnet-to-the-vnet"></a><span data-ttu-id="44bc0-137">Sanal ağ için bir alt ağ Ekle</span><span class="sxs-lookup"><span data-stu-id="44bc0-137">Add a subnet to the VNet</span></span>
+## <a name="add-a-subnet-toohello-vnet"></a><span data-ttu-id="19fc0-137">Bir alt ağ toohello VNet ekleme</span><span class="sxs-lookup"><span data-stu-id="19fc0-137">Add a subnet toohello VNet</span></span>
 
-<span data-ttu-id="44bc0-138">Sanal ağ içindeki VM'ler bir alt ağda bulunması gerekir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-138">VMs within the VNet must be located in a subnet.</span></span> <span data-ttu-id="44bc0-139">Her sanal ağ birden çok alt ağa sahip olabilir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-139">Each VNet can have multiple subnets.</span></span> <span data-ttu-id="44bc0-140">Alt ağ oluşturmak ve ağ güvenlik grubuyla ilişkilendirin.</span><span class="sxs-lookup"><span data-stu-id="44bc0-140">Create the subnet and associate with the network security group.</span></span>
+<span data-ttu-id="19fc0-138">VM'ler hello VNet içindeki bir alt ağda bulunması gerekir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-138">VMs within hello VNet must be located in a subnet.</span></span> <span data-ttu-id="19fc0-139">Her sanal ağ birden çok alt ağa sahip olabilir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-139">Each VNet can have multiple subnets.</span></span> <span data-ttu-id="19fc0-140">Merhaba alt ağı oluşturup hello ağ güvenlik grubuyla ilişkilendirin.</span><span class="sxs-lookup"><span data-stu-id="19fc0-140">Create hello subnet and associate with hello network security group.</span></span>
 
 ```azurecli
 azure network vnet subnet create mySubNet \
@@ -122,12 +122,12 @@ azure network vnet subnet create mySubNet \
     --network-security-group-name myNetworkSecurityGroup
 ```
 
-<span data-ttu-id="44bc0-141">Alt ağ şimdi VNet eklenir ve ağ güvenlik grubu ve kuralı ile ilişkilendirilmiş.</span><span class="sxs-lookup"><span data-stu-id="44bc0-141">The Subnet is now added inside the VNet and associated with the network security group and rule.</span></span>
+<span data-ttu-id="19fc0-141">Merhaba alt şimdi hello VNet eklenir ve hello ağ güvenlik grubu ve kuralı ile ilişkilendirilmiş.</span><span class="sxs-lookup"><span data-stu-id="19fc0-141">hello Subnet is now added inside hello VNet and associated with hello network security group and rule.</span></span>
 
 
-## <a name="add-a-vnic-to-the-subnet"></a><span data-ttu-id="44bc0-142">Alt ağ için bir Vnıc'teki Ekle</span><span class="sxs-lookup"><span data-stu-id="44bc0-142">Add a VNic to the subnet</span></span>
+## <a name="add-a-vnic-toohello-subnet"></a><span data-ttu-id="19fc0-142">Vnıc toohello alt ağ Ekle</span><span class="sxs-lookup"><span data-stu-id="19fc0-142">Add a VNic toohello subnet</span></span>
 
-<span data-ttu-id="44bc0-143">Sanal ağ kartları (VNics), bunları farklı VM'ler bağlanarak yeniden gibi önemlidir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-143">Virtual network cards (VNics) are important as you can reuse them by connecting them to different VMs.</span></span> <span data-ttu-id="44bc0-144">Bu yaklaşım VM'ler geçici olarak olabileceği Vnıc statik bir kaynak olarak tutar.</span><span class="sxs-lookup"><span data-stu-id="44bc0-144">This approach keeps the VNic as a static resource while the VMs can be temporary.</span></span> <span data-ttu-id="44bc0-145">Bir Vnıc'teki oluşturun ve önceki adımda oluşturduğunuz alt ağ ile ilişkilendirin.</span><span class="sxs-lookup"><span data-stu-id="44bc0-145">Create a VNic and associate it with the subnet created in the previous step.</span></span>
+<span data-ttu-id="19fc0-143">Sanal ağ kartları (VNics), bunları toodifferent VM'ler bağlanarak yeniden gibi önemlidir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-143">Virtual network cards (VNics) are important as you can reuse them by connecting them toodifferent VMs.</span></span> <span data-ttu-id="19fc0-144">Bu yaklaşım Hello VM'ler geçici olarak olabileceği hello Vnıc statik bir kaynak olarak tutar.</span><span class="sxs-lookup"><span data-stu-id="19fc0-144">This approach keeps hello VNic as a static resource while hello VMs can be temporary.</span></span> <span data-ttu-id="19fc0-145">Bir Vnıc'teki oluşturup hello önceki adımda oluşturduğunuz hello alt ağı ile ilişkilendirin.</span><span class="sxs-lookup"><span data-stu-id="19fc0-145">Create a VNic and associate it with hello subnet created in hello previous step.</span></span>
 
 ```azurecli
 azure network nic create myVNic \
@@ -137,11 +137,11 @@ azure network nic create myVNic \
     --subnet-name mySubNet
 ```
 
-## <a name="deploy-the-vm-into-the-vnet-and-nsg"></a><span data-ttu-id="44bc0-146">VNet ve NSG halinde VM dağıtma</span><span class="sxs-lookup"><span data-stu-id="44bc0-146">Deploy the VM into the VNet and NSG</span></span>
+## <a name="deploy-hello-vm-into-hello-vnet-and-nsg"></a><span data-ttu-id="19fc0-146">Merhaba VM hello VNet içine ve NSG dağıtma</span><span class="sxs-lookup"><span data-stu-id="19fc0-146">Deploy hello VM into hello VNet and NSG</span></span>
 
-<span data-ttu-id="44bc0-147">Artık bir VNet ve alt ağ, VNet ve alt ağ için SSH bağlantı noktası 22 dışındaki tüm gelen trafiği engelleyerek korumak için davranan bir ağ güvenlik grubu içinde vardır.</span><span class="sxs-lookup"><span data-stu-id="44bc0-147">You now have a VNet and subnet inside that VNet, and a network security group acting to protect the subnet by blocking all inbound traffic except port 22 for SSH.</span></span> <span data-ttu-id="44bc0-148">VM şimdi bu mevcut ağ altyapınızda içinde dağıtılabilir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-148">The VM can now be deployed inside this existing network infrastructure.</span></span>
+<span data-ttu-id="19fc0-147">Artık bir VNet ve alt ağ, sanal ağ ve SSH için bağlantı noktası 22 dışındaki tüm gelen trafiği engelleyerek tooprotect hello alt davranan bir ağ güvenlik grubu içinde vardır.</span><span class="sxs-lookup"><span data-stu-id="19fc0-147">You now have a VNet and subnet inside that VNet, and a network security group acting tooprotect hello subnet by blocking all inbound traffic except port 22 for SSH.</span></span> <span data-ttu-id="19fc0-148">Merhaba VM şimdi bu mevcut ağ altyapınızda içinde dağıtılabilir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-148">hello VM can now be deployed inside this existing network infrastructure.</span></span>
 
-<span data-ttu-id="44bc0-149">Azure CLI kullanarak ve `azure vm create` komutu, var olan Azure kaynak grubu, sanal ağ, alt ağ ve Vnıc için Linux VM dağıtılır.</span><span class="sxs-lookup"><span data-stu-id="44bc0-149">Using the Azure CLI, and the `azure vm create` command, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.</span></span> <span data-ttu-id="44bc0-150">Tam bir VM'yi dağıtmak için CLI kullanma ile ilgili daha fazla bilgi için bkz: [Azure CLI kullanarak eksiksiz bir Linux ortamı oluşturma](create-cli-complete.md)</span><span class="sxs-lookup"><span data-stu-id="44bc0-150">For more information on using the CLI to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md)</span></span>
+<span data-ttu-id="19fc0-149">Kullanarak Azure CLI hello ve hello `azure vm create` hello Linux VM olan Azure kaynak grubu, sanal ağ, alt ağ ve Vnıc varolan dağıtılan toohello komutu.</span><span class="sxs-lookup"><span data-stu-id="19fc0-149">Using hello Azure CLI, and hello `azure vm create` command, hello Linux VM is deployed toohello existing Azure Resource Group, VNet, Subnet, and VNic.</span></span> <span data-ttu-id="19fc0-150">Hello CLI toodeploy tam VM kullanma hakkında daha fazla bilgi için bkz: [hello Azure CLI kullanarak eksiksiz bir Linux ortamı oluşturma](create-cli-complete.md)</span><span class="sxs-lookup"><span data-stu-id="19fc0-150">For more information on using hello CLI toodeploy a complete VM, see [Create a complete Linux environment by using hello Azure CLI](create-cli-complete.md)</span></span>
 
 ```azurecli
 azure vm create myVM \
@@ -157,10 +157,10 @@ azure vm create myVM \
     --nic-name myVNic
 ```
 
-<span data-ttu-id="44bc0-151">Var olan kaynakları çağırmak için CLI bayrakları kullanarak, varolan ağ içindeki VM dağıtmak için Azure isteyin.</span><span class="sxs-lookup"><span data-stu-id="44bc0-151">By using the CLI flags to call out existing resources, you instruct Azure to deploy the VM inside the existing network.</span></span> <span data-ttu-id="44bc0-152">Bir VNet ve alt ağ dağıtıldıktan sonra Azure bölgesi içinde statik veya kalıcı kaynaklar olarak bırakılabilir.</span><span class="sxs-lookup"><span data-stu-id="44bc0-152">Once a VNet and subnet have been deployed, they can be left as static or permanent resources inside your Azure region.</span></span>  
+<span data-ttu-id="19fc0-151">Hello kullanarak CLI toocall var olan kaynakların çıkışı hello mevcut ağ içinde Azure toodeploy hello VM toplamasını işaretler.</span><span class="sxs-lookup"><span data-stu-id="19fc0-151">By using hello CLI flags toocall out existing resources, you instruct Azure toodeploy hello VM inside hello existing network.</span></span> <span data-ttu-id="19fc0-152">Bir VNet ve alt ağ dağıtıldıktan sonra Azure bölgesi içinde statik veya kalıcı kaynaklar olarak bırakılabilir.</span><span class="sxs-lookup"><span data-stu-id="19fc0-152">Once a VNet and subnet have been deployed, they can be left as static or permanent resources inside your Azure region.</span></span>  
 
-## <a name="next-steps"></a><span data-ttu-id="44bc0-153">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="44bc0-153">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="19fc0-153">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="19fc0-153">Next steps</span></span>
 
-* [<span data-ttu-id="44bc0-154">Belirli bir dağıtımı oluşturmak için Azure Resource Manager şablonu kullanma</span><span class="sxs-lookup"><span data-stu-id="44bc0-154">Use an Azure Resource Manager template to create a specific deployment</span></span>](../windows/cli-deploy-templates.md)
-* [<span data-ttu-id="44bc0-155">Azure CLI'si komutlarını doğrudan kullanarak bir Linux VM'si için kendi özel ortamınızı oluşturun</span><span class="sxs-lookup"><span data-stu-id="44bc0-155">Create your own custom environment for a Linux VM using Azure CLI commands directly</span></span>](create-cli-complete.md)
-* [<span data-ttu-id="44bc0-156">Şablonları kullanarak Azure'da bir Linux VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="44bc0-156">Create a Linux VM on Azure using templates</span></span>](create-ssh-secured-vm-from-template.md)
+* [<span data-ttu-id="19fc0-154">Azure Resource Manager şablonu toocreate belirli bir dağıtım kullanın</span><span class="sxs-lookup"><span data-stu-id="19fc0-154">Use an Azure Resource Manager template toocreate a specific deployment</span></span>](../windows/cli-deploy-templates.md)
+* [<span data-ttu-id="19fc0-155">Azure CLI'si komutlarını doğrudan kullanarak bir Linux VM'si için kendi özel ortamınızı oluşturun</span><span class="sxs-lookup"><span data-stu-id="19fc0-155">Create your own custom environment for a Linux VM using Azure CLI commands directly</span></span>](create-cli-complete.md)
+* [<span data-ttu-id="19fc0-156">Şablonları kullanarak Azure'da bir Linux VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="19fc0-156">Create a Linux VM on Azure using templates</span></span>](create-ssh-secured-vm-from-template.md)
