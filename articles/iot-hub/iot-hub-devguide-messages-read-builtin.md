@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT hub'ı yerleşik uç anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - yerleşik, Event Hub ile uyumlu uç noktası o cihaz bulut iletilerini kullanmayı açıklar."
+title: "aaaUnderstand hello Azure IOT hub'ı yerleşik uç | Microsoft Docs"
+description: "Geliştirici Kılavuzu - nasıl toouse hello yerleşik, Event Hub ile uyumlu uç noktası o cihaz bulut iletilerini açıklar."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -13,63 +13,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: fcc3743028e369fdc42b71887d49fb41fba2c0dc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 15484c1b1828151ffcae5f4a1407264374223da1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Yerleşik uç noktasından cihaz bulut iletilerini okuyun
+# <a name="read-device-to-cloud-messages-from-hello-built-in-endpoint"></a>Merhaba yerleşik uç noktasından cihaz bulut iletilerini okuyun
 
-Varsayılan olarak, yerleşik service'e yönelik uç noktasına iletileri yönlendirilir (**iletileri/olayları**), diğer bir deyişle uyumlu [Event Hubs][lnk-event-hubs]. Bu bitiş noktası şu anda yalnızca gösterilen kullanmaktır [AMQP] [ lnk-amqp] bağlantı noktası 5671 protokolü. IOT hub'ı yerleşik Event Hub ile uyumlu Mesajlaşma uç nokta denetlemenize olanak sağlamak için aşağıdaki özellikleri sunar **iletileri/olayları**.
+Varsayılan olarak, iletileri yönlendirilmiş toohello yerleşik service'e yönelik uç noktası olan (**iletileri/olayları**), diğer bir deyişle uyumlu [Event Hubs][lnk-event-hubs]. Bu uç noktası şu anda olup yalnızca hello kullanılarak kullanıma sunulan [AMQP] [ lnk-amqp] bağlantı noktası 5671 protokolü. IOT hub'ı hello sunan özellikleri tooenable, toocontrol hello yerleşik Event Hub ile uyumlu Mesajlaşma uç nokta **iletileri/olayları**.
 
 | Özellik            | Açıklama |
 | ------------------- | ----------- |
-| **Bölüm sayısı** | Oluşturma sırasında sayısını tanımlamak için bu özelliği ayarlamak [bölümleri] [ lnk-event-hub-partitions] cihaz-bulut olay alımı için. |
-| **Saklama süresi**  | Bu özellik ne kadar süreyle iletileri IOT Hub tarafından korunur gün cinsinden belirtir. Varsayılan bir gündür, ancak yedi gün sayısı artırılabilir. |
+| **Bölüm sayısı** | Bu özellik oluşturma toodefine hello kümesi sayısı [bölümleri] [ lnk-event-hub-partitions] cihaz-bulut olay alımı için. |
+| **Saklama süresi**  | Bu özellik ne kadar süreyle iletileri IOT Hub tarafından korunur gün cinsinden belirtir. Merhaba varsayılan bir günüdür ancak artan tooseven gün olabilir. |
 
-IOT Hub ayrıca yönetmenize imkan sağlar tüketici grupları yerleşik cihaz-bulut uç noktası alırsınız.
+IOT Hub ayrıca sağlar toomanage tüketici grupları hello yerleşik cihaz-bulut uç noktası alırsınız.
 
-Varsayılan olarak, açıkça bir ileti yönlendirme kuralı ile eşleşmiyor tüm iletileri yerleşik uç noktasına yazılır. Bu geri dönüş yolu devre dışı bırakırsanız, tüm ileti yönlendirme kuralları açıkça eşleşmiyor iletileri bırakılır.
+Varsayılan olarak, açıkça bir ileti yönlendirme kuralı ile eşleşmiyor tüm iletileri toohello yerleşik endpoint yazılır. Bu geri dönüş yolu devre dışı bırakırsanız, tüm ileti yönlendirme kuralları açıkça eşleşmiyor iletileri bırakılır.
 
-Bekletme süresini ya da değiştirebilirsiniz üzerinden programlı olarak [IOT hub'ı kaynak sağlayıcısı REST API'leri][lnk-resource-provider-apis], veya kullanarak [Azure portal][lnk-management-portal].
+Merhaba bekletme süresini, hello yoluyla programlı olarak değiştirmek [IOT hub'ı kaynak sağlayıcısı REST API'leri][lnk-resource-provider-apis], veya hello kullanarak [Azure portal] [ lnk-management-portal].
 
-IOT hub'ı sunan **iletileri/olayları** hub tarafından alınan cihaz bulut iletilerini okumanızı arka uç hizmetleriniz için yerleşik bir uç nokta. Bu uç noktaya olaydır iletileri okumak için Event Hubs hizmeti mekanizmaları birini kullanmanızı sağlayan Hub ile uyumlu destekler.
+IOT hub'ı sunan hello **iletileri/olayları** yerleşik uç noktası arka ucunuz için hub tarafından alınan tooread hello cihaz bulut iletilerini Hizmetleri. Bu uç noktaya olaydır hello mekanizmaları hello Event Hubs hizmetinin destekler iletileri okumak için toouse sağlayan Hub ile uyumlu.
 
-## <a name="read-from-the-built-in-endpoint"></a>Yerleşik uç noktasından okumak
+## <a name="read-from-hello-built-in-endpoint"></a>Merhaba yerleşik uç noktasından okumak
 
-Kullandığınızda [.NET için Azure hizmet veri yolu SDK] [ lnk-servicebus-sdk] veya [Event Hubs - olay işleyicisi konağı][lnk-eventprocessorhost], doğru izinlere sahip IOT Hub bağlantı dizelerini kullanabilirsiniz. Ardından **iletileri/olayları** olay hub'ı adı olarak.
+Merhaba kullandığınızda [.NET için Azure hizmet veri yolu SDK] [ lnk-servicebus-sdk] veya hello [Event Hubs - olay işleyicisi konağı][lnk-eventprocessorhost], herhangi bir IOT Hub bağlantısı kullanabilirsiniz dizeleri hello doğru izinlere sahip. Ardından **iletileri/olayları** hello olay hub'ı adı olarak.
 
-SDK'ları (veya ürün tümleştirmeler) kullandığınızda, IOT hub'ını farkında, IOT hub'ı ayarlarından bir Event Hub ile uyumlu uç noktası ve Event Hub ile uyumlu adı almalısınız [Azure portal][lnk-management-portal]:
+SDK'ları (veya ürün tümleştirmeler) kullandığınızda, IOT hub'ını farkında, hello IOT hub'ı ayarlarından hello bir Event Hub ile uyumlu uç noktası ve Event Hub ile uyumlu adı almalısınız [Azure portal] [ lnk-management-portal]:
 
-1. IOT hub dikey penceresinde tıklayın **uç noktaları**.
-1. İçinde **yerleşik uç noktaları** 'yi tıklatın **olayları**. Dikey penceresinde şu değerleri içeriyor: **Event Hub ile uyumlu uç nokta**, **Event Hub ile uyumlu adı**, **bölümleri**, **bekletme süresini**, ve **tüketici grupları**.
+1. Merhaba IOT hub dikey penceresinde tıklayın **uç noktaları**.
+1. Merhaba, **yerleşik uç noktaları** 'yi tıklatın **olayları**. Merhaba dikey içeren değerleri aşağıdaki hello: **Event Hub ile uyumlu uç nokta**, **Event Hub ile uyumlu adı**, **bölümleri**, **bekletme süresini**, ve **tüketici grupları**.
 
     ![Cihaz bulut ayarları][img-eventhubcompatible]
 
-IOT Hub SDK'sı olan IOT Hub uç nokta adı gerektirir **iletileri/olayları** gösterildiği gibi **uç noktaları** dikey.
+Merhaba IOT Hub SDK'sı gerektirir hello olan IOT Hub uç nokta adı **iletileri/olayları** hello gösterildiği gibi **uç noktaları** dikey.
 
-Kullanmakta olduğunuz SDK gerektiriyorsa bir **ana bilgisayar adı** veya **Namespace** değeri, düzeninden Kaldır **Event Hub ile uyumlu uç nokta**. Örneğin, Event Hub ile uyumlu uç noktanızı ise **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **ana bilgisayar adı** olacaktır **iothub-ns-myiothub-1234.servicebus.windows.net**ve **Namespace** olacaktır **iothub-ns-myiothub-1234**.
+Merhaba kullanmakta olduğunuz SDK gerektiriyorsa bir **ana bilgisayar adı** veya **Namespace** değeri, hello hello düzenini kaldırmak **Event Hub ile uyumlu uç nokta**. Örneğin, Event Hub ile uyumlu uç noktanızı ise **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, hello **ana bilgisayar adı** olacaktır ** iothub-ns-myiothub-1234.servicebus.windows.net**ve hello **Namespace** olacaktır **iothub-ns-myiothub-1234**.
 
-Daha sonra sahip herhangi bir paylaşılan erişim ilkesinin kullanabilirsiniz **ServiceConnect** belirtilen olay Hub'ına bağlanmak için gereken izinleri.
+Merhaba sahip herhangi bir paylaşılan erişim ilkesinin sonra kullanabileceğiniz **ServiceConnect** izinleri tooconnect toohello belirtilen olay hub'ı.
 
-Önceki bilgileri kullanarak bir Event Hub bağlantı dizesi oluşturma gerekiyorsa, şu biçimi kullanın:
+Merhaba önceki bilgileri kullanarak bir Event Hub bağlantı dizesi toobuild ihtiyacınız varsa, desen aşağıdaki hello kullanın:
 
 `Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}`
 
-SDK'ları ve IOT hub'ı gösteren Event Hub ile uyumlu uç noktalar ile kullanabileceğiniz tümleştirmeler, aşağıdaki listedeki öğeleri içerir:
+Merhaba SDK'ları ve IOT hub'ı gösteren Event Hub ile uyumlu uç noktalar ile kullanabileceğiniz tümleştirmeler listesi aşağıdaki hello hello öğeleri içerir:
 
 * [Java Event Hubs istemcisi](https://github.com/hdinsight/eventhubs-client).
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Görüntüleyebileceğiniz [kaynak spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) github'da.
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Merhaba görüntüleyebilirsiniz [kaynak spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) github'da.
 * [Apache Spark tümleştirme](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 IOT Hub uç noktaları hakkında daha fazla bilgi için bkz: [IOT Hub uç noktaları][lnk-endpoints].
 
-[Get Started] [ lnk-get-started] öğreticileri benzetimli aygıtlardan cihaz bulut iletilerini göndermek ve iletileri yerleşik uç noktasından okumak nasıl gösterir. Daha fazla ayrıntı için [yolları kullanma işlemi IOT Hub cihaz bulut iletilerini] [ lnk-d2c-tutorial] Öğreticisi.
+Merhaba [Get Started] [ lnk-get-started] öğreticileri, nasıl toosend cihaz bulut iletilerini benzetimli aygıtları ve Göster Merhaba iletileri hello yerleşik uç noktasından okumak. Merhaba daha ayrıntılı bilgi için bkz: [yolları kullanma işlemi IOT Hub cihaz bulut iletilerini] [ lnk-d2c-tutorial] Öğreticisi.
 
-Özel uç noktaları için cihaz bulut iletilerini yönlendirmek istiyorsanız, bkz: [için cihaz bulut iletilerini ileti yollarını ve özel uç noktaları kullanma][lnk-custom].
+Tooroute istiyorsanız toocustom uç noktaları, cihaz-bulut iletileri için bkz: [için cihaz bulut iletilerini ileti yollarını ve özel uç noktaları kullanma][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

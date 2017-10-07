@@ -1,6 +1,6 @@
 ---
-title: "Azure Search'e veri yükleme | Microsoft Belgeleri"
-description: "Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin."
+title: "Azure Search'te aaaData karşıya yükleme | Microsoft Docs"
+description: "Nasıl tooupload veri tooan dizin Azure Search'te öğrenin."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: ashmaka
-ms.openlocfilehash: 5a601b75ec67824e72d8736bc3c45f8e1231ca86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a95eae94f72c1d0926804ff7e1152f21773fcabf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upload-data-to-azure-search"></a>Azure Search'e veri yükleme
+# <a name="upload-data-tooazure-search"></a>Veri tooAzure arama karşıya yükle
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -29,31 +29,31 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bir dizini verilerinizle doldurmanın iki yolu vardır. İlk seçenek, Azure Search [REST API](search-import-data-rest-api.md)'si veya [.NET SDK](search-import-data-dotnet.md) kullanılarak verilerinizi dizine kendinizin iletmesidir. İkinci seçenek, [desteklenen bir veri kaynağını](search-indexer-overview.md) dizininizin üzerine getirmek ve Azure Search'ün verilerinizi otomatik olarak çekmesini sağlamaktır.
+Dizin verilerinizi ile iki şekilde toopopulate vardır. Merhaba ilk seçenek olan el ile Ftp'den verilerinizi hello Azure Search kullanarak hello dizine [REST API](search-import-data-rest-api.md) veya [.NET SDK'sı](search-import-data-dotnet.md). Merhaba ikinci seçenek olan çok[desteklenen veri kaynağı](search-indexer-overview.md) tooyour dizini oluşturmak ve Azure hello verileri otomatik olarak çekmesini sağlamaktır.
 
-## <a name="push-data-to-an-index"></a>Bir dizine veri gönderme
-Bu yaklaşım, aranabilir hale getirmek için verilerinizi Azure Search'e programlı olarak gönderme anlamına gelir. Çok düşük gecikme süresi gereksinimlerine sahip uygulamalar için (örneğin, arama işlemlerinin dinamik stok veritabanlarıyla eşitlenmiş olması gerekiyorsa), tek seçeneğiniz gönderme modelidir.
+## <a name="push-data-tooan-index"></a>Anında iletme veri tooan dizini
+Bu yaklaşım, veri tooAzure arama toomake gönderme tooprogrammatically başvuruyor, arama için kullanılabilir. (Örneğin, dinamik stok veritabanlarıyla eşitlenmiş işlemleri toobe arama) çok düşük gecikme gereksinimlerine sahip uygulamalar için hello gönderme modeli, tek seçenektir.
 
-Bir dizine veri göndermek için [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) veya [.NET SDK](search-import-data-dotnet.md) kullanabilirsiniz. Şu an portal aracılığıyla veri gönderme için hiçbir araç desteği yoktur.
+Merhaba kullanabilirsiniz [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) veya [.NET SDK'sı](search-import-data-dotnet.md) toopush veri tooan dizini. Şu anda hello portal aracılığıyla veri gönderme için hiçbir araç desteği.
 
-Belgeleri tek tek veya toplu işlemle karşıya yükleyebileceğinizden (toplu işlem başına en fazla 1000 veya 16 MB sınırlarından hangisi önce gelirse), bu yaklaşım çekme modelinden daha esnektir. Gönderme modeli, verilerinizin nerede olduğuna bakılmaksızın Azure Search'e dosyalarınızı yüklemenizi de sağlar.
+Bu yaklaşım, belgeleri tek tek veya toplu işlemle karşıya yükleyebileceğinizden hello çekme modelinden daha esnektir (toplu işlem veya 16 MB başına too1000 sınırlarından hangisi önce gelirse). Merhaba gönderme modeli, verilerinizin nerede olduğuna bakılmaksızın tooupload belgeleri tooAzure arama sağlar.
 
-Azure Search, JSON biçimindeki verileri işler ve veri kümesindeki tüm belgelerin dizin şemanızda tanımlı alanlara karşılık gelen alanlara sahip olmaları gerekir. 
+Azure Search tarafından anlaşılan hello verileri JSON biçimidir ve hello kümesindeki tüm belgeleri, dizin şeması'nda tanımlanan toofields harita alanları olması gerekir. 
 
 ## <a name="pull-data-into-an-index"></a>Bir dizine veri çekme
-Çekme modeli, desteklenen veri kaynağında gezinir ve dizininize verileri otomatik olarak yükler. Azure Search'te bu işlev, şu anda [Blob depolama](search-howto-indexing-azure-blob-storage.md), [Tablo depolama](search-howto-indexing-azure-tables.md), [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer), [Azure SQL Veritabanı ve Azure VM'lerdeki SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)'da kullanılabilen *dizin oluşturucular* aracılığıyla uygulanır. 
+Merhaba çekme modeli, desteklenen veri kaynağında gezinir ve hello veri dizininize otomatik olarak yükler. Azure Search'te bu işlev, şu anda [Blob depolama](search-howto-indexing-azure-blob-storage.md), [Tablo depolama](search-howto-indexing-azure-tables.md), [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer), [Azure SQL Veritabanı ve Azure VM'lerdeki SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)'da kullanılabilen *dizin oluşturucular* aracılığıyla uygulanır. 
 
-Dizin oluşturucular bir dizini bir veri kaynağına (genelde tablo, görünüm veya eşdeğer bir yapı) bağlar ve kaynak alanları dizindeki eşdeğer alanlara eşler. Yürütme sırasında satır kümesi otomatik olarak JSON'a dönüştürülür ve belirtilen dizine yüklenir. Tüm dizin oluşturucular zamanlamayı destekler ve bu sayede verilerin yenilenme sıklığını belirleyebilirsiniz. Çoğu dizin oluşturucular veri kaynağının desteklemesi durumunda değişiklik izleme özelliği sunar. Dizin oluşturucular, var olan belgelerdeki değişiklikleri ve silmeleri takip etmenin yanı sıra yeni belgeleri tanıyarak, dizininizdeki verileri aktif şekilde yönetme ihtiyacını ortadan kaldırır. 
+Dizin oluşturucular bir dizin tooa veri kaynağı (genellikle bir tablo, görünüm veya eşdeğeri yapısı) bağlantı ve kaynak alanlar tooequivalent alanları hello dizindeki eşleyin. Yürütme sırasında hello satır kümesi otomatik olarak dönüştürülmüş tooJSON olan ve hello belirtilen dizine yüklenir. Tüm Dizin oluşturucuların ne sıklıkta hello veri toobe yenilenmiş olduğunu belirtebilirsiniz, böylece zamanlama destekler. Çoğu dizin oluşturucular değişiklik hello veri kaynağı destekliyorsa izleme sağlar. İzleme değişiklikleri ve silmeleri tarafından tooexisting ayrıca toorecognizing yeni belgeler belgeleri, dizin oluşturucular hello gereksinimini kaldırmak tooactively dizininizdeki hello verileri yönetin. 
 
-Dizin oluşturucu işlevleri [Azure portalı](search-import-data-portal.md), [REST API'sı](/rest/api/searchservice/Indexer-operations) ve [.NET SDK'sında](/dotnet/api/microsoft.azure.search.indexersoperations) belirtilmiştir. 
+Dizin oluşturucu işlevi hello açığa [Azure portal](search-import-data-portal.md), hello [REST API](/rest/api/searchservice/Indexer-operations)ve hello [.NET SDK'sı](/dotnet/api/microsoft.azure.search.indexersoperations). 
 
-Portalı kullanmanın avantajlarından biri, Azure Search'ün genelde kaynak veri kümesinin meta verilerini okuyarak sizin için varsayılan dizin şeması oluşturabilmesidir. Oluşturulan dizini işlenene kadar değiştirebilirsiniz ancak işlendikten sonra yalnızca dizinin yeniden oluşturulmasını gerektirmeyen şema düzenlemelerine izin verilir. Yapmak istediğiniz değişikliklerin şemayı doğrudan etkilemesi halinde dizini yeniden oluşturmanız gerekir. 
+Bir avantajı toousing hello Portal'da Azure Search genellikle varsayılan dizin şemasını sizin için hello kaynak dataset hello meta verilerini okuyarak oluşturabilecek olmasıdır. Hangi hello sonra yalnızca şema düzenlemeleri yeniden dizin oluşturmaya gerektirmeyen olanlar izin verilen Hello dizin işlenir kadar hello oluşturulan dizini değiştirebilirsiniz. Toomake etkisi istediğiniz hello değişiklikleri şema doğrudan hello toorebuild hello dizin gereksiniminiz olacaktır. 
 
-Dizin doldurulduktan sonra doğrulamak için portal komut çubuğundaki **Arama Gezgini**'ni kullanabilirsiniz.
+Merhaba dizin doldurulduktan sonra kullanabileceğiniz **arama Gezgini** hello portal komut çubuğunda bir doğrulama adımı olarak.
 
 ## <a name="query-an-index-using-search-explorer"></a>Arama Gezgini kullanarak dizin sorgulama
 
-Portalda **Arama Gezgini**'ni kullanarak yüklenen belgede hızlı bir ön denetim gerçekleştirebilirsiniz. Bu gezgin, bir dizini kod yazmadan sorgulamanızı sağlar. Arama deneyimi [basit söz dizimi](/rest/api/searchservice/simple-query-syntax-in-azure-search) ve varsayılan [searchMode sorgu parametresi](/rest/api/searchservice/search-documents) gibi varsayılan ayarlara bağlıdır. Belgenin tamamını inceleyebilmeniz için sonuçlar JSON biçiminde döndürülür.
+Bir hızlı yol tooperform hello belge karşıya yükleme sırasında Ön onay toouse olan **arama Gezgini** hello Portalı'nda. Merhaba Gezgini herhangi bir kod toowrite gerek kalmadan bir dizini sorgulama izin verir. Merhaba arama deneyimi hello gibi varsayılan ayarları dayanır [basit sözdizimi](/rest/api/searchservice/simple-query-syntax-in-azure-search) ve varsayılan [searchMode sorgu parametresi](/rest/api/searchservice/search-documents). Böylece hello tüm belgeyi inceleyebilirsiniz sonuçları JSON döndürülür.
 
 > [!TIP]
-> Çok sayıda [Azure Search kod örneği](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) tarafından sunulan yerleşik veya hazır veri kümeleri hızlı bir şekilde kullanmaya başlamanızı sağlar. Portalda ayrıca örnek dizin oluşturucu ve küçük bir emlak veri kümesini ("realestate-us-sample" adlı) içeren veri kaynağı mevcuttur. Önceden yapılandırılmış dizin oluşturucuyu örnek veri kaynağında çalıştırdığınızda oluşturulan ve belgelerle yüklenen dizini Arama Gezgini veya yazdığınız kod aracılığıyla sorgulayabilirsiniz.
+> Çok sayıda [Azure Search kod örnekleri](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) kolay bir yolu tooget başlatılan sunumu katıştırılmış veya kullanıma hazır veri kümeleri, içerir. Merhaba portal, örnek dizin oluşturucu ve veri kaynağı ("realestate-us-sample" olarak adlandırılır) bir küçük Gayrimenkul veri kümesi oluşan de sağlar. Hello örnek veri kaynağında hello önceden yapılandırılmış dizin oluşturucu çalıştırdığınızda, bir dizin oluşturulur ve ardından arama Gezgini veya yazdığınız kodu tarafından sorgulanabilir belgelerle yüklendi.

@@ -1,6 +1,6 @@
 ---
-title: "Data - veri yönetimi ağ geçidi taşıma | Microsoft Docs"
-description: "Şirket içi ve bulut arasında veri taşımak için veri ağ geçidi kurun ayarlayın. Veri Yönetimi ağ geçidi Azure Data Factory, verilerinizi taşımak için kullanın."
+title: "aaaMove data - veri yönetimi ağ geçidi | Microsoft Docs"
+description: "Şirket içi ve hello arasında veri ağ geçidi toomove veri ayarlama bulut. Veri Yönetimi ağ geçidi, verilerinizi Azure Data Factory toomove kullanın."
 keywords: "Veri ağ geçidi, veri tümleştirme, veri, Ağ Geçidi kimlik taşıma"
 services: data-factory
 documentationcenter: 
@@ -15,180 +15,180 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
-ms.openlocfilehash: 565091e24a8c0009793e2e2365fb95013cad5028
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 314341c142d5260c785b7e82081774f044450e81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
-Bu makalede, şirket içi veri depoları ve veri fabrikası kullanarak bulut veri depoları arasında veri tümleştirme genel bir bakış sağlar. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale ve diğer veri fabrikası temel kavramları makaleler: [veri kümeleri](data-factory-create-datasets.md) ve [ardışık düzen](data-factory-create-pipelines.md).
+# <a name="move-data-between-on-premises-sources-and-hello-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile Merhaba bulut arasında veri taşıma
+Bu makalede, şirket içi veri depoları ve veri fabrikası kullanarak bulut veri depoları arasında veri tümleştirme genel bir bakış sağlar. Merhaba üzerinde derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale ve diğer veri fabrikası temel kavramları makaleler: [veri kümeleri](data-factory-create-datasets.md) ve [ardışık düzen](data-factory-create-pipelines.md).
 
 ## <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
-Şirket içi makinenizdeki bir şirket içi veri deposundaki/gruptan veri taşımayı etkinleştirmek için veri yönetimi ağ geçidi yüklemeniz gerekir. Ağ geçidi veri deposuna bağlanabileceği sürece ağ geçidi veri depolama alanı ile aynı makinede veya farklı bir makineye yüklenebilir.
+Bir şirket içi veri deposu denetleyicisinden verilerin taşınması, şirket içi makineyi tooenable veri yönetimi ağ geçidi yüklemeniz gerekir. Merhaba ağ geçidi hello hello ağ geçidi toohello veri deposu bağlanabileceği sürece hello veri deposu olarak veya farklı bir makinede aynı makine üzerinde yüklenebilir.
 
 > [!IMPORTANT]
 > Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale veri yönetimi ağ geçidi hakkında ayrıntılı bilgi için. 
 
-Aşağıdaki örneklerde bir şirket içi veri taşır bir komut zinciriyle data factory oluşturmak gösterilmiştir **SQL Server** Azure blob depolama veritabanına. Adım adım kılavuzun bir parçası olarak makinenize Veri Yönetimi Ağ Geçidi yükleyip bunu yapılandıracaksınız.
+Merhaba aşağıdaki örneklerde, nasıl gösterir toocreate data factory bir şirket içi veri taşır ardışık ile **SQL Server** veritabanı tooan Azure blob depolama. Merhaba izlenecek bir parçası olarak yükleyin ve makinenizde hello veri yönetimi ağ geçidi yapılandırın.
 
-## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>İzlenecek yol: Bulut için şirket içi veri kopyalama
-Bu kılavuzda aşağıdaki adımları uygulayın: 
+## <a name="walkthrough-copy-on-premises-data-toocloud"></a>İzlenecek yol: şirket içi veri toocloud kopyalama
+Bu izlenecek adımları izleyerek hello: 
 
 1. Veri Fabrikası oluşturun.
 2. Veri Yönetimi ağ geçidi oluşturun. 
 3. Kaynak ve havuz veri depoları için bağlantılı Hizmetleri oluşturun.
-4. Girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma.
-5. Verileri taşımak için kopyalama etkinliği ile işlem hattı oluşturun.
+4. Veri kümeleri toorepresent girişi oluşturun ve çıktı verilerini.
+5. Bir kopyalama etkinliği toomove hello verilerle bir işlem hattı oluşturun.
 
-## <a name="prerequisites-for-the-tutorial"></a>Öğreticisi için Önkoşullar
-Bu kılavuzda başlamadan önce aşağıdaki önkoşullara sahip olmalıdır:
+## <a name="prerequisites-for-hello-tutorial"></a>Başlangıç öğreticisi için Önkoşullar
+Bu kılavuzda başlamadan önce aşağıdaki önkoşullar hello sahip olmanız gerekir:
 
-* **Azure aboneliği**.  Bir aboneliğiniz yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Bkz: [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/) Ayrıntılar için makale.
-* **Azure depolama hesabı**. Blob depolama alanı olarak kullandığınız bir **hedef/havuz** verileri depolamak Bu öğreticide. bir Azure depolama hesabınız yoksa bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makale oluşturmak adımlar.
+* **Azure aboneliği**.  Bir aboneliğiniz yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Merhaba bkz [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/) Ayrıntılar için makale.
+* **Azure depolama hesabı**. Merhaba blob depolama alanı olarak kullandığınız bir **hedef/havuz** verileri depolamak Bu öğreticide. bir Azure depolama hesabınız yoksa, hello bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) adımları toocreate bir makale.
 * **SQL Server**. Bir şirket içi SQL Server veritabanı olarak kullandığınız bir **kaynak** verileri depolamak Bu öğreticide. 
 
 ## <a name="create-data-factory"></a>Veri fabrikası oluşturma
-Bu adımda, Azure portalında adlı bir Azure Data Factory örneğini oluşturmak için kullandığınız **ADFTutorialOnPremDF**.
+Bu adımda, kullandığınız hello Azure Data Factory örneğini adlı Azure portal toocreate **ADFTutorialOnPremDF**.
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
 2. Tıklatın **+ yeni**, tıklatın **Intelligence + analiz**, tıklatıp **Data Factory**.
 
    ![Yeni->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
-3. İçinde **yeni data factory** want **ADFTutorialOnPremDF** adı.
+3. Merhaba, **yeni data factory** want **ADFTutorialOnPremDF** hello adı için.
 
-    ![Panosuna Ekle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
-
-   > [!IMPORTANT]
-   > Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "ADFTutorialOnPremDF" kullanılabilir değil**, veri fabrikası (örneğin, yournameADFTutorialOnPremDF) adını değiştirin ve oluşturmayı yeniden deneyin. Bu öğreticide adımları uygularken ADFTutorialOnPremDF yerine bu adı kullanın.
-   >
-   > Data factory adı gelecekte bir **DNS** adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
-   >
-   >
-4. Data factory’yi oluşturmak istediğiniz **Azure aboneliği**’ni seçin.
-5. Mevcut bir **kaynak grubu** seçin ya da bir kaynak grubu oluşturun. Adlı bir kaynak grubu öğretici için oluşturduğunuz: **ADFTutorialResourceGroup**.
-6. Tıklatın **oluşturma** üzerinde **yeni data factory** sayfası.
+    ![TooStartboard Ekle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
+   > Merhaba hello Azure veri fabrikasının adı genel olarak benzersiz olması gerekir. Merhaba hatayı alırsanız: **veri fabrikası adı "ADFTutorialOnPremDF" kullanılabilir değil**hello veri fabrikası (örneğin, yournameADFTutorialOnPremDF) hello adını değiştirin ve oluşturmayı yeniden deneyin. Bu öğreticide adımları uygularken ADFTutorialOnPremDF yerine bu adı kullanın.
+   >
+   > Merhaba veri fabrikasının Hello adı olarak kaydedilmesi bir **DNS** hello gelecekte olarak adlandırın ve bu nedenle herkese görünür hale gelmiştir.
    >
    >
-7. Oluşturma işlemi tamamlandıktan sonra gördüğünüz **Data Factory** sayfasında aşağıdaki resimde gösterildiği gibi:
+4. Select hello **Azure aboneliği** oluşturulan hello veri fabrikası toobe istediğiniz.
+5. Mevcut bir **kaynak grubu** seçin ya da bir kaynak grubu oluşturun. Merhaba öğretici için adlı bir kaynak grubu oluşturun: **ADFTutorialResourceGroup**.
+6. Tıklatın **oluşturma** hello üzerinde **yeni data factory** sayfası.
+
+   > [!IMPORTANT]
+   > toocreate Data Factory örnekleri hello üyesi olmalıdır [veri fabrikası katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) hello abonelik/kaynak grubu düzeyinde rol.
+   >
+   >
+7. Oluşturma işlemi tamamlandıktan sonra hello bkz **Data Factory** sayfasında hello görüntü aşağıdaki gösterildiği gibi:
 
    ![Data Factory giriş sayfası](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## <a name="create-gateway"></a>Ağ geçidi oluşturma
-1. İçinde **Data Factory** sayfasında, **yazar ve dağıtma** başlatmak için döşeme **Düzenleyicisi** data factory için.
+1. Merhaba, **Data Factory** sayfasında, **yazar ve dağıtma** döşeme toolaunch hello **Düzenleyicisi** hello veri fabrikası için.
 
     ![Geliştir ve Dağıt Kutucuğu](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
-2. Data Factory Düzenleyici'yi tıklatın **... Daha fazla** araç ve ardından **yeni veri ağ geçidi**. Alternatif olarak, sağ tıklayarak **Data Gateways** ağaç görünümünde ve tıklatın **yeni veri ağ geçidi**.
+2. Hello Data Factory Düzenleyici'de, tıklatın **... Daha fazla** hello araç ve ardından **yeni veri ağ geçidi**. Alternatif olarak, sağ tıklayarak **Data Gateways** hello ağaç görünümü ve tıklatın **yeni veri ağ geçidi**.
 
    ![Araç çubuğundaki yeni veri ağ geçidi](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-3. İçinde **oluşturma** want **adftutorialgateway** için **adı**, tıklatıp **Tamam**.     
+3. Merhaba, **oluşturma** want **adftutorialgateway** hello için **adı**, tıklatıp **Tamam**.     
 
     ![Ağ geçidi sayfası oluşturma](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
     > [!NOTE]
-    > Bu kılavuzda, yalnızca bir düğümle (şirket içi Windows makine) mantıksal ağ geçidi oluşturun. Ağ geçidi ile birden çok şirket içi makineler ilişkilendirerek veri yönetimi ağ geçidi ölçeklendirebilirsiniz. Ölçeklendirmek yukarı bir düğümde aynı anda çalıştırabilirsiniz veri taşıma işlerinin sayısını artırarak. Bu özellik, tek bir düğüme sahip mantıksal bir ağ geçidi için de kullanılabilir. Bkz: [ölçeklendirme veri yönetimi ağ geçidi Azure veri fabrikası'nda](data-factory-data-management-gateway-high-availability-scalability.md) Ayrıntılar için makale.  
-4. İçinde **yapılandırma** sayfasında, **doğrudan bu bilgisayar Yükle**. Bu eylem ağ geçidi yükleme paketi indirir, yükler, yapılandırır ve bilgisayarda ağ geçidi kaydeder.  
+    > Bu kılavuzda, yalnızca bir düğümle (şirket içi Windows makine) hello mantıksal ağ geçidi oluşturun. Veri Yönetimi ağ geçidi hello ağ geçidi ile birden çok şirket içi makineler ilişkilendirerek ölçeklendirebilirsiniz. Ölçeklendirmek yukarı bir düğümde aynı anda çalıştırabilirsiniz veri taşıma işlerinin sayısını artırarak. Bu özellik, tek bir düğüme sahip mantıksal bir ağ geçidi için de kullanılabilir. Bkz: [ölçeklendirme veri yönetimi ağ geçidi Azure veri fabrikası'nda](data-factory-data-management-gateway-high-availability-scalability.md) Ayrıntılar için makale.  
+4. Merhaba, **yapılandırma** sayfasında, **doğrudan bu bilgisayar Yükle**. Bu eylem hello ağ geçidi için hello yükleme paketi indirir, yükler, yapılandırır ve hello bilgisayarda hello ağ geçidi kaydeder.  
 
    > [!NOTE]
    > Internet Explorer veya Microsoft ClickOnce uyumlu bir web tarayıcısı kullanın.
    >
-   > Chrome kullanıyorsanız, [Chrome web mağazasına](https://chrome.google.com/webstore/) gidin, “ClickOnce” araması yapın, ClickOnce uzantılarından birini seçin ve yükleyin.
+   > Chrome kullanıyorsanız, toohello Git [Chrome web mağazası](https://chrome.google.com/webstore/), arama "ClickOnce" sözcüğünü, hello ClickOnce uzantıları birini seçin ve yükleyin.
    >
-   > Aynı Firefox (yükleme eklenti) yapın. Tıklatın **menü Aç** araç çubuğunda (**üç yatay çizgi** sağ üst köşesinde), tıklatın **eklentileri**, arama "ClickOnce" sözcüğünü, aşağıdakilerden birini seçin ClickOnce uzantıları ve yükleyin.    
+   > Firefox (yükleme eklenti) aynı hello. Tıklatın **menü Aç** hello araç çubuğunda (**üç yatay çizgi** hello sağ üst köşesinde), tıklatın **eklentileri**, arama "ClickOnce" sözcüğünü, hello birini seçin ClickOnce uzantıları ve yükleyin.    
    >
    >
 
     ![Ağ geçidi - yapılandırma sayfası](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    Bu şekilde, indirme, yükleme, yapılandırma ve tek tek adımda ağ geçidini kaydetmek için en kolay yolu (tek tıklatmayla) olur. Gördüğünüz **Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi** uygulaması bilgisayarınızda yüklü. Yürütülebilir dosya bulabileceğiniz **ConfigManager.exe** klasöründeki: **C:\Program Files\Microsoft veri yönetimi Gateway\2.0\Shared**.
+    Bu, en kolay yolu (tek tıklatmayla) toodownload Merhaba, yüklemek, yapılandırmak ve tek tek adımda hello ağ geçidini kaydetmek yoludur. Merhaba görebilirsiniz **Microsoft Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi** uygulaması bilgisayarınızda yüklü. Merhaba yürütülebilir bulabileceğiniz **ConfigManager.exe** hello klasöründeki: **C:\Program Files\Microsoft veri yönetimi Gateway\2.0\Shared**.
 
-    Ayrıca indirebilir ve bu sayfada bağlantıları kullanarak ağ geçidini el ile yükleyin ve gösterilen anahtarı kullanarak kaydetmek **yeni anahtar** metin kutusu.
+    Ayrıca indirebilir ve bu sayfada hello bağlantıları kullanarak ağ geçidini el ile yükleyin ve hello gösterilen hello anahtarı kullanarak kaydetmek **yeni anahtar** metin kutusu.
 
-    Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) ağ geçidi hakkında tüm ayrıntılar için makalenin.
+    Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) tüm hello ağ geçidi ayrıntılarını hello için makalesi.
 
    > [!NOTE]
-   > Yüklemek ve veri yönetimi ağ geçidi başarıyla yapılandırmak için yerel bilgisayarda yönetici olması gerekir. Ek kullanıcı eklemek **veri yönetimi ağ geçidi kullanıcıları** yerel Windows grubu. Bu grubun üyeleri, ağ geçidini yapılandırmak için veri yönetimi ağ geçidi Yapılandırma Yöneticisi aracını kullanabilirsiniz.
+   > Merhaba yerel bilgisayar tooinstall yönetici olmanız ve hello veri yönetimi ağ geçidi başarılı bir şekilde yapılandırmanız gerekir. Ek kullanıcılar toohello ekleyebilirsiniz **veri yönetimi ağ geçidi kullanıcıları** yerel Windows grubu. Bu grubun üyeleri Hello hello veri yönetimi ağ geçidi Yapılandırma Yöneticisi Aracı tooconfigure hello ağ geçidi kullanabilirsiniz.
    >
    >
-5. Birkaç dakika bekleyin ya da aşağıdaki bildirim iletisini görene kadar bekleyin:
+5. Birkaç dakika bekleyin ya da bildirim iletisi aşağıdaki hello görene kadar bekleyin:
 
     ![Ağ geçidi yükleme başarılı](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Başlatma **veri yönetimi ağ geçidi Yapılandırma Yöneticisi** bilgisayarınızdaki uygulama. İçinde **arama** penceresinde, türü **veri yönetimi ağ geçidi** bu yardımcı program erişmek için. Yürütülebilir dosya bulabileceğiniz **ConfigManager.exe** klasöründeki: **C:\Program Files\Microsoft veri yönetim Gateway\2.0\Shared**
+6. Başlatma **veri yönetimi ağ geçidi Yapılandırma Yöneticisi** bilgisayarınızdaki uygulama. Merhaba, **arama** penceresinde, türü **veri yönetimi ağ geçidi** tooaccess bu yardımcı programı. Merhaba yürütülebilir bulabileceğiniz **ConfigManager.exe** hello klasöründeki: **C:\Program Files\Microsoft veri yönetim Gateway\2.0\Shared**
 
     ![Ağ geçidi Yapılandırma Yöneticisi](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
-7. Gördüğünüzü onaylayın `adftutorialgateway is connected to the cloud service` ileti. Durum çubuğu alt görüntüler **bulut hizmetine bağlı** ile birlikte bir **yeşil onay işareti**.
+7. Gördüğünüzü onaylayın `adftutorialgateway is connected toohello cloud service` ileti. Durum çubuğu hello alt görüntüler Hello **bağlı toohello bulut hizmeti** ile birlikte bir **yeşil onay işareti**.
 
-    Üzerinde **giriş** sekmesinde da aşağıdaki işlemleri yapabilirsiniz:
+    Merhaba üzerinde **giriş** sekmesinde de yapabilirsiniz hello işlemleri:
 
-   * **Kayıt** kayıt düğmesini kullanarak Azure portalından bir anahtara sahip bir ağ geçidi.
-   * **Durdur** veri yönetimi ağ geçidi ana bilgisayar, ağ geçidi makine üzerinde çalışan hizmeti.
-   * **Zamanlama güncelleştirmeleri** günün belirli bir zamanda yüklenecek.
-   * Ağ geçidi olduğu zaman görüntülemek **son güncelleştirme**.
-   * Ağ geçidi için bir güncelleştirme yüklenebilmesi için süreyi belirtin.
-8. Geçiş **ayarları** sekmesi. Belirtilen sertifika **sertifika** bölüm portalda belirttiğiniz şirket içi veri depolama alanı için kimlik bilgilerini şifreleme/şifre çözme için kullanılır. (isteğe bağlı) Tıklatın **değişiklik** kullanarak kendi sertifikanızı kullanmayı. Varsayılan olarak, ağ geçidinin Data Factory hizmeti tarafından otomatik olarak oluşturulan sertifikayı kullanır.
+   * **Kayıt** bir ağ geçidi bir anahtarla hello hello kayıt düğmesini kullanarak Azure portalı.
+   * **Durdur** veri yönetimi ağ geçidi ana bilgisayar hizmeti, ağ geçidi makine üzerinde çalışan hello.
+   * **Zamanlama güncelleştirmeleri** toobe hello günün belirli bir zamanda yüklü.
+   * Merhaba ağ geçidi olduğu zaman görüntülemek **son güncelleştirme**.
+   * Bir güncelleştirme toohello ağ geçidi yüklenebilmesi için süreyi belirtin.
+8. Geçiş toohello **ayarları** hello belirtilen sekmesini hello sertifikası **sertifika** hello portalında belirttiğiniz hello şirket içi veri deposu için kullanılan tooencrypt/şifre çözme kimlik bilgilerini bir bölümdür. (isteğe bağlı) Tıklatın **değişiklik** toouse kullanarak kendi sertifikanızı yerine. Varsayılan olarak, hello ağ geçidi hello Data Factory hizmeti tarafından otomatik olarak oluşturulan hello sertifika kullanır.
 
     ![Ağ geçidi sertifika yapılandırma](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
-    Üzerinde aşağıdaki işlemleri yapabilirsiniz **ayarları** sekmesi:
+    Ayrıca yapabilirsiniz hello hello eylemleri aşağıdaki **ayarları** sekmesi:
 
-   * Görüntülemek veya ağ geçidi tarafından kullanılan sertifikanın dışa aktarın.
-   * Ağ Geçidi tarafından kullanılan HTTPS uç noktası değiştirin.    
-   * Ağ Geçidi tarafından kullanılacak bir HTTP proxy ayarlayın.     
-9. (isteğe bağlı) Geçiş **tanılama** sekmesi, onay **ayrıntılı günlük kaydını etkinleştir** ağ geçidi ile ilgili tüm sorunları gidermek için kullanabileceğiniz ayrıntılı günlük kaydını etkinleştirmek istiyorsanız, seçeneği. Günlük kaydı bilgileri bulunabilir **Olay Görüntüleyicisi'ni** altında **uygulama ve hizmet günlükleri** -> **veri yönetimi ağ geçidi** düğümü.
+   * Görüntülemek veya hello ağ geçidi tarafından kullanılan hello sertifikayı dışa aktarın.
+   * Merhaba HTTPS uç noktası Hello ağ geçidi tarafından kullanılan değiştirin.    
+   * Merhaba ağ geçidi tarafından kullanılan bir HTTP proxy toobe ayarlayın.     
+9. (isteğe bağlı) Geçiş toohello **tanılama** sekmesinde, hello denetleyin **ayrıntılı günlük kaydını etkinleştir** tooenable ayrıntılı tootroubleshoot hello ağ geçidi ile ilgili sorunları kullanabilirsiniz günlüğü istiyorsanız seçeneği. Merhaba günlük bilgileri bulunabilir **Olay Görüntüleyicisi'ni** altında **uygulama ve hizmet günlükleri** -> **veri yönetimi ağ geçidi** düğümü.
 
     ![Tanılama sekmesi](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
-    Ayrıca aşağıdaki eylemleri gerçekleştirebilirsiniz **tanılama** sekmesi:
+    Merhaba eylemleri aşağıdaki hello de gerçekleştirebilirsiniz **tanılama** sekmesi:
 
-   * Kullanım **Bağlantıyı Sına** ağ geçidini kullanarak şirket içi veri kaynağına bölümü.
-   * Tıklatın **günlüklerini görüntüle** veri yönetimi ağ geçidi günlüğüne bir Olay Görüntüleyici penceresinde görmek için.
-   * Tıklatın **günlükleri Gönder** sorunları, sorun giderme kolaylaştırmak üzere Microsoft'a günlük son yedi gün içeren bir zip dosyası karşıya yüklemek için.
-10. Üzerinde **tanılama** sekmesinde **Bağlantıyı Sına** bölümünde, select **SqlServer** veri deposu türü için veritabanı sunucusu, veritabanı adını adını girin kimlik doğrulama türünü belirtin, kullanıcı adı ve parola girin ve tıklatın **Test** ağ geçidi veritabanına bağlanıp bağlanamadığınızı test etmek için.
-11. Web tarayıcısı ve de geçiş **Azure portal**, tıklatın **Tamam** üzerinde **yapılandırma** sayfa ve daha sonra **yeni veri ağ geçidi** sayfası.
-12. Görmeniz gerekir **adftutorialgateway** altında **Data Gateways** soldaki ağaç görünümünde.  Tıklarsanız, ilişkili JSON görmeniz gerekir.
+   * Kullanım **Bağlantıyı Sına** bölüm tooan şirket içi veri kaynağı hello ağ geçidini kullanma.
+   * Tıklatın **günlüklerini görüntüle** toosee hello veri yönetimi ağ geçidi bir Olay Görüntüleyici'de oturum açın.
+   * Tıklatın **günlükleri Gönder** tooupload son yedi gün tooMicrosoft toofacilitate sorunları, sorun giderme günlük içeren bir zip dosyası.
+10. Merhaba üzerinde **tanılama** sekmede hello **Bağlantıyı Sına** bölümünde, select **SqlServer** hello veri hello türü için depolamak, hello ad hello veritabanı sunucusunun adını girin Merhaba veritabanı, kimlik doğrulama türünü belirtin, kullanıcı adı ve parola girin ve tıklatın **Test** tootest hello ağ geçidi toohello veritabanı olup bağlanabilir.
+11. Anahtar toohello web tarayıcısı ve hello **Azure portal**, tıklatın **Tamam** hello üzerinde **yapılandırma** sayfa ve ardından hello **yeni veri ağ geçidi** Sayfa.
+12. Görmeniz gerekir **adftutorialgateway** altında **Data Gateways** hello hello soldaki ağaç görünümünde.  Tıklarsanız, JSON hello ilişkili görmeniz gerekir.
 
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
-Bu adımda, iki bağlı hizmet oluşturma: **AzureStorageLinkedService** ve **SqlServerLinkedService**. **SqlServerLinkedService** bir şirket içi SQL Server veritabanına bağlar ve **AzureStorageLinkedService** bağlantılı hizmeti bir Azure blob deposu data factory bağlar. Azure blob deposuna şirket içi SQL Server veritabanından veri kopyalayan daha sonra bu kılavuzda bir işlem hattı oluşturun.
+Bu adımda, iki bağlı hizmet oluşturma: **AzureStorageLinkedService** ve **SqlServerLinkedService**. Merhaba **SqlServerLinkedService** bir şirket içi SQL Server veritabanı ve hello bağlantılar **AzureStorageLinkedService** bağlantılı hizmeti bir Azure blob depolama toohello data factory bağlar. Merhaba şirket içi SQL Server veritabanı toohello Azure blob depolama alanından verileri kopyalayan daha sonra bu kılavuzda bir işlem hattı oluşturun.
 
-#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Bir şirket içi SQL Server veritabanına bağlı hizmet ekleme
-1. İçinde **Data Factory düzenleyici**, tıklatın **yeni veri deposu** seçin ve araç **SQL Server**.
+#### <a name="add-a-linked-service-tooan-on-premises-sql-server-database"></a>Bağlantılı hizmet tooan şirket içi SQL Server veritabanı ekleyin
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **yeni veri deposu** hello araç ve seçim **SQL Server**.
 
    ![Yeni SQL Server bağlantılı hizmeti](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
-2. İçinde **JSON Düzenleyicisi** sağ tarafta aşağıdaki adımları uygulayın:
+2. Merhaba, **JSON Düzenleyicisi** sağ hello üzerinde adımları hello:
 
-   1. İçin **gatewayName**, belirtin **adftutorialgateway**.    
-   2. İçinde **connectionString**, aşağıdaki adımları uygulayın:    
+   1. Hello için **gatewayName**, belirtin **adftutorialgateway**.    
+   2. Merhaba, **connectionString**, adımları hello:    
 
-      1. İçin **servername**, SQL Server veritabanını barındıran sunucunun adını girin.
-      2. İçin **databasename**, veritabanının adını girin.
-      3. Tıklatın **şifrele** araç çubuğunda. Kimlik bilgileri Yöneticisi uygulama bakın.
+      1. İçin **servername**, hello hello SQL Server veritabanını barındıran hello sunucusunun adını girin.
+      2. İçin **databasename**, hello hello veritabanının adını girin.
+      3. Tıklatın **şifrele** hello araç çubuğunda. Merhaba kimlik bilgileri Yöneticisi uygulaması bakın.
 
          ![Kimlik bilgileri Yöneticisi uygulaması](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
-      4. İçinde **kimlik bilgilerini ayarlama** iletişim kutusunda, kimlik doğrulama türü, kullanıcı adı ve parola belirtin ve tıklatın **Tamam**. Bağlantı başarılı olursa, JSON içinde depolanan şifrelenmiş kimlik bilgileri ve iletişim kutusunu kapatır.
-      5. Otomatik olarak kapalı, iletişim kutusu başlatılan boş tarayıcı sekmesinde kapatın ve Azure portal ile sekmesine geri alın.
+      4. Merhaba, **kimlik bilgilerini ayarlama** iletişim kutusunda, kimlik doğrulama türü, kullanıcı adı ve parola belirtin ve tıklatın **Tamam**. Merhaba bağlantı başarılı olursa, hello JSON depolanan hello şifrelenmiş kimlik bilgileri ve hello iletişim kutusunu kapatır.
+      5. Merhaba iletişim kutusu otomatik olarak kapalı, başlatılan ve hello Azure portal ile toohello sekmesine geri dönmek hello boş tarayıcı sekmesinde kapatın.
 
-         Bu kimlik bilgileri ağ geçidi makinesi üzerinde olan **şifrelenmiş** Data Factory hizmetine sahip olan bir sertifikayı kullanarak. Bunun yerine veri yönetimi ağ geçidi ile ilişkili sertifika kullanmak istiyorsanız bkz [kimlik bilgilerini güvenli bir şekilde ayarlamak](#set-credentials-and-security).    
-   3. Tıklatın **dağıtma** hizmeti SQL Server dağıtımı için komut çubuğunda bağlı. Bağlantılı hizmet ağaç görünümünde görmeniz gerekir.
+         Merhaba ağ geçidi makinesinde, bu kimlik bilgileri olan **şifrelenmiş** Data Factory hello bir sertifika kullanarak hizmetin sahibi. Bunun yerine hello veri yönetimi ağ geçidi ile ilişkili toouse hello sertifikası istiyorsanız, bkz: [kimlik bilgilerini güvenli bir şekilde ayarlamak](#set-credentials-and-security).    
+   3. Tıklatın **dağıtma** toodeploy hello SQL Server bağlantılı hizmet çubuğu hello komutu. Merhaba bağlantılı hizmet hello ağaç görünümünde görmeniz gerekir.
 
-      ![SQL Server bağlantılı hizmet ağaç görünümünde](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
+      ![SQL Server bağlantılı hizmet hello ağaç görünümünde](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
 
 #### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Bir Azure depolama hesabı için bağlı hizmet ekleme
-1. İçinde **Data Factory düzenleyici**, tıklatın **yeni veri deposu** tıklatın ve komut çubuğunda **Azure depolama**.
-2. Azure depolama hesabınızın adını girin **hesap adı**.
-3. Azure depolama hesabınız için anahtarını girin **hesap anahtarı**.
-4. Tıklatın **dağıtma** dağıtmak için **AzureStorageLinkedService**.
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **yeni veri deposu** hello komut çubuğu ve tıklatın **Azure depolama**.
+2. Merhaba, Azure depolama hesabınızın hello adı **hesap adı**.
+3. Merhaba, Azure depolama hesabınız için Hello anahtarını girin **hesap anahtarı**.
+4. Tıklatın **dağıtma** toodeploy hello **AzureStorageLinkedService**.
 
 ## <a name="create-datasets"></a>Veri kümeleri oluşturma
-Bu adımda, girdi oluşturun ve çıkış kopyalama işlemi için girdi ve çıktı verilerini temsil eden veri kümeleri (şirket içi SQL Server veritabanı = > Azure blob depolama). Veri kümeleri oluşturmadan önce (ayrıntılı adımları izler listesi) aşağıdaki adımları uygulayın:
+Bu adımda, girdi oluşturun ve çıkış hello kopyalama işlemi için girdi ve çıktı verilerini temsil eden veri kümeleri (şirket içi SQL Server veritabanı = > Azure blob depolama). Veri kümeleri oluşturmadan önce aşağıdaki adımları (ayrıntılı adımları izler hello listesi) hello:
 
-* Adlı bir tablo oluşturmak **emp** SQL Server veritabanında data factory bağlantılı bir hizmet olarak eklendi ve birkaç örnek girdileri tabloya ekleyin.
-* Adlı bir blob kapsayıcı oluşturun **adftutorial** Azure blob depolama hesabı data factory bağlantılı bir hizmet olarak eklendi.
+* Adlı bir tablo oluşturmak **emp** SQL Server veritabanı bağlantılı hizmet toohello veri fabrikası eklediğiniz hello ve birkaç örnek girdileri hello tabloya ekleyin.
+* Adlı bir blob kapsayıcı oluşturun **adftutorial** hello Azure blob depolama hesabı bir bağlantılı hizmet toohello veri fabrikası eklendi.
 
-### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Şirket içi SQL Server öğretici için hazırlama
-1. Şirket içi için belirtilen veritabanında SQL Server hizmeti bağlı (**SqlServerLinkedService**), oluşturmak için aşağıdaki SQL betiğini kullanın **emp** veritabanındaki tablo.
+### <a name="prepare-on-premises-sql-server-for-hello-tutorial"></a>Şirket içi SQL Server hello öğretici için hazırlama
+1. Merhaba içi SQL Server için belirttiğiniz hello veritabanında bağlantılı hizmetinin (**SqlServerLinkedService**), aşağıdaki SQL komut dosyası toocreate hello hello kullan **emp** hello veritabanındaki tablo.
 
     ```SQL   
     CREATE TABLE dbo.emp
@@ -200,7 +200,7 @@ Bu adımda, girdi oluşturun ve çıkış kopyalama işlemi için girdi ve çık
     )
     GO
     ```
-2. Bazı örnek tabloya ekleyin:
+2. Bazı örnek hello tabloya ekleyin:
 
     ```SQL
     INSERT INTO emp VALUES ('John', 'Doe')
@@ -209,8 +209,8 @@ Bu adımda, girdi oluşturun ve çıkış kopyalama işlemi için girdi ve çık
 
 ### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
 
-1. **Data Factory Düzenleyicisi**’nde komut çubuğundaki **... Daha fazla**, tıklatın **yeni veri kümesi** komut çubuğu ve tıklatın **SQL Server tablosuna**.
-2. Sağ bölmedeki JSON aşağıdaki metinle değiştirin:
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **... Daha fazla**, tıklatın **yeni veri kümesi** hello komut çubuğunda ve'ı tıklatın **SQL Server tablosuna**.
+2. Merhaba sağ bölmedeki JSON Hello metin aşağıdaki hello ile değiştirin:
 
     ```JSON   
     {        
@@ -236,20 +236,20 @@ Bu adımda, girdi oluşturun ve çıkış kopyalama işlemi için girdi ve çık
         }
     }     
     ```     
-   Aşağıdaki noktalara dikkat edin:
+   Hello aşağıdaki noktaları göz önünde bulundurun:
 
-   * **tür** ayarlanır **SqlServerTable**.
-   * **tableName** ayarlanır **emp**.
-   * **linkedServiceName** ayarlanır **SqlServerLinkedService** (Bu kılavuzda daha önce bu bağlı hizmetin oluşturmuştunuz.).
-   * Azure Data Factory başka bir ardışık düzen tarafından üretilen olmayan bir giriş veri kümesi için ayarlamalısınız **dış** için **doğru**. Bu girdi verileri Azure Data Factory hizmetine dış üretilen gösterir. İsteğe bağlı olarak tüm dış veri ilkeleri kullanılarak belirtebilirsiniz **externalData** öğesinde **İlkesi** bölümü.    
+   * **tür** çok ayarlanır**SqlServerTable**.
+   * **tableName** çok ayarlanır**emp**.
+   * **linkedServiceName** çok ayarlanır**SqlServerLinkedService** (Bu kılavuzda daha önce bu bağlı hizmetin oluşturmuştunuz.).
+   * Azure Data Factory başka bir ardışık düzen tarafından üretilen olmayan bir giriş veri kümesi için ayarlamalısınız **dış** çok**doğru**. Bu, üretilen dış toohello Azure Data Factory hizmetine hello giriş verisi olduğu gösterir. İsteğe bağlı olarak hello kullanarak tüm dış veri ilkeleri belirtebilirsiniz **externalData** hello öğesinde **İlkesi** bölümü.    
 
    Bkz: [/SQL Server'dan veri taşıma](data-factory-sqlserver-connector.md) JSON özellikleri hakkında ayrıntılı bilgi için.
-3. Tıklatın **dağıtma** veri kümesini dağıtmak için komut çubuğunda.  
+3. Tıklatın **dağıtma** toodeploy hello dataset çubuğu hello komutu.  
 
 ### <a name="create-output-dataset"></a>Çıktı veri kümesi oluşturma
 
-1. İçinde **Data Factory düzenleyici**, tıklatın **yeni veri kümesi** komut çubuğu ve tıklatın **Azure Blob Depolama**.
-2. Sağ bölmedeki JSON aşağıdaki metinle değiştirin:
+1. Merhaba, **Data Factory düzenleyici**, tıklatın **yeni veri kümesi** hello komut çubuğunda ve'ı tıklatın **Azure Blob Depolama**.
+2. Merhaba sağ bölmedeki JSON Hello metin aşağıdaki hello ile değiştirin:
 
     ```JSON   
     {
@@ -271,16 +271,16 @@ Bu adımda, girdi oluşturun ve çıkış kopyalama işlemi için girdi ve çık
         }
      }
     ```   
-   Aşağıdaki noktalara dikkat edin:
+   Hello aşağıdaki noktaları göz önünde bulundurun:
 
-   * **tür** ayarlanır **AzureBlob**.
-   * **linkedServiceName** ayarlanır **AzureStorageLinkedService** (Bu bağlı hizmeti 2. adımda oluşturmuştunuz).
-   * **folderPath** ayarlanır **adftutorial/outfromonpremdf** outfromonpremdf adftutorial kapsayıcı klasöründe olduğu. Oluşturma **adftutorial** zaten yoksa, kapsayıcı.
-   * **availability** **hourly** olarak ayarlanmıştır (**frequency** **hour**, **interval** de **1** olarak ayarlanmıştır).  Data Factory hizmetinin her saat bir çıktı veri dilimi oluşturur **emp** Azure SQL veritabanı tablosunda.
+   * **tür** çok ayarlanır**AzureBlob**.
+   * **linkedServiceName** çok ayarlanır**AzureStorageLinkedService** (Bu bağlı hizmeti 2. adımda oluşturmuştunuz).
+   * **folderPath** çok ayarlanır**adftutorial/outfromonpremdf** outfromonpremdf hello adftutorial kapsayıcı hello klasöründe olduğu. Merhaba oluşturma **adftutorial** zaten yoksa, kapsayıcı.
+   * Merhaba **kullanılabilirlik** çok ayarlanır**saatlik** (**sıklığı** çok ayarlamak**saat** ve **aralığı** çok ayarlama **1**).  Merhaba Data Factory hizmetinin her saat bir çıktı veri dilimi hello oluşturur **emp** hello Azure SQL veritabanı tablosunda.
 
-   Belirtmezseniz, bir **fileName** için bir **çıktı tablosu**, de oluşturulan dosyaları **folderPath** şu biçimde adlandırılır: Data.<Guid>. txt (örneğin:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Belirtmezseniz, bir **fileName** için bir **çıktı tablosu**, hello oluşturulan hello dosyalarında **folderPath** biçimini izleyen hello adlı: veri.<Guid>. txt (örneğin:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-   Ayarlamak için **folderPath** ve **fileName** göre dinamik olarak **SliceStart** zaman, partitionedBy özelliğini kullanın. Aşağıdaki örnekte, folderPath SliceStart’taki (işlemdeki dilimin başlangıç zamanı) Yıl, Ay ve Gün öğelerini, fileName ise SliceStart’taki Saat öğesini kullanır. Örneğin, dilim 2014-10-20T08:00:00 için oluşturulduysa, folderName wikidatagateway/wikisampledataout/2014/10/20, fileName de 08.csv olarak ayarlanır.
+   tooset **folderPath** ve **fileName** hello göre dinamik olarak **SliceStart** zaman, hello partitionedBy özelliğini kullanın. Hello, aşağıdaki örnekte, folderPath yıl, ay ve gün hello SliceStart (başlangıç saati hello dilimin işlenmekte olan) ve fileName saat SliceStart hello kullanır. Örneğin, dilim 2014 için üretilen-10-20T08:00:00, hello KlasörAdı toowikidatagateway/wikisampledataout/2014/10/20 ayarlanır ve hello fileName too08.csv ayarlayın.
 
     ```JSON
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -296,23 +296,23 @@ Bu adımda, girdi oluşturun ve çıkış kopyalama işlemi için girdi ve çık
     ```
 
     Bkz: [/Azure Blob storage'da veri taşıma](data-factory-azure-blob-connector.md) JSON özellikleri hakkında ayrıntılı bilgi için.
-3. Tıklatın **dağıtma** veri kümesini dağıtmak için komut çubuğunda. Her iki veri kümelerinin ağaç görünümünde gördüğünüzü onaylayın.  
+3. Tıklatın **dağıtma** toodeploy hello dataset çubuğu hello komutu. Her iki hello veri kümeleri hello ağaç görünümünde gördüğünüzü onaylayın.  
 
 ## <a name="create-pipeline"></a>İşlem hattı oluşturma
 Bu adımda, oluşturduğunuz bir **ardışık düzen** biriyle **kopyalama etkinliği** kullanan **EmpOnPremSQLTable** giriş olarak ve **OutputBlobTable** olarak çıktı.
 
 1. Veri Fabrikası Düzenleyicisi'nde tıklatın **... Daha fazla** ve **Yeni işlem hattı** öğelerine tıklayın.
-2. Sağ bölmedeki JSON aşağıdaki metinle değiştirin:    
+2. Merhaba sağ bölmedeki JSON Hello metin aşağıdaki hello ile değiştirin:    
 
     ```JSON   
      {
          "name": "ADFTutorialPipelineOnPrem",
          "properties": {
-         "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+         "description": "This pipeline has one Copy activity that copies data from an on-prem SQL tooAzure blob",
          "activities": [
            {
              "name": "CopyFromSQLtoBlob",
-             "description": "Copy data from on-prem SQL server to blob",
+             "description": "Copy data from on-prem SQL server tooblob",
              "type": "Copy",
              "inputs": [
                {
@@ -349,66 +349,66 @@ Bu adımda, oluşturduğunuz bir **ardışık düzen** biriyle **kopyalama etkin
      }
     ```   
    > [!IMPORTANT]
-   > **start** özelliğinin değerini geçerli günle, **end** değerini de sonraki günle değiştirin.
+   > Merhaba Hello değerini değiştirin **Başlat** hello geçerli gün özelliğiyle ve **son** hello sonraki gün değeri.
    >
    >
 
-   Aşağıdaki noktalara dikkat edin:
+   Hello aşağıdaki noktaları göz önünde bulundurun:
 
-   * Etkinlikler bölümünde, yalnızca etkinliği yoktur, **türü** ayarlanır **kopya**.
-   * **Giriş** etkinlik için **EmpOnPremSQLTable** ve **çıkış** etkinlik için **OutputBlobTable**.
-   * İçinde **typeProperties** bölümünde **SqlSource** olarak belirtilen **kaynak türünü** ve ** BlobSink ** olarak belirtilen **Havuz türü**.
-   * SQL sorgusu `select * from emp` için belirtilen **sqlReaderQuery** özelliği **SqlSource**.
+   * Merhaba etkinlikler bölümünde, yalnızca etkinliği yoktur, **türü** çok ayarlanır**kopya**.
+   * **Giriş** hello etkinlik çok ayarlamak için**EmpOnPremSQLTable** ve **çıkış** hello etkinlik çok ayarlamak için**OutputBlobTable**.
+   * Merhaba, **typeProperties** bölümünde **SqlSource** hello belirtilen **kaynak türünü** ve ** BlobSink ** hello belirtilen **Havuz türü**.
+   * SQL sorgusu `select * from emp` Merhaba belirtilen **sqlReaderQuery** özelliği **SqlSource**.
 
-   Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2014-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız.
+   Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2014-10-14T16:32:41Z. Merhaba **son** saati isteğe bağlıdır ancak biz Bu öğreticide kullanın.
 
-   **end** özelliği için değer belirtmezseniz "**start + 48 hours**" olarak hesaplanır. İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9/9/9999** olarak ayarlayın.
+   Hello için değer belirtmezseniz, **son** özelliği olarak hesaplanır "**start + 48 saat**". toorun hello ardışık kalıcı olarak belirtmek **9/9/9999** hello hello değeri olarak **son** özelliği.
 
-   Temel veri dilimlerinin işlenir süre tanımlama **kullanılabilirlik** her Azure Data Factory veri kümesi için tanımlanan özellikler.
+   Merhaba üzerinde göre hangi hello veri dilimleri işlenir süre hello tanımlama **kullanılabilirlik** her Azure Data Factory veri kümesi için tanımlanan özellikler.
 
-   Örnekte, her veri dilimi saatlik oluşturulduğundan 24 veri dilimi vardır.        
-3. Tıklatın **dağıtma** veri kümesini dağıtmak için komut çubuğunda (tablo dikdörtgen bir veri kümesi olur). İşlem hattını ağaç görünümünde altında gösterildiğini onaylayın **ardışık düzen** düğümü.  
-4. Şimdi, **X** iki kez geri almak için sayfayı kapatmak için **Data Factory** için sayfa **ADFTutorialOnPremDF**.
+   Merhaba örnekte vardır 24 veri dilimi her veri dilimi saatlik oluşturulduğundan.        
+3. Tıklatın **dağıtma** toodeploy hello dataset çubuğu hello komutunda (tablo dikdörtgen bir veri kümesi olur). Altında hello ağaç görünümünde bu hello ardışık düzen görüntülenir onaylayın **ardışık düzen** düğümü.  
+4. Şimdi, **X** iki kez tooclose hello sayfa tooget geri toohello **Data Factory** hello için sayfa **ADFTutorialOnPremDF**.
 
-**Tebrikler!** Başarıyla bir Azure data factory, bağlı hizmetler, veri kümeleri ve işlem hattı oluşturulan ve işlem hattını zamanladınız.
+**Tebrikler!** Bir Azure data factory, bağlı hizmetler, veri kümeleri ve ardışık düzen ve zamanlanmış hello ardışık düzen başarıyla oluşturdunuz.
 
-#### <a name="view-the-data-factory-in-a-diagram-view"></a>Data factory’yi Diyagram Görünümünde görüntüleme
-1. İçinde **Azure portal**, tıklatın **diyagramı** döşeme için giriş sayfasındaki **ADFTutorialOnPremDF** veri fabrikası. :
+#### <a name="view-hello-data-factory-in-a-diagram-view"></a>Görünüm hello data factory'de bir diyagram görünümü
+1. Merhaba, **Azure portal**, tıklatın **diyagramı** döşeme hello hello giriş sayfasında **ADFTutorialOnPremDF** veri fabrikası. :
 
     ![Diyagram bağlantı](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
-2. Aşağıdaki görüntüye benzer bir diyagram görmeniz gerekir:
+2. Merhaba diyagramı benzer toohello görüntü aşağıdaki görmeniz gerekir:
 
     ![Diyagram Görünümü](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
-    Yakınlaştırma, uzaklaştırma, % 100, uygun, otomatik olarak ardışık düzen ve veri kümeleri, konum ve çizgileri gösterebilirsiniz (Seçilen öğelerin Yukarı Akış ve aşağı akış öğelerini vurgular) Yakınlaştır.  Bir nesne (giriş/çıkış veri kümesi veya işlem hattı) özelliklerini görmek için çift tıklatabilirsiniz.
+    Yakınlaştırma, yakınlaştırma too100% yakınlaştırma toofit, otomatik olarak konumu ardışık düzen ve veri kümeleri, yakınlaştırma ve çizgileri gösterebilirsiniz (Seçilen öğelerin Yukarı Akış ve aşağı akış öğelerini vurgular).  Bir nesne (giriş/çıkış veri kümesi veya işlem hattı) toosee özellikleri için çift tıklayabilirsiniz.
 
 ## <a name="monitor-pipeline"></a>İşlem hattını izleme
-Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure Portal kullanacaksınız. Veri kümelerini ve işlem hatlarını izlemek için de PowerShell cmdlet'lerini kullanabilirsiniz. İzleme hakkında daha fazla bilgi için bkz [izleme ve yönetme ardışık düzen](data-factory-monitor-manage-pipelines.md).
+Bu adımda, bir Azure data factory'de neler olduğunu Azure portal toomonitor hello kullanın. PowerShell cmdlet'leri toomonitor veri kümeleri ve işlem hatlarını de kullanabilirsiniz. İzleme hakkında daha fazla bilgi için bkz [izleme ve yönetme ardışık düzen](data-factory-monitor-manage-pipelines.md).
 
-1. Diyagramda çift **EmpOnPremSQLTable**.  
+1. Merhaba şemada çift **EmpOnPremSQLTable**.  
 
     ![EmpOnPremSQLTable dilimleri](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
-2. Tüm veri dilimi yukarı içinde olduğuna dikkat edin **hazır** (başlangıç saati bitiş saati için) ardışık düzen süresi geçmiş olduğundan belirtin. SQL Server veritabanında veri ekledikten ve bunu her zaman için de olabilir. Hiç dilim gösterilmediğini onaylayın **sorunu dilimleri** alt bölüm. Tüm dilimleri görmek için tıklatın **daha görmek** dilimler listesinin altındaki.
-3. Şimdi **veri kümeleri** sayfasında, **OutputBlobTable**.
+2. Tüm hello veri dilimi yukarı bildirimi olan **hazır** hello ardışık düzen süresi (başlangıç zamanı tooend süresi) hello geçmiş olduğundan belirtin. Hello SQL Server veritabanında hello veri ekledikten ve tüm hello zaman yoktur çünkü de olabilir. Hiç dilim hello gösterilmediğini onaylayın **sorunu dilimleri** hello alt kısmına. Tüm hello dilimler tooview tıklatın **daha görmek** hello altındaki dilimler hello listesi.
+3. Merhaba, şimdi **veri kümeleri** sayfasında, **OutputBlobTable**.
 
     ![OputputBlobTable dilimleri](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
-4. Listeden herhangi bir veri dilimine tıklayın ve görmeniz gerekir **veri dilimi** sayfası. Dilimin etkinlik çalışır bakın. Yalnızca bir etkinlik genellikle bakın.  
+4. Merhaba listeden herhangi bir veri dilimine tıklayın ve hello görmelisiniz **veri dilimi** sayfası. Merhaba dilimle ilgili etkinlik çalışır bakın. Yalnızca bir etkinlik genellikle bakın.  
 
     ![Veri dilimi dikey penceresi](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
-    Dilim **Hazır** durumunda değilse, Hazır olmayan ve geçerli dilimin yürütülmesini engelleyen yukarı akış dilimlerini **Hazır olmayan yukarı akış dilimleri** listesinde görebilirsiniz.
-5. Tıklatın **etkinlik** görmek için altındaki listeden **etkinlik çalışma ayrıntıları**.
+    Merhaba dilim hello değilse **hazır** durumu, hazır olmayan ve geçerli dilimin yürütülmesini hello hello engelleme hello Yukarı Akış dilimleri görebilirsiniz **hazır olmayan Yukarı Akış dilimleri** listesi.
+5. Merhaba tıklatın **etkinlik** hello alt toosee hello listesinden **etkinlik çalışma ayrıntıları**.
 
    ![Etkinlik çalışma Ayrıntıları sayfası](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
-   Verimlilik, süre ve veri aktarımı için kullanılan ağ geçidi gibi bilgileri görür.
-6. Tıklatın **X** tüm sayfaları dek kapatmak için
-7. Giriş sayfasına geri dönmek **ADFTutorialOnPremDF**.
+   Verimlilik, süre ve hello ağ geçidi tootransfer hello veri kullanılan gibi bilgileri görür.
+6. Tıklatın **X** tooclose tüm sayfaları dek hello
+7. Merhaba toohello giriş sayfasına geri dönmek **ADFTutorialOnPremDF**.
 8. (isteğe bağlı) ' I tıklatın **ardışık düzen**, tıklatın **ADFTutorialOnPremDF**ve detaya girdi tablolarında (**tüketilen**) veya çıkış veri kümeleri (**üretilen**).
-9. Gibi araçlar kullanın [Microsoft Storage Gezgini](http://storageexplorer.com/) blob/dosya her saat oluşturulduğunu doğrulamak için.
+9. Gibi araçlar kullanın [Microsoft Storage Gezgini](http://storageexplorer.com/) tooverify her saat için bir blob/dosyası oluşturulur.
 
    ![Azure Depolama Gezgini](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale için veri yönetimi ağ geçidi ile ilgili tüm ayrıntıları.
-* Bkz: [kopyalama verileri Azure Blob'tan Azure SQL'e](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği bir havuz veri deposu için bir kaynak veri deposundan verileri taşımak için nasıl kullanılacağı hakkında bilgi edinmek için.
+* Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) tüm hello veri yönetimi ağ geçidi ayrıntılarını hello için makalesi.
+* Bkz: [SQL Azure Blob tooAzure veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) nasıl toouse kopyalama etkinliği toomove veri kaynağına veri tooa havuz veri deposunu hakkında toolearn.

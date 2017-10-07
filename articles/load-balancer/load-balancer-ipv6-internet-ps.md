@@ -1,6 +1,6 @@
 ---
-title: "IPv6 - PowerShell ile bir Azure Internet'e yönelik Yük Dengeleyici oluşturma | Microsoft Docs"
-description: "Internet'e yönelik Yük Dengeleyici kaynak yöneticisi için PowerShell kullanarak IPv6 oluşturmayı öğrenin"
+title: "IPv6 - PowerShell ile aaaCreate bir Azure Internet'e yönelik Yük Dengeleyici | Microsoft Docs"
+description: "Nasıl toocreate bir İnternete yük dengeleyici kaynak yöneticisi için PowerShell kullanarak IPv6 ile bilgi edinin"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 9d3cd37d3f2912301904b0a35f6fbc978d173079
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6ebb108399b070e06dddc33b7a774481eb44d717
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Internet'e yönelik Yük Dengeleyici kaynak yöneticisi için PowerShell kullanarak IPv6 oluşturmaya başlamak
 
@@ -28,39 +28,39 @@ ms.lasthandoff: 08/03/2017
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Şablon](load-balancer-ipv6-internet-template.md)
 
-Azure Load Balancer bir Katman 4 (TCP, UDP) yük dengeleyicidir. Yük dengeleyici, gelen trafiği bulut hizmetlerindeki sağlıklı hizmet örnekleri veya bir yük dengeleyici kümesindeki sanal makineler arasında dağıtarak yüksek kullanılabilirlik sağlar. Ayrıca, Azure Load Balancer bu hizmetleri birden çok bağlantı noktasında, birden çok IP adresinde ya da her ikisinde birden sağlayabilir.
+Azure Load Balancer bir Katman 4 (TCP, UDP) yük dengeleyicidir. Merhaba yük dengeleyici, gelen trafiği bulut Hizmetleri sağlıklı hizmet örnekleri veya bir yük dengeleyici kümesindeki sanal makineler arasında dağıtarak yüksek kullanılabilirlik sağlar. Ayrıca, Azure Load Balancer bu hizmetleri birden çok bağlantı noktasında, birden çok IP adresinde ya da her ikisinde birden sağlayabilir.
 
 ## <a name="example-deployment-scenario"></a>Örnek dağıtım senaryosu
 
-Aşağıdaki diyagram, bu makaledeki dağıtılan çözümü dengelemesini gösterir.
+Merhaba Aşağıdaki diyagramda hello yük dengeleme çözümü bu makalede dağıtılan gösterilmektedir.
 
 ![Yük dengeleyici senaryosu](./media/load-balancer-ipv6-internet-ps/lb-ipv6-scenario.png)
 
-Bu senaryoda aşağıdaki Azure kaynakları oluşturulur:
+Bu senaryoda aşağıdaki Azure kaynakları hello oluşturacak:
 
 * bir IPv4 ve IPv6 genel IP adresi olan bir Internet'e yönelik Yük Dengeleyici
-* iki Yük Dengeleme kuralları özel uç noktaları için ortak VIP'ler eşlemek için
-* bir kullanılabilirlik kümesi, iki VM içerir
+* iki Yük Dengeleme kuralları toomap hello ortak VIP'ler toohello özel uç noktaları
+* Merhaba iki sanal makineleri bir kullanılabilirlik kümesi toothat içerir
 * iki sanal makine (VM)
 * atanan IPv4 ve IPv6 adreslerinin her VM için bir sanal ağ arabirimi
 
-## <a name="deploying-the-solution-using-the-azure-powershell"></a>Azure PowerShell kullanarak çözümü dağıtma
+## <a name="deploying-hello-solution-using-hello-azure-powershell"></a>Hello Azure PowerShell kullanarak hello çözümü dağıtma
 
-Aşağıdaki adımlar, Internet'e yönelik Yük Dengeleyici PowerShell ile Azure Resource Manager kullanarak nasıl oluşturulacağını gösterir. Azure Resource Manager ile her bir kaynak oluşturulur ve birlikte bir kaynak oluşturmak için ENTER koy ayrı ayrı yapılandırılır.
+Aşağıdaki adımları hello nasıl toocreate Internet'e yönelik Yük Dengeleyici PowerShell ile Azure Resource Manager kullanarak gösterir. Azure Resource Manager ile her bir kaynak oluşturulur ve ayrı ayrı yapılandırılır, ardından birlikte toocreate kaynak alın.
 
-Bir yük dengeleyici dağıtmayı oluşturun ve aşağıdaki nesneleri yapılandırın:
+oluşturma ve nesneleri aşağıdaki hello yapılandırma toodeploy bir yük dengeleyici:
 
 * Ön uç IP yapılandırması: Gelen ağ trafiği için genel IP adreslerini içerir.
-* Arka uç adres havuzu: Sanal makinelerin yük dengeleyiciden ağ trafiği alması için ağ arabirimlerini (NIC’ler) içerir.
-* Yük dengeleme kuralları: Yük dengeleyici üzerindeki bir genel bağlantı noktasını arka uç adres havuzundaki bağlantı noktasına eşleme kurallarını içerir.
-* Gelen NAT kuralları: Yük dengeleyici üzerindeki bir genel bağlantı noktasını arka uç adres havuzundaki belirli bir sanal makineye ait bağlantı noktasına eşleme kurallarını içerir.
-* Araştırmalar: Arka uç adres havuzundaki sanal makine örneklerinin kullanılabilirliğini kontrol etmek için kullanılan durum araştırmalarını içerir.
+* Arka uç adres havuzu - hello yük dengeleyici gelen hello sanal makineleri tooreceive ağ trafiği için ağ arabirimlerine (NIC'ler) içerir.
+* Yük Dengeleme kuralları - hello yük dengeleyici tooport hello arka uç adres havuzundaki ortak bir bağlantı noktası eşleme kurallarını içerir.
+* Gelen NAT kuralları - noktasında hello yük dengeleyici tooa hello arka uç adres havuzundaki belirli bir sanal makine için genel bir bağlantı noktası eşleme kurallarını içerir.
+* Yoklamaları - sistem durumu kullanılan araştırmalar toocheck kullanılabilirliği hello arka uç adres havuzundaki sanal makineler örnekleri içerir.
 
 Daha fazla bilgi için bkz. [Yük Dengeleyici için Azure Resource Manager desteği](load-balancer-arm.md).
 
-## <a name="set-up-powershell-to-use-resource-manager"></a>PowerShell’i Resource Manager’ı kullanacak şekilde ayarlama
+## <a name="set-up-powershell-toouse-resource-manager"></a>Resource Manager PowerShell toouse ayarlayın
 
-PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sahip olduğunuzdan emin olun.
+Merhaba son üretim hello Azure Resource Manager modülü sürümü için PowerShell olduğundan emin olun.
 
 1. Oturum Azure açın
 
@@ -70,13 +70,13 @@ PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sa
 
     İstendiğinde kimlik bilgilerinizi girin.
 
-2. Hesapla ilişkili abonelikleri kontrol etme
+2. Merhaba hesabının Hello abonelikleri kontrol edin
 
     ```powershell
     Get-AzureRmSubscription
     ```
 
-3. Hangi Azure aboneliğinizin kullanılacağını seçin.
+3. Azure abonelikleri toouse hangisinin seçin.
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
@@ -88,7 +88,7 @@ PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sa
     New-AzureRmResourceGroup -Name NRP-RG -location "West US"
     ```
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Ön uç IP havuzu için sanal ağ ve genel IP adresi oluşturma
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-hello-front-end-ip-pool"></a>Bir sanal ağ ve hello ön uç IP havuzu için bir ortak IP adresi oluştur
 
 1. Bir sanal ağ alt ağı oluşturun.
 
@@ -97,7 +97,7 @@ PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sa
     $vnet = New-AzureRmvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Azure genel IP adresi (PIP) kaynakları için ön uç IP adresi havuzu oluşturun.
+2. Azure genel IP adresi (PIP) kaynakları için hello ön uç IP adresi havuzu oluşturun.
 
     ```powershell
     $publicIPv4 = New-AzureRmPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
@@ -105,11 +105,11 @@ PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sa
     ```
 
     > [!IMPORTANT]
-    > Yük Dengeleyici genel IP etki alanı etiketini FQDN'sini için önek olarak kullanır. Bu örnekte, FQDN'ler olan *lbnrpipv4.westus.cloudapp.azure.com* ve *lbnrpipv6.westus.cloudapp.azure.com*.
+    > Merhaba yük dengeleyicisi hello etki alanı etiketi hello ortak IP FQDN'sini için önek olarak kullanır. Bu örnekte, hello FQDN'ler olan *lbnrpipv4.westus.cloudapp.azure.com* ve *lbnrpipv6.westus.cloudapp.azure.com*.
 
 ## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Bir ön uç IP yapılandırmaları ve arka uç adres havuzu oluşturma
 
-1. Oluşturduğunuz ortak IP adresleri kullanan ön uç adresi yapılandırmasını oluşturun.
+1. Oluşturduğunuz hello ortak IP adresleri kullanan ön uç adresi yapılandırmasını oluşturun.
 
     ```powershell
     $FEIPConfigv4 = New-AzureRmLoadBalancerFrontendIpConfig -Name "LB-Frontendv4" -PublicIpAddress $publicIPv4
@@ -125,22 +125,22 @@ PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sa
 
 ## <a name="create-lb-rules-nat-rules-a-probe-and-a-load-balancer"></a>LB kuralları, NAT kuralları, bir araştırma ve bir yük dengeleyici oluşturma
 
-Bu örnek aşağıdaki nesneleri oluşturur:
+Bu örnekte aşağıdaki öğelerindeki hello oluşturur:
 
-* bağlantı noktası 443 numaralı bağlantı noktasına 4443 tüm gelen trafiği çevirmek için NAT kuralı
-* 80 numaralı bağlantı noktasına gelen tüm trafiği arka uç havuzundaki adreslerin 80 numaralı bağlantı noktasıyla dengeleyen yük dengeleyici kuralı.
-* bağlantı noktası 3389 sanal makinelerin RDP bağlantılarına izin vermek için bir yük dengeleyici kuralı.
-* adlı bir sayfada sistem durumunu denetlemek için bir araştırma kuralı *HealthProbe.aspx* veya bir hizmet bağlantı noktası 8080
+* NAT kuralı tootranslate 443 numaralı bağlantı noktasını tooport 4443 tüm gelen trafiği
+* bir yük dengeleyici kuralı toobalance hello arka uç havuzundaki tüm gelen trafiği hello üzerinde bağlantı noktası 80 tooport 80 giderir.
+* bir yük dengeleyici kuralı tooallow RDP bağlantı toohello 3389 numaralı bağlantı noktasını Vm'lerinde.
+* bir araştırma kural toocheck hello sistem durumu adlı bir sayfada *HealthProbe.aspx* veya bir hizmet bağlantı noktası 8080
 * Bu nesneler kullanan bir yük dengeleyici
 
-1. NAT kurallarını oluşturun.
+1. Merhaba NAT kuralları oluşturun.
 
     ```powershell
     $inboundNATRule1v4 = New-AzureRmLoadBalancerInboundNatRuleConfig -Name "NicNatRulev4" -FrontendIpConfiguration $FEIPConfigv4 -Protocol TCP -FrontendPort 443 -BackendPort 4443
     $inboundNATRule1v6 = New-AzureRmLoadBalancerInboundNatRuleConfig -Name "NicNatRulev6" -FrontendIpConfiguration $FEIPConfigv6 -Protocol TCP -FrontendPort 443 -BackendPort 4443
     ```
 
-2. Durum araştırması oluşturun. Araştırmaları iki şekilde yapılandırabilirsiniz:
+2. Durum araştırması oluşturun. Bir araştırma iki yolu tooconfigure vardır:
 
     HTTP araştırma
 
@@ -155,7 +155,7 @@ Bu örnek aşağıdaki nesneleri oluşturur:
     $RDPprobe = New-AzureRmLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-    Bu örnekte, biz TCP araştırmalar kullanacaksanız.
+    Bu örnekte, biz TCP yoklamaları toouse hello adımıdır.
 
 3. Yük dengeleyici kuralı oluşturun.
 
@@ -165,22 +165,22 @@ Bu örnek aşağıdaki nesneleri oluşturur:
     $RDPrule = New-AzureRmLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
     ```
 
-4. Yük Dengeleyici daha önce oluşturulan nesneleri kullanarak oluşturun.
+4. Daha önce oluşturduğunuz hello nesneleri kullanarak hello yük dengeleyicisi oluşturun.
 
     ```powershell
     $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
-## <a name="create-nics-for-the-back-end-vms"></a>Arka uç VM'ler için NIC oluşturun
+## <a name="create-nics-for-hello-back-end-vms"></a>NIC hello için arka uç VM'ler oluşturun.
 
-1. Sanal ağ ve sanal ağ alt, burada NIC'ler oluşturulması gerektiğini öğrenin.
+1. Sanal ağ Hello almak ve sanal ağ alt, oluşturulan toobe hello NIC'ler gereken yeri.
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -Name VNet -ResourceGroupName NRP-RG
     $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
     ```
 
-2. IP yapılandırmaları ve NIC'ler, VM'ler için oluşturun.
+2. IP yapılandırmaları ve NIC hello VM'ler için oluşturun.
 
     ```powershell
     $nic1IPv4 = New-AzureRmNetworkInterfaceIpConfig -Name "IPv4IPConfig" -PrivateIpAddressVersion "IPv4" -Subnet $backendSubnet -LoadBalancerBackendAddressPool $backendpoolipv4 -LoadBalancerInboundNatRule $inboundNATRule1v4
@@ -192,7 +192,7 @@ Bu örnek aşağıdaki nesneleri oluşturur:
     $nic2 = New-AzureRmNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
     ```
 
-## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Sanal makineler oluşturun ve yeni oluşturulan NIC'ler atayın
+## <a name="create-virtual-machines-and-assign-hello-newly-created-nics"></a>Sanal makineler oluşturun ve yeni oluşturulan NIC'ler hello atayın
 
 Bir VM oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve Resource Manager ve Azure PowerShell ile Windows sanal makine önceden yapılandırın](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
@@ -205,10 +205,10 @@ Bir VM oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve Resource 
     $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
     ```
 
-2. Her bir VM oluşturun ve önceki NIC'ler oluşturulan atayın
+2. Her bir VM oluşturun ve hello önceki oluşturulan NIC'ler atayın
 
     ```powershell
-    $mySecureCredentials= Get-Credential -Message "Type the username and password of the local administrator account."
+    $mySecureCredentials= Get-Credential -Message "Type hello username and password of hello local administrator account."
 
     $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
     $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate

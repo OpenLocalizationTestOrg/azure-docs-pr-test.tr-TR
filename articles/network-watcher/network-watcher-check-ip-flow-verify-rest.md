@@ -1,6 +1,6 @@
 ---
-title: "Trafik doğrulayın ile Azure Ağ İzleyicisi IP akışını doğrulamak - REST | Microsoft Docs"
-description: "Bu makalede, trafik için veya bir sanal makineden izin verilen veya reddedilen denetlemek açıklar"
+title: "Azure Ağ İzleyicisi IP akış ile aaaVerify trafiği doğrulama - REST | Microsoft Docs"
+description: "Bu makalede nasıl bir sanal makineden trafiği tooor izin verilen veya reddedilen varsa toocheck"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 6d3ce00a7d4f9c0cd57fa8815625a1065b03b5b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 956db0d326db597c6c402a9e8d4a5522c47c02d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Trafik izin verilen ya da IP akışla reddedildi onay Azure Ağ İzleyicisi'nin bir bileşeni doğrulayın
 
@@ -30,17 +30,17 @@ ms.lasthandoff: 07/11/2017
 > - [Azure REST API'si](network-watcher-check-ip-flow-verify-rest.md)
 
 
-IP akış doğrulayın özelliğidir Ağ İzleyicisi, trafik için veya bir sanal makineden izin verilip verilmediğini doğrulamanızı sağlar. Doğrulama gelen veya giden trafiği için çalıştırılabilir. Bu senaryo, bir sanal makine için bir dış kaynağa veya arka uç iletişim kurabilirsiniz geçerli durumunu almak yararlıdır. IP akış doğrulayın, ağ güvenlik grubu (NSG) kurallarınızı düzgün şekilde yapılandırıldığından ve NSG kuralları tarafından engellenen akışları sorun giderme doğrulamak için kullanılabilir. IP kullanan başka bir nedeni akış durumda engellenen istediğiniz trafiği engellenmiş düzgün tarafından NSG emin olmak için doğrulayın.
+IP akış doğrulayın Ağ İzleyicisinin, trafiği bir sanal makineden tooor izin verilip verilmediğini tooverify sağlayan bir özelliktir. Merhaba doğrulama gelen veya giden trafiği için çalıştırılabilir. Bu senaryo kullanışlı tooget bir sanal makine tooan dış kaynak veya arka uç iletişim kurabilirsiniz, geçerli bir durumda olur. IP akış doğrulayın olabilir kullanılan tooverify ağ güvenlik grubu (NSG) kurallarınızı düzgün şekilde yapılandırılırsa ve NSG kuralları tarafından engellenen akışları sorun giderme. IP kullanan başka bir nedeni akış durumda engellenen istediğiniz tooensure trafiği engellenmiş düzgün şekilde NSG hello tarafından doğrulayın.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
+ARMclient PowerShell kullanarak kullanılan toocall hello REST API ' dir. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) bir Ağ İzleyicisi oluşturmak için.
+Bu senaryo zaten izlediğiniz hello adımlarda varsayar [bir Ağ İzleyicisi oluşturma](network-watcher-create.md) toocreate bir Ağ İzleyicisi.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu senaryo, bir sanal makine bağlantı noktası 443 üzerinden başka bir makineye konuşun olmadığını doğrulamak için IP akış doğrulama kullanır. Trafiği reddedilirse, bu trafiği engelleyen güvenlik kuralı döndürür. IP akışı doğrulama hakkında daha fazla bilgi için ziyaret [IP akış doğrulayın genel bakış](network-watcher-ip-flow-verify-overview.md)
+Bu senaryo IP akış doğrula tooverify kullanıyorsa bir sanal makine tooanother makine 443 numaralı bağlantı noktası iletişim kurabilirsiniz. Merhaba trafik reddedilirse, bu trafiğin reddediyor hello güvenlik kuralı döndürür. IP akış doğrulayın, hakkında daha fazla toolearn ziyaret [IP akış doğrulayın genel bakış](network-watcher-ip-flow-verify-overview.md)
 
 Bu senaryoda:
 
@@ -56,10 +56,10 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Bir sanal makine alma
 
-Bir sanal makine döndürmek için aşağıdaki betiği çalıştırın. Aşağıdaki kod değerleri değişkenleri gerekir:
+Komut dosyası tooreturn aşağıdaki hello bir sanal makine çalıştırın. Merhaba aşağıdaki kodu değerleri hello değişkenleri gerekir:
 
-* **Subscriptionıd** -abonelik kimliği kullanın.
-* **resourceGroupName** -sanal makine içeren bir kaynak grubu adı.
+* **Subscriptionıd** -abonelik kimliği toouse hello.
+* **resourceGroupName** - hello sanal makine içeren bir kaynak grubu adı.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -68,7 +68,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Gerekli bilgileri kimliği türü'nün altında: `Microsoft.Compute/virtualMachines`. Sonuçları aşağıdaki kod örneği benzer olmalıdır:
+Merhaba gerekli bilgileri hello hello türü altında kimliğidir `Microsoft.Compute/virtualMachines`. Merhaba sonuçları benzer toohello kodu örneği aşağıdaki gibi olmalıdır:
 
 ```json
 ...,
@@ -100,15 +100,15 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 
 ## <a name="call-ip-flow-verify"></a>Çağrı IP akış doğrulayın
 
-Aşağıdaki örnek belirtilen bir sanal makine için trafiği doğrulamak için bir istek oluşturur. Yanıt trafiğe izin verilip verilmediğini veya trafiği reddedilirse döndürür. Ayrıca, trafiği reddedilirse hangi kural trafiği engeller. döndürür.
+Merhaba aşağıdaki örnek belirtilen bir sanal makine için bir istek tooverify hello trafiği oluşturur. Merhaba trafiğine izin verilip verilmediğini veya hello trafiği reddedilirse Hello yanıtı döndürür. Trafik reddedilirse Ayrıca hangi kural bloklarını trafiği hello döndürür.
 
 > [!NOTE]
-> IP akış doğrulayın gerektirir VM kaynak ayrılır.
+> IP akış doğrulayın gerektirir hello VM kaynak ayrılır.
 
-Komut dosyası kaynak kimliği bir sanal makine ve sanal makinedeki ağ arabirim kartı gerektirir. Bu değerler önceki çıktı tarafından sağlanır.
+Merhaba betik hello kaynak kimliği, bir sanal makinenin ve hello sanal makinedeki ağ arabirim kartı gerektirir. Bu değerleri çıktı önceki hello tarafından sağlanır.
 
 > [!Important]
-> Tüm Ağ İzleyicisi REST için istek URI'SİNDEKİ kaynak grubu adı çağrıdır, Ağ İzleyicisi örneği içeren bir tanılama eylemleri gerçekleştirdiğiniz kaynakları değil.
+> İçin tüm Ağ İzleyicisi REST çağrılarını hello hello tanılama eylemleri gerçekleştirdiğiniz hello kaynakları değil hello Ağ İzleyicisi örneği içeren bir URI'dir hello isteğindeki kaynak grubu adı hello.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -141,9 +141,9 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/ipFlowVerify?api-version=2016-12-01" $requestBody -verbose
 ```
 
-## <a name="understanding-the-results"></a>Sonuçları anlama
+## <a name="understanding-hello-results"></a>Merhaba sonuçlarını anlama
 
-Geri alma yanıt trafiğe izin verilen veya reddedilen bildirir. Yanıt aşağıdaki örneklerde biri gibi görünür:
+geri alma hello yanıt hello trafiğine izin verilen veya reddedilen söyler. Merhaba yanıt bir hello örnekler aşağıdaki gibi görünür:
 
 **İzin verilen**
 
@@ -165,7 +165,7 @@ Geri alma yanıt trafiğe izin verilen veya reddedilen bildirir. Yanıt aşağı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) ağ güvenlik grupları hakkında daha fazla bilgi için.
+Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) toolearn ağ güvenlik grupları hakkında daha fazla bilgi.
 
 
 

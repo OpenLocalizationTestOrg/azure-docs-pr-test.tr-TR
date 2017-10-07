@@ -1,6 +1,6 @@
 ---
-title: "Azure Farklı Çalıştır Hesabını Yapılandırma | Microsoft Docs"
-description: "Bu öğretici, Azure Otomasyonu’nda güvenlik temel elemanı kimlik doğrulaması oluşturulması, test edilmesi ve örneklerinde size yol göstermektedir."
+title: "bir Azure farklı çalıştır hesabı aaaConfigure | Microsoft Docs"
+description: "Bu öğreticide, Azure automation'da güvenlik sorumlusu kimlik doğrulaması hello oluşturma, test ve örnek kullanım açıklanmaktadır."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -17,79 +17,79 @@ ms.date: 04/06/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
 redirect_url: /azure/automation/
-redirect_document_id: TRUE
-ms.openlocfilehash: f88c775eba19bb227d0e206d6420c08b57305b92
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 06675d2f6b9d8e7260ffaead4f2b2f61c2b98d13
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="authenticate-runbooks-with-an-azure-run-as-account"></a>Azure Farklı Çalıştır hesabıyla kimlik doğrulaması runbook’ları
-Bu makalede, Azure portalında bir Azure Otomasyonu hesabını yapılandırma işlemi gösterilmektedir. Bunu yapmak için, Farklı Çalıştır hesabı özelliğini kullanarak Azure Resource Manager veya Azure Service Management’ta kaynakları yöneten runbook’ların kimliğini doğrulayın.
+Bu makalede nasıl tooconfigure bir Azure Otomasyonu hesabı hello Azure portal gösterilmektedir. toodo bu nedenle, Azure Resource Manager veya Azure Service Management kaynakları yönetme hello farklı çalıştır hesabı özelliği tooauthenticate runbook'ları kullanın.
 
-Azure portalında bir Otomasyon hesabı oluşturduğunuzda otomatik olarak iki hesap oluşturursunuz:
+Hello Azure portalında bir Otomasyon hesabı oluşturduğunuzda, otomatik olarak iki hesapları oluştur:
 
-* Bir Farklı Çalıştır hesabı. Bu hesap, Azure Active Directory'de (Azure AD) bir hizmet sorumlusu ve bir sertifika oluşturur. Ayrıca, runbook kullanarak Resource Manager kaynaklarını yöneten Katkıda Bulunan rol tabanlı erişim denetimi (RBAC) iznini atar.
-* Klasik Farklı Çalıştır hesabı. Bu hesap, runbook kullanarak Service Management’ı ya da klasik kaynakları yönetmek için kullanılan bir yönetim sertifikasını karşıya yükler.
+* Bir Farklı Çalıştır hesabı. Bu hesap, Azure Active Directory'de (Azure AD) bir hizmet sorumlusu ve bir sertifika oluşturur. Ayrıca, runbook'lar kullanılarak Resource Manager kaynaklarını yöneten hello katkıda bulunan rol tabanlı erişim denetimi (RBAC) atar.
+* Klasik Farklı Çalıştır hesabı. Bu hesabı olan bir yönetim sertifikası karşıya yükleme kullanılan toomanage Hizmet Yönetimi veya Klasik kaynakları runbook'ları kullanarak.
 
-Bir Otomasyon hesabının oluşturulması, işlemi sizin için basitleştirir ve otomasyon gerekliliklerini desteklemek için runbook’ları oluşturmaya ve dağıtmaya hemen başlamanıza yardımcı olur.
+Bir Otomasyon hesabı hello işlemi, oluşturma ve runbook'ları toosupport dağıtmaya hemen başlamanıza yardımcı olur için basitleştirir automation'ınızı oluşturma gerekir.
 
 Farklı Çalıştır ve Klasik Farklı Çalıştır hesapları ile şunları yapabilirsiniz:
 
-* Azure portalındaki runbook’lardan Resource Manager veya Service Management kaynakları yönetilirken Azure ile kimlik doğrulaması için standartlaştırılmış bir yol sağlama.
-* Azure Uyarıları’nda yapılandırabileceğiniz genel runbook'ların kullanımını otomatikleştirme.
+* Hello Azure portalındaki runbook'lardan kaynak yöneticisi veya Service Management kaynaklarına yönetirken standartlaştırılmış yol tooauthenticate Azure ile sağlayın.
+* Azure Uyarıları'nda yapılandırabileceğiniz genel runbook'ların Hello kullan otomatikleştirin.
 
 > [!NOTE]
-> Otomasyon genel runbook’larına sahip Azure [Uyarı tümleştirme özelliği](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) için Farklı Çalıştır hesabı ve Klasik Farklı Çalıştır hesabıyla yapılandırılmış bir Otomasyon hesabı gerekir. Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı zaten tanımlanmış bir Otomasyon hesabı seçebilir ya da yeni bir Otomasyon hesabı oluşturmayı seçebilirsiniz.
+> Merhaba [Azure uyarı tümleştirme özelliği](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) ile Otomasyon genel runbook'ları farklı çalıştır hesabı ve klasik farklı çalıştır hesabı ile yapılandırılmış bir Otomasyon hesabı gerektirir. Farklı Çalıştır ve klasik farklı çalıştır hesaplarını önceden tanımlanmış bir Otomasyon hesabı seçebilir veya yeni bir Otomasyon hesabı toocreate seçebilirsiniz.
 >  
 
-Bu makalede, Otomasyon hesabının Azure portalından oluşturulması, bir Otomasyon hesabının Azure PowerShell kullanılarak güncelleştirilmesi, hesap yapılandırmasının yönetilmesi ve runbook’larınızda kimlik doğrulamasının nasıl yapılacağı gösterilir.
+Bu makalede nasıl toocreate hello Azure portalında bir Otomasyon hesabının Azure PowerShell kullanarak Automation hesabını güncelleştirme, hello hesap yapılandırmasını yönetmek ve larınızda kimlik doğrulamasının gösterilmektedir.
 
-Bir Otomasyon hesabı oluşturmaya başlamadan önce aşağıdakileri anlayın ve göz önünde bulundurun:
+Bir Otomasyon hesabı oluşturmaya başlamadan önce bir fikir toounderstand olan ve hello aşağıdakileri göz önünde bulundurun:
 
-* Bir Otomasyon hesabının oluşturulması, klasik veya Resource Manager dağıtım modelinde daha önce oluşturmuş olabileceğiniz Otomasyon hesaplarını etkilemez.
-* İşlem yalnızca Azure portalında oluşturduğunuz Otomasyon hesapları için geçerli olur. Klasik Azure portalından bir hesap oluşturulmaya çalışıldığında Farklı Çalıştır hesabının yapılandırması çoğaltılmaz.
-* Klasik kaynakları yönetmek için kullandığınız runbook’lar ve varlıklar (zamanlamalar veya değişkenler) zaten varsa ve yeni Klasik Farklı Çalıştır hesabında runbook’ların kimliğini doğrulamak istiyorsanız, aşağıdakilerden birini yapın:
+* Bir Otomasyon hesabı oluşturulurken zaten hello Klasik veya Resource Manager dağıtım modeli oluşturmuş olabileceğiniz Otomasyon hesaplarını etkilemez.
+* Merhaba işlem hello Azure portalında oluşturduğunuz Automation hesapları için çalışır. Toocreate hello Klasik Azure portalında bir hesaptan çalışırken hello farklı çalıştır hesabının yapılandırması çoğaltılmaz.
+* Runbook'ları ve varlıkları (örneğin, zamanlamaları veya değişkenleri) yer toomanage Klasik kaynaklar zaten ve runbook'ları tooauthenticate hello yeni Klasik farklı çalıştır hesabıyla istiyorsanız hello aşağıdakilerden birini yapın:
 
-  * Klasik Farklı Çalıştır hesabı oluşturmak için "Farklı Çalıştır hesabınızı yönetme" bölümünde yer alan yönergeleri izleyin. 
-  * Var olan hesabınızı güncelleştirmek için "PowerShell kullanarak Otomasyon hesabınızı güncelleştirme" bölümündeki PowerShell betiğini kullanın.
-* Yeni Farklı Çalıştır hesabını ve Klasik Farklı Çalıştır Otomasyon hesabını kullanarak kimlik doğrulamak için mevcut runbook’larınızı [Kimlik doğrulaması kod örnekleri](#authentication-code-examples) bölümünde sağlanan örnek kod ile değiştirmeniz gerekir.
+  * toocreate bir Klasik farklı çalıştır hesabı ", farklı çalıştır hesabı yönetme" Merhaba bölümündeki hello yönergeleri izleyin. 
+  * tooupdate, var olan hesabınızı, kullanım hello PowerShell'hello "PowerShell kullanarak Automation hesabınız güncelleştir" bölümünde komut dosyası.
+* Merhaba yeni farklı çalıştır hesabını ve klasik farklı çalıştır Otomasyon hesabını kullanarak tooauthenticate ihtiyacınız var olan runbook'larınızla hello hello bölümünde sağlanan örnek kod toomodify [kimlik doğrulaması kodu örnekleri](#authentication-code-examples).
 
     >[!NOTE]
-    >Farklı Çalıştır hesabı, sertifika tabanlı hizmet sorumlusu kullanarak Resource Manager kaynaklarına göre kimlik doğrulaması içindir. Klasik Farklı Çalıştır hesabı ise bir yönetim sertifikası ile Service Management kaynaklarına göre kimlik doğrulaması içindir.
+    >Merhaba sertifika tabanlı hizmet sorumlusu kullanan Resource Manager kaynaklarına karşı kimlik doğrulamasını Hello farklı çalıştır hesabı içindir. Merhaba Klasik farklı çalıştır hesabı, bir yönetim sertifikası ile Service Management kaynaklarına göre kimlik doğrulaması için ' dir.
 
-## <a name="create-an-automation-account-from-the-azure-portal"></a>Azure portalından Otomasyon hesabı oluşturma
-Bu bölümde, Azure portalından hem bir Farklı Çalıştır hesabı hem de bir Klasik Farklı Çalıştır hesabı oluşturan Azure Otomasyonu hesabı oluşturacaksınız.
+## <a name="create-an-automation-account-from-hello-azure-portal"></a>Azure portal hello Automation hesabı oluşturma
+Bu bölümde, sırayla hem farklı çalıştır hesabı hem de klasik farklı çalıştır hesabı oluşturur Azure portal hello bir Azure Otomasyonu hesabı oluşturun.
 
 >[!NOTE]
->Bir Otomasyon hesabı oluşturmak için, Hizmet Yöneticileri rolünün bir üyesi veya aboneliğe erişim veren aboneliğin ortak yöneticisi olmanız gerekir. Ayrıca, bu aboneliğin varsayılan Active Directory örneğine kullanıcı olarak eklenmeniz gerekir. Hesabın ayrıcalıklı bir role atanması gerekmez.
+>bir Otomasyon hesabı toocreate, hello hizmet Yöneticileri rolünün üyesi ya da erişim toohello abonelik verme hello aboneliğinin ortak Yöneticisi olmalıdır. Ayrıca bir kullanıcı toothat aboneliğin varsayılan Active Directory örneği olarak eklenmiş olması gerekir. Merhaba hesap ayrıcalıklı bir role atanmış toobe gerekmez.
 >
->Aboneliğin ortak yönetici rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz, Active Directory’ye konuk olarak eklenirsiniz. Bu örnekte, “Oluşturma izniniz yok…” uyarısını **Otomasyon Hesabı Ekle** dikey penceresinde görürsünüz.
+>Merhaba abonelik toohello ortak Yönetici rolü eklenmeden önce hello aboneliğinin Active Directory örneğine üyesi değilseniz, bir konuk olarak tooActive dizin eklenir. Bu örnekte, bir "sahip olmadığınız izinleri toocreate..." alırsınız Merhaba üzerinde uyarı **Automation hesabı Ekle** dikey.
 >
->İlk olarak ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı ve **Tüm kullanıcılar**’ı seçtikten sonra gerekli kullanıcıyı belirleyip **Profil**’i seçerek doğrulayabilirsiniz. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
+>Toohello ortak Yönetici rolü ilk hello aboneliğinin Active Directory örneğinden kaldırılabilir ve yeniden, toomake eklendi eklenen kullanıcılar bunları Active Directory'de tam bir kullanıcı. tooverify hello bu durumdan **Azure Active Directory** hello seçerek Azure portal bölmesinde **kullanıcılar ve gruplar**, seçme **tüm kullanıcılar** ve siz seçtikten sonra Merhaba belirli bir kullanıcı, seçme **profil**. Merhaba hello değerini **kullanıcı türü** hello kullanıcı profili altındaki özniteliğini eşit değil **Konuk**.
 >
 
-1. Azure portalında abonelik yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.
+1. Toohello hello abonelik Yöneticileri rolünün üyesi ve hello aboneliğinin ortak yöneticisi olan bir hesapla Azure Portalı'nda oturum açın.
 
 2. **Automation Hesapları**’nı seçin.
 
-3. **Otomasyon Hesapları** dikey penceresinde **Ekle**’ye tıklayın.
-**Otomasyon Hesabı Ekle** dikey penceresi açılır.
+3. Merhaba üzerinde **Automation hesapları** dikey penceresinde tıklatın **Ekle**.
+Merhaba **Automation hesabı Ekle** dikey pencere açılır.
 
- ![“Otomasyon Hesabı Ekle” dikey penceresi](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
+ ![Merhaba "Automation hesabı ekle" dikey penceresi](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
 
    > [!NOTE]
-   > Hesabınız aboneliğin yönetici rolüne üye değilse veya aboneliğin ortak yöneticisi değilse, **Otomasyon Hesabı Ekle** dikey penceresinde şu uyarı gösterilir:
+   > Hesabınızı hello abonelik Yöneticileri rolünün üyesi ve hello aboneliğinin ortak Yöneticisi değilse, aşağıdaki uyarı hello hello üzerinde görüntülenir **Automation hesabı Ekle** dikey penceresinde:
    >
    >![Automation Hesabı Uyarısı ekleme](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
    >
    >
 
-4. **Otomasyon Hesabı Ekle** dikey penceresindeki **Ad** kutusuna yeni Otomasyon hesabınız için bir ad yazın.
+4. Merhaba üzerinde **Automation hesabı Ekle** dikey penceresinde hello **adı** kutusuna, yeni Automation hesabınız için bir ad yazın.
 
-5. Birden fazla aboneliğiniz varsa aşağıdaki işlemleri yapın:
+5. Birden fazla aboneliğiniz varsa, aşağıdaki hello:
 
-    a. **Abonelik** altında yeni hesap için bir abonelik belirtin.
+    a. Altında **abonelik**, hello yeni hesap için bir tane belirtin.
 
     b. **Kaynak Grubu** altında, **Yeni oluştur** veya **Var olanı kullan**’a tıklayın.
 
@@ -98,189 +98,189 @@ Bu bölümde, Azure portalından hem bir Farklı Çalıştır hesabı hem de bir
 6. **Azure Farklı Çalıştır hesabı oluştur** altında **Evet**’i seçin ve ardından **Oluştur**’a tıklayın.
 
    > [!NOTE]
-   > **Hayır**’ı seçerek Farklı Çalıştır hesabı oluşturmamayı tercih ederseniz, **Otomasyon Hesabı Ekle** dikey penceresinde bir uyarı iletisi gösterilir. Hesap Azure portalında oluşturulsa da, klasik veya Resource Manager aboneliğinin dizin hizmetinde ona karşılık gelen bir kimlik doğrulama kimliği yoktur. Sonuç olarak hesap, aboneliğinizdeki kaynaklara erişemez. Bu senaryo, ilgili dağıtım modellerindeki kaynaklara göre kimlik doğrulama ve görev gerçekleştirme işlemlerinden bu hesaba başvuran runbook’ları engeller.
+   > Seçerek toocreate hello farklı çalıştır hesabı değil seçerseniz **Hayır**, bir uyarı iletisi görüntülenir hello **Automation hesabı Ekle** dikey. Merhaba hesap hello Azure portalında oluşturulur, ancak klasik veya Resource Manager Abonelik dizin hizmeti içinde karşılık gelen bir kimlik doğrulama kimliği yok. Sonuç olarak, hello hesap, aboneliğinizde hiçbir erişim tooresources sahiptir. Bu senaryo, ilgili dağıtım modellerindeki kaynaklara göre kimlik doğrulama ve görev gerçekleştirme işlemlerinden bu hesaba başvuran runbook’ları engeller.
    >
-   > !["Otomasyon Hesabı Ekle" dikey penceresindeki uyarı iletisi](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)
+   > ![Merhaba "Automation hesabı ekle" dikey uyarı iletisi](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)
    >
-   > Ayrıca, hizmet sorumlusu oluşturulmadığı için Katkıda Bulunan rolü atanmaz.
+   > Ayrıca, Hello hizmet sorumlusu oluşturulmadığında çünkü hello katkıda bulunan rolü atanmaz.
    >
 
-7. Azure Automation hesabını oluşturduğu sırada menünün **Bildirimler** öğesi altında ilerleme durumunu izleyebilirsiniz.
+7. Azure hello Automation hesabını oluşturduğu sırada altında hello ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde.
 
 ### <a name="resources"></a>Kaynaklar
-Otomasyon hesabı başarıyla oluşturulduğunda bazı kaynaklar sizin için otomatik olarak oluşturulur. Kaynaklar aşağıdaki iki tabloda özetlenmiştir:
+Hello Otomasyon hesabı başarıyla oluşturulduğunda bazı kaynaklar sizin için otomatik olarak oluşturulur. Merhaba kaynakları iki tablo aşağıdaki hello özetlenmiştir:
 
 #### <a name="run-as-account-resources"></a>Farklı Çalıştır hesabının kaynakları
 
 | Kaynak | Açıklama |
 | --- | --- |
-| AzureAutomationTutorial Runbook | Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir grafik runbook. |
-| AzureAutomationTutorialScript Runbook | Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir PowerShell runbook. |
-| AzureRunAsCertificate | Bir Otomasyon hesabı oluşturduğunuzda veya var olan bir hesap için aşağıdaki PowerShell betiğini kullandığınızda otomatik olarak oluşturulan sertifika varlığı. Sertifika, Azure Resource Manager kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmanıza imkan tanır. Bu sertifikanın bir yıllık kullanım ömrü vardır. |
-| AzureRunAsConnection | Bir Otomasyon hesabı oluşturduğunuzda veya var olan bir hesap için PowerShell betiğini kullandığınızda otomatik olarak oluşturulan bağlantı varlığı. |
+| AzureAutomationTutorial Runbook | Farklı Çalıştır hesabını kullanarak tooauthenticate hello nasıl gösteren ve tüm hello Resource Manager kaynaklarını alan örnek bir grafik runbook. |
+| AzureAutomationTutorialScript Runbook | Farklı Çalıştır hesabını kullanarak tooauthenticate hello nasıl gösteren ve tüm hello Resource Manager kaynaklarını alan örnek bir PowerShell runbook. |
+| AzureRunAsCertificate | Automation hesabı oluşturma veya var olan bir hesap için PowerShell Betiği aşağıdaki hello kullandığınızda, otomatik olarak oluşturulan hello sertifika varlığı. Merhaba sertifika Azure Resource Manager kaynaklarını runbook'lardan yönetebilmeniz için Azure ile tooauthenticate sağlar. Merhaba sertifikanın bir yıllık kullanım ömrü vardır. |
+| AzureRunAsConnection | bir Otomasyon hesabı oluşturduğunuzda ya da mevcut hesap için hello PowerShell Betiği kullanmak, otomatik olarak oluşturulan hello bağlantı varlığı. |
 
 #### <a name="classic-run-as-account-resources"></a>Klasik Farklı Çalıştır hesabının kaynakları
 
 | Kaynak | Açıklama |
 | --- | --- |
-| AzureClassicAutomationTutorial Runbook | Klasik Farklı Çalıştır hesabı (sertifika) kullanarak, bir abonelikte klasik dağıtım modeli ile oluşturulan tüm VM’leri alan ve sonra VM adı ile durumunu yazan, örnek grafik runbook. |
-| AzureClassicAutomationTutorial Script Runbook | Klasik Farklı Çalıştır hesabı (sertifika) kullanarak bir abonelikteki tüm klasik VM'leri alan ve sonra VM adını ve durumunu yazan, örnek PowerShell runbook. |
-| AzureClassicRunAsCertificate | Otomatik olarak oluşturulan ve Azure klasik kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmak üzere kullandığınız sertifika varlığı. Bu sertifikanın bir yıllık kullanım ömrü vardır. |
-| AzureClassicRunAsConnection | Otomatik olarak oluşturulan ve Azure klasik kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmak üzere kullandığınız bağlantı varlığı. |
+| AzureClassicAutomationTutorial Runbook | Tüm hello sanal makineleri alan örnek bir grafik runbook hello Klasik farklı çalıştır hesabı (sertifika) kullanarak bir abonelikte hello Klasik dağıtım modeli kullanılarak oluşturulur ve hello VM adını ve durumunu yazar. |
+| AzureClassicAutomationTutorial Script Runbook | Tüm alır örnek bir PowerShell runbook hello Klasik farklı çalıştır hesabı (sertifika) kullanarak bir abonelikte Klasik sanal makineleri hello ve ardından yazma VM adını ve durumunu hello. |
+| AzureClassicRunAsCertificate | Merhaba otomatik olarak oluşturulan sertifika varlığı Azure Klasik kaynaklarını runbook'lardan yönetebilmeniz için Azure ile tooauthenticate kullanın. Merhaba sertifikanın bir yıllık kullanım ömrü vardır. |
+| AzureClassicRunAsConnection | Merhaba otomatik olarak oluşturulan bağlantı varlığı Azure Klasik kaynaklarını runbook'lardan yönetebilmeniz için Azure ile tooauthenticate kullanın. |
 
 ## <a name="verify-run-as-authentication"></a>Farklı Çalıştır kimlik doğrulamasını onaylama
-Yeni Farklı Çalıştır hesabını kullanarak kimlik doğrulamasını sorunsuz yapabildiğinizi doğrulamak için küçük bir test gerçekleştirin.
+Başarıyla hello yeni farklı çalıştır hesabını kullanarak kimlik doğrulaması bir küçük test tooconfirm gerçekleştirin.
 
-1. Azure portalında, daha önce oluşturduğunuz Otomasyon hesabını açın.
+1. Hello Azure portal, daha önce oluşturduğunuz hello Automation hesabını açın.
 
-2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.
+2. Merhaba tıklatın **Runbook'lar** döşeme tooopen hello listesini.
 
-3. **AzureAutomationTutorialScript** runbook’unu seçin ve ardından **Başlat**’a tıklayarak runbook’u başlatın. Aşağıdaki olaylar gerçekleşir:
- * Bir [runbook işi](automation-runbook-execution.md) oluşturulur, **İş** dikey penceresi gösterilir ve iş durumu **İş Özeti** kutucuğunda gösterilir.
- * İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde **Sırada** olarak başlar.
- * Bir çalışan işi talep ettiğinde durum **Başlıyor** olur.
- * Runbook çalışmaya başladığında durum **Çalışıyor** olur.
- * Runbook işi tamamlandığında **Tamamlandı** durumunu görmeniz gerekir.
+3. Select hello **AzureAutomationTutorialScript** runbook ve ardından **Başlat** toostart hello runbook. olayları aşağıdaki hello oluşur:
+ * A [runbook işi](automation-runbook-execution.md) hello oluşturulur, **iş** dikey penceresinde görüntülenir ve hello iş durumu hello görüntülenir **iş özeti** döşeme.
+ * Merhaba iş durumu başlar olarak **sıraya alınan**, bir runbook worker'hello bulut toobecome için bekleyen belirten.
+ * Merhaba durumu olur **başlangıç** ne zaman bir çalışan talep hello işi.
+ * Merhaba durumu olur **çalıştıran** hello runbook çalışmaya başladığında.
+ * Çalışan Hello runbook işi tamamlandığında, durumunu görmelisiniz **tamamlandı**.
 
        ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)
-4. Runbook’un ayrıntılı sonuçlarını görmek için **Çıktı** kutucuğuna tıklayın.  
-Runbook kimlik doğrulamasının başarıyla yapıldığını ve kaynak grubunda mevcut olan tüm kaynakların bir listesini döndürdüğünü gösteren **Çıktı** dikey penceresi görüntülenir.
+4. toosee Merhaba hello runbook'un ayrıntılı sonuçlarını, hello tıklatın **çıkış** döşeme.  
+Merhaba **çıkış** dikey penceresinde görüntülenir, o hello runbook doğrulamasının başarıyla yapıldığını ve hello kaynak grubunda mevcut tüm kaynakların bir listesini döndürülen gösteriliyor.
 
-5. **Çıktı** dikey penceresini kapatarak **İş Özeti** dikey penceresine geri dönün.
+5. Kapat hello **çıkış** dikey tooreturn toohello **iş özeti** dikey.
 
-6. **İş Özeti** dikey penceresini ve karşılık gelen **AzureAutomationTutorialScript** runbook dikey penceresini kapatın.
+6. Kapat hello **iş özeti** dikey ve hello karşılık gelen **AzureAutomationTutorialScript** runbook dikey penceresinde.
 
 ## <a name="verify-classic-run-as-authentication"></a>Klasik Farklı Çalıştır kimlik doğrulamasını onaylama
-Yeni Klasik Farklı Çalıştır hesabını kullanarak kimlik doğrulamasını sorunsuz yapabildiğinizi doğrulamak için benzer bir küçük test gerçekleştirin.
+Benzer küçük gerçekleştirmek, hello yeni Klasik farklı çalıştır hesabını kullanarak kimlik doğrulamasını başarıyla tooconfirm sınayın.
 
-1. Azure portalında, daha önce oluşturduğunuz Otomasyon hesabını açın.
+1. Hello Azure portal, daha önce oluşturduğunuz hello Automation hesabını açın.
 
-2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.
+2. Merhaba tıklatın **Runbook'lar** döşeme tooopen hello listesini.
 
-3. **AzureClassicAutomationTutorialScript** runbook’unu seçin ve ardından **Başlat**’a tıklayarak runbook’u başlatın. Aşağıdaki olaylar gerçekleşir:
+3. Select hello **AzureClassicAutomationTutorialScript** runbook ve ardından **Başlat** çok hello runbook başlatın. olayları aşağıdaki hello oluşur:
 
- * Bir [runbook işi](automation-runbook-execution.md) oluşturulur, **İş** dikey penceresi gösterilir ve iş durumu **İş Özeti** kutucuğunda gösterilir.
- * İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde **Sırada** olarak başlar.
- * Bir çalışan işi talep ettiğinde durum **Başlıyor** olur.
- * Runbook çalışmaya başladığında durum **Çalışıyor** olur.
- * Runbook işi tamamlandığında **Tamamlandı** durumunu görmeniz gerekir.
+ * A [runbook işi](automation-runbook-execution.md) hello oluşturulur, **iş** dikey penceresinde görüntülenir ve hello iş durumu hello görüntülenir **iş özeti** döşeme.
+ * Merhaba iş durumu başlar olarak **sıraya alınan**, bir runbook worker'hello bulut toobecome için bekleyen belirten.
+ * Merhaba durumu olur **başlangıç** ne zaman bir çalışan talep hello işi.
+ * Merhaba durumu olur **çalıştıran** hello runbook çalışmaya başladığında.
+ * Çalışan Hello runbook işi tamamlandığında, durumunu görmelisiniz **tamamlandı**.
 
     ![Güvenlik Sorumlusu Runbook Testi](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
-4. Runbook’un ayrıntılı sonuçlarını görmek için **Çıktı** kutucuğuna tıklayın.  
-Runbook kimlik doğrulamasının başarıyla yapıldığını ve abonelikteki tüm klasik VM’lerin bir listesini döndürdüğünü gösteren **Çıktı** dikey penceresi görüntülenir.
+4. toosee Merhaba hello runbook'un ayrıntılı sonuçlarını, hello tıklatın **çıkış** döşeme.  
+Merhaba **çıkış** dikey penceresinde görüntülenir, o hello runbook doğrulamasının başarıyla yapıldığını ve hello Abonelikteki tüm Klasik sanal makineleri listesini döndürülen gösteriliyor.
 
-5. **Çıktı** dikey penceresini kapatarak **İş Özeti** dikey penceresine geri dönün.
+5. Kapat hello **çıkış** dikey tooreturn toohello **iş özeti** dikey.
 
-6. **İş Özeti** dikey penceresini ve karşılık gelen **AzureAutomationTutorialScript** runbook dikey penceresini kapatın.
+6. Kapat hello **iş özeti** dikey ve hello karşılık gelen **AzureAutomationTutorialScript** runbook dikey penceresinde.
 
 ## <a name="managing-your-run-as-account"></a>Farklı Çalıştır hesabınızı yönetme
-Otomasyon hesabınızın süresi dolmadan önce sertifikayı yenilemeniz gerekir. Farklı Çalıştır hesabının tehlikede olduğunu düşünüyorsanız, hesabı silip yeniden oluşturabilirsiniz. Bu bölümde bu işlemlerin nasıl gerçekleştirileceği ele alınmaktadır.
+Belirli bir noktada, Automation hesabınız süresi dolmadan önce toorenew hello sertifika gerekir. Bu farklı çalıştır hesabı hello tehlikeye düşünüyorsanız, silin ve yeniden oluşturun. Bu bölümde ele alınmaktadır nasıl tooperform bu işlemler.
 
 ### <a name="self-signed-certificate-renewal"></a>Otomatik olarak imzalanan sertifika yenileme
-Farklı Çalıştır hesabı için oluşturduğunuz otomatik olarak imzalanan sertifikanın süresi, oluşturulduktan bir yıl sonra dolar. Sertifikayı süresi dolmadan önce herhangi bir zamanda yenileyebilirsiniz. Sertifikayı yenilediğinizde, sıraya alınmış ya da o anda çalışan ve Farklı Çalıştır hesabı ile kimliği doğrulanmış runbook’ların olumsuz yönde etkilenmemesi için geçerli sertifika saklanır. Sertifika, sona erme tarihine kadar geçerliliğini sürdürür.
+hello farklı çalıştır hesabı için oluşturulan hello otomatik olarak imzalanan sertifika oluşturma başlangıç tarihinden itibaren bir yıl süresi dolar. Sertifikayı süresi dolmadan önce herhangi bir zamanda yenileyebilirsiniz. Yenilediğinizde, yukarı veya etkin olarak çalışan sıraya ve bu farklı çalıştır hesabını hello ile kimlik doğrulaması runbook'ları olumsuz etkilenmez tutulan tooensure hello geçerli geçerli sertifika yok. Merhaba sertifika sona erme tarihini kadar geçerli kalır.
 
 > [!NOTE]
-> Otomasyon Farklı Çalıştır hesabınızı, kuruluş sertifika yetkiliniz tarafından yayınlanan bir sertifika kullanmak üzere yapılandırdıysanız ve bu seçeneği kullanırsanız, kurumsal sertifika otomatik olarak imzalanan bir sertifikayla değiştirilir.
+> Automation farklı çalıştır hesabı toouse, kuruluş sertifika yetkiliniz tarafından verilen bir sertifika yapılandırdıktan ve bu seçeneği kullanırsanız, hello Kurumsal Sertifika tarafından otomatik olarak imzalanan bir sertifika kullanılacaktır.
 
-Sertifikayı yenilemek için aşağıdakileri yapın:
+toorenew hello sertifika, aşağıdaki hello:
 
-1. Azure portalında Otomasyon hesabınızı açın.
+1. Hello Azure portal, hello Automation hesabını açın.
 
-2. **Otomasyon Hesabı** dikey penceresindeki **Hesap özellikleri** bölmesinin **Hesap Ayarları** altında **Farklı Çalıştır Hesapları**’nı seçin.
+2. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde hello **hesap özellikleri** bölmesi altında **hesap ayarlarını**seçin **farklı çalıştır hesapları**.
 
     ![Otomasyon hesabı özellikleri bölmesi](media/automation-sec-configure-azure-runas-account/automation-account-properties-pane.png)
-3. **Farklı Çalıştır Hesapları** özellikleri dikey penceresinde sertifikasını yenilemek istediğiniz Farklı Çalıştır Hesabını veya Klasik Farklı Çalıştır Hesabını seçin.
+3. Merhaba üzerinde **farklı çalıştır hesapları** ya da hello Çalıştır hesabı veya toorenew hello sertifika için istediğiniz hello Klasik farklı çalıştır hesabı olarak özellikleri dikey penceresinde, seçin.
 
-4. Seçili hesabın **Özellikler** dikey penceresinde **Sertifikayı yenile**’ye tıklayın.
+4. Merhaba üzerinde **özellikleri** hello dikey penceresinde seçili hesabı'na tıklayın **yenileme sertifika**.
 
     ![Farklı Çalıştır hesabının sertifikasını yenileme](media/automation-sec-configure-azure-runas-account/automation-account-renew-runas-certificate.png)
 
-5. Sertifika yenilenirken menünün **Bildirimler** öğesi altında ilerleme durumunu izleyebilirsiniz.
+5. Merhaba sertifika yenileme sırasında altında hello ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde.
 
 ### <a name="delete-a-run-as-or-classic-run-as-account"></a>Farklı Çalıştır veya Klasik Farklı Çalıştır hesabını silme
-Bu bölümde bir Farklı Çalıştır veya Klasik Farklı Çalıştır hesabını silip yeniden oluşturma işlemi açıklamaktadır. Bu eylemi gerçekleştirdiğinizde Otomasyon hesabı korunur. Farklı Çalıştır veya Klasik Farklı Çalıştır hesabını sildikten sonra Azure portalında yeniden oluşturabilirsiniz.
+Bu bölümde açıklanmıştır nasıl toodelete ve bir farklı çalıştır veya Klasik farklı çalıştır hesabını yeniden oluşturun. Bu eylemi gerçekleştirdiğinizde, hello Otomasyon hesabı korunur. Bir farklı çalıştır veya Klasik farklı çalıştır hesabını sildikten sonra hello Azure portalında yeniden oluşturabilirsiniz.
 
-1. Azure portalında Otomasyon hesabınızı açın.
+1. Hello Azure portal, hello Automation hesabını açın.
 
-2. **Otomasyon Hesabı** dikey penceresindeki hesap özellikleri bölmesinde **Farklı Çalıştır Hesapları**’nı seçin.
+2. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde hello hesap Özellikler bölmesinde, **farklı çalıştır hesapları**.
 
-3. **Farklı Çalıştır Hesapları** özellikleri dikey penceresinde silmek istediğiniz Farklı Çalıştır Hesabını veya Klasik Farklı Çalıştır Hesabını seçin. Ardından, seçili hesabın **Özellikler** dikey penceresinde **Sil**’e tıklayın.
+3. Merhaba üzerinde **farklı çalıştır hesapları** özellikleri dikey penceresinde, seçin ya da hello Çalıştır hesabı veya Klasik farklı çalıştır hesabı toodelete istiyor. Ardından, hello **özellikleri** hello dikey penceresinde seçili hesabı'na tıklayın **silmek**.
 
  ![Farklı Çalıştır hesabını silme](media/automation-sec-configure-azure-runas-account/automation-account-delete-runas.png)
 
-4. Hesap silinirken menünün **Bildirimler** öğesi altında ilerleme durumunu izleyebilirsiniz.
+4. Merhaba hesap silindi, ancak altında hello ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde.
 
-5. Hesap silindikten sonra **Farklı Çalıştır Hesapları** özellikler dikey penceresinde **Azure Farklı Çalıştır Hesabı** seçeneğini belirleyerek hesabı yeniden oluşturabilirsiniz.
+5. Merhaba hesabı silindikten sonra bunu hello üzerinde yeniden oluşturabilirsiniz **farklı çalıştır hesapları** hello seçerek özellikler dikey penceresini oluşturma seçeneği **Azure farklı çalıştır hesabını**.
 
- ![Otomasyon Farklı Çalıştır hesabını yeniden oluşturma](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)
+ ![Merhaba Automation farklı çalıştır hesabını yeniden oluşturun](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)
 
 ### <a name="misconfiguration"></a>Yanlış yapılandırma
-İlk kurulum sırasında, Farklı Çalıştır veya Klasik Farklı Çalıştır hesabının düzgün çalışması için gerekli olan bazıları silinmiş veya düzgün oluşturulmamış olabilir. Bu öğeler şunlardır:
+Merhaba Çalıştır veya Klasik farklı çalıştır hesabı toofunction için gereken bazı yapılandırma öğeleri düzgün silinmiş veya yanlış ilk kurulum sırasında oluşturuldu. Merhaba öğeleri içerir:
 
 * Sertifika varlığı
 * Bağlantı varlığı
-* Farklı Çalıştır hesabının katkıda bulunan rolünden kaldırılması
+* Farklı Çalıştır hesabı hello katkıda bulunan rolü ' kaldırıldı
 * Azure AD'de hizmet sorumlusu veya uygulama
 
-Yanlış yapılandırmanın önceki ve diğer örneklerinde, Otomasyon hesabı değişiklikleri algılar ve hesabın **Farklı Çalıştır Hesapları** özellikleri dikey penceresinde *Tamamlanmadı* durumunu gösterir.
+Hello önceki ve diğer örnekleri yanlış hello Otomasyon hesabı hello değiştirir ve durumunu görüntüler algılar *tamamlanmamış* hello üzerinde **farklı çalıştır hesapları** hello özellikleri dikey penceresi hesabı.
 
 ![Tamamlanmamış Farklı Çalıştır hesabı yapılandırma durumu](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)
 
-Farklı Çalıştır hesabını seçtiğinizde hesabın **Özellikler** bölmesinde aşağıdaki hata iletisi görüntülenir:
+Merhaba farklı çalıştır hesabı seçin, hesap hello **özellikleri** bölmesi hello aşağıdaki hata iletisini görüntüler:
 
 ![Tamamlanmamış Farklı Çalıştır yapılandırma uyarısı iletisi](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).
 
-Hesabı silip yeniden oluşturarak Farklı Çalıştır hesabıyla ilgili bu sorunları hızlı bir şekilde çözebilirsiniz.
+Bu farklı çalıştır hesabı sorunları hızla, silme ve hello hesabını yeniden oluşturmayı da çözebilirsiniz.
 
 ## <a name="update-your-automation-account-by-using-powershell"></a>PowerShell kullanarak Otomasyon hesabınızı güncelleştirme
-Aşağıdaki durumlarda var olan Otomasyon hesabınızı güncelleştirmek için PowerShell kullanabilirsiniz:
+Varsa, PowerShell tooupdate var olan Otomasyon hesabınızı kullanabilirsiniz:
 
-* Bir Otomasyon hesabı oluşturdunuz, ancak Farklı Çalıştır hesabı oluşturmayı reddettiniz.
-* Resource Manager kaynaklarını yönetmek için bir Otomasyon hesabı zaten kullanıyorsunuz ve runbook kimlik doğrulaması için Farklı Çalıştır hesabını içerecek şekilde güncelleştirmek istiyorsunuz.
-* Klasik kaynakları yönetmek için bir Otomasyon hesabı zaten kullanıyorsunuz ve yeni bir hesap oluşturup runbook’larınızı ve varlıklarınızı ona geçirmek yerine Klasik Farklı Çalıştır hesabını kullanacak şekilde güncelleştirmek istiyorsunuz.   
-* Kuruluş sertifika yetkiliniz (CA) tarafından verilen bir sertifika kullanarak bir Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı oluşturmak istiyorsunuz.
+* Automation hesabı oluşturma ancak toocreate hello farklı çalıştır hesabı reddedin.
+* Runbook kimlik doğrulaması için tooupdate hello tooinclude hello farklı çalıştır hesabı istediğiniz ve zaten bir Automation hesabı toomanage Resource Manager kaynakları kullanın.
+* Zaten bir Automation hesabı toomanage Klasik kaynakları kullanır ve tooupdate isterseniz bunu toouse hello yeni bir hesap oluşturma ve runbook'ları ve varlıkları tooit geçirmek yerine Klasik farklı çalıştır hesabı.   
+* Kuruluş sertifika yetkilisi (CA) tarafından verilen bir sertifikayı kullanarak toocreate bir farklı çalıştır ve klasik farklı çalıştır hesabı istiyor.
 
-Betiğin aşağıdaki önkoşulları vardır:
+Merhaba komut dosyasında aşağıdaki önkoşullar hello vardır:
 
-* Betik yalnızca Azure Resource Manager 2.01 veya sonrasındaki modülleri içeren Windows 10 ve Windows Server 2016 işletim sistemlerinde çalıştırılabilir. Windows'un önceki sürümleri desteklenmez.
-* Azure PowerShell 1.0 ve üzeri. PowerShell 1.0 sürümü hakkında bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
-* Aşağıdaki PowerShell betiğinde *–AutomationAccountName* ve *-ApplicationDisplayName* parametrelerinin değeri olarak başvurulan bir Otomasyon hesabı.
+* Hello betik yalnızca Windows 10 ve Windows Server 2016 ile Azure Resource Manager modüllerini 2.01 ve daha sonra çalıştırılabilir. Windows'un önceki sürümleri desteklenmez.
+* Azure PowerShell 1.0 ve üzeri. Hello PowerShell 1.0 sürümü hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
+* Merhaba hello değeri olarak başvurulan bir Otomasyon hesabı *– AutomationAccountName* ve *- ApplicationDisplayName* hello PowerShell Betiği aşağıdaki parametreleri.
 
-Betiklerin parametreleri için gerekli olan *SubscriptionID*, *ResourceGroup* ve *AutomationAccountName* değerlerini almak için aşağıdakileri yapın:
-1. Azure portalında, **Otomasyon hesabı** dikey penceresinden Otomasyon hesabınızı ve ardından **Tüm ayarlar** öğesini seçin. 
-2. **Tüm ayarlar** dikey penceresindeki **Hesap Ayarları** altında **Özellikler**’i seçin. 
-3. **Özellikler** dikey penceresindeki değerleri not alın.
+tooget hello değerleri *Subscriptionıd*, *ResourceGroup*, ve *AutomationAccountName*hello komut dosyaları için gerekli parametreler olan, aşağıdaki hello:
+1. İçinde Azure portal Merhaba, Automation hesabınızı hello üzerinde seçin **Otomasyon hesabı** dikey ve ardından **tüm ayarları**. 
+2. Merhaba üzerinde **tüm ayarları** dikey altında **hesap ayarlarını**seçin **özellikleri**. 
+3. Not hello hello değerlerine **özellikleri** dikey.
 
-![Otomasyon hesabı "Özellikler" dikey penceresi](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![Merhaba Otomasyon hesabı "Özellikler" dikey](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>Farklı Çalıştır hesabı PowerShell betiği oluşturma
-Bu PowerShell betiği aşağıdaki yapılandırmalar için destek içerir:
+Bu PowerShell Betiği yapılandırmaları aşağıdaki hello destekler:
 
 * Otomatik olarak imzalanan sertifika kullanarak Farklı Çalıştır hesabı oluşturun.
 * Otomatik olarak imzalanan sertifika kullanarak Farklı Çalıştır hesabı ve Klasik Farklı Çalıştır hesabı oluşturun.
 * Kurumsal sertifika kullanarak Farklı Çalıştır hesabı ve Klasik Farklı Çalıştır hesabı oluşturun.
-* Azure Kamu bulutunda otomatik olarak imzalanan sertifika kullanarak Farklı Çalıştır hesabı ve Klasik Farklı Çalıştır hesabı oluşturun.
+* Hello Azure Bulutu kendinden imzalı bir sertifika kullanarak bir farklı çalıştır hesabı ve klasik farklı çalıştır hesabı oluşturun.
 
-Seçtiğiniz yapılandırma seçeneğine bağlı olarak, betik aşağıdaki öğeleri oluşturur.
+Seçtiğiniz hello yapılandırma seçeneğine bağlı olarak aşağıdaki öğelerindeki hello hello komut dosyası oluşturur.
 
 **Farklı Çalıştır hesapları için:**
 
-* Otomatik olarak imzalanan sertifika veya kurumsal sertifika ortak anahtarıyla dışarı aktarılacak bir Azure AD uygulaması oluşturur, Azure AD’de bu uygulama için bir hizmet sorumlusu hesabı oluşturur ve geçerli aboneliğinizde hesap için Katkıda Bulunan rolünü atar. Bu ayarı Sahip veya başka bir rolle değiştirebilirsiniz. Daha fazla bilgi için bkz. [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md).
-* Belirtilen Otomasyon hesabında *AzureRunAsCertificate* adlı bir Otomasyon sertifikası varlığı oluşturur. Sertifika varlıkları, Azure AD uygulaması tarafından kullanılan sertifika özel anahtarını içerir.
-* Belirtilen Otomasyon hesabında *AzureRunAsConnection* adlı bir Otomasyon bağlantı varlığı oluşturur. Bağlantı varlığı applicationId, tenantId, subscriptionId ve sertifika parmak izini içerir.
+* Bir Azure oluşturduğu AD uygulama toobe verilen kendinden imzalı ya da hello ile veya Kurumsal Sertifika genel anahtarı, Azure AD'de Merhaba uygulaması için bir hizmet sorumlusu hesabı oluşturur ve hello mevcut hello hesap için katılımcı rolü atar aboneliği. Bu ayar tooOwner veya başka bir rolle değiştirebilirsiniz. Daha fazla bilgi için bkz. [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md).
+* Adlı bir Otomasyon sertifikası varlığı oluşturur *AzureRunAsCertificate* hello Otomasyon hesabı belirtilmedi. Merhaba sertifika varlığı hello Azure AD uygulama tarafından kullanılan hello sertifika özel anahtarı içerir.
+* Adlı bir Otomasyon bağlantı varlığı oluşturur *AzureRunAsConnection* hello Otomasyon hesabı belirtilmedi. Merhaba bağlantı varlığı hello ApplicationId, Tenantıd, Subscriptionıd ve sertifika parmak izi tutar.
 
 **Klasik Farklı Çalıştır hesapları için:**
 
-* Belirtilen Otomasyon hesabında *AzureClassicRunAsCertificate* adlı bir Otomasyon sertifikası varlığı oluşturur. Sertifika varlığı, yönetim sertifikası tarafından kullanılan sertifika özel anahtarını içerir.
-* Belirtilen Otomasyon hesabında *AzureClassicRunAsConnection* adlı bir Otomasyon bağlantı varlığı oluşturur. Bağlantı varlığı; abonelik adı, subscriptionId ve sertifika varlık adını içerir.
+* Adlı bir Otomasyon sertifikası varlığı oluşturur *AzureClassicRunAsCertificate* hello Otomasyon hesabı belirtilmedi. Merhaba sertifika varlığı hello yönetim sertifikası tarafından kullanılan hello sertifika özel anahtarı içerir.
+* Adlı bir Otomasyon bağlantı varlığı oluşturur *AzureClassicRunAsConnection* hello Otomasyon hesabı belirtilmedi. Merhaba bağlantı varlığı hello abonelik adı, Subscriptionıd ve sertifika varlık adı tutar.
 
 >[!NOTE]
-> Klasik Farklı Çalıştır hesabı oluşturma seçeneğini belirlerseniz, betik yürütüldükten sonra Otomasyon hesabının oluşturulduğu abonelik için yönetim deposuna ortak sertifikayı (.cer dosya adı uzantısı) yükleyin.
+> Merhaba betik yürütüldükten sonra Klasik farklı çalıştır hesabı oluşturmak için her iki seçeneği seçerseniz, karşıya yükleme hello ortak sertifika (.cer dosya adı uzantısı) toohello yönetim deposu hello abonelik için bu hello Otomasyon hesabı içinde oluşturuldu.
 > 
 
-Betiği yürütüp sertifikayı karşıya yüklemek için aşağıdakileri yapın:
+tooexecute Merhaba komut dosyası ve hello sertifikasını karşıya yükleyin, aşağıdaki hello:
 
-1. Aşağıdaki betiği bilgisayarınıza kaydedin. Bu örnekte *New-RunAsAccount.ps1* dosya adıyla kaydedin.
+1. Komut dosyası, bilgisayarınızda aşağıdaki hello kaydedin. İsteğe bağlı olarak bu örnekte, hello dosya adıyla kaydedin *yeni RunAsAccount.ps1*.
 
         #Requires -RunAsAdministrator
          Param (
@@ -350,7 +350,7 @@ Betiği yürütüp sertifikayı karşıya yüklemek için aşağıdakileri yapı
         $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId
         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
 
-        # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
+        # Sleep here for a few seconds tooallow hello service principal application toobecome active (ordinarily takes a few seconds)
         Sleep -s 15
         $NewRole = New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
         $Retries = 0;
@@ -381,7 +381,7 @@ Betiği yürütüp sertifikayı karşıya yüklemek için aşağıdakileri yapı
         $AzureRMProfileVersion= (Get-Module AzureRM.Profile).Version
         if (!(($AzureRMProfileVersion.Major -ge 2 -and $AzureRMProfileVersion.Minor -ge 1) -or ($AzureRMProfileVersion.Major -gt 2)))
         {
-           Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
+           Write-Error -Message "Please install hello latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
            return
         }
 
@@ -408,16 +408,16 @@ Betiği yürütüp sertifikayı karşıya yüklemek için aşağıdakileri yapı
         $PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPathForRunAsAccount, $PfxCertPlainPasswordForRunAsAccount)
         $ApplicationId=CreateServicePrincipal $PfxCert $ApplicationDisplayName
 
-        # Create the Automation certificate asset
+        # Create hello Automation certificate asset
         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
 
-        # Populate the ConnectionFieldValues
+        # Populate hello ConnectionFieldValues
         $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
 
-        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        # Create an Automation connection asset named AzureRunAsConnection in hello Automation account. This connection uses hello service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
 
         if ($CreateClassicRunAsAccount) {
@@ -425,9 +425,9 @@ Betiği yürütüp sertifikayı karşıya yüklemek için aşağıdakileri yapı
             $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
             $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
             $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
-            $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                    "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
-                    "Then click Upload and upload the .cer format of #CERT#"
+            $UploadMessage = "Please upload hello .cer format of #CERT# toohello Management store by following hello steps below." + [Environment]::NewLine +
+                    "Log in toohello Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                    "Then click Upload and upload hello .cer format of #CERT#"
 
              if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
              $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
@@ -442,14 +442,14 @@ Betiği yürütüp sertifikayı karşıya yüklemek için aşağıdakileri yapı
              CreateSelfSignedCertificate $KeyVaultName $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
         }
 
-        # Create the Automation certificate asset
+        # Create hello Automation certificate asset
         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
-        # Populate the ConnectionFieldValues
+        # Populate hello ConnectionFieldValues
         $SubscriptionName = $subscription.Subscription.SubscriptionName
         $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
-        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        # Create an Automation connection asset named AzureRunAsConnection in hello Automation account. This connection uses hello service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName $ClassicRunAsAccountConnectionFieldValues
 
         Write-Host -ForegroundColor red $UploadMessage
@@ -457,9 +457,9 @@ Betiği yürütüp sertifikayı karşıya yüklemek için aşağıdakileri yapı
 
 2. Bilgisayarınızda **Başlat**’a tıklayın ve yükseltilmiş kullanıcı haklarıyla **Windows PowerShell**’i başlatın.
 
-3. Yükseltilmiş PowerShell komut satırı kabuğundan, 1. adımda oluşturduğunuz komut dosyasını içeren klasöre gidin.
+3. Merhaba PowerShell komut satırı kabuğundan, 1. adımda oluşturduğunuz hello betik içeren gidin toohello klasörü yükseltilmiş.
 
-4. İstediğiniz yapılandırmanın parametre değerlerini kullanarak betiği yürütün.
+4. İçin gerek duyduğunuz hello yapılandırma hello parametre değerlerini kullanarak Hello betiğini yürütün.
 
     **Otomatik olarak imzalanan sertifika kullanarak Farklı Çalıştır hesabı oluşturma**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false`
@@ -470,36 +470,36 @@ Betiği yürütüp sertifikayı karşıya yüklemek için aşağıdakileri yapı
     **Kurumsal sertifika kullanarak Farklı Çalıştır hesabı ve Klasik Farklı Çalıştır hesabı oluşturma**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>`
 
-    **Azure Kamu bulutunda otomatik olarak imzalanan sertifika kullanarak Farklı Çalıştır hesabı ve Klasik Farklı Çalıştır hesabı oluşturma**  
+    **Hello Azure Bulutu kendinden imzalı bir sertifika kullanarak bir farklı çalıştır hesabı ve klasik farklı çalıştır hesabı oluşturma**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment`
 
     > [!NOTE]
-    > Betik yürütüldükten sonra Azure kimlik doğrulamasını yapmanız istenecektir. Aboneliğin yöneticiler rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.
+    > Merhaba betiği yürüttükten sonra Azure ile istendiğinde tooauthenticate olacaktır. Merhaba abonelik Yöneticileri rolünün üyesi ve hello aboneliğinin ortak yöneticisi olan bir hesapla oturum açın.
     >
     >
 
-Betik başarıyla yürütüldükten sonra aşağıdakilere dikkat edin:
-* Otomatik olarak imzalanan bir ortak sertifika (.cer dosyası) ile Klasik Farklı Çalıştır hesabı oluşturduysanız, betik bu hesabı oluşturup bilgisayarınızdaki geçici dosya klasörüne, PowerShell oturumunu yürütmek için kullandığınız *%USERPROFILE%\AppData\Local\Temp* kullanıcı profili altında kaydeder.
-* Kurumsal ortak sertifika (.cer file) ile bir Klasik Farklı Çalıştır hesabı oluşturduysanız bu sertifikayı kullanın. [Klasik Azure portalında yönetim API sertifikayı yükleme](../azure-api-management-certs.md) yönergelerini izleyin ve ardından [Service Management Kaynakları ile kimlik doğrulamaya yönelik örnek kodu](#sample-code-to-authenticate-with-service-management-resources) kullanarak Service Management kaynakları ile kimlik bilgisi yapılandırmasını doğrulayın. 
-* Klasik Farklı Çalıştır hesabı *oluşturmadıysanız*, Resource Manager kaynakları kimlik doğrulaması yapmak ve kimlik bilgisi yapılandırmasını doğrulamak için [Service Management kaynakları ile kimlik doğrulamaya yönelik örnek kodu](#sample-code-to-authenticate-with-resource-manager-resources) kullanın.
+Merhaba betiği başarıyla yürütüldü sonra hello aşağıdakileri göz önünde bulundurun:
+* Otomatik olarak imzalanan bir PKI sertifikası (.cer dosyası) ile bir Klasik farklı çalıştır hesabını oluşturduysanız, hello komut dosyası oluşturur ve bilgisayarınızda hello kullanıcı profili altındaki toohello geçici dosyalar klasörüne kaydeder *%USERPROFILE%\AppData\Local\Temp*, tooexecute hello PowerShell oturumu kullanılan.
+* Kurumsal ortak sertifika (.cer file) ile bir Klasik Farklı Çalıştır hesabı oluşturduysanız bu sertifikayı kullanın. Merhaba yönergeleri izleyin [yönetim API sertifikası toohello Klasik Azure portalı karşıya](../azure-api-management-certs.md)ve ardından hello kullanarak Service Management kaynaklarıyla hello kimlik bilgisi yapılandırmasını doğrulamak [örnek kod Service Management kaynaklarıyla tooauthenticate](#sample-code-to-authenticate-with-service-management-resources). 
+* Kaldırdıysanız *değil* Klasik farklı çalıştır hesabı oluşturma, Resource Manager kaynaklarıyla kimlik doğrulaması ve hello kullanarak hello kimlik bilgisi yapılandırmasını doğrulamak [örnek Hizmet Yönetimi ile kimlik doğrulaması için kod Kaynakları](#sample-code-to-authenticate-with-resource-manager-resources).
 
-## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Resource Manager kaynaklarıyla kimlik doğrulaması için örnek kod
-Runbook’larınızla Resource Manager kaynaklarını yönetecek Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmak için *AzureAutomationTutorialScript* örnek runbook’undan alınan aşağıdaki güncelleştirilmiş örnek kodu kullanabilirsiniz.
+## <a name="sample-code-tooauthenticate-with-resource-manager-resources"></a>Örnek kod tooauthenticate Resource Manager kaynaklarıyla
+Güncelleştirilmiş hello aşağıdakileri kullanabilirsiniz örnek kod, hello gerçekleştirilecek *AzureAutomationTutorialScript* örnek runbook, runbook'larınızla hello farklı çalıştır hesabı toomanage Resource Manager kaynaklarını kullanarak tooauthenticate.
 
     $connectionName = "AzureRunAsConnection"
     $SubId = Get-AutomationVariable -Name 'SubscriptionId'
     try
     {
-       # Get the connection "AzureRunAsConnection "
+       # Get hello connection "AzureRunAsConnection "
        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
-       "Signing in to Azure..."
+       "Signing in tooAzure..."
        Add-AzureRmAccount `
          -ServicePrincipal `
          -TenantId $servicePrincipalConnection.TenantId `
          -ApplicationId $servicePrincipalConnection.ApplicationId `
          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
-       "Setting context to a specific subscription"     
+       "Setting context tooa specific subscription"     
        Set-AzureRmContext -SubscriptionId $SubId              
     }
     catch {
@@ -513,34 +513,34 @@ Runbook’larınızla Resource Manager kaynaklarını yönetecek Farklı Çalı�
          }
     }
 
-Bu betikte, birden fazla abonelik arasında kolayca çalışmanıza yardımcı olmak üzere abonelik bağlamına başvuruyu destekleyen iki ek kod satırı bulunur. *SubscriptionId* adlı değişken varlık, aboneliğin kimliğini içerir. `Add-AzureRmAccount` cmdlet’i belirtildikten sonra *-SubscriptionId* parametre kümesi ile [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) cmdlet’i belirtilir. Değişken adı çok genelse, tanımlanmasını kolaylaştırmak amacıyla bir ön ek veya başka diğer adlandırma kuralı kullanmak için değişken adını gözden geçirebilirsiniz. Alternatif olarak, ilgili değişken varlığıyla *-SubscriptionId* yerine *-SubscriptionName* parametre kümesini kullanabilirsiniz.
+toohelp, tooeasily iş arasında birden fazla abonelik, abonelik bağlamına başvuruyu destekleyen iki ek kod satırı hello komut dosyası içerir. Adlı bir değişken varlığı *Subscriptionıd* hello hello abonelik Kimliğini içerir. Merhaba sonra `Add-AzureRmAccount` cmdlet'i deyiminden hello [ `Set-AzureRmContext` ](/powershell/module/azurerm.profile/set-azurermcontext) cmdlet ile Merhaba parametre kümesi belirtilen *- Subscriptionıd*. Merhaba değişken adı çok genelse, tooinclude bir önek düzeltmek veya başka bir adlandırma kuralı toomake kullanmak, daha kolay tooidentify. Alternatif olarak, hello parametre kümesini kullanabilirsiniz *varlığıyla - SubscriptionName* yerine *- Subscriptionıd* karşılık gelen bir değişken varlığı ile.
 
-Runbook’ta kimlik doğrulaması için kullandığınız cmdlet `Add-AzureRmAccount`, *ServicePrincipalCertificate* parametre kümesini kullanır. Kullanıcı kimlik bilgilerini değil, hizmet sorumlusu sertifikasını kullanarak kimlik doğrulaması yapar.
+Merhaba runbook'ta kimlik doğrulaması için kullandığınız cmdlet'in hello `Add-AzureRmAccount`, kullandığı hello *ServicePrincipalCertificate* parametre kümesi. Merhaba hizmet asıl sertifikasını değil hello kullanıcı kimlik bilgilerini kullanarak kimlik doğrulamasını yapar.
 
-## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Service Management kaynaklarıyla kimlik doğrulaması için örnek kod
-Runbook’larınızla klasik kaynakları yönetecek Klasik Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmak için *AzureClassicAutomationTutorialScript* örnek runbook’undan alınan aşağıdaki güncelleştirilmiş örnek kodu kullanabilirsiniz.
+## <a name="sample-code-tooauthenticate-with-service-management-resources"></a>Örnek kod tooauthenticate Service Management kaynaklarıyla
+Merhaba alınan güncelleştirilmiş örnek kodu aşağıdaki hello kullanabilirsiniz *AzureClassicAutomationTutorialScript* örnek runbook, Klasik farklı çalıştır toomanage Klasik kaynakları hesap hello kullanarak tooauthenticate, runbook'ları.
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"
-    # Get the connection
+    # Get hello connection
     $connection = Get-AutomationConnection -Name $connectionAssetName        
 
-    # Authenticate to Azure with certificate
+    # Authenticate tooAzure with certificate
     Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
     if ($Conn -eq $null)
     {
-       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
+       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in hello Automation account."
     }
 
     $CertificateAssetName = $Conn.CertificateAssetName
-    Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
+    Write-Verbose "Getting hello certificate: $CertificateAssetName" -Verbose
     $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
     if ($AzureCert -eq $null)
     {
-       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
+       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in hello Automation account."
     }
 
-    Write-Verbose "Authenticating to Azure with certificate." -Verbose
+    Write-Verbose "Authenticating tooAzure with certificate." -Verbose
     Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
     Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
 

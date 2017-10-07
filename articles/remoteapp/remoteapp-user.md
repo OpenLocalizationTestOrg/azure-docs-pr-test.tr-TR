@@ -1,6 +1,6 @@
 ---
-title: "Azure RemoteApp koleksiyonunuzun kullanıcı ekleme | Microsoft Docs"
-description: "Kullanıcıların Azure RemoteApp koleksiyonunuzun eklemeyi öğrenin"
+title: "aaaAdd kullanıcı tooyour Azure RemoteApp koleksiyonu | Microsoft Docs"
+description: "Bilgi nasıl tooadd kullanıcılar tooyour Azure RemoteApp koleksiyonu"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 281e74c7941c42d8a3e4351953391229e54ce0a8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0ae88e04c8bfc2ed55dc963945ed7e9ff687b603
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-add-a-user-to-your-azure-remoteapp-collection"></a>Azure RemoteApp koleksiyonunuzun kullanıcı ekleme
+# <a name="how-tooadd-a-user-tooyour-azure-remoteapp-collection"></a>Nasıl tooadd kullanıcı tooyour Azure RemoteApp koleksiyonu
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Kullanıcılarınızın bakın ve uygulamalarınızı Azure RemoteApp kullanmaya başlamadan önce koleksiyonunuzu erişim vermek sahip. Bu kolay bir parçasıdır: üzerinde **kullanıcı erişimini** sekmesinde, kullanıcı hesabı bilgilerini girin ve ardından onay işaretine tıklayın.
+Kullanıcılarınızın bakın ve uygulamalarınızı Azure RemoteApp kullanmaya başlamadan önce tooyour koleksiyonuna erişmek toogrant sahip. Bu hello kolay bir parçasıdır: hello üzerinde **kullanıcı erişimini** sekmesinde, hello hello kullanıcısı için hesap bilgilerini girin ve ardından hello onay işaretine tıklayın.
 
-Hangi hesap bilgileri gerekiyor? Oluşturduğunuz (Bulut veya karma) ve Office 365 ProPlus koleksiyonda kullanıp koleksiyon türüne göre değişir.
+Hangi hesap bilgileri gerekiyor? Oluşturduğunuz (Bulut veya karma) ve Office 365 ProPlus koleksiyonda kullanıp hello koleksiyon türüne göre değişir.
 
 ## <a name="supported-user-identities"></a>Desteklenen kullanıcı kimlikleri
-Uygulamalara erişimi için farklı kullanıcı kimliklerini kullanarak farklı koleksiyon türleri (karma ve bulut) destekler.  
+Merhaba farklı koleksiyon türleri (karma ve bulut) kullanarak farklı bir kullanıcı kimlikleri için erişim tooapplications destekler.  
 
-RemoteApp karma koleksiyonu için şirket içi ve Azure Active Directory Kiracı dizin Tümleştirmesi ile bir Active Directory etki alanı altyapısını ayarlamak için (ve isteğe bağlı olarak çoklu oturum açmayı) gerekir. Ayrıca, bazı Active Directory nesnelerini şirket içi dizinini oluşturmanız gerekir.  
+RemoteApp karma koleksiyonu, şirket içi ve Azure Active Directory Kiracı dizin Tümleştirmesi ile Active Directory etki alanı altyapısı yukarı tooset gerekir (ve isteğe bağlı olarak çoklu oturum açmayı). Ayrıca, bazı Active Directory nesneleri hello şirket içi dizin toocreate gerekir.  
 
-RemoteApp bulut koleksiyonu için Azure Active Directory kimlikleri destek sahip herhangi bir kullanıcı RemoteApp Microsoft Accounts dahil etmek için kullanıcı erişimini verilebilir.  Aşağıdaki tabloya bakın.
+RemoteApp bulut koleksiyonu için Azure Active Directory kimlikleri destek sahip herhangi bir kullanıcı, kullanıcı erişim tooRemoteApp tooinclude Microsoft Accounts verilebilir.  Merhaba tabloya bakın.
 
 Office 365, Azure Active Directory Kullanıcıları kullanıcılardır. Azure Active Directory karma varsa, dizin eşitlenen hesapları, bunlar bir RemoteApp karma dağıtımında kullanıcı erişimi verilebilir.   
 
-Bu tablo kimliği, koleksiyon ve Active Directory gereksinimleri nelerdir desteklenmektedir hızlı başvuru olarak kullanabilirsiniz.
+Bu tablo kimliği, koleksiyon ve hello Active Directory gereksinimleri nelerdir desteklenmektedir hızlı başvuru olarak kullanabilirsiniz.
 
 | Kullanıcı hesapları | Bulut | Karma |
 | --- | --- | --- |
@@ -54,10 +54,10 @@ Bu tablo kimliği, koleksiyon ve Active Directory gereksinimleri nelerdir destek
 Kullanıma [daha fazla bilgi](remoteapp-ad.md) RemoteApp için Active Directory yapılandırma hakkında daha fazla.
 
 > [!NOTE]
-> Azure Active Directory kullanıcıları, aboneliğinizle ilişkili kiracıya ait olmalıdır. (Aboneliğinizi, portalın **Ayarlar** sekmesinde görüntüleyebilir ve değiştirebilirsiniz. Daha fazla bilgi için bkz. [RemoteApp tarafından kullanılan Azure Active Directory kiracısını değiştirme](remoteapp-changetenant.md).)
+> Hello Azure Active Directory Kullanıcıları, aboneliğinizle ilişkili hello Kiracı olmalıdır. (Görüntülemek ve aboneliğinizi hello değiştirmek **ayarları** hello portal sekmesindedir. Bkz: [RemoteApp tarafından kullanılan değişiklik hello Azure Active Directory Kiracı](remoteapp-changetenant.md) daha fazla bilgi için.)
 > 
 > 
 
 ## <a name="office-365-proplus-user-account-information"></a>Office 365 ProPlus kullanıcı hesabı bilgileri
-Koleksiyonunuzda Office 365 ProPlus şablon görüntüsü kullanıyorsanız *veya* Office 365 kullanan özel bir görüntü oluşturduysanız, yalnızca aboneliğinizin varsayılan etki alanı için Office 365 aboneliğine sahip Azure Active Directory Kullanıcıları eklemek için izin verilir. Bkz: [Azure RemoteApp ile Office 365'ı kullanarak](remoteapp-o365.md) daha fazla bilgi için.
+Koleksiyonunuzda hello Office 365 ProPlus şablon görüntüsü kullanıyorsanız *veya* Office 365 kullanan özel bir görüntü oluşturduysanız, hello için Office 365 aboneliğine sahip tooadd Azure Active Directory Kullanıcıları yalnızca izin verilir aboneliğiniz için varsayılan etki alanı. Bkz: [Azure RemoteApp ile Office 365'ı kullanarak](remoteapp-o365.md) daha fazla bilgi için.
 

@@ -1,5 +1,5 @@
 ---
-title: "Tablo API'sini kullanarak Azure Cosmos DB .NET uygulaması derleme | Microsoft Docs"
+title: "bir Azure Cosmos DB .NET uygulaması kullanarak aaaBuild hello tablo API | Microsoft Docs"
 description: ".NET kullanarak Azure Cosmos DB'nin Tablo API’si ile çalışmaya başlama"
 services: cosmos-db
 documentationcenter: 
@@ -15,21 +15,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/22/2017
 ms.author: arramac
-ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bdd4f8ec45407962b3d2cb26aa814a20cfc62173
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: Tablo API'sini kullanarak bir .NET uygulaması derleme
+# <a name="azure-cosmos-db-build-a-net-application-using-hello-table-api"></a>Azure Cosmos DB: hello tablo API kullanarak bir .NET uygulaması oluşturma
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızlı bir şekilde oluşturmak ve belge, anahtar/değer ve grafik veritabanları, her biri hello genel dağıtım ve yatay ölçek özelliklerini Azure Cosmos DB'nin hello çekirdek yararlı sorgulayabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını oluşturma ve bu hesap içinde tablo oluşturma işlemi anlatılmıştır. Varlıkları eklemek, güncelleştirmek ve silmek için kod yazabilecek ve NuGet'in yeni [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (önizleme) paketini kullanarak bazı sorguları çalıştırabileceksiniz. Bu kitaplık genel [Windows Azure Depolama SDK'sı](https://www.nuget.org/packages/WindowsAzure.Storage) ile aynı sınıf ve yöntem imzalarına sahip olmasının yanı sıra [Tablo API'sini](table-introduction.md) (önizleme) kullanarak Azure Cosmos DB hesaplarına da bağlanabilir. 
+Bu hızlı başlangıç gösteren nasıl toocreate bir Azure Cosmos DB hesap ve hello Azure portal kullanarak bu hesap içinde bir tablo oluşturun. Ardından kod tooinsert, güncelleştirme ve silme varlıkları yazma ve hello kullanarak yeni bazı sorgular çalıştırın [Windows Azure depolama Premium tablosu](https://aka.ms/premiumtablenuget) NuGet paketinden (Önizleme). Bu kitaplık hello sahip aynı sınıfları ve yöntem imzaları hello genel olarak [Windows Azure depolama SDK](https://www.nuget.org/packages/WindowsAzure.Storage), ancak aynı zamanda hello kullanarak hello özelliği tooconnect tooAzure Cosmos DB hesaplarına sahip [tablo API](table-introduction.md) (Önizleme). 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+Visual Studio yüklü 2017 zaten sahip değilseniz, indirin ve hello kullan **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Etkinleştirdiğinizden emin olun **Azure geliştirme** hello Visual Studio Kurulumu sırasında.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,36 +43,36 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 ## <a name="add-sample-data"></a>Örnek verileri ekleme
 
-Artık Veri Gezgini'ni (Önizleme) kullanarak yeni tablonuza veri ekleyebilirsiniz.
+Veri Gezgini (Önizleme) kullanarak veri tooyour yeni tablosu artık ekleyebilirsiniz.
 
 1. Veri Gezgini'nde **sample-table** seçeneğini genişletin, **Varlıklar**'a ve ardından **Varlık Ekle**'ye tıklayın.
 
-   ![Azure portalındaki Veri Gezgini'nde yeni varlık oluşturma](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Şimdi PartitionKey değer kutusu ile RowKey değer kutusuna verileri ekleyin ve **Varlık Ekle**’ye tıklayın.
+   ![Yeni varlıklar veri Gezgini'nde hello Azure portal oluşturun.](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+2. Şimdi veri toohello PartitionKey değeri ve RowKey değeri kutularının ekleyin ve **varlık Ekle**.
 
-   ![Yeni bir varlık için Bölüm Anahtarını ve Satır Anahtarını ayarlama](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
+   ![Ayarlama bölüm anahtarı ve yeni bir varlık için satır anahtarını hello](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
-    Artık tablonuza daha fazla varlık ekleyebilir, varlıklarınızı düzenleyebilir veya Veri Gezgini’nde verilerinizi sorgulayabilirsiniz. Veri Gezgini ayrıca aktarım hızınızı ölçeklendirebileceğiniz ve tablonuza depolanmış yordamlar, kullanıcı tarafından tanımlanmış işlevler ve tetikleyiciler ekleyebileceğiniz yerdir.
+    Artık daha fazla varlık tooyour tablo eklemek, varlıklarınızı düzenleme veya verilerinizi Veri Gezgini sorgu. Veri Gezgini Ayrıca, üretilen iş ölçekleme ve saklı yordamlar, kullanıcı tanımlı işlevler ve Tetikleyicileri tooyour tabloyu eklemek yerdir.
 
-## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+## <a name="clone-hello-sample-application"></a>Merhaba örnek uygulaması kopyalama
 
-Şimdi GitHub'dan bir Tablo uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi şimdi kopyalama tablo uygulama github'dan hello bağlantı dizesini ayarlamak ve çalıştırın. Ne kadar kolay toowork verilerle program aracılığıyla olduğunu görürsünüz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizinine gidin.  
+1. Git bash gibi bir git terminal penceresi açın ve `cd` tooa çalışma dizini.  
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
+2. Çalışma hello aşağıdaki tooclone hello örnek depo komutu. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
     ```
 
-3. Ardından çözüm dosyasını Visual Studio'da açın. 
+3. Ardından Visual Studio'da hello çözüm dosyasını açın. 
 
-## <a name="review-the-code"></a>Kodu gözden geçirin
+## <a name="review-hello-code"></a>Merhaba kod gözden geçirme
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
+Neler olduğuna dair hello uygulamada hızlı bir gözden geçirme olalım. Bu kod satırları hello Azure Cosmos DB kaynakları oluşturun, açık hello Program.cs dosyasının ve bulabilirsiniz. 
 
-* CloudTableClient başlatılır.
+* Merhaba CloudTableClient başlatılır.
 
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
@@ -86,7 +86,7 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dos
     table.CreateIfNotExists();
     ```
 
-* Yeni bir Tablo kapsayıcısı oluşturulur. Bu kodun normal Azure Tablo depolama SDK'sına çok benzer olduğunu fark edeceksiniz. 
+* Yeni bir Tablo kapsayıcısı oluşturulur. Bu kod çok benzer tooregular Azure Table depolama SDK'sı fark edeceksiniz. 
 
     ```csharp
     CustomerEntity item = new CustomerEntity()
@@ -101,60 +101,60 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dos
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-Şimdi bağlantı dizesi bilgilerini güncelleştireceğiz. Böylece uygulamanız Azure Cosmos DB ile iletişim kurabilecek. 
+Artık uygulamanızı tooAzure Cosmos DB iletişim kurabilirsiniz böylece biz hello bağlantı dizesi bilgilerini güncelleştireceksiniz. 
 
-1. Visual Studio'da app.config dosyasını açın. 
+1. Visual Studio'da hello app.config dosyasını açın. 
 
-2. [Azure portalının](http://portal.azure.com/) solunda bulunan Azure Cosmos DB gezinti menüsünde **Bağlantı Dizesi**'ne tıklayın. Ardından yeni bölmede bağlantı dizesine ilişkin Kopyala düğmesine tıklayın. 
+2. Merhaba, [Azure portal](http://portal.azure.com/)hello Azure Cosmos DB Gezinti Menüsü sol, tıklatın **bağlantı dizesi**. Ardından yeni hello Bölmesi'nde hello bağlantı dizesi için hello Kopyala düğmesini tıklatın. 
 
-    ![Bağlantı Dizesi bölmesindeki Uç Nokta ve Hesap Anahtarını görüntüleyin ve kopyalayın](./media/create-table-dotnet/keys.png)
+    ![Görüntüleme ve hello bağlantı dizesi Bölmesi'nde hello uç noktasını ve hesap anahtarını kopyalama](./media/create-table-dotnet/keys.png)
 
-3. Değeri app.config dosyasına PremiumStorageConnectionString değeri olarak yapıştırın. 
+3. Merhaba değeri hello PremiumStorageConnectionString hello değeri olarak hello app.config dosyasına yapıştırın. 
 
     `<add key="PremiumStorageConnectionString" 
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`    
 
-    StandardStorageConnectionString değerini olduğu gibi bırakabilirsiniz.
+    Merhaba StandardStorageConnectionString olduğu gibi bırakabilirsiniz.
 
-Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+Uygulamanızı şimdi güncelleştirdikten toocommunicate Azure Cosmos DB ile gerekli tüm hello bilgilerine sahip. 
 
-## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
+## <a name="run-hello-web-app"></a>Merhaba web uygulaması çalıştırın
 
-1. Visual Studio'da **Çözüm Gezgini**'ndeki **PremiumTableGetStarted** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
+1. Visual Studio'da hello üzerinde sağ **PremiumTableGetStarted** proje **Çözüm Gezgini** ve ardından **NuGet paketlerini Yönet**. 
 
-2. NuGet'teki **Gözat** kutusuna *WindowsAzure.Storage PremiumTable* yazın.
+2. Merhaba NuGet içinde **Gözat** kutusuna *WindowsAzure.Storage PremiumTable*.
 
-3. **Ön sürümü dahil et** kutusunu işaretleyin. 
+3. Merhaba denetleyin **dahil et** kutusu. 
 
-4. Sonuçlar arasında yer alan **WindowsAzure.Storage-PremiumTable** kitaplığını yükleyin. Bunu yaptığınızda Azure Cosmos DB Tablo API paketinin önizlemesi ve tüm bağımlılıklar yüklenir. Bu paketin Azure Tablo depolaması tarafından kullanılan Windows Azure Depolama paketinden farklı bir NuGet paketi olduğunu unutmayın. 
+4. Merhaba sonuçlarından hello yüklemek **WindowsAzure.Storage PremiumTable** kitaplığı. Bu, tüm bağımlılıkları yanı sıra hello Önizleme Azure Cosmos DB tablo API paketi yükler. Bu Azure Table Depolama tarafından kullanılan hello Windows Azure depolama paket daha farklı bir NuGet paketi olduğuna dikkat edin. 
 
-5. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın.
+5. CTRL + F5'e tıklayın toorun Merhaba uygulaması.
 
-    Konsol penceresi; eklenen, alınan, sorgulanan, değiştirilen ve tablodan silinen verileri görüntüler. Betik tamamlandığında herhangi bir tuşa basarak konsol penceresini kapatın. 
+    Merhaba konsol penceresi eklenmesini, alınan, sorgulanan, değiştirilen ve hello tablosundan silinen hello verilerini görüntüler. Merhaba betik tamamlandığında, herhangi bir anahtar tooclose hello konsol penceresi tuşuna basın. 
     
-    ![Hızlı başlangıç konsol çıktısı](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
+    ![Merhaba quickstart konsol çıktısı](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
 
-6. Yeni varlıkları Veri Gezgini'nde görmek istiyorsanız için program.cs'de 188-208 numaralı satırları açıklama satırı yapmanız (silinmemeleri için) ve örneği tekrar çalıştırmanız yeterlidir. 
+6. Veri Gezgini'nde, bunlar silinmez şekilde program.cs 188 208 satırlarında çıkışı yalnızca açıklama toosee hello yeni varlıklar istiyorsanız hello örnek yeniden çalıştırın. 
 
-    Şimdi Veri Gezgini'ne geri dönüp **Yenile** düğmesine tıklayın, **people** tablosunu genişletin ve **Varlıklar**'a tıklayın. Artık yeni verilerle çalışabilirsiniz. 
+    Şimdi tooData Gezgini geri dönebilirsiniz tıklatın **yenileme**, hello genişletin **kişiler** tablosu ve'ı tıklatın **varlıklar**ve ardından bu yeni verilerle çalışmak. 
 
     ![Veri Gezgini'ndeki yeni varlıklar](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
+## <a name="review-slas-in-hello-azure-portal"></a>Gözden geçirme SLA'hello Azure portalı
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin: 
+Toocontinue toouse bu uygulamayı değil kullanacaksanız, bu hızlı başlangıç tarafından hello Azure portalında aşağıdaki adımları hello ile oluşturulan tüm kaynakları silin: 
 
-1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
-2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
+1. Merhaba sol taraftaki menüden hello Azure portal'ın, **kaynak grupları** ve ardından oluşturduğunuz hello kaynak hello adına tıklayın. 
+2. Kaynak grubu sayfanızda tıklatın **silmek**hello metin kutusuna hello kaynak toodelete hello adını yazın ve ardından **silmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak tablo oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz.  Şimdi Tablo API'sini kullanarak verilerinizi sorgulayabilirsiniz.  
+Bu hızlı başlangıç toocreate bir Azure Cosmos DB hesap hello Veri Gezgini'ni kullanarak bir tablo oluşturma ve bir uygulama çalıştırmasına öğrendiniz.  Şimdi verilerinizi hello tablo API kullanarak sorgulama yapabilirsiniz.  
 
 > [!div class="nextstepaction"]
-> [Tablo API’si kullanarak sorgulama](tutorial-query-table.md)
+> [Merhaba tablo API kullanarak sorgu](tutorial-query-table.md)
 

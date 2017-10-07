@@ -1,5 +1,5 @@
 ---
-title: Azure RemoteApp lisanslama | Microsoft Belgeleri
+title: aaaAzure RemoteApp lisanslama | Microsoft Docs
 description: "Azure RemoteApp’te lisanslamanın nasıl çalıştığını öğrenin."
 services: remoteapp
 documentationcenter: 
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 4c1ad1657ab628283f071afbc9361d67cc301417
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dfa808a65ea6b1a78bf74f3daddb9a84e186eebe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-does-licensing-work-in-azure-remoteapp"></a>Azure RemoteApp’te lisanslama nasıl çalışır?
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Azure RemoteApp hizmetinizi ayarladınız, şablonlarınızı oluşturdunuz ve kullanıcılarınıza uygulama yayımlamaya hazırsınız. Ancak hala çözülmesi gereken son bir konu var: lisanslama. RemoteApp ve RemoteApp aracılığıyla paylaştığınız uygulamalar için lisanslama nasıl çalışır?
+Bu nedenle şablonlarınızı oluşturdunuz Azure RemoteApp hizmetinizi kuralım ayarladınız ve hazır toopublish uygulamaları tooyour kullanıcılardır. Ancak hala son bir şey toofigure çıkışı: lisanslama. Yalnızca lisans çalışma RemoteApp ve RemoteApp aracılığıyla paylaştığınız hello uygulamaları için nasıl yapar?
 
-RemoteApp herhangi bir Windows lisansı veya Uzak Masaüstü CAL’si gerektirmez. Aboneliğiniz RemoteApp tarafındaki lisans sorunlarını çözer. (Ayrıntıları [fiyatlandırma planlarında](https://azure.microsoft.com/pricing/details/remoteapp) kontrol edebilirsiniz.)
+RemoteApp herhangi bir Windows lisansı veya Uzak Masaüstü CAL’si gerektirmez. Aboneliğiniz RemoteApp yan kendisini Merhaba mvc'deki. (Merhaba hello ayrıntılarını kontrol [fiyatlandırma planı](https://azure.microsoft.com/pricing/details/remoteapp).)
 
-Aboneliğinize dahil edilen görüntülerden birini kullanırsanız, bu görüntüdeki herhangi bir uygulamayı ayrı bir lisans olmadan paylaşabilirsiniz. Örneğin, koleksiyonunuzu oluşturmak için Windows Server 2012 R2 şablon görüntüsünü kullanıyorsanız, System Center Endpoint Protection’ı kullanıcılarınızla paylaşabilirsiniz. Bu kuralın tek özel durumu, ayrı bir abonelik gerektiren Office 365 ProPlus ve bir üretim koleksiyonunda paylaşılamayan Office 2013'tür.
+Aboneliğinize dahil hello görüntülerden birini kullanırsanız, bu görüntüyü ayrı bir lisans olmadan yüklü hello uygulamaları paylaşabilirsiniz. Örneğin, koleksiyonunuzu hello Windows Server 2012 R2 şablon görüntüsünü toobuild kullanırsanız, System Center Endpoint Protection Kullanıcılarınızla paylaşabilirsiniz. Merhaba yalnızca özel durumları toothis kuralı: Office 365 ayrı bir abonelik gerektiren ProPlus ve bir üretim koleksiyonunda paylaşılamayan Office 2013.
 
-RemoteApp ile birlikte gelen Office 365 şablon görüntüsünü kullanmak istiyorsanız, *mevcut* bir Office 365 ProPlus planınızın olması gerekir. Özel bir şablon kullanarak yayımladığınız herhangi bir Office 365 uygulaması için de aynı durum geçerlidir. Uygulamaları kendi aboneliğinizle etkinleştirmeniz gerekir. Bu deneme abonelikleri ve ücretli abonelikler için geçerlidir. Deneme süresi boyunca Office 365 şablon görüntüsünü kullanmak istiyorsanız, *ve zaten bir aboneliğiniz yoksa*, Office 365 sayfasına giderek bir deneme aboneliği için [kaydolun](https://go.microsoft.com/fwlink/p/?LinkID=403802). Daha fazla bilgi için bkz. [RemoteApp ve Office nasıl birlikte çalışır?](remoteapp-o365.md)
+RemoteApp ile birlikte gelen toouse hello Office 365 şablon görüntüsünü istiyorsanız olmalıdır bir *varolan* Office 365 ProPlus planı. Merhaba, aynı özel bir şablon kullanarak yayımladığınız herhangi bir Office 365 uygulaması için geçerlidir. Tooactivate hello uygulamaları, kendi aboneliğinizle gerekir. Bu deneme abonelikleri ve ücretli abonelikler için geçerlidir. Merhaba deneme sırasında toouse hello Office 365 şablon görüntüsünü istiyorsanız *ve zaten bir aboneliğiniz yoksa*, çok toohello Office 365 sayfasına gidin[kaydolun](https://go.microsoft.com/fwlink/p/?LinkID=403802) bir deneme aboneliği. Daha fazla bilgi için bkz. [RemoteApp ve Office nasıl birlikte çalışır?](remoteapp-o365.md)
 
-Deneme süresi boyunca, bir Office 365 deneme aboneliği istemiyorsanız, RemoteApp ile birlikte gelen Office 2013 Professional Plus şablon görüntüsünü kullanın. Bu şablon görüntüsü yalnızca 30 gün boyunca kullanılabilir ve ücretli bir koleksiyona dönüştürülemez.
+Merhaba deneme süresi boyunca tooget bir Office 365 deneme aboneliği istemiyorsanız, RemoteApp ile birlikte gelen hello Office 2013 Professional Plus şablon görüntüsünü kullanın. Bu şablon görüntüsü yalnızca 30 gün boyunca kullanılabilir ve ücretli bir koleksiyona dönüştürülemez.
 
-Diğer uygulamalar için, uygulamayı paylaşmak için lisansa sahip olduğunuzdan emin olmanız gerekir.
+Diğer uygulamalar için toomake hello lisans tooshare hello uygulama sahip olduğunuzdan emin gerekir.
 
-Kulağa mantıklı geliyor, değil mi? Yasal olarak paylaşma hakkınız olan herhangi bir uygulamayı yayımlayabilirsiniz. Programlarınızı paylaşmak için gerçekten yetkili olduğunuzdan emin olmanız gerekir.
+Kulağa mantıklı geliyor, değil mi? Tooshare yasal hakkı olduğu herhangi bir uygulama yayımlayabilirsiniz. Ve toomake gerçekten olduğundan emin gerek tooshare programlarınızı hakkı.
 
-Lütfen bir bulut koleksiyonunda CAL veya Toplu Lisans sözleşmesi kullanamayacağınızı unutmayın. Karma koleksiyonunuzda uygulamaları etkinleştirmek için bir Toplu Lisans sözleşmesi *kullanabilirsiniz* (Office hariç). Bunları Toplu Lisans medyasından şablon görüntünüze yüklemeniz yeterlidir. Lisansları bir Uzak Masaüstü ortamında yüklemek için uygulama satıcısından aldığınız bilgiler doğrultusunda hareket edin.
+Lütfen bir bulut koleksiyonunda CAL veya Toplu Lisans sözleşmesi kullanamayacağınızı unutmayın. *Yapabilirsiniz* karma koleksiyonunuzda (Office hariç) bir toplu lisans sözleşmesi tooactivate uygulamaları kullanın. Bunları şablonunuzda toplu lisans medya hello görüntü tooinstall yeterlidir. Merhaba bilgi hello uygulama satıcı tooinstall lisansları bir uzak masaüstü ortamında izleme.
 

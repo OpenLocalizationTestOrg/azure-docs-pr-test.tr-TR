@@ -1,6 +1,6 @@
 ---
-title: ".NET ile Media Services iş bildirimleri izlemek için Azure Web Kancalarını kullanın | Microsoft Docs"
-description: "Media Services iş bildirimleri izlemek için Azure Web Kancalarını kullanmayı öğrenin. Kod örneği C# dilinde yazılmıştır ve .NET için Media Services SDK'sını kullanır."
+title: ".NET ile aaaUse Azure Web Kancalarını toomonitor Media Services iş bildirimleri | Microsoft Docs"
+description: "Nasıl toouse Azure Web Kancalarını toomonitor Media Services iş bildirimlerini öğrenin. Merhaba kod örneği C# dilinde yazılmıştır ve .NET için hello Media Services SDK'sı kullanır."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,63 +14,63 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
-ms.openlocfilehash: eaa875a7c78de0b69c81514ea023f9b8bceb2656
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b7df597da20e551cb2a02cd21c96c7bddf9e1a66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>.NET ile Media Services iş bildirimleri izlemek için Azure Web'kancaları kullanın
-İşlerini çalıştırdığınızda, genellikle iş ilerleme durumunu izlemek için bir yol gerekir. Azure Web Kancalarını kullanarak Media Services iş bildirimleri izleyebilirsiniz veya [Azure kuyruk depolama](media-services-dotnet-check-job-progress-with-queues.md). Bu konuda, Web Kancalarını ile çalışmak gösterilmiştir.
+# <a name="use-azure-webhooks-toomonitor-media-services-job-notifications-with-net"></a>Azure Web Kancalarını toomonitor Media Services iş bildirimleri .NET ile kullanma
+İşlerini çalıştırdığınızda, genellikle bir şekilde tootrack ilerleyişini gerektirir. Azure Web Kancalarını kullanarak Media Services iş bildirimleri izleyebilirsiniz veya [Azure kuyruk depolama](media-services-dotnet-check-job-progress-with-queues.md). Bu konuda gösterilmektedir nasıl Kancalarını ile toowork.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
+Merhaba, gerekli toocomplete hello öğretici şunlardır:
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
-* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
-* Anlayış [Azure işlevlerinin nasıl kullanılacağı](../azure-functions/functions-overview.md). Ayrıca, gözden [Azure işlevleri HTTP ve Web kancası bağlamaları](../azure-functions/functions-bindings-http-webhook.md).
+* Bir Media Services hesabı. bir Media Services hesabı toocreate bkz [nasıl tooCreate Media Services hesabı](media-services-portal-create-account.md).
+* Anlayış [nasıl toouse Azure işlevleri](../azure-functions/functions-overview.md). Ayrıca, gözden [Azure işlevleri HTTP ve Web kancası bağlamaları](../azure-functions/functions-bindings-http-webhook.md).
 
 Bu konuda gösterilmektedir nasıl
 
-*  Web kancası için yanıtlamak için özelleştirilmiş bir Azure işlevi tanımlayın. 
+*  Özelleştirilmiş toorespond toowebhooks olan bir Azure işlevi tanımlayın. 
     
-    Bu durumda, kodlama işinin durumu değiştiğinde Web kancası Media Services tarafından tetiklenir. İşlev Web kancası çağrısından geri Media Services bildirimleri dinler ve iş tamamlandığında, çıkış varlığına yayımlar. 
+    Bu durumda, kodlama işinin durumu değiştiğinde hello Web kancası Media Services tarafından tetiklenir. Merhaba işlevi hello Web kancası çağrısından geri Media Services bildirimleri dinler ve hello işi tamamlandıktan sonra hello çıkış varlığına yayımlar. 
     
     >[!NOTE]
     >Devam etmeden önce anladığınızdan emin olun nasıl [Azure işlevleri HTTP ve Web kancası bağlamaları](../azure-functions/functions-bindings-http-webhook.md) çalışır.
     >
     
-* Bir Web kancası kodlama göreviniz ekleyin ve bu Web kancası yanıtlaması gizli anahtar ve Web kancası URL'si belirtin. Burada gösterilen örnekte, kodlama görev oluşturan bir konsol uygulaması kodudur.
+* Bir Web kancası tooyour kodlama görev ekleyin ve bu Web kancası yanıtlaması gizli anahtar ve hello Web kancası URL'si belirtin. Burada gösterilen hello örnekte görev kodlama hello oluşturan hello bir konsol uygulaması kodudur.
 
 ## <a name="setting-up-webhook-notification-azure-functions"></a>Azure işlevleri "Web kancası bildirimi" ayarlama
 
-Bu bölümdeki kod bir Web kancası olan bir Azure işlevi uygulaması gösterir. Bu örnekte işlevi Web kancası çağrısından geri Media Services bildirimleri dinler ve iş tamamlandığında, çıkış varlığına yayımlar.
+Bu bölümdeki Hello kodu bir Web kancası olan bir Azure işlevi uygulaması gösterilir. Bu örnek hello işlevi hello Web kancası çağrısından geri Media Services bildirimleri dinler ve hello işi tamamlandıktan sonra hello çıkış varlığına yayımlar.
 
-Web kancası bildirim bitiş noktası yapılandırdığınızda geçirdiğiniz olanla eşleşecek şekilde bir imzalama anahtarı (kimlik) bekliyor. İmzalama anahtarı korumak ve Azure Media Services, Web Kancalarını geri aramalar güvenli hale getirmek için kullanılan 64 baytlık Base64 ile kodlanmış değerdir. 
+Merhaba Web kancası bekliyor imzalama anahtarı (kimlik) toomatch bir hello bildirim bitiş noktası yapılandırdığınızda geçirdiğiniz hello. imzalama anahtarı hello kullanılan tooprotect ve Azure Media Services, Web Kancalarını geri aramalar güvenli hello 64 baytlık Base64 ile kodlanmış değerdir. 
 
-Aşağıdaki kodda, **VerifyWebHookRequestSignature** yöntemi bildirim iletisi doğrulama yapar. Bu doğrulamanın amacı ileti Azure Media Services tarafından gönderilen ve oynanmadığını emin olmaktır. İmza içerdiğinden Azure işlevleri için isteğe bağlı olduğu **kod** değeri olarak bir sorgu parametresi üzerinden Aktarım Katmanı Güvenliği (TLS). 
+Koddan hello hello **VerifyWebHookRequestSignature** yöntemi hello bildirim iletisi doğrulamayı hello. Merhaba amacı, bu doğrulama ileti hello tooensure Azure Media Services tarafından gönderilen ve oynanmadığını ' dir. Merhaba olduğu gibi Hello imza Azure işlevleri için isteğe bağlı **kod** değeri olarak bir sorgu parametresi üzerinden Aktarım Katmanı Güvenliği (TLS). 
 
-(Bu konuda gösterilen de dahil olmak üzere) çeşitli Media Services .NET Azure işlevleri tanımını bulabilirsiniz [burada](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Çeşitli Media Services .NET Azure işlevleri (Merhaba biri bu konuda gösterilen dahil) hello tanımını bulabilirsiniz [burada](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-Aşağıdaki kod listesi Azure işlev parametrelerini ve Azure işlevi ile ilişkili olan üç dosyaları tanımını gösterir: function.json, project.json ve run.csx.
+Merhaba aşağıdaki kod listesi gösterir Azure işlev parametrelerini ve hello Azure işlevi ile ilişkili olan üç dosyaları hello tanımları: function.json, project.json ve run.csx.
 
 ### <a name="application-settings"></a>Uygulama ayarları 
 
-Bu bölümde tanımlanan Azure işlevi tarafından kullanılan parametreler aşağıdaki tabloda gösterilmektedir. 
+Merhaba aşağıdaki tabloda hello bu bölümünde tanımlanan Azure işlevi tarafından kullanılan hello parametrelerini gösterir. 
 
 |Ad|Tanım|Örnek| 
 |---|---|---|
 |AMSAccount|AMS hesabının adı. |juliakomediaservices|
 |AMSKey |AMS hesap anahtarınızı. | JUWJdDaOHQQqsZeiXZuE76eDt2SO + YMJk25Lghgy2nY =|
-|MediaServicesStorageAccountName |AMS hesabınızla ilişkili depolama hesabı adı.| storagepkeewmg5c3peq|
-|MediaServicesStorageAccountKey |AMS hesabınızla ilişkili depolama hesabı anahtarı.|
+|MediaServicesStorageAccountName |AMS hesabınızla ilişkili hello depolama hesabı adı.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |AMS hesabınızla ilişkili hello depolama hesabı anahtarı.|
 |SigningKey |İmzalama anahtarı.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Bir Web kancası uç nokta adresi. | https://juliakofuncapp.azurewebsites.NET/api/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>Function.JSON
 
-Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Çalışma zamanı izlenecek olaylar belirlemek için bu dosyaya ve verilerini geçirin ve işlev yürütülmesini veri dönmek nasıl kullanır. 
+Merhaba function.json dosyası hello işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Bu dosya toodetermine hello olayları toomonitor ve yürütme toopass verisine ve dönüş verileri nasıl işlev Hello çalışma zamanı kullanır. 
 
     {
       "bindings": [
@@ -96,7 +96,7 @@ Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarların
     
 ### <a name="projectjson"></a>Project.JSON
 
-Project.json dosyası bağımlılıkları içerir. 
+Merhaba project.json dosyası bağımlılıkları içerir. 
 
     {
       "frameworks": {
@@ -111,11 +111,11 @@ Project.json dosyası bağımlılıkları içerir.
     
 ### <a name="runcsx"></a>Run.csx
 
-Aşağıdaki C# kodu bir Web kancası olan bir Azure işlevi tanımını gösterir. İşlev Web kancası çağrısından geri Media Services bildirimleri dinler ve iş tamamlandığında, çıkış varlığına yayımlar. 
+Merhaba aşağıdaki C# kodu bir Web kancası olan bir Azure işlevi tanımını gösterir. Merhaba işlevi hello Web kancası çağrısından geri Media Services bildirimleri dinler ve hello işi tamamlandıktan sonra hello çıkış varlığına yayımlar. 
 
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Merhaba kullanması gereken her zaman kullanıyorsanız, aynı ilke kimliği hello aynı gün / erişim izinlerini, örneğin, uzun bir süre (karşıya yükleme olmayan ilkeleri) yerinde hedeflenen tooremain olan bulucular ilkeleri. Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"
@@ -177,7 +177,7 @@ Aşağıdaki C# kodu bir Web kancası olan bir Azure işlevi tanımını göster
                 if(_context!=null)   
                 {                        
                 string urlForClientStreaming = PublishAndBuildStreamingURLs(msg.Properties["JobId"]);
-                log.Info($"URL to the manifest for client streaming using HLS protocol: {urlForClientStreaming}");
+                log.Info($"URL toohello manifest for client streaming using HLS protocol: {urlForClientStreaming}");
                 }
             }
 
@@ -210,19 +210,19 @@ Aşağıdaki C# kodu bir Web kancası olan bir Azure işlevi tanımını göster
         TimeSpan.FromDays(30),
         AccessPermissions.Read);
 
-        // Create a locator to the streaming content on an origin. 
+        // Create a locator toohello streaming content on an origin. 
         ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
         policy,
         DateTime.UtcNow.AddMinutes(-5));
 
 
-        // Get a reference to the streaming manifest file from the  
-        // collection of files in the asset. 
+        // Get a reference toohello streaming manifest file from hello  
+        // collection of files in hello asset. 
         var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                     EndsWith(".ism")).
                     FirstOrDefault();
 
-        // Create a full URL to the manifest file. Use this for playback
+        // Create a full URL toohello manifest file. Use this for playback
         // in streaming media clients. 
         string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest" +  "(format=m3u8-aapl)";
         return urlForClientStreaming;
@@ -278,7 +278,7 @@ Aşağıdaki C# kodu bir Web kancası olan bir Azure işlevi tanımını göster
     private static readonly char[] HexLookup = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
     /// <summary>
-    /// Converts a <see cref="T:byte[]"/> to a hex-encoded string.
+    /// Converts a <see cref="T:byte[]"/> tooa hex-encoded string.
     /// </summary>
     private static string ToHex(byte[] data)
     {
@@ -320,7 +320,7 @@ Aşağıdaki C# kodu bir Web kancası olan bir Azure işlevi tanımını göster
 
 ### <a name="function-output"></a>İşlevi çıktı
 
-Yukarıdaki örnekte aşağıdaki çıkış üretilen, değerlerinizi farklılık gösterir.
+Yukarıdaki Hello örnek çıktı aşağıdaki hello üretilen, değerlerinizi farklılık gösterir.
 
     C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
     Request Body = {
@@ -339,19 +339,19 @@ Yukarıdaki örnekte aşağıdaki çıkış üretilen, değerlerinizi farklılı
       }
     }
     
-    URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+    URL toohello manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-## <a name="adding-webhook-to-your-encoding-task"></a>Web kancası kodlama göreviniz ekleme
+## <a name="adding-webhook-tooyour-encoding-task"></a>Web kancası tooyour kodlama görev ekleme
 
-Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterilir. Zincirleme görevler içeren bir iş için daha kullanışlı olurdu bir proje düzeyi bildirim de ekleyebilirsiniz.  
+Bu bölümde, bir Web kancası bildirim tooa görev ekler hello kodu gösterilir. Zincirleme görevler içeren bir iş için daha kullanışlı olurdu bir proje düzeyi bildirim de ekleyebilirsiniz.  
 
-1. Visual Studio’da yeni bir C# Konsol Uygulaması oluşturun. Adını, konumunu ve çözüm adı girin ve Tamam'ı tıklatın.
-2. Kullanım [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) Azure Media Services yüklemek için.
+1. Visual Studio’da yeni bir C# Konsol Uygulaması oluşturun. Merhaba adını, konumunu ve çözüm adı girin ve Tamam'ı tıklatın.
+2. Kullanım [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) tooinstall Azure Media Services.
 3. App.config dosyasını uygun değerlerle güncelleştirin: 
     
     * Azure Media Services adını ve bildirimleri gönderme anahtarı 
-    * bildirimleri almak için beklediği Web kancası URL'si 
-    * Web kancası bekliyor anahtarla eşleşen imzalama anahtarı. İmzalama anahtarı korumak ve Azure Media Services, Web Kancalarını geri aramalar güvenli hale getirmek için kullanılan 64 baytlık Base64 ile kodlanmış değerdir. 
+    * tooget hello bildirimleri beklediği Web kancası URL'si 
+    * Merhaba, Web kancası bekliyor hello anahtarla eşleşen anahtara imzalama. imzalama anahtarı hello kullanılan tooprotect ve Azure Media Services, Web Kancalarını geri aramalar güvenli hello 64 baytlık Base64 ile kodlanmış değerdir. 
 
             <appSettings>
               <add key="MediaServicesAccountName" value="AMSAcctName" />
@@ -360,7 +360,7 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterili
               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
             </appSettings>
             
-4. Program.cs dosyanıza aşağıdaki kod ile güncelleştirin:
+4. Program.cs dosyanızdaki koddan hello ile güncelleştirin:
 
         using System;
         using System.Configuration;
@@ -371,7 +371,7 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterili
         {
             class Program
             {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _mediaServicesAccountName =
                 ConfigurationManager.AppSettings["MediaServicesAccountName"];
             private static readonly string _mediaServicesAccountKey =
@@ -387,7 +387,7 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterili
             static void Main(string[] args)
             {
 
-                // Used the cached credentials to create CloudMediaContext.
+                // Used hello cached credentials toocreate CloudMediaContext.
                 _context = new CloudMediaContext(new MediaServicesCredentials(
                         _mediaServicesAccountName,
                         _mediaServicesAccountKey));
@@ -396,7 +396,7 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterili
 
                 IAsset newAsset = _context.Assets.FirstOrDefault();
 
-                // Check for existing Notification Endpoint with the name "FunctionWebHook"
+                // Check for existing Notification Endpoint with hello name "FunctionWebHook"
 
                 var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
                 INotificationEndPoint endpoint = null;
@@ -413,11 +413,11 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterili
                 Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
                 }
 
-                // Declare a new encoding job with the Standard encoder
+                // Declare a new encoding job with hello Standard encoder
                 IJob job = _context.Jobs.Create("MES Job");
 
-                // Get a media processor reference, and pass to it the name of the 
-                // processor to use for the specific task.
+                // Get a media processor reference, and pass tooit hello name of hello 
+                // processor toouse for hello specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
                 ITask task = job.Tasks.AddNew("My encoding task",
@@ -425,15 +425,15 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterili
                 "Adaptive Streaming",
                 TaskOptions.None);
 
-                // Specify the input asset to be encoded.
+                // Specify hello input asset toobe encoded.
                 task.InputAssets.Add(newAsset);
 
-                // Add an output asset to contain the results of the job. 
+                // Add an output asset toocontain hello results of hello job. 
                 // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // means hello output asset is not encrypted. 
                 task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
-                // Add the WebHook notification to this Task and request all notification state changes.
+                // Add hello WebHook notification toothis Task and request all notification state changes.
                 // Note that you can also add a job level notification
                 // which would be more useful for a job with chained tasks.  
                 if (endpoint != null)
@@ -448,8 +448,8 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterili
 
                 job.Submit();
 
-                Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
-                Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
+                Console.WriteLine("Expect WebHook toobe triggered for hello Job ID: {0}", job.Id);
+                Console.WriteLine("Expect WebHook toobe triggered for hello Task ID: {0}", task.Id);
 
                 Console.WriteLine("Job Submitted");
 

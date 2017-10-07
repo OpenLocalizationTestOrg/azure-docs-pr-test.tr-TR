@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Sanal Makinesi'ni şifreleme | Microsoft Docs"
-description: "Bu belge, Azure Güvenlik Merkezi'nden uyarı aldıktan sonra Azure Sanal Makine'yi şifrelemenize yardımcı olur."
+title: bir Azure sanal makine aaaEncrypt | Microsoft Docs
+description: "Bu belgede Azure Güvenlik Merkezi'nden uyarı aldıktan sonra tooencrypt bir Azure sanal makine sağlar."
 services: security, security-center
 documentationcenter: na
 author: TomShinder
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7c7c6eed39d16bde8a0dfaffe3a3331c58101634
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure Sanal Makine'yi şifreleme
-Şifrelenmemiş sanal makineleriniz varsa Azure Güvenlik Merkezi sizi uyarır. Bu uyarılar Yüksek Önem Derecesine Sahip olarak gösterilir ve bu sanal makineleri şifrelemeniz önerilir.
+Şifrelenmemiş sanal makineleriniz varsa Azure Güvenlik Merkezi sizi uyarır. Bu uyarılar yüksek önem derecesi ve hello öneri olarak gösterecektir bu sanal makinelerin tooencrypt şeklindedir.
 
 ![Disk şifreleme önerisi](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Bu belgedeki bilgiler bir Anahtar Şifreleme Anahtarı (Azure Backup kullanarak sanal makineleri yedeklemek için gereklidir) kullanmadan sanal makineleri şifreleme işlemiyle ilgilidir. Şifrelenmiş Azure Sanal Makineler için Azure Backup’ı desteklemek üzere Anahtar Şifreleme Anahtarı’nı kullanma hakkında bilgi için lütfen [Windows ve Linux Azure Sanal Makineleri için Azure Disk Şifrelemesi](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) makalesine bakın.
+> Bu belgedeki bilgiler Hello (Azure Yedekleme'yi kullanarak sanal makineleri yedekleme için gerekli olan) bir anahtar şifreleme anahtarı kullanmadan tooencrypting sanal makineler geçerlidir. Lütfen hello makalesine bakın [için Azure Disk şifrelemesi Windows ve Linux Azure sanal makineleri](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) hakkında bilgi için toouse anahtar şifreleme anahtarı toosupport Azure Backup şifrelenmiş Azure Virtual Machines için.
 >
 >
 
-Azure Güvenlik Merkezi tarafından şifreleme gerektiği belirlenen Azure Virtual Machines'i şifrelemek için aşağıdaki adımları öneririz:
+Azure Güvenlik Merkezi tarafından şifreleme gerektiği belirlenen Azure Virtual Machines tooencrypt hello aşağıdaki adımları öneririz:
 
-* Azure PowerShell'i yükleyip yapılandırın. Böylece Azure Virtual Machines şifreleme için gereken önkoşulları ayarlamaya yönelik gerekli PowerShell komutlarını çalıştırmanıza olanak sağlanır.
-* Azure Disk Şifrelemesi Önkoşulları Azure PowerShell betiğini elde edip çalıştırın
+* Azure PowerShell'i yükleyip yapılandırın. Bu, toorun hello PowerShell komutları gerekli tooset hello önkoşullar gerekli tooencrypt Azure sanal makineleri yedeklemek olanak tanır.
+* Edinin ve hello Azure Disk şifrelemesi önkoşulları Azure PowerShell betiğini çalıştırın
 * Sanal makinelerinizi şifreleyin
 
-Bu belgenin amacı, Azure PowerShell ile ilgili çok az arka plana sahip olsanız veya hiç arka plana sahip olmasanız bile sanal makinelerinizi şifrelemenizi sağlamaktır.
-Bu belge, Azure Disk Şifrelemesi'ni yapılandıracağınız istemci makine olarak Windows 10 kullandığınızı varsayar.
+Merhaba, bu belgenin hedeftir tooenable, tooencrypt Azure PowerShell'de çok az kayıpla veya hiç arka plana sahip olsa bile, sanal makineleriniz.
+Bu belge, Azure Disk şifrelemesi yapılandıracağınız hello istemci makine gibi Windows 10 kullandığınızı varsayar.
 
-Azure Virtual Machines için önkoşulları ayarlamak ve şifrelemeyi yapılandırmak üzere birçok yaklaşım vardır. Azure PowerShell veya Azure CLI konusunda zaten bilgiliyseniz alternatif yaklaşımlar kullanmayı tercih edebilirsiniz.
+Kullanılan toosetup hello önkoşulları ve tooconfigure şifreleme Azure Virtual Machines için birçok yaklaşım vardır. Zaten Azure PowerShell veya Azure CLI bilgiliyseniz, toouse alternatif yaklaşımlar tercih edebilirsiniz.
 
 > [!NOTE]
-> Azure Virtual Machines için şifreleme yapılandırmaya yönelik alternatif yaklaşımlar hakkında daha fazla bilgi edinmek için bkz. [Windows ve Linux Azure Virtual Machines için Azure Disk Şifrelemesi](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
+> Azure sanal makineleri için alternatif yaklaşımlar tooconfiguring şifreleme hakkında daha fazla toolearn lütfen bkz. [için Azure Disk şifrelemesi Windows ve Linux Azure sanal makineleri](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 >
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell'i yükleyip yapılandırma
-Bilgisayarınızda Azure PowerShell 1.2.1 sürümü veya üstünün yüklü olması gerekir. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview) makalesi, bilgisayarınızın Azure PowerShell ile çalışmasını sağlamak için ihtiyacınız olan tüm adımları içerir. En kolay yaklaşım, bu makalede değinilen Web PI kurulumu yaklaşımını kullanmaktır. Azure PowerShell önceden yüklü olsa bile, Azure PowerShell'in en son sürümüne sahip olmak için Web PI yaklaşımını kullanarak yeniden yükleyin.
+Bilgisayarınızda Azure PowerShell 1.2.1 sürümü veya üstünün yüklü olması gerekir. Merhaba makale [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) Azure PowerShell ile bilgisayar toowork tooprovision gereken tüm hello adımları içerir. Merhaba en kolay yaklaşım toouse hello Web PI Kurulumu yaklaşımını bu makalede değinilen olur. Azure PowerShell önceden yüklü olsa bile yüklü, böylece Azure PowerShell'in en son sürümünü hello sahip hello Web PI yaklaşımını kullanarak yeniden yükleyin.
 
-## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Azure disk şifrelemesi önkoşulları yapılandırma betiğini elde edip çalıştırma
-Azure Disk Şifrelemesi Önkoşulları Yapılandırma Betiği, Azure Virtual Machines'inizi şifrelemek için gereken tüm önkoşulları ayarlar.
+## <a name="obtain-and-run-hello-azure-disk-encryption-prerequisites-configuration-script"></a>Edinin ve hello Azure disk şifrelemesi önkoşulları yapılandırma betiğini çalıştırın
+Azure sanal makinelerinizi şifrelemek için gereken tüm hello Önkoşullar Hello Azure Disk şifrelemesi önkoşulları yapılandırma betiği ayarlayacaksınız.
 
-1. [Azure Disk Şifrelemesi Önkoşulları Kurulum Betiği](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)'ne sahip olan GitHub sayfasına gidin.
-2. GibHub sayfasında **Ham** düğmesine tıklayın.
-3. Sayfadaki tüm metni seçmek için **CTRL-A**'yı kullanın ve ardından sayfadaki tüm metni panoya kopyalamak için **CTRL-C**'yi kullanın.
-4. **Not Defteri**'ni açın ve kopyalanan metni Not Defteri'ne yapıştırın.
+1. Merhaba sahip gidin toohello GitHub sayfası [Azure Disk şifrelemesi önkoşulları Kurulum betiği](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+2. Merhaba Hello GibHub sayfasında, tıklatın **Raw** düğmesi.
+3. Kullanmak **CTRL-A** tooselect tüm hello hello sayfasında metin ve ardından **CTRL-C** toocopy tüm metin hello sayfa toohello Panosu'nda hello.
+4. Açık **not defteri** ve hello kopyalanan metni Not Defteri'ne yapıştırın.
 5. C: sürücünüzde **AzureADEScript** adlı yeni bir klasör oluşturun.
-6. Not Defteri dosyasını kaydedin; **Dosya**'ya tıklayın, ardından **Farklı Kaydet**'e tıklayın. Dosya adı metin kutusunda **"ADEPrereqScript.ps1"** girin ve **Kaydet**'e tıklayın. (adın etrafına tırnak işaretleri koyduğunuzdan emin olun; yoksa dosya .txt dosya uzantısıyla kaydedilir).
+6. Merhaba not defteri dosyasını kaydedin; tıklatın **dosya**, ardından **Kaydet**. Merhaba dosya adı metin kutusuna girin **"ADEPrereqScript.ps1"** tıklatıp **kaydetmek**. (Merhaba adını tırnak işaretleri içine hello put emin olun, aksi takdirde, hello dosya .txt dosya uzantısıyla kaydeder).
 
-Artık betik içeriği kaydedildiğine göre, PowerShell ISE'deki betiği açın:
+Merhaba betik içeriği kaydedildiğine göre hello betik hello PowerShell ISE açın:
 
-1. Başlat Menüsünde **Cortana**'ya tıklayın. Cortana arama metni kutusuna **PowerShell** yazarak **Cortana** "PowerShell" sorusunu sorun.
+1. Hello Başlat menüsü, tıklatın **Cortana**. Sorun **Cortana** yazarak "PowerShell" **PowerShell** hello Cortana arama metin kutusuna.
 2. **Windows PowerShell ISE**'ye sağ tıklayın ve **Yönetici olarak çalıştır**'a tıklayın.
-3. **Yönetici: Windows PowerShell ISE** penceresinde **Görünüm**'e tıklayın ve ardından **Betik Bölmesini Göster**'e tıklayın.
-4. Pencerenin sağ tarafında **Komutlar** bölmesini görürseniz kapatmak için bölmenin sağ üst köşesindeki **"x"** simgesine tıklayın. Metin göremeyeceğiniz kadar küçükse **CTRL+Ekle**'yi ("Ekle", "+" işaretidir) kullanın. Metin çok büyükse **CTRL+Çıkar** (Çıkar "-" işaretidir).
-5. **Dosya**'ya tıklayın ve ardından **Aç**'a tıklayın. **C:\AzureADEScript** klasörüne gidin ve **ADEPrereqScript**'e çift tıklayın.
-6. **ADEPrereqScript** içeriği PowerShell ISE'de artık görünür olmalıdır ve komutlar, parametreler ve değişkenler gibi çeşitli bileşenleri daha kolayca görmenize yardımcı olmak amacıyla renk kodludur.
+3. Merhaba, **yönetici: Windows PowerShell ISE** penceresinde tıklatın **Görünüm** ve ardından **betik bölmesini göster**.
+4. Merhaba görürseniz **komutları** bölmesi hello penceresinde hello sağ tarafındaki hello **"x"** hello sağ üst köşesinde hello bölmesini tooclose, onu. Merhaba metin, toosee kadar küçükse kullanmak **CTRL + Ekle** ("Merhaba ekleyin" "+" imzalamak). Hello metin çok büyükse kullanmak **CTRL + çıkar** (çıkarma olduğu hello "-" işareti).
+5. **Dosya**'ya tıklayın ve ardından **Aç**'a tıklayın. Toohello gidin **C:\AzureADEScript** klasörü ve hello çift hello üzerinde **ADEPrereqScript**.
+6. Merhaba **ADEPrereqScript** içeriği hello PowerShell ISE artık görünür olmalıdır ve ren kodlu toohelp gördüğünüz komutlar, parametreler ve değişkenler gibi çeşitli bileşenleri daha kolay olan.
 
-Şimdi aşağıdaki gibi bir şekil görüyor olmanız gerekir.
+Şimdi aşağıdaki şekilde hello gibi bir şey görmeniz gerekir.
 
 ![PowerShell ISE penceresi](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
-Üst bölme "betik bölmesi" olarak adlandırılır ve alt bölme de "konsol" olarak adlandırılır. Daha sonra bu makalede bu terimleri kullanacağız.
+Hello üst bölme "betik bölmesi" başvurulan tooas hello ve hello alt bölme başvurulan tooas hello "konsol". Daha sonra bu makalede bu terimleri kullanacağız.
 
-## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Azure disk şifrelemesi önkoşulları PowerShell komutunu çalıştırma
-Azure Disk Şifrelemesi Önkoşulları betiği, başlatıldıktan sonra sizden aşağıdaki bilgileri ister:
+## <a name="run-hello-azure-disk-encryption-prerequisites-powershell-command"></a>Hello Azure disk şifrelemesi önkoşulları PowerShell komutunu çalıştırın
+Hello Azure Disk şifrelemesi önkoşulları betiği hello betik başlattıktan sonra aşağıdaki bilgilerle Merhaba ister:
 
-* **Kaynak Grubu Adı** - Anahtar Kasasını yerleştirmek istediğiniz Kaynak Grubunun adı.  Bu ada sahip önceden oluşturulmuş bir kaynak grubu yoksa girdiğiniz ad ile yeni bir Kaynak Grubu oluşturulur. Bu abonelikte kullanmak istediğiniz bir Kaynak Grubu zaten varsa bu Kaynak Grubunun adını girin.
-* **Anahtar Kasasının Adı** - Şifreleme anahtarlarının yerleştirileceği Anahtar Kasasının adı. Bu ada sahip bir Anahtar Kasanız zaten yoksa bu ad ile yeni bir Anahtar Kasası oluşturulur. Kullanmak istediğiniz bir Anahtar Kasası zaten varsa var olan Anahtar Kasasının adını girin.
-* **Konum** - Anahtar Kasasının Konumu. Şifrelenecek Anahtar Kasası ve VM'lerin aynı konumda olduğundan emin olun. Konumu bilmiyorsanız bunun nasıl öğrenileceğine dair adımlar bu makalenin devamında gösterilir.
-* **Azure Active Directory Uygulamasının Adı** - Anahtar Kasasına gizli anahtarları yazmak için kullanılacak Azure Active Directory uygulamasının adı. Bu ada sahip bir uygulama yoksa yeni bir uygulama oluşturulur. Kullanmak istediğiniz bir Azure Active Directory uygulaması zaten varsa bu Azure Active Directory uygulamasının adını girin.
+* **Kaynak grubu adı** - ad hello tooput istediğiniz kaynak grubunu anahtar kasasını hello.  Hiç yoksa önceden oluşturulan bu ada sahip yeni bir kaynak grubu girdiğiniz hello adıyla oluşturulur. Bu abonelikte toouse istediğiniz bir kaynak grubu zaten varsa, hello bu kaynak grubunun adını girin.
+* **Anahtar kasasının adı** -şifreleme anahtarlarının olduğundan yerleştirilen toobe hello anahtar kasası adı. Bu ada sahip bir Anahtar Kasanız zaten yoksa bu ad ile yeni bir Anahtar Kasası oluşturulur. Toouse istediğiniz bir anahtar kasası zaten varsa, anahtar kasası varolan hello hello adını girin.
+* **Konum** -hello anahtar kasası konumu. Şifrelenmiş hello anahtar kasası ve VM'lerin toobe hello olduğundan emin olun aynı konumu. Başlangıç konumu bilmiyorsanız, adım vardır, bunu nasıl yapacağınızı gösterir bu makalenin sonraki bölümlerinde toofind çıkışı.
+* **Azure Active Directory Uygulama adı** -hello kullanılan toowrite gizli toohello anahtar kasası olacak Azure Active Directory Uygulama adı. Bu ada sahip bir uygulama yoksa yeni bir uygulama oluşturulur. Toouse istediğiniz bir Azure Active Directory uygulaması zaten varsa bu Azure Active Directory Uygulama hello adını girin.
 
 > [!NOTE]
-> Neden bir Azure Active Directory uygulaması oluşturmanız gerektiğini merak ediyorsanız lütfen [Azure Anahtar Kasası ile Çalışmaya Başlama](../key-vault/key-vault-get-started.md) makalesinin *Bir uygulamayı Azure Active Directory'ye kaydetme* bölümüne bakın.
+> Toowhy merak ediyorsanız toocreate bir Azure Active Directory uygulaması gereken Lütfen bakın *bir uygulamayı Azure Active Directory ile kaydetme* hello makalenin bölümünde [Azure anahtar kasasıileçalışmayabaşlama](../key-vault/key-vault-get-started.md).
 >
 >
 
-Bir Azure Sanal Makinesini şifrelemek için aşağıdaki adımları gerçekleştirin:
+Aşağıdaki adımları tooencrypt bir Azure sanal makine hello gerçekleştirin:
 
-1. PowerShell ISE'yi kapattıysanız yükseltilmiş bir PowerShell ISE örneği açın. PowerShell ISE zaten açık değilse bu makalede önceden geçen yönergeleri izleyin. Betiği kapattıysanız **Dosya**'ya ve ardından **Aç**'a tıklayarak ve **c:\AzureADEScript** klasöründen betiği seçerek **ADEPrereqScript.ps1**'i açın. Makaleyi baştan beri izlediyseniz sonraki adıma geçmeniz yeterlidir.
-2. PowerShell ISE konsolunda (PowerShell ISE'nin en alt bölmesi) **cd c:\AzureADEScript** yazıp **ENTER**'a basarak betiğin odağını yerel olarak değiştirin.
-3. Makinenizdeki yürütme ilkesini, betiği çalıştırabilecek şekilde ayarlayın. Konsolda **Set-ExecutionPolicy Unrestricted** yazın ve ardından ENTER'a basın. Yürütme ilkesindeki değişikliğin etkilerini anlatan bir iletişim kutusu görürseniz **Tümüne evet** veya **Evet**'e tıklayın (**Tümüne evet**'i görürseniz bu seçeneği belirleyin; **Tümüne evet**'i görmezseniz **Evet**'e tıklayın).
-4. Azure hesabınızda oturum açın. Konsolda **Login-AzureRmAccount** yazın ve **ENTER**'a basın. Kimlik bilgilerinizi gireceğiniz bir iletişim kutusu görünür (sanal makineleri değiştirme haklarına sahip olduğunuzdan emin olun; bu haklara sahip değilseniz şifreleme yapamazsınız. Emin değilseniz aboneliğinizin sahibine veya yöneticinize sorun). **Environment**, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount**'ınız hakkında bilgiler görmeniz gerekir. **SubscriptionId**'yi Not Defteri'ne kopyalayın. Bunu 6. adımda kullanmanız gerekir.
-5. Sanal makinenizin hangi aboneliğe ait olduğunu ve konumunu bulun. [https://portal.azure.com](ttps://portal.azure.com)'a gidin ve oturum açın.  Sayfanın sol tarafında **Virtual Machines**'e tıklayın. Sanal makinelerinizi ve ait oldukları aboneliklerin listesini görürsünüz.
+1. Merhaba PowerShell ISE'yi kapattıysanız yükseltilmiş hello PowerShell ISE örneği açın. PowerShell ISE zaten değil hello açarsanız, bu makalenin hello yönergeleri izleyin. Hello betiği kapattıysanız hello açmak **ADEPrereqScript.ps1** tıklatarak **dosya**, ardından **açmak** ve hello hello betiği seçerek **c:\ AzureADEScript** klasör. Merhaba başlangıçtan bu makalede izlediyseniz yalnızca toohello sonraki adımda taşıyın.
+2. Merhaba PowerShell ISE (alt bölmesinden hello PowerShell ISE hello) Hello konsolunda hello odak toohello yerel hello komut yazarak değiştirme **cd c:\AzureADEScript** ve basın **ENTER**.
+3. Merhaba komut çalıştırabilmeniz için makinenizde hello yürütme ilkesini ayarlayın. Tür **Set-ExecutionPolicy Unrestricted** hello konsol ve ardından ENTER tuşuna basın. Merhaba değişiklik tooexecution İlkesi hello etkileri hakkında bildiren bir iletişim kutusu görürseniz, tıklayın **Evet tooall** veya **Evet** (görürseniz **Evet tooall**, varsa bu seçeneği belirleyin görmezseniz **Evet tooall**, ardından **Evet**).
+4. Azure hesabınızda oturum açın. Merhaba konsolunda yazın **Login-AzureRmAccount** ve basın **ENTER**. Kimlik bilgilerinizi girin bir iletişim kutusu görüntülenir (hakları toochange hello sanal makineleri olduğundan emin olun hakları yoksa mümkün tooencrypt olmaz bunları. Emin değilseniz aboneliğinizin sahibine veya yöneticinize sorun). **Environment**, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount**'ınız hakkında bilgiler görmeniz gerekir. Kopya hello **Subscriptionıd** tooNotepad. #6. adımda bu toouse gerekir.
+5. Sanal makinenizin hangi aboneliğin tooand konumuna aittir. Çok Git[https://portal.azure.com](ttps://portal.azure.com) ve oturum açın.  Yan hello sayfasının sol hello üzerinde tıklatın **sanal makineleri**. Sanal makineler ve ait hello Aboneliklerin listesini görürsünüz.
 
    ![Virtual Machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
-6. PowerShell ISE'ye dönün. Betiğin çalıştırılacağı abonelik bağlamını ayarlayın. Konsolda **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** yazın (**< your_subscription_Id >** öğesini gerçek Abonelik Kimliğinizle değiştirin) ve **ENTER**'a basın. Environment, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount** hakkında bilgiler görürsünüz.
-7. Şimdi betiği çalıştırmaya hazırsınız. **Betiği Çalıştır** düğmesine tıklayın veya klavyede **F5**'e basın.
+6. PowerShell ISE toohello döndürür. Merhaba betiğin çalıştırılacağı hello abonelik bağlamını ayarlayın. Merhaba konsolunda yazın **Select-AzureRmSubscription – Subscriptionıd < your_subscription_ıd >** (Değiştir **< your_subscription_ıd >** değerini gerçek abonelik kimliğinizle) ve tuşunabasın** GİRİN**. Merhaba ortamı hakkında bilgi görürsünüz **hesap**, **Tenantıd**, **Subscriptionıd** ve **CurrentStorageAccount**.
+7. Hazır toorun hello betik sunulmuştur. Hello tıklatın **komut dosyasını Çalıştır** düğmesini veya basın **F5** hello klavyede.
 
    ![PowerShell Betiğini Yürütme](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. Betik **resourceGroupName:** öğesini ister; kullanmak istediğiniz *Kaynak Grubu*'nun adını girin, ardından **ENTER**'a basın. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir *Kaynak Grubu* zaten varsa (sanal makinenizin içinde olduğu grup gibi) var olan Kaynak Grubu'nun adını girin.
-9. Betik **keyVaultName:** öğesini ister; kullanmak istediğiniz *Anahtar Kasası*'nın adını girin, ardından ENTER'a basın. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir Anahtar Kasası zaten varsa var olan *Anahtar Kasası*'nın adını girin.
-10. Betik **konum** ister; şifrelemek istediğiniz VM'nin bulunduğu konumun adını girin, ardından **ENTER**'a basın. Konumu hatırlamıyorsanız 5. adıma geri dönün.
-11. Betik **aadAppName:** ister; kullanmak istediğiniz *Azure Active Directory* uygulamasının adını girin, ardından **ENTER**'a basın. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir *Azure Active Directory uygulaması* zaten varsa var olan *Azure Active Directory uygulamasının* adını girin.
-12. İletişim kutusunda bir günlük görüntülenir. Kimlik bilgilerinizi sağlayın (evet, bir kere oturum açtınız ancak şimdi yeniden yapmanız gerekiyor).
-13. Betik çalışır ve tamamlandığında **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl** ve **keyVaultResourceId** değerlerini kopyalamayı sorar. Bu değerlerin her birini panoya kopyalayın ve Not Defteri'ne yapıştırın.
-14. PowerShell ISE'ye dönün ve imleci son satırın sonuna yerleştirip **ENTER**'a basın.
+8. Merhaba betik sorar **resourceGroupName:** -hello adını girin *kaynak grubu* toouse, istediğiniz tuşuna basarak **ENTER**. Yoksa, yeni bir toouse istediğiniz bir ad girin. Zaten varsa bir *kaynak grubu* (örneğin, sanal makine hello biri) toouse istiyorsanız, mevcut kaynak grubunun hello hello adını girin.
+9. Hello betik sorar **keyVaultName:** -hello hello adını *anahtar kasası* toouse istediğiniz ve ardından ENTER tuşuna basın. Yoksa, yeni bir toouse istediğiniz bir ad girin. Toouse istediğiniz bir anahtar kasası zaten varsa, hello varolan hello adını girin *anahtar kasası*.
+10. Merhaba betik sorar **konumu:** - hello hangi hello tooencrypt istediğiniz VM'nin bulunduğu hello konumun adını girin, sonra basın **ENTER**. Başlangıç konumu hatırlamıyorsanız toostep #5 geri dönün.
+11. Merhaba betik sorar **aadAppName:** -hello hello adını girin *Azure Active Directory* toouse, istediğiniz uygulama tuşuna **ENTER**. Yoksa, yeni bir toouse istediğiniz bir ad girin. Zaten varsa bir *Azure Active Directory Uygulama* toouse istiyorsanız, var olan hello hello adını girin *Azure Active Directory Uygulama*.
+12. İletişim kutusunda bir günlük görüntülenir. Kimlik bilgilerinizi sağlayın (Evet, kere oturum açtınız ancak şimdi toodo gerekir tekrar).
+13. Merhaba betik çalışır ve tamamlandığında onu hello toocopy hello değerlerini ister **Aadclientıd**, **aadClientSecret**, **diskEncryptionKeyVaultUrl**ve **Keyvaultresourceıd**. Her bu değerleri toohello panoya kopyalayın ve Not Defteri'ne yapıştırın.
+14. PowerShell ISE toohello dönün ve hello imleç hello sonuna hello son satır ve tuşuna yerleştirin **ENTER**.
 
-Betiğin çıkışı aşağıdaki ekrana benzer şekilde görünmelidir:
+Merhaba betik Hello çıktısını Merhaba ekranında aşağıdaki gibi görünmelidir:
 
 ![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
-## <a name="encrypt-the-azure-virtual-machine"></a>Azure sanal makineyi şifreleme
-Şimdi sanal makinenizi şifrelemeye hazırsınız. Sanal makineniz, Anahtar Kasanız ile aynı Kaynak Grubunda bulunuyorsa şifreleme adımları bölümüne geçebilirsiniz. Ancak sanal makineniz Anahtar Kasanız ile aynı Kaynak Grubu'nda değilse PowerShell ISE konsolunda aşağıdakini girmeniz gerekir:
+## <a name="encrypt-hello-azure-virtual-machine"></a>Hello Azure sanal makinesini şifrelemek
+Sanal makineniz şimdi hazır tooencrypt şunlardır. Sanal makineniz bulunuyorsa, anahtar kasanız ile aynı kaynak grubunda toohello şifreleme adımları bölümüne geçebilirsiniz hello. Ancak, sanal makineniz değilse hello aynı kaynak grubu anahtar kasası, tooenter hello aşağıdaki hello PowerShell ISE konsolunda hello gerekir:
 
 **$resourceGroupName = <’Virtual_Machine_RG’>**
 
-**< Virtual_Machine_RG >** öğesini, sanal makinelerinizin içinde bulunduğu Kaynak Grubunun adıyla tek bir tırnakla çevrelenmiş şekilde değiştirin. Ardından **ENTER**'a basın.
-Doğru Kaynak Grubu adının girildiğini onaylamak için PowerShell ISE konsolunda aşağıdakini yazın:
+Değiştir **< Virtual_Machine_RG >** hello kaynak sanal makinelerinizi bulunur grubunuzun hello adıyla tek bir tırnakla çevrelenmiş şekilde değiştirin. Ardından **ENTER**'a basın.
+Kaynak grubu adının girildiğini doğru Merhaba, hello PowerShell ISE konsolunda hello aşağıdakileri yazın tooconfirm:
 
 **$resourceGroupName**
 
-**ENTER**'a basın. Sanal makinelerinizin içinde bulunduğu Kaynak Grubunun adını görmeniz gerekir. Örneğin:
+**ENTER**'a basın. Merhaba, sanal makineleriniz bulunan bir kaynak grubu adını görmeniz gerekir. Örneğin:
 
 ![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Şifreleme adımları
-Öncelikle, şifrelemek istediğiniz sanal makinenin adını PowerShell'e bildirmeniz gerekir. Konsolda şunu yazın:
+Öncelikle, tootell PowerShell hello adı gerekir hello sanal makineye tooencrypt istiyor. Merhaba konsolda şunu yazın:
 
 **$vmName = <’your_vm_name’>**
 
-**<’your_vm_name’>** öğesini, VM'nizin adıyla değiştirin (adın tek bir tırnakla çevrelenmiş olduğundan emin olun) ve ardından **ENTER**'a basın.
+Değiştir **<'your_vm_name ' >** VM hello adıyla (Merhaba adı tek bir tırnakla çevrelenmiş olduğundan emin olun) ve tuşuna basarak **ENTER**.
 
-Doğru VM adının girildiğini onaylamak için şunu yazın:
+VM adı girilmedi doğru Merhaba, yazın tooconfirm:
 
 **$vmName**
 
-**ENTER**'a basın. Şifrelemek istediğiniz sanal makinenin adını görmeniz gerekir. Örnek:
+**ENTER**'a basın. Merhaba adı görmelisiniz hello sanal makineye tooencrypt istiyor. Örneğin:
 
 ![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-Sanal makinedeki tüm sürücüleri şifrelemek için şifreleme komutunu çalıştırabileceğiniz iki yöntem vardır. İlk yöntem, PowerShell ISE konsolunda aşağıdaki komutu yazmaktır:
+Merhaba sanal makinede tüm sürücüler iki yöntem toorun hello şifreleme komutu tooencrypt vardır. Hello ilk yöntemi tootype hello hello PowerShell ISE konsolunda komutunda aşağıdaki gibidir:
 
 ~~~
 Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
@@ -149,32 +149,32 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 Bu komutu yazdıktan sonra **ENTER**'a basın.
 
-İkinci yöntem, betik bölmesine tıklamak (PowerShell ISE'nin en üst bölmesi) ve sayfayı betiğin en altına doğru aşağı kaydırmaktır. Yukarıda listelenen komutu vurgulayın, ardından buna sağ tıklayın ve sonra **Seçimi Çalıştır**'a tıklayın veya klavyede **F8**'e basın.
+Merhaba ikinci yöntem tooclick hello betik bölmesinde (Merhaba PowerShell ISE hello üst bölmesinde) ve hello betik toohello altındaki aşağı değildir. Yukarıda listelenen hello komutu vurgulayın ve ardından buna sağ tıklayın ve ardından **Seçimi Çalıştır** veya basın **F8** hello klavyede.
 
 ![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
-Kullandığınız yöntemden bağımsız olarak, işlemin tamamlanmasının 10-15 dakika süreceğini bildiren bir iletişim kutusu görünür. **Evet**'e tıklayın.
+Merhaba yönteminden bağımsız olarak, hello işlemi toocomplete 10-15 dakika sürer size bildiren bir iletişim kutusu görünür kullanın. **Evet**'e tıklayın.
 
-Şifreleme işlemi gerçekleşirken, Azure Portal'a dönebilir ve sanal makinenin durumunu görebilirsiniz. Sayfanın sol tarafında **Virtual Machines**'e tıklayın, ardından **Virtual Machines** dikey penceresinde şifrelediğiniz sanal makinenin adına tıklayın. Açılan dikey pencerede **Durum**'un **Güncelleştiriliyor** olduğunu fark edeceksiniz. Bu, şifreleme işleminin gerçekleştiğini gösterir.
+Merhaba şifreleme işlemi gerçekleşirken, toohello Azure portalına dönün ve hello hello sanal makinenin durumunu görebilirsiniz. Yan hello sayfasının sol hello üzerinde tıklatın **sanal makineler**, hello sonra **sanal makineler** dikey penceresinde şifrelediğiniz hello sanal makine hello adına tıklayın. Görüntülenen hello dikey penceresinde bu hello fark edeceksiniz **durum** 'un **güncelleştirme**. Bu, şifreleme işleminin gerçekleştiğini gösterir.
 
-![VM hakkında daha fazla ayrıntı](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
+![Merhaba VM hakkında daha fazla ayrıntı](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
-PowerShell ISE'ye dönün. Betik tamamlandığında aşağıdaki şekilde görünenleri görürsünüz.
+PowerShell ISE toohello döndürür. Merhaba betik tamamlandığında aşağıdaki hello şekilde görünen görürsünüz.
 
 ![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
-Sanal makinenin artık şifrelenmiş olduğunu göstermek için Azure Portal'a dönün ve sayfanın sol tarafında **Virtual Machines**'e tıklayın. Şifrelediğiniz sanal makinenin adına tıklayın. **Ayarlar** dikey penceresinde **Diskler**'e tıklayın.
+sanal makine hello toodemonstrate artık şifrelenmiş, toohello Azure portalına dönün ve **sanal makineleri** yan hello sayfasının sol hello üzerinde. Şifrelediğiniz sanal makinenin hello Hello adına tıklayın. Merhaba, **ayarları** dikey penceresinde tıklatın **diskleri**.
 
 ![Ayarlar seçenekleri](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
-**Diskler** dikey penceresinde **Şifreleme**'nin **Etkin** olduğunu görürsünüz.
+Merhaba üzerinde **diskleri** dikey penceresinde göreceksiniz **şifreleme** olan **etkin**.
 
 ![Diskler özellikleri](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu belgede bir Azure Sanal Makine'nin nasıl şifreleneceğini öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Bu belgede, nasıl öğrenilen tooencrypt bir Azure sanal makine. Azure Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu izleme hakkında bilgi edinin
-* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanma hakkında sık sorulan soruları bulun
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) – nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin
+* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) -öğrenin nasıl toomanage ve yanıt toosecurity uyarıları
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) – hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun

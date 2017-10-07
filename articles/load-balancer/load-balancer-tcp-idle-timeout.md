@@ -1,5 +1,5 @@
 ---
-title: "Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırma | Microsoft Docs"
+title: "aaaConfigure yük dengeleyici TCP boşta kalma zaman aşımı | Microsoft Docs"
 description: "Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırın"
 services: load-balancer
 documentationcenter: na
@@ -13,45 +13,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: d040fe6580b8ae777aecc9dd385ed33861530c38
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bf0704b891f708e0a5bd7aa827441930f51cfaf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure yük dengeleyici için TCP boşta kalma zaman aşımı ayarlarını yapılandırın
 
-Varsayılan yapılandırmasında, Azure yük dengeleyici, 4 dakikalık bir boşta kalma zaman aşımı ayarının. Bir süre işlem yapılmadığında zaman aşımı değeri uzun olması durumunda, TCP veya HTTP oturumu istemci ile bulut hizmetiniz arasında korunur garanti yoktur.
+Varsayılan yapılandırmasında, Azure yük dengeleyici, 4 dakikalık bir boşta kalma zaman aşımı ayarının. Bir süre işlem yapılmadığında hello zaman aşımı değeri uzun olması durumunda, TCP hello garantisi yoktur veya HTTP oturumu hello istemci ile bulut hizmetiniz arasında korunur.
 
-Bağlantı kapalı olduğunda istemci uygulamanızı aşağıdaki hata iletisini alabilirsiniz: "arka plandaki bağlantı kesildi: Canlı tutulacağı beklenen bir bağlantı sunucu tarafından kapatıldı."
+Merhaba bağlantı kapalı olduğunda istemci uygulamanızı hello aşağıdaki hata iletisini alabilirsiniz: "Merhaba temel alınan bağlantı kapatıldı: Canlı tutulur toobe hello sunucu tarafından kapatıldı bekleniyordu bir bağlantı."
 
-Bir TCP tutma kullanan yaygın bir uygulamadır. Bu uygulama için daha uzun bir süre bağlantıyı etkin tutar. Daha fazla bilgi için bkz: [.NET örnekleri](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Etkin tutma, bağlantıda kaldıktan dönemlerde gönderilen paket. Bu tutma paketler boşta kalma zaman aşımı değeri hiçbir zaman ulaştı ve bağlantı uzun bir süre boyunca tutulur emin olun.
+Toouse TCP tutma yaygın bir uygulamadır. Bu uygulama için daha uzun bir süre hello bağlantıyı etkin tutar. Daha fazla bilgi için bkz: [.NET örnekleri](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Tutma etkin, paketleri hello bağlantıda kaldıktan dönemlerde gönderilir. Bu tutma paketler hello boşta kalma zaman aşımı değeri hiçbir zaman ulaşıldığında ve hello bağlantısı uzun bir süre boyunca tutulur emin olun.
 
-Bu ayar yalnızca gelen bağlantılar için çalışır. Bağlantı kaybını önlemek için boşta kalma zaman aşımı ayarını daha küçük bir aralık ile tutma TCP yapılandırın veya boşta kalma zaman aşımı değerini artırın. Bu tür senaryoları desteklemek için yapılandırılabilir boşta kalma zaman aşımı için destek ekledik. Şimdi 4 ila 30 dakika süresince ayarlayabilirsiniz.
+Bu ayar yalnızca gelen bağlantılar için çalışır. tooavoid kaybeden hello bağlantı hello boşta kalma zaman aşımı ayarını veya artış hello boşta kalma zaman aşımı değeri'den bir aralık ile Merhaba TCP tutma yapılandırmanız gerekir. toosupport bu senaryolara yapılandırılabilir boşta kalma zaman aşımı için destek ekledik. Şimdi 4 too30 dakika süresince ayarlayabilirsiniz.
 
-TCP tutma iyi pil ömrünün bir kısıtlaması olduğu senaryolar için çalışır. Mobil uygulamalar için önerilmez. Bir mobil uygulama tutma bir TCP kullanarak aygıt pil daha hızlı tükenir.
+TCP tutma iyi pil ömrünün bir kısıtlaması olduğu senaryolar için çalışır. Mobil uygulamalar için önerilmez. Bir mobil uygulama tutma bir TCP kullanarak hello aygıt pil daha hızlı tükenir.
 
 ![TCP zaman aşımı](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-Aşağıdaki bölümlerde, sanal makineleri boşta kalma zaman aşımı ayarlarını değiştirin ve bulut hizmetlerini açıklar.
+Aşağıdaki bölümlerde hello nasıl toochange boşta kalma zaman aşımı ayarları sanal makineler ve bulut Hizmetleri açıklanmaktadır.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Örnek düzeyinde ortak IP-15 dakika için TCP zaman aşımı yapılandırın
+## <a name="configure-hello-tcp-timeout-for-your-instance-level-public-ip-too15-minutes"></a>Merhaba TCP zaman aşımı, örnek düzeyinde ortak IP too15 dakika için yapılandırma
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-`IdleTimeoutInMinutes` isteğe bağlıdır. Ayarlanmazsa, varsayılan zaman aşımı 4 dakikadır. Kabul edilebilir zaman aşımı aralığı 4-30 dakikadır.
+`IdleTimeoutInMinutes` isteğe bağlıdır. Ayarlanmazsa, varsayılan zaman aşımı hello 4 dakikadır. Merhaba kabul edilebilir zaman aşımı aralığı 4 too30 dakikadır.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Azure bir uç nokta bir sanal makinede oluştururken boşta kalma zaman aşımını ayarlama
+## <a name="set-hello-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Azure bir uç nokta bir sanal makinede oluştururken Hello boşta kalma zaman aşımını ayarlama
 
-Bir uç nokta için zaman aşımı ayarını değiştirmek için aşağıdakileri kullanın:
+toochange zaman aşımı için bir uç nokta ayarlama Merhaba, hello aşağıdakileri kullanın:
 
 ```powershell
 Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
 ```
 
-Boşta kalma zaman aşımı yapılandırmanızı almak için aşağıdaki komutu kullanın:
+tooretrieve boşta kalma zaman aşımı yapılandırmanıza, komutu aşağıdaki kullanım hello:
 
     PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
@@ -71,9 +71,9 @@ Boşta kalma zaman aşımı yapılandırmanızı almak için aşağıdaki komutu
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>TCP zaman aşımı üzerinde bir yük dengeli uç nokta kümesi
+## <a name="set-hello-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Merhaba TCP zaman aşımı üzerinde bir yük dengeli uç nokta kümesi
 
-Uç nokta yük dengeli uç nokta kümesi parçası ise, TCP zaman aşımı yük dengeli uç nokta kümesi ayarlamanız gerekir. Örneğin:
+Uç nokta yük dengeli uç nokta kümesi parçasıysa hello TCP zaman aşımı hello yük dengeli uç nokta kümesi ayarlamanız gerekir. Örneğin:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
@@ -81,9 +81,9 @@ Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Prot
 
 ## <a name="change-timeout-settings-for-cloud-services"></a>Bulut Hizmetleri zaman aşımı ayarlarını değiştirme
 
-Bulut hizmeti güncelleştirmek için Azure SDK'sını kullanabilirsiniz. Bulut Hizmetleri için uç nokta ayarlarını .csdef dosyasında yapın. Bir bulut hizmeti dağıtımının TCP zaman aşımı güncelleştirme dağıtımı yükseltme gerektirir. Yalnızca genel IP için TCP zaman aşımı belirtilmezse dışındadır. Genel IP ayarlarını .cscfg dosyasında yer alır ve bunları dağıtım güncelleştirme ve yükseltme güncelleştirebilirsiniz.
+Bulut hizmetinizi hello Azure SDK'sı tooupdate kullanabilirsiniz. Bulut Hizmetleri için uç nokta ayarlarını hello .csdef dosyasında yapın. Bir bulut hizmeti dağıtımının Hello TCP zaman aşımı güncelleştirme dağıtımı yükseltme gerektirir. Merhaba TCP zaman aşımı yalnızca genel IP için belirtilmezse dışındadır. Genel IP ayarlarını hello .cscfg dosyasında yer alır ve bunları dağıtım güncelleştirme ve yükseltme güncelleştirebilirsiniz.
 
-Uç noktası ayarları için .csdef değişir:
+uç noktası ayarları için Hello .csdef değişiklikleri şunlardır:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -93,7 +93,7 @@ Uç noktası ayarları için .csdef değişir:
 </WorkerRole>
 ```
 
-Zaman aşımı ayarı genel IP'ler için .cscfg değişiklikleri şunlardır:
+Merhaba zaman aşımı ayarını genel IP'ler için Hello .cscfg değişiklikleri şunlardır:
 
 ```xml
 <NetworkConfiguration>
@@ -110,7 +110,7 @@ Zaman aşımı ayarı genel IP'ler için .cscfg değişiklikleri şunlardır:
 
 ## <a name="rest-api-example"></a>REST API örneği
 
-Hizmet Yönetimi API kullanarak TCP boşta kalma zaman aşımı yapılandırabilirsiniz. Olduğundan emin olun `x-ms-version` üstbilgisi sürüme ayarlandı `2014-06-01` veya sonraki bir sürümü. Belirtilen yük dengeli giriş uç noktaları bir dağıtımdaki tüm sanal makinelerde yapılandırmasını güncelleştirin.
+Merhaba TCP boşta kalma zaman aşımı hello Hizmet Yönetimi API kullanarak yapılandırabilirsiniz. Bu hello emin olun `x-ms-version` üstbilgisi tooversion ayarlandı `2014-06-01` veya sonraki bir sürümü. Merhaba belirtilen hello yapılandırmasını yük dengeli bir dağıtımdaki tüm sanal makinelerde giriş uç noktaları güncelleştirin.
 
 ### <a name="request"></a>İstek
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure otomasyonu kullanarak sanal makineleri yönetme | Microsoft Docs"
-description: "Nasıl Azure Otomasyon hizmetine ölçekte Azure sanal makineleri yönetmek için kullanılabilir hakkında bilgi edinin."
+title: Azure otomasyonu kullanarak VM'ler aaaManage | Microsoft Docs
+description: "Kullanılan toomanage hello Azure Otomasyon hizmetine nasıl gerçekleştirilebildiği hakkında ölçekte Azure sanal makineler hakkında bilgi edinin."
 services: virtual-machines-windows, automation
 documentationcenter: 
 author: jodoglevy
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2016
 ms.author: timlt
-ms.openlocfilehash: 15653c5d653ae538bdb66eaf0daee12c35858b45
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bfe7b3a51b6e82bd7cd5b0a83df7226476ed4f36
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-azure-virtual-machines-using-azure-automation"></a>Azure Otomasyonu’nu kullanarak Azure Sanal Makineler’i yönetme
-Bu kılavuz size Azure Otomasyon hizmetine ve nasıl bu Azure sanal makinelerinizi yönetimini kolaylaştırmak için kullanılabilir tanıtır.
+Bu kılavuz toohello Azure Otomasyon hizmetine ve nasıl kullanılacağını tanıtır toosimplify Azure sanal makinelerinizi yönetme.
 
 ## <a name="what-is-azure-automation"></a>Azure Otomasyonu Nedir?
-[Azure Otomasyonu](https://azure.microsoft.com/services/automation/) işlem Otomasyonu aracılığıyla bulut yönetimi basitleştirmek için bir Azure hizmetidir. Azure otomasyonu kullanarak, uzun süre çalışan, el ile hatasız ve sık tekrarlanan görevleri güvenilirlik, verimliliği ve zaman değeri, kuruluşunuz için artırmak için otomatik olarak yapılabilir.
+[Azure Otomasyonu](https://azure.microsoft.com/services/automation/) işlem Otomasyonu aracılığıyla bulut yönetimi basitleştirmek için bir Azure hizmetidir. Azure otomasyonu kullanarak, uzun süre çalışan, el ile hatasız ve sık tekrarlanan görevleri otomatik tooincrease güvenilirlik, verimliliği ve zaman değeri, kuruluşunuz için olabilir.
 
-Azure Otomasyonu, kuruluşunuz büyüdükçe gereksinimlerinizi karşılayacak şekilde ölçekler bir yüksek oranda güvenilir ve yüksek oranda kullanılabilir iş akışı yürütme altyapısı sağlar. Tam olarak gerekli görevleri ortaya böylece Azure Otomasyonu'nda işlemleri el ile üçüncü taraf sistemleri tarafından veya zamanlanan aralıklarla artırılabilir devre dışı.
+Azure Otomasyonu, kuruluşunuz büyüdükçe gereksinimlerinizi toomeet ölçeklendirilebilen bir yüksek oranda güvenilir ve yüksek oranda kullanılabilir iş akışı yürütme altyapısı sağlar. Tam olarak gerekli görevleri ortaya böylece Azure Otomasyonu'nda işlemleri el ile üçüncü taraf sistemleri tarafından veya zamanlanan aralıklarla artırılabilir devre dışı.
 
-Alt işlem yükünü ve boş BT ve iş değeri, bulut yönetim görevleri otomatik olarak Azure Automation ile çalıştırarak ekler iş odaklanmak için DevOps personeli.
+Alt işlem yükünü ve boş BT ve DevOps iş değeri, bulut yönetim görevleri otomatik olarak Azure Automation ile çalıştırarak ekler iş toofocus personel.
 
 ## <a name="how-can-azure-automation-help-manage-azure-virtual-machines"></a>Azure Otomasyonu Azure sanal makineleri yönetmenize nasıl yardımcı olabilir?
-Sanal makineler yönetilen Azure Otomasyonu'nda kullanarak [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Tüm hizmet içinde sanal makine yönetim görevlerinizi gerçekleştirmek için azure Otomasyonu Azure PowerShell cmdlet'lerini içerir. Ayrıca Azure Automation cmdlet'leri Azure hizmetlerinin ve üçüncü taraf sistemlerde karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri ile eşleştirin.
+Sanal makineler yönetilen Azure Otomasyonu'nda kullanarak [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Tüm sanal makine yönetim görevlerinizi hello hizmet içinde gerçekleştirebilmek için azure Otomasyonu hello Azure PowerShell cmdlet'lerini içerir. Diğer Azure Hizmetleri, tooautomate karmaşık görevleri için hello cmdlet'leri hello cmdlet'leriyle Azure automation'da Azure hizmetlerinin ve üçüncü taraf sistemlerde eşleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Otomasyonu ve nasıl Azure sanal makineleri yönetmek için kullanılmadan öğrendiğinize göre daha fazla bilgi edinin:
+Merhaba öğrendiğinize göre Azure Automation ve kullanılan toomanage nasıl olabilir Azure sanal makineler, daha fazla bilgi edinin:
 
 * [Azure Otomasyonu genel bakış](../../automation/automation-intro.md)
 * [İlk runbook’um](../../automation/automation-first-runbook-graphical.md)

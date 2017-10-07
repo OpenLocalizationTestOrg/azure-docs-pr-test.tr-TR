@@ -1,6 +1,6 @@
 ---
-title: "C# uygulamasından PostgreSQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
-description: "Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz bir C# (.NET) kod örneği sağlanmıştır."
+title: "C# üzerinden PostgreSQL için tooAzure veritabanına bağlanma | Microsoft Docs"
+description: "Bu hızlı başlangıç PostgreSQL için Azure veritabanındaki verileri sorgulamak ve tooconnect için kullanabileceğiniz bir C# (.NET) kod örneğini sağlar."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,52 +11,52 @@ ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.openlocfilehash: 91e0269e310688dc88d139430ccf386a1d26a61c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5ba7426f8ad263193cdb208b3531da0ceff181dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için .NET'i (C#) kullanma
-Bu hızlı başlangıçta, C# uygulaması kullanılarak PostgreSQL için Azure Veritabanı'na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makaledeki adımlarda, C# kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+# <a name="azure-database-for-postgresql-use-net-c-tooconnect-and-query-data"></a>Azure veritabanı PostgreSQL için: kullanım .NET (C#) tooconnect ve sorgu verileri
+Bu hızlı başlangıç gösteren Azure tooconnect tooan veritabanı nasıl bir C# uygulaması kullanarak PostgreSQL için. Nasıl toouse SQL deyimleri tooquery, Ekle, Güncelleştir ve hello veritabanında bulunan verileri silme gösterir. Merhaba bu makaledeki adımları kullanarak C# geliştirme ile tanıdık ve yeni tooworking Azure veritabanı PostgreSQL için sahip olduğunuz varsayılır.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
+Bu hızlı başlangıç Bu kılavuzlara birini başlangıç noktası olarak oluşturulan hello kaynakları kullanır:
 - [DB Oluşturma - Portal](quickstart-create-server-database-portal.md)
 - [DB oluşturma - CLI](quickstart-create-server-database-azure-cli.md)
 
 Şunları da yapmanız gerekir:
-- [.Net Framework](https://www.microsoft.com/net/download)'ü yükleyin. NET’i platformunuza (Windows, Ubuntu Linux veya macOS) özel olarak yüklemek için bağlantılı makaledeki adımları izleyin. 
-- Kod yazmak ve düzenlemek için [Visual Studio](https://www.visualstudio.com/downloads/) veya Visual Studio Code yükleyin.
+- [.Net Framework](https://www.microsoft.com/net/download)'ü yükleyin. (Windows, Ubuntu Linux veya macOS) platformunuz için özel olarak bağlı hello makale tooinstall .NET Hello adımları izleyin. 
+- Yükleme [Visual Studio](https://www.visualstudio.com/downloads/) veya Visual Studio Code tootype ve düzenleme kod.
 - Aşağıda açıklanan şekilde [Npgsql](http://www.npgsql.org/doc/index.html) kitaplığını yükleyin.
 
 ## <a name="install-npgsql-references-into-your-visual-studio-solution"></a>Visual Studio çözümünüze Npgsql başvuruları yükleme
-C# uygulamasından PostgreSQL'e bağlanmak için Npgsql adlı açık kaynak ADO.NET kitaplığını kullanın. NuGet bu başvuruları kolayca indirmenize ve yönetmenize yardımcı olur.
+Merhaba C# uygulama tooPostgreSQL, gelen tooconnect Npgsql adlı hello açık kaynak ADO.NET kitaplığını kullanın. NuGet indirin ve hello başvuruları kolayca yönetmenize yardımcı olur.
 
 1. Yeni bir C# çözümü oluşturun veya var olan bir çözümü açın: 
    - Visual Studio'da Dosya menüsü **Yeni** > **Proje**'ye tıklayarak çözüm oluşturun.
-   - Yeni Proje iletişim kutusunda **Şablonlar** > **Visual C#** öğesini genişletin. 
+   - Hello yeni proje iletişim kutusu, genişletin **şablonları** > **Visual C#**. 
    - **Konsol Uygulaması (.NET Core)** gibi uygun bir şablon seçin.
 
-2. Npgsql'i yüklemek için NuGet Paket Yöneticisi'ni kullanın:
-   - **Araçlar** menüsü > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**'na tıklayın.
-   - **Paket Yöneticisi Konsolu**'nda şu komutu yazın: `Install-Package Npgsql`
-   - install komutu Npgsql.dll'yi ve ilgili derlemeleri indirir ve bunları bağımlılık olarak çözüme ekler.
+2. Merhaba Nuget Paket Yöneticisi tooinstall Npgsql kullanın:
+   - Merhaba tıklatın **Araçları** menü > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
+   - Merhaba, **Paket Yöneticisi Konsolu**, türü`Install-Package Npgsql`
+   - Merhaba komutu yüklemeleri hello Npgsql.dll ve ilgili derlemeleri yükleme ve bunları bağımlılık hello çözümü olarak ekler.
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
-PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
+Merhaba bağlantı gerekli bilgileri tooconnect toohello Azure veritabanı için PostgreSQL alın. Tam sunucu adını ve oturum açma kimlik bilgileri hello gerekir.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mypgserver-20170401**) arayın.
-3. **mypgserver-20170401** sunucu adına tıklayın.
-4. Sunucunun **Genel Bakış** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Merhaba sol taraftaki menüden Azure portalında, **tüm kaynakları** ve oluşturduğunuz, gibi hello sunucu araması **mypgserver 20170401**.
+3. Merhaba sunucu adına tıklatarak **mypgserver 20170401**.
+4. Select hello sunucunun **genel bakış** sayfası. Merhaba Not **sunucu adı** ve **sunucu yönetici oturum açma adı**.
  ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-csharp/1-connection-string.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+5. Sunucu oturum açma bilgilerinizi unutursanız, toohello gidin **genel bakış** tooview hello sunucu yönetici oturum açma adı sayfasında ve gerekirse sıfırlamak hello parola.
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
-Bağlanıp **CREATE TABLE** ve **INSERT INTO** SQL deyimlerini kullanarak verileri yüklemek için aşağıdaki kodu kullanın. Kod, [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) yöntemiyle birlikte NpgsqlCommand sınıfını kullanarak PostgreSQL ile bağlantı kurar. Ardından kod [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) yöntemini kullanarak CommandText özelliğini ayarlar ve [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) yöntemini çağırarak veritabanı komutlarını çalıştırır. 
+Kullanım hello aşağıdakileri tooconnect kod ve verileri hello kullanarak yük **CREATE TABLE** ve **INSERT INTO** SQL deyimlerini. Hello kodu kullanan NpgsqlCommand sınıfı yöntemiyle [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) tooestablish bağlantı tooPostgreSQL. Merhaba kod yöntemi kullanıyorsa [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand)hello CommandText özelliği ayarlar ve yöntemini çağırır [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) toorun hello veritabanı komutları. 
 
-Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
+Merhaba konak, DBName, kullanıcı ve parola parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle değiştirin. 
 
 ```csharp
 using System;
@@ -70,7 +70,7 @@ namespace Driver
 {
     public class AzurePostgresCreate
     {
-        // Obtain connection string information from the portal
+        // Obtain connection string information from hello portal
         //
         private static string Host = "mypgserver-20170401.postgres.database.azure.com";
         private static string User = "mylogin@mypgserver-20170401";
@@ -123,7 +123,7 @@ namespace Driver
             Console.Out.WriteLine("Closing connection");
             conn.Close();
 
-            Console.WriteLine("Press RETURN to exit");
+            Console.WriteLine("Press RETURN tooexit");
             Console.ReadLine();
         }
     }
@@ -131,9 +131,9 @@ namespace Driver
 ```
 
 ## <a name="read-data"></a>Verileri okuma
-Bağlanmak ve **SELECT** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. Kod, [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) yöntemiyle birlikte NpgsqlCommand sınıfını kullanarak PostgreSQL ile bağlantı kurar. Ardından kod [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) ve [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) yöntemini kullanarak veritabanı komutlarını çalıştırır. Daha sonra kod [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) yöntemini kullanarak sonuçlardaki kayıtlara gider. Ardından kod [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) ve [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) yöntemini kullanarak kayıttaki değerleri ayrıştırır.
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **seçin** SQL deyimi. Hello kodu kullanan NpgsqlCommand sınıfı yöntemiyle [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) tooestablish bağlantı tooPostgreSQL. Merhaba kod yöntemi kullanıyorsa [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) ve yöntemi [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) toorun hello veritabanı komutları. Kod kullanan'sonraki hello [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) hello sonuçlarında tooadvance toohello kaydeder. Merhaba kod kullanıyorsa [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) ve [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) tooparse hello hello kayıt değerleri.
 
-Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
+Merhaba konak, DBName, kullanıcı ve parola parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle değiştirin. 
 
 ```csharp
 using System;
@@ -147,7 +147,7 @@ namespace Driver
 {
     public class AzurePostgresRead
     {
-        // Obtain connection string information from the portal
+        // Obtain connection string information from hello portal
         //
         private static string Host = "mypgserver-20170401.postgres.database.azure.com";
         private static string User = "mylogin@mypgserver-20170401";
@@ -192,7 +192,7 @@ namespace Driver
             Console.Out.WriteLine("Closing connection");
             conn.Close();
 
-            Console.WriteLine("Press RETURN to exit");
+            Console.WriteLine("Press RETURN tooexit");
             Console.ReadLine();
         }
     }
@@ -201,9 +201,9 @@ namespace Driver
 
 
 ## <a name="update-data"></a>Verileri güncelleştirme
-Bağlanmak ve **UPDATE** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. Kod, [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) yöntemiyle birlikte NpgsqlCommand sınıfını kullanarak PostgreSQL ile bağlantı kurar. Ardından kod [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) yöntemini kullanarak CommandText özelliğini ayarlar ve [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) yöntemini çağırarak veritabanı komutlarını çalıştırır.
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **güncelleştirme** SQL deyimi. Hello kodu kullanan NpgsqlCommand sınıfı yöntemiyle [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) tooestablish bağlantı tooPostgreSQL. Merhaba kod yöntemi kullanıyorsa [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand)hello CommandText özelliği ayarlar ve yöntemini çağırır [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) toorun hello veritabanı komutları.
 
-Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
+Merhaba konak, DBName, kullanıcı ve parola parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle değiştirin. 
 
 ```csharp
 using System;
@@ -217,7 +217,7 @@ namespace Driver
 {
     public class AzurePostgresUpdate
     {
-        // Obtain connection string information from the portal
+        // Obtain connection string information from hello portal
         //
         private static string Host = "mypgserver-20170401.postgres.database.azure.com";
         private static string User = "mylogin@mypgserver-20170401";
@@ -256,7 +256,7 @@ namespace Driver
             Console.Out.WriteLine("Closing connection");
             conn.Close();
 
-            Console.WriteLine("Press RETURN to exit");
+            Console.WriteLine("Press RETURN tooexit");
             Console.ReadLine();
         }
     }
@@ -265,11 +265,11 @@ namespace Driver
 
 
 ## <a name="delete-data"></a>Verileri silme
-Bağlanmak ve **DELETE** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **silmek** SQL deyimi. 
 
- Kod, [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) yöntemiyle birlikte NpgsqlCommand sınıfını kullanarak PostgreSQL ile bağlantı kurar. Ardından kod [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) yöntemini kullanarak CommandText özelliğini ayarlar ve [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) yöntemini çağırarak veritabanı komutlarını çalıştırır.
+ Hello kodu kullanan NpgsqlCommand sınıfı yöntemiyle [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) tooestablish bağlantı tooPostgreSQL. Merhaba kod yöntemi kullanıyorsa [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand)hello CommandText özelliği ayarlar ve yöntemini çağırır [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) toorun hello veritabanı komutları.
 
-Host, DBName, User ve Password parametrelerini, sunucuyu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin. 
+Merhaba konak, DBName, kullanıcı ve parola parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle değiştirin. 
 
 ```csharp
 using System;
@@ -283,7 +283,7 @@ namespace Driver
 {
     public class AzurePostgresDelete
     {
-        // Obtain connection string information from the portal
+        // Obtain connection string information from hello portal
         //
         private static string Host = "mypgserver-20170401.postgres.database.azure.com";
         private static string User = "mylogin@mypgserver-20170401";
@@ -319,7 +319,7 @@ namespace Driver
             Console.Out.WriteLine("Closing connection");
             conn.Close();
 
-            Console.WriteLine("Press RETURN to exit");
+            Console.WriteLine("Press RETURN tooexit");
             Console.ReadLine();
         }
     }

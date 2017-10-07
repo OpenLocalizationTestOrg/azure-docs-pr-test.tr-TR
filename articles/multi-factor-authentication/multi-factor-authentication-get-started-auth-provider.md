@@ -1,6 +1,6 @@
 ---
-title: "Azure Multi-Factor Auth Sağlayıcısı’nı kullanmaya başlama | Microsoft Belgeleri"
-description: "Azure Multi-Factor Auth Sağlayıcısı oluşturma hakkında bilgi edinin."
+title: "aaaGet Azure multi-Factor Auth sağlayıcısını kullanmaya | Microsoft Docs"
+description: "Bilgi nasıl toocreate Azure multi-Factor Auth sağlayıcısı."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,38 +15,38 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: ed14a5a762bab20a1ccde699504dd21f25009b52
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 00ea967a80b43baff38c1de586c54d95c9abac2c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Azure Multi-Factor Auth Sağlayıcısını kullanmaya başlama
-İki adımlı doğrulama, Azure Active Directory’ye sahip genel yöneticiler ve Office 365 kullanıcıları için varsayılan olarak kullanılabilir durumdadır. Ancak, [gelişmiş özelliklerden](multi-factor-authentication-whats-next.md) yararlanmak isterseniz Azure Multi-Factor Authentication’ın (MFA) tam sürümünü satın almanız gerekir.
+İki adımlı doğrulama, Azure Active Directory’ye sahip genel yöneticiler ve Office 365 kullanıcıları için varsayılan olarak kullanılabilir durumdadır. Ancak, tootake avantajlarından istiyorsanız [Gelişmiş Özellikler](multi-factor-authentication-whats-next.md) hello tam sürüm Azure çok faktörlü kimlik doğrulama (MFA) satın sonra.
 
-Azure Multi-Factor Auth Sağlayıcısı Azure MFA tam sürümünün sağladığı özelliklerden yararlanmak için kullanılır. **Azure MFA, Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı olmayan** kullanıcılara yöneliktir.  Azure MFA, Azure AD Premium ve EMS varsayılan olarak Azure MFA’nın tam sürümünü içerir. Lisanslarınız varsa bir Azure Multi-Factor Auth Sağlayıcısına ihtiyacınız yoktur.
+Azure multi-Factor Auth sağlayıcısı kullanılan tootake özelliklerinden hello MFA tam sürümünü Azure tarafından sağlanan. **Azure MFA, Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı olmayan** kullanıcılara yöneliktir.  Azure MFA, Azure AD Premium ve EMS hello varsayılan olarak Azure mfa tam sürümünü içerir. Lisanslarınız varsa bir Azure Multi-Factor Auth Sağlayıcısına ihtiyacınız yoktur.
 
-SDK’yı indirmek için Azure Multi-Factor Auth sağlayıcısı gerekir.
+Bir Azure multi-Factor Auth sağlayıcısı gerekli toodownload hello SDK ' dir.
 
 > [!IMPORTANT]
-> SDK’yı indirmek için Azure MFA, AAD Premium veya EMS lisanslarınız olsa bile bir Azure Multi-Factor Auth Sağlayıcısı oluşturmanız gerekir.  Bu amaçla Azure Multi-Factor Auth Sağlayıcısı oluşturursanız ve zaten lisanslarınız varsa Sağlayıcıyı **Etkin Kullanıcı Başına** modeliyle oluşturduğunuzdan emin olun. Ardından, Sağlayıcıyı Azure MFA, Azure AD Premium veya EMS lisansları içeren dizine bağlayın. Bu yapılandırma, sizden yalnızca iki aşamalı doğrulama kullanan benzersiz kullanıcılarınızın sayısı sahip olduğunuz lisanslardan daha fazlaysa ücret alınmasını sağlar.
+> toodownload SDK Merhaba, Azure MFA, AAD Premium veya EMS lisansları olsa bile toocreate Azure multi-Factor Auth sağlayıcısı gerekir.  Bu amaç için Azure multi-Factor Auth sağlayıcısı oluşturmak ve lisansları zaten varsa, emin toocreate hello sağlayıcısı hello ile olması **etkin kullanıcı başına** modeli. Ardından, hello Azure MFA, Azure AD Premium veya EMS lisansları içeren hello sağlayıcısı toohello dizini bağlayın. Bu yapılandırma, sahip olduğunuz lisans hello sayısından iki aşamalı doğrulamayı gerçekleştirme daha fazla benzersiz kullanıcı varsa, yalnızca faturalandırılır olmasını sağlar.
 
 ## <a name="what-is-an-azure-multi-factor-auth-provider"></a>Azure Multi-Factor Auth Sağlayıcısı nedir?
 
-Azure Multi-Factor Authentication lisansınız yoksa kullanıcılarınız için iki aşamalı doğrulamayı gerekli kılmak üzere kimlik doğrulama sağlayıcısı oluşturabilirsiniz. Özel bir uygulama geliştiriyorsanız ve Azure MFA'yı etkinleştirmek istiyorsanız bir kimlik doğrulama sağlayıcısı oluşturun ve [SDK'yı indirin](multi-factor-authentication-sdk.md).
+Azure multi-Factor Authentication için lisans yoksa, kullanıcılarınız için bir kimlik doğrulama sağlayıcısı toorequire iki aşamalı doğrulamayı oluşturabilirsiniz. Özel uygulama geliştirme ve tooenable Azure MFA istiyorsanız, bir kimlik doğrulama sağlayıcısı oluşturmanız ve [hello SDK Yükle](multi-factor-authentication-sdk.md).
 
-Azure aboneliğinizin ücretlendirilme biçimi konusunda farklılık gösteren iki tür kimlik doğrulama sağlayıcısı vardır. Kimlik doğrulaması başına seçeneğinde, kiracınızda bir ay içinde gerçekleştirilen kimlik doğrulaması sayısı hesaplanır. Bu, yalnızca gereken durumlarda (örneğin, özel bir uygulama için MFA'yı gerekli kıldıysanız) kimlik doğrulamasını kullanan belirli sayıda kullanıcınızın olması halinde en iyi seçenektir. Kullanıcı başına seçeneğinde, kiracınızda bir ayda iki aşamalı doğrulama gerçekleştiren kişi sayısı hesaplanır. Bu, lisansı bulunan bazı kullanıcılarınızın olması ancak MFA'yı, lisanslama sınırlarınızı aşacak sayıda kullanıcıya genişletmeniz gereken durumlarda en iyi seçenektir.
+İki tür kimlik doğrulama sağlayıcıları ve Azure aboneliğinize nasıl doludur geçici hello fark ise. Merhaba başına kimlik doğrulama seçeneği bir ay içinde kiracınız karşı gerçekleştirilen kimlik doğrulama hello sayısını hesaplar. Bu, yalnızca gereken durumlarda (örneğin, özel bir uygulama için MFA'yı gerekli kıldıysanız) kimlik doğrulamasını kullanan belirli sayıda kullanıcınızın olması halinde en iyi seçenektir. Merhaba kullanıcı başına seçeneği bir ay içinde iki aşamalı doğrulamayı gerçekleştirmek kişiler kiracınızda hello sayısını hesaplar. Lisansına sahip olan bazı kullanıcılar varsa, ancak tooextend MFA toomore kullanıcıların Lisans sınırlarının dışına gerekir bu en iyi bir seçenektir.
 
 ## <a name="create-a-multi-factor-auth-provider"></a>Multi-Factor Auth Sağlayıcısı oluşturma
-Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımları kullanın. Azure Multi-Factor Auth Sağlayıcıları yalnızca klasik Azure portalında oluşturulabilir. Klasik Azure portalında oturum açamıyorsanız, Azure AD kiracınızın [bir Azure aboneliği ile ilişkili](../active-directory/active-directory-how-subscriptions-associated-directory.md) olduğundan emin olun. 
+Aşağıdaki adımları toocreate Azure multi-Factor Auth sağlayıcısı hello kullanın. Azure çok faktörlü kimlik doğrulama sağlayıcıları yalnızca hello Klasik Azure portalı oluşturulabilir. Toohello Klasik Azure portalında oturum açın, Azure AD kiracınız olduğundan emin toomake denetleyin. [bir Azure aboneliği ile ilişkili](../active-directory/active-directory-how-subscriptions-associated-directory.md). 
 
-1. [Klasik Azure portalında](https://manage.windowsazure.com) yönetici olarak oturum açın.
-2. Sol taraftaki **Active Directory** öğesini seçin.
-3. Active Directory sayfasının en üst kısmındaki **Multi-Factor Authentication Sağlayıcıları**’na tıklayın.
+1. İçinde toohello oturum [Klasik Azure portalı](https://manage.windowsazure.com) yönetici olarak.
+2. Merhaba solda seçin **Active Directory**.
+3. Merhaba üstünde hello Active Directory sayfasında seçin **çok faktörlü kimlik doğrulama sağlayıcıları**.
    
    ![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider1.png)
 
-4. Alt kısımda **Yeni**’ye tıklayın.
+4. Merhaba altında tıklatın **yeni**.
    
    ![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider2.png)
 
@@ -58,31 +58,31 @@ Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımlar�
    
    ![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 
-7. Aşağıdaki alanları doldurun ve **Oluştur**’u seçin.
-   1. **Ad** – Multi-Factor Auth Sağlayıcısının adı.
+7. Hello aşağıdaki alanları doldurun ve seçin **oluşturma**.
+   1. **Ad** – hello hello multi-Factor Auth sağlayıcısının adı.
    2. **Kullanım Modeli**: İki seçenekten birini belirleyin:
       * Kimlik Doğrulaması Başına – kimlik doğrulaması başına ücretlendirilen satın alma modeli. Genellikle tüketiciyle karşılaşan uygulamada Azure Multi-Factor Authentication kullanan senaryolar için kullanılır.
-      * Etkin Kullanıcı Başına - etkin kullanıcı başına ücretlendirilen satın alma modeli. Genellikle Office 365 gibi uygulamalara çalışan erişimi için kullanılır. Azure MFA için zaten lisansı olan kullanıcılarınız varsa bu seçeneği belirleyin.
-   3. **Dizin** – Multi-Factor Authentication Sağlayıcısının ilişkili olduğu Azure Active Directory kiracısı. Lütfen aşağıdakilere dikkat edin:
-      * Bir Multi-Factor Auth Sağlayıcısı oluşturmak için Azure AD dizini gerekli değildir. Yalnızca Azure Multi-Factor Authentication Sunucusunu veya SDK’yı indirmeyi planlıyorsanız bu kutuyu boş bırakın.
-      * Gelişmiş özelliklerden yararlanmak için Multi-Factor Auth Sağlayıcısının bir Azure AD dizini ile ilişkili olması gerekir.
+      * Etkin Kullanıcı Başına - etkin kullanıcı başına ücretlendirilen satın alma modeli. Genellikle Office 365 gibi çalışan erişim tooapplications için kullanılır. Azure MFA için zaten lisansı olan kullanıcılarınız varsa bu seçeneği belirleyin.
+   3. **Dizin** – hello Azure Active Directory Kiracı çok faktörlü kimlik doğrulama sağlayıcısı ile ilişkili o hello. Merhaba aşağıdakilere dikkat edin:
+      * Azure AD directory toocreate multi-Factor Auth sağlayıcısı gerekli değildir. Bu kutu yalnızca toodownload hello Azure çok faktörlü kimlik doğrulama sunucusu veya SDK planlama, boş bırakın.
+      * Merhaba multi-Factor Auth sağlayıcısı bir Azure AD directory tootake avantajlarından Gelişmiş Özellikler hello ile ilişkilendirilmiş olması gerekir.
       * Herhangi bir Azure AD dizini ile yalnızca bir multi-Factor Auth sağlayıcısı ilişkili olabilir.  
       ![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 
-8. Oluştur’a tıkladıktan sonra Multi-Factor Authentication Sağlayıcısı oluşturulur ve şu iletiyi görmeniz gerekir: **Multi-Factor Authentication Sağlayıcısı başarıyla oluşturuldu**. **Tamam**’a tıklayın.  
+8. Tıkladığınızda oluşturmak, hello çok faktörlü kimlik doğrulama sağlayıcısı oluşturulur ve görmelisiniz belirten iletiyi: **çok faktörlü kimlik doğrulama sağlayıcısı başarıyla oluşturuldu**. **Tamam**’a tıklayın.  
    
    ![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)  
 
 ## <a name="manage-your-multi-factor-auth-provider"></a>Multi-Factor Auth Sağlayıcınızı yönetme
 
-Bir MFA sağlayıcısı oluşturulduktan sonra kullanım modelini (etkin kullanıcı başına veya kimlik doğrulaması başına) değiştiremezsiniz. Ancak, MFA sağlayıcısı silip daha sonra farklı bir kullanım modeliyle bir sağlayıcı oluşturabilirsiniz.
+Merhaba kullanım değiştiremezsiniz model (etkin kullanıcı başına veya kimlik doğrulaması başına) MFA sağlayıcısı oluşturulduktan sonra. Ancak, hello MFA sağlayıcısı silin ve farklı kullanım modeli biriyle oluşturun.
 
-Geçerli Multi-Factor Auth Sağlayıcısı bir Azure AD dizini (aynı zamanda Azure AD kiracısı olarak bilinir) ile ilişkili ise, MFA sağlayıcısını güvenli bir şekilde silebilir ve aynı Azure AD kiracısına bağlı bir sağlayıcı oluşturabilirsiniz. Alternatif olarak, MFA için etkinleştirilen tüm kullanıcıları kapsayacak sayıda MFA, Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı satın aldıysanız, MFA sağlayıcısını tamamen silebilirsiniz.
+Merhaba geçerli multi-Factor Auth sağlayıcısı Azure AD dizini (Azure AD kiracısı olarak da bilinir) ile ilişkili ise, güvenli bir şekilde hello MFA sağlayıcısı silin ve bağlantılı toohello aynı Azure AD kiracısı olan bir oluşturun. Alternatif olarak, MFA için etkinleştirilen tüm kullanıcılar yeterli MFA, Azure AD Premium veya Enterprise Mobility + güvenlik (EMS) lisansı toocover satın aldıysanız, hello MFA sağlayıcısı tamamen silebilirsiniz.
 
-MFA sağlayıcınız bir Azure AD kiracısına bağlı değilse veya yeni MFA sağlayıcısını farklı bir Azure AD kiracısına bağlarsanız, kullanıcı ayarları ve yapılandırma seçenekleri aktarılmaz. Ayrıca, yeni MFA Sağlayıcısı ile oluşturulan etkinleştirme kimlik bilgileri kullanılarak mevcut Azure MFA Sunucularının yeniden etkinleştirilmesi gerekir. MFA Sunucularını yeni MFA Sağlayıcısına bağlamak için yeniden etkinleştirmek, telefon çağrısı ve kısa mesaj kimlik doğrulamasını etkilemez, ancak mobil uygulama etkinleştirilinceye kadar tüm kullanıcılar için mobil uygulama bildirimleri çalışmaz.
+MFA sağlayıcınızı bağlantılı tooan Azure AD Kiracı değil veya hello yeni MFA sağlayıcısı tooa farklı Azure AD Kiracı bağlamak, kullanıcı ayarlarını ve yapılandırma seçenekleri aktarılmaz. Ayrıca, Azure MFA sunucuları varolan aracılığıyla oluşturulan etkinleştirme kimlik bilgilerini kullanarak yeniden toobe yeni MFA sağlayıcısı hello. Merhaba MFA sunucuları toolink yeniden etkinleştirme bunları toohello yeni MFA sağlayıcısı telefon araması ve kısa mesaj kimlik doğrulamasını, ancak mobil uygulama bildirimleri hello mobil uygulama etkinleştirme kadar tüm kullanıcılar için çalışma durduracak etkilemez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Multi-Factor Authentication SDK'sını indirin](multi-factor-authentication-sdk.md)
+[Merhaba multi-Factor Authentication SDK'sı yükle](multi-factor-authentication-sdk.md)
 
 [Multi-Factor Authentication ayarlarını yapılandırma](multi-factor-authentication-whats-next.md)

@@ -1,6 +1,6 @@
 ---
-title: "Bir fiziksel aygıt ile Azure IOT kenar kullanın | Microsoft Docs"
-description: "Texas Instruments SensorTag aygıt bir IOT hub'ı Raspberry Pi 3 cihazda çalışan IOT sınır ağ geçidi aracılığıyla veri göndermek için nasıl kullanılacağını. Ağ geçidi, Azure IOT kenar kullanılarak oluşturulur."
+title: "Azure IOT kenarıyla fiziksel bir aygıtı aaaUse | Microsoft Docs"
+description: "Nasıl toouse bir Texas Instruments SensorTag aygıt toosend veri tooan IOT hub Raspberry Pi 3 cihazda çalışan IOT sınır ağ geçidi üzerinden. Merhaba ağ geçidi, Azure IOT kenar kullanılarak oluşturulur."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,147 +14,147 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: andbuc
-ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2385accdbd99012ad094232653ee47d4e5c7839
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Azure IOT kenar üzerinde Raspberry Pi'yi IOT Hub'ına cihaz bulut iletilerini iletmek için kullanın.
+# <a name="use-azure-iot-edge-on-a-raspberry-pi-tooforward-device-to-cloud-messages-tooiot-hub"></a>Azure IOT kenar Raspberry Pi'yi tooforward cihaz bulut iletilerini tooIoT Hub kullanın
 
-Bu kılavuz [Bluetooth düşük enerji örnek] [ lnk-ble-samplecode] nasıl kullanılacağını gösterir [Azure IOT kenar] [ lnk-sdk] için:
+Bu kılavuz hello [Bluetooth düşük enerji örnek] [ lnk-ble-samplecode] nasıl gösterir toouse [Azure IOT kenar] [ lnk-sdk] için:
 
-* Cihaz bulut telemetri IOT Hub'ına fiziksel CİHAZDAN iletin.
-* Bir fiziksel aygıt için rota komutları IOT hub'dan.
+* Cihaz bulut telemetri tooIoT Hub fiziksel CİHAZDAN iletin.
+* IOT hub'ı tooa fiziksel CİHAZDAN rota komutları.
 
 Bu kılavuzda aşağıdaki konular ele alınmaktadır:
 
-* **Mimari**: Bluetooth düşük enerji örnek hakkında önemli mimari bilgiler.
-* **Derleme ve çalıştırma**: örneği derlemek ve çalıştırmak için gerekli adımlar.
+* **Mimari**: hello Bluetooth düşük enerji örnek hakkında önemli mimari bilgiler.
+* **Derleme ve çalıştırma**: hello adımları gerekli toobuild ve çalışma hello örnek.
 
 ## <a name="architecture"></a>Mimari
 
-İzlenecek yol oluşturun ve IOT sınır ağ geçidi Raspbian Linux çalıştıran bir Raspberry Pi 3 üzerinde çalışmasını gösterilmektedir. Ağ geçidi IOT kenar kullanılarak oluşturulur. Örnek bir Texas Instruments SensorTag Bluetooth düşük enerji (bırak) aygıtı sıcaklık verileri toplamak için kullanır.
+Merhaba anlatım nasıl toobuild ve Raspberry Pi 3 IOT sınır ağ geçidi çalıştırılmasında Raspbian Linux çalıştıran gösterir. Merhaba ağ geçidi IOT kenar kullanılarak oluşturulur. Merhaba örnek bir Texas Instruments SensorTag Bluetooth düşük enerji (bırak) cihaz toocollect sıcaklık verileri kullanır.
 
-IOT sınır ağ geçidi çalıştırdığınızda bu:
+Merhaba IOT sınır ağ geçidi çalıştırdığınızda bu:
 
-* Bir SensorTag cihazda Bluetooth düşük enerji (bırak) protokolünü kullanarak bağlanır.
-* IOT Hub HTTP protokolünü kullanarak bağlanır.
-* Telemetri SensorTag cihazın IOT Hub'ına iletir.
-* IOT hub'ı komutları SensorTag aygıta yönlendirir.
+* Tooa SensorTag aygıt Hello Bluetooth düşük enerji (bırak) protokolünü kullanarak bağlanır.
+* TooIoT Hub bağlayan hello HTTP protokolünü kullanarak.
+* Telemetri hello SensorTag aygıt tooIoT Hub iletir.
+* IOT hub'ı toohello SensorTag aygıttan komutları yönlendirir.
 
-Ağ geçidi aşağıdaki IOT kenar modüllerini içerir:
+Merhaba ağ geçidi IOT kenar modülleri aşağıdaki hello içerir:
 
-* A *bırak Modülü* aygıttan sıcaklık veri almak ve cihaza komut gönderme için bırak aygıtıyla arabirimleri.
-* A *aygıt modülü bırak buluta* bırak yönergeler için içine IOT Hub'ından gönderilen JSON iletileri çevirir *bırak Modülü*.
-* A *Günlükçü Modülü* , tüm ağ geçidi iletilerini yerel bir dosyaya kaydeder.
+* A *bırak Modülü* verilerle bir bırak aygıt tooreceive sıcaklık hello aygıt ve gönderme komutları toohello aygıt arabirimleri.
+* A *bırak bulut toodevice Modülü* bırak yönergeler hello için içine IOT Hub'ından gönderilen JSON iletileri çevirir *bırak Modülü*.
+* A *Günlükçü Modülü* tüm ağ geçidi iletileri tooa yerel dosya kaydeder.
 * Bir *kimlik eşleme Modülü* bırak aygıt MAC adresi ile Azure IOT Hub cihaz kimlikleri arasında çevirir.
-* Bir *IOT hub'ı Modülü* bir IOT hub'ına telemetri verileri yükler ve IOT hub'ından cihaz komutlarını alır.
-* A *bırak yazıcı Modülü* bırak cihaz telemetrisinden yorumlar ve baskı siparişi biçimlendirilmiş sorun giderme ve hata ayıklamayı etkinleştirmek için konsola veri.
+* Bir *IOT hub'ı Modülü* telemetri verileri tooan IOT hub'ı yükler ve IOT hub'ından cihaz komutlarını alır.
+* A *bırak yazıcı Modülü* hello bırak cihaz telemetrisinden yorumlar ve biçimlendirilmiş veriler toohello konsol tooenable sorun giderme ve hata ayıklama yazdırır.
 
-### <a name="how-data-flows-through-the-gateway"></a>Veri ağ geçidi üzerinden nasıl akar
+### <a name="how-data-flows-through-hello-gateway"></a>Merhaba ağ geçidi üzerinden nasıl veri akışları
 
-Aşağıdaki Blok Diyagramı telemetri karşıya yükleme veri akışı ardışık gösterilmektedir:
+Blok Diyagramı aşağıdaki hello hello telemetri karşıya yükleme veri akışı ardışık gösterilmektedir:
 
 ![Telemetri karşıya yükleme ağ geçidi ardışık düzen](media/iot-hub-iot-edge-physical-device/gateway_ble_upload_data_flow.png)
 
-IOT Hub'ına bırak aygıttan seyahat öğeyi telemetri götüren adımlar şunlardır:
+öğeyi telemetri bırak aygıt tooIoT seyahat alan hello Hub adımlardır:
 
-1. BIRAK aygıt sıcaklık örnek oluşturur ve ağ geçidi bırak modülünde Bluetooth üzerinden gönderir.
-1. BIRAK modülü örnek alır ve aygıtın MAC adresi birlikte Aracısı yayımlar.
-1. Kimlik eşleme modülü bu iletiyi alır ve bir IOT Hub cihaz kimliği aygıt MAC adresi çevirmek için bir iç tablosunu kullanır. Bir IOT Hub cihaz kimliği, bir cihaz kimliği ve aygıt anahtarı oluşur.
-1. Kimlik eşleme modülü sıcaklık örnek verileri, cihaz, cihaz kimliği ve aygıt anahtarı MAC adresi içeren yeni bir ileti yayımlar.
-1. IOT hub'ı Modülü (kimlik eşleme modülü tarafından oluşturulan) bu yeni bir ileti alır ve IOT Hub'ına yayımlar.
-1. Günlükçü modülü tüm iletileri Aracısı'ndan yerel bir dosyaya kaydeder.
+1. Merhaba bırak aygıt sıcaklık örnek oluşturur ve Bluetooth toohello bırak hello ağ geçidi modülünde üzerinden gönderir.
+1. Merhaba bırak modülü hello örnek alır ve toohello Aracısı hello aygıtın hello MAC adresi birlikte yayımlar.
+1. Hello kimlik eşleme modülü bu iletiyi alır ve bir iç tablo tootranslate hello hello aygıt MAC adresi bir IOT Hub cihaz kimliğini kullanır. Bir IOT Hub cihaz kimliği, bir cihaz kimliği ve aygıt anahtarı oluşur.
+1. Merhaba kimlik eşleme modülü hello sıcaklık örnek verileri, hello MAC adresi hello aygıt, hello cihaz kimliği ve hello aygıt anahtarı içeren yeni bir ileti yayımlar.
+1. Merhaba IOT hub'ı Modülü (Merhaba kimlik eşleme modülü tarafından oluşturulan) bu yeni bir ileti alır ve tooIoT Hub yayımlar.
+1. Merhaba Günlükçü modülü hello Aracısı tooa yerel dosyadan tüm iletileri günlüğe kaydeder.
 
-Cihaz komutu veri akışı ardışık aşağıdaki blok diyagramını gösterir:
+Blok Diyagramı aşağıdaki hello hello aygıt komutu veri akışı ardışık gösterilmektedir:
 
 ![Cihaz komut ağ geçidi ardışık düzeni](media/iot-hub-iot-edge-physical-device/gateway_ble_command_data_flow.png)
 
-1. IOT hub'ı modülü IOT hub'ı yeni komut iletileri için düzenli aralıklarla yoklar.
-1. IOT hub'ı modülü yeni bir komut iletisi aldığında, belgeyi broker yayımlar.
-1. Kimlik eşleme modülü komutu iletinin seçer ve bir aygıt MAC adresi için IOT Hub cihaz kimliği çevirmek için bir iç tablosunu kullanır. Ardından, ileti özelliklerini eşlemesinde hedef aygıt MAC adresi içeren yeni bir ileti yayımlar.
-1. BIRAK bulut-cihaz modülü bu iletiyi alır ve doğru bırak yönerge bırak modülü için çevirir. Ardından, yeni bir ileti yayımlar.
-1. BIRAK modülü bu iletiyi alır ve g/ç yönerge bırak aygıtla iletişim kurarak çalıştırır.
-1. Günlükçü modülü tüm iletileri Aracısı'ndan bir disk dosyasına kaydeder.
+1. Yeni komut iletileri için IOT hub hello Hello IOT Hub'ın modül düzenli aralıklarla yoklar.
+1. Merhaba IOT hub'ı modülü yeni bir komut iletisi aldığında, onu toohello Aracısı yayımlar.
+1. Merhaba kimlik eşleme modülü hello komutu iletiyi alır ve bir iç tablo tootranslate hello IOT Hub cihaz kimliği tooa aygıt MAC adresi kullanır. Ardından, hello özellikleri eşlemesinde hello iletisinin hello hedef aygıt hello MAC adresini içeren yeni bir ileti yayımlar.
+1. Merhaba bırak bulut-cihaz modülü bu iletiyi alır ve hello uygun bırak yönerge hello bırak modülü için çevirir. Ardından, yeni bir ileti yayımlar.
+1. Merhaba bırak modülü bu iletiyi alır ve hello bırak aygıtla iletişim kurarak hello g/ç yönerge çalıştırır.
+1. Merhaba Günlükçü modülü hello Aracısı tooa disk dosyasından tüm iletileri günlüğe kaydeder.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir.
+toocomplete Bu öğreticide, bir etkin Azure aboneliği gerekir.
 
 > [!NOTE]
 > Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk-free-trial].
 
-Komut satırı Raspberry Pi'yi üzerinde uzaktan erişim sağlamak için Masaüstü makinenizde SSH istemcisi gerekir.
+Tooremotely erişim hello komut satırı Raspberry Pi'yi hello üzerinde Masaüstü makine tooenable üzerinde SSH istemcisi gerekir.
 
 - Windows, bir SSH istemcisi içermez. Kullanmanızı öneririz [PuTTY](http://www.putty.org/).
-- Çoğu Linux dağıtımları ve Mac OS komut satırı SSH yardımcı programı içerir. Daha fazla bilgi için bkz: [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- Çoğu Linux dağıtımları ve Mac OS komut satırı SSH yardımcı programını hello içerir. Daha fazla bilgi için bkz: [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ## <a name="prepare-your-hardware"></a>Donanımınızın hazırlama
 
-Bu öğreticide kullandığınız varsayılır bir [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) aygıt bağlı Raspbian çalıştıran bir Raspberry Pi 3.
+Bu öğreticide kullandığınız varsayılır bir [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) aygıt bağlı tooa Raspberry Pi 3 Raspbian çalışıyor.
 
 ### <a name="install-raspbian"></a>Raspbian yükleyin
 
-Raspbian Raspberry Pi 3 aygıtınızda yüklemek için aşağıdaki seçeneklerden birini kullanabilirsiniz.
+Seçenekler tooinstall Raspbian Raspberry Pi 3 aygıtınızda aşağıdaki hello birini kullanabilirsiniz.
 
-* Raspbian en son sürümünü yüklemek için kullandığınız [NOOBS] [ lnk-noobs] grafik kullanıcı arabirimi.
-* El ile [karşıdan] [ lnk-raspbian] ve en son Raspbian işletim sistemi görüntüsünü bir SD kartına yazma.
+* tooinstall hello en son sürümünü Raspbian, kullanım hello [NOOBS] [ lnk-noobs] grafik kullanıcı arabirimi.
+* El ile [karşıdan] [ lnk-raspbian] ve hello son hello Raspbian işletim sistemi tooan SD kart görüntüsü yazma.
 
-### <a name="sign-in-and-access-the-terminal"></a>Oturum açma ve terminal erişim
+### <a name="sign-in-and-access-hello-terminal"></a>Oturum açma ve hello terminal erişim
 
-Raspberry Pi'yi terminal ortamda erişmek için iki seçeneğiniz vardır:
+İki seçenek tooaccess, Raspberry Pi'yi bir terminal ortamına sahip:
 
-* Klavye ve monitör, Raspberry Pi'yi bağlı varsa, bir terminal penceresi erişmek için Raspbian GUI kullanabilirsiniz.
+* Klavye varsa ve bağlı tooyour Raspberry Pi'yi izlemek, hello Raspbian GUI tooaccess bir terminal penceresi kullanabilirsiniz.
 
-* Masaüstü makinenizden SSH kullanarak, Raspberry Pi'yi komut satırında erişin.
+* Erişim hello komut satırında Masaüstü makinenizden SSH kullanarak, Raspberry Pi'yi.
 
-#### <a name="use-a-terminal-window-in-the-gui"></a>GUI içinde bir terminal penceresi kullanın
+#### <a name="use-a-terminal-window-in-hello-gui"></a>Merhaba GUI içinde bir terminal penceresi kullanın
 
-Kullanıcı adı Raspbian için varsayılan kimlik bilgileri olan **PI** ve parola **raspberry**. GUI görev çubuğunda, başlatabilirsiniz **Terminal** gibi bir izleyici arar simgesini kullanarak yardımcı programı.
+Merhaba varsayılan kimlik bilgilerini Raspbian olan kullanıcı adı **PI** ve parola **raspberry**. Merhaba Görev Çubuğu'nda hello GUI, hello başlatabilirsiniz **Terminal** gibi bir izleyici arar hello simgesini kullanarak yardımcı programı.
 
 #### <a name="sign-in-with-ssh"></a>Oturum SSH oturum
 
-SSH, Raspberry Pi'yi komut satırı erişimi için kullanabilirsiniz. Makaleyi [SSH (Secure Shell)] [ lnk-pi-ssh] , Raspberry Pi'yi SSH yapılandırma ve bağlanması açıklar [Windows] [ lnk-ssh-windows] veya [ Linux ve Mac OS][lnk-ssh-linux].
+Komut satırı erişimi tooyour Raspberry Pi'yi için SSH kullanabilirsiniz. Merhaba makale [SSH (Secure Shell)] [ lnk-pi-ssh] açıklar nasıl tooconfigure, Raspberry Pi'yi üzerinde SSH ve nasıl tooconnect gelen [Windows] [ lnk-ssh-windows] veya [Linux ve Mac OS][lnk-ssh-linux].
 
 Kullanıcı adıyla oturum **PI** ve parola **raspberry**.
 
 ### <a name="install-bluez-537"></a>BlueZ 5.37 yükleyin
 
-Bluetooth donanım BlueZ yığın aracılığıyla bırak modülleri konuşun. Doğru çalışması için BlueZ modülleri için 5.37 sürümü gerekir. Bu yönergeleri BlueZ doğru sürümünün yüklü olduğundan emin olun.
+Merhaba bırak modülleri toohello Bluetooth donanım hello BlueZ yığını ile görüşün. BlueZ 5.37 sürümü hello modülleri toowork için doğru ihtiyacınız var. Bu yönergeleri hello BlueZ doğru sürümünün yüklü olduğundan emin olun.
 
-1. Geçerli bluetooth arka plan programı durdurun:
+1. Merhaba geçerli bluetooth arka plan programı durdurun:
 
     ```sh
     sudo systemctl stop bluetooth
     ```
 
-1. BlueZ bağımlılıkları yükler:
+1. Merhaba BlueZ bağımlılıkları yükler:
 
     ```sh
     sudo apt-get update
     sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
     ```
 
-1. BlueZ kaynak kodu bluez.org yükleyin:
+1. Merhaba BlueZ kaynak kodu bluez.org yükleyin:
 
     ```sh
     wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
     ```
 
-1. Kaynak kodu sıkıştırmasını açın:
+1. Merhaba kaynak kodu sıkıştırmasını açın:
 
     ```sh
     tar -xvf bluez-5.37.tar.xz
     ```
 
-1. Yeni oluşturulan klasöre dizinleri değiştirin:
+1. Dizinleri toohello yeni oluşturulan klasör değiştirin:
 
     ```sh
     cd bluez-5.37
     ```
 
-1. Oluşturulacak BlueZ kod yapılandırın:
+1. Yerleşik hello BlueZ kod toobe yapılandırın:
 
     ```sh
     ./configure --disable-udev --disable-systemd --enable-experimental
@@ -172,50 +172,50 @@ Bluetooth donanım BlueZ yığın aracılığıyla bırak modülleri konuşun. D
     sudo make install
     ```
 
-1. Yeni bluetooth arka plan programı dosyasına işaret şekilde bluetooth systemd hizmet yapılandırmasını değiştirme `/lib/systemd/system/bluetooth.service`. 'ExecStart' satırın aşağıdaki metinle değiştirin:
+1. Değişiklik systemd hizmet yapılandırması toohello yeni bluetooth arka plan programı hello dosyasında işaret şekilde bluetooth `/lib/systemd/system/bluetooth.service`. Merhaba 'ExecStart' satır metnini izleyen hello ile değiştirin:
 
     ```conf
     ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
     ```
 
-### <a name="enable-connectivity-to-the-sensortag-device-from-your-raspberry-pi-3-device"></a>Bağlantı SensorTag aygıta Raspberry Pi 3 aygıtınızdan etkinleştir
+### <a name="enable-connectivity-toohello-sensortag-device-from-your-raspberry-pi-3-device"></a>Bağlantı toohello SensorTag aygıtı Raspberry Pi 3 cihazınızdan etkinleştir
 
-Örneği çalıştırmadan önce Raspberry Pi 3 SensorTag aygıta bağlanabileceği doğrulamanız gerekir.
+Çalışan hello örnek önce Raspberry Pi 3 toohello SensorTag aygıt bağlanabilir tooverify gerekir.
 
-1. Olun `rfkill` yardımcı programı yüklenir:
+1. Merhaba olun `rfkill` yardımcı programı yüklenir:
 
     ```sh
     sudo apt-get install rfkill
     ```
 
-1. Bluetooth Raspberry Pi 3'te engelini kaldırmak ve sürüm numarasını olup olmadığını denetleyin **5.37**:
+1. Bluetooth hello Raspberry Pi 3 üzerinde engelini kaldırmak ve hello sürüm numarası olup olmadığını denetleyin **5.37**:
 
     ```sh
     sudo rfkill unblock bluetooth
     bluetoothctl --version
     ```
 
-1. Etkileşimli bluetooth Kabuk girmek için bluetooth hizmetini başlatın ve yürütme **bluetoothctl** komutu:
+1. tooenter hello etkileşimli bluetooth Kabuk hello bluetooth hizmetini başlatın ve hello yürütme **bluetoothctl** komutu:
 
     ```sh
     sudo systemctl start bluetooth
     bluetoothctl
     ```
 
-1. Aşağıdaki komutu girin **güç açma** güç bluetooth denetleyicisi kurmak için. Komut çıktısı aşağıdakine benzer döndürür:
+1. Merhaba komutu girin **güç açma** toopower hello bluetooth denetleyici ayarlama. Merhaba komut çıktısı benzer toohello aşağıdaki döndürür:
 
     ```sh
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
-1. Etkileşimli bluetooth Kabuğu'nda komutu girin **taraması** bluetooth cihazları için taramak için. Komut çıktısı aşağıdakine benzer döndürür:
+1. Merhaba etkileşimli bluetooth Kabuğu'nda hello komutu girin **taraması** tooscan bluetooth cihazları için. Merhaba komut çıktısı benzer toohello aşağıdaki döndürür:
 
     ```sh
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-1. SensorTag aygıt bulunabilir (yeşil LED flash) küçük düğmesine basarak olun. Raspberry Pi 3 SensorTag aygıtı keşfet:
+1. Merhaba SensorTag aygıt bulunabilirlik hello küçük (yeşil LED flash hello) düğmesini tıklatarak olun. Merhaba Raspberry Pi 3 hello SensorTag aygıtı keşfet:
 
     ```sh
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -223,19 +223,19 @@ Bluetooth donanım BlueZ yığın aracılığıyla bırak modülleri konuşun. D
     [CHG] Device A0:E6:F8:B5:F6:00 RSSI: -43
     ```
 
-    Bu örnekte, SensorTag aygıt MAC adresi olduğunu görebilirsiniz **A0:E6:F8:B5:F6:00**.
+    Bu örnekte, bu hello hello SensorTag aygıt MAC adresi görebilirsiniz **A0:E6:F8:B5:F6:00**.
 
-1. Girerek taramayı kapatabilirsiniz **kapalı tarama** komutu:
+1. Merhaba girerek taramayı kapatabilirsiniz **kapalı tarama** komutu:
 
     ```sh
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
-1. MAC adresini girerek kullanarak SensorTag Cihazınızı bağlanmak **bağlanmak \<MAC adresi\>**. Aşağıdaki örnek çıkış daha anlaşılır olması için kısaltılır:
+1. MAC adresini girerek kullanarak tooyour SensorTag aygıtı bağlayın **bağlanmak \<MAC adresi\>**. örnek çıktı aşağıdaki hello daha anlaşılır olması için kısaltılır:
 
     ```sh
-    Attempting to connect to A0:E6:F8:B5:F6:00
+    Attempting tooconnect tooA0:E6:F8:B5:F6:00
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: yes
     Connection successful
     [CHG] Device A0:E6:F8:B5:F6:00 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
@@ -251,32 +251,32 @@ Bluetooth donanım BlueZ yığın aracılığıyla bırak modülleri konuşun. D
     [CHG] Device A0:E6:F8:B5:F6:00 Modalias: bluetooth:v000Dp0000d0110
     ```
 
-    > Kullanarak yeniden aygıtın GATT özelliklerini listeleyebilirsiniz **liste öznitelikleri** komutu.
+    > Merhaba GATT hello kullanarak yeniden hello aygıtın özelliklerini listeleyebilirsiniz **liste öznitelikleri** komutu.
 
-1. Cihazı kullanarak artık bağlantısını kesebilirsiniz **bağlantısını** komut ve kullanarak bluetooth Kabuğu'ndan çıkın **çıkın** komutu:
+1. Artık hello kullanarak hello aygıttan bağlantısını **bağlantısını** komut ve hello kullanarak hello bluetooth Kabuğu'ndan çıkmak **çıkın** komutu:
 
     ```sh
-    Attempting to disconnect from A0:E6:F8:B5:F6:00
+    Attempting toodisconnect from A0:E6:F8:B5:F6:00
     Successful disconnected
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
     ```
 
-Artık Raspberry Pi 3'te bırak IOT kenar örneği çalıştırmak hazırsınız.
+Şimdi Raspberry Pi 3'te hazır toorun hello bırak IOT kenar örnek demektir.
 
-## <a name="run-the-iot-edge-ble-sample"></a>IOT kenar Bırak örneğini çalıştırın
+## <a name="run-hello-iot-edge-ble-sample"></a>Merhaba IOT kenar Bırak örneğini çalıştırın
 
-IOT kenar bırak örneği çalıştırmak için üç görevleri tamamlamanız gerekir:
+toorun hello IOT kenar bırak örnek toocomplete üç görevler gerekir:
 
 * İki örnek cihazlar IOT Hub'ınıza yapılandırın.
 * IOT kenar Raspberry Pi 3 aygıtınızda oluşturun.
-* Yapılandırın ve Raspberry Pi 3 aygıtınızda Bırak örneğini çalıştırın.
+* Yapılandırın ve Raspberry Pi 3 aygıtınızda hello bırak örnek çalıştırın.
 
-Yazma zaman IOT kenar yalnızca bırak modülleri Linux üzerinde çalışan ağ geçitleri de destekler.
+Yazma Hello anda IOT kenar yalnızca bırak modülleri Linux üzerinde çalışan ağ geçitleri de destekler.
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>İki örnek cihazlar IOT hub'ınızı yapılandırma
 
-* [IOT hub oluşturma] [ lnk-create-hub] Azure aboneliğinizde bu yönlendirmeyi tamamlamak için hub adı gerekiyor. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
-* Adlı bir aygıt Ekle **SensorTag_01** IOT hub ve kendi kimliği ve cihaz anahtarını Not. Kullanabileceğiniz [aygıt explorer veya iothub-explorer] [ lnk-explorer-tools] araçları önceki adımda oluşturduğunuz IOT hub'ına bu cihazı eklemeniz ve kendi anahtarını almak için. Ağ geçidi yapılandırdığınızda bu aygıtın SensorTag cihaza eşleyin.
+* [IOT hub oluşturma] [ lnk-create-hub] Azure aboneliğinizde bu kılavuzda, hub toocomplete hello adı gerekir. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
+* Adlı bir aygıt Ekle **SensorTag_01** tooyour IOT hub ve kendi kimliği ve cihaz anahtarını not edin. Merhaba kullanabilirsiniz [aygıt explorer veya iothub-explorer] [ lnk-explorer-tools] tooadd oluşturduğunuz hello önceki adımı ve tooretrieve anahtarıyla bu cihaz toohello IOT hub araçları. Merhaba ağ geçidi yapılandırdığınızda bu cihaz toohello SensorTag aygıt eşleyin.
 
 ### <a name="build-azure-iot-edge-on-your-raspberry-pi-3"></a>Azure IOT kenar, Böğürtlenli Pi 3 derleme
 
@@ -286,29 +286,29 @@ Bağımlılıklar için Azure IOT kenar yükleyin:
 sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
 ```
 
-IOT kenarı ve kendi submodules giriş dizininize kopyalamak için aşağıdaki komutları kullanın:
+Kullanım hello aşağıdaki tooclone IOT kenar ve tüm alt submodules tooyour giriş dizini komutlar:
 
 ```sh
 cd ~
 git clone https://github.com/Azure/iot-edge.git
 ```
 
-IOT kenar havuzu tam bir kopyasını Raspberry Pi 3'te olduğunda, SDK'sı içerir klasöründen aşağıdaki komutu kullanarak oluşturabilirsiniz:
+Merhaba IOT kenar havuzu tam bir kopyasını Raspberry Pi 3'te olduğunda komut hello SDK içeren hello klasöründen aşağıdaki hello kullanarak oluşturabilirsiniz:
 
 ```sh
 cd ~/iot-edge
 ./tools/build.sh  --disable-native-remote-modules
 ```
 
-### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Yapılandırma ve Raspberry Pi 3'te bırak örnek çalıştırma
+### <a name="configure-and-run-hello-ble-sample-on-your-raspberry-pi-3"></a>Yapılandırma ve hello bırak örnek Raspberry Pi 3'te çalıştırma
 
-Bootstrap ve örneği çalıştırmak için ağ geçidi katılan her IOT kenar modülü yapılandırmanız gerekir. Bu yapılandırma bir JSON dosyası sağlanır ve tüm beş katılımcı IOT kenar modülleri yapılandırmanız gerekir. Adlı depo örnek bir JSON dosyası olduğu **ağ geçidi\_sample.json** kendi yapılandırma dosyası oluşturmak için başlangıç noktası olarak kullanabilirsiniz. Bu dosya **ble_gateway/samples/src** IOT kenar depoyu yerel kopyasını klasöründe.
+toobootstrap ve çalışma hello örnek, hello ağ geçidi katılan her IOT kenar modülü yapılandırmanız gerekir. Bu yapılandırma bir JSON dosyası sağlanır ve tüm beş katılımcı IOT kenar modülleri yapılandırmanız gerekir. Merhaba depoya adlı örnek bir JSON dosyası olduğu **ağ geçidi\_sample.json** başlangıç noktası kendi yapılandırma dosyası oluşturmak için hello olarak kullanabilirsiniz. Bu bir dosyadır hello **ble_gateway/samples/src** hello IOT kenar havuzu yerel kopyasını klasöründe.
 
-Aşağıdaki bölümlerde nasıl bırak örnek için bu yapılandırma dosyasını düzenleyin ve IOT kenar deposu içinde olduğu varsayılır **/home/pi/iot-edge /** klasörü Raspberry Pi 3. Havuz başka bir yerde ise, yolları uygun şekilde ayarlayın.
+Hello aşağıdaki bölümlerde bu yapılandırma hello bırak örnek için dosya ve o hello IOT kenar havuzu varsayın tooedit hello nasıl olduğunu açıklamak **/home/pi/iot-edge /** klasörü Raspberry Pi 3. Merhaba deposu başka bir yerde ise, hello yollar uygun şekilde ayarlayın.
 
 #### <a name="logger-configuration"></a>Günlükçü yapılandırma
 
-Ağ geçidi deposu varsayılarak bulunduğu **/home/pi/iot-edge /** klasörünü Günlükçü Modülü aşağıdaki gibi yapılandırın:
+Merhaba ağ geçidi deposu hello bulunan varsayılarak **/home/pi/iot-edge /** klasörünü hello Günlükçü Modülü aşağıdaki gibi yapılandırın:
 
 ```json
 {
@@ -328,7 +328,7 @@ Ağ geçidi deposu varsayılarak bulunduğu **/home/pi/iot-edge /** klasörünü
 
 #### <a name="ble-module-configuration"></a>BIRAK modül yapılandırması
 
-BIRAK cihaz için örnek yapılandırma Texas Instruments SensorTag aygıt varsayar. Çevre bir GATT çalışmalıdır olarak çalışabilir herhangi bir standart bırak aygıtı ancak, verilere ve GATT özellik kimlikleri güncelleştirmeniz gerekebilir. SensorTag cihazınızın MAC adresini ekleyin:
+Merhaba bırak cihaz için Hello örnek yapılandırma Texas Instruments SensorTag aygıt varsayar. Çevre bir GATT çalışması gerekir, ancak tooupdate hello GATT karakteristiğini kimlikleri ve veri gerekebilir gibi çalışabilir standart herhangi bırak aygıt. SensorTag Cihazınızı Hello MAC adresini ekleyin:
 
 ```json
 {
@@ -387,11 +387,11 @@ BIRAK cihaz için örnek yapılandırma Texas Instruments SensorTag aygıt varsa
 }
 ```
 
-SensorTag aygıt kullanmıyorsanız GATT karakteristiğini kimlikleri ve veri değerleri güncelleştirme gerekip gerekmediğini belirlemek bırak cihazınız için belgelerini gözden geçirin.
+SensorTag aygıt kullanmıyorsanız tooupdate hello GATT karakteristiğini kimlikleri ve veri değerlerini gerekip gerekmediğini bırak aygıt toodetermine için hello belgelerini gözden geçirin.
 
 #### <a name="iot-hub-module"></a>IOT hub'ı Modülü
 
-IOT hub'ınızın adını ekleyin. Sonek genellikle değerdir **azure devices.net**:
+IOT Hub'ınızı Hello adını ekleyin. Merhaba sonek değeri genellikle **azure devices.net**:
 
 ```json
 {
@@ -412,7 +412,7 @@ IOT hub'ınızın adını ekleyin. Sonek genellikle değerdir **azure devices.ne
 
 #### <a name="identity-mapping-module-configuration"></a>Kimlik eşleme modülü yapılandırması
 
-MAC adresi SensorTag Cihazınızı cihaz kimliği ve anahtarı eklemek **SensorTag_01** aygıt IOT Hub'ınıza eklendi:
+Merhaba MAC adresini SensorTag cihaz ve hello cihaz kimliği ve başlangıç anahtarı eklemek **SensorTag_01** tooyour IOT hub'ı eklediğiniz aygıt:
 
 ```json
 {
@@ -465,14 +465,14 @@ MAC adresi SensorTag Cihazınızı cihaz kimliği ve anahtarı eklemek **SensorT
 
 #### <a name="routing-configuration"></a>Yönlendirme yapılandırması
 
-Aşağıdaki yapılandırma aşağıdaki IOT kenar modülleri arasında yönlendirme sağlar:
+Merhaba aşağıdaki yapılandırmayı sağlar hello aşağıdaki IOT kenar modülleri arasında yönlendirme:
 
-* **Günlükçü** modülü alır ve tüm iletileri günlüğe kaydeder.
-* **SensorTag** modülü hem de iletileri gönderir **eşleme** ve **bırak yazıcı** modüller.
-* **Eşleme** modülü iletileri gönderir **Iothub** IOT Hub'ına gönderilen modülü.
-* **Iothub** modül gönderir iletileri başa **eşleme** modülü.
-* **Eşleme** modülü iletileri gönderir **BLEC2D** modülü.
-* **BLEC2D** modül gönderir iletileri başa **algılayıcı etiketi** modülü.
+* Merhaba **Günlükçü** modülü alır ve tüm iletileri günlüğe kaydeder.
+* Merhaba **SensorTag** modül gönderir iletileri tooboth hello **eşleme** ve **bırak yazıcı** modüller.
+* Merhaba **eşleme** modül gönderir iletileri toohello **Iothub** tooyour IOT hub'ı gönderilen modülü toobe.
+* Merhaba **Iothub** modül gönderir iletileri geri toohello **eşleme** modülü.
+* Merhaba **eşleme** modül gönderir iletileri toohello **BLEC2D** modülü.
+* Merhaba **BLEC2D** modül gönderir iletileri geri toohello **algılayıcı etiketi** modülü.
 
 ```json
 "links" : [
@@ -486,15 +486,15 @@ Aşağıdaki yapılandırma aşağıdaki IOT kenar modülleri arasında yönlend
  ]
 ```
 
-Örneği çalıştırmak için bir parametre olarak JSON yapılandırma dosyası yolu geçirmek **bırak\_ağ geçidi** ikili. Aşağıdaki komut, kullanmakta olduğunuz varsayar **gateway_sample.json** yapılandırma dosyası. Bu komutu yürütmek **IOT kenar** Raspberry Pi'yi klasörü:
+toorun hello örnek, geçişi hello yol toohello JSON yapılandırma dosyası bir parametre toohello olarak **bırak\_ağ geçidi** ikili. Merhaba aşağıdaki komut hello kullandığınız varsayar **gateway_sample.json** yapılandırma dosyası. Hello bu komutu yürütmek **IOT kenar** hello Raspberry Pi'yi klasörü:
 
 ```sh
 ./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
 ```
 
-Küçük bir düğme örneği çalıştırmadan önce bulunabilir yapmak için SensorTag aygıtta basmanız gerekebilir.
+Toopress gerekebilir hello küçük düğmesini hello SensorTag aygıt toomake üzerinde bulunabilir, hello örneği çalıştırmadan önce.
 
-Örneği çalıştırdığınızda, kullanabileceğiniz [aygıt explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) veya [iothub-explorer](https://github.com/Azure/iothub-explorer) IOT sınır ağ geçidi iletir SensorTag aygıttan iletileri izlemek için aracı. Örneğin, ıothub explorer kullanarak aşağıdaki komutu kullanarak cihaz bulut iletilerini izleyebilirsiniz:
+Merhaba örneği çalıştırdığınızda, hello kullanabilirsiniz [aygıt explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) veya hello [iothub-explorer](https://github.com/Azure/iothub-explorer) aracı toomonitor hello iletileri hello IOT sınır ağ geçidi hello SensorTag aygıttan iletir. Örneğin, ıothub explorer kullanarak cihaz bulut iletilerini komutu aşağıdaki hello kullanarak izleyebilirsiniz:
 
 ```sh
 iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
@@ -502,11 +502,11 @@ iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devic
 
 ## <a name="send-cloud-to-device-messages"></a>Buluttan cihaza iletileri gönderme
 
-BIRAK modülü gönderen komutlarından IOT Hub cihaz için de destekler. Kullanabilirsiniz [aygıt explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) veya [iothub-explorer](https://github.com/Azure/iothub-explorer) bırak ağ geçidi modülü açın bırak aygıt iletir JSON iletileri gönderme aracı.
+Merhaba bırak modülü IOT hub'ı toohello aygıttan gönderen komutları da destekler. Merhaba kullanabilirsiniz [aygıt explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) veya hello [iothub-explorer](https://github.com/Azure/iothub-explorer) aracı toosend JSON iletileri bu hello bırak ağ geçidi modülü toohello bırak aygıtta iletir.
 
-Texas Instruments SensorTag cihaz kullanıyorsanız, IOT Hub'ından komutlar göndererek kırmızı LED, yeşil LED veya sesli uyaran kapatabilirsiniz. İlk IOT Hub'ından komutları göndermeden önce aşağıdaki iki JSON ileti sırada gönderin. Ardından, ışık veya sesli uyaran için komutlardan herhangi birini gönderebilirsiniz.
+Merhaba Texas Instruments SensorTag cihaz kullanıyorsanız, IOT Hub'ından komutlar göndererek hello kırmızı LED, yeşil LED veya sesli uyaran kapatabilirsiniz. IOT Hub'ından komutları göndermeden önce ilk iki JSON iletileri sırayla aşağıdaki hello gönderin. Ardından herhangi bir hello komutları tooturn hello ışık veya sesli uyaran gönderebilirsiniz.
 
-1. Tüm LED'leri ve sesli uyaran sıfırlama (devre dışı bırakma):
+1. Tüm LED'leri ve (devre dışı bırakma) hello sesli uyaran sıfırlama:
 
     ```json
     {
@@ -526,9 +526,9 @@ Texas Instruments SensorTag cihaz kullanıyorsanız, IOT Hub'ından komutlar gö
     }
     ```
 
-Şimdi ışık veya sesli uyaran SensorTag cihazda etkinleştirmek için aşağıdaki komutlardan herhangi birini gönderebilirsiniz:
+Şimdi komutları tooturn hello ışık veya sesli uyaran hello SensorTag cihazdaki aşağıdaki hello hiçbirini gönderebilirsiniz:
 
-* Üzerinde kırmızı LED açın:
+* Merhaba kırmızı LED üzerinde açın:
 
     ```json
     {
@@ -538,7 +538,7 @@ Texas Instruments SensorTag cihaz kullanıyorsanız, IOT Hub'ından komutlar gö
     }
     ```
 
-* Yeşil LED üzerinde açın:
+* Merhaba yeşil LED üzerinde açın:
 
     ```json
     {
@@ -548,7 +548,7 @@ Texas Instruments SensorTag cihaz kullanıyorsanız, IOT Hub'ından komutlar gö
     }
     ```
 
-* Sesli uyaran üzerinde açın:
+* Merhaba sesli uyaran üzerinde açın:
 
     ```json
     {
@@ -560,11 +560,11 @@ Texas Instruments SensorTag cihaz kullanıyorsanız, IOT Hub'ından komutlar gö
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-IOT kenar daha gelişmiş anlamak ve bazı kod örnekleri ile denemek istiyorsanız, aşağıdaki Geliştirici öğreticiler ve kaynakları ziyaret edin:
+Toogain IOT kenar daha gelişmiş bir anlayış istiyorsanız ve bazı kod örnekleri ile denemeler hello aşağıdaki ziyaret Geliştirici öğreticiler ve kaynaklar:
 
 * [Azure IOT kenar][lnk-sdk]
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+toofurther IOT hub'ı hello özelliklerini keşfedin, bakın:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
 

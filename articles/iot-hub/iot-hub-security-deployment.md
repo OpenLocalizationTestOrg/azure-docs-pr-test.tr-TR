@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT dağıtımınızı güvenli | Microsoft Docs"
-description: "IOT dağıtımınızın güvenliğini sağlama. Cihaz sağlama, bağlantıları ve IOT Hub hizmetine erişim güvenliğini sağlamaya yönelik yönergeleri içerir."
+title: "aaaSecure Azure IOT dağıtımınızı | Microsoft Docs"
+description: "Nasıl toosecure IOT dağıtımınızı. Cihaz sağlama, bağlantıları ve erişim toohello IOT Hub hizmeti güvenliğini sağlamaya yönelik yönergeleri içerir."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: 47a3a2973c2b2c7c104d6c404573801375723182
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0fc71f5ed2747531360eaebbbaab21b1ff268520
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+toofurther IOT hub'ı hello özelliklerini keşfedin, bakın:
 
 * [Bir aygıt ile Azure IOT kenar benzetimini yapma][lnk-iotedge]
 

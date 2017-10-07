@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight'ta Hadoop işleri için veri yükleme | Microsoft Docs"
-description: "Karşıya yükleme ve Azure CLI, Azure Storage Gezgini, Azure PowerShell, Hadoop komut satırı veya Sqoop kullanarak hdınsight'ta Hadoop işleri için veri erişim hakkında bilgi edinin."
+title: "hdınsight'ta Hadoop işleri için aaaUpload verileri | Microsoft Docs"
+description: "Azure CLI, Azure Storage Gezgini, Azure PowerShell, hello Hadoop komut satırı veya Sqoop kullanarak Hdınsight'ta Hadoop işleri için tooupload ve erişim verileri nasıl hello öğrenin."
 keywords: "etl hadoop alma verileri hadoop, hadoop veri yükleme"
 services: hdinsight,storage
 documentationcenter: 
@@ -17,36 +17,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: jgao
-ms.openlocfilehash: 6867f96c8ea0e31ed0e682cef48e7aa5e3f65f86
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 15da602085d41c19789e34800f3d9e238d7d1de8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight'ta Hadoop işleri için veri yükleme
-Azure Hdınsight tam özellikli Hadoop dağıtılmış dosya sistemi (HDFS) üzerinden Azure Blob Depolama sağlar. HDFS uzantı olarak, müşteriler için sorunsuz bir deneyim sağlamak üzere tasarlanmıştır. Doğrudan yönettiği veriler üzerinde çalışmak için Hadoop ekosistemi bileşenlerini tam kümesi sağlar. Azure Blob Depolama ve HDFS depolama verilerinin ve bu verileri hesaplamalar için iyileştirilmiş farklı dosya sistemleridir. Azure Blob Depolama kullanmanın yararları hakkında bilgi için [Azure Blob storage kullanma Hdınsight ile][hdinsight-storage].
+Azure Hdınsight tam özellikli Hadoop dağıtılmış dosya sistemi (HDFS) üzerinden Azure Blob Depolama sağlar. Bunun tasarlandığından toocustomers bir HDFS uzantısı tooprovide sorunsuz bir deneyim. Merhaba Hadoop ekosistemi toooperate doğrudan yönettiği hello verileri bileşenlerinde hello kümesini sağlar. Azure Blob Depolama ve HDFS depolama verilerinin ve bu verileri hesaplamalar için iyileştirilmiş farklı dosya sistemleridir. Azure Blob storage kullanma hello yararları hakkında bilgi için [Azure Blob storage kullanma Hdınsight ile][hdinsight-storage].
 
 **Önkoşullar**
 
-Başlamadan önce aşağıdaki gereksinimleri göz önünde bulundurun:
+Başlamadan önce aşağıdaki gereksinim hello dikkat edin:
 
 * Azure Hdınsight kümesi. Yönergeler için bkz: [Azure Hdınsight kullanmaya başlama] [ hdinsight-get-started] veya [Hdınsight kümeleri hazırlama][hdinsight-provision].
 
 ## <a name="why-blob-storage"></a>Neden blob depolama?
-Azure Hdınsight kümeleri genellikle MapReduce işleri çalıştırmak için dağıtılan ve bu işleri tamamladıktan sonra kümeleri bırakılır. HDFS veri tutma hesaplamalar tamamlandıktan sonra kümeleri bu verileri depolamak için pahalı bir yol olabilir. Azure Blob Depolama, yüksek oranda kullanılabilir, yüksek düzeyde ölçeklenebilir, yüksek kapasite, Hdınsight kullanılarak işlenmesi için verileri için düşük maliyetli ve paylaşılabilir depolama seçeneği değil. Bir blob verileri depolamak için hesaplama verilerini kaybetmeden güvenle yayımlanması için kullanılan Hdınsight kümeleri sağlar.
+Azure Hdınsight kümeleri genellikle olan toorun MapReduce işleri dağıtılır ve bu işlemler tamamlandıktan sonra hello kümeleri bırakılır. Hesaplamalar tamamlandıktan sonra hello HDFS kümelerde hello veri tutma pahalı yolu toostore bu verileri olacaktır. Azure Blob Depolama, yüksek oranda kullanılabilir, yüksek düzeyde ölçeklenebilir, yüksek kapasite, Hdınsight kullanarak işlenen toobe veriler için düşük maliyetli ve paylaşılabilir depolama seçeneği değil. Bir blob verileri depolamak verilerini kaybetmeden güvenle yayımlanan hesaplama toobe için kullanılan hello Hdınsight kümeleri sağlar.
 
 ### <a name="directories"></a>Dizinler
-Azure Blob storage kapsayıcıları verileri anahtar/değer çiftleri olarak depolar ve dizin hiyerarşisi yok. Ancak "/" karakterini anahtar adında bir dosyayı dizin yapısında depolanmış gibi görünmesini sağlamak için kullanılabilir. Gerçek dizinleri varsa gibi Hdınsight bu görür.
+Azure Blob storage kapsayıcıları verileri anahtar/değer çiftleri olarak depolar ve dizin hiyerarşisi yok. Ancak hello "/" karakteri görünür bir dosyayı dizin yapısında depolanmış gibi hello anahtar adı toomake içinde kullanılabilir. Gerçek dizinleri varsa gibi Hdınsight bu görür.
 
-Örneğin, bir blob'un anahtarı *input/log1.txt* şeklinde olabilir. Hiçbir gerçek "Giriş" dizini var, ancak anahtar adında "/" karakterini varlığı nedeniyle, bir dosya yolu görünümünü içeriyor.
+Örneğin, bir blob'un anahtarı *input/log1.txt* şeklinde olabilir. Hiçbir gerçek "Giriş" dizini var, ancak hello toohello varlığını son "/" karakterini hello anahtar adı, bir dosya yolu hello görünümünü içeriyor.
 
 Azure Explorer Araçları kullanırsanız, bu nedenle, bazı 0 bayt dosyaları fark edebilirsiniz. Bu dosyaları iki amaca hizmet eder:
 
-* Boş klasörleri varsa, bunlar klasörü varlığını işaretleyin. Azure Blob Depolama foo/çubuğu adlı bir blob varsa adlı bir klasörü olduğunu bilmek akıllı **foo**. Ancak adlı boş bir klasör belirtmek için tek yolu **foo** yerinde bu özel 0 bayt dosya sağlayarak değil.
-* Bunlar, özellikle izinleri ve klasörleri sahiplerini Hadoop dosya sistemi için gerekli olan özel meta veriler basılı tutun.
+* Boş klasörleri varsa, bunlar hello klasörü hello varlığını işaretleyin. Azure Blob Depolama birimi olan foo/çubuğu adlı bir blob varsa adlı bir klasör yok akıllı tooknow **foo**. Ancak boş bir klasör olarak adlandırılan tek yolu toosignify hello **foo** yerinde bu özel 0 bayt dosya sağlayarak değil.
+* Bunlar, özel meta verileri Hadoop hello tarafından özellikle hello izinleri ve sahiplerine hello klasörler için dosya sistemi basılı tutun.
 
 ## <a name="command-line-utilities"></a>Komut satırı yardımcı programları
-Microsoft Azure Blob storage ile çalışmak için aşağıdaki yardımcı programlar sağlar:
+Microsoft Azure Blob storage ile yardımcı programları toowork aşağıdaki hello sağlar:
 
 | Aracı | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
@@ -56,58 +56,58 @@ Microsoft Azure Blob storage ile çalışmak için aşağıdaki yardımcı progr
 | [Hadoop komutu](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Azure CLI, Azure PowerShell ve AzCopy tüm edebilirsiniz dış azure'dan komutu yalnızca Hdınsight kümesinde kullanılabilir ve yalnızca yerel dosya sisteminden Azure Blob depolama alanına veri yükleme verir Hadoop kullanılabilir.
+> Hello Azure CLI, Azure PowerShell ve AzCopy tüm edebilirsiniz dış azure'dan hello komutu yalnızca hello Hdınsight kümesinde kullanılabilir ve yalnızca Azure Blob depolama alanına hello yerel dosya sisteminden verileri yüklenirken verir Hadoop kullanılabilir.
 >
 >
 
 ### <a id="xplatcli"></a>Azure CLI
-Azure CLI Azure hizmetlerini yönetmenize olanak sağlayan platformlar arası bir araçtır. Verileri Azure Blob depolama alanına yüklemek için aşağıdaki adımları kullanın:
+Hello Azure CLI toomanage Azure sağlayan bir araçtır platformlar arası Hizmetleri. Aşağıdaki adımları tooupload veri tooAzure Blob Depolama hello kullan:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Yükleme ve Mac, Linux ve Windows için Azure CLI yapılandırma](../cli-install-nodejs.md).
-2. Bir komut istemi, bash ya da diğer kabuğunu açın ve Azure aboneliğinize kimliğini doğrulamak için aşağıdakileri kullanın.
+1. [Yükleme ve Mac, Linux ve Windows hello Azure CLI yapılandırma](../cli-install-nodejs.md).
+2. Bir komut istemi, bash ya da diğer kabuğunu açın ve tooauthenticate tooyour Azure aboneliği aşağıdaki hello kullanın.
 
         azure login
 
-    İstendiğinde, aboneliğiniz için kullanıcı adını ve parolasını girin.
-3. Aboneliğiniz için depolama hesaplarını listelemek için aşağıdaki komutu girin:
+    İstendiğinde, aboneliğiniz için hello kullanıcı adı ve parola girin.
+3. Komut toolist hello depolama hesapları, aboneliğiniz için aşağıdaki hello girin:
 
         azure storage account list
-4. Çalışmak istediğiniz blob içeren depolama hesabını seçin ve ardından bu hesap için anahtar almak için aşağıdaki komutu kullanın:
+4. Merhaba blob ile toowork istediğiniz içeren hello depolama hesabını seçin, sonra komutu tooretrieve hello anahtarı bu hesap için aşağıdaki hello kullanın:
 
         azure storage account keys list <storage-account-name>
 
-    Bu döndürmelidir **birincil** ve **ikincil** anahtarları. Kopya **birincil** sonraki adımlarda kullanılacak çünkü anahtar değeri.
-5. Depolama hesabı blob kapsayıcılara listesini almak için aşağıdaki komutu kullanın:
+    Bu döndürmelidir **birincil** ve **ikincil** anahtarları. Kopya hello **birincil** hello sonraki adımlarda kullanılacak çünkü anahtar değeri.
+5. Komut tooretrieve hello depolama hesabındaki blob kapsayıcılar listesi aşağıdaki hello kullan:
 
         azure storage container list -a <storage-account-name> -k <primary-key>
-6. Karşıya yükleme ve blob dosyalarını indirmek için aşağıdaki komutları kullanın:
+6. Dosyaları toohello blob indirmek ve aşağıdaki komutları tooupload hello kullanın:
 
-   * Bir dosyayı karşıya yüklemek için:
+   * bir dosya tooupload:
 
            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
-   * Bir dosyayı indirmek için:
+   * bir dosya toodownload:
 
            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
-> Her zaman aynı depolama hesabı ile çalışacaksınız hesabı belirtme yerine aşağıdaki ortam değişkenlerini ayarlama ve her komut için anahtar:
+> Her zaman hello ile aynı çalışacaksınız, depolama hesabı ayarlama hello hesabı belirtme yerine ortam değişkenleri aşağıdaki hello ve anahtar her komut için:
 >
-> * **AZURE\_depolama\_hesap**: depolama hesabı adı
-> * **AZURE\_depolama\_erişim\_anahtar**: depolama hesabı anahtarı
+> * **AZURE\_depolama\_hesap**: hello depolama hesabı adı
+> * **AZURE\_depolama\_erişim\_anahtar**: hello depolama hesabı anahtarı
 >
 >
 
 ### <a id="powershell"></a>Azure PowerShell
-Azure PowerShell denetlemek ve dağıtımını ve yönetimini azure'da, iş yüklerini otomatikleştirmek için kullanabileceğiniz bir komut dosyası ortamıdır. Azure PowerShell'i çalıştırmak için iş istasyonunuzu yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
+Azure PowerShell toocontrol kullanın ve hello dağıtımı ve Yönetimi azure'da iş yüklerinizin otomatikleştirmek bir komut dosyası ortamıdır. İş istasyonu toorun Azure PowerShell yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
-**Bir yerel dosyayı Azure Blob depolama alanına yüklemek için**
+**tooupload bir yerel dosya tooAzure Blob Depolama**
 
-1. Belirtildiği gibi Azure PowerShell konsolu açın [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
-2. Aşağıdaki komut dosyasında ilk beş değişkenlerin değerleri ayarlayın:
+1. Belirtildiği gibi açık hello Azure PowerShell konsolunda [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
+2. Merhaba hello ilk beş değişkenleri komut dosyası izleyen hello ayarlayın:
 
         $resourceGroupName = "<AzureResourceGroupName>"
         $storageAccountName = "<StorageAccountName>"
@@ -116,41 +116,41 @@ Azure PowerShell denetlemek ve dağıtımını ve yönetimini azure'da, iş yük
         $fileName ="<LocalFileName>"
         $blobName = "<BlobName>"
 
-        # Get the storage account key
+        # Get hello storage account key
         $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-        # Create the storage context object
+        # Create hello storage context object
         $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
-        # Copy the file from local workstation to the Blob container
+        # Copy hello file from local workstation toohello Blob container
         Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
-3. Komut dosyasını çalıştırmak için dosyayı kopyalamak için Azure PowerShell konsolunda yapıştırın.
+3. Yapıştır hello komut dosyası hello Azure PowerShell konsol toorun onu toocopy hello dosya.
 
-Örneğin bkz: Hdınsight ile çalışmak için oluşturulan PowerShell komut dosyalarını [Hdınsight Araçları](https://github.com/blackmist/hdinsight-tools).
+Örneğin, Hdınsight ile PowerShell oluşturulan komut dosyalarını toowork bkz [Hdınsight Araçları](https://github.com/blackmist/hdinsight-tools).
 
 ### <a id="azcopy"></a>AzCopy
-AzCopy içine ve dışına bir Azure Storage hesabı veri aktarma görevini kolaylaştırmak için tasarlanmış bir komut satırı aracıdır. Ayrı bir araç olarak kullanabilir veya varolan bir uygulama bu aracı içerecek. [AzCopy karşıdan][azure-azcopy-download].
+AzCopy, bir komut satırı aracını içine ve dışına bir Azure Storage hesabı veri aktarma toosimplify hello görev tasarlanmış ' dir. Ayrı bir araç olarak kullanabilir veya varolan bir uygulama bu aracı içerecek. [AzCopy karşıdan][azure-azcopy-download].
 
-AzCopy sözdizimi aşağıdaki gibidir:
+Merhaba AzCopy söz dizimi aşağıdaki gibidir:
 
     AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
 Daha fazla bilgi için bkz: [dosyaları Azure BLOB'ları için karşıya yükleme/indirme AzCopy -][azure-azcopy].
 
 ### <a id="commandline"></a>Hadoop komut satırı
-Hadoop komut satırı, yalnızca veri kümesi baş düğümünde zaten geldiğinde, verileri blob depolama alanına depolamak için yararlıdır.
+Merhaba Hadoop komut satırı, yalnızca hello veri hello küme baş düğümünde zaten geldiğinde, verileri blob depolama alanına depolamak için yararlıdır.
 
-Hadoop komutu kullanmak için aşağıdaki yöntemlerden birini kullanarak headnode bağlanın:
+Sipariş toouse hello Hadoop komutu, yöntemler aşağıdaki hello birini kullanarak toohello headnode önce bağlanmanız gerekir:
 
 * **Windows tabanlı Hdınsight**: [Uzak Masaüstü kullanarak bağlan](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux tabanlı Hdınsight**: SSH kullanarak bağlan ([SSH komutu](hdinsight-hadoop-linux-use-ssh-unix.md) veya [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **Linux tabanlı Hdınsight**: SSH kullanarak bağlan ([SSH komutu hello](hdinsight-hadoop-linux-use-ssh-unix.md) veya [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
 
-Bağlantı kurulduktan sonra bir dosya depolama alanına yüklemek için aşağıdaki söz dizimini kullanabilirsiniz.
+Bağlantı kurulduktan sonra aşağıdaki sözdizimi tooupload dosya toostorage hello kullanabilirsiniz.
 
     hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 Örneğin, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Hdınsight için varsayılan dosya sistemi Azure Blob depolama alanına olduğundan, /example/data.txt gerçekte Azure Blob depolama alanına değildir. Dosyasına olarak başvurabilir:
+Merhaba varsayılan dosya sistemi Hdınsight için Azure Blob depolama alanına olduğundan, /example/data.txt gerçekte Azure Blob depolama alanına değildir. Toohello dosyası olarak da başvurabilir:
 
     wasb:///example/data/data.txt
 
@@ -161,12 +161,12 @@ or
 Diğer Hadoop listesini dosyalarıyla çalışan komutlar için bkz: [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
-> HBase kümelerinde varsayılan bloğu boyutunu veri yazma 256 KB olduğunda kullanılır. Bu HBase API'lerini veya REST API'leri kullanırken düzgün çalışır, ancak kullanarak `hadoop` veya `hdfs dfs` ~ 12 GB'den büyük veri hatayla sonuçlanır yazmak için komutları. Bkz: [blob yazma için depolama özel durumu](#storageexception) daha fazla bilgi için bölüm aşağıda.
+> Veri yazma 256 KB HBase kümelerinde hello varsayılan blok boyutu kullanılır. Merhaba kullanırken bu HBase API'lerini veya REST API'leri kullanırken düzgün çalışır, `hadoop` veya `hdfs dfs` komutları toowrite veri ~ 12 GB'den büyük hatayla sonuçlanır. Merhaba bkz [blob yazma için depolama özel durumu](#storageexception) daha fazla bilgi için bölüm aşağıda.
 >
 >
 
 ## <a name="graphical-clients"></a>Grafik istemcileri
-Azure Storage ile çalışmak için bir grafik arabirim sağlayan birkaç uygulamalar vardır. Bu uygulamalar bazılarını listesi verilmiştir:
+Azure Storage ile çalışmak için bir grafik arabirim sağlayan birkaç uygulamalar vardır. Merhaba, bu uygulamaları birkaç listesi aşağıdadır:
 
 | İstemci | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
@@ -178,46 +178,46 @@ Azure Storage ile çalışmak için bir grafik arabirim sağlayan birkaç uygula
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 ### <a name="visual-studio-tools-for-hdinsight"></a>Hdınsight için Visual Studio Araçları
-Daha fazla bilgi için bkz: [bağlı kaynaklara gitme](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Daha fazla bilgi için bkz: [Bul hello bağlı kaynakları](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
 ### <a id="storageexplorer"></a>Azure Storage Gezgini
-*Azure Storage Gezgini* inceleme ve BLOB verileri değiştirme için yararlı bir araçtır. Bu, yüklenebilir bir ücretsiz, açık kaynak aracıdır [http://storageexplorer.com/](http://storageexplorer.com/). Kaynak kodu, bu bağlantıdan kullanılabilir.
+*Azure Storage Gezgini* inceleme ve BLOB'lar hello verileri değiştirme için yararlı bir araçtır. Bu, yüklenebilir bir ücretsiz, açık kaynak aracıdır [http://storageexplorer.com/](http://storageexplorer.com/). Merhaba kaynak kodu, bu bağlantıdan kullanılabilir.
 
-Aracı'nı kullanmadan önce Azure depolama hesabı adı ve hesap anahtarınızın bilmeniz gerekir. Bu bilgi alma hakkında yönergeler için bkz: "nasıl yapılır: erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma depolama" bölümünü [oluşturun, yönetmek veya bir depolama hesabını silmek][azure-create-storage-account].
+Merhaba aracını kullanmadan önce Azure depolama hesabı adı ve hesap anahtarınızın bilmeniz gerekir. Hello bu bilgileri alma hakkında yönergeler için bkz "nasıl yapılır: erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma depolama" bölümünü [oluşturma, yönetme veya bir depolama hesabı silme][azure-create-storage-account].
 
-1. Azure Storage Gezgini çalıştırın. Bu ilk kez kullanıyorsanız Depolama Gezgini'ni çalıştırmak, için istenir **_vm hesap adı** ve **depolama hesabı anahtarı**. Daha önce çalıştırdıysanız kullanmak **Ekle** bir yeni depolama hesabı adı ve anahtar eklemek için düğmeyi.
+1. Azure Storage Gezgini çalıştırın. Bu ilk kez hello ise hello Depolama Gezgini'ni çalıştırmak, Merhaba istenir **_vm hesap adı** ve **depolama hesabı anahtarı**. Daha önce çalıştırdıysanız, hello kullan **Ekle** düğmesini tooadd yeni depolama hesabı adı ve anahtar.
 
-    Bir ad girin ve Hdınsight küme tarafından kullanılan depolama hesabı için anahtarını ve ardından **Aç & Kaydet**.
+    Merhaba adını ve Hdınsight küme tarafından kullanılan hello depolama hesabı için anahtar ve seçip girin **Aç & Kaydet**.
 
     ![HDI. AzureStorageExplorer][image-azure-storage-explorer]
-2. Arabirim solundaki kapsayıcıları listesinde, Hdınsight kümenizle ilişkilendirilmiş kapsayıcının adını tıklatın. Varsayılan olarak, bu Hdınsight kümenizin adıdır, ancak küme oluştururken, belirli bir ad girdiyseniz farklı olabilir.
-3. Araç Çubuğu'ndan karşıya yükleme simgesini seçin.
+2. Kapsayıcıları toohello hello arabirimi solundaki Hello listesinde Hdınsight kümenizle ilişkilendirilmiş hello kapsayıcı hello adına tıklayın. Varsayılan olarak, bu hello hello Hdınsight kümenizin adıdır, ancak belirli bir ad hello kümesi oluştururken girdiyseniz farklı olabilir.
+3. Merhaba araç çubuğundan hello karşıya yükleme simgesini seçin.
 
     ![Araç çubuğu vurgulanmış karşıya yükleme simgesi](./media/hdinsight-upload-data/toolbar.png)
-4. Dosyayı karşıya yükleyin ve ardından belirtin **açık**. İstendiğinde, seçin **karşıya** depolama kapsayıcısı köküne dosya karşıya. Belirli bir yola dosyayı karşıya yüklemek istediğiniz yolu girin **hedef** alan ve ardından **karşıya**.
+4. Bir dosya tooupload belirtin ve ardından **açık**. İstendiğinde, seçin **karşıya** tooupload hello dosya toohello kök hello depolama kapsayıcısı. Tooupload hello dosya tooa belirli yolu istiyorsanız hello hello yolu girin **hedef** alan ve ardından **karşıya**.
 
     ![Dosya yükleme iletişim kutusu](./media/hdinsight-upload-data/fileupload.png)
 
-    Dosyayı karşıya yüklemeyi tamamladığında, Hdınsight kümesinde işleri kullanabilirsiniz.
+    Merhaba dosya karşıya yükleme tamamlandıktan sonra hello Hdınsight kümesinde işleri kullanabilirsiniz.
 
 ## <a name="mount-azure-blob-storage-as-local-drive"></a>Azure Blob Depolama Birimi yerel sürücü olarak bağlama
 Bkz: [bağlama Azure Blob Storage yerel sürücü olarak](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ## <a name="services"></a>Hizmetler
 ### <a name="azure-data-factory"></a>Azure Data Factory
-Azure Data Factory hizmetinin kolaylaştırılmış, ölçeklenebilir ve güvenilir veri üretim ardışık düzenlerle veri depolama, veri işleme ve veri taşıma hizmetleri oluşturmak için tam olarak yönetilen bir hizmettir.
+Hello Azure Data Factory hizmetine kolaylaştırılmış, ölçeklenebilir ve güvenilir veri üretim ardışık düzenlerle veri depolama, veri işleme ve veri taşıma hizmetleri oluşturmak için tam olarak yönetilen bir hizmettir.
 
-Azure Data Factory, verileri Azure Blob depolama alanına taşıyabilir veya doğrudan Hdınsight özelliklerine Hive veya Pig gibi veri ardışık düzen oluşturmak için kullanılabilir.
+Azure Data Factory kullanılan toomove veriler Azure Blob depolama alanına olabilir veya doğrudan Hdınsight gibi özelliklerine toocreate veri ardışık Hive veya Pig.
 
-Daha fazla bilgi için bkz: [Azure Data Factory belgelerine](https://azure.microsoft.com/documentation/services/data-factory/).
+Daha fazla bilgi için bkz: Merhaba [Azure Data Factory belgelerine](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a id="sqoop"></a>Apache Sqoop
-Sqoop, Hadoop ve ilişkisel veritabanları arasında veri aktarmak için tasarlanmış bir araçtır. SQL Server, MySQL ve Oracle Hadoop dağıtılmış dosya sistemi (HDFS) içine Hadoop ile MapReduce veya Hive verilerde dönüştürme ve bir RDBMS verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemine (RDBMS), veri aktarmak için kullanabilirsiniz.
+Sqoop, Hadoop ve ilişkisel veritabanları arasında tasarlanmış aracı tootransfer verilerdir. SQL Server, MySQL veya Oracle hello Hadoop dağıtılmış dosya sistemi (HDFS) içine dönüştürme hello verileri Hadoop ile MapReduce veya Hive ve uygulamasına geri hello verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemine (RDBMS) tooimport verilerden kullanabilirsiniz bir RDBMS.
 
 Daha fazla bilgi için bkz: [Hdınsight ile kullanım Sqoop][hdinsight-use-sqoop].
 
 ## <a name="development-sdks"></a>Geliştirme SDK'ları
-Azure Blob Depolama aynı zamanda aşağıdaki programlama dillerini bir Azure SDK kullanılarak erişilebilir:
+Azure Blob Depolama, programlama dilleri aşağıdaki hello bir Azure SDK kullanarak da erişilebilir:
 
 * .NET
 * Java
@@ -226,11 +226,11 @@ Azure Blob Depolama aynı zamanda aşağıdaki programlama dillerini bir Azure S
 * Python
 * Ruby
 
-Azure SDK'ları yükleme hakkında daha fazla bilgi için bkz: [Azure indirir](https://azure.microsoft.com/downloads/)
+Hello Azure SDK'ları yükleme hakkında daha fazla bilgi için bkz: [Azure indirir](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>Sorun giderme
 ### <a id="storageexception"></a>Blob yazma için depolama özel durumu
-**Belirtiler**: kullanırken `hadoop` veya `hdfs dfs` ~ 12 GB olan dosyaları yazmak için komutları veya daha büyük bir HBase kümesi üzerinde aşağıdaki hatalardan biriyle karşılaşabilirsiniz:
+**Belirtiler**: hello kullanırken `hadoop` veya `hdfs dfs` toowrite dosyaları ~ 12 GB komutlardır veya daha büyük bir HBase kümesi üzerinde aşağıdaki hata hello karşılaşabilirsiniz:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException
@@ -243,7 +243,7 @@ Azure SDK'ları yükleme hakkında daha fazla bilgi için bkz: [Azure indirir](h
             at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
             at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
             at java.lang.Thread.run(Thread.java:745)
-    Caused by: com.microsoft.azure.storage.StorageException: The request body is too large and exceeds the maximum permissible limit.
+    Caused by: com.microsoft.azure.storage.StorageException: hello request body is too large and exceeds hello maximum permissible limit.
             at com.microsoft.azure.storage.StorageException.translateException(StorageException.java:89)
             at com.microsoft.azure.storage.core.StorageRequest.materializeException(StorageRequest.java:307)
             at com.microsoft.azure.storage.core.ExecutionEngine.executeWithRetry(ExecutionEngine.java:182)
@@ -252,27 +252,27 @@ Azure SDK'ları yükleme hakkında daha fazla bilgi için bkz: [Azure indirir](h
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**Neden**: hdınsight'ta HBase Azure depolama alanına yazılırken bu varsayılan bir blok boyutu 256 KB kümeleri. Bu HBase API'lerini veya REST API'leri için çalışırken, onu bir hatayla kullanırken sonuçlanır `hadoop` veya `hdfs dfs` komut satırı yardımcı programları.
+**Neden**: hdınsight'ta HBase kümeleri varsayılan tooa blok boyutu 256 KB tooAzure depolama yazılırken. Bu HBase API'lerini veya REST API'leri için çalışırken, onu bir hatayla hello kullanırken sonuçlanır `hadoop` veya `hdfs dfs` komut satırı yardımcı programları.
 
-**Çözümleme**: kullanım `fs.azure.write.request.size` daha büyük bir blok boyutu belirtmek için. Bir kullanım başına temelinde kullanarak bunu yapabilirsiniz `-D` parametresi. Bu parametre ile kullanan bir örnek verilmiştir `hadoop` komutu:
+**Çözümleme**: kullanım `fs.azure.write.request.size` toospecify daha büyük bir blok boyutu. Bir kullanım başına temelinde hello kullanarak bunu yapabilirsiniz `-D` parametresi. Merhaba hello ile bu parametresini kullanarak bir örnek verilmiştir `hadoop` komutu:
 
     hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 
-Değerini de artırabilirsiniz `fs.azure.write.request.size` Ambari kullanarak genel. Aşağıdaki adımlar, Ambari Web kullanıcı arabirimini değerini değiştirmek için kullanılabilir:
+Merhaba değerini de artırabilirsiniz `fs.azure.write.request.size` Ambari kullanarak genel. Merhaba aşağıdaki adımları olabilir hello Ambari Web kullanıcı arabirimini toochange hello değeri kullanılır:
 
-1. Tarayıcınızda, kümeniz için Ambari Web kullanıcı arabirimini gidin. Https://CLUSTERNAME.azurehdinsight.net, budur nerede **CLUSTERNAME** kümenizin adıdır.
+1. Tarayıcınızda, kümeniz için Ambari Web kullanıcı arabirimini toohello gidin. Https://CLUSTERNAME.azurehdinsight.net, budur nerede **CLUSTERNAME** hello kümenizin adıdır.
 
-    İstendiğinde, küme için Yönetici adını ve parolasını girin.
-2. Ekranın sol taraftan seçin **HDFS**ve ardından **yapılandırmalar** sekmesi.
-3. İçinde **filtre...**  alanına, `fs.azure.write.request.size`. Bu alanı ve sayfa ortasında geçerli değeri görüntüler.
-4. Değer 262144 (256 KB) yeni değerini değiştirin. Örneğin, 4194304 (4MB).
+    İstendiğinde, hello küme için hello yönetici adı ve parola girin.
+2. Yan hello ekranın sol hello seçin **HDFS**ve ardından hello **yapılandırmalar** sekmesi.
+3. Merhaba, **filtre... ** alanına, `fs.azure.write.request.size`. Bu hello alan ve geçerli değer hello sayfa hello ortadaki görüntüler.
+4. Merhaba değer 262144 (256 KB) toohello yeni değerini değiştirin. Örneğin, 4194304 (4MB).
 
-![Ambari Web kullanıcı Arabirimi aracılığıyla değeri değiştirme resmi](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
+![Ambari Web kullanıcı Arabirimi aracılığıyla hello değeri değiştirme resmi](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
-Ambari kullanarak daha fazla bilgi için bkz: [Ambari Web kullanıcı arabirimini kullanarak Hdınsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md).
+Ambari kullanarak daha fazla bilgi için bkz: [hello Ambari Web kullanıcı arabirimini kullanarak yönetin Hdınsight kümelerini](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Verileri Hdınsight'a alma nasıl anladığınıza göre Analiz gerçekleştirme hakkında bilgi edinmek için aşağıdaki makalelere okuyun:
+Anladığınıza göre Hdınsight tooget verisine nasıl okuma makaleleri toolearn nasıl aşağıdaki hello tooperform analiz:
 
 * [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
 * [Hadoop işlerini programlı olarak gönderme][hdinsight-submit-jobs]

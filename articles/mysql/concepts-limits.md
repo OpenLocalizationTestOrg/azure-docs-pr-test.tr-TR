@@ -1,5 +1,5 @@
 ---
-title: "MySQL için Azure veritabanındaki kısıtlamaları | Microsoft Docs"
+title: "MySQL için Azure veritabanında aaaLimitations | Microsoft Docs"
 description: "MySQL için Azure veritabanındaki Önizleme sınırlamaları açıklar."
 services: mysql
 author: jasonh
@@ -9,19 +9,19 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: c61d70897b66c2ffee819ac98c38ab75000db907
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9c877c592bf640f62182d8761c9c51363882d706
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>MySQL (Önizleme) Azure veritabanındaki sınırlamaları
-MySQL hizmeti için Azure veritabanı genel önizlemede değil. Aşağıdaki bölümlerde, kapasite ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
+MySQL hizmeti için Hello Azure veritabanı genel önizlemede değil. Merhaba aşağıdaki bölümlerde kapasite ve hello veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
 
 ## <a name="service-tier-maximums"></a>Hizmet katmanı üst sınırlar
 Azure veritabanı MySQL için bir sunucu oluştururken seçebileceğiniz birden çok hizmet katmanı vardır. Daha fazla bilgi için bkz: [her hizmet katmanında nelerin kullanılabildiğini anlama](concepts-service-tiers.md).  
 
-Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama her hizmet katmanında hizmet Önizleme sırasında şu şekilde: 
+Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama her hizmet katmanında hello hizmet Önizleme sırasında şu şekilde: 
 
 |                            |                   |
 | :------------------------- | :---------------- |
@@ -39,7 +39,7 @@ Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama h
 | Temel hizmet katmanı         | 1 TB              |
 | Standart hizmet katmanı      | 1 TB              |
 
-Çok fazla bağlantı erişildiğinde, aşağıdaki hata iletisini alabilirsiniz:
+Çok fazla bağlantı erişildiğinde, aşağıdaki hata hello alabilirsiniz:
 > 1040 (08004). hata: Çok fazla bağlantı
 
 ## <a name="preview-functional-limitations"></a>Önizleme işlevsel sınırlamaları:
@@ -55,7 +55,7 @@ Olduğundan maksimum sayısını bağlantıları, işlem birimleri ve depolama h
 - Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
 
 ### <a name="point-in-time-restore"></a>Noktası-içinde--geri yükleme:
-1.  Farklı bir hizmet katmanı ve/veya bir işlem birimleri ve depolama boyutu geri izin verilmiyor.
+1.  Toodifferent hizmet katmanı ve/veya işlem birimleri ve depolama boyutu geri izin verilmiyor.
 2.  Bırakılan bir sunucuya geri yüklenmesi desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki Adımlar:

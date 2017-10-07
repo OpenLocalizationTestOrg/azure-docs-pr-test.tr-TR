@@ -1,5 +1,5 @@
 ---
-title: Bir Azure Linux sanal makinede Oracle Data Guard uygulamak | Microsoft Docs
+title: "bir Azure Linux sanal makine üzerinde aaaImplement Oracle Data Guard | Microsoft Docs"
 description: "Hızlı bir şekilde Oracle Data Guard ve Azure ortamınızda çalışan alın."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6bb530098737e3ca7dd8bab3f4306ecbb620f3f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinede Oracle veri koruma uygulama 
 
-Azure CLI oluşturmak ve komut satırından veya komut dosyalarında Azure kaynaklarınızı yönetmek için kullanılır. Bu makalede, Azure Market görüntüsünden bir Oracle veritabanına 12 c veritabanını dağıtmak için Azure CLI kullanmayı açıklar. Bu makalede daha sonra adım adım gösterilmektedir nasıl yüklenir ve veri koruma Azure sanal makine (VM) yapılandırın.
+Azure CLI kullanılan toocreate olan ve hello komut satırından veya komut dosyalarında Azure kaynaklarını yönetin. Bu makalede nasıl toouse Azure CLI toodeploy bir Oracle veritabanına 12 c veritabanı hello Azure Market görüntüsünden açıklanmaktadır. Bu makalede daha sonra adım adım nasıl gösterilmektedir tooinstall ve veri koruma Azure sanal makine (VM) yapılandırın.
 
-Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi için bkz: [Azure CLI Yükleme Kılavuzu'na](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi için bkz: Merhaba [Azure CLI Yükleme Kılavuzu'na](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="prepare-the-environment"></a>Ortamı hazırlama
+## <a name="prepare-hello-environment"></a>Merhaba ortamını hazırlayın
 ### <a name="assumptions"></a>Varsayımlar
 
-Oracle Data Guard yüklemek için aynı kullanılabilirlik kümesinde iki Azure sanal makineleri oluşturmanız gerekir:
+tooinstall Oracle Data Guard, gereksinim duyduğunuz hello toocreate iki Azure sanal makineler aynı kullanılabilirlik kümesi:
 
-- Birincil VM (myVM1) çalışan bir Oracle örneği vardır.
-- Bekleme yalnızca yüklü olan Oracle yazılım VM (myVM2) sahiptir.
+- Merhaba birincil VM (myVM1) çalışan bir Oracle örneği vardır.
+- Merhaba hello Oracle yazılımı yalnızca yüklü bekleme VM (myVM2) sahip.
 
-Oracle: Oracle VM oluşturmak için kullandığınız Market görüntüdür-veritabanı-Ee:12.1.0.2:latest.
+Merhaba toocreate hello VM'ler kullandığınız Market görüntüsü olan Oracle: Oracle-veritabanı-Ee:12.1.0.2:latest.
 
-### <a name="sign-in-to-azure"></a>Azure'da oturum açma 
+### <a name="sign-in-tooazure"></a>İçinde tooAzure oturum 
 
-Azure aboneliğinizi kullanarak oturum [az oturum açma](/cli/azure/#login) komut ve izleyin ekrandaki yönergeleri.
+Tooyour Azure aboneliği hello kullanarak oturum [az oturum açma](/cli/azure/#login) komut ve hello ekrandaki yönergeleri izleyin.
 
 ```azurecli
 az login
@@ -47,9 +47,9 @@ az login
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Kullanarak bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#create) komutu. Bir Azure kaynak grubu hangi Azure kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. 
+Hello kullanarak bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#create) komutu. Bir Azure kaynak grubu hangi Azure kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. 
 
-Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `westus` konumu:
+Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu `myResourceGroup` hello içinde `westus` konumu:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -69,9 +69,9 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#create) komutu. 
+Hello kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#create) komutu. 
 
-Aşağıdaki örnek adlı iki VM'ler oluşturur `myVM1` ve `myVM2`. Zaten bir varsayılan anahtar konumda yoksa, ayrıca SSH anahtarları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
+Merhaba aşağıdaki örnek adlı iki VM'ler oluşturur `myVM1` ve `myVM2`. Zaten bir varsayılan anahtar konumda yoksa, ayrıca SSH anahtarları oluşturur. toouse belirli bir ayarla anahtarları, hello kullan `--ssh-key-value` seçeneği.
 
 MyVM1 (birincil) oluşturun:
 ```azurecli
@@ -85,7 +85,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-VM oluşturduktan sonra Azure CLI bilgileri aşağıdaki örneğe benzer şekilde gösterir. Değeri Not `publicIpAddress`. VM erişmek için bu adresi kullanın.
+Merhaba VM oluşturduktan sonra Azure CLI örnek aşağıdaki bilgileri benzer toohello gösterir. Not hello değerini `publicIpAddress`. Bu adres tooaccess hello VM kullanın.
 
 ```azurecli
 {
@@ -112,13 +112,13 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Değeri Not `publicIpAddress` myVM2 oluşturduktan sonra.
+Not hello değerini `publicIpAddress` myVM2 oluşturduktan sonra.
 
-### <a name="open-the-tcp-port-for-connectivity"></a>Bağlantı için TCP bağlantı noktasını açın
+### <a name="open-hello-tcp-port-for-connectivity"></a>Bağlantı için Hello TCP bağlantı noktasını açın
 
-Bu adım, Oracle veritabanı uzaktan erişime izin vermek dış uç noktalar yapılandırır.
+Bu adım, uzaktan erişim toohello Oracle veritabanı izin dış uç noktalar yapılandırır.
 
-MyVM1 için bağlantı noktası açın:
+MyVM1 açık hello bağlantı noktası:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -128,7 +128,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-Sonuç aşağıdaki yanıta benzer görünmelidir:
+Merhaba sonuç benzer toohello yanıt aşağıdaki gibi görünmelidir:
 
 ```bash
 {
@@ -149,7 +149,7 @@ Sonuç aşağıdaki yanıta benzer görünmelidir:
 }
 ```
 
-MyVM2 için bağlantı noktası açın:
+MyVM2 açık hello bağlantı noktası:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -159,25 +159,25 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
+### <a name="connect-toohello-virtual-machine"></a>Toohello sanal makineye bağlanma
 
-Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresiyle değiştirin `publicIpAddress` sanal makineniz için değer.
+Kullanım hello aşağıdaki toocreate SSH oturumu hello sanal makineyle bir komutu. Başlangıç IP adresi ile hello yerine `publicIpAddress` sanal makineniz için değer.
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
 ```
 
-### <a name="create-the-database-on-myvm1-primary"></a>Veritabanı üzerinde myVM1 (birincil) oluşturma
+### <a name="create-hello-database-on-myvm1-primary"></a>Merhaba veritabanı üzerinde myVM1 (birincil) oluşturma
 
-Veritabanını yüklemek için sonraki adım olacak şekilde Oracle yazılım Market görüntüsü üzerinde zaten yüklü. 
+Merhaba sonraki adıma tooinstall hello veritabanı olacak şekilde hello Oracle yazılım hello Market görüntüsü üzerinde zaten yüklü. 
 
-Oracle süper kullanıcı için anahtarı:
+Toohello Oracle süper kullanıcı anahtarı:
 
 ```bash
 $ sudo su - oracle
 ```
 
-Veritabanı oluştur:
+Merhaba veritabanı oluşturun:
 
 ```bash
 $ dbca -silent \
@@ -198,7 +198,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-Çıktı aşağıdaki yanıta benzer görünmelidir:
+Çıkış benzer toohello yanıt aşağıdaki gibi görünmelidir:
 
 ```bash
 Copying database files
@@ -227,17 +227,17 @@ Completing Database Creation
 Creating Pluggable Databases
 78% complete
 100% complete
-Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+Look at hello log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
 ```
 
-ORACLE_SID ve ORACLE_HOME değişkenleri ayarlayın:
+Merhaba ORACLE_SID ve ORACLE_HOME değişkenleri ayarlayın:
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 $ ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-İsteğe bağlı olarak, böylece bu ayarlar sonraki oturumlar için kaydedilir /home/oracle/.bashrc dosyasına ORACLE_HOME ve ORACLE_SID ekleyebilirsiniz:
+İsteğe bağlı olarak, ORACLE_HOME ve ORACLE_SID toohello /home/oracle/.bashrc dosyası, ekleyebilirsiniz, böylece bu ayarlar sonraki oturumlar için kaydedilir:
 
 ```bash
 # add oracle home
@@ -279,7 +279,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-(Kurtarma çok daha kolay hale getiren) Flashback açın ve bekleme ayarlayın\_dosya\_otomatik olarak yönetim. Exit SQL * Plus bundan sonra.
+(Kurtarma çok daha kolay hale getiren) Flashback açın ve bekleme ayarlayın\_dosya\_yönetim tooauto. Exit SQL * Plus bundan sonra.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -289,9 +289,9 @@ SQL> EXIT;
 
 ### <a name="set-up-service-on-myvm1-primary"></a>MyVM1 hizmette (birincil) ayarlayın
 
-Düzenleyin veya $ORACLE_HOME\network\admin klasöründedir tnsnames.ora dosyası oluşturun.
+Düzenleyin veya hello $ORACLE_HOME\network\admin klasöründedir hello tnsnames.ora dosyası oluşturun.
 
-Aşağıdaki girdileri ekleyin:
+Girdileri aşağıdaki hello ekleyin:
 
 ```bash
 cdb1 =
@@ -315,9 +315,9 @@ cdb1_stby =
   )
 ```
 
-Düzenleyin veya $ORACLE_HOME\network\admin klasöründedir listener.ora dosyası oluşturun.
+Düzenleyin veya hello $ORACLE_HOME\network\admin klasöründedir hello listener.ora dosyası oluşturun.
 
-Aşağıdaki girdileri ekleyin:
+Girdileri aşağıdaki hello ekleyin:
 
 ```bash
 LISTENER =
@@ -346,7 +346,7 @@ $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
-Dinleyici başlatın:
+Merhaba dinleyicisi başlatın:
 
 ```bash
 $ lsnrctl stop
@@ -355,7 +355,7 @@ $ lsnrctl start
 
 ### <a name="set-up-service-on-myvm2-standby"></a>MyVM2 hizmette ayarlayın (bekleme)
 
-SSH myVM2 için:
+SSH toomyVM2:
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
@@ -367,9 +367,9 @@ Oracle oturum açın:
 $ sudo su - oracle
 ```
 
-Düzenleyin veya $ORACLE_HOME\network\admin klasöründedir tnsnames.ora dosyası oluşturun.
+Düzenleyin veya hello $ORACLE_HOME\network\admin klasöründedir hello tnsnames.ora dosyası oluşturun.
 
-Aşağıdaki girdileri ekleyin:
+Girdileri aşağıdaki hello ekleyin:
 
 ```bash
 cdb1 =
@@ -393,9 +393,9 @@ cdb1_stby =
   )
 ```
 
-Düzenleyin veya $ORACLE_HOME\network\admin klasöründedir listener.ora dosyası oluşturun.
+Düzenleyin veya hello $ORACLE_HOME\network\admin klasöründedir hello listener.ora dosyası oluşturun.
 
-Aşağıdaki girdileri ekleyin:
+Girdileri aşağıdaki hello ekleyin:
 
 ```bash
 LISTENER =
@@ -418,7 +418,7 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-Dinleyici başlatın:
+Merhaba dinleyicisi başlatın:
 
 ```bash
 $ lsnrctl stop
@@ -426,9 +426,9 @@ $ lsnrctl start
 ```
 
 
-### <a name="restore-the-database-to-myvm2-standby"></a>Veritabanını geri yüklemek için myVM2 (bekleme)
+### <a name="restore-hello-database-toomyvm2-standby"></a>Merhaba veritabanı toomyVM2 geri yükleme (bekleme)
 
-Parametre dosyası /tmp/initcdb1_stby.ora aşağıdaki içeriğe sahip oluşturun:
+Merhaba parametre dosyası /tmp/initcdb1_stby.ora içeriği aşağıdaki hello ile oluşturun:
 ```bash
 *.db_name='cdb1'
 ```
@@ -447,7 +447,7 @@ Bir parola dosyası oluşturun:
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
-Veritabanı üzerinde myVM2 başlatın:
+Merhaba veritabanı üzerinde myVM2 başlatın:
 
 ```bash
 $ export ORACLE_SID=cdb1
@@ -457,13 +457,13 @@ SQL> STARTUP NOMOUNT PFILE='/tmp/initcdb1_stby.ora';
 SQL> EXIT;
 ```
 
-RMAN aracını kullanarak veritabanını geri yükleyin:
+Merhaba veritabanı hello RMAN aracını kullanarak geri yükleyin:
 
 ```bash
 $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
-İçinde RMAN aşağıdaki komutları çalıştırın:
+RMAN komutlarda aşağıdaki hello çalıştırın:
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -474,7 +474,7 @@ DUPLICATE TARGET DATABASE
   NOFILENAMECHECK;
 ```
 
-Komut tamamlandığında, aşağıdakine benzer iletiler görürsünüz. RMAN çıkın.
+Merhaba komutu tamamlandığında iletileri benzer toohello aşağıdaki görmeniz gerekir. RMAN çıkın.
 ```bash
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
@@ -483,7 +483,7 @@ Finished Duplicate Db at 29-JUN-17
 RMAN> EXIT;
 ```
 
-İsteğe bağlı olarak, böylece bu ayarlar sonraki oturumlar için kaydedilir /home/oracle/.bashrc dosyasına ORACLE_HOME ve ORACLE_SID ekleyebilirsiniz:
+İsteğe bağlı olarak, ORACLE_HOME ve ORACLE_SID toohello /home/oracle/.bashrc dosyası, ekleyebilirsiniz, böylece bu ayarlar sonraki oturumlar için kaydedilir:
 
 ```bash
 # add oracle home
@@ -501,7 +501,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Veri koruma Aracısı'nı (birincil) myVM1 yapılandırma
 
-Veri Koruma Yöneticisi'ni başlatın ve SYS ve parola kullanarak oturum açın. (İşletim sistemi kimlik doğrulamasını kullanmayın.) Aşağıdakileri gerçekleştirin:
+Veri Koruma Yöneticisi'ni başlatın ve SYS ve parola kullanarak oturum açın. (İşletim sistemi kimlik doğrulamasını kullanmayın.) Merhaba aşağıdakileri gerçekleştirin:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -509,7 +509,7 @@ DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
 DGMGRL> CREATE CONFIGURATION my_dg_config AS PRIMARY DATABASE IS cdb1 CONNECT IDENTIFIER IS cdb1;
 Configuration "my_dg_config" created with primary database "cdb1"
@@ -519,7 +519,7 @@ DGMGRL> ENABLE CONFIGURATION;
 Enabled.
 ```
 
-Yapılandırmasını gözden geçirin:
+Merhaba yapılandırmayı gözden geçir:
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -536,13 +536,13 @@ Configuration Status:
 SUCCESS   (status updated 26 seconds ago)
 ```
 
-Oracle Data Guard Kurulum tamamladınız. Sonraki bölümde bağlantısını test etme ve geçebilir gösterilmektedir.
+Merhaba Oracle Data Guard Kurulum tamamladınız. Merhaba sonraki bölümde nasıl tootest bağlantı hello ve geçebilir gösterilir.
 
-### <a name="connect-the-database-from-the-client-machine"></a>İstemci makineden veritabanına bağlanın
+### <a name="connect-hello-database-from-hello-client-machine"></a>Merhaba istemci makineden Hello veritabanına bağlanın
 
-Güncelleştirin veya istemci makinenizde tnsnames.ora dosyası oluşturun. Bu genellikle $ORACLE_HOME\network\admin dosyasıdır.
+Güncelleştirin veya istemci makinenizde hello tnsnames.ora dosyası oluşturun. Bu genellikle $ORACLE_HOME\network\admin dosyasıdır.
 
-IP adresleriyle değiştirin, `publicIpAddress` myVM1 ve myVM2 değerleri:
+Merhaba IP adresleriyle değiştirin, `publicIpAddress` myVM1 ve myVM2 değerleri:
 
 ```bash
 cdb1=
@@ -582,15 +582,15 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
-## <a name="test-the-data-guard-configuration"></a>Veri koruma yapılandırmayı test etme
+## <a name="test-hello-data-guard-configuration"></a>Test hello veri koruma yapılandırması
 
-### <a name="switch-over-the-database-on-myvm1-primary"></a>Veritabanında myVM1 (birincil) üzerinden geçiş
+### <a name="switch-over-hello-database-on-myvm1-primary"></a>Merhaba veritabanında myVM1 (birincil) üzerinden geçiş
 
-Birincil bekleme moduna geçmek için (cdb1 cdb1_stby için):
+Birincil toostandby (cdb1 toocdb1_stby) gelen tooswitch:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -598,12 +598,12 @@ DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
-DGMGRL> SWITCHOVER TO cdb1_stby;
+DGMGRL> SWITCHOVER toocdb1_stby;
 Performing switchover NOW, please wait...
-Operation requires a connection to instance "cdb1" on database "cdb1_stby"
-Connecting to instance "cdb1"...
+Operation requires a connection tooinstance "cdb1" on database "cdb1_stby"
+Connecting tooinstance "cdb1"...
 Connected as SYSDBA.
 New primary database "cdb1_stby" is opening...
 Operation requires start up of instance "cdb1" on database "cdb1"
@@ -614,7 +614,7 @@ Switchover succeeded, new primary is "cdb1_stby"
 DGMGRL>
 ```
 
-Şimdi bekleme veritabanına bağlanabilir.
+Şimdi toohello bekleme veritabanı bağlanabilir.
 
 Başlangıç SQL * Plus:
 
@@ -627,26 +627,26 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
 
-### <a name="switch-over-the-database-on-myvm2-standby"></a>Veritabanı myVM2 üzerinde üzerinden geçiş (bekleme)
+### <a name="switch-over-hello-database-on-myvm2-standby"></a>MyVM2 hello veritabanında üzerinden geçiş (bekleme)
 
-Geçmek için myVM2 üzerinde aşağıdaki komutu çalıştırın:
+üzerinde tooswitch üzerinde myVM2 hello aşağıdakileri çalıştırın:
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome to DGMGRL, type "help" for information.
+Welcome tooDGMGRL, type "help" for information.
 Connected as SYSDBA.
-DGMGRL> SWITCHOVER TO cdb1;
+DGMGRL> SWITCHOVER toocdb1;
 Performing switchover NOW, please wait...
-Operation requires a connection to instance "cdb1" on database "cdb1"
-Connecting to instance "cdb1"...
+Operation requires a connection tooinstance "cdb1" on database "cdb1"
+Connecting tooinstance "cdb1"...
 Connected as SYSDBA.
 New primary database "cdb1" is opening...
 Operation requires start up of instance "cdb1" on database "cdb1_stby"
@@ -656,7 +656,7 @@ Database mounted.
 Switchover succeeded, new primary is "cdb1"
 ```
 
-Bir kez daha, şimdi birincil veritabanına bağlanabilmek için olmanız gerekir.
+Bir kez daha, mümkün tooconnect toohello birincil veritabanı artık olması gerekir.
 
 Başlangıç SQL * Plus:
 
@@ -669,17 +669,17 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
 
-Yükleme ve Oracle Linux üzerinde veri koruma yapılandırmasını tamamladınız.
+Merhaba yükleme ve Oracle Linux üzerinde veri koruma yapılandırmasını tamamladınız.
 
 
-## <a name="delete-the-virtual-machine"></a>Sanal makineyi silin
+## <a name="delete-hello-virtual-machine"></a>Merhaba sanal makineyi silme
 
-VM artık ihtiyacınız olduğunda, kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu kullanabilirsiniz:
+VM artık hello olduğunda komut tooremove hello kaynak grubu, VM ve tüm ilgili kaynaklar aşağıdaki hello kullanabilirsiniz:
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -1,6 +1,6 @@
 ---
-title: "Linux tabanlı Hdınsight kümeleri - Azure zamanlama düzeltme eki uygulama işletim sistemi yapılandırma | Microsoft Docs"
-description: "Linux tabanlı Hdınsight kümeleri için zamanlama düzeltme eki uygulama işletim sistemi yapılandırma konusunda bilgi edinin."
+title: "Linux tabanlı Hdınsight kümeleri - Azure aaaConfigure OS düzeltme eki uygulama zamanlama | Microsoft Docs"
+description: "Nasıl tooconfigure OS düzeltme eki uygulama zamanlamasını Linux tabanlı Hdınsight kümeleri hakkında bilgi edinin."
 services: hdinsight
 documentationcenter: 
 author: bprakash
@@ -15,39 +15,38 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1598d64e594d7e8a68573fc63dd86051a5a9d025
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="os-patching-for-hdinsight"></a>İşletim sistemi Hdınsight için düzeltme eki uygulama 
-Yönetilen bir Hadoop hizmet olarak Hdınsight Hdınsight kümeleri tarafından kullanılan temel VM'ler OS düzeltme eki uygulama mvc'deki. 1 Ağustos 2016 itibariyle biz Linux tabanlı Hdınsight kümeleri (sürüm 3.4 veya büyük) için konuk işletim sistemi düzeltme eki uygulama ilkesi değişti. Düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmak için yeni ilke belirtilir. Yeni ilke düzeltme eki sanal makineleri (VM'ler) Linux kümeleri her Pazartesi ya da verilmiş bir küme düğümleri arasında 00: 00 UTC aşamalı bir şekilde başlayarak Perşembe devam eder. Ancak, belirli bir VM yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk yeniden başlatma yeni oluşturulan bir küme için küme oluşturma tarihten itibaren 30 gün daha erken yapılmaz. Sanal makineleri yeniden sonra düzeltme eklerini etkili olacaktır.
+Yönetilen bir Hadoop hizmet olarak Hdınsight hello işletim sistemi temel VM'ler Hdınsight kümeleri tarafından kullanılan Merhaba, düzeltme eki uygulama mvc'deki. 1 Ağustos 2016 itibariyle biz hello konuk işletim sistemi düzeltme eki uygulama ilkesi Linux tabanlı Hdınsight kümeleri (sürüm 3.4 veya büyük) için değiştirilmiştir. Merhaba hello yeni ilke hedefidir toosignificantly yeniden başlatmalar hello sayısını azaltın son toopatching. Merhaba yeni ilke toopatch sanal makinelerde (VM'ler) Linux kümeleri her Pazartesi ya da verilmiş bir küme düğümleri arasında 00: 00 UTC aşamalı bir şekilde başlayarak Perşembe devam eder. Ancak, belirli bir VM yalnızca en fazla 30 tooguest OS düzeltme eki uygulama son günde bir kez yeniden başlatılır. Ayrıca, yeni oluşturulan bir küme için hello ilk yeniden başlatma hello küme oluşturma tarihten itibaren 30 gün daha erken yapılmaz. Merhaba VM'ler yeniden sonra düzeltme eklerini etkili olacaktır.
 
-## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux tabanlı Hdınsight kümeleri için zamanlama düzeltme eki uygulama işletim sistemi yapılandırma
-Hdınsight kümesi'nde sanal makinelerin önemli güvenlik düzeltme ekleri yüklenmemiş böylece bazen yeniden başlatılması gerekir. 1 Ağustos 2016 itibariyle yeni Linux tabanlı Hdınsight kümeleri (sürüm 3.4 veya daha büyük) yeniden şu zamanlamaya kullanarak:
+## <a name="how-tooconfigure-hello-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Nasıl tooconfigure hello Linux tabanlı Hdınsight kümeleri için işletim sistemi düzeltme eki uygulama zamanlama
+Hdınsight kümesi Hello sanal makineniz önemli güvenlik düzeltme ekleri yüklenmemiş böylece bazen yeniden toobe olması gerekir. 1 Ağustos 2016 itibariyle yeni Linux tabanlı Hdınsight kümeleri (sürüm 3.4 veya daha büyük) yeniden zamanlama uyarınca hello kullanarak:
 
-1. Küme içindeki bir sanal makine yalnızca düzeltme ekleri için en fazla bir kez bir 30 günlük süre içinde yeniden başlatabilirsiniz.
-2. 00: 00 UTC başlayarak yeniden başlatma gerçekleşir.
-3. Küme yeniden başlatma işlemi sırasında hala kullanılabilir olacak şekilde yeniden başlatma işlemi kümedeki sanal makineler arasında aşamalı.
-4. İlk yeniden başlatma yeni oluşturulan bir küme için küme oluşturulma tarihinden sonra 30 günden daha erken yapılmaz.
+1. Merhaba kümesindeki bir sanal makine yalnızca düzeltme ekleri için en fazla bir kez bir 30 günlük süre içinde yeniden başlatabilirsiniz.
+2. 00: 00 UTC başlayarak Hello yeniden başlatma gerçekleşir.
+3. Merhaba küme hello yeniden başlatma işlemi sırasında hala kullanılabilir olacak şekilde hello kümedeki sanal makineler arasında hello yeniden başlatma işlemi aşamalı.
+4. Yeni oluşturulan bir küme için Hello ilk yeniden başlatma hello küme oluşturma tarihinden sonra 30 günden daha erken yapılmaz.
 
-Bu makalede açıklanan betik eylemi kullanarak, aşağıdaki gibi zamanlama düzeltme eki uygulama işletim sistemi değiştirebilirsiniz:
+Bu makalede açıklanan hello betik eylemi kullanarak, hello OS düzeltme eki uygulama zamanlamasını aşağıdaki gibi değiştirebilirsiniz:
 1. Etkinleştirmek veya devre dışı otomatik yeniden başlatma
-2. Kümesi sıklığı (gün yeniden başlatmalar arasında) yeniden başlatır
-3. Yeniden başlatma oluştuğunda haftanın gününü ayarlama
+2. Set hello sıklığı (gün yeniden başlatmalar arasında) yeniden başlatır
+3. Merhaba haftanın günü için yeniden başlatma oluştuğunda hello ayarlayın
 
 > [!NOTE]
 > Bu betik eylemi yalnızca 1 Ağustos 2016'dan sonra oluşturulan Linux tabanlı Hdınsight kümeleri ile çalışır. Yalnızca sanal makineleri yeniden, düzeltme ekleri etkili olur. 
 >
 
-## <a name="how-to-use-the-script"></a>Komut dosyası kullanma 
+## <a name="how-toouse-hello-script"></a>Nasıl toouse hello komut dosyası 
 
-Ne zaman bu komut dosyasını kullanarak, aşağıdaki bilgileri gerektirir:
-1. Komut dosyası konumu: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
-    Hdınsight bu URI bulmak ve kümedeki tüm sanal makinelerde komut dosyasını çalıştırmak için kullanır.
+Ne zaman bu komut dosyasını kullanarak aşağıdaki bilgilerle hello gerektirir:
+1. Merhaba komut dosyası konumu: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  Hdınsight bu URI toofind kullanır ve hello kümedeki tüm hello sanal makinelerde hello komut dosyasını çalıştırın.
   
-2. Komut dosyası uygulandığı Küme düğüm türleri: headnode, workernode, zookeeper. Bu komut, kümedeki tüm düğüm türleri uygulanması gerekir. Bir düğüm türü uygulanmamış durumunda, bu düğüm türü için sanal makineleri önceki düzeltme eki uygulama zamanlamayı kullan devam eder.
+2. Merhaba hello betik uygulandığı Küme düğüm türleri: headnode, workernode, zookeeper. Bu komut dosyası uygulanan tooall düğüm türleri hello kümedeki olması gerekir. Uygulanan tooa düğüm türü sonra hello sanal değilse bu düğüm türü için makineler toouse hello önceki düzeltme eki uygulama zamanlama devam eder.
 
 
 3.  Parametre: Bu komut dosyasını üç sayısal parametreleri kabul eder:
@@ -55,18 +54,18 @@ Ne zaman bu komut dosyasını kullanarak, aşağıdaki bilgileri gerektirir:
     | Parametre | Tanım |
     | --- | --- |
     | Otomatik yeniden başlatmalar etkinleştir/devre dışı bırak |0 veya 1. Otomatik yeniden başlatmalar 1 olanak sağlarken otomatik yeniden başlatmalar 0 değerini devre dışı bırakır. |
-    | Sıklık |7-90 (dahil). Sanal makineler için yeniden başlatılması düzeltme ekleri yeniden başlatmadan önce beklenecek gün sayısı. |
-    | Haftanın günü |1 ile 7 (dahil). 1 değeri, yeniden başlatma Pazartesi günü gerçekleşeceğini, 7 parametrelerini kullanarak bir Sunday.For örnek belirtir 1 60 2 sonuçları otomatik olarak yeniden başlatılır 60 günde (en çok) Salı günü. |
-    | Kalıcılığı |Betik eylemi varolan bir kümeye uygularken, komut dosyasını kalıcı olarak işaretleyebilirsiniz. Yeni workernodes işlemleri ölçeklendirme aracılığıyla kümeye eklendiğinde kalıcı betikleri uygulanır. |
+    | Sıklık |7 too90 (dahil). Merhaba sanal makineleri yeniden başlatılması düzeltme ekleri için yeniden başlatmadan önce gün toowait Hello sayısı. |
+    | Haftanın günü |1 too7 (dahil). 1 değeri hello yeniden başlatma, Pazartesi günü gerçekleşmelidir, 7 parametrelerini kullanarak bir Sunday.For örnek belirtir 1 60 2 sonuçları otomatik olarak yeniden başlatılır 60 günde (en çok) Salı günü. |
+    | Kalıcılığı |Bir komut dosyası eylemi tooan var olan küme uygularken hello betik kalıcı olarak işaretleyebilirsiniz. Yeni workernodes toohello küme işlemleri ölçeklendirme aracılığıyla eklenen kalıcı betikleri uygulanır. |
 
 > [!NOTE]
-> Bu komut dosyasını varolan bir kümeye uygularken kalıcı olarak işaretlemeniz gerekir. Aksi takdirde, ölçeklendirme işlemleri aracılığıyla oluşturulan tüm yeni düğümler zamanlama düzeltme eki uygulama varsayılan kullanır.
-Küme oluşturma işleminin bir parçası olarak komut dosyası uygularsanız, otomatik olarak kalıcıdır.
+> Bu komut dosyası tooan var olan küme uygularken kalıcı olarak işaretlemeniz gerekir. Aksi takdirde, işlemleri ölçeklendirme aracılığıyla oluşturulan tüm yeni düğümler hello varsayılan zamanlama düzeltme eki uygulama kullanır.
+Merhaba küme oluşturma işleminin bir parçası olarak hello betik uygularsanız, otomatik olarak kalıcıdır.
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Betik eylemi kullanarak belirli adımlar görmek için aşağıdaki bölümlerde [özelleştirme Linuz tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md):
+Merhaba betik eylemi kullanarak hakkında belirli adımlar için bkz hello bölümlerde aşağıdaki hello [özelleştirme Linuz tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Küme oluşturma sırasında bir betik eylemi kullanın](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-* [Betik eylemi çalıştıran bir kümeye uygulama](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+* [Küme çalışan bir komut dosyası eylemi tooa Uygula](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

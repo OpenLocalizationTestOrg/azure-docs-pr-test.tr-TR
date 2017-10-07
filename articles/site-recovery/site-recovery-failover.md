@@ -1,6 +1,6 @@
 ---
-title: "Yük devretme Site kurtarma | Microsoft Docs"
-description: "Azure Site Recovery, çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma düzenler. Azure veya ikincil veri merkezine yük devretme hakkında bilgi edinin."
+title: Site kurtarma aaaFailover | Microsoft Docs
+description: "Azure Site Recovery hello çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma düzenler. Yük devretme tooAzure veya ikincil veri merkezine hakkında bilgi edinin."
 services: site-recovery
 documentationcenter: 
 author: prateek9us
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: pratshar
-ms.openlocfilehash: ef586191f0b89dca89810644d45503fe42538635
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7cacea829d78bb7de2b2d67402291b472b10f023
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery'de yük devretme
-Bu makalede, yük devretme sanal makinelere ve fiziksel sunucuları Site Recovery tarafından korunan nasıl açıklanmaktadır.
+Bu makalede nasıl toofailover sanal makineleri ve fiziksel sunucuları Site Recovery tarafından korunan açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Ön koşullar
-1. Bir yük devretme uygulamadan önce yapmak bir [yük devretme sınamasını](site-recovery-test-failover-to-azure.md) her şeyin beklendiği gibi çalıştığından emin olmak için.
-1. [Ağ hazırlama](site-recovery-network-design.md) bir yük devretme yapmadan önce hedef konumda.  
+1. Bir yük devretme uygulamadan önce yapmak bir [yük devretme sınamasını](site-recovery-test-failover-to-azure.md) her şeyin beklendiği gibi çalıştığını tooensure.
+1. [Merhaba ağ hazırlama](site-recovery-network-design.md) bir yük devretme yapmadan önce hedef konumda.  
 
 
 ## <a name="run-a-failover"></a>Yük devretme gerçekleştirme
-Bu yordamda, bir yük devretme için çalıştırmak açıklanmaktadır bir [kurtarma planı](site-recovery-create-recovery-plans.md). Alternatif olarak, yük devretme için tek bir sanal makine veya fiziksel sunucudan çalıştırabilirsiniz **öğeleri çoğaltılan** sayfası
+Bu yordam açıklar nasıl toorun bir yük devretme için bir [kurtarma planı](site-recovery-create-recovery-plans.md). Alternatif olarak hello yük devretme tek sanal makine ya da fiziksel sunucu için hello çalıştırabilirsiniz **öğeleri çoğaltılan** sayfası
 
 
 ![Yük devretme](./media/site-recovery-failover/Failover.png)
 
 1. Seçin **kurtarma planları** > *recoveryplan_name*. Tıklatın **yük devretme**
-2. Üzerinde **yük devretme** ekran, select bir **kurtarma noktası** yük. Aşağıdaki seçeneklerden birini kullanabilirsiniz:
-    1.  **En son** (varsayılan): Bu seçenek ilk bunları üzerinden ona başarısız olmadan önce her bir sanal makine için bir kurtarma noktası oluşturmak için Site Recovery hizmetine gönderilen tüm verileri işler. Bu seçenek sanal yük devretme tüm verilere sahip sonra oluşturulan yük devretme tetiklendiğinde Site Recovery hizmetine çoğaltılan makinenin düşük RPO (kurtarma noktası hedefi) sağlar.
-    1.  **En son işlenen**: Site Recovery hizmeti tarafından işlenmiş olan en son kurtarma noktasına kurtarma planının tüm sanal makineleri bu seçenek yöneltilir. Bir sanal makine yük devretme yapılırken, en son işlenen kurtarma noktası zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktası** bu bilgileri almak için bölme. İşlenmemiş verileri işlemek için harcanan hiçbir zaman gibi bu seçenek bir düşük RTO (Kurtarma süresi hedefi) yük devretme seçeneği sağlar.
-    1.  **Son uygulama tutarlı**: Site Recovery hizmeti tarafından işlenmiş olan son uygulama tutarlı kurtarma noktasına kurtarma planının tüm sanal makineleri bu seçenek yöneltilir. Bir sanal makine yük devretme yapılırken en son uygulamayla tutarlı kurtarma noktasının zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktası** bu bilgileri almak için bölme.
-    1.  **En son çoklu işlenen VM**: Bu seçenek yalnızca çoklu VM tutarlılığını en az bir sanal makineyle sahip kurtarma planları için kullanılabilir. En son ortak çoklu VM tutarlı Kurtarma bir çoğaltma grubu yük devretme parçası olan sanal makineleri gelin. Diğer sanal makineler yük devretme bunların en son işlenen kurtarma noktası.  
-    1.  **En son çoklu VM uygulamayla tutarlı**: Bu seçenek yalnızca çoklu VM tutarlılığı ON ile en az bir sanal makinenin kurtarma planları için kullanılabilir. Çoğaltma grubu yük devretme son ortak çoklu VM uygulamaları tutarlı kurtarma için bir parçası olan sanal makineleri gelin. Diğer sanal makineler kendi son noktaya yük devretme uygulamaları tutarlı kurtarma.
-    1.  **Özel**: bir sanal makinenin yük devretme testi yapmakta olduğunuz sonra belirli bir kurtarma noktası için yük devretme için bu seçeneği kullanabilirsiniz.
+2. Merhaba üzerinde **yük devretme** ekran, select bir **kurtarma noktası** toofailover için. Seçenekler aşağıdaki hello birini kullanabilirsiniz:
+    1.  **En son** (varsayılan): Bu seçenek ilk gönderilen tooSite kurtarma hizmeti toocreate her bir sanal makine için bir kurtarma noktası tooit başarısız olmadan önce yapılmış tüm hello verileri işler. Bu seçenek hello sağlar hello yük devretme tetiklendiğinde düşük RPO (kurtarma noktası hedefi) hello yük devretme tüm hello veri sahip olduktan sonra oluşturulan sanal boyunca makinenin olarak çoğaltılmış tooSite kurtarma hizmeti.
+    1.  **En son işlenen**: Site Recovery hizmeti tarafından işlenmiş olan hello kurtarma planı toohello en son kurtarma noktası tüm sanal makinelerin bu seçenek yöneltilir. Bir sanal makine yük devretme yapılırken hello son işlenen kurtarma noktasının zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tooindividual sanal makineye gidin ve bakmak **en son kurtarma noktası** bu bilgileri tooget döşeme. Hiçbir zaman harcanan şekilde işlenmemiş verileri tooprocess Merhaba, bu seçenek, bir düşük RTO (Kurtarma süresi hedefi) yük devretme seçeneği sağlar.
+    1.  **Son uygulama tutarlı**: Bu seçenek, Site Recovery hizmeti tarafından işlenmiş olan hello kurtarma planı toohello en son uygulama tutarlı bir kurtarma noktası tüm sanal makinelerin yöneltilir. Bir sanal makine yük devretme yapılırken hello son uygulamayla tutarlı kurtarma noktasının zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tooindividual sanal makineye gidin ve bakmak **en son kurtarma noktası** bu bilgileri tooget döşeme.
+    1.  **En son çoklu işlenen VM**: Bu seçenek yalnızca çoklu VM tutarlılığını en az bir sanal makineyle sahip kurtarma planları için kullanılabilir. Bir çoğaltma grubu yük devretme toohello son ortak çoklu VM tutarlı kurtarma parçası olan sanal makineleri gelin. Diğer sanal makineler yük devretme tootheir son işlenen kurtarma noktası.  
+    1.  **En son çoklu VM uygulamayla tutarlı**: Bu seçenek yalnızca çoklu VM tutarlılığı ON ile en az bir sanal makinenin kurtarma planları için kullanılabilir. Bir çoğaltma parçası olan sanal makinelere yük devretme toohello son ortak çoklu VM uygulamaları tutarlı kurtarma noktası gruplandırın. Diğer sanal makineler yük devretme tootheir en son uygulama tutarlı kurtarma noktası.
+    1.  **Özel**: bir sanal makinenin yük devretme testi yapmakta olduğunuz sonra bu seçeneği toofailover tooa belirli kurtarma noktası kullanabilirsiniz.
 
     > [!NOTE]
-    > Bir kurtarma noktası seçin seçeneğine yalnızca için Azure üzerinden başarısız oluyor.
+    > Merhaba seçeneği toochoose bir kurtarma noktası, yalnızca tooAzure başarısız olduğunda kullanılabilir.
     >
     >
 
 
-1. Bazı sanal makineler kurtarma planında üzerinden önceki çalışmada başarısız ve sanal makineleri hem kaynak hem de hedef konumunda etkin artık kullanabileceğiniz **değiştirme yönü** hangi yönde karar vermek için seçeneği Yük devretme gerçekleşmelidir.
-1. Azure'a devretmek ve veri şifreleme (VMM sunucusundan Hyper-v sanal makineleri yalnızca korumalı olduğunda geçerlidir) bulut için etkinleştirildi, **şifreleme anahtarı** , etkinleştirildiğinde verilmiş sertifikayı seçin VMM sunucusundaki Kurulum sırasında veri şifreleme.
-1. Seçin **yük devretme işlemine başlamadan önce makineyi kapatın** Site Kurtarma'nın bir kapanma kaynak sanal makinelerin yük devretme tetiklemeden yapmaya istiyorsanız. Kapatma başarısız olsa bile yük devretme devam eder.  
+1. Bazı hello kurtarma planında hello sanal makinelerin üzerinden önceki çalışmada başarısız ve hello sanal makineleri hem kaynak hem de hedef konumunda etkin artık kullanabileceğiniz **değiştirme yönü** seçeneği toodecide hello yönde hangi hello yük devretme gerçekleşmelidir.
+1. TooAzure çalıştırma işlemini gerçekleştiriyorsanız ve veri şifreleme (VMM sunucusundan Hyper-v sanal makineleri yalnızca korumalı olduğunda geçerlidir) hello bulut için etkinleştirildi, **şifreleme anahtarı** ne zaman verilmiş select hello sertifika, Merhaba VMM sunucusunda kurulumu sırasında veri şifrelemesi etkin.
+1. Seçin **yük devretme işlemine başlamadan önce makineyi kapatın** Site Recovery tooattempt toodo istiyorsanız, bir kapanma tetiklemeden önce kaynak sanal makinelerin hello yük devretme. Kapatma başarısız olsa bile yük devretme devam eder.  
 
     > [!NOTE]
-    > Hyper-v sanal makineleri durumunda henüz hizmete yük devretme tetiklemeden gönderilmedi şirket içi verileri eşitlemek bu seçeneği de çalışır.
+    > Bu seçenek, Hyper-v sanal makineleri durumunda henüz toohello hizmet hello yük devretme tetiklemeden gönderilmedi toosynchronize hello şirket içi veri de çalışır.
     >
     >
 
-1. Yük devretme işleminin ilerleyişini izleyin **işleri** sayfası. Planlanmamış bir yük devretme sırasında bir hata oluşmamasına olsa bile tamamlanıncaya kadar kurtarma planı çalıştırır.
-1. Yük devretme işleminden sonra sanal makine için oturum açarak doğrulayın. Sanal makine için başka bir kurtarma noktası gitmek istiyorsanız sonra kullanabileceğiniz **değiştirmek kurtarma noktası** seçeneği.
-1. Başarısız oldu memnun sonra sanal makine üzerinde yapabilecekleriniz **yürütme** yük devretme. Bu hizmetle birlikte kullanılabilir tüm kurtarma noktalarını siler ve **değiştirmek kurtarma noktası** seçeneği artık kullanılabilir.
+1. Merhaba üzerinde hello yük devretme işleminin ilerleyişini izleyebilirsiniz **işleri** sayfası. Planlanmamış bir yük devretme sırasında bir hata oluşmamasına olsa bile tamamlanıncaya kadar hello kurtarma planı çalıştırır.
+1. Merhaba yük devretme sonrasında hello sanal makine içinde tooit oturum açarak doğrulayın. Merhaba sanal makine için başka bir kurtarma noktası toogo istediğiniz sonra kullanabileceğiniz **değiştirmek kurtarma noktası** seçeneği.
+1. Yükü devredilen sanal makine üzerinde hello ile memnun sonra **yürütme** yük devretme hello. Bu hello hizmetiyle kullanılabilir tüm hello kurtarma noktalarını siler ve **değiştirmek kurtarma noktası** seçeneği artık kullanılabilir.
 
 ## <a name="planned-failover"></a>Planlanan yük devretme
-Dışında yük devretme, Site kurtarma desteği de kullanılarak korunan Hyper-V sanal makineler **planlanan yük devretme**. Bir sıfır veri kaybı yük devretme seçenek budur. Planlanmış bir yük devretme tetiklendiğinde, kaynak sanal makinelerden önce kapatmak, henüz eşitlenecek verileri eşitlenir ve ardından bir yük devretme tetiklenir.
+Dışında yük devretme, Site kurtarma desteği de kullanılarak korunan Hyper-V sanal makineler **planlanan yük devretme**. Bir sıfır veri kaybı yük devretme seçenek budur. Planlanmış bir yük devretme tetiklendiğinde ilk sanal makineleri hello veri aşağı, eşitlenen toobe eşitlenir ve ardından bir yük devretme tetiklenir henüz kapatılır kaynak hello.
 
 > [!NOTE]
-> Bir yük devretme Hyper-v sanal makineleri başka bir şirket içi siteye site içi içi birincil siteye geri dönün, öncelikle gerekir **ters çoğaltmak** sanal makine birincil siteye yedekleyin ve ardından bir yük devretmeyi tetikler. Birincil sanal makine için önce başlangıç kullanılabilir değilse, **ters çoğaltmak** sanal makine bir yedekten geri yüklemek zorunda.   
+> Yük devretme Hyper-v sanal makinelerden biri site tooanother şirket, şirket içi sitesi, toofirst sahip toocome geri toohello içi birincil site **ters çoğaltmak** hello sanal makine geri tooprimary site ve ardından bir yük devretmeyi tetikler. Merhaba birincil sanal makine ardından önce çok başlayarak kullanılabilir değilse,**ters çoğaltmak** toorestore hello sanal makine bir yedekten sahip.   
 >
 >
 
@@ -77,17 +77,17 @@ Dışında yük devretme, Site kurtarma desteği de kullanılarak korunan Hyper-
 Bir yük devretme tetiklendiğinde, aşağıdaki adımları içerir:
 
 1. Önkoşul denetimi: Bu adım, yük devretme için gerekli tüm koşulların karşılandığından sağlar
-1. Yük devretme: Bu adım verileri işler ve böylece dışında bir Azure sanal makinesi oluşturulabilir hazır kolaylaştırır. Seçmiş olmanız durumunda **son** kurtarma noktası bu adımı oluşturur, bir kurtarma noktası hizmete gönderilen verileri.
-1. Başlangıç: Bu adım önceki adımda işlenen veri kullanarak bir Azure sanal makine oluşturur.
+1. Yük devretme: Bu adım hello verilerini işler ve böylece dışında bir Azure sanal makinesi oluşturulabilir hazır yapar. Seçmiş olmanız durumunda **son** kurtarma noktası, bu adımı oluşturur bir kurtarma noktası toohello hizmeti gönderilen hello verileri.
+1. Başlangıç: Bu adım hello önceki adımda işlenen hello verileri kullanarak bir Azure sanal makinesi oluşturur.
 
 > [!WARNING]
-> **Etmekte iptal etme yük devretme**: yük devretme başlamadan önce sanal makine için çoğaltma durduruldu. Varsa, **iptal** bir ilerleme işinde yük devretme durdurur, ancak sanal makine başlatılmayacak çoğaltmak. Çoğaltma yeniden başlatılamıyor.
+> **Etmekte iptal etme yük devretme**: yük devretme başlatılmadan önce hello sanal makinesi için çoğaltma durduruldu. Varsa, **iptal** bir ilerleme işinde tooreplicate yük devretme durdurur ancak hello sanal makine başlatılmaz. Çoğaltma yeniden başlatılamıyor.
 >
 >
 
-## <a name="time-taken-for-failover-to-azure"></a>Azure'a yük devretme için harcanan süre
+## <a name="time-taken-for-failover-tooazure"></a>Yük devretme tooAzure için harcanan süre
 
-Bazı durumlarda, sanal makinelerin yük devretme genellikle tamamlamak için yaklaşık 8-10 dakika sürer bir ek ara adım gerektirir. Bu durumların olarak olan aşağıdaki:
+Bazı durumlarda, sanal makinelerin yük devretme genellikle, yaklaşık 8 too10 dakika toocomplete alır bir ek ara adım gerektirir. Bu durumların olarak olan aşağıdaki:
 
 * Mobility hizmeti 9.8 eski sürümünün kullanarak VMware sanal makineleri
 * Fiziksel sunucuları 
@@ -101,23 +101,23 @@ Bazı durumlarda, sanal makinelerin yük devretme genellikle tamamlamak için ya
     * ATAPI
 * VMware sanal makineleri'de, DHCP hizmeti, DHCP veya statik kullanarak yedeklemiş etkin olmayan IP adresleri
 
-Tüm diğer durumlarda bu ara adım gerekli değildir ve yük devretme için harcanan süre önemli ölçüde düşebilir. 
+Tüm hello diğer durumlarda bu ara adım gerekli değildir ve hello yük devretme için harcanan hello süre önemli ölçüde düşebilir. 
 
 
 
 
 
 ## <a name="using-scripts-in-failover"></a>Yük devretme kümesinde komut dosyalarını kullanma
-Bir yük devretme yaparken belirli eylemleri otomatik hale getirmek isteyebilirsiniz. Komut dosyalarını kullanabilirsiniz veya [Azure Otomasyon çalışma kitabı](site-recovery-runbook-automation.md) içinde [kurtarma planlarına](site-recovery-create-recovery-plans.md) Bunu yapmak için.
+Bir yük devretme yaparken belirli eylemleri tooautomate isteyebilirsiniz. Komut dosyalarını kullanabilirsiniz veya [Azure Otomasyon çalışma kitabı](site-recovery-runbook-automation.md) içinde [kurtarma planlarına](site-recovery-create-recovery-plans.md) toodo.
 
 ## <a name="other-considerations"></a>Diğer konular
-* **Sürücü harfi** — sanal makinelerde sürücü harfi ayarlayabileceğiniz yük devretme sonrasında korumak için **SAN ilkesini** sanal makine için **OnlineAll**. [Daha fazla bilgi](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+* **Sürücü harfi** — tooretain hello sürücü harfi yük devretme sonrasında sanal makinelerde hello ayarlayabilirsiniz **SAN ilkesini** çok hello sanal makine**OnlineAll**. [Daha fazla bilgi](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sanal makineler üzerinde başarısız oldu ve şirket içi veri merkezi kullanılabilir sonra yapmanız gerekenler [ **yeniden koruma** ](site-recovery-how-to-reprotect.md) VMware sanal makineleri şirket içi veri merkezine yedekleyin.
+Sanal makineler üzerinde başarısız oldu ve hello şirket içi veri merkezi kullanılabilir sonra yapmanız gerekenler [ **yeniden koruma** ](site-recovery-how-to-reprotect.md) toohello şirket içi veri merkezi VMware sanal makineleri yedekleyin.
 
-Kullanım [ **planlanan yük devretme** ](site-recovery-failback-from-azure-to-hyper-v.md) için seçenek **geri dönme** azure'dan şirket içi dön Hyper-v sanal makineleri.
+Kullanım [ **planlanan yük devretme** ](site-recovery-failback-from-azure-to-hyper-v.md) çok seçenek**geri dönme** Hyper-v sanal makineleri Azure'dan tooon içi yedekleyin.
 
-Üzerinden bir Hyper-v sanal makine başka bir veri merkezi bir VMM sunucusu tarafından yönetilen şirket içi ve birincil veri merkezi kullanılabilir, başarısız olursa, ardından **ters çoğaltmak** geri birincil veri için çoğaltma başlatma seçeneği Merkezi.
+Başarısız olan merkezi bir VMM sunucusu ve hello birincil veri merkezi tarafından yönetilen bir Hyper-v sanal makine tooanother şirket içi veri kullanılabilir, ardından **ters çoğaltmak** seçeneği toostart hello çoğaltma geri toohello birincil veri merkezi.

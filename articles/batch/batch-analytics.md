@@ -1,5 +1,5 @@
 ---
-title: Azure toplu analizi | Microsoft Docs
+title: aaaAzure toplu analizi | Microsoft Docs
 description: "Azure toplu analizi için başvuru."
 services: batch
 author: tamram
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.openlocfilehash: 7d634e1bb595a84b8af339e5bc5a483a7849e7f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 462fbad1ac522b485ae18c1e8891b9d2cabd45e0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="batch-analytics"></a>Toplu analizi
-Konular toplu analizi, olaylar ve Uyarılar için toplu service kaynakları kullanılabilir için başvuru bilgileri içerir.
+Toplu analizi Hello konularında hello olay ve Uyarılar için toplu service kaynakları kullanılabilir için başvuru bilgileri içerir.
 
 Bkz: [Azure Batch tanılama günlük](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) etkinleştirme ve toplu tanılama günlüklerini kullanma hakkında daha fazla bilgi.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
-Azure Batch hizmeti aşağıdaki tanılama günlük olayları belirli Batch kaynaklarını ömrü boyunca yayar.
+Hello Azure Batch hizmetinin belirli Batch kaynaklarını hello ömrü boyunca tanılama günlük olayları aşağıdaki hello yayar.
 
 **Hizmeti oturum açma olayları**
 * [Havuz oluşturma](batch-pool-create-event.md)

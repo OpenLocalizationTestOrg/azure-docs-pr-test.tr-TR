@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory konumlarında adlı | Microsoft Docs"
-description: "Konumları adlı yapılandırarak, kuruluşunuz tarafından sahip olunan IP adreslerini oluşturmak sahip önleyebilirsiniz Impossible için hatalı pozitif sonuç seyahat alışılmadık konumlara risk olayı türü."
+title: "Azure Active Directory'de aaaNamed konumları | Microsoft Docs"
+description: "Konumları adlı yapılandırarak IP sahip önleyebilirsiniz kuruluşunuz tarafından sahip olunan adresleri hello mümkün olmayan seyahat tooatypical konumları risk olay türü için hatalı pozitif sonuç oluşturur."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,48 +14,48 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ff31ded1d9d60e47e0ae5f01119de78cd7f2df38
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 591e4b94b2ec9d45e20c01711e922f9972e047e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory'de adlandırılmış konumları
 
-Azure Active Directory adlandırılmış konumlara özelliğiyle, kuruluşların güvenilir IP adres aralıklarını etiketleyebilirsiniz. Ortamınızda, adlandırılmış konumlarını algılanması bağlamında kullanabilirsiniz [risk olayları](active-directory-reporting-risk-events.md). Bu özellik için bildirilen hatalı pozitif uyarıların sayısını azaltır *Impossible seyahat alışılmadık konumlara* risk olayı türü. 
+Azure Active Directory konumları özelliği adlı hello ile kuruluşların güvenilir IP adres aralıklarını etiketleyebilirsiniz. Ortamınızda, adlandırılmış konumlarını hello algılanması hello bağlamda kullanabilirsiniz [risk olayları](active-directory-reporting-risk-events.md). Merhaba özelliği, hello hello için bildirilen hatalı pozitif uyarıların sayısını azaltmaya yardımcı olur *mümkün olmayan seyahat tooatypical konumları* risk olayı türü. 
 
 ## <a name="configuration"></a>Yapılandırma
 
-Adlandırılmış bir konumu yapılandırmak için:
+tooconfigure adlandırılmış bir konumu:
 
-1. Oturum [Azure portal](https://portal.azure.com) genel yönetici olarak.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) genel yönetici olarak.
 
-2. Sol bölmede **Azure Active Directory**.
+2. Merhaba sol bölmede **Azure Active Directory**.
 
-    ![Sol bölmede Azure Active Directory bağlantısı](./media/active-directory-named-locations/01.png)
+    ![Merhaba sol bölmede Hello Azure Active Directory bağlantısı](./media/active-directory-named-locations/01.png)
 
-3. Üzerinde **Azure Active Directory** dikey penceresindeki **güvenlik** 'yi tıklatın **koşullu erişim**.
+3. Merhaba üzerinde **Azure Active Directory** dikey penceresinde hello **güvenlik** 'yi tıklatın **koşullu erişim**.
 
-    ![Koşullu erişim komutu](./media/active-directory-named-locations/05.png)
-
-
-4. Üzerinde **koşullu erişim** dikey penceresindeki **Yönet** 'yi tıklatın **konumları adlı**.
-
-    ![Adlandırılmış konumları komutu](./media/active-directory-named-locations/06.png)
+    ![Merhaba koşullu erişim komutu](./media/active-directory-named-locations/05.png)
 
 
-5. Üzerinde **konumları adlı** dikey penceresinde tıklatın **yeni konum**.
+4. Merhaba üzerinde **koşullu erişim** dikey penceresinde hello **Yönet** 'yi tıklatın **konumları adlı**.
 
-    ![Yeni konum komutu](./media/active-directory-named-locations/07.png)
+    ![Merhaba adlandırılmış konumları komutu](./media/active-directory-named-locations/06.png)
 
 
-6. Üzerinde **yeni** dikey penceresinde aşağıdakileri yapın:
+5. Merhaba üzerinde **konumları adlı** dikey penceresinde tıklatın **yeni konum**.
 
-    ![Yeni bir dikey pencere](./media/active-directory-named-locations/08.png)
+    ![Merhaba yeni konum komutu](./media/active-directory-named-locations/07.png)
 
-    a. İçinde **adı** adlandırılmış konumunuz için bir ad yazın.
 
-    b. İçinde **IP aralıkları** bir IP aralığı yazın. IP aralığı içinde olması gereken *sınıfsız etki alanları arası yönlendirme* (CIDR) biçimi.  
+6. Merhaba üzerinde **yeni** dikey penceresinde, aşağıdaki hello:
+
+    ![Merhaba yeni dikey penceresi](./media/active-directory-named-locations/08.png)
+
+    a. Merhaba, **adı** adlandırılmış konumunuz için bir ad yazın.
+
+    b. Merhaba, **IP aralıkları** bir IP aralığı yazın. Merhaba IP aralığı gereken hello toobe *sınıfsız etki alanları arası yönlendirme* (CIDR) biçimi.  
 
     c. **Oluştur**'a tıklayın.
 
@@ -63,15 +63,15 @@ Adlandırılmış bir konumu yapılandırmak için:
 
 ## <a name="what-you-should-know"></a>Bilmeniz gerekenler
 
-**Toplu güncelleştirmeler**: oluşturduğunuzda veya toplu güncelleştirmeler için adlandırılmış konumlarını güncelleştirin karşıya yükleme veya IP aralıklarını içeren bir CSV dosyası indirme. Karşıya yükleme IP aralıklarını dosyasında listenin üzerine yerine listesine ekler.
+**Toplu güncelleştirmeler**: oluşturduğunuzda veya toplu güncelleştirmeler için adlandırılmış konumlarını güncelleştirin karşıya yükleme veya hello IP aralıklarını içeren bir CSV dosyası indirme. Karşıya yükleme hello IP aralıkları hello listesi üzerine yerine hello dosya toohello listesinde ekler.
 
-![Karşıya yükleme ve indirme bağlantıları](./media/active-directory-named-locations/09.png)
+![Merhaba karşıya ve karşıdan yükleme bağlantıları](./media/active-directory-named-locations/09.png)
 
 
-**Sınırlamalar**: en fazla 60 adlandırılmış konumları, her birine atanan bir IP aralığı ile tanımlayabilirsiniz. Yapılandırılmış tek bir adlandırılmış konumunuz varsa, en fazla 500 IP aralıkları için tanımlayabilirsiniz.
+**Sınırlamalar**: en fazla 60 adlandırılmış konumları, bunların bir IP aralığı atanan tooeach ile tanımlayabilirsiniz. Yapılandırılmış tek bir adlandırılmış konumunuz varsa too500 IP aralıkları için tanımlayabilirsiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Risk olaylar hakkında daha fazla bilgi için bkz: [Azure Active Directory risk olaylarını](active-directory-reporting-risk-events.md).
+toolearn risk olaylar hakkında daha fazla bilgi görmek [Azure Active Directory risk olaylarını](active-directory-reporting-risk-events.md).
 

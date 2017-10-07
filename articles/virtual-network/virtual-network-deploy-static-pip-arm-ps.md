@@ -1,6 +1,6 @@
 ---
-title: "Bir statik genel IP adresi ile - Azure PowerShell bir VM oluşturma | Microsoft Docs"
-description: "PowerShell kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin."
+title: bir statik genel IP adresi - Azure PowerShell ile bir VM aaaCreate | Microsoft Docs
+description: "Nasıl toocreate VM bir statik genel IP adresi PowerShell'i kullanma hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c413d3cb5c242a16f3e534dafe322785a35141
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d2b88319cb114b8616f60dbee41e8fdc6d8b1b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>PowerShell kullanarak bir statik genel IP adresiyle bir VM oluşturma
 
@@ -34,16 +34,16 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft önerir Resource Manager dağıtım modelini kullanarak yer almaktadır.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makalede, Microsoft hello Klasik dağıtım modeli yerine çoğu yeni dağıtımlar için önerir hello Resource Manager dağıtım modeli kullanılarak kapsar.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="step-1---start-your-script"></a>1. adım - kodunuzu Başlat
-Kullanılan tam PowerShell komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları izleyin.
+Kullanılan hello tam PowerShell komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Ortamınızdaki toochange hello betik toowork Hello adımları izleyin.
 
-Dağıtımınız için kullanmak istediğiniz değerleri temel alarak aşağıdaki değişkenlerinin değerlerini değiştirin. Bu makalede kullanılan senaryo için aşağıdaki değerleri eşleyin:
+Merhaba değerlerini değiştirin dağıtımınız için toouse istediğiniz hello değişkenleri aşağıdaki hello değerlerine göre. Bu makalede kullanılan değerleri harita toohello senaryo aşağıdaki hello:
 
 ```powershell
 # Set variables resource group
@@ -74,8 +74,8 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a>Adım 2 - gerekli kaynaklar için VM oluşturma
-Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafından kullanılacak gerekir.
+## <a name="step-2---create-hello-necessary-resources-for-your-vm"></a>2. adım - hello gerekli kaynaklar için VM oluşturma
+Bir VM oluşturmadan önce bir kaynak grubu, VNet, ortak IP ve NIC ihtiyacınız toobe hello VM tarafından kullanılır.
 
 1. Yeni bir kaynak grubu oluşturun.
 
@@ -83,7 +83,7 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
     New-AzureRmResourceGroup -Name $rgName -Location $location
     ```
 
-2. VNet ve alt ağ oluşturun.
+2. Oluşturma VNet ve alt ağ hello.
 
     ```powershell
     $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName `
@@ -95,14 +95,14 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-3. Genel IP kaynağı oluşturun. 
+3. Merhaba genel IP kaynağı oluşturun. 
 
     ```powershell
     $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName `
         -AllocationMethod Static -DomainNameLabel $dnsName -Location $location
     ```
 
-4. Yukarıdaki genel IP ile oluşturulan alt ağdaki sanal makine için ağ arabirimi (NIC) oluşturun. Azure VNet alma ilk cmdlet dikkat edin, bu yana gereklidir bir `Set-AzureRmVirtualNetwork` mevcut VNet değiştirmek için yürütüldü.
+4. Yukarıdaki hello genel IP ile oluşturulan hello alt hello VM için Hello ağ arabirimi (NIC) oluşturun. Azure'dan Hello VNet alma ilk cmdlet hello dikkat edin, bu yana gereklidir bir `Set-AzureRmVirtualNetwork` oluştu yürütülen toochange hello mevcut VNet.
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
@@ -112,26 +112,26 @@ Bir VM oluşturmadan önce bir kaynak grubu, VNet, genel IP ve NIC VM tarafında
         -PublicIpAddress $pip
     ```
 
-5. VM işletim sistemi sürücüsünü barındırmak için bir depolama hesabı oluşturun.
+5. Bir depolama hesabı toohost hello VM işletim sistemi sürücüsü oluşturun.
 
     ```powershell
     $stdStorageAccount = New-AzureRmStorageAccount -Name $stdStorageAccountName `
     -ResourceGroupName $rgName -Type Standard_LRS -Location $location
     ```
 
-## <a name="step-3---create-the-vm"></a>3. adım - VM oluşturma
+## <a name="step-3---create-hello-vm"></a>3. adım - hello VM oluşturma
 Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsiniz.
 
-1. VM için yapılandırma nesnesi oluşturun.
+1. Merhaba VM için Hello yapılandırma nesnesi oluşturun.
 
     ```powershell
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
     ```
 
-2. VM yerel yönetici hesabı için kimlik bilgilerini alın.
+2. Merhaba VM yerel yönetici hesabının kimlik bilgilerini alın.
 
     ```powershell
-    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
+    $cred = Get-Credential -Message "Type hello name and password for hello local administrator account."
     ```
 
 3. Bir VM yapılandırma nesnesi oluşturun.
@@ -141,39 +141,39 @@ Gereken tüm kaynakların yerine getirildiğinden, yeni bir VM oluşturabilirsin
         -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
     ```
 
-4. VM için işletim sistemi görüntüsünü ayarlayın.
+4. Merhaba işletim sistemi görüntüsü hello VM için ayarlayın.
 
     ```powershell
     $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher `
         -Offer $offer -Skus $sku -Version $version
     ```
 
-5. İşletim sistemi diski yapılandırın.
+5. Merhaba işletim sistemi diski yapılandırın.
 
     ```powershell
     $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
     $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
     ```
 
-6. NIC VM'ye ekleyin.
+6. Merhaba NIC toohello VM ekleyin.
 
     ```powershell
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id -Primary
     ```
 
-7. VM oluşturun.
+7. Merhaba VM oluşturun.
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName $rgName -Location $location
     ```
 
-8. Komut dosyasını kaydedin.
+8. Merhaba komut dosyasını kaydedin.
 
-## <a name="step-4---run-the-script"></a>Adım 4 - komut dosyasını çalıştır
-Gerekli değişiklikleri yapma ve komut dosyası anlama sonra yukarıda Göster, komut dosyasını çalıştırın. 
+## <a name="step-4---run-hello-script"></a>Adım 4 - çalışma hello komut dosyası
+Gerekli değişiklikleri yapma ve hello betik anlama sonra yukarıda Göster, hello komut dosyasını çalıştırın. 
 
-1. Bir PowerShell konsolunu veya PowerShell ISE, yukarıdaki komut dosyasını çalıştırın.
-2. Birkaç dakika sonra aşağıdaki çıkış görüntülenmesi gerekir:
+1. Bir PowerShell konsolunu veya PowerShell ISE, yukarıdaki hello betiği çalıştırın.
+2. Çıktı aşağıdaki hello birkaç dakika sonra görüntülenmesi gerekir:
    
         ResourceGroupName : IaaSStory
         Location          : westus

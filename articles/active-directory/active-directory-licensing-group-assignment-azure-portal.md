@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'deki bir gruba lisans atamak | Microsoft Docs
-description: "Azure Active Directory Grup lisans yoluyla kullanıcılara lisanslar atama"
+title: "Azure Active Directory'de aaaAssign lisansları tooa grubunun | Microsoft Docs"
+description: "Azure Active Directory Grup lisans yoluyla tooassign toousers nasıl lisansları"
 services: active-directory
 keywords: Azure AD lisanslama
 documentationcenter: 
@@ -16,95 +16,95 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 148fe1bdd6c7f477a00c1f76bd8fa7d29c7b1f2c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory'de Grup üyeliğiyle kullanıcılara lisansları atama
+# <a name="assign-licenses-toousers-by-group-membership-in-azure-active-directory"></a>Azure Active Directory'de Grup üyeliğiyle lisansları toousers atayın
 
-Bu makalede, Azure Active Directory'de (Azure AD) kullanıcı grubu ürün lisansları atamak ve bunlar doğru lisansa sahip emin doğrulama anlatılmaktadır.
+Bu makalede, Azure Active Directory'de (Azure AD) kullanıcı ürün lisansları tooa grubu atama ve bunlar doğru lisansa sahip emin doğrulama anlatılmaktadır.
 
-Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu grubun tüm üyelerini İnsan Kaynakları departmanı (yaklaşık 1.000 kullanıcı) içerir. Tüm departman Office 365 Kurumsal E3 lisansları atamak istediğiniz. Departman kullanmaya başlamak için hazır olana kadar ürüne dahil Yammer Kurumsal hizmeti geçici olarak devre dışı bırakılmalıdır. Enterprise Mobility + güvenlik lisansları kullanıcılar aynı gruba dağıtmak istiyorsunuz.
+Bu örnekte, hello Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu grubun tüm üyelerini hello İnsan Kaynakları departmanı (yaklaşık 1.000 kullanıcı) içerir. Office 365 Kurumsal E3 tooassign lisansları toohello tüm departman istiyor. Hello departmanı kullanmaya hazır toostart kadar hello hello ürüne dahil Yammer Kurumsal hizmeti geçici olarak devre dışı bırakılması gerekir. Ayrıca toodeploy Enterprise Mobility istediğiniz + güvenlik lisansları toohello aynı kullanıcı grubunu.
 
 > [!NOTE]
-> Bazı Microsoft Hizmetleri tüm konumlarda kullanılabilir değil. Bir kullanıcıya bir lisans atanabilmesi için önce kullanıcı kullanım konumu özelliği belirtmek yönetici vardır.
+> Bazı Microsoft Hizmetleri tüm konumlarda kullanılabilir değil. Bir lisans tooa kullanıcı atanabilmesi için önce Merhaba yönetici hello kullanıcı toospecify hello kullanım konumu özelliği sahip.
 
-> Grup lisans atama için belirtilen bir kullanım konumu olmayan tüm kullanıcılar dizininin konumunu devralır. Birden çok konumda kullanıcılar varsa, her zaman kullanım konumu, lisans atama sonucu garanti eder (örneğin AAD Connect yapılandırması aracılığıyla) - Azure AD Kullanıcı oluşturma akışında parçası her zaman doğru olduğundan ve kullanıcıların almadığınız olarak ayarlamanızı öneririz izin verilmeyen konumlarda Hizmetleri.
+> Grup lisans atama için belirtilen bir kullanım konumu olmayan tüm kullanıcılar hello dizininin hello konumu devralır. Birden çok konumda kullanıcılar varsa, her zaman kullanım konumu, kullanıcı oluşturma akışının bir parçası, lisans atamasını hello sonucu her zaman doğru olduğundan ve kullanıcıların almadığınız sağlayacak Azure AD'de (örneğin AAD Connect yapılandırması aracılığıyla) - ayarlamanızı öneririz izin verilmeyen konumlarda Hizmetleri.
 
-## <a name="step-1-assign-the-required-licenses"></a>1. adım: gerekli lisansları atama
+## <a name="step-1-assign-hello-required-licenses"></a>1. adım: gerekli hello lisansları atama
 
-1. Oturum [ **Azure portal** ](https://portal.azure.com) bir yönetici hesabıyla. Lisansları yönetmek için hesabın bir genel yönetici rolü veya kullanıcı hesabının yönetici olması gerekir.
+1. İçinde toohello oturum [ **Azure portal** ](https://portal.azure.com) bir yönetici hesabıyla. toomanage lisansları, hello hesap genel yönetici rolü veya kullanıcı hesabının yönetici olması gerekir.
 
-2. Seçin **daha fazla hizmet** sol gezinti bölmesinde ve ardından **Azure Active Directory**. Bu dikey Sık Kullanılanlara Ekle veya portal panosuna sabitleyin.
+2. Seçin **daha fazla hizmet** sol gezinti bölmesinde hello ve ardından **Azure Active Directory**. Bu dikey tooFavorites ekleyebilir veya toohello portalı panosunun sabitleyin.
 
-3. Üzerinde **Azure Active Directory** dikey penceresinde, select **lisansları**. Burada görmek ve kiracıdaki tüm lisanslanabilir ürünlerini yönetmek bir dikey pencere açılır.
+3. Merhaba üzerinde **Azure Active Directory** dikey penceresinde, select **lisansları**. Burada görmek ve hello kiracıdaki tüm lisanslanabilir ürünlerini yönetmek bir dikey pencere açılır.
 
-4. Altında **tüm ürünleri**, Office 365 Kurumsal E3 ve Enterprise Mobility + Security ürün adları işaretleyerek seçin. Atama başlatmak için **atamak** dikey pencerenin üstündeki.
+4. Altında **tüm ürünleri**, Office 365 Kurumsal E3 ve Enterprise Mobility + Security hello ürün adları işaretleyerek seçin. toostart hello atama, select **atamak** hello dikey penceresinde hello üstünde.
 
    ![Tüm ürünlerin lisans atayın](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
-5. Üzerinde **Ata lisans** dikey penceresinde tıklatın **kullanıcılar ve gruplar** açmak için **kullanıcılar ve gruplar** dikey. Grup adı arayın *ik departmanı*grubu seçin ve sonra onaylamak emin **seçin** dikey pencerenin altındaki.
+5. Merhaba üzerinde **Ata lisans** dikey penceresinde tıklatın **kullanıcılar ve gruplar** tooopen hello **kullanıcılar ve gruplar** dikey. Merhaba grup adı arayın *ik departmanı*hello grubu seçin ve ardından tıklayarak emin tooconfirm olması **seçin** hello dikey penceresinde hello sonundaki.
 
    ![Bir grup seçin](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. Üzerinde **Ata lisans** dikey penceresinde tıklatın **atama seçenekleri (isteğe bağlı)**, daha önce seçilen iki ürünü de dahil tüm hizmet planlarını görüntüler. Bul **Yammer Kurumsal** ve açıp **devre dışı** bu ürünün lisans hizmetinden devre dışı bırakmak için. Tıklayarak onaylayın **Tamam** alt kısmındaki **atama seçenekleri**.
+6. Merhaba üzerinde **Ata lisans** dikey penceresinde tıklatın **atama seçenekleri (isteğe bağlı)**, hello daha önce seçilen iki ürün dahil olan tüm hizmet planlarını görüntüler. Bul **Yammer Kurumsal** ve açıp **devre dışı** hello ürün lisansıyla hizmet toodisable. Tıklayarak onaylayın **Tamam** hello altındaki **atama seçenekleri**.
 
    ![Atama seçenekleri](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. Atama tamamlamak için **Ata lisans** dikey penceresinde tıklatın **atamak** dikey pencerenin altındaki.
+7. Merhaba de toocomplete hello atamada **Ata lisans** dikey penceresinde tıklatın **atamak** hello dikey penceresinde hello sonundaki.
 
-8. Bir bildirim durumunu ve işleminin sonucunu gösteren sağ üst köşesinde görüntülenir. Grubuna atama (örneğin, nedeniyle önceden var olan lisans grubunda) tamamlanamadı, hatanın ayrıntıları görüntülemek için bildirime tıklatın.
+8. Bir bildirim hello durumunu ve hello işleminin sonucunu gösteren hello sağ üst köşesinde içinde görüntülenir. Merhaba atama toohello grubu (örneğin, nedeniyle önceden var olan lisans hello grubundaki) tamamlanamadı, hello hatanın hello bildirim tooview Ayrıntılar'ı tıklatın.
 
-Biz şimdi ik departmanı grubu için bir lisans şablonu belirlediniz. Bu grup tüm var olan üyelerine işlemek için Azure AD'de bir arka plan işlemi başlatıldı. Bu ilk işlemi grubun geçerli boyutuna bağlı olarak biraz zaman alabilir. Sonraki adımda, biz işlemin tamamlandığını doğrulayın ve daha fazla dikkat sorunları gidermek için gerekip gerekmediğini belirleyin anlatmaktadır.
+Biz şimdi hello ik departmanı grubu için bir lisans şablonu belirlediniz. Azure AD'de bir arka plan işlemi başlatıldı tooprocess tüm varolan grubun üyesi olmuştur. Bu ilk işlemi hello grubunun geçerli boyutunu hello bağlı olarak biraz zaman alabilir. Hello sonraki adımda, biz tooverify hello işlem nasıl bitirdi açıklamakta ve başka ilgilenilmesi gereken tooresolve sorunları olup olmadığını.
 
 > [!NOTE]
-> Alternatif bir konumdan aynı atama başlatabilirsiniz: **kullanıcılar ve gruplar** Azure AD'de. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Grup bulmak, seçmek ve Git **lisansları** sekmesi. **Atamak** düğmesi dikey pencerenin en üstünde, lisans atama dikey penceresini açar.
+> Başlatmak için alternatif bir konum aynı atama hello: **kullanıcılar ve gruplar** Azure AD'de. Çok Git**Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Hello grup bulmak, seçmek ve Git toohello **lisansları** sekmesini hello **atamak** düğme hello dikey üstünde hello lisans atama dikey penceresinde açar.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2. adım: ilk atama tamamlandığını doğrulama
+## <a name="step-2-verify-that-hello-initial-assignment-has-finished"></a>2. adım: hello ilk atama tamamlandığını doğrulama
 
-1. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Ardından bulmak **ik departmanı** lisansı atanmış olan grup.
+1. Çok Git**Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Hello bulur **ik departmanı** lisansı atanmış olan grup.
 
-2. Üzerinde **ik departmanı** grubu dikey penceresi, select **lisansları**. Bu, hızlı bir şekilde lisanslarını kullanıcılara tam olarak atanmışsa ve içine aramak için gereken herhangi bir hata varsa doğrulamanıza olanak tanır. Aşağıdaki bilgiler sağlanır:
+2. Merhaba üzerinde **ik departmanı** grubu dikey penceresi, select **lisansları**. Bu, hızlı bir şekilde lisansları toousers tam olarak atanmışsa ve içine toolook gereken herhangi bir hata varsa doğrulamanıza olanak tanır. Aşağıdaki bilgilerle hello kullanılabilir:
 
-   - Gruba atanmış olan ürün lisansları listesi. Etkinleştirilmiş belirli hizmetleri göstermek için ve değişiklik yapmak için bir girişi seçin.
+   - Şu anda ürün lisansları listesi toohello grubuna atanmış. Etkinleştirilmiş bir giriş tooshow hello belirli hizmetleri seçin ve toomake değiştirir.
 
-   - Gruba (değişiklikleri işlenmekte olan veya tüm kullanıcı üyeler için işlemeyi bitirdikten varsa) yapılan en son lisans değişiklikleri durumu.
+   - Toohello grubu (Merhaba değişiklikleri işlenmekte olan veya tüm kullanıcı üyeler için işlemeyi bitirdikten varsa) yapılan hello en son lisans değişiklikler durumu.
 
-   - Lisansları atanamıyor çünkü bir hata durumunda onlara kullanıcılar hakkında bilgi.
+   - Lisansları toothem atanamıyor çünkü bir hata durumunda olan kullanıcılar hakkında bilgi.
 
    ![Atama seçenekleri](media/active-directory-licensing-group-assignment-azure-portal/assignment-errors.png)
 
-3. Daha ayrıntılı lisans altında işleme hakkında bilgi **Azure Active Directory** > **kullanıcılar ve gruplar** > *grup adı*  >  **Denetim günlüklerini**. Aşağıdaki etkinlikler dikkat edin:
+3. Daha ayrıntılı lisans altında işleme hakkında bilgi **Azure Active Directory** > **kullanıcılar ve gruplar** > *grup adı*  >  **Denetim günlüklerini**. Etkinlikleri izleyerek hello dikkat edin:
 
-   - Etkinliği: **göre grubundaki lisans kullanıcılara uygulama Başlat**. Sistem grubu lisans atamasını değişiminde seçer ve tüm kullanıcı üyelerine uygulama başladığında bu günlüğe kaydedilir. Yapılan değişiklikler hakkında bilgi içerir.
+   - Etkinliği: **göre grubundaki lisans toousers uygulama Başlat**. Merhaba sistem hello lisans atamasını değişiminde hello grubu ve tooall kullanıcı üyeleri uygulama başlatıldığında seçer bu günlüğe kaydedilir. Yapıldığı hello değiştirme hakkında bilgi içerir.
 
-   - Etkinliği: **göre grubundaki lisans kullanıcılara uygulama son**. Sistem gruptaki tüm kullanıcılar işlemeyi tamamladığında bu günlüğe kaydedilir. Kaç kullanıcı başarıyla işlendi ve kaç kullanıcı grubu lisansları atanamıyor özetini içerir.
+   - Etkinliği: **göre grubundaki lisans toousers uygulama son**. Merhaba sistem hello gruptaki tüm kullanıcılar işlemeyi tamamladığında bu günlüğe kaydedilir. Kaç kullanıcı başarıyla işlendi ve kaç kullanıcı grubu lisansları atanamıyor özetini içerir.
 
-   [Bu bölümde okuma](./active-directory-licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) grup tabanlı lisans tarafından yapılan değişiklikleri analiz etmek için denetim günlüklerini nasıl kullanılabileceği hakkında daha fazla bilgi edinmek için.
+   [Bu bölümde okuma](./active-directory-licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) toolearn denetim günlüklerini grup tabanlı lisans tarafından kullanılan tooanalyze değişikliklerinin nasıl olabilir hakkında daha fazla bilgi.
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3. adım: lisans sorunlarını denetleyin ve çözümleyin
 
-1. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**ve Bul **ik departmanı** lisansı atanmış olan grup.
-2. Üzerinde **ik departmanı** grubu dikey penceresi, select **lisansları**. Dikey pencerenin en üstünde bildirim lisansları için atanamıyor 10 kullanıcıları gösterir. Tıklatarak bu grup için bir lisans hatası durumunda tüm kullanıcıların listesini açar.
-3. **Başarısız atamalar** sütun söyler bize her iki ürün lisansları kullanıcılara atanamıyor. **Üst başarısızlık nedeni** sütun hatanın nedenini içerir. Bu durumda, sahip **çakışan hizmet planları**.
+1. Çok Git**Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**, hello bulun **ik departmanı**lisansı atanmış olan grup.
+2. Merhaba üzerinde **ik departmanı** grubu dikey penceresi, select **lisansları**. Merhaba bildirim hello dikey üstünde lisansları için atanamıyor 10 kullanıcıları gösterir. Tıklatarak bu grup için bir lisans hatası durumunda tüm kullanıcıların listesini açar.
+3. Merhaba **başarısız atamalar** sütun söyler bize her iki ürün lisansları toohello kullanıcılar atanamıyor. Merhaba **üst başarısızlık nedeni** sütun hello hatanın nedenini hello içerir. Bu durumda, sahip **çakışan hizmet planları**.
 
    ![Başarısız atamalar](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. Açmak için bir kullanıcı seçin **lisansları** dikey. Bu dikey kullanıcıya atanmış olan tüm lisanslar gösterir. Bu örnekte, kullanıcının devralındığı Office 365 Kurumsal E1 lisans sahip **bilgi noktası kullanıcılar** grubu. Bu sistem, uygulamayı denedi E3 lisans çakışıyor **ik departmanı** grubu. Sonuç olarak, bu grubun lisanslarını hiçbiri kullanıcıya atandı.
+4. Bir kullanıcı tooopen hello seçin **lisansları** dikey. Bu dikey toohello kullanıcı şu anda atanmış olan tüm lisanslar gösterir. Bu örnekte, hello kullanıcının hello devralındı hello Office 365 Kurumsal E1 lisans sahip **bilgi noktası kullanıcılar** grubu. Bu çalıştı sistem tooapply hello gelen hello hello E3 lisans çakışıyor **ik departmanı** grubu. Sonuç olarak, bu gruptan hello lisansları hiçbiri toohello kullanıcıya atandı.
 
    ![Bir kullanıcı için Görünüm lisansları](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 
-5. Bu çakışmayı çözmek için kullanıcıyı kaldırmak **bilgi noktası kullanıcılar** grubu. Azure AD değişikliği işledikten sonra **ik departmanı** lisansları doğru atanır.
+5. toosolve Kaldır hello hello kullanıcıdan bu çakışma **bilgi noktası kullanıcılar** grubu. Azure AD hello değişiklik işledikten sonra hello **ik departmanı** lisansları doğru atanır.
 
    ![Lisansı doğru atandı](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Grupları üzerinden lisans yönetimi için ayarlama özelliği hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+toolearn hello özelliği hakkında daha fazla lisans Yönetim grupları, üzerinden için ayarlanmış makaleler hello bakın:
 
 * [Grup tabanlı Azure Active Directory lisanslaması nedir?](active-directory-licensing-whatis-azure-portal.md)
 * [Azure Active Directory'deki bir gruba lisans sorunlarını tanımlama ve](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Azure Active Directory'de Grup tabanlı lisans için tek tek lisanslı kullanıcıları geçirme](active-directory-licensing-group-migration-azure-portal.md)
+* [Toomigrate tek tek kullanıcılar toogroup tabanlı Azure Active Directory'de lisanslama nasıl lisanslı](active-directory-licensing-group-migration-azure-portal.md)
 * [Azure Active Directory grup tabanlı ilave senaryolar lisanslama](active-directory-licensing-group-advanced.md)

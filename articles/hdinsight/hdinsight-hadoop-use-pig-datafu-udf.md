@@ -1,5 +1,5 @@
 ---
-title: "Pig hdınsight'ta - Azure ile DataFu kullanma | Microsoft Docs"
+title: "aaaUse DataFu Pig hdınsight'ta - Azure ile | Microsoft Docs"
 description: "DataFu Hadoop ile kullanmak için kitaplıkları koleksiyonudur. DataFu ile Pig Hdınsight kümenize kullanma hakkında bilgi edinin."
 services: hdinsight
 documentationcenter: 
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.openlocfilehash: 4de55f5f6c5605e9c6c8dd7ccac902b811d1b062
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 357ad8f9694cc590115289877e752bdd242bdadc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>Hdınsight üzerinde pig ile DataFu kullanma
 
-Hdınsight ile DataFu kullanmayı öğrenin. DataFu, hadoop'ta Pig ile kullanılmak üzere açık kaynak kitaplıkları koleksiyonudur.
+Bilgi nasıl toouse DataFu Hdınsight ile. DataFu, hadoop'ta Pig ile kullanılmak üzere açık kaynak kitaplıkları koleksiyonudur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -32,7 +32,7 @@ Hdınsight ile DataFu kullanmayı öğrenin. DataFu, hadoop'ta Pig ile kullanıl
 * Azure Hdınsight kümesi (Linux veya Windows tabanlı)
 
   > [!IMPORTANT]
-  > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Temel olarak bilindiğini [Pig kullanarak](hdinsight-use-pig.md)
 
@@ -43,43 +43,43 @@ Hdınsight ile DataFu kullanmayı öğrenin. DataFu, hadoop'ta Pig ile kullanıl
 >
 > Windows tabanlı bir küme veya Linux tabanlı küme 3.3 sürümünden daha yüksek kullanıyorsanız, bu bölümü atlayabilirsiniz.
 
-DataFu indirilir ve Maven deposundan yüklenir. Hdınsight kümenize DataFu eklemek için aşağıdaki adımları kullanın:
+DataFu indirilir ve hello Maven deposundan yüklenir. Aşağıdaki adımları tooadd DataFu tooyour Hdınsight kümesi hello kullan:
 
-1. SSH kullanarak Linux tabanlı Hdınsight kümenize bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH kullanarak tooyour Linux tabanlı Hdınsight kümesine bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Wget yardımcı programını kullanarak DataFu jar dosyasını karşıdan yüklemek için aşağıdaki komutu kullanın veya kopyalamak ve bağlantıyı yüklemeye başlamak için tarayıcınıza yapıştırın.
+2. Aşağıdaki komut toodownload hello DataFu jar dosyasına Hello wget yardımcı programını kullanarak hello kullanın veya kopyalayın ve tarayıcı toobegin hello karşıdan yüklemeniz hello bağlantı yapıştırın.
 
     ```
     wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
     ```
 
-3. Ardından, Hdınsight kümeniz için varsayılan depolama dosyası yükleyin. Dosyanın varsayılan yerleştirme depolama tüm düğümler için kullanılabilir kümede kolaylaştırır.
+3. Ardından, Hdınsight kümenizin hello dosya toodefault depolama karşıya yükleyin. Merhaba dosya varsayılan yerleştirme depolama kullanılabilir tooall düğümleri hello kümede kolaylaştırır.
 
     ```
     hdfs dfs -put datafu-1.2.0.jar /example/jars
     ```
 
     > [!NOTE]
-    > Önceki komut jar depolar `/example/jars` bu dizin küme depolama alanında zaten mevcut olduğundan. Hdınsight küme depolama alanında istediğiniz herhangi bir yerde kullanabilirsiniz.
+    > Merhaba önceki komut depolar hello jar `/example/jars` bu dizin hello küme depolama alanında zaten mevcut olduğundan. Hdınsight küme depolama alanında istediğiniz herhangi bir yerde kullanabilirsiniz.
 
 ## <a name="use-datafu-with-pig"></a>DataFu ile Pig kullanma
 
-Bu bölümdeki adımları Pig Hdınsight'ta kullandıysanız olduğunu varsayar. Hdınsight ile Pig kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile Pig kullanma](hdinsight-use-pig.md).
+Bu bölümdeki Hello adımları Pig Hdınsight'ta kullandıysanız olduğunu varsayar. Hdınsight ile Pig kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile Pig kullanma](hdinsight-use-pig.md).
 
 > [!IMPORTANT]
-> Önceki bölümde yer alan adımları kullanarak DataFu el ile yüklediyseniz, kullanmadan önce kaydetmelisiniz.
+> El ile DataFu hello önceki bölümde hello adımları kullanarak yüklediyseniz, kullanmadan önce kaydetmelisiniz.
 >
 > * Kümenizi Azure Storage kullanıyorsa kullanın bir `wasb://` yolu. Örneğin, `register wasb:///example/jars/datafu-1.2.0.jar`.
 >
 > * Kümenizi Azure Data Lake Store kullanıyorsa kullanın bir `adl://` yolu. Örneğin, `register adl://home/example/jars/datafu-1.2.0.jar`.
 
-Genellikle DataFu işlevler için diğer ad tanımlayabilirsiniz. Aşağıdaki örnek, bir diğer ad tanımlar `SHA`:
+Genellikle DataFu işlevler için diğer ad tanımlayabilirsiniz. Merhaba aşağıdaki örnek tanımlayan bir diğer ad `SHA`:
 
 ```piglatin
 DEFINE SHA datafu.pig.hash.SHA();
 ```
 
-Ardından bu diğer adı Pig Latin komut dosyasında giriş verileri için karma oluşturmak için kullanabilirsiniz. Örneğin, aşağıdaki kodu giriş verilerini konumda karma değeri ile değiştirir:
+Bu diğer adı için giriş verileri hello bir Pig Latin betik toogenerate karma kullanın. Örneğin, hello aşağıdaki kodu hello giriş verisi hello konumda bir karma değeri ile değiştirir:
 
 ```piglatin
 raw = LOAD '/HdiSamples/HdiSamples/SensorSampleData/building/building.csv' USING
@@ -93,7 +93,7 @@ mask = FOREACH raw GENERATE int1, id1, int2, id2, SHA(location);
 DUMP mask;
 ```
 
-Şu çıkışı üretir:
+Çıktı aşağıdaki hello oluşturur:
 
     (1,M1,25,AC1000,aa5ab35a9174c2062b7f7697b33fafe5ce404cf5fecf6bfbbf0dc96ba0d90046)
     (2,M2,27,FN39TG,7a1ca4ef7515f7276bae7230545829c27810c9d9e98ab2c06066bee6270d5153)
@@ -118,7 +118,7 @@ DUMP mask;
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-DataFu veya Pig hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+DataFu veya Pig hakkında daha fazla bilgi için aşağıdaki belgeleri hello bakın:
 
 * [Apache DataFu Pig Kılavuzu](http://datafu.incubator.apache.org/docs/datafu/guide.html).
 * [HDInsight ile Pig kullanma](hdinsight-use-pig.md)

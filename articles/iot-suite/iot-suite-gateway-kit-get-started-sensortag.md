@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT paketi bir Intel NUC kullanarak bir ağ geçidine bağlanmak | Microsoft Docs"
-description: "Microsoft IOT ticari ağ geçidi Seti ve önceden yapılandırılmış Uzaktan izleme çözümü kullanın. Azure IOT sınır ağ geçidi SensorTag aygıtını Uzaktan izleme çözümüne bağlama, buluta telemetri göndermesine ve çözüm panodan çağrılan yöntemler yanıtlamak üzere etkinleştirmek için kullanın."
+title: "ağ geçidi tooAzure IOT paketi kullanarak bir Intel NUC aaaConnect | Microsoft Docs"
+description: "Merhaba Microsoft IOT ticari ağ geçidi Seti ve hello Uzaktan izleme önceden yapılandırılmış çözümü kullanın. Hello Azure IOT sınır ağ geçidi tooenable bir SensorTag aygıt tooconnect toohello Uzaktan izleme çözümü kullanın, telemetri toohello bulut gönderebilir ve hello çözüm panodan çağrılan toomethods yanıtlayabilir."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.openlocfilehash: bda16be1094276fcecef1e708f9d7db307d94a89
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6f98ee3c1e2311a8644da9d72d40e671e7cbcf00
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-azure-iot-edge-gateway-to-the-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>Önceden yapılandırılmış Uzaktan izleme çözümü, Azure IOT kenar ağ geçidine bağlanmak ve telemetri SensorTag gönderin
+# <a name="connect-your-azure-iot-edge-gateway-toohello-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>Uzaktan izleme çözümü, Azure IOT sınır ağ geçidi toohello bağlanmak ve SensorTag telemetri Gönder
 
 [!INCLUDE [iot-suite-gateway-kit-selector](../../includes/iot-suite-gateway-kit-selector.md)]
 
-Bu öğretici, Azure IOT kenar Uzaktan izleme önceden yapılandırılmış çözümü SensorTag aygıttan sıcaklık ve nem veri göndermek için nasıl kullanılacağını gösterir. SensorTag Intel NUC ağ geçidine Bluetooth kullanarak bağlanır. Öğretici kullanır:
+Bu öğretici nasıl çözüm toouse SensorTag aygıt toohello Uzaktan izleme Azure IOT kenar toosend sıcaklık ve nem verileri önceden yapılandırılmış gösterir. Merhaba SensorTag toohello Intel NUC ağ geçidi Bluetooth kullanarak bağlanır. Merhaba öğretici kullanır:
 
-- Bir örnek ağ geçidi uygulamak için Azure IOT kenar.
-- IOT paketi Uzaktan izleme çözümü bulut tabanlı arka uç önceden yapılandırılmış.
+- Azure IOT kenar tooimplement bir örnek ağ geçidi.
+- Merhaba IOT paketi Uzaktan izleme çözümü hello bulut tabanlı arka uç önceden yapılandırılmış.
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğreticide, aşağıdaki adımları tamamlayın:
+Bu öğreticide, hello aşağıdaki adımları tamamlayın:
 
-- Önceden yapılandırılmış Uzaktan izleme çözümü örneği Azure aboneliğinize dağıtın. Bu adım, otomatik olarak dağıtır ve birden çok Azure hizmetlerini yapılandırır.
-- Bilgisayarınız ve Uzaktan izleme çözümü ile iletişim kurmak için Intel NUC ağ geçidi aygıtınızı ayarlayın.
-- Intel NUC ağ geçidiniz SensorTag aygıttan telemetri almasına ve Uzaktan izleme Panosu göndermek için ayarlayın.
+- Merhaba Uzaktan izleme önceden yapılandırılmış çözüm tooyour Azure aboneliği örneği dağıtın. Bu adım, otomatik olarak dağıtır ve birden çok Azure hizmetlerini yapılandırır.
+- Intel NUC ağ geçidi aygıtı toocommunicate bilgisayarınızın ve hello Uzaktan izleme çözümü ile ayarlayın.
+- Intel NUC ağ geçidi tooreceive telemetrinize SensorTag aygıttan ayarlamak ve toohello Uzaktan izleme Panosu gönderebilirsiniz.
 
 [!INCLUDE [iot-suite-gateway-kit-prerequisites](../../includes/iot-suite-gateway-kit-prerequisites.md)]
 
-[Texas Instruments bırak SensorTag][lnk-sensortag]. Bu öğretici, SensorTag Aygıttan Bluetooth üzerinden telemetri verilerini alır.
+[Texas Instruments bırak SensorTag][lnk-sensortag]. Bu öğretici, hello SensorTag Aygıttan Bluetooth üzerinden telemetri verilerini alır.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> Uzaktan izleme çözümü Azure aboneliğinizde Azure Hizmetleri kümesi sağlar. Dağıtım gerçek Kurumsal Mimarisi yansıtır. Gereksiz Azure tüketim ücretleri önlemek için kendisiyle tamamladığınızda azureiotsuite.com önceden yapılandırılmış çözüm örneğiniz silin. Önceden yapılandırılmış çözümü yeniden gerekiyorsa, kolayca yeniden oluşturabilirsiniz. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config].
+> Uzaktan izleme çözümü hükümleri Azure aboneliğinizde Azure Hizmetleri kümesi hello. Merhaba dağıtım gerçek Kurumsal Mimarisi yansıtır. tooavoid gereksiz Azure tüketim ücretleri, kendisiyle tamamladığınızda azureiotsuite.com hello önceden yapılandırılmış çözüm örneğiniz silin. Önceden yapılandırılmış çözümü yeniden hello varsa, kolayca yeniden oluşturabilirsiniz. Merhaba Uzaktan izleme çözümü çalıştığında hatayla tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config].
 
 [!INCLUDE [iot-suite-gateway-kit-view-solution](../../includes/iot-suite-gateway-kit-view-solution.md)]
 
@@ -52,56 +52,56 @@ Bu öğreticide, aşağıdaki adımları tamamlayın:
 
 ## <a name="configure-bluetooth-connectivity"></a>Bluetooth bağlantısını yapılandır
 
-Bluetooth SensorTag aygıtını bağlanmak ve telemetri göndermek üzere etkinleştirmek için Intel NUC üzerinde yapılandırın.
+Bluetooth hello Intel NUC tooenable hello SensorTag aygıt tooconnect üzerinde yapılandırın ve telemetri gönderebilir.
 
-### <a name="find-the-mac-address-of-the-sensortag"></a>SensorTag MAC adresini Bul
+### <a name="find-hello-mac-address-of-hello-sensortag"></a>Merhaba SensorTag Hello MAC adresini Bul
 
-1. Intel NUC üzerinde kabuğunda Bluetooth hizmeti engellemesini kaldırmak için aşağıdaki komutu çalıştırın:
+1. Merhaba Intel NUC üzerinde Hello Kabuğu'nda komut toounblock hello Bluetooth hizmeti aşağıdaki hello çalıştırın:
 
     ```bash
     sudo rfkill unblock bluetooth
     ```
 
-1. Intel NUC Bluetooth hizmetini başlatın ve Bluetooth Kabuk girmek için aşağıdaki komutları çalıştırın:
+1. Çalışma hello aşağıdaki toostart hello Bluetooth hello Intel NUC hizmette komutları ve hello Bluetooth Kabuk girin:
 
     ```bash
     sudo systemctl start bluetooth
     bluetoothctl
     ```
 
-1. Aşağıdaki komutu güç Bluetooth denetleyicisinde çalıştırın:
+1. Komut toopower hello Bluetooth denetleyicisinde aşağıdaki hello çalıştırın:
 
     ```bash
     power on
     ```
 
-    Denetleyici açık olduğunda, bir ileti görür **güç değiştirme başarılı**.
+    Merhaba denetleyicisi açık olduğunda, bir ileti görür **güç değiştirme başarılı**.
 
-1. Yakındaki Bluetooth aygıtlarını taramak için aşağıdaki komutu çalıştırın:
+1. Bluetooth cihazları yakındaki komutu tooscan için aşağıdaki hello çalıştırın:
 
     ```bash
     scan on
     ```
 
-1. Bulunabilir duruma getirmek için SensorTag güç düğmesine basın. Yeşil ışığı yanıp sönen.
+1. Tuşuna hello güç düğmesine hello SensorTag toomake üzerinde onu bulunabilir. Merhaba yeşil ışığı yanıp sönen.
 
-1. Denetleyici SensorTag buldu Kabuğu'nda bir ileti gördüğünüzde, aygıtın MAC adresini not edin. MAC adresi benzer **A0:E6:F8:B5:F6:00**. Ağ geçidi yapılandırdığınızda öğreticide daha sonra MAC adresi gerekir.
+1. Merhaba Kabuğu'nda bir ileti görüntülendiğinde bu hello denetleyicisi hello SensorTag bulduğunda, hello hello aygıtın MAC adresini not edin. Merhaba MAC adresi arar gibi **A0:E6:F8:B5:F6:00**. Merhaba ağ geçidi yapılandırdığınızda, daha sonra hello öğreticide hello MAC adresi gerekir.
 
-1. Bluetooth tarama devre dışı bırakmak için aşağıdaki komutu çalıştırın:
+1. Bluetooth tarama kapalı komutu tooturn aşağıdaki hello çalıştırın:
 
     ```bash
     scan off
     ```
 
-1. SensorTag cihaza bağlanabildiğini doğrulamak için aşağıdaki komutu çalıştırın:
+1. Komut tooverify toohello SensorTag cihazın bağlanabilmesi için aşağıdaki hello çalıştırın:
 
     ```bash
     connect <SensorTag MAC address>
     ```
 
-    Başarıyla bağlanıyorsanız, kabuk iletisi gösterir **bağlantı başarılı** ve SensorTag aygıt hakkındaki bilgileri yazdırır. Bağlanamıyorsanız, onay SensorTag hala açık.
+    Başarıyla bağlanıyorsanız, selamlama iletisine hello Kabuk gösterir **bağlantı başarılı** ve hello SensorTag aygıt hakkındaki bilgileri yazdırır. Bağlanamıyorsanız, SensorTag hala açık olduğundan hello denetleyin.
 
-1. Şimdi, SensorTag bağlantısını kesmek ve aşağıdaki komutları çalıştırarak Bluetooth kabuktan çıkış:
+1. Şimdi SensorTag hello çıkarın ve hello aşağıdaki komutları çalıştırarak hello Bluetooth kabuktan çıkış:
 
     ```bash
     disconnect
@@ -110,18 +110,18 @@ Bluetooth SensorTag aygıtını bağlanmak ve telemetri göndermek üzere etkinl
 
 [!INCLUDE [iot-suite-gateway-kit-prepare-nuc-software](../../includes/iot-suite-gateway-kit-prepare-nuc-software.md)]
 
-## <a name="build-the-custom-iot-edge-module"></a>Özel IOT kenar modülü oluşturmak
+## <a name="build-hello-custom-iot-edge-module"></a>Merhaba özel IOT kenar modülü oluşturmak
 
-Şimdi, Uzaktan izleme çözümüne iletileri göndermek ağ geçidi sağlayan özel IOT kenar modülü de oluşturabilirsiniz. Bir ağ geçidi ve IOT kenar modülleri yapılandırma hakkında daha fazla bilgi için bkz: [Azure IOT kenar kavramları][lnk-gateway-concepts].
+Şimdi hello ağ geçidi toosend iletileri toohello Uzaktan izleme çözümü sağlayan hello özel IOT kenar modülü oluşturabilirsiniz. Bir ağ geçidi ve IOT kenar modülleri yapılandırma hakkında daha fazla bilgi için bkz: [Azure IOT kenar kavramları][lnk-gateway-concepts].
 
-Kaynak kodu özel IOT kenar modülleri için aşağıdaki komutları kullanarak Github'dan yükleyin:
+Merhaba kaynak kodu hello özel IOT kenar modülleri için aşağıdaki komutları hello kullanarak Github'dan indirin:
 
 ```bash
 cd ~
 git clone https://github.com/Azure-Samples/iot-remote-monitoring-c-intel-nuc-gateway-getting-started.git
 ```
 
-Aşağıdaki komutları kullanarak özel IOT kenar modülü oluşturun:
+Hello hello aşağıdaki komutları kullanarak özel IOT kenar modülü oluşturun:
 
 ```bash
 cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
@@ -130,22 +130,22 @@ sed -i -e 's/\r$//' build.sh
 ./build.sh
 ```
 
-Derleme betiğinin libsensor2remotemonitoring.so özel IOT kenar modülü oluşturma klasöründe yerleştirir.
+Merhaba derleme betiğindeki hello libsensor2remotemonitoring.so özel IOT kenar modülü hello yapı klasörüdür.
 
-## <a name="configure-and-run-the-iot-edge-gateway"></a>Yapılandırma ve IOT sınır ağ geçidi çalıştırma
+## <a name="configure-and-run-hello-iot-edge-gateway"></a>Yapılandırma ve hello IOT sınır ağ geçidi çalıştırma
 
-Telemetri, Uzaktan izleme Panosu SensorTag cihazınızdan göndermek için IOT sınır ağ geçidi artık yapılandırabilirsiniz. Bir ağ geçidi ve IOT kenar modülleri yapılandırma hakkında daha fazla bilgi için bkz: [Azure IOT kenar kavramları][lnk-gateway-concepts].
+Merhaba IOT sınır ağ geçidi toosend telemetri, SensorTag aygıt tooyour Uzaktan izleme Panosu artık yapılandırabilirsiniz. Bir ağ geçidi ve IOT kenar modülleri yapılandırma hakkında daha fazla bilgi için bkz: [Azure IOT kenar kavramları][lnk-gateway-concepts].
 
 > [!TIP]
-> Bu öğreticide kullandığınız standart `vi` Intel NUC üzerindeki metin düzenleyici. Değil kullandıysanız `vi` önce bir giriş öğretici gibi tamamlanacaksa [UNIX - VI Düzenleyicisi Öğreticisi] [ lnk-vi-tutorial] bu düzenleyicisiyle tanımak için. Alternatif olarak, daha kullanıcı dostu yükleyebilirsiniz [nano](https://www.nano-editor.org/) komutunu kullanarak Düzenleyicisi `smart install nano -y`.
+> Bu öğreticide kullandığınız hello standart `vi` hello Intel NUC üzerindeki metin düzenleyici. Değil kullandıysanız `vi` önce bir giriş öğretici gibi tamamlanmalıdır [UNIX - VI hello Düzenleyicisi Öğreticisi] [ lnk-vi-tutorial] toofamiliarize kendiniz bu düzenleyici ile. Alternatif olarak, daha kullanıcı dostu hello yükleyebilirsiniz [nano](https://www.nano-editor.org/) hello komutunu kullanarak Düzenleyicisi `smart install nano -y`.
 
-Örnek yapılandırma dosyasını açın **VI** Düzenleyicisi aşağıdaki komutu kullanarak:
+Merhaba açık hello örnek yapılandırma dosyasında **VI** Düzenleyici'yi komutu aşağıdaki hello kullanma:
 
 ```bash
 vi ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic/remote_monitoring.json
 ```
 
-Iothub modülü yapılandırmasında aşağıdaki satırları bulun:
+Merhaba Iothub modülü hello yapılandırmasında satırlardan hello bulun:
 
 ```json
 "args": {
@@ -155,9 +155,9 @@ Iothub modülü yapılandırmasında aşağıdaki satırları bulun:
 }
 ```
 
-Oluşturulan ve bu öğreticinin başlangıcında kaydedilen IOT hub'ı bilgilerle yer tutucu değerlerini değiştirin. IoTHubName değeri benzer **yourrmsolution37e08**, ve IoTSuffix değeri genellikle **azure devices.net**.
+Bu öğretici hello oluşturup hello kaydettiğiniz IOT hub'ı bilgi değerlerle Başlat hello yer tutucu değiştirin. IoTHubName Hello değeri arar gibi **yourrmsolution37e08**, ve IoTSuffix hello değeri genellikle **azure devices.net**.
 
-Eşleşme modülü yapılandırmasında aşağıdaki satırları bulun:
+Merhaba eşleme modülü hello yapılandırmasında satırlardan hello bulun:
 
 ```json
 args": [
@@ -169,9 +169,9 @@ args": [
 ]
 ```
 
-Değiştir **macAddress** yer tutucu daha önce not ettiğiniz, SensorTag MAC adresine sahip. Değiştir **DeviceID** ve **deviceKey** kimliklerini ve anahtarlarını Uzaktan izleme çözümünde daha önce oluşturduğunuz iki cihazlar için yer tutucularını.
+Hello yerine **macAddress** yer tutucu hello daha önce not ettiğiniz, SensorTag MAC adresine sahip. Hello yerine **DeviceID** ve **deviceKey** hello kimliklerini ve anahtarlarını hello Uzaktan izleme çözümünde daha önce oluşturduğunuz hello iki cihazlar için yer tutucularını.
 
-SensorTag modülü yapılandırmasında aşağıdaki satırları bulun:
+Merhaba SensorTag modülü hello yapılandırmasında satırlardan hello bulun:
 
 ```json
 "args": {
@@ -181,40 +181,40 @@ SensorTag modülü yapılandırmasında aşağıdaki satırları bulun:
 }
 ```
 
-Değiştir **aygıt\_mac\_adresi** yer tutucu daha önce not ettiğiniz, SensorTag MAC adresine sahip.
+Hello yerine **aygıt\_mac\_adresi** yer tutucu hello daha önce not ettiğiniz, SensorTag MAC adresine sahip.
 
 Yaptığınız değişiklikleri kaydedin.
 
-Aşağıdaki komutları kullanarak ağ geçidi artık çalıştırabilirsiniz:
+Şimdi hello ağ geçidi hello aşağıdaki komutları kullanarak da çalıştırabilirsiniz:
 
 ```bash
 cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
 /usr/share/azureiotgatewaysdk/samples/ble_gateway/ble_gateway remote_monitoring.json
 ```
 
-IOT sınır ağ geçidi üzerinde Intel NUC başlar ve telemetri SensorTag Uzaktan izleme çözümüne gönderir:
+Merhaba IOT sınır ağ geçidi Intel NUC hello üzerinde başlatır ve SensorTag toohello Uzaktan izleme çözümü hello telemetri gönderir:
 
-![IOT sınır ağ geçidi SensorTag telemetri gönderir][img-telemetry]
+![IOT sınır ağ geçidi SensorTag hello telemetri gönderir][img-telemetry]
 
-Tuşuna **Ctrl-C** herhangi bir zamanda programı'ndan çıkmak için.
+Tuşuna **Ctrl-C** tooexit hello program herhangi bir zamanda.
 
-## <a name="view-the-telemetry"></a>Telemetriyi görüntüleyebilir
+## <a name="view-hello-telemetry"></a>Görünüm hello telemetri
 
-Ağ geçidi artık telemetri SensorTag aygıttan Uzaktan izleme çözümüne gönderiyor. Çözüm panosunda telemetri görüntüleyebilirsiniz. Ayrıca komutları ağ geçidi üzerinden SensorTag aygıtınıza çözüm panosunda da gönderebilirsiniz.
+Merhaba ağ geçidi artık SensorTag aygıt toohello Uzaktan izleme çözümü hello telemetri gönderiyor. Merhaba telemetri hello çözüm panosunda görüntüleyebilirsiniz. Merhaba çözüm panodan komutları tooyour SensorTag aygıt hello ağ geçidi üzerinden de gönderebilirsiniz.
 
-- Çözüm panosuna gidin.
-- Yapılandırdığınız SensorTag temsil eden ağ geçidi cihazı seçin **cihaz görünümüne** açılır.
-- SensorTag cihaz telemetrisinden Panoda görüntüler.
+- Toohello çözüm Panosu gidin.
+- Select hello aygıt hello hello SensorTag temsil eden hello ağ geçidi olarak yapılandırılmış **aygıt tooView** açılır.
+- Merhaba telemetri hello SensorTag aygıttan hello Panoda görüntüler.
 
-![Telemetri SensorTag cihazlarından görüntüleme][img-telemetry-display]
+![Merhaba SensorTag cihazlarından telemetri görüntüleme][img-telemetry-display]
 
 > [!WARNING]
-> Azure hesabınızda çalıştıran uzaktan izleme çözümü bırakırsanız çalıştırıldığında için faturalandırılır. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config]. Bunu kullanmayı bitirdikten sonra önceden yapılandırılmış çözümü Azure hesabınızdan silin.
+> Merhaba Uzaktan izleme çözümü Azure hesabınızda çalışan bırakırsanız hello çalıştırıldığında için faturalandırılır. Merhaba Uzaktan izleme çözümü çalıştığında hatayla tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config]. Bunu kullanmayı bitirdikten sonra hello önceden yapılandırılmış çözümü Azure hesabınızdan silin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret [Azure IOT Geliştirme Merkezi](https://azure.microsoft.com/develop/iot/) daha fazla örnekleri ve Azure IOT belgeler.
+Merhaba ziyaret [Azure IOT Geliştirme Merkezi](https://azure.microsoft.com/develop/iot/) daha fazla örnekleri ve Azure IOT belgeler.
 
 [img-telemetry]: ./media/iot-suite-gateway-kit-get-started-sensortag/appoutput.png
 

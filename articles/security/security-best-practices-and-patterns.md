@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik en iyi yöntemler ve yaklaşımlar | Microsoft Docs"
-description: "Makaleyi en iyi güvenlik uygulamaları, Azure ve desenleri ve seçkin farklı Azure kaynakları için en iyi yöntemler listesini hakkında tanıtılmaktadır."
+title: "aaaAzure güvenlik en iyi yöntemler ve yaklaşımlar | Microsoft Docs"
+description: "Merhaba makale Azure en iyi güvenlik uygulamaları ve desenleri ve seçkin farklı Azure kaynakları için en iyi yöntemler listesini hakkında tanıtılmaktadır."
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: terrylan
-ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eaaa9457faa1d5906275eb1fd8988d4d4aad101a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure güvenlik en iyi uygulamaları ve desenleri
-Şu anda aşağıdaki Azure güvenlik en iyi uygulamaları ve desenleri makaleleri sahibiz. Düzenli aralıklarla Azure güvenlik en iyi yöntemler ve yaklaşımlar büyüyen listemiz güncelleştirmeleri görmek için bu siteyi ziyaret emin olun:  
+Şu anda Azure güvenlik en iyi yöntemler ve yaklaşımlar makaleler hello sunuyoruz. Bu site emin toovisit olun düzenli aralıklarla Azure güvenlik en iyi yöntemler ve yaklaşımlar büyüyen listesini tooour toosee güncelleştirir:  
 
 * [Azure ağı en iyi güvenlik uygulamaları](azure-security-network-security-best-practices.md)
 * [Azure veri güvenliği ve şifreleme için en iyi yöntemler](azure-security-data-encryption-best-practices.md)
@@ -32,18 +32,18 @@ ms.lasthandoff: 07/11/2017
 * [Azure’da güvenli karma ağ mimarisi uygulama](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 * [Azure PaaS en iyi yöntemler] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
-Azure çözümlerinizi yapı güvenli bir platform sağlar. Ayrıca Hizmetleri ve teknolojileriyle çözümlerinizi Azure üzerinde daha güvenli olmasını sağlamak için sunuyoruz. Kullanabileceğiniz birçok seçenek nedeniyle, birçoğu ne Microsoft en iyi yöntemler ve yaklaşımlar güvenlik geliştirme önerir, ilgi sesli.
+Azure çözümlerinizi yapı güvenli bir platform sağlar. Ayrıca Hizmetleri ve teknolojileriyle toomake çözümlerinizi daha güvenli Azure sunuyoruz. Merhaba nedeniyle pek çok seçenek kullanılabilir tooyou, birçoğu ne Microsoft en iyi yöntemler ve yaklaşımlar güvenlik geliştirme önerir, ilgi sesli.
 
-İlginiz anlamak ve yapabilirsiniz, verilen sağ bağlamda şeyleri açıklamak belgeleri topluluğu oluşturmuş olduğunuz Azure dağıtımları güvenliğini artırmak için.
+Biz ilginize anlamak ve hello sağ bağlamı tooimprove hello güvenlik Azure dağıtımlarını yapabileceğiniz işlemler açıklayan belgelerin koleksiyonu oluşturdunuz.
 
-Bu en iyi uygulamaları ve desenleri makaleleri en iyi yöntemler ve belirli konular için yararlı desenleri koleksiyonunu aşağıdakiler ele. Bu teknolojiler bizim deneyimleriyle bu en iyi yöntemler ve yaklaşımlar türetilmiş ve müşteri deneyimleri bulunun.
+Bu en iyi uygulamaları ve desenleri makaleleri en iyi yöntemler ve belirli konular için yararlı desenleri koleksiyonunu aşağıdakiler ele. Bu teknolojiler bizim deneyimleriyle bu en iyi yöntemler ve yaklaşımlar türetilmiş ve müşterilerin hello deneyimleri bulunun.
 
-Her en iyi yöntem biz açıklamak çalışmalarımızı:
+Her en iyi yöntem tooexplain çaba:
 
-* En iyi uygulama nedir
-* Bu en iyi uygulama etkinleştirmek istediğiniz neden
-* En iyi uygulama olarak etkinleştirmek başarısız olursa ne sonucu olabilir
-* En iyi uygulama için olası alternatifler
-* Nasıl en iyi uygulama olarak etkinleştirmek bilgi edinebilirsiniz
+* Hangi hello en iyi uygulamadır
+* Neden bu en iyi uygulama tooenable istiyor
+* Tooenable hello en iyi yöntem başarısız olursa ne hello sonucu olabilir
+* Olası alternatifler toohello en iyi uygulama
+* Tooenable hello en iyi yöntem nasıl öğrenin
 
-Azure güvenlik mimarisi ve en iyi yöntemler birçok diğer makalelere de dahil olmak üzere için umuyoruz. Bize dahil etmek istediğiniz konulara varsa, bu sayfanın sonundaki tartışma alanında bize bildirin.
+Tooincluding birçok diğer makaleler Azure güvenlik mimarisi ve en iyi yöntemler umuyoruz. Göndermemizi istediğinizi konuları varsa tooinclude, bize hello bu sayfanın en hello tartışma alanında bilmeniz olanak tanır.

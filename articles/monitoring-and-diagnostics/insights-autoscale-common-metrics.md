@@ -1,5 +1,5 @@
 ---
-title: "Azure İzleyici otomatik ölçeklendirme ortak ölçümleri | Microsoft Docs"
+title: "aaaAzure İzleyici otomatik ölçeklendirme ortak ölçümleri | Microsoft Docs"
 description: "Hangi ölçümleri otomatik ölçeklendirmeyi için yaygın olarak kullanılan bilgi bulut hizmetlerinizi, sanal makineler ve Web uygulamaları."
 author: anirudhcavale
 manager: orenr
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2016
 ms.author: ancav
-ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 372a40d72d7a6c22c5ff854b1460ec8a3b7ed1d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri
-Azure İzleyici otomatik ölçeklendirmeyi telemetri verilerini (ölçüm) esas yukarı veya aşağı çalışan örnek sayısını ölçeklendirmek sağlar. Bu belgeyi kullanmak isteyebilirsiniz ortak ölçümleri açıklar. Bulut Hizmetleri ve sunucu grupları için Azure portalında tarafından ölçeklendirmek için kaynak ölçüm seçebilirsiniz. Ancak, aynı zamanda herhangi bir ölçümü tarafından ölçeklendirmek için farklı bir kaynak seçebilirsiniz.
+Azure İzleyici otomatik ölçeklendirmeyi tooscale hello çalışan örneği sayısı yukarı veya aşağı telemetri verilerini (ölçüm) esas sağlar. Bu belgede toouse isteyebilirsiniz ortak ölçümleri açıklanmaktadır. Hello bulut Hizmetleri ve sunucu grupları için Azure portalı, hello kaynak tooscale tarafından hello ölçüsü seçebilirsiniz. Ancak, aynı zamanda herhangi bir ölçümü tarafından farklı kaynak tooscale seçebilirsiniz.
 
-Azure İzleyici otomatik ölçeklendirme uygular yalnızca [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/). Diğer Azure hizmetleriyle farklı ölçekleme yöntemlerini kullanın.
+Azure İzleyici otomatik ölçeklendirme uygular yalnızca çok[sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/). Diğer Azure hizmetleriyle farklı ölçekleme yöntemlerini kullanın.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Resource Manager tabanlı VM'ler için ölçümleri işlem
-Varsayılan olarak, Resource Manager tabanlı sanal makineler ve sanal makine ölçek kümeleri temel (ana bilgisayar düzeyinde) ölçümleri yayma. Ayrıca, bir Azure VM ve VMSS için tanılama veri toplama yapılandırdığınızda, Azure tanılama uzantısını da konuk işletim sistemi performans sayaçları (genellikle "Konuk işletim sistemi ölçümleri" da bilinir) yayar.  Bu ölçümleri otomatik ölçeklendirme kuralları kullanır.
+Varsayılan olarak, Resource Manager tabanlı sanal makineler ve sanal makine ölçek kümeleri temel (ana bilgisayar düzeyinde) ölçümleri yayma. Ayrıca, bir Azure VM ve VMSS için tanılama veri toplama yapılandırdığınızda hello Azure tanılama uzantısını da konuk işletim sistemi performans sayaçları (genellikle "Konuk işletim sistemi ölçümleri" da bilinir) yayar.  Bu ölçümleri otomatik ölçeklendirme kuralları kullanır.
 
-Kullanabileceğiniz `Get MetricDefinitions` VMSS kaynağınız için kullanılabilir ölçümleri görüntülemek üzere API/PoSH/CLI.
+Merhaba kullanabilirsiniz `Get MetricDefinitions` PoSH/API/CLI tooview hello ölçümleri VMSS kaynağınız için kullanılabilir.
 
 VM ölçek kümesi kullanıyorsanız ve listelenen belirli bir ölçüm görmüyorum durumunda büyük olasılıkla *devre dışı* tanılama uzantı.
 
-Belirli bir ölçü değil yaşanıyorsa örneklenen veya istediğiniz sıklıkta transfer, tanılama yapılandırması güncelleştirebilirsiniz.
+Belirli bir ölçüm istediğiniz örneklenen veya sırasında aktarılan hello sıklığı alınmıyor hello tanılama yapılandırması güncelleştirebilirsiniz.
 
-Yukarıdaki her iki durumda true ise, daha sonra gözden [kullanım Windows çalıştıran bir sanal makine Azure Tanılama'yı etkinleştirmek için PowerShell](../virtual-machines/windows/ps-extensions-diagnostics.md) yapılandırmak ve ölçüm etkinleştirmek için Azure VM tanılama uzantısını güncelleştirmek için PowerShell hakkında. Bu makale, ayrıca bir örnek tanılama yapılandırma dosyası içerir.
+Yukarıdaki her iki durumda true ise, daha sonra gözden [Windows çalıştıran bir sanal makinede kullan PowerShell tooenable Azure tanılama](../virtual-machines/windows/ps-extensions-diagnostics.md) PowerShell tooconfigure ve güncelleştirme hakkında Azure VM tanılama uzantısını tooenable hello ölçüm. Bu makale, ayrıca bir örnek tanılama yapılandırma dosyası içerir.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Resource Manager tabanlı Windows ve Linux VM'ler için ana ölçümleri
-Aşağıdaki ana bilgisayar düzeyinde ölçümleri varsayılan olarak Azure VM ve VMSS için hem Windows hem de Linux örneklerde gösterilen. Bu ölçümler Azure VM açıklamaktadır, ancak Azure VM ana bilgisayardan yerine Konuk sanal makinede yüklü Aracısı üzerinden toplanır. Bu ölçümleri otomatik ölçeklendirmeyi kurallarında kullanabilir.
+ana bilgisayar düzeyinde ölçümleri aşağıdaki hello varsayılan olarak Azure VM ve VMSS için hem Windows hem de Linux örneklerde gösterilen. Bu ölçümler Azure VM açıklamaktadır, ancak hello Azure VM ana bilgisayardan yerine hello Konuk sanal makinede yüklü Aracısı üzerinden toplanır. Bu ölçümleri otomatik ölçeklendirmeyi kurallarında kullanabilir.
 
 - [Resource Manager tabanlı Windows ve Linux VM'ler için ana ölçümleri](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
 - [Resource Manager tabanlı Windows ve Linux VM ölçek kümesi için ana ölçümleri](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Konuk işletim sistemi ölçümleri Resource Manager tabanlı Windows VM'ler
-Azure'da VM oluşturduğunuzda tanılama tanılama uzantısını kullanarak etkinleştirilir. Tanılama uzantısını VM içinde alınan ölçümler bir dizi yayar. Başka bir deyişle, varsayılan olarak gösterilen değil ölçümleri dışına otomatik ölçekleme yapabilirsiniz.
+Azure'da VM oluşturduğunuzda tanılama hello tanılama uzantısını kullanarak etkinleştirilir. Merhaba tanılama uzantısını VM hello içinde alınan ölçümler bir dizi yayar. Başka bir deyişle, varsayılan olarak gösterilen değil ölçümleri dışına otomatik ölçekleme yapabilirsiniz.
 
-PowerShell'de aşağıdaki komutu kullanarak, ölçümleri listesi oluşturabilirsiniz.
+PowerShell komutunda aşağıdaki hello kullanarak hello ölçümleri listesi oluşturabilirsiniz.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
+Ölçümleri aşağıdaki hello için bir uyarı oluşturabilirsiniz:
 
 | Ölçüm adı | Birim |
 | --- | --- |
@@ -86,13 +86,13 @@ Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
 ### <a name="guest-os-metrics-linux-vms"></a>Konuk işletim sistemi ölçümleri Linux VM'ler
 Azure'da VM oluşturduğunuzda, tanılama tanılama uzantısını kullanarak varsayılan olarak etkindir.
 
-PowerShell'de aşağıdaki komutu kullanarak, ölçümleri listesi oluşturabilirsiniz.
+PowerShell komutunda aşağıdaki hello kullanarak hello ölçümleri listesi oluşturabilirsiniz.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
- Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
+ Ölçümleri aşağıdaki hello için bir uyarı oluşturabilirsiniz:
 
 | Ölçüm adı | Birim |
 | --- | --- |
@@ -136,10 +136,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \NetworkInterface\TotalCollisions |Sayı |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Yaygın olarak kullanılan Web (sunucu grubu) ölçümleri
-Otomatik ölçeklendirme Http sırası uzunluğu gibi ortak web sunucusu ölçümlerini göre de gerçekleştirebilirsiniz. Buna ait ölçüm adı **HttpQueueLength**.  Aşağıdaki bölümde kullanılabilir sunucu grubu (Web uygulamaları) ölçümleri listelenmektedir.
+Otomatik ölçeklendirme hello Http sırası uzunluğu gibi ortak web sunucusu ölçümlerini göre de gerçekleştirebilirsiniz. Buna ait ölçüm adı **HttpQueueLength**.  Bölüm listeleri kullanılabilir sunucu grubu (Web uygulamaları) ölçümleri aşağıdaki hello.
 
 ### <a name="web-apps-metrics"></a>Web uygulamaları ölçümleri
-PowerShell'de aşağıdaki komutu kullanarak, Web uygulamaları ölçümleri listesi oluşturabilirsiniz.
+PowerShell komutunda aşağıdaki hello kullanarak hello Web Apps ölçümleri listesi oluşturabilirsiniz.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -157,11 +157,11 @@ Uyar veya ölçeklendirmek bu ölçümleri tarafından.
 | BytesSent |Bayt |
 
 ## <a name="commonly-used-storage-metrics"></a>Yaygın olarak kullanılan depolama ölçümleri
-Depolama sıradaki ileti sayısı depolama sırası uzunluğu tarafından ölçeklendirebilirsiniz. Depolama sırası uzunluğu özel ölçüm ve eşik örneği başına iletilerinin sayısı. Sıradaki iletilerin toplam sayısını 200 Örneğin, iki örnek varsa ve Eşiği 100'e ayarlanırsa, ölçekleme oluşur. Örneği başına 100 iletileri, 200 veya daha fazla kadar ekleyen 120 ve 80 veya herhangi diğer birleşimi olabilir.
+Hello hello depolama sıradaki ileti sayısı depolama sırası uzunluğu tarafından ölçeklendirebilirsiniz. Depolama sırası uzunluğu özel bir ölçümüdür ve hello eşik hello örneği başına ileti sayısıdır. Merhaba sıradaki iletilerin toplam sayısı Hello 200 Örneğin, iki örnek varsa ve hello eşiği too100 ayarlanırsa ölçeklendirme oluşur. Örneği başına 100 iletileri, too200 veya daha fazla yukarı ekleyen 120 ve 80 veya herhangi diğer birleşimi olabilir.
 
-Bu ayar Azure portalında yapılandırmak **ayarları** dikey. VM ölçek kümesi için kullanılacak Resource Manager şablonu otomatik ölçeklendirme ayarında güncelleştirebilirsiniz *metricName* olarak *ApproximateMessageCount* ve depolama kuyruğu Kimliğini geçirin *metricResourceUri*.
+Bu hello hello Azure portalında ayarını yapılandırmak **ayarları** dikey. VM ölçek kümesi için hello Resource Manager şablonu toouse hello otomatik ölçeklendirme ayarında güncelleştirebilirsiniz *metricName* olarak *ApproximateMessageCount* ve hello depolama kuyruğu hello Kimliğini geçirin * metricResourceUri*.
 
-Örneğin, bir Klasik depolama hesabıyla otomatik ölçeklendirme ayarı metricTrigger şunlardır:
+Örneğin, Klasik depolama hesabı hello ile otomatik ölçeklendirme ayarı metricTrigger şunlardır:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -169,7 +169,7 @@ Bu ayar Azure portalında yapılandırmak **ayarları** dikey. VM ölçek kümes
  "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
-MetricTrigger (Klasik olmayan) depolama hesabı için aşağıdakileri içerir:
+Merhaba metricTrigger (Klasik olmayan) depolama hesabı için aşağıdakileri içerir:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -178,9 +178,9 @@ MetricTrigger (Klasik olmayan) depolama hesabı için aşağıdakileri içerir:
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Yaygın olarak kullanılan hizmet veri yolu ölçümleri
-Service Bus kuyruğundaki iletileri sayısı Service Bus sırası uzunluğu tarafından ölçeklendirebilirsiniz. Hizmet veri yolu kuyruğu uzunluğu özel ölçüm ve eşik örneği başına iletilerinin sayısı. Sıradaki iletilerin toplam sayısını 200 Örneğin, iki örnek varsa ve Eşiği 100'e ayarlanırsa, ölçekleme oluşur. Örneği başına 100 iletileri, 200 veya daha fazla kadar ekleyen 120 ve 80 veya herhangi diğer birleşimi olabilir.
+Merhaba Service Bus kuyruğundaki iletileri hello sayısıdır Service Bus sırası uzunluğu tarafından ölçeklendirebilirsiniz. Hizmet veri yolu kuyruğu uzunluğu özel bir ölçümüdür ve hello eşik hello örneği başına ileti sayısıdır. Merhaba sıradaki iletilerin toplam sayısı Hello 200 Örneğin, iki örnek varsa ve hello eşiği too100 ayarlanırsa ölçeklendirme oluşur. Örneği başına 100 iletileri, too200 veya daha fazla yukarı ekleyen 120 ve 80 veya herhangi diğer birleşimi olabilir.
 
-VM ölçek kümesi için kullanılacak Resource Manager şablonu otomatik ölçeklendirme ayarında güncelleştirebilirsiniz *metricName* olarak *ApproximateMessageCount* ve depolama kuyruğu Kimliğini geçirin *metricResourceUri*.
+VM ölçek kümesi için hello Resource Manager şablonu toouse hello otomatik ölçeklendirme ayarında güncelleştirebilirsiniz *metricName* olarak *ApproximateMessageCount* ve hello depolama kuyruğu hello Kimliğini geçirin * metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -189,6 +189,6 @@ VM ölçek kümesi için kullanılacak Resource Manager şablonu otomatik ölçe
 ```
 
 > [!NOTE]
-> Hizmet veri yolu için kaynak grubu kavram yok ancak Azure Resource Manager her bölge varsayılan bir kaynak grubu oluşturur. Kaynak grubu genellikle 'Default - ServiceBus-[Bölge]' biçimindedir. Örneğin, 'Varsayılan-ServiceBus-EastUS', 'Varsayılan-ServiceBus-WestUS', 'Varsayılan-ServiceBus-AustraliaEast' vb..
+> Hizmet veri yolu için hello kaynak grubu kavram yok ancak Azure Resource Manager her bölge varsayılan bir kaynak grubu oluşturur. Merhaba kaynak grubu genellikle hello 'Default - ServiceBus-[Bölge]' biçimindedir. Örneğin, 'Varsayılan-ServiceBus-EastUS', 'Varsayılan-ServiceBus-WestUS', 'Varsayılan-ServiceBus-AustraliaEast' vb..
 >
 >

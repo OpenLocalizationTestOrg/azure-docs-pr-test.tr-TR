@@ -1,6 +1,6 @@
 ---
-title: "Toplu işlem yönetimi çözümlerinin kimlik doğrulaması için Azure Active Directory kullanmak | Microsoft Docs"
-description: "Uygulamaları Azure resource manager ile oluşturulmuş ve toplu kaynak sağlayıcısı Azure AD ile kimlik doğrulaması."
+title: "aaaUse Azure Active Directory tooauthenticate toplu yönetim çözümleri | Microsoft Docs"
+description: "Uygulamaları Azure resource manager ile oluşturulmuş ve hello toplu kaynak sağlayıcısı Azure AD ile kimlik doğrulaması."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,68 +15,68 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 192aa9f8d7cbfc0282a4a0c33ab1659f1f351525
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Toplu işlem yönetimi çözümleri Active Directory ile kimlik doğrulaması
 
-Azure Batch yönetim hizmeti çağıran uygulamalar kimlik doğrulaması ile [Azure Active Directory] [ aad_about] (Azure AD). Azure AD, Microsoft'un çok kiracılı bulut tabanlı dizin ve Kimlik Yönetimi Hizmeti ' dir. Azure kendisini müşteriler, hizmet yöneticileri ve kuruluş kullanıcıların kimlik doğrulaması için Azure AD kullanır.
+Hello Azure toplu işlem yönetimi hizmeti çağıran uygulamalar kimlik doğrulaması ile [Azure Active Directory] [ aad_about] (Azure AD). Azure AD, Microsoft'un çok kiracılı bulut tabanlı dizin ve Kimlik Yönetimi Hizmeti ' dir. Azure kendisini müşteriler, hizmet yöneticileri ve kuruluş kullanıcılarının hello kimlik doğrulaması için Azure AD kullanır.
 
-Batch yönetimi .NET kitaplığı, Batch hesaplarını, hesabı anahtarları, uygulamalar ve uygulama paketleri ile çalışmak için türü ortaya çıkarır. Batch yönetimi .NET kitaplığı bir Azure kaynak sağlayıcısı istemci ve ile birlikte kullanılan [Azure Resource Manager] [ resman_overview] bu kaynakları programlı olarak yönetmek için. Azure AD ve toplu işlem yönetimi .NET kitaplığı dahil olmak üzere tüm Azure kaynak sağlayıcısı istemci aracılığıyla yapılan istekleri kimlik doğrulaması için gerekli olduğunu [Azure Resource Manager][resman_overview].
+Merhaba Batch yönetimi .NET kitaplığı, Batch hesaplarını, hesabı anahtarları, uygulamalar ve uygulama paketleri ile çalışmak için türü ortaya çıkarır. Merhaba Batch yönetimi .NET kitaplığı bir Azure kaynak sağlayıcısı istemci ve ile birlikte kullanılan [Azure Resource Manager] [ resman_overview] toomanage bu kaynakları programlı olarak. Azure AD olduğu ve hello Batch yönetimi .NET kitaplığı dahil olmak üzere tüm Azure kaynak sağlayıcısı istemci aracılığıyla yapılan gerekli tooauthenticate istekleri [Azure Resource Manager][resman_overview].
 
-Bu makalede, Azure AD Batch yönetimi .NET kitaplığı kullanan uygulamalardan kimlik doğrulaması kullanmayı keşfedin. Azure AD Abonelik Yöneticisi veya ortak yönetici, tümleşik kimlik doğrulaması kullanarak kimlik doğrulaması için nasıl kullanılacağını gösteriyoruz. Kullanırız [AccountManagment] [ acct_mgmt_sample] örnek proje, github'da Azure AD ile Batch yönetimi .NET kitaplığını kullanarak izlenecek yol için kullanılabilir.
+Bu makalede, Azure AD tooauthenticate hello Batch yönetimi .NET kitaplığını kullanan uygulamalardan kullanarak keşfedin. Azure AD toouse tooauthenticate Abonelik Yöneticisi veya ortak yönetici, kullanarak kimlik doğrulaması nasıl tümleşik gösterir. Merhaba kullanırız [AccountManagment] [ acct_mgmt_sample] örnek proje, github'da Azure AD ile Merhaba Batch yönetimi .NET kitaplığını kullanarak aracılığıyla toowalk kullanılabilir.
 
-Batch yönetimi .NET kitaplığı ve AccountManagement örnek kullanma hakkında daha fazla bilgi edinmek için [yönetmek Batch hesaplarını ve kotalarını .NET için Batch Yönetimi istemci kitaplığı ile](batch-management-dotnet.md).
+Merhaba Batch yönetimi .NET kitaplığı ve hello AccountManagement örnek, kullanma hakkında daha fazla toolearn bkz [yönetmek Batch hesaplarını ve kotalarını hello Batch Yönetimi istemci kitaplığı için .NET ile](batch-management-dotnet.md).
 
 ## <a name="register-your-application-with-azure-ad"></a>Azure AD ile uygulamanızı kaydetme
 
-Azure [Active Directory kimlik doğrulama Kitaplığı] [ aad_adal] (ADAL) Azure ad uygulamalarınız içinde kullanmak için programa dayalı bir arabirim sağlar. ADAL uygulamanızdan çağırmak için bir Azure AD kiracısında uygulamanızı kaydetmeniz gerekir. Uygulamanızı kaydederken, Azure AD kiracısı içinde bir ad da dahil olmak üzere uygulamanız hakkındaki bilgilerle Azure AD sağlayın. Ardından Azure AD çalışma zamanında Azure AD ile uygulamanızı ilişkilendirmek için kullandığınız bir uygulama kimliği sağlar. Uygulama kimliği hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneler Azure Active Directory'de](../active-directory/develop/active-directory-application-objects.md).
+Hello Azure [Active Directory kimlik doğrulama Kitaplığı] [ aad_adal] (ADAL) kullanmak için AD uygulamalarınız içinde bir programlama arabirimidir tooAzure sağlar. ADAL toocall uygulamanızdan bir Azure AD kiracısında uygulamanızı kaydetmeniz gerekir. Uygulamanızı kaydederken hello Azure AD kiracısı içinde bir ad da dahil olmak üzere uygulamanız hakkındaki bilgilerle Azure AD sağlayın. Ardından Azure AD uygulama kimliği sağlar çalışma zamanında Azure AD ile uygulamanızı tooassociate kullanın. toolearn hello uygulama kimliği hakkında daha fazla bilgi görmek [uygulama ve hizmet asıl nesneler Azure Active Directory'de](../active-directory/develop/active-directory-application-objects.md).
 
-AccountManagement örnek uygulama kaydetmek için adımları [bir uygulama ekleme](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) bölümüne [uygulamaları Azure Active Directory ile tümleştirme][aad_integrate]. Belirtin **yerel istemci uygulaması** uygulama türü için. Endüstri Standart OAuth 2.0 URI'sini **yeniden yönlendirme URI'si** olan `urn:ietf:wg:oauth:2.0:oob`. Ancak, geçerli bir URI belirtebilirsiniz (gibi `http://myaccountmanagementsample`) için **yeniden yönlendirme URI'si**gibi gerçek bir uç nokta olması gerekmez:
+tooregister hello AccountManagement örnek uygulama izleyin hello hello adımlarda [bir uygulama ekleme](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) bölümüne [uygulamaları Azure Active Directory ile tümleştirme] [ aad_integrate]. Belirtin **yerel istemci uygulaması** hello tür bir uygulama için. Merhaba endüstri hello standart OAuth 2.0 URI'sini **yeniden yönlendirme URI'si** olan `urn:ietf:wg:oauth:2.0:oob`. Ancak, geçerli bir URI belirtebilirsiniz (gibi `http://myaccountmanagementsample`) hello için **yeniden yönlendirme URI'si**toobe gerçek bir uç noktası gerekmez gibi:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
-Kayıt işlemini tamamladıktan sonra uygulama kimliği ve uygulamanız için listelenen nesne (hizmet sorumlusu) kimliği görürsünüz.  
+Merhaba kayıt işlemini tamamladıktan sonra hello uygulama kimliği görebilir ve uygulamanız için listelenen nesne (hizmet sorumlusu) kimliği hello.  
 
 ![](./media/batch-aad-auth-management/app-registration-client-id.png)
 
-## <a name="grant-the-azure-resource-manager-api-access-to-your-application"></a>Uygulamanız için Azure Kaynak Yöneticisi API'si erişim
+## <a name="grant-hello-azure-resource-manager-api-access-tooyour-application"></a>Merhaba Azure Kaynak Yöneticisi API'si erişim tooyour uygulaması verin
 
-Ardından, Azure Resource Manager API uygulamanıza erişimi temsilci gerekir. Kaynak Yöneticisi API'si için Azure AD tanımlayıcısıdır **Windows Azure Hizmet Yönetimi API'si**.
+Ardından, toodelegate erişim tooyour uygulama toohello Azure Kaynak Yöneticisi API'si gerekir. Merhaba Resource Manager API Hello Azure AD tanımlayıcısıdır **Windows Azure Hizmet Yönetimi API'si**.
 
-Azure portalında aşağıdaki adımları izleyin:
+Hello Azure Portalı'nda aşağıdaki adımları izleyin:
 
-1. Azure portalının sol gezinti bölmesinde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**, tıklatıp **Ekle**.
-2. Listedeki uygulamanızın uygulama kayıtların adını arayın:
+1. Merhaba sol gezinti bölmesinde hello Azure portal'ı seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**, tıklatıp **Ekle**.
+2. Merhaba listesinde uygulamanızın uygulama kayıtların hello adını arayın:
 
     ![Uygulama adınız arayın](./media/batch-aad-auth-management/search-app-registration.png)
 
-3. Görüntü **ayarları** dikey. İçinde **API erişimini** bölümünde, select **gerekli izinleri**.
-4. Tıklatın **Ekle** yeni bir gerekli izin eklemek için. 
-5. 1. adımda girin **Windows Azure Hizmet Yönetimi API'si**, bu API sonuçları listesinden seçin ve tıklatın **seçin** düğmesi.
-6. 2. adımda yanındaki onay kutusunu işaretleyin **erişim Azure Klasik dağıtım modeli kuruluş kullanıcılar olarak**, tıklatıp **seçin** düğmesi.
-7. Tıklatın **Bitti** düğmesi.
+3. Görüntü hello **ayarları** dikey. Merhaba, **API erişimini** bölümünde, select **gerekli izinleri**.
+4. Tıklatın **Ekle** tooadd yeni gerekli izni. 
+5. 1. adımda girin **Windows Azure Hizmet Yönetimi API'si**, bu API hello sonuçları listesinden seçin ve hello tıklatın **seçin** düğmesi.
+6. 2. adımda seç onay kutusunu sonraki çok hello**erişim Azure Klasik dağıtım modeli kuruluş kullanıcılar olarak**, hello tıklatıp **seçin** düğmesi.
+7. Merhaba tıklatın **Bitti** düğmesi.
 
-**Gerekli izinler** dikey şimdi gösterir, uygulamanız için ADAL hem Resource Manager API'leri için izinlerin verildiğinden emin. Uygulamanızı Azure AD ile ilk kez kaydederken izinleri ADAL için varsayılan olarak verilir.
+Merhaba **gerekli izinler** ADAL ve Resource Manager API'leri izinleri tooyour uygulama tooboth verilen gösterir hello artık dikey. Uygulamanızı Azure AD ile ilk kez kaydederken izinleri tooADAL varsayılan olarak verilir.
 
-![Azure Kaynak Yöneticisi API'si temsilci izinleri](./media/batch-aad-auth-management/required-permissions-management-plane.png)
+![Temsilci izinleri toohello Azure Kaynak Yöneticisi API'si](./media/batch-aad-auth-management/required-permissions-management-plane.png)
 
 ## <a name="azure-ad-endpoints"></a>Azure AD uç noktaları
 
-Toplu işlem yönetimi çözümlerinizi Azure AD ile kimlik doğrulaması yapmak için iyi bilinen iki uç nokta gerekir.
+tooauthenticate, toplu yönetimini çözümleriniz Azure AD ile iyi bilinen iki uç nokta gerekir.
 
-- **Azure AD ortak uç nokta** belirli bir kiracı sağlanmadığında tümleşik kimlik doğrulaması gibi söz konusu olduğunda arabirimi toplama genel bir kimlik bilgisi sağlanır:
+- Merhaba **Azure AD ortak uç nokta** belirli bir kiracı sağlanmadığında tümleşik kimlik doğrulaması hello durumda olduğu gibi arabirimi toplama genel bir kimlik bilgisi sağlanır:
 
     `https://login.microsoftonline.com/common`
 
-- **Azure Kaynak Yöneticisi uç noktası** toplu yönetim hizmeti isteklerine kimlik doğrulaması için bir belirteç almak üzere kullanılır:
+- Merhaba **Azure Kaynak Yöneticisi uç noktası** kullanılan tooacquire istekleri toohello toplu yönetim hizmeti kimlik doğrulaması için bir belirteçtir:
 
     `https://management.core.windows.net/`
 
-Bu uç noktalar için sabitleri AccountManagement örnek uygulama tanımlar. Bu sabitleri değiştirmeden bırakın:
+Merhaba AccountManagement örnek uygulama Bu uç noktalar için sabitleri tanımlar. Bu sabitleri değiştirmeden bırakın:
 
 ```csharp
 // Azure Active Directory "common" endpoint.
@@ -87,31 +87,31 @@ private const string ResourceUri = "https://management.core.windows.net/";
 
 ## <a name="reference-your-application-id"></a>Uygulama Kimliğinizi başvurusu 
 
-İstemci uygulamanızı Azure AD çalışma zamanında erişmek için uygulama kimliği (istemci kimliği olarak da bilinir) kullanır. Azure Portal'da uygulamanızın kaydedildikten sonra kayıtlı uygulamanız için Azure AD tarafından sağlanan uygulama kimliği kullanmak için kodunuzu güncelleştirin. AccountManagement örnek uygulama için uygun sabiti Azure portalından uygulama Kimliğinizi kopyalayın:
+İstemci uygulamanızı çalışma zamanında hello uygulama kimliği (Ayrıca başvurulan tooas hello istemci kimliği) tooaccess Azure AD kullanır. Hello Azure portal, uygulamanızın kaydedildikten sonra kayıtlı uygulamanız için Azure AD tarafından sağlanan kod toouse hello uygulama Kimliğinizi güncelleştirin. Hello AccountManagement örnek uygulama, uygulama Kimliğiniz hello Azure portal toohello uygun sabiti kopyalayın:
 
 ```csharp
-// Specify the unique identifier (the "Client ID") for your application. This is required so that your
-// native client application (i.e. this sample) can access the Microsoft Azure AD Graph API. For information
+// Specify hello unique identifier (hello "Client ID") for your application. This is required so that your
+// native client application (i.e. this sample) can access hello Microsoft Azure AD Graph API. For information
 // about registering an application in Azure Active Directory, please see "Adding an Application" here:
 // https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 private const string ClientId = "<application-id>";
 ```
-Ayrıca kayıt işlemi sırasında belirtilen URI yeniden yönlendirme kopyalayın. URI kodunuzda belirtilen yeniden yönlendirme yeniden yönlendirilen uygulamayı kaydolurken sağladığınız URI eşleşmesi gerekir.
+Ayrıca hello yeniden yönlendirme hello kayıt işlemi sırasında belirtilen URI'sini kopyalayın. Merhaba yeniden yönlendirme URI'si kodunuzda belirtilen hello yeniden yönlendirme Merhaba uygulaması kaydolurken sağladığınız URI eşleşmesi gerekir.
 
 ```csharp
-// The URI to which Azure AD will redirect in response to an OAuth 2.0 request. This value is
+// hello URI toowhich Azure AD will redirect in response tooan OAuth 2.0 request. This value is
 // specified by you when you register an application with AAD (see ClientId comment). It does not
-// need to be a real endpoint, but must be a valid URI (e.g. https://accountmgmtsampleapp).
+// need toobe a real endpoint, but must be a valid URI (e.g. https://accountmgmtsampleapp).
 private const string RedirectUri = "http://myaccountmanagementsample";
 ```
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>Azure AD kimlik doğrulama belirtecini alma
 
-Azure AD kiracısında AccountManagement örnek kaydetmek ve değerleri ile örnek kaynak kodunu güncelleştirin sonra Azure AD kullanarak kimlik doğrulaması için hazır bir örnektir. Örneği çalıştırdığınızda, ADAL kimlik doğrulama belirtecini almayı dener. Bu adımda, Microsoft kimlik bilgilerinizi ister: 
+Merhaba AccountManagement örnek hello Azure AD kiracısında kaydetmek ve değerleri ile Merhaba örnek kaynak kodunu güncelleştirin sonra hello Azure AD kullanarak hazır tooauthenticate örnektir. Merhaba örneği çalıştırdığınızda, hello ADAL tooacquire kimlik doğrulama belirtecini çalışır. Bu adımda, Microsoft kimlik bilgilerinizi ister: 
 
 ```csharp
-// Obtain an access token using the "common" AAD resource. This allows the application
-// to query AAD for information that lies outside the application's tenant (such as for
+// Obtain an access token using hello "common" AAD resource. This allows hello application
+// tooquery AAD for information that lies outside hello application's tenant (such as for
 // querying subscription information in your Azure account).
 AuthenticationContext authContext = new AuthenticationContext(AuthorityUri);
 AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
@@ -120,15 +120,15 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-Kimlik bilgilerinizi sağlayın sonra örnek uygulaması Batch yönetim hizmeti kimliği doğrulanmış istekler verecek geçebilirsiniz. 
+Kimlik bilgilerinizi sağlayın sonra hello örnek uygulama kimliği doğrulanmış tooissue istekleri toohello toplu yönetim hizmeti geçebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çalıştırma hakkında daha fazla bilgi için [AccountManagement örnek uygulama][acct_mgmt_sample], bkz: [yönetmek Batch hesaplarını ve kotalarını .NET için Batch Yönetimi istemci kitaplığı ile](batch-management-dotnet.md).
+Merhaba çalıştırma hakkında daha fazla bilgi için [AccountManagement örnek uygulama][acct_mgmt_sample], bkz: [yönetmek Batch hesaplarını ve kotalarını hello Batch Yönetimi istemci kitaplığı için .NETile](batch-management-dotnet.md).
 
-Azure AD hakkında daha fazla bilgi için bkz: [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). ADAL'nin kullanımı gösteren ayrıntılı örnekler kullanılabilir [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory) kitaplığı.
+Azure AD hakkında daha fazla toolearn bkz hello [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). Nasıl toouse ADAL kullanılabilir hello gösteren ayrıntılı örnekler [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory) kitaplığı.
 
-Toplu hizmet uygulamaları Azure AD kullanarak kimlik doğrulaması yapmak için bkz: [Active Directory ile kimlik doğrulaması toplu hizmet çözümlerine](batch-aad-auth.md). 
+Azure AD kullanarak tooauthenticate Batch hizmeti uygulamaları bkz [Active Directory ile kimlik doğrulaması toplu hizmet çözümlerine](batch-aad-auth.md). 
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory nedir?"

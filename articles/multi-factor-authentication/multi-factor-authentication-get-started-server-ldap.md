@@ -1,6 +1,6 @@
 ---
-title: "LDAP Kimlik Doğrulaması ve Azure MFA Sunucusu | Microsoft Belgeleri"
-description: "Bu, LDAP Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır."
+title: "aaaLDAP kimlik doğrulaması ve Azure MFA sunucusu | Microsoft Docs"
+description: "Bu, LDAP kimlik doğrulaması ve Azure multi-Factor Authentication Sunucusu'nu dağıtmada yardımcı olacak hello Azure multi-Factor authentication sayfasıdır."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
-ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 17a26b57dbf6afa2fcfdb3d19c5b5ba2987a9f79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP kimlik doğrulaması ve Azure multi-Factor Authentication sunucusu
-Varsayılan olarak, Azure Multi-Factor Authentication Sunucusu kullanıcıları Active Directory'den aktarmak ya da eşitlemek üzere yapılandırılmıştır. Ancak, ADAM dizini veya belirli Active Directory etki alanı denetleyicisi gibi farklı LDAP dizinlerini bağlamak için yapılandırılabilir. LDAP aracılığıyla bir dizine bağlandığında, Azure multi-Factor Authentication sunucusu kimlik doğrulaması gerçekleştirmek için bir LDAP proxy davranamaz. Ayrıca, IIS Kimlik Doğrulaması ile ön kimlik doğrulaması için ya da Azure MFA kullanıcı portalında birincil kimlik doğrulaması için LDAP bağlamanın RADIUS hedefi olarak kullanılmasına izin verir.
+Varsayılan olarak, Azure multi-Factor Authentication sunucusu hello yapılandırılmış tooimport ya da Active Directory'den kullanıcıları eşitlemeye. Ancak, ADAM dizini veya belirli Active Directory etki alanı denetleyicisi gibi yapılandırılmış toobind toodifferent LDAP dizinleri olabilir. Ne zaman bağlı tooa directory LDAP aracılığıyla hello Azure multi-Factor Authentication sunucusu LDAP proxy tooperform doğrulamaları davranamaz. Merhaba kullanmak için LDAP bağlama'nın RADIUS hedefi olarak hello Azure MFA Kullanıcı Portalı'nda birincil kimlik doğrulaması ya da IIS kimlik doğrulaması kullanıcılarla ön kimlik doğrulaması için de sağlar.
 
-Azure multi-Factor Authentication LDAP proxy olarak kullanmak için Azure multi-Factor Authentication sunucusu LDAP istemcisi (örneğin, VPN Gereci, uygulaması) LDAP dizin sunucusu arasındaki ekleyin. Azure Multi-Factor Authentication doğrulama sunucusunun istemci sunucular ve LDAP dizini ile iletişim kurmak için yapılandırılmış olması gerekir. Bu yapılandırmada, Azure Multi-Factor Authentication Sunucusu istemci sunucularından uygulamalarından gelen LDAP isteklerini kabul eder ve bunları birincil kimlik bilgilerini doğrulamak amacıyla hedef LDAP dizini sunucusuna iletir. LDAP dizini birincil kimlik bilgilerini doğrular, Azure multi-Factor Authentication ikinci bir kimlik doğrulaması gerçekleştirir ve LDAP istemcisine geri yanıt gönderir. Kimlik doğrulama sürecinin tamamının başarılı olması için hem LDAP sunucusu kimlik doğrulamasının hem de ikinci adım kimlik doğrulama işleminin başarılı olması gerekir.
+Azure multi-Factor Authentication LDAP proxy'si olarak toouse hello Azure çok faktörlü kimlik doğrulama sunucusu arasında hello LDAP istemcisi (örneğin, VPN Gereci, uygulaması) ve hello LDAP dizin sunucusuna ekleyin. Hello Azure multi-Factor Authentication sunucusu, hem hello istemci sunucuları hem de hello LDAP dizini ile yapılandırılmış toocommunicate olması gerekir. Bu yapılandırmada, hello Azure multi-Factor Authentication sunucusu istemci sunucuları ve uygulamaları gelen LDAP isteklerini kabul eder ve bunları toohello hedef LDAP dizin sunucusu toovalidate hello birincil kimlik bilgileri iletir. Merhaba LDAP dizini hello birincil kimlik bilgilerini doğrular, Azure multi-Factor Authentication ikinci bir kimlik doğrulaması gerçekleştirir ve bir yanıtı geri toohello LDAP istemcisi gönderir. yalnızca hello LDAP sunucu kimlik doğrulaması ve hello ikinci adım doğrulama başarılı olursa hello tüm kimlik doğrulama başarılı olur.
 
 ## <a name="configure-ldap-authentication"></a>LDAP kimlik doğrulamasını yapılandırma
-LDAP kimlik doğrulamasını yapılandırmak için, bir Windows sunucusuna Azure Multi-Factor Authentication Sunucusu yükleyin. Aşağıdaki yordamı kullanın:
+tooconfigure LDAP kimlik doğrulaması, Windows Server yükleme hello Azure çok faktörlü kimlik doğrulama sunucusu. Merhaba aşağıdaki yordamı kullanın:
 
 ### <a name="add-an-ldap-client"></a>LDAP istemcisi ekleme
 
-1. Azure multi-Factor Authentication Sunucusu'nda soldaki menüde LDAP kimlik doğrulama simgesini seçin.
-2. **LDAP Kimlik Doğrulamasını etkinleştir** onay kutusunu işaretleyin.
+1. Hello Azure multi-Factor Authentication sunucusu, hello hello soldaki menüde LDAP kimlik doğrulaması simgesine seçin.
+2. Merhaba denetleyin **LDAP kimlik doğrulamasını etkinleştir** onay kutusu.
 
    ![LDAP Kimlik Doğrulaması](./media/multi-factor-authentication-get-started-server-ldap/ldap2.png)
 
-3. Azure Multi-Factor Authentication LDAP hizmetinin LDAP isteklerini dinlemek için standart olmayan bağlantı noktalarına bağlanması gerekliyse, İstemciler sekmesinde TCP bağlantı noktasını ve SSL bağlantı noktasını değiştirin.
-4. Azure multi-Factor Authentication sunucusu istemciden gelen LDAPS kullanmayı düşünüyorsanız, MFA sunucusu ile aynı sunucuda bir SSL sertifikası yüklenmelidir. Tıklatın **Gözat** yanındaki SSL sertifika kutusunu ve güvenli bağlantı için kullanılacak bir sertifika seçin.
+3. Hello Azure multi-Factor Authentication LDAP hizmetinin LDAP isteklerini toonon standart bağlantı noktaları toolisten bağlanması gerekliyse hello istemciler sekmesinde hello TCP bağlantı noktasını ve SSL bağlantı noktasını değiştirin.
+4. Merhaba istemci toohello Azure çok faktörlü kimlik doğrulama sunucusu gelen LDAPS toouse planlıyorsanız, hello üzerinde bir SSL sertifikası yüklenmelidir MFA sunucusu aynı sunucuya. Tıklatın **Gözat** sonraki toohello SSL sertifika kutusunu ve hello güvenli bağlantı için sertifika toouse seçin.
 5. **Ekle**'ye tıklayın.
-6. LDAP istemcisi Ekle iletişim kutusunda, sunucu ve bir uygulama adı (isteğe bağlı) gereç, sunucu ya da kimlik doğrulamasını uygulama IP adresini girin. Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
-7. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve iki aşamalı doğrulamaya tabi olacaksa **Azure Multi-Factor Authentication kullanıcılarının eşleşmesini gerektir** kutusunu işaretleyin. Kullanıcıların önemli sayıda sunucuya henüz içeri aktarılmadı ve/veya iki aşamalı doğrulamayı muaf tutulacaksa, kutunun işaretini kaldırın. MFA Server dosyası bu özellik hakkında ek bilgi için Yardım'a bakın.
+6. Merhaba LDAP istemcisi Ekle iletişim kutusunda hello gereç, sunucu ya da toohello sunucu ve bir uygulama adı (isteğe bağlı) kimliğini doğrulayan uygulama hello IP adresini girin. Merhaba uygulama adı Azure multi-Factor Authentication raporlarında görünür ve SMS veya mobil uygulama kimlik doğrulama iletilerinde görüntülenebilir.
+7. Merhaba denetleyin **Azure multi-Factor Authentication iste kullanıcı eşleşme** tüm kullanıcılar Sunucu'ya aktarılmışsa ya da hello sunucu ve konu tootwo adım doğrulama aktarılır, kutu. Çok sayıda kullanıcı sunucu hello henüz içeri aktarılmadı ve/veya iki aşamalı doğrulamayı muaf tutulacaksa hello kutunun işaretini kaldırın. Merhaba MFA sunucusu Yardım dosyasına ek bilgi için bu özelliği bakın.
 
-Bu adımları tekrarlayarak diğer LDAP istemcilerini ekleyin.
+Bu adımları tooadd ek LDAP istemcileri yineleyin.
 
-### <a name="configure-the-ldap-directory-connection"></a>LDAP dizini bağlantısını yapılandırma
+### <a name="configure-hello-ldap-directory-connection"></a>Merhaba LDAP dizini bağlantısını yapılandırmak
 
-Azure Multi-Factor Authentication LDAP kimlik doğrulamaları almak üzere yapılandırıldığında, bu kimlik doğrulamalarını LDAP dizinine sunmalıdır. Bu nedenle, LDAP hedefi olarak kullanmak üzere, Hedef sekmesi yalnızca tek bir, gri seçenek görüntüler.
+Hello Azure çok faktörlü kimlik doğrulaması yapılandırılan tooreceive LDAP kimlik doğrulamaları olduğunda, bu kimlik doğrulamaları toohello LDAP dizini proxy gerekir. Merhaba hedef sekmesi yalnızca tek bir görüntüler bu nedenle, LDAP hedefi seçeneği toouse gri.
 
-1. LDAP dizini bağlantısını yapılandırmak için **Dizin Tümleştirme** simgesine tıklayın.
-2. Ayarlar sekmesinde **Özel LDAP yapılandırması kullan** radyo düğmesini seçin.
+1. tooconfigure hello LDAP dizini bağlantısını tıklatın hello **dizin tümleştirme** simgesi.
+2. Merhaba Ayarlar sekmesinde hello seçin **belirli LDAP yapılandırması kullan** radyo düğmesi.
 3. **Düzenle…** seçeneğini belirleyin.
-4. LDAP Yapılandırmasını Düzenle iletişim kutusunda, LDAP dizinine bağlanmak için gerekli bilgilerle alanları doldurun. Bu alanların açıklamaları Azure Multi-Factor Authentication Sunucusu yardım dosyasında da bulunmaktadır.
+4. Merhaba LDAP yapılandırmasını Düzenle iletişim kutusunda hello gerekli bilgileri tooconnect toohello LDAP dizini ile Merhaba alanları doldurun. Merhaba alanların açıklamaları hello Azure multi-Factor Authentication sunucusu Yardım dosyasına dahil edilir.
 
     ![Dizin Tümleştirme](./media/multi-factor-authentication-get-started-server-ldap/ldap.png)
 
-5. **Test** düğmesine tıklayarak LDAP bağlantısını test edin.
-6. LDAP bağlantı testi başarılı olursa **Tamam** düğmesine tıklayın.
-7. **Filtreler** sekmesine tıklayın. Sunucu, Active Directory’den kapsayıcıları, güvenlik gruplarını ve kullanıcıları yüklemek üzere önceden yapılandırılmıştır. Farklı bir LDAP dizinine bağlanıyorsanız, büyük olasılıkla görüntülenen filtreleri düzenlemeniz gerekir. Filtreler hakkında daha fazla bilgi için **Yardım** bağlantısına tıklayın.
-8. **Öznitelikler** sekmesine tıklayın. Sunucu Active Directory’deki öznitelikleri eşlemek üzere önceden yapılandırılmıştır.
-9. Farklı bir LDAP dizinine bağlıyorsanız veya önceden yapılandırılmış öznitelik eşlemelerini değiştirmek istiyorsanız için **Düzenle…** düğmesine tıklayın.
-10. Öznitelikleri Düzenle iletişim kutusunda, dizininizin LDAP öznitelik eşlemelerini değiştirin. Öznitelik adlarını yazabilir veya **…** simgesine tıklayarak seçebilirsiniz. düğmesine tıklanarak seçilebilir. Öznitelikler hakkında daha fazla bilgi için **Yardım** bağlantısına tıklayın.
-11. **Tamam** düğmesine tıklayın.
-12. **Şirket Ayarları** simgesine tıklayın ve **Kullanıcı Adı Çözümleme** sekmesini seçin.
-13. Active Directory’ye etki alanına katılmış bir sunucudan bağlanıyorsanız, **Kullanıcı adlarını eşlemek için Windows güvenlik tanımlayıcılarını (SID’ler) kullan** radyo düğmesini seçili bırakın. Diğer durumlarda **Kullanıcı adlarını eşlemek için LDAP benzersiz tanımlayıcı özniteliğini kullan** radyo düğmesini seçin. 
+5. Merhaba tıklayarak hello LDAP bağlantısı testi **Test** düğmesi.
+6. Merhaba LDAP bağlantısı testi başarılı olursa hello tıklatın **Tamam** düğmesi.
+7. Merhaba tıklatın **filtreleri** sekmesini hello sunucu olan önceden yapılandırılmış tooload kapsayıcıları, güvenlik grupları ve Active Directory'den kullanıcıları. Tooa farklı LDAP dizinine bağlanıyorsanız, büyük olasılıkla görüntülenen tooedit hello filtreleri gerekir. Merhaba tıklatın **yardımcı** filtreleri hakkında daha fazla bilgi için bağlantı.
+8. Merhaba tıklatın **öznitelikleri** sekmesini hello sunucu olduğu Active Directory'den önceden yapılandırılmış toomap öznitelikleri.
+9. Tooa farklı LDAP dizini ya da toochange hello önceden yapılandırılmış öznitelik eşlemelerini bağlama tıklatmak **Düzenle...**
+10. Merhaba öznitelikleri Düzenle iletişim kutusunda, dizininizin hello LDAP öznitelik eşlemelerini değiştirin. Öznitelik adları yazılabilir veya hello tıklayarak seçili **...** Düğme sonraki tooeach alanını. Merhaba tıklatın **yardımcı** öznitelikleri hakkında daha fazla bilgi için bağlantı.
+11. Merhaba tıklatın **Tamam** düğmesi.
+12. Merhaba tıklatın **şirket ayarları** simgesi ve select hello **kullanıcı adı çözümlemesi** sekmesi.
+13. Etki alanına katılmış bir sunucudan tooActive dizinine bağlanıyorsanız hello bırakın **kullanım Windows Güvenlik tanımlayıcılarını (SID'ler) kullanıcı adlarını eşleştirmek için** seçili radyo düğmesi. Aksi takdirde, select hello **kullanıcı adlarını eşleştirmek için LDAP benzersiz tanımlayıcı özniteliği kullanın** radyo düğmesi. 
 
-**Kullanıcı adlarını eşlemek için LDAP benzersiz tanımlayıcı özniteliğini kullan** radyo düğmesi seçili olduğunda Azure Multi-Factor Authentication Sunucusu her kullanıcı adını LDAP dizinindeki benzersiz bir tanımlayıcıya çözümlemeyi dener. Dizin Tümleştirme -> Öznitelikler sekmesinde tanımlanan Kullanıcı adı özniteliklerinde bir LDAP araması gerçekleştirilir. Bir kullanıcı kimliği doğruladığında kullanıcı adı LDAP dizinindeki benzersiz tanımlayıcıya çözümlenir. Azure multi-Factor Authentication veri dosyasındaki kullanıcı eşleştirmek için kullanılan benzersiz tanımlayıcısı. Bu, büyük küçük harf duyarsız karşılaştırmalarına ve uzun kısa kullanıcı adı biçimlerine sağlar.
+Ne zaman hello **kullanıcı adlarını eşleştirmek için LDAP benzersiz tanımlayıcı özniteliği kullanın** radyo düğmesi seçildiğinde, hello Azure multi-Factor Authentication sunucusu kullanıcı adı her tooa benzersiz tanımlayıcı hello LDAP dizinindeki tooresolve çalışır. Bir LDAP araması gerçekleştirilir kullanıcıadı hello üzerinde tanımlı hello dizin tümleştirme -> öznitelikler sekmesinde. Bir kullanıcı kimliği doğruladığında hello kullanıcıadı hello LDAP dizinindeki benzersiz tanımlayıcıya çözümlenmiş toohello'dır. Merhaba benzersiz tanımlayıcı hello Azure multi-Factor Authentication veri dosyasındaki eşleşen hello kullanıcı için kullanılır. Bu, büyük küçük harf duyarsız karşılaştırmalarına ve uzun kısa kullanıcı adı biçimlerine sağlar.
 
-Bu adımları tamamladıktan sonra MFA sunucusu yapılandırılan istemcilerden gelen LDAP erişimi istekleri için yapılandırılan bağlantı noktalarını dinler ve bu istekleri LDAP dizinine kimlik doğrulaması için bir proxy olarak görev yapar.
+Bu adımları tamamladıktan sonra olanlar için proxy kimlik doğrulaması için toohello LDAP dizini istekleri gibi hello MFA sunucunun dinlediği hello gelen LDAP erişimi istekleri için yapılandırılan hello noktalarındaki istemciler ve davranır yapılandırılmış.
 
 ## <a name="configure-ldap-client"></a>LDAP istemcisi yapılandırma
-LDAP istemcisini yapılandırmak için yönergeleri kullanın:
+tooconfigure hello LDAP istemcisi hello yönergeleri kullanın:
 
-* LDAP aracılığıyla gerecinizi, sunucunuzu ya da uygulamanızı LDAP dizinindeymiş gibi Azure Multi-Factor Authentication Sunucusu için kimliğini doğrulamak üzere yapılandırın. Azure Multi-Factor Authentication Sunucusu’na ait olacak sunucu adı ya da IP adresi için olanlar dışında, LDAP dizininize normalde doğrudan bağlandığınızla aynı ayarları kullanın.
-* Kullanıcının kimlik bilgilerini LDAP diziniyle doğrulama, ikinci adım doğrulama gerçekleştirme, bunların yanıtını alma ve LDAP erişim isteğini yanıtlamaya zaman olmasını sağlamak, LDAP zaman aşımını 30-60 saniye için yapılandırın.
-* LDAPS kullanıyorsanız, LDAP sorgularını yapan gereç ya da sunucunun Azure Multi-Factor Authentication Sunucusu’nda yüklü SSL sertifikasına güvenmesi gerekir.
+* Dizinindeymiş gibi LDAP dizininize gereç, sunucu veya LDAP toohello Azure çok faktörlü kimlik doğrulama sunucusu üzerinden uygulama tooauthenticate yapılandırın. Kullanım hello aynı ayarları tooconnect normalde kullanırsınız doğrudan tooyour LDAP dizini, hello sunucu adı veya, hello Azure çok faktörlü kimlik doğrulama sunucusu olacak IP adresini dışında.
+* Zaman toovalidate hello kullanıcının kimlik bilgileriyle hello LDAP dizini olmasını sağlamak hello LDAP zaman aşımı too30-60 saniye yapılandırmak, hello ikinci adım doğrulamayı gerçekleştirmek, bunların yanıtını alma ve toohello LDAP erişim isteğine yanıt.
+* LDAPS kullanıyorsanız hello gereç ya da hello LDAP sorgularını yapan sunucu hello Azure çok faktörlü kimlik doğrulama sunucusu üzerinde yüklü hello SSL sertifikasına güvenmesi gerekir.
 

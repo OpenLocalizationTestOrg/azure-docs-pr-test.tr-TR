@@ -1,5 +1,5 @@
 ---
-title: "Azure geçiş API genel bakış | Microsoft Docs"
+title: "aaaAzure geçiş API genel bakış | Microsoft Docs"
 description: "Kullanılabilir Azure geçiş API'larının genel bakış"
 services: event-hubs
 documentationcenter: na
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: sethm
-ms.openlocfilehash: 8d93a0344adc3b0b7617f3a7d85124142d7a7555
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3c4d737d5fee9a8babce094fa6dfddb28910834b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="available-relay-apis"></a>Kullanılabilir geçiş API'leri
 
 ## <a name="runtime-apis"></a>Çalışma zamanı API'leri
 
-Aşağıdaki tabloda şu anda kullanılabilir tüm geçiş çalışma zamanı istemcileri listelenmektedir.
+Merhaba aşağıdaki tabloda şu anda kullanılabilir tüm geçiş çalışma zamanı istemcileri listelenmektedir.
 
-[Ek bilgi](#additional-information) bölüm her çalışma zamanı kitaplığı durumu hakkında daha fazla bilgi içerir.
+Merhaba [ek bilgi](#additional-information) bölüm her çalışma zamanı kitaplığı hello durumu hakkında daha fazla bilgi içerir.
 
 | Dil/Platform | Kullanılabilir özelliği | İstemci paketi | Depo |
 | --- | --- | --- | --- |
@@ -37,9 +37,9 @@ Aşağıdaki tabloda şu anda kullanılabilir tüm geçiş çalışma zamanı is
 ### <a name="additional-information"></a>Ek bilgiler
 
 #### <a name="net"></a>.NET
-Birden çok çalışma zamanları .NET ekosistemi vardır, bu nedenle olay hub'ları için birden çok .NET kitaplıklarına vardır. .NET standart kitaplığı, .NET Framework kitaplığı yalnızca bir .NET Framework ortamında çalıştırılabilir .NET Core veya .NET Framework kullanarak çalıştırabilirsiniz. .NET Framework ile ilgili daha fazla bilgi için bkz: [framework sürümlerini](/dotnet/articles/standard/frameworks#framework-versions).
+birden çok çalışma zamanları Hello .NET ekosistemi vardır, bu nedenle olay hub'ları için birden çok .NET kitaplıklarına vardır. Merhaba .NET standart kitaplığı hello .NET Framework kitaplığı yalnızca bir .NET Framework ortamında çalıştırılabilir .NET Core veya Merhaba, .NET Framework kullanarak çalıştırabilirsiniz. .NET Framework ile ilgili daha fazla bilgi için bkz: [framework sürümlerini](/dotnet/articles/standard/frameworks#framework-versions).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure geçişi hakkında daha fazla bilgi için bu bağlantıları ziyaret edin:
+toolearn Azure geçişi hakkında daha fazla bilgi için bu bağlantıları ziyaret edin:
 * [Azure Geçiş nedir?](relay-what-is-it.md)
 * [Geçiş hakkında SSS](relay-faq.md)

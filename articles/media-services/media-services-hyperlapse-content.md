@@ -1,6 +1,6 @@
 ---
-title: "Azure medya Hyperlapse ile medya dosyalarını | Microsoft Docs"
-description: "Azure medya Hyperlapse kesintisiz zaman onlara videolar ilk kişi veya eylem kamera içeriğini oluşturur. Bu konu, Media Indexer kullanmayı gösterir."
+title: "aaaHyperlapse Azure medya Hyperlapse ile medya dosyalarını | Microsoft Docs"
+description: "Azure medya Hyperlapse kesintisiz zaman onlara videolar ilk kişi veya eylem kamera içeriğini oluşturur. Bu konuda gösterilmektedir nasıl toouse medya dizin oluşturucu."
 services: media-services
 documentationcenter: 
 author: asolanki
@@ -14,37 +14,37 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 85bb07206d0ca2f5b2fd0767e6ed4904195d3ab6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Azure medya Hyperlapse ile medya dosyalarını
-Azure medya Hyperlapse bir medya işlemci (ilk kişi veya eylem kamera içerikten kesintisiz zaman onlara videolar oluşturan MP) olur.  Bulut tabanlı eşdüzeyi [Microsoft Research'ın masaüstü Hyperlapse Pro ve telefon tabanlı Hyperlapse Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse yatay ölçeklendirmenizi ve paralel hale Azure Media Services medya işleme platform yoğun ölçeğini Azure Media Services yararlanan için Hyperlapse toplu işleme.
+Azure medya Hyperlapse bir medya işlemci (ilk kişi veya eylem kamera içerikten kesintisiz zaman onlara videolar oluşturan MP) olur.  bulut tabanlı eşdüzey çok hello[Microsoft Research'ın masaüstü Hyperlapse Pro ve telefon tabanlı Hyperlapse Mobile](http://aka.ms/hyperlapse), Azure Media Services için Microsoft Hyperlapse hello yoğun hello Azure Media Services medya ölçeğini kullanır Platform toohorizontally işleme ölçeğini ve toplu paralel hale Hyperlapse işleme.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse en iyi ilk kişinin içeriğine taşıma kamera ile çalışmak üzere tasarlanmıştır.  Halen kamera görüntülerinin çalışmaya devam ancak performansına ve kalitesine Azure medya Hyperlapse medya işlemcisi diğer içerik türleri için garanti edilemez.  Azure Media Services için Microsoft Hyperlapse hakkında daha fazla bilgi edinmek ve bazı örnek videolar görmek için kullanıma [giriş blog gönderisi](http://aka.ms/azurehyperlapseblog) public preview sürümünden.
+> Microsoft Hyperlapse tasarlanmış toowork taşıma kamera ilk kişinin içerikle en iyi olur.  Halen kamera görüntülerinin çalışmaya devam ancak hello performansına ve kalitesine ilişkin hello Azure medya Hyperlapse medya işlemcisi diğer içerik türleri için garanti edilemez.  toolearn Azure Media Services için Microsoft Hyperlapse hakkında daha fazla bilgi ve bazı örnek videolar bakın, hello denetleyin [giriş blog gönderisi](http://aka.ms/azurehyperlapseblog) hello public preview sürümünden.
 > 
 > 
 
-İş geçen olarak bir Azure medya Hyperlapse Giriş bir MP4, MOV veya WMV varlık dosyası videonun hangi çerçeveler zaman onlara olmalıdır belirten bir yapılandırma dosyası ile birlikte ve hangi hızı (örn. ilk 10.000 çerçeve 2 x).  Çıktı, sabit ve zaman onlara yorumlama video giriş şeklindedir.
+İş geçen olarak bir Azure medya Hyperlapse giriş hangi çerçeveler videonun zaman onlara gerektiğini belirtir yapılandırma dosyası ve toowhat hızı yanı sıra bir MP4, MOV veya WMV varlık dosyası (örn. ilk 10.000 çerçeve 2 x).  Merhaba çıkışı sabit ve zaman onlara yorumlama hello giriş videonun yapılır.
 
-En son Azure medya Hyperlapse güncelleştirmeler için bkz: [Media Services bloglar](https://azure.microsoft.com/blog/topics/media-services/).
+Merhaba en son Azure medya Hyperlapse güncelleştirmeler için bkz: [Media Services bloglar](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## <a name="hyperlapse-an-asset"></a>Hyperlapse bir varlığı
-İlk Azure Media Services için istenen giriş dosyanızı karşıya yüklemek gerekir.  Karşıya yükleme ve içeriği yönetme ile ilgili kavramları hakkında daha fazla bilgi için okuma [içerik yönetimi makale](media-services-portal-vod-get-started.md).
+Öncelikle, istenen giriş dosyası tooAzure Media Services tooupload gerekir.  karşıya yükleme ve içeriği yönetme ile ilgili kavramları hakkında daha fazla bilgi toolearn hello okuma hello [içerik yönetimi makale](media-services-portal-vod-get-started.md).
 
 ### <a id="configuration"></a>Hyperlapse yapılandırma hazır
-İçeriğinizi Media Services hesabınızı eklendiğinde, yapılandırma hazır oluşturmak gerekir.  Aşağıdaki tabloda, kullanıcı tanımlı alanlar açıklanmaktadır:
+İçeriğinizi Media Services hesabınızı eklendiğinde, yapılandırmanızı önceden tooconstruct gerekir.  Aşağıdaki tablonun hello hello kullanıcı tanımlı alanlar açıklanmaktadır:
 
 | Alan | Açıklama |
 | --- | --- |
-| StartFrame |Bağlı Microsoft Hyperlapse işleme başlaması gereken çerçeve. |
-| NumFrames |İşlenecek çerçeve sayısı |
-| Hız |Hangi giriş video hızlandırmak faktörü. |
+| StartFrame |Merhaba çerçeve işleme hangi hello Microsoft Hyperlapse başlamalısınız. |
+| NumFrames |Çerçeve tooprocess Hello sayısı |
+| Hız |hangi toospeed hello giriş video yukarı faktörüyle Hello. |
 
-XML ve JSON uyumluluğunu yapılandırma dosyası örneği verilmiştir:
+Merhaba, XML ve JSON uyumluluğunu yapılandırma dosyası örneği verilmiştir:
 
 **XML hazır:**
 
@@ -74,14 +74,14 @@ XML ve JSON uyumluluğunu yapılandırma dosyası örneği verilmiştir:
         }
     }
 
-### <a id="sample_code"></a>Microsoft Hyperlapse AMS .NET SDK'sı
-Aşağıdaki yöntem Azure medya Hyperlapse medya işlemcisi bir işi oluşturur ve bir medya dosyası bir varlık olarak yükler.
+### <a id="sample_code"></a>Microsoft Hyperlapse hello AMS .NET SDK'sı ile
+Merhaba aşağıdaki yöntemi bir medya dosya bir varlık olarak yükler ve hello ile Azure medya Hyperlapse medya işlemcisi bir işi oluşturur.
 
 > [!NOTE]
-> Bu kodun çalışması "context" adı ile kapsamda zaten bir CloudMediaContext yüklü olmalıdır.  Bunun hakkında daha fazla bilgi edinmek için okuma [içerik yönetimi makale](media-services-dotnet-get-started.md).
+> Bu kod toowork kapsamına hello adı "context" ile bir CloudMediaContext olmanız gerekir.  Bu, okuma hello hakkında daha fazla toolearn [içerik yönetimi makale](media-services-dotnet-get-started.md).
 > 
 > [!NOTE]
-> Dize bağımsız değişkeni "hyperConfig" JSON veya XML yukarıda açıklandığı gibi önceden belirlenmiş bir uyumluluğunu yapılandırma olması beklenir.
+> Merhaba dize bağımsız değişkeni "hyperConfig" JSON ya da yukarıda açıklandığı gibi XML uyumluluğunu yapılandırma önceden beklenen toobe ' dir.
 > 
 > 
 
@@ -148,7 +148,7 @@ Aşağıdaki yöntem Azure medya Hyperlapse medya işlemcisi bir işi oluşturur
                                                  CancellationToken.None);
             progressJobTask.Wait();
 
-            // If job state is Error, the event handling
+            // If job state is Error, hello event handling
             // method for job progress should log errors.  Here we check
             // for error state and exit if needed.
             if (job.State == JobState.Error)

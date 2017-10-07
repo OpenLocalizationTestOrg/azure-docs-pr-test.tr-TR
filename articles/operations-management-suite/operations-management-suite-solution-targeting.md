@@ -1,6 +1,6 @@
 ---
-title: "Çözüm OMS hedefleme | Microsoft Docs"
-description: "Çözüm hedefleme bulunan bir özelliktir Operations Management Suite (OMS) aracıları belirli bir dizi yönetim çözümleri sınırlamanıza olanak sağlar.  Bu makalede, bir kapsam yapılandırması oluşturma ve bir çözüm uygulama açıklar."
+title: "OMS içinde aaaSolution hedefleme | Microsoft Docs"
+description: "Çözüm hedefleme Operations Management Suite (OMS) toolimit yönetim çözümleri tooa belirli kümesini aracıları verir bir özelliktir.  Bu makalede nasıl toocreate kapsam yapılandırması ve tooa çözüm uygulayabilirsiniz."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6f8c8109e0d9e282e18724bf8b673b10de8e498a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Kapsam yönetim çözümleri için belirli aracıları (Önizleme) için Operations Management Suite (OMS) çözümü hedefleme kullanın
-Bir çözüm için OMS eklediğinizde, varsayılan olarak, günlük analizi çalışma alanına bağlı tüm Windows ve Linux aracıları için otomatik olarak dağıtılır.  Maliyetlerinizi yönetmek ve yönelik bir çözüm aracıların belirli bir dizi sınırlama tarafından toplanan veri miktarını sınırlamak isteyebilirsiniz.  Bu makalede nasıl kullanılacağını açıklar **çözüm hedefleme** kapsam çözümlerinizi uygulamanıza imkan sağlayan bir OMS özelliği olduğu.
+# <a name="use-solution-targeting-in-operations-management-suite-oms-tooscope-management-solutions-toospecific-agents-preview"></a>Operations Management Suite (OMS) tooscope yönetim çözümleri toospecific aracıları (Önizleme) hedefleme çözümü kullanın
+Bir çözüm tooOMS eklediğinizde, varsayılan tooall Windows ve Linux aracıları bağlı tooyour günlük analizi çalışma alanı tarafından otomatik olarak dağıtılır.  Tooa belirli aracıları kümesini sınırlayarak yönelik bir çözüm, maliyetleri ve sınırı hello veri miktarını toplanan toomanage isteyebilirsiniz.  Bu makalede nasıl toouse **çözüm hedefleme** tooapply bir kapsam olanak tanıyan bir OMS özelliği olduğu tooyour çözümler.
 
-## <a name="how-to-target-a-solution"></a>Hedef bir çözümü nasıl
-Aşağıdaki bölümlerde açıklandığı gibi bir çözüm hedefleme için üç adım vardır.  OMS portalı ve Azure portal için farklı adımlar gerekeceğini unutmayın.
+## <a name="how-tootarget-a-solution"></a>Nasıl tootarget bir çözümü
+Üç adımları tootargeting bir çözüm hello aşağıdaki bölümlerde açıklandığı gibi vardır.  Merhaba OMS portalı ve hello Azure portal için farklı adımlar gerekeceğini unutmayın.
 
 
 ### <a name="1-create-a-computer-group"></a>1. Bir bilgisayar grubu oluşturun
-Bir kapsamda oluşturarak dahil etmek istediğiniz bilgisayarları belirttiğiniz bir [bilgisayar grubu](../log-analytics/log-analytics-computer-groups.md) günlük analizi içinde.  Bilgisayar grubu günlük aramaya bağlı veya Active Directory veya WSUS grupları gibi diğer kaynaklardan alınamadı. Olarak [aşağıda açıklanan](#solutions-and-agents-that-cant-be-targeted), günlük analizi için doğrudan bağlanan bilgisayarlar kapsamda dahil edilir.
+Oluşturarak kapsamdaki tooinclude istediğiniz hello bilgisayarları belirttiğiniz bir [bilgisayar grubu](../log-analytics/log-analytics-computer-groups.md) günlük analizi içinde.  Merhaba bilgisayar grubu günlük aramaya bağlı veya Active Directory ya da WSUS grupları gibi diğer kaynaklardan alınamadı. Olarak [aşağıda açıklanan](#solutions-and-agents-that-cant-be-targeted), doğrudan bilgisayarları Analytics hello kapsamda dahil edilir tooLog bağlı sadece.
 
-Bir kez bir veya daha fazla çözümleri uygulanabilir bir kapsam yapılandırmasında dahil sonra çalışma alanınızda, oluşturulan bilgisayar grubuna sahip.
+Sonra çalışma alanınızda oluşturulan hello bilgisayar grubu oluşturduktan sonra uygulanan tooone ya da daha fazla çözümleri bir kapsam yapılandırmasında dahil.
  
  
  ### <a name="2-create-a-scope-configuration"></a>2. Bir kapsam yapılandırması oluştur
- A **kapsam yapılandırması** bir veya daha fazla bilgisayar gruplarını içerir ve bir veya daha fazla çözümleri uygulanabilir. 
+ A **kapsam yapılandırması** uygulanan tooone ya da daha fazla çözümleri olabilir ve bir veya daha fazla bilgisayar gruplarını içerir. 
  
- Aşağıdaki işlemi kullanarak bir kapsam yapılandırmasını oluşturun.  
+ İşlemi aşağıdaki hello kullanarak bir kapsam yapılandırmasını oluşturun.  
 
- 1. Azure portalında gidin **günlük analizi** ve çalışma alanınızı seçin.
- 2. Çalışma alanı altında özelliklerinde **çalışma veri kaynakları** seçin **kapsam yapılandırmaları**.
- 3. Tıklatın **Ekle** yeni bir kapsam yapılandırması oluşturmak için.
- 4. Tür a **adı** kapsam yapılandırması için.
+ 1. İçinde Azure portal Merhaba, çok gidin**günlük analizi** ve çalışma alanınızı seçin.
+ 2. Merhaba çalışma alanındaki hello özelliklerinde **çalışma veri kaynakları** seçin **kapsam yapılandırmaları**.
+ 3. Tıklatın **Ekle** toocreate yeni bir kapsam yapılandırması.
+ 4. Tür a **adı** hello kapsam yapılandırması için.
  5. Tıklatın **bilgisayar gruplarını seçin**.
- 6. Oluşturduğunuz bilgisayar grubu ve isteğe bağlı olarak diğer gruplar yapılandırmasına eklemek için seçin.  **Seç**'e tıklayın.  
- 6. Tıklatın **Tamam** kapsam yapılandırması oluşturmak için. 
+ 6. Oluşturduğunuz hello bilgisayar grubu ve isteğe bağlı olarak herhangi diğer grupları tooadd toohello bir yapılandırma seçin.  **Seç**'e tıklayın.  
+ 6. Tıklatın **Tamam** toocreate hello kapsam yapılandırması. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Kapsam yapılandırması bir çözüm için geçerlidir.
-Daha sonra bir kapsam yapılandırması olduktan sonra onu bir veya daha fazla çözümleri uygulayabilirsiniz.  Tek bir kapsam yapılandırma ile birden çok çözümler kullanılabilse de, her bir çözüm için yalnızca bir kapsam yapılandırması kullanabilirsiniz.
+ ### <a name="3-apply-hello-scope-configuration-tooa-solution"></a>3. Merhaba kapsam yapılandırma tooa çözümü uygulayın.
+Bir kapsam yapılandırması olduktan sonra daha sonra onu tooone veya diğer çözümleri uygulayabilirsiniz.  Tek bir kapsam yapılandırma ile birden çok çözümler kullanılabilse de, her bir çözüm için yalnızca bir kapsam yapılandırması kullanabilirsiniz.
 
-Aşağıdaki işlemi kullanarak bir kapsam yapılandırması uygulanır.  
+İşlemi aşağıdaki hello kullanarak kapsam yapılandırma uygulayın.  
 
- 1. Azure portalında gidin **günlük analizi** ve çalışma alanınızı seçin.
- 2. Çalışma alanı özelliklerinde seçin **çözümleri**.
- 3. Kapsama istediğiniz çözüm tıklayın.
- 4. Çözümü özelliklerinde **çalışma veri kaynakları** seçin **çözüm hedefleme**.  Seçeneği kullanılabilir değilse, ardından [Bu çözüm hedefleyemez](#solutions-and-agents-that-cant-be-targeted).
- 5. Tıklatın **Ekle kapsam yapılandırması**.  Bu çözüm için uygulanan bir yapılandırma zaten varsa bu seçenek kullanılamaz.  Başka bir tane eklemeden önce mevcut yapılandırmayı kaldırmanız gerekir.
- 6. Kapsam yapılandırmasını, oluşturduğunuz'ı tıklatın.
- 7. Gözcü **durum** gösterdiğine dikkat emin olmak için yapılandırmasının **başarılı**.  Bir hata durumu gösterir, seçin ve yapılandırma sağındaki elips'ı tıklatın **Düzen kapsam yapılandırması** değişiklik yapma.
+ 1. İçinde Azure portal Merhaba, çok gidin**günlük analizi** ve çalışma alanınızı seçin.
+ 2. Merhaba çalışma hello özelliklerinde seçin **çözümleri**.
+ 3. Tıklatın hello çözüm üzerinde tooscope istiyor.
+ 4. Merhaba çözümü hello özelliklerinde **çalışma veri kaynakları** seçin **çözüm hedefleme**.  Merhaba seçeneği kullanılabilir değilse, ardından [Bu çözüm hedefleyemez](#solutions-and-agents-that-cant-be-targeted).
+ 5. Tıklatın **Ekle kapsam yapılandırması**.  Uygulanan yapılandırma toothis Çözüm zaten varsa bu seçenek kullanılamaz.  Başka bir tane eklemeden önce mevcut yapılandırma hello kaldırmanız gerekir.
+ 6. Oluşturduğunuz hello kapsam yapılandırma'ya tıklayın.
+ 7. Gözcü hello **durum** onu gösterir hello yapılandırma tooensure, **başarılı**.  Merhaba durum bir hata olduğunu gösteriyorsa, hello elips toohello sağ hello yapılandırma ve Seç'ı tıklatın **Düzen kapsam yapılandırması** toomake değişiklikler.
 
 ## <a name="solutions-and-agents-that-cant-be-targeted"></a>Çözümler ve hedefleyemez aracıları
-Aracılar ve çözüm hedeflemede kullanılamaz çözümleri ölçütlerini aşağıda verilmiştir.
+Aracıları ve çözüm hedeflemede kullanılamaz çözümleri hello ölçütlerini verilmiştir.
 
-- Çözüm hedefleme yalnızca aracılara dağıtmak çözümleri için geçerlidir.
-- Çözüm hedefleme yalnızca Microsoft tarafından sağlanan çözümleri için geçerlidir.  Çözümleri uygulanmaz [kendiniz veya iş ortakları tarafından oluşturulan](operations-management-suite-solutions-creating.md).
-- Yalnızca doğrudan günlük Analizi'ne bağlamak aracıları filtreleyebilirsiniz.  Çözümleri bir kapsam yapılandırmasında dahil edildiklerini olup olmadığına bağlı bir Operations Manager yönetim grubunun parçası olan tüm aracıları otomatik olarak dağıtır.
+- Çözüm hedefleme yalnızca tooagents dağıtmak toosolutions için geçerlidir.
+- Çözüm hedefleme yalnızca Microsoft tarafından sağlanan toosolutions için geçerlidir.  Toosolutions uygulanmaz [kendiniz veya iş ortakları tarafından oluşturulan](operations-management-suite-solutions-creating.md).
+- Yalnızca tooLog Analytics doğrudan bağlanan aracıları filtreleyebilirsiniz.  Çözümleri, bunlar bir kapsam yapılandırmada olup olmadığına dahil edildiklerini bağlı bir Operations Manager yönetim grubunun parçası olan tooany aracıları otomatik olarak dağıtacaktır.
 
 ### <a name="exceptions"></a>Özel durumlar
-Belirtilen ölçütlere uyan olsa da çözüm hedefleme aşağıdaki çözümleri ile kullanılamaz.
+Çözüm hedefleme ile Merhaba kullanılamaz hello uygun olsa da çözümleri aşağıdaki belirtilen ölçütleri.
 
 - Aracı sistem durumu değerlendirmesi
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Ortamınıza yükleme kullanılabilir çözümleri dahil olmak üzere yönetim çözümleri hakkında daha fazla bilgi [çalışma alanınıza ekleyin Azure günlük analizi yönetim çözümleri](../log-analytics/log-analytics-add-solutions.md).
+- Ortamınızdaki kullanılabilir tooinstall hello çözümleri dahil olmak üzere yönetim çözümleri hakkında daha fazla bilgi [eklemek Azure günlük analizi yönetim çözümleri tooyour çalışma](../log-analytics/log-analytics-add-solutions.md).
 - Bilgisayar gruplarının oluşturma hakkında daha fazla bilgi [günlük analizi bilgisayar gruplarında oturum aramaları](../log-analytics/log-analytics-computer-groups.md).

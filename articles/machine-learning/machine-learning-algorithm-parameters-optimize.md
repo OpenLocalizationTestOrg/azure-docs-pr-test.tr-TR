@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning algoritmaları en iyi duruma getirme | Microsoft Docs"
-description: "Azure Machine learning'de algoritma için en iyi parametresinde seçin açıklanmaktadır."
+title: "aaaOptimize, Azure Machine Learning algoritmaları | Microsoft Docs"
+description: "Nasıl toochoose hello en iyi Azure Machine learning'de algoritma için parametre açıklanmaktadır."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: b3be7f31ac31c656744fb809e3972af0ac4ad4f1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fbf2f71abdbce19483fb048d67a39cbb368a928e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning algoritmaları en iyi duruma getirmek için parametreleri seçin
-Bu konuda, Azure Machine learning'de algoritma için ayarlanmış sağ hyperparameter seçmek açıklar. Çoğu machine learning algoritmaları ayarlamak için parametrelere sahip. Bir modeli eğitmek zaman o parametreler için değerler sağlamanız gerekir. Seçtiğiniz model parametreleri eğitilen model sürecinin bağlıdır. En iyi parametrelerinin bulma işleminin olarak bilinen *model seçimi*.
+# <a name="choose-parameters-toooptimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning, algoritmaları parametreleri toooptimize seçin
+Bu konu, Azure Machine learning'de algoritma için toochoose hello sağ hyperparameter nasıl ayarlanacağını açıklar. Çoğu machine learning algoritmaları parametreleri tooset sahip. Bir modeli eğitmek için bu parametreleri tooprovide değerleri gerekir. Merhaba sürecinin hello eğitilen modeli seçtiğiniz hello modeli parametrelere bağlıdır. Merhaba hello en iyi parametreleri kümesini bulma işlemi olarak bilinir *model seçimi*.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Seçim modellemek için çeşitli yolları vardır. Machine learning, çapraz doğrulama model seçimi için en yaygın olarak kullanılan yöntemleri biridir ve varsayılan model seçimi mekanizma Azure Machine Learning değil. Azure Machine Learning R ve Python desteklediğinden, R veya Python kullanarak her zaman kendi model seçimi mekanizmaları uygulayabilirsiniz.
+Çeşitli yolları toodo model seçimi vardır. Machine learning'de, çapraz doğrulama model seçimi için en yaygın olarak kullanılan hello yöntemlerden birini, ve hello varsayılan model seçimi yönteminde Azure Machine Learning olur. Azure Machine Learning R ve Python desteklediğinden, R veya Python kullanarak her zaman kendi model seçimi mekanizmaları uygulayabilirsiniz.
 
-En iyi parametre kümesi bulma sürecinde dört adım vardır:
+Merhaba en iyi parametre kümesi bulma hello işleminde dört adım vardır:
 
-1. **Parametre alanı tanımlamak**: algoritması, ilk olarak istediğiniz dikkate alınması gereken tam parametre değerlerini karar verin.
-2. **Çapraz doğrulama ayarlarını tanımla**: veri kümesi için çapraz doğrulama Katlama seçmek nasıl karar verin.
-3. **Ölçümü tanımlayın**: en iyi doğruluğu gibi parametreleri kümesini belirlemek için kullanılacak hangi ölçüm karar, kök ortalama karesi alınmış hata, kesinlik, geri çağırma veya f-score.
-4. **Eğitim, değerlendirmek ve karşılaştırmak**: parametre değerlerini benzersiz her birleşimi için çapraz doğrulama tarafından yürütülen ve tanımladığınız hata ölçüm tabanlı. Değerlendirme ve karşılaştırma sonra en çok gerçekleştirme modeli seçebilirsiniz.
+1. **Merhaba parametre alan tanımlayın**: hello algoritması için ilk tooconsider istediğiniz hello tam parametre değerlerini karar verin.
+2. **Merhaba çapraz doğrulama ayarlarını tanımla**: nasıl toochoose çapraz doğrulama hello veri kümesi için Katlama karar verin.
+3. **Merhaba ölçümü tanımlayın**: hello en iyi doğruluğu gibi parametreleri kümesini belirlemek için hangi ölçüm toouse karar, kök ortalama karesi alınmış hata, kesinlik, geri çağırma veya f-score.
+4. **Eğitim, değerlendirmek ve karşılaştırmak**: hello parametre değerlerini benzersiz her birleşimi için çapraz doğrulama tarafından yürütülen ve tanımladığınız hello hata ölçüm üzerinde temel. Değerlendirme ve karşılaştırma sonra hello en gerçekleştirme modeli seçebilirsiniz.
 
-Aşağıdaki resim Azure Machine Learning ile bu nasıl sağlanabilir gösterir gösterilmektedir.
+Görüntü aşağıdaki hello Azure Machine Learning ile bu nasıl sağlanabilir gösterir gösterilmektedir.
 
-![En iyi parametre kümesi Bul](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
+![Merhaba en iyi parametre kümesi Bul](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
 
-## <a name="define-the-parameter-space"></a>Parametre alanını tanımlayın
-Parametre modeli başlatma adımda kümesi tanımlayabilirsiniz. Tüm makine öğrenimi algoritma parametresi bölmesini iki Eğitmen modu vardır: *tek bir parametre* ve *parametre aralık*. Parametre aralık modu seçin. Parametre aralık modunda her parametre için birden çok değer girebilirsiniz. Metin kutusunda, virgülle ayrılmış değerler girebilirsiniz.
+## <a name="define-hello-parameter-space"></a>Merhaba parametre alan tanımlayın
+Merhaba parametre hello modeli başlatma adımda kümesi tanımlayabilirsiniz. Merhaba tüm makine öğrenimi algoritma parametresi bölmesini iki Eğitmen modu vardır: *tek bir parametre* ve *parametre aralık*. Parametre aralık modu seçin. Parametre aralık modunda her parametre için birden çok değer girebilirsiniz. Merhaba metin kutusuna, virgülle ayrılmış değerler girebilirsiniz.
 
 ![İki sınıflı artırılmış karar ağacı, tek bir parametre](./media/machine-learning-algorithm-parameters-optimize/fig2.png)
 
- Alternatif olarak, kılavuz ve nokta ile oluşturulacak toplam sayısı maksimum ve minimum noktalarının tanımlayabilirsiniz **kullanım aralık oluşturucu**. Varsayılan olarak, parametre değerlerini doğrusal bir ölçekte üretilir. Ancak **günlük ölçek** denetlenir değerlerin, günlük ölçeğin oluşturulur (diğer bir deyişle, bitişik noktalarının yerine kendi fark sabit orandır). Tamsayı Parametreler için kısa çizgi kullanarak bir aralığı tanımlayabilirsiniz. 1 ile 10 (her ikisi de dahil) arasındaki tüm tamsayılara parametre kümesi form Örneğin, "1-10" anlamına gelir. Karma mod da desteklenir. Örneğin, parametre kümesini "1-10, 20, 50" tamsayılar 1-10, 20, içerir ve 50.
+ Alternatif olarak, hello maksimum ve minimum noktaları hello kılavuz ve noktaları toobe ile oluşturulan toplam sayısı hello tanımlayabilirsiniz **kullanım aralık oluşturucu**. Varsayılan olarak, hello parametre değerlerini doğrusal bir ölçekte üretilir. Ancak **günlük ölçek** denetlenir hello değerleri hello günlük ölçek oluşturulur (diğer bir deyişle, hello hello bitişik noktalarının yerine kendi fark sabit orandır). Tamsayı Parametreler için kısa çizgi kullanarak bir aralığı tanımlayabilirsiniz. Örneğin, "1-10" anlamına gelir tüm tamsayılar 1 ile 10 arasında (her ikisi de dahil) hello parametre kümesi oluşturur. Karma mod da desteklenir. Örneğin, parametre kümesi'ni hello "1-10, 20, 50" tamsayılar 1-10, 20, içerir ve 50.
 
 ![İki sınıflı artırılmış karar ağacı, parametre aralığı](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>Çapraz doğrulama Katlama tanımlayın
-[Bölüm ve örnek] [ partition-and-sample] modülü, rastgele verileri Katlama atamak için kullanılabilir. Aşağıdaki örnek yapılandırma modülü için beş Katlama tanımlayın ve rastgele Katlama birkaç örnek örneklerine atayın.
+Merhaba [bölüm ve örnek] [ partition-and-sample] modülü kullanılan toorandomly Ata Katlama toohello veri olabilir. Merhaba modülü için örnek yapılandırma aşağıdaki hello, biz beş Katlama tanımlayın ve rastgele sayı toohello örnek örnekleri bir Katlama atayın.
 
 ![Bölüm ve örnek](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
-## <a name="define-the-metric"></a>Ölçümü tanımlayın
-[Model ayarlama Hiperparametreleri] [ tune-model-hyperparameters] modülü empirically verilen algoritması ve veri kümesi için en iyi parametrelerinin seçme için destek sağlar. Diğer bilgilerine ek olarak eğitim modeli ilgili **özellikleri** Bu modülün bölmesinde en iyi parametre kümesi belirlemek için ölçüm içerir. Sınıflandırma ve regresyon algoritmalar için iki farklı aşağı açılan liste kutusu sırasıyla sahiptir. Algoritma odaklanılan bir sınıflandırma algoritmasıdır ise, regresyon ölçüm göz ardı edilir ve tersi. Bu belirli örnekte ölçümüdür **doğruluğu**.   
+## <a name="define-hello-metric"></a>Merhaba ölçümü tanımlayın
+Merhaba [Model ayarlama Hiperparametreleri] [ tune-model-hyperparameters] modülü empirically hello en iyi verilen algoritması ve veri kümesi için parametre kümesi seçme için destek sağlar. Ayrıca eğitim hello ilişkin tooother bilgi modeli hello **özellikleri** Bu modülün bölmesi hello en iyi parametre kümesini belirlemek için hello ölçüm içerir. Sınıflandırma ve regresyon algoritmalar için iki farklı aşağı açılan liste kutusu sırasıyla sahiptir. Merhaba algoritması odaklanılan bir sınıflandırma algoritmasıdır ise, hello regresyon ölçüm göz ardı edilir ve tersi. Bu belirli örnekte hello ölçümüdür **doğruluğu**.   
 
 ![Tarama parametreleri](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## <a name="train-evaluate-and-compare"></a>Eğitim, değerlendirmek ve karşılaştırma
-Aynı [Model ayarlama Hiperparametreleri] [ tune-model-hyperparameters] üzerinde ölçüm parametresine karşılık gelen tüm modelleri ayarlayın, çeşitli ölçümleri değerlendirir ve en iyi eğitim modeli oluşturur modülü trenler dayalı ' ı seçin. Bu modül iki zorunlu giriş vardır:
+aynı hello [Model ayarlama Hiperparametreleri] [ tune-model-hyperparameters] modülü eğitir toohello parametre kümesi karşılık gelen, çeşitli ölçümleri değerlendirir ve ardından hello en eğitilen model üzerinde hello temel oluşturan tüm hello modelleri Seçtiğiniz ölçüm. Bu modül iki zorunlu giriş vardır:
 
-* Eğitimsiz öğrenen
-* Veri kümesi
+* Merhaba eğitimsiz öğrenen
+* Merhaba veri kümesi
 
-Modül de giriş isteğe bağlı bir veri kümesine sahiptir. Zorunlu dataset giriş için Katlama bilgilerle dataset bağlayın. Veri kümesi herhangi bir Katlama bilgi atanmamışsa bir 10-fold çapraz doğrulama otomatik olarak varsayılan olarak yürütülür. Katlama atama yapılmaz ve isteğe bağlı veri kümesi bağlantı noktasına bir doğrulama dataset sağlanır, tren test modu seçilir ve ilk veri kümesini her parametre birleşimi için modeli eğitmek için kullanılır.
+Merhaba modülü de giriş isteğe bağlı bir veri kümesine sahiptir. Merhaba dataset Katlama bilgi toohello zorunlu dataset girişle bağlayın. Merhaba veri kümesi herhangi bir Katlama bilgi atanmamışsa bir 10-fold çapraz doğrulama otomatik olarak varsayılan olarak yürütülür. Hello Katlama atama yapılmaz ve doğrulama dataset hello isteğe bağlı veri kümesi bağlantı noktalarından sağlanan tren test modu seçilir ve hello ilk veri kümesini kullanılan tootrain hello her parametre birleşimi için modelidir.
 
 ![Artırılmış karar ağacı sınıflandırıcı](./media/machine-learning-algorithm-parameters-optimize/fig6a.png)
 
-Model doğrulama veri kümesine sonra değerlendirilir. Modülünün sol çıkış bağlantı noktasına parametre değerleri olarak işlevler farklı ölçütleri gösterir. Doğru çıkış bağlantı noktasına en gerçekleştirme modele seçilen ölçüm göre karşılık gelen eğitilen model sağlar (**doğruluğu** bu durumda).  
+Merhaba modeli sonra hello doğrulama dataset üzerinde değerlendirilir. Merhaba hello modülü gösterir çıkış bağlantı noktasına parametre değerleri olarak işlevler farklı ölçümleri kalmadı. Merhaba çıkış bağlantı noktasına verir ölçüm seçilen toohello göre toohello en gerçekleştirme modeli karşılık gelen hello eğitilen model sağ (**doğruluğu** bu durumda).  
 
 ![Doğrulama veri kümesi](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
 
-Doğru çıkış bağlantı noktasına görselleştirme tarafından seçilen tam parametreleri görebilirsiniz. Bu model, bir sınama kümesi Puanlama veya bir kullanıma hazır hale getirilmiş web hizmeti modeli olarak kaydettikten sonra kullanılabilir.
+Merhaba tam parametreleri hello sağ çıkış bağlantı noktasına görselleştirme tarafından seçilen görebilirsiniz. Bu model, bir sınama kümesi Puanlama veya bir kullanıma hazır hale getirilmiş web hizmeti modeli olarak kaydettikten sonra kullanılabilir.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/

@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT - Ders 4 Intel Edison (C) bağlanın: LED Blink | Microsoft Docs"
-description: "LED açma ve kapatma davranışını değiştirmek için iletilerini özelleştirin."
+title: 'Connect Intel Edison (C) tooAzure IOT - Ders 4: Blink hello LED | Microsoft Docs'
+description: "Merhaba iletileri toochange hello LED açma ve Kapatma davranışı kullanıcının özelleştirin."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,30 +17,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 4852b1cca4c6186ef4857b903b771f76cc20adb8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c51acb42aa297ca91cfe76d7b0361ad95e2fb2e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>Açık ve kapalı LED davranışını değiştirme
+# <a name="change-hello-on-and-off-behavior-of-hello-led"></a>Merhaba açma ve kapatma hello LED davranışını değiştirme
 ## <a name="what-you-will-do"></a>Ne yapacağını
-LED açma ve kapatma davranışını değiştirmek için iletilerini özelleştirin. Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası][troubleshooting].
+Merhaba iletileri toochange hello LED açma ve Kapatma davranışı kullanıcının özelleştirin. Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
-LED açma ve kapatma davranışını değiştirmek için ek işlevler kullanın.
+Açma ve Kapatma davranışı LED kullanıcının ek işlevler toochange hello kullanın.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
-Başarılı bir şekilde tamamladınız gerekir [bulut aygıt iletileri almak için Intel Edison'u bir örnek uygulamayı çalıştırmak][receive-cloud-to-device-messages].
+Başarılı bir şekilde tamamladınız gerekir [örnek bir uygulama toodevice iletileri Intel Edison'u tooreceive bulutta çalışacak][receive-cloud-to-device-messages].
 
-## <a name="add-functions-to-mainc-and-gulpfilejs"></a>Main.c ve gulpfile.js İşlevler ekleme
-1. Örnek uygulama, aşağıdaki komutları çalıştırarak Visual Studio code'da açın:
+## <a name="add-functions-toomainc-and-gulpfilejs"></a>İşlevler toomain.c ve gulpfile.js ekleyin
+1. Merhaba örnek uygulaması hello aşağıdaki komutları çalıştırarak Visual Studio code'da açın:
 
    ```bash
    cd Lesson4
    code .
    ```
-2. Açık `main.c` dosya ve ardından aşağıdaki işlevleri sonra blinkLED() işlevi ekleyin:
+2. Açık hello `main.c` dosya ve işlevleri blinkLED() işlevi sonra aşağıdaki hello ekleyin:
 
    ```c
    static void turnOnLED()
@@ -56,7 +56,7 @@ Başarılı bir şekilde tamamladınız gerekir [bulut aygıt iletileri almak i�
 
    ![Main.c dosyasıyla eklenen İşlevler](media/iot-hub-intel-edison-lessons/lesson4/updated_app_c.png)
 
-3. Önce aşağıdaki koşulları ekleyin `else if` , engellemek `receiveMessageCallback` işlevi:
+3. Koşullar hello önce aşağıdaki hello eklemek `else if` hello bloğunu `receiveMessageCallback` işlevi:
 
    ```c
    else if (0 == strcmp((const char*)value, "\"on\""))
@@ -69,8 +69,8 @@ Başarılı bir şekilde tamamladınız gerekir [bulut aygıt iletileri almak i�
    }
    ```
 
-   Şimdi, daha fazla yönerge iletileri aracılığıyla yanıtlamak için örnek uygulama yapılandırdığınız. "Açık" yönerge üzerinde LED kapatır ve "kapalı" yönerge LED devre dışı bırakır.
-4. Gulpfile.js dosyasını açın ve ardından yeni bir işlev işlevi önce ekleyin `sendMessage`:
+   Şimdi, hello örnek uygulama toorespond toomore yönergeleri iletileri aracılığıyla yapılandırdığınız. Merhaba "açık" yönerge LED hello üzerinde kapatır ve "kapalı" yönerge hello LED hello devre dışı bırakır.
+4. Merhaba gulpfile.js dosyasını açın ve ardından yeni bir işlev hello işlevi önce ekleyin `sendMessage`:
 
    ```javascript
    var buildCustomMessage = function (messageId) {
@@ -85,28 +85,28 @@ Başarılı bir şekilde tamamladınız gerekir [bulut aygıt iletileri almak i�
    ```
 
    ![Gulpfile.js dosyasıyla eklenen işlevi][gulpfile]
-5. İçinde `sendMessage` işlev, satır Değiştir `var message = buildMessage(sentMessageCount);` aşağıdaki kod parçacığında gösterildiği yeni satır ile:
+5. Merhaba, `sendMessage` işlev, hello satırını değiştirmek `var message = buildMessage(sentMessageCount);` hello aşağıdaki kod parçacığında gösterildiği hello yeni satır ile:
 
    ```javascript
    var message = buildCustomMessage(sentMessageCount);
    ```
-6. Tüm değişiklikleri kaydedin.
+6. Tüm hello değişiklikleri kaydedin.
 
-### <a name="deploy-and-run-the-sample-application"></a>Dağıtma ve örnek uygulamayı çalıştırma
-Dağıtma ve aşağıdaki komutu çalıştırarak Edison'u üzerinde örnek uygulamayı çalıştırın:
+### <a name="deploy-and-run-hello-sample-application"></a>Dağıtma ve hello örnek uygulamayı çalıştırma
+Dağıtma ve hello aşağıdaki komutu çalıştırarak Edison'u üzerinde hello örnek uygulamayı çalıştırın:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-İki saniye LED etkinleştirin ve başka bir iki saniye sonra Kapat görmeniz gerekir. Son "Durdur" iletisi örnek uygulamanın çalışmasını durdurur.
+İki saniye hello LED etkinleştirin ve başka bir iki saniye sonra Kapat görmeniz gerekir. Merhaba son "Durdur" iletisi hello örnek uygulamanın çalışmasını durdurur.
 
 ![açma ve kapatma][on-and-off]
 
-Tebrikler! Başarıyla Edison'u için IOT hub'ından gönderilen iletileri özelleştirdiğiniz.
+Tebrikler! TooEdison IOT hub'ından gönderilen Merhaba iletileri başarıyla özelleştirdiğiniz.
 
 ### <a name="summary"></a>Özet
-Bu isteğe bağlı bir bölüm, böylece örnek uygulamanın açık ve kapalı LED davranışını farklı bir şekilde denetleyebilirsiniz iletilerini özelleştirmek gösterilmiştir.
+İsteğe bağlı Bu bölüm, böylece Merhaba örnek uygulaması farklı bir şekilde hello açma ve kapatma hello LED davranışını kontrol edebilirsiniz toocustomize nasıl iletileri gösterir.
 
 <!-- Images and links -->
 

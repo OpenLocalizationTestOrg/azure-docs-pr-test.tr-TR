@@ -1,6 +1,6 @@
 ---
-title: "Boyutlandırma bilgileri için bir VNET Azure remoteapp'te | Microsoft Docs"
-description: "Bir VNET ile birlikte çalışan Azure RemoteApp için IP adresi gereksinimleri hakkında bilgi edinin"
+title: "Azure remoteapp'te bir VNET için aaaSizing bilgi | Microsoft Docs"
+description: "Bir VNET ile birlikte çalışan Azure RemoteApp için başlangıç IP adresi gereksinimleri hakkında bilgi edinin"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 9375981db64ec4a1ae523e958423b5f5787cec33
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f98b831af32c41740b258d122b3e18765be08d97
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Boyutlandırma bilgileri Azure remoteapp'te bir VNET için
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Bir sanal ağ (VNET) ile Azure RemoteApp kullandığınızda, RemoteApp alt ağ içindeki IP adreslerini kullanır. RemoteApp hizmetinizi ölçekte alt ağınızı RemoteApp sanal makineler için kullanılabilir yeterli IP adresine sahip olduğundan emin olun gerekir. Bu boyutlandırma kılavuzluğu nasıl RemoteApp dinamik olarak yukarı döner ve sanal makineleri bir koleksiyon içinde aşağı döner verilen kusursuz olmasa da, alt ağ aralığınızı tahmin etmenize yardımcı olur. Sanal ağ içinde bir RemoteApp hizmete sonra RemoteApp kaldırmadan alt ağ boyutunu artırılamıyor gibi bu özellikle önemlidir.
+Bir sanal ağ (VNET) ile Azure RemoteApp kullandığınızda, RemoteApp hello alt ağ içindeki IP adreslerini kullanır. RemoteApp hizmetinizi Hello ölçeğini bağlı olarak, alt ağınızı RemoteApp sanal makineler için kullanılabilir yeterli IP adresine sahip tooensure gerekir. Bu boyutlandırma kılavuzluğu nasıl RemoteApp dinamik olarak yukarı döner ve sanal makineleri bir koleksiyon içinde aşağı döner verilen kusursuz olmasa da, alt ağ aralığınızı tahmin etmenize yardımcı olur. Sanal ağ içinde bir RemoteApp hizmete sonra RemoteApp kaldırmadan hello alt ağ boyutunu artırılamıyor gibi bu özellikle önemlidir.
 
-Maksimum kapasitede çalıştırmak istediğiniz her RemoteApp koleksiyonu için kullanılabilir 100 IP adresleri olmalıdır. Örneğin, standart plana bir RemoteApp koleksiyonu vardır ve en fazla 500 kullanıcıya olmasını istiyorsanız, bu koleksiyon için 100 IP adresi olmalıdır. Benzer şekilde, 100 IP adreslerini 800 kullanıcılara temel planda bir RemoteApp koleksiyonu için gerekir. Az sayıda kullanıcıyla (en büyük değerinden) oluşturmayı planlıyorsanız, koleksiyon gerekli IP adreslerini azaltabilir. En düşük alt ağ boyutu gereksinimdir 30 IP adresleri (/ 27).
+En büyük kapasitesini toorun istediğiniz her RemoteApp koleksiyonu için kullanılabilir 100 IP adresleri olmalıdır. Örneğin, bir RemoteApp koleksiyonu hello standart planda varsa ve toohave hello en fazla 500 kullanıcıya istediğiniz, bu koleksiyon için 100 IP adresi olmalıdır. Benzer şekilde, 100 IP adreslerini 800 kullanıcısı olan hello temel planda bir RemoteApp koleksiyonu için gerekir. (Küçüktür hello maksimum) daha az kullanıcı toohave planlıyorsanız, koleksiyon gerekli hello IP adreslerini azaltabilir. Merhaba en düşük alt ağ boyutu gereksinimdir, 30 IP adresleri (/ 27).
 
-Yapılandırılmış ve çalışıyor propertly VNET'İNİZİ emin olmak için aşağıdaki bilgileri kullanıma:
+Bilgi toomake ağınızı yapılandırıldığından emin izleyen ve propertly çalışma hello denetleyin:
 
-* [Kişisel Sanal ağdan bir Azure sanal ağına geçiş](remoteapp-migratevnet.md)
-* [Azure RemoteApp ile kullanmak için Azure VNET doğrula](remoteapp-vnet.md)
+* [Kişisel VNET tooan Azure VNET geçirme](remoteapp-migratevnet.md)
+* [Azure RemoteApp ile Hello Azure VNET toouse doğrula](remoteapp-vnet.md)
 

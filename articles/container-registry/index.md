@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Registry Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Dağıtım görüntülerinizi yönetilen bir Docker kayıt defteri hizmeti ile depolamak için kapsayıcı kayıt defterleri oluşturma ve koruma konusunda bilgi edinin. Öğreticiler, API başvurusu ve daha fazlası."
+title: "aaaAzure kapsayıcı kayıt defteri belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Bilgi nasıl toocreate ve dağıtımınız ile yönetilen bir Docker kayıt defteri hizmeti görüntüleri kapsayıcı kayıt defterleri toostore korumak. Öğreticiler, API başvurusu ve daha fazlası."
 services: container-registry
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d759eb2b00b59797cfdf8ce3b4071317a574c2b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-registry-documentation"></a>Azure Container Registry Belgeleri
 
-Container Registry hizmetini kullanarak tüm kapsayıcı dağıtımı türlerinin görüntülerini nasıl depolayıp yönetebileceğinizi öğrenin. Öğreticiler, REST API Başvurusu ve diğer belgelerde, bu yönetilen Docker kayıt defteri hizmeti içinde kapsayıcı kayıt defterleri oluşturma ve bunları koruma işlemlerinin nasıl yapılacağıyla ilgili bilgiler sunulmuştur.
+Bilgi nasıl toouse kapsayıcı kayıt defteri toostore ve kapsayıcı dağıtımlarını tüm türleri için yansımalarını yönetin. Öğreticiler, REST API Başvurusu ve diğer belgeleri göster, nasıl toocreate ve bu kapsayıcı kayıt defterleri yönetilen Docker kayıt defteri hizmetini sürdürmek.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -52,7 +52,7 @@ Container Registry hizmetini kullanarak tüm kapsayıcı dağıtımı türlerini
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Portal ile kayıt defteri oluşturmaya başlama</h3>
+                        <h3>Bir kayıt defteri hello portalıyla oluşturmaya başlamak</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ Container Registry hizmetini kullanarak tüm kapsayıcı dağıtımı türlerini
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>CLI ile kayıt defteri oluşturmaya başlama</h3>
+                        <h3>Bir kayıt defteri hello CLI ile oluşturmaya başlamak</h3>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
-title: "REST kullanarak Azure Media Services içerik yayımlama"
-description: "Bir akış URL'si oluşturmak için kullanılan bir Bulucu oluşturmayı öğrenin. Kod REST API'sini kullanır."
+title: "REST kullanarak aaaPublish Azure Media Services içerik"
+description: "Bilgi nasıl toocreate kullanılan toobuild bir akış URL'si olan bir Bulucu. Merhaba kod REST API'sini kullanır."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f849e21b3103b9b33bc652e886b2016ea495b19a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>REST kullanarak Azure Media Services içerik yayımlama
 > [!div class="op_single_selector"]
@@ -29,40 +29,40 @@ ms.lasthandoff: 08/29/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Bir OnDemand akış Bulucusu oluşturma ve akış URL'si oluşturma MP4 kümesine bir bit hızı Uyarlamalı akışını sağlayabilirsiniz. [Bir varlık kodlama](media-services-rest-encode-asset.md) konu nasıl kodlanacağını Uyarlamalı bit hızlı MP4 kümesi gösterir. İçeriğinizi şifrelenmişse, varlık teslim ilkesini yapılandırın (açıklandığı gibi [bu](media-services-rest-configure-asset-delivery-policy.md) konu) bir Bulucu oluşturmadan önce. 
+Bir OnDemand akış Bulucusu oluşturma ve akış URL'si oluşturma MP4 kümesine bir bit hızı Uyarlamalı akışını sağlayabilirsiniz. Merhaba [bir varlık kodlama](media-services-rest-encode-asset.md) konu, bir bit hızı Uyarlamalı MP4 içine tooencode nasıl ayarlanacağını gösterir. İçeriğinizi şifrelenmişse, varlık teslim ilkesini yapılandırın (açıklandığı gibi [bu](media-services-rest-configure-asset-delivery-policy.md) konu) bir Bulucu oluşturmadan önce. 
 
-Bir OnDemand Bulucu akış, aşamalı olarak indirilebilir MP4 dosyaları işaret URL'ler oluşturmak için de kullanabilirsiniz.  
+Bir OnDemand Bulucu toobuild URL'leri aşamalı olarak indirilebilir bu noktası tooMP4 dosyaları akış de kullanabilirsiniz.  
 
-Bu konuda bir OnDemand Bulucu, varlığı yayımlayın ve kesintisiz, MPEG DASH ve HLS akış URL'lerini oluşturmak için akış oluşturulacağını gösterir. Aşamalı indirme URL'leri oluşturmak için etkin gösterir.
+Bu konu, nasıl toocreate bir OnDemand akış Bulucusu Varlığınızı toopublish sipariş ve kesintisiz, MPEG DASH ve akış URL'lerini HLS yapı gösterir. Ayrıca Dinamik toobuild aşamalı indirme URL'leri gösterir.
 
-[Aşağıdaki](#types) bölümünde REST çağrılarını değerleri kullanılan enum türleri gösterilir.   
+Merhaba [aşağıdaki](#types) bölüm değerleri kullanılan enum türleri hello hello REST çağrılarını gösterir.   
 
 > [!NOTE]
 > Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 > 
 
-## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
+## <a name="connect-toomedia-services"></a>TooMedia Hizmetleri'ne Bağlama
 
-AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+Nasıl tooconnect toohello AMS API, bkz. bilgi [Azure AD kimlik doğrulaması ile erişim hello Azure Media Services API](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
+>Başarıyla toohttps://media.windows.net bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Sonraki çağrılar toohello yapmanız gereken yeni bir URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Bir OnDemand akış Bulucusu oluşturma
-OnDemand akış Bulucusu oluşturmak ve URL'leri almak için aşağıdakileri yapmanız gerekir:
+toocreate OnDemand Bulucu akış hello ve aşağıdaki toodo hello gereken URL'leri alın:
 
-1. İçerik şifrelenmişse, bir erişim ilkesi tanımlayın.
+1. Merhaba içerik şifrelenmişse, bir erişim ilkesi tanımlayın.
 2. Bir OnDemand Bulucu akış oluşturun.
-3. Akış yapmayı planlıyorsanız, varlık içindeki akış bildirim dosyası (.ism) alın. 
+3. Toostream planlıyorsanız, hello varlık bildirim dosyasında (.ism) akış hello alın. 
    
-   Aşamalı indirmeyi planlıyorsanız, varlık MP4 dosyaları adlarını alır. 
-4. URL'ler bildirim dosyası veya MP4 dosyaları oluşturun. 
+   Tooprogressively indirme planlıyorsanız, hello varlık MP4 dosyaları hello adlarını alır. 
+4. URL'leri toohello bildirim dosyası veya MP4 dosyaları oluşturun. 
 5. İçeren bir AccessPolicy kullanarak akış Bulucusu oluşturulamıyor Not yazabilir veya izinleri silin.
 
 ### <a name="create-an-access-policy"></a>Erişim ilkesi oluşturma
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Merhaba kullanması gereken her zaman kullanıyorsanız, aynı ilke kimliği hello aynı gün / erişim izinlerini, örneğin, uzun bir süre (karşıya yükleme olmayan ilkeleri) yerinde hedeflenen tooremain olan bulucular ilkeleri. Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
 
 İsteği:
 
@@ -100,7 +100,7 @@ Yanıtı:
     {"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
 ### <a name="create-an-ondemand-streaming-locator"></a>Bir OnDemand akış Bulucusu oluşturma
-Belirtilen varlık ve varlık ilkesini Bulucu oluşturun.
+Merhaba belirtilen varlık ve varlık ilkesini Hello Bulucu oluşturun.
 
 İsteği:
 
@@ -138,7 +138,7 @@ Yanıtı:
     {"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
 ### <a name="build-streaming-urls"></a>Akış URL'lerini derleme
-Kullanım **yolu** kesintisiz, HLS ve MPEG DASH URL'ler oluşturmak için Konum Belirleyicisi oluşturulduktan sonra döndürülen değer. 
+Kullanım hello **yolu** kesintisiz, HLS ve MPEG DASH URL'leri hello Bulucu toobuild hello hello oluşturulduktan sonra döndürülen değer. 
 
 Kesintisiz akış: **yolu** + yayılma dosyası adı + "/ bildirimi"
 
@@ -161,7 +161,7 @@ TİRE: **yolu** + yayılma dosyası adı + "/ manifest(format=mpd-time-csf)"
 
 
 ### <a name="build-progressive-download-urls"></a>Aşamalı indirme URL'leri derleme
-Kullanım **yolu** aşamalı indirme URL'si oluşturmak için Konum Belirleyicisi oluşturulduktan sonra döndürülen değer.   
+Kullanım hello **yolu** hello Bulucu toobuild hello aşamalı indirme URL'si hello oluşturulduktan sonra döndürülen değer.   
 
 URL: **yolu** + varlık dosyası mp4 adı
 

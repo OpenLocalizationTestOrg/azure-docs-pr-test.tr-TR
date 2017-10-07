@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile QuickHelp | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile QuickHelp arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile QuickHelp arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c72b0ddee636090129dab7a5c7ec6ffd452434a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bbde5eb9bdad89680923ccd36c321b6923f91789
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Öğretici: Azure Active Directory Tümleştirme QuickHelp ile
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile QuickHelp tümleştirmek öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate QuickHelp Azure Active Directory'ye (Azure AD).
 
-QuickHelp Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+QuickHelp Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- QuickHelp erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için QuickHelp (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim tooQuickHelp sahip Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan tooQuickHelp (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme QuickHelp ile yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure QuickHelp ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir QuickHelp çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden QuickHelp ekleme
+1. Merhaba Galerisi'nden QuickHelp ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-quickhelp-from-the-gallery"></a>Galeriden QuickHelp ekleme
-Azure AD QuickHelp tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden QuickHelp eklemeniz gerekir.
+## <a name="adding-quickhelp-from-hello-gallery"></a>Merhaba Galerisi'nden QuickHelp ekleme
+Azure AD'ye tooconfigure hello tümleştirme QuickHelp, tooadd QuickHelp hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**Galeriden QuickHelp eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd QuickHelp hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **QuickHelp**.
+4. Merhaba arama kutusuna yazın **QuickHelp**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_search.png)
 
-5. Sonuçlar panelinde seçin **QuickHelp**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **QuickHelp**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı QuickHelp sınayın.
 
-Tekli çalışmaya oturum için Azure AD QuickHelp karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının QuickHelp ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen QuickHelp içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı QuickHelp hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
 
-QuickHelp içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Merhaba hello değeri QuickHelp içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırma ve Azure AD çoklu oturum açma QuickHelp ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve QuickHelp ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[QuickHelp test kullanıcısı oluşturma](#creating-a-quickhelp-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı QuickHelp sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[QuickHelp test kullanıcısı oluşturma](#creating-a-quickhelp-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir QuickHelp içinde karşılık gelen.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma QuickHelp uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma QuickHelp uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma ile QuickHelp yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**tooconfigure Azure AD çoklu oturum açma ile QuickHelp, hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **QuickHelp** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Hello hello üzerinde Azure portal'ın **QuickHelp** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_samlbase.png)
 
-3. Üzerinde **QuickHelp etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **QuickHelp etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://quickhelp.com/<instancename>/#/Login`
+    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://quickhelp.com/<instancename>/#/Login`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.quickhelp.com`
+    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<subdomain>.quickhelp.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [QuickHelp istemci destek ekibi](https://support.quickhelp.com/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [QuickHelp istemci destek ekibi](https://support.quickhelp.com/) tooget bu değerleri. 
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_certificate.png) 
 
@@ -125,95 +125,95 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-quickhelp-tutorial/tutorial_general_400.png) 
 
-6. QuickHelp şirket sitenize yönetici olarak oturum.
+6. Yönetici olarak oturum açma tooyour QuickHelp şirket sitesi.
 
-7. Üstteki menüde tıklatın **yönetici**.
+7. Hello içinde hello üst menüsünde **yönetici**.
    
     ![Çoklu oturum açmayı yapılandırın][21]
 
-8. İçinde **QuickHelp yönetici** menüsünde tıklatın **ayarları**.
+8. Merhaba, **QuickHelp yönetici** menüsünde tıklatın **ayarları**.
    
     ![Çoklu oturum açmayı yapılandırın][22]
 
 9. Tıklatın **kimlik doğrulama ayarlarını**.
 
-10. Üzerinde **kimlik doğrulama ayarlarını** sayfasında, aşağıdaki adımları uygulayın
+10. Merhaba üzerinde **kimlik doğrulama ayarlarını** sayfasında, aşağıdaki adımları hello gerçekleştirin
    
     ![Çoklu oturum açmayı yapılandırın][23]
    
     a. Olarak **SSO türü**seçin **WSFederation**.
    
-    b. İndirilen Azure meta veri dosyanızı karşıya yüklemek için tıklayın **Gözat**, dosyasına gidin, end'ye tıklayın **meta veriler karşıya**.
+    b. tooupload, indirilen Azure meta veri dosyası tıklatın **Gözat**, toohello dosya gidin, end'ye tıklayın **meta veriler karşıya**.
    
-    c. İçinde **e-posta** metin kutusuna, türü `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Merhaba, **e-posta** metin kutusuna, türü `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
    
-    d. İçinde **ad** metin kutusuna, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Merhaba, **ad** metin kutusuna, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
    
-    e. İçinde **Soyadı** metin kutusuna, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Merhaba, **Soyadı** metin kutusuna, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
-    f. İçinde **Eylem çubuğu**, tıklatın **kaydetmek**.
+    f. Merhaba, **Eylem çubuğu**, tıklatın **kaydetmek**.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-quickhelp-test-user"></a>QuickHelp test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon içinde QuickHelp adlı bir kullanıcı oluşturmaktır.
-Tekli çalışmaya oturum için Azure AD ne QuickHelp Azure AD'de bir kullanıcıya karşılık gelen kullanıcı olduğunu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının QuickHelp ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde Hello amacı toocreate Britta Simon içinde QuickHelp adlı bir kullanıcı ' dir.
+Tek toowork'ın oturum açma, Azure AD hangi hello karşılık gelen kullanıcı QuickHelp tooa kullanıcı Azure AD'de tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı QuickHelp hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
 
-Yalnızca zaman sağlama QuickHelp destekler. Bunun anlamı, gerekirse, bir kullanıcı hesabı QuickHelp içinde otomatik olarak oluşturulan ve hesap Azure AD hesabına bağlıdır.
+Yalnızca zaman sağlama QuickHelp destekler. Yani, gerekirse, bir kullanıcı hesabı QuickHelp içinde otomatik olarak oluşturulur ve bağlantılı toohello Azure AD hesabının hello hesabıdır.
 
 Bu bölümde, eylem öğe yok.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta QuickHelp için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooQuickHelp vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**QuickHelp için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooQuickHelp hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **QuickHelp**.
+2. Merhaba uygulamalar listesinde **QuickHelp**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -221,7 +221,7 @@ Bu bölümde, Britta QuickHelp için erişim vererek, Azure çoklu oturum açma 
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -229,14 +229,14 @@ Bu bölümde, Britta QuickHelp için erişim vererek, Azure çoklu oturum açma 
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.  
+Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD çoklu oturum açma Yapılandırması'nı kullanarak.  
 
-Erişim paneli QuickHelp parçasında tıklattığınızda, otomatik olarak QuickHelp uygulamanıza açan.
+Merhaba QuickHelp hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour QuickHelp uygulama almanız gerekir.
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

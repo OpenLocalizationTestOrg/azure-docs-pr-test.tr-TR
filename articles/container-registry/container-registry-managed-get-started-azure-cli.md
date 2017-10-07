@@ -1,6 +1,6 @@
 ---
-title: "Özel Docker kapsayıcısı kayıt defteri oluşturma - Azure CLI| Microsoft Docs"
-description: "Azure CLI 2.0 ile Docker kapsayıcısı kayıt defterleri oluşturmaya ve yönetmeye başlayın"
+title: "aaaCreate özel Docker kapsayıcısı kayıt defteri - Azure CLI | Microsoft Docs"
+description: "Oluşturma ve yönetme özel Docker kapsayıcısı kayıt defterleri hello Azure CLI 2.0 ile çalışmaya başlama"
 services: container-registry
 documentationcenter: 
 author: neilpeterson
@@ -17,27 +17,27 @@ ms.workload: na
 ms.date: 07/11/2017
 ms.author: nepeters
 ms.custom: na
-ms.openlocfilehash: c7cdb1b13bf32388d18c2a25af28337a81861c1e
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 2cadf42db0681a09c95486510f1e65c6f87c5280
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-managed-container-registry-using-the-azure-cli"></a>Azure CLI’yı kullanarak yönetilen bir kapsayıcı kayıt defteri oluşturma
+# <a name="create-a-managed-container-registry-using-hello-azure-cli"></a>Hello Azure CLI kullanarak bir yönetilen kapsayıcı kayıt defteri oluşturma
 
-Azure Container Registry, özel Docker kapsayıcı görüntülerini depolamak için kullanılan bir yönetilen Docker kapsayıcı kayıt defteridir. Bu kılavuzda, Azure CLI kullanarak yönetilen bir Azure Container Registry örneği oluşturma hakkındaki ayrıntılar yer alır.
+Azure Container Registry, özel Docker kapsayıcı görüntülerini depolamak için kullanılan bir yönetilen Docker kapsayıcı kayıt defteridir. Bu kılavuzu ayrıntıları Hello Azure CLI kullanarak yönetilen Azure kapsayıcı kayıt defteri örneği oluşturma.
 
 Yönetilen Azure kapsayıcı kayıt defterleri önizleme aşamasındadır ve tüm bölgelerde kullanılamaz.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu hızlı başlangıç hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+Bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
-Aşağıdaki örnek *westcentralus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *westcentralus* konumu.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westcentralus
@@ -45,18 +45,18 @@ az group create --name myResourceGroup --location westcentralus
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-[az act create](/cli/azure/acr#create) komutunu kullanarak bir ACR örneği oluşturun.
+Hello kullanarak bir ACR örneği oluşturma [az acr oluşturmak](/cli/azure/acr#create) komutu.
 
 > [!NOTE]
 > Bir kayıt defteri oluştururken yalnızca harf ve sayı içeren genel olarak benzersiz bir üst düzey etki alanı adı sağlayın.
 
- Örnekteki kayıt defterinin adını (*myContainerRegistry1*), kendi bulduğunuz benzersiz bir adla değiştirin.
+ Merhaba kayıt defteri adı hello örnekte *myContainerRegistry1*, kendi benzersiz adı değiştirin.
 
 ```azurecli
 az acr create --name myContainerRegistry1 --resource-group myResourceGroup --sku Managed_Standard
 ```
 
-Kayıt defteri oluşturulduğunda çıkış aşağıdakilere benzer:
+Merhaba kayıt oluşturulduğunda hello çıkış benzer toohello aşağıda verilmiştir:
 
 ```azurecli
 {
@@ -78,28 +78,28 @@ Kayıt defteri oluşturulduğunda çıkış aşağıdakilere benzer:
 }
 ```
 
-## <a name="log-in-to-acr-instance"></a>ACR örneğinde oturum açma
+## <a name="log-in-tooacr-instance"></a>TooACR örneğinde oturum
 
-Kapsayıcı görüntülerini gönderip çekmeden önce ACR örneğinde oturum açmalısınız. Bunu yapmak için [az acr login](/cli/azure/acr#login) komutunu kullanın.
+İletme ve kapsayıcı görüntüleri çekme önce toohello ACR örneğinde oturum açmanız gerekir. toodo, kullanın hello [az acr oturum açma](/cli/azure/acr#login) komutu.
 
 ```azurecli-interactive
 az acr login --name myAzureContainerRegistry1
 ```
 
-Komut tamamlandığında bir “Oturum Açma Başarılı” iletisi döndürür.
+Merhaba komut tamamlandıktan sonra 'Başarılı oturum açma' iletisi döndürür.
 
 ## <a name="use-azure-container-registry"></a>Azure Container Registry’yi kullanma
 
 ### <a name="list-container-images"></a>Kapsayıcı görüntülerini listeleme
 
-Bir depodaki görüntüleri ve etiketleri sorgulamak için `az acr` CLI komutlarını kullanın.
+Kullanım hello `az acr` CLI komutları tooquery hello görüntüleri ve bir havuzda etiketler.
 
 > [!NOTE]
-> Container Kayıt Defteri şu anda görüntü ve etiket sorgulamak için `docker search` komutunu desteklememektedir.
+> Şu anda, kapsayıcı kayıt defteri hello desteklemiyor `docker search` komutu tooquery görüntüler ve etiketler için.
 
 ### <a name="list-repositories"></a>Depoları listeleme
 
-Aşağıdaki örnekte, bir kayıt defterindeki depolar JSON (JavaScript Nesne Gösterimi) biçiminde listelenmiştir:
+Merhaba aşağıdaki örnek JSON (JavaScript nesne gösterimi) biçiminde bir kayıt defterindeki hello depoları listeler:
 
 ```azurecli
 az acr repository list -n myContainerRegistry1 -o json
@@ -107,7 +107,7 @@ az acr repository list -n myContainerRegistry1 -o json
 
 ### <a name="list-tags"></a>Etiketleri listeleme
 
-Aşağıdaki örnekte, **samples/nginx** deposundaki etiketler JSON biçiminde listelenmiştir:
+Merhaba aşağıdaki örnek listeler hello hello etiketlerini **samples/nginx** JSON biçiminde deposu:
 
 ```azurecli
 az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -o json
@@ -115,7 +115,7 @@ az acr repository show-tags -n myContainerRegistry1 --repository samples/nginx -
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, Azure CLI kullanarak bir yönetilen Azure Container Registry örneği oluşturdunuz.
+Bu hızlı başlangıç bölümünde hello Azure CLI kullanarak yönetilen Azure kapsayıcı kayıt defteri örneği oluşturduğunuzu düşünün.
 
 > [!div class="nextstepaction"]
-> [Docker CLI’yı kullanarak ilk görüntünüzü itme](container-registry-get-started-docker-cli.md)
+> [Merhaba Docker CLI kullanarak ilk görüntünüzü bildirme](container-registry-get-started-docker-cli.md)

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory etki alanı Hizmetleri: Başlarken | Microsoft Docs"
-description: "Azure Active Directory etki alanı (Önizleme) Azure portalını kullanarak Hizmetleri etkinleştir"
+description: "Azure Active Directory etki alanı hello Azure portal (Önizleme) kullanarak Hizmetleri etkinleştir"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: maheshu
-ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8bde872a13bc9960d1e62c74017ff78a8953a0a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Azure Active Directory etki alanı (Önizleme) Azure portalını kullanarak Hizmetleri etkinleştir
+# <a name="enable-azure-active-directory-domain-services-using-hello-azure-portal-preview"></a>Azure Active Directory etki alanı hello Azure portal (Önizleme) kullanarak Hizmetleri etkinleştir
 
 
 ## <a name="task-3-configure-administrative-group"></a>Görev 3: yönetim grubunu yapılandır
-Bu yapılandırma görevi, Azure AD dizininde bir yönetim grubu oluşturun. Bu özel yönetim grubu adı *AAD DC Yöneticiler*. Bu grubun üyeleri, etki alanı yönetilen etki alanına katılmış makinede yönetici izinleri verilir. Etki alanına katılmış makinelerde bu Grup administrators grubuna eklenir. Ayrıca, bu grubun üyeleri, etki alanına katılmış makinelere uzaktan bağlanmak için Uzak Masaüstü'nü kullanabilirsiniz.
+Bu yapılandırma görevi, Azure AD dizininde bir yönetim grubu oluşturun. Bu özel yönetim grubu adı *AAD DC Yöneticiler*. Bu grubun üyeleri, etki alanına katılmış toohello yönetilen etki alanı olan makinelere sunucuda yönetici izinleri verilir. Etki alanına katılmış makinelerde toohello Yöneticiler grubunun bu gruba eklenir. Ayrıca, bu grubun üyeleri, Uzak Masaüstü tooconnect uzaktan toodomain katılmış makineler kullanabilirsiniz.
 
 > [!NOTE]
-> Azure Active Directory etki alanı Hizmetleri kullanılarak oluşturulan yönetilen etki alanında etki alanı yöneticisi veya kuruluş yöneticisi izinlerine sahip değil. Yönetilen etki alanlarında, bu izinleri hizmeti tarafından ayrılmış ve Kiracı içinde kullanıcılar için kullanılabilir duruma getirilmez. Ancak, bazı ayrıcalıklı işlemleri gerçekleştirmek için bu yapılandırma görevi oluşturulan özel yönetim grubunu kullanabilirsiniz. Bu işlemler, bilgisayarları etki alanına katılma, etki alanına katılmış makinede yönetim grubuna ait ve Grup İlkesi yapılandırma içerir.
+> Azure Active Directory etki alanı Hizmetleri kullanılarak oluşturulan hello yönetilen etki alanındaki etki alanı yöneticisi veya kuruluş yöneticisi izinlerine sahip değil. Yönetilen etki alanlarında, bu izinleri hello hizmeti tarafından ayrılmış ve hello Kiracı içinde kullanılabilir toousers duruma getirilmez. Hello özel yönetim grubu oluşturulan kullanabilirsiniz ancak bu yapılandırma görevi tooperform bazı işlemleri ayrıcalıklı. Bu işlemler, bilgisayarlar toohello etki alanına katılma, etki alanına katılan makineler toohello yönetim grubuna ait ve Grup İlkesi yapılandırma içerir.
 >
 
-Sihirbaz, yönetim grubu, Azure AD dizininde otomatik olarak oluşturur. Bu grubun 'AAD DC Yöneticiler' denir. Azure AD dizininizi bu ada sahip varolan bir grubu varsa, sihirbaz bu grubu seçin. Grup üyeliği kullanarak yapılandırabilirsiniz **yönetici grubuna** sihirbaz sayfası.
+Başlangıç Sihirbazı otomatik olarak Azure AD dizininizi hello yönetim grubu oluşturur. Bu grubun 'AAD DC Yöneticiler' denir. Bu ada sahip varolan bir grubu Azure AD dizininizi varsa, bu grubun hello Sihirbazı'nı seçer. Grup üyeliği hello kullanarak yapılandırabilirsiniz **yönetici grubuna** sihirbaz sayfası.
 
-1. Grup üyeliğini yapılandırmak için tıklatın **AAD DC Yöneticiler**.
+1. tooconfigure grup üyeliği tıklatın **AAD DC Yöneticiler**.
 
     ![Grup üyeliğini Yapılandır](./media/getting-started/domain-services-blade-admingroup.png)
 
-2. Tıklatın **üye eklemek** kullanıcıları Azure AD dizininizi yönetici grubuna eklemek için düğmesi.
+2. Merhaba tıklatın **üye eklemek** düğmesini tooadd kullanıcılar, Azure AD directory toohello yönetici grubundan.
 
-3. İşiniz bittiğinde tıklatın **Tamam** üzerinde taşımayı **Özet** sihirbazın.
+3. İşiniz bittiğinde tıklatın **Tamam** toomove toohello üzerinde **özeti** hello sihirbazın sayfası.
 
-4. Üzerinde **Özet** sayfası, yönetilen etki alanı için yapılandırma ayarlarını gözden geçirin. Değişiklik yapmak için sihirbazın herhangi bir adıma gerekirse geri dönebilirsiniz. İşiniz bittiğinde tıklatın **Tamam** yeni yönetilen etki alanı oluşturmak için.
+4. Merhaba üzerinde **Özet** hello sihirbazının hello yönetilen etki alanı için gözden geçirme hello yapılandırma ayarları. Merhaba Sihirbazı toomake değişikliklerden tooany adım gerekirse geri dönebilirsiniz. İşiniz bittiğinde tıklatın **Tamam** toocreate hello yeni yönetilen etki alanı.
 
     ![Özet](./media/getting-started/domain-services-blade-summary.png)
 
-5. Azure AD etki alanı Hizmetleri dağıtımınızın ilerlemesini gösteren bir bildirim görürsünüz. Dağıtım için ayrıntılı ilerleme durumunu görmek için bildirime tıklayın.
+5. Azure AD etki alanı Hizmetleri dağıtımınızın hello ilerleme durumunu gösteren bir bildirim görür. Merhaba bildirime tıklayın toosee ayrıntılı hello dağıtımı devam ediyor.
 
     ![Bildirim - dağıtımı devam ediyor](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
 ## <a name="provision-your-managed-domain"></a>Yönetilen etki alanınızı sağlama
-Yönetilen etki alanınızı sağlama işleminin bir saate kadar sürebilir.
+Yönetilen etki alanınızı sağlama işleminin hello tooan saat sürebilir.
 
-1. Dağıtımınızı sürerken içinde 'etki alanı Hizmetleri'nde' arayabilirsiniz **arama kaynakları** arama kutusu. Seçin **Azure AD etki alanı Hizmetleri** arama sonuç. **Azure AD etki alanı Hizmetleri** sağlanmakta yönetilen etki alanı dikey penceresinde listelenir.
+1. Dağıtımınızı sürerken ' etki alanı Hizmetleri'nde' hello arayabilirsiniz **arama kaynakları** arama kutusu. Seçin **Azure AD etki alanı Hizmetleri** hello arama sonuç. Merhaba **Azure AD etki alanı Hizmetleri** sağlanmakta hello yönetilen etki dikey penceresinde listelenir.
 
     ![Yönetilen etki alanı sağlanacak Bul](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Etki alanı hakkında daha fazla ayrıntı görmek için yönetilen etki alanının adını (örneğin, ' contoso100.com')'yi tıklatın.
+2. Merhaba etki alanı hakkında daha fazla ayrıntı hello yönetilen etki alanı (örneğin, ' contoso100.com') toosee Hello adına tıklayın.
 
     ![Etki alanı hizmetleri - sağlama durumu](./media/getting-started/domain-services-provisioning-state.png)
 
-3. **Genel bakış** sekmesi gösterir etki alanı şu anda sağlanıyor. Tam olarak sağlanana kadar yönetilen etki alanı yapılandıramazsınız. Bu tamamen sağlanması yönetilen etki alanınız için bir saate kadar sürebilir.
+3. Merhaba **genel bakış** sekmesi gösterir hello etki şu anda hazırlanır. Tam olarak sağlanana kadar hello yönetilen etki alanı yapılandıramazsınız. Tam olarak sağlanan, yönetilen etki alanı toobe tooan saattir yukarı sürebilir.
 
-    ![Etki alanı hizmetleri - sağlama durumu sırasında genel bakış sekmesi ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Etki alanı hizmetleri - sağlama durumu hello sırasında genel bakış sekmesi ](./media/getting-started/domain-services-provisioning-state-details.png)
 
-4. Yönetilen etki alanı tam olarak sağlandığında **genel bakış** sekmesi olarak etki alanı durumunu gösterir **çalıştıran**.
+4. Merhaba yönetilen etki alanı tam olarak sağlandığında hello **genel bakış** sekmesi gösterir hello etki alanı durumu olarak **çalıştıran**.
 
     ![Etki Alanı Hizmetleri - Tamamen hazır haldeki Genel Bakış sekmesi](./media/getting-started/domain-services-provisioned.png)
 
-5. Üzerinde **özellikleri** sekmesine, etki alanı denetleyicileri sanal ağı için kullanılabilen iki IP adresi bakın.
+5. Merhaba üzerinde **özellikleri** sekmesine, etki alanı denetleyicileri hello sanal ağı için kullanılabilen iki IP adresi bakın.
 
     ![Etki Alanı Hizmetleri - tam olarak sağlanan sonra Özellikleri sekmesi](./media/getting-started/domain-services-provisioned-properties.png)
 
 
 ## <a name="next-step"></a>Sonraki adım
-[Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
+[Görev 4: hello hello Azure sanal ağı için DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)

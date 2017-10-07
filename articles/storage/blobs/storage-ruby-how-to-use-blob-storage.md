@@ -1,6 +1,6 @@
 ---
-title: Ruby'den BLOB storage (nesne depolama) kullanma | Microsoft Docs
-description: "Azure Blob Storage (nesne depolama) ile bulutta yapılandırılmamış veri depolayın."
+title: aaaHow toouse ruby'den Blob storage (nesne depolama) | Microsoft Docs
+description: "Azure Blob storage (nesne depolama) ile Merhaba bulutta yapılandırılmamış veri depolayın."
 services: storage
 documentationcenter: ruby
 author: mmacy
@@ -14,21 +14,21 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: d27cf1594d6a31a746ca85b5c3184f8a5dbbaa54
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 776e7d788e69d4960f8dde0b783513f6b39b7a47
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-blob-storage-from-ruby"></a>Ruby’den Blob Storage kullanma
+# <a name="how-toouse-blob-storage-from-ruby"></a>Nasıl toouse ruby'den Blob storage
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Azure Blob Storage, bulutta nesne/blob olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır.
+Azure Blob Depolama hello bulutta nesne/BLOB olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. BLOB Depolama başvurulan tooas nesne depolama de olabilir.
 
-Bu kılavuz yaygın senaryolar Blob storage kullanarak gerçekleştirmek nasıl yapacağınızı gösterir. Örnekler, Ruby API kullanılarak yazılır. Kapsamdaki senaryolar dahil **karşıya yükleme, listeleme, indirme,** ve **silme** BLOB'lar.
+Bu kılavuz size nasıl gösterir Blob storage kullanarak tooperform senaryoları. Merhaba örnekleri hello Ruby API kullanılarak yazılır. Merhaba kapsanan senaryolar dahil **karşıya yükleme, listeleme, indirme,** ve **silme** BLOB'lar.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -37,42 +37,42 @@ Bu kılavuz yaygın senaryolar Blob storage kullanarak gerçekleştirmek nasıl 
 ## <a name="create-a-ruby-application"></a>Ruby uygulaması oluşturma
 Bir Ruby uygulaması oluşturun. Yönergeler için bkz: [Azure VM'de rayları Web uygulaması üzerinde Söyleniş](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
 
-## <a name="configure-your-application-to-access-storage"></a>Depolama alanına erişmek için uygulamanızı yapılandırın
-Azure Storage kullanmak için indirme ve storage REST Hizmetleri ile iletişim kuran bir dizi kolaylık içerir Söyleniş azure paketini kullanmak gerekir.
+## <a name="configure-your-application-tooaccess-storage"></a>Uygulama tooaccess depolama yapılandırma
+Azure Storage toouse, toodownload ve kullanım hello hello storage REST Hizmetleri ile iletişim kuran bir dizi kolaylık içeren Söyleniş azure paketi gerekir.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>Paket elde etmek için RubyGems kullanın
+### <a name="use-rubygems-tooobtain-hello-package"></a>RubyGems tooobtain hello paketini kullanın
 1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows), **Terminal** (Mac) veya **Bash** (UNIX).
-2. Gem ve bağımlılıklarını yüklemek için komut penceresinde "gem yükleme azure" yazın.
+2. "Gem yükle azure" Merhaba komut penceresinde tooinstall hello gem ve bağımlılıkları yazın.
 
-### <a name="import-the-package"></a>Paket alma
-Sık kullandığınız metin Düzenleyicisi'ni kullanarak aşağıdaki depolama kullanmak istediğiniz yere Söyleniş dosyasının üstüne ekleyin:
+### <a name="import-hello-package"></a>Merhaba paketi İçeri Aktar
+Sık kullandığınız metin Düzenleyicisi'ni kullanarak hello toouse depolama burada düşündüğünüz Söyleniş dosya toohello üstündeki aşağıdaki hello ekleyin:
 
 ```ruby
 require "azure"
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>Bir Azure depolama bağlantı kurma
-Azure modülü ortam değişkenleri okur **AZURE\_depolama\_hesap** ve **AZURE\_depolama\_ACCESS_KEY** Azure depolama hesabınıza bağlanmak için gerekli bilgileri için. Bu ortam değişkenleri ayarlanmamışsa, hesap bilgilerini kullanmadan önce belirtmelisiniz **Azure::Blob::BlobService** aşağıdaki kod ile:
+Hello azure modülü hello ortam değişkenleri okuma **AZURE\_depolama\_hesap** ve **AZURE\_depolama\_ACCESS_KEY** için bilgi tooconnect tooyour Azure depolama hesabı gerekiyor. Bu ortam değişkenleri ayarlanmamışsa, kullanmadan önce hello hesap bilgileri belirtmelisiniz **Azure::Blob::BlobService** koddan hello ile:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
 ```
 
-Klasik veya Resource Manager depolama hesabı Azure portalında bu değerleri almak için:
+tooobtain hello Azure portal bu değerleri Klasik veya Resource Manager depolama hesabı:
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-2. Kullanmak istediğiniz depolama hesabınıza gidin.
-3. Sağ taraftaki ayarları dikey penceresinde tıklayın **erişim tuşları**.
-4. Görüntülenen erişim anahtarları dikey penceresinde, erişim tuşu 1 ve 2 erişim anahtarı görürsünüz. Bunlardan kullanabilirsiniz.
-5. Anahtarı panoya kopyalamak için Kopyala simgesine tıklayın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Toouse istediğiniz toohello depolama hesabının gidin.
+3. Merhaba sağ üzerinde Hello ayarları dikey penceresinde tıklayın **erişim tuşları**.
+4. Görüntülenen hello erişim anahtarları dikey penceresinde hello erişim tuşu 1 ve 2 erişim anahtarı görürsünüz. Bunlardan kullanabilirsiniz.
+5. Merhaba Kopyala simgesi toocopy hello anahtar toohello Pano'ı tıklatın.
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-**Azure::Blob::BlobService** nesne kapsayıcıları ve blob'larla çalışmanıza olanak sağlar. Bir kapsayıcı oluşturmak için kullanmak **oluşturma\_container()** yöntemi.
+Merhaba **Azure::Blob::BlobService** nesne kapsayıcıları ve blob'larla çalışmanıza olanak sağlar. toocreate bir kapsayıcı kullanmak hello **oluşturma\_container()** yöntemi.
 
-Aşağıdaki kod örneği, bir kapsayıcı oluşturur veya hata varsa yazdırır.
+Merhaba aşağıdaki kod örneğinde bir kapsayıcı oluşturur veya varsa hello hata yazdırır.
 
 ```ruby
 azure_blob_service = Azure::Blob::BlobService.new
@@ -83,32 +83,32 @@ rescue
 end
 ```
 
-Dosya kapsayıcıda genel hale getirmek istiyorsanız, kapsayıcının izinlerini ayarlayabilirsiniz.
+Toomake hello hello kapsayıcı dosyalarında ortak istiyorsanız hello kapsayıcının izinlerini ayarlayabilirsiniz.
 
-Yalnızca değiştirebileceğiniz <strong>oluşturma\_container()</strong> geçirmek için çağrı **: ortak\_erişim\_düzeyi** seçeneği:
+Merhaba yalnızca değiştirebileceğiniz <strong>oluşturma\_container()</strong> çağrısı toopass hello **: ortak\_erişim\_düzeyi** seçeneği:
 
 ```ruby
 container = azure_blob_service.create_container("test-container",
     :public_access_level => "<public access level>")
 ```
 
-İçin geçerli değerler **: ortak\_erişim\_düzeyi** seçeneği şunlardır:
+Hello için geçerli değerler **: ortak\_erişim\_düzeyi** seçeneği şunlardır:
 
-* **BLOB:** BLOB'lar için herkese okuma erişimi belirtir. Bu kapsayıcı içindeki BLOB verilerini anonim istek okunabilir ancak kapsayıcı verileri mevcut değil. İstemcilerin anonim istek aracılığıyla kapsayıcıdaki blobları numaralandırılamıyor.
-* **kapsayıcı:** tam ortak okuma erişimi için kapsayıcı ve blob verilerini belirtir. İstemcilerin anonim istek aracılığıyla kapsayıcıdaki blobları sıralayabilirsiniz, ancak depolama hesabı kapsayıcılara numaralandırılamıyor.
+* **BLOB:** BLOB'lar için herkese okuma erişimi belirtir. Bu kapsayıcı içindeki BLOB verilerini anonim istek okunabilir ancak kapsayıcı verileri mevcut değil. İstemcilerin anonim istek aracılığıyla hello kapsayıcıdaki blobları numaralandırılamıyor.
+* **kapsayıcı:** tam ortak okuma erişimi için kapsayıcı ve blob verilerini belirtir. İstemcilerin anonim istek aracılığıyla hello kapsayıcıdaki blobları sıralayabilirsiniz, ancak depolama hesabı Merhaba kapsayıcılara numaralandırılamıyor.
 
-Alternatif olarak, bir kapsayıcı genel erişim düzeyini kullanarak değiştirebileceğiniz **ayarlamak\_kapsayıcı\_acl()** yöntemi ortak erişim düzeyini belirtin.
+Alternatif olarak, bir kapsayıcı hello genel erişim düzeyini kullanarak değiştirebileceğiniz **ayarlamak\_kapsayıcı\_acl()** yöntemi toospecify hello genel erişim düzeyi.
 
-Aşağıdaki kod örneğinde genel erişim düzeyini değiştirir **kapsayıcı**:
+Aşağıdaki kod örneğine değişiklikleri hello genel erişim düzeyi çok hello**kapsayıcı**:
 
 ```ruby
 azure_blob_service.set_container_acl('test-container', "container")
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Bir kapsayıcıya bir blob yükleme
-Bir blobu içerik yüklemek için kullanmak **oluşturma\_blok\_blob()** blob oluşturmak için yöntemi, blob içeriği olarak bir dosya veya dize kullanın.
+tooupload içerik tooa blob, kullanım hello **oluşturma\_blok\_blob()** yöntemi toocreate hello blob, bir dosya kullanın veya dize hello BLOB Merhaba içeriğine.
 
-Aşağıdaki kod dosya yüklemeleri **test.png** "görüntü-blob'u" kapsayıcısında adlı yeni bir blob olarak.
+Merhaba aşağıdaki kodu hello dosya yüklemeleri **test.png** "görüntü-blob'u" Merhaba kapsayıcısında adlı yeni bir blob olarak.
 
 ```ruby
 content = File.open("test.png", "rb") { |file| file.read }
@@ -117,11 +117,11 @@ blob = azure_blob_service.create_block_blob(container.name,
 puts blob.name
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
-Kapsayıcılar listelemek için kullanın **list_containers()** yöntemi.
-Bir kapsayıcıdaki blobları listelemek için kullanın **listesi\_blobs()** yöntemi.
+## <a name="list-hello-blobs-in-a-container"></a>Liste hello BLOB'ları bir kapsayıcıda
+toolist hello kapsayıcılar kullanma **list_containers()** yöntemi.
+bir kapsayıcıdaki toolist hello BLOB'ları kullanmak **listesi\_blobs()** yöntemi.
 
-Bu hesap için tüm kapsayıcılarında tüm BLOB'lar URL'lerini çıkarır.
+Bu, tüm Merhaba kapsayıcılara hello hesabı için tüm hello blobları hello URL'lerini çıkarır.
 
 ```ruby
 containers = azure_blob_service.list_containers()
@@ -134,9 +134,9 @@ end
 ```
 
 ## <a name="download-blobs"></a>Blob’ları indirme
-BLOB'ları indirmek için kullanacağınız **almak\_blob()** içeriği alma yöntemi.
+toodownload BLOB'ları kullanmak hello **almak\_blob()** yöntemi tooretrieve hello içeriği.
 
-Aşağıdaki kod örneğinde kullanımı gösterilir **almak\_blob()** "görüntü blob'u" içeriğini indirmek ve yerel bir dosyaya yazmak için.
+Merhaba aşağıdaki kod örneğinde kullanarak gösterilmektedir **almak\_blob()** toodownload hello "görüntü blob'u" içeriğini ve tooa yerel dosya yazma.
 
 ```ruby
 blob, content = azure_blob_service.get_blob(container.name,"image-blob")
@@ -144,16 +144,16 @@ File.open("download.png","wb") {|f| f.write(content)}
 ```
 
 ## <a name="delete-a-blob"></a>Bir Blob Sil
-Son olarak, bir blobu silmek için kullanın **silmek\_blob()** yöntemi. Aşağıdaki kod örneği, bir blobu silmek gösterilmiştir.
+Son olarak, bir blob toodelete kullanmak hello **silmek\_blob()** yöntemi. Merhaba aşağıdaki kod örneğinde gösterilmektedir nasıl toodelete blob.
 
 ```ruby
 azure_blob_service.delete_blob(container.name, "image-blob")
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha karmaşık depolama görevleri hakkında bilgi edinmek için aşağıdaki bağlantıları izleyin:
+daha karmaşık depolama görevleri hakkında toolearn bu bağlantıları izleyin:
 
 * [Azure Depolama Ekibi Blog’u](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Ruby için Azure SDK](https://github.com/WindowsAzure/azure-sdk-for-ruby) github'daki
-* [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Merhaba AzCopy komut satırı yardımcı programı ile veri aktarımı](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

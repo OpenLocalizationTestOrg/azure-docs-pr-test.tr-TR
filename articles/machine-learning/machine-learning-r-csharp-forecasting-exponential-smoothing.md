@@ -1,5 +1,5 @@
 ---
-title: "(kullanım dışı) -Üstel Düzeltme - Azure tahmin | Microsoft Docs"
+title: "AAA(deprecated) tahmin - Üstel Düzeltme - Azure | Microsoft Docs"
 description: "(kullanım dışı) Web hizmeti: tahmin-üstel düzgünleştirme"
 services: machine-learning
 documentationcenter: 
@@ -16,38 +16,38 @@ ms.date: 01/06/2017
 ms.author: yijichen
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 736d5d4adb8ecfd1e3372d273b64917f4a2e76ce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: ebc732d3a47943405b0cb26a373f529a50de9005
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-forecasting---exponential-smoothing"></a>(kullanım dışı) Tahmin - Üstel Düzeltme
 
 > [!NOTE]
-> Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
+> Merhaba Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
 > 
-> Çok sayıda kullanışlı örnek denemeleri ve API'leri bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Çok sayıda kullanışlı örnek denemeleri ve API hello bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Merhaba galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve hello Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Bu [web hizmeti](https://datamarket.azure.com/dataset/aml_labs/ets) Üstel Düzeltme modelini (kullanıcı tarafından sağlanan geçmiş verilere dayalı Öngörüler üretmek için madde işaretleri) uygular. Belirli bir ürün için isteğe bağlı bu yıl artmasına neden olur? Böylece envanterim planlama etkili miyim Noel sezonu için my ürün satış tahmin edebilirsiniz? Tahmin modelleri gibi soruları apt. Geçmiş verileri verildiğinde, bu modeller gizli eğilimleri ve gelecekteki eğilimleri öngörmek için mevsimselliğin inceleyin.  
+Bu [web hizmeti](https://datamarket.azure.com/dataset/aml_labs/ets) uygulayan hello Üstel Düzeltme modeli (madde işaretleri) tooproduce tahminleri hello kullanıcı tarafından sağlanan hello geçmiş verileri temel alan. İsteğe bağlı bir ürünle artış bu yıl için hello? Böylece envanterim planlama etkili miyim Noel sezonu hello my ürün satışlarının tahmin edebilirsiniz? Tahmin modelleri apt tooaddress gibi sorular vardır. Merhaba verilen gizli eğilimleri ve mevsimselliğin toopredict gelecekteki eğilimleri verileri, bu modeller inceleyin.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Bu web hizmeti tarafından kullanıcılara – potansiyel olarak mobil uygulama, bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, örneğin tüketilmesi. Ancak web hizmetinin amacı, ayrıca Azure Machine Learning web hizmetleri R kodu üstünde oluşturmak için nasıl kullanılabileceği bir örnek olarak hizmet verecek. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Web hizmeti için Azure Marketi yayımlanan ve kullanıcılar ve aygıtlar için herhangi bir altyapı Kurulumu yazarı tarafından oluşturulan web hizmeti ile dünya genelindeki tüketilen.
+> Bu web hizmeti tarafından kullanıcılara – potansiyel olarak mobil uygulama, bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, örneğin tüketilmesi. Ancak hello amacı hello web hizmeti, ayrıca Azure Machine Learning kullanılan toocreate web hizmetleri R kodu en üstünde nasıl olabilir bir örnek olarak tooserve. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Merhaba web hizmeti sonra yayımlanan toohello Azure Marketi olabilir ve kullanıcılar ve aygıtlar için herhangi bir altyapı Kurulumu hello web hizmeti hello yazarı tarafından ile Merhaba dünya genelindeki tüketilen.
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Web hizmetinin tüketim
-Bu hizmet 4 bağımsız değişkenleri kabul eder ve madde işaretleri tahminleri hesaplar.
-Giriş bağımsız değişkenleri şunlardır:
+Bu hizmet 4 bağımsız değişkenleri kabul eder ve hello madde işaretleri tahminleri hesaplar.
+Merhaba giriş bağımsız değişkenleri şunlardır:
 
-* Sıklık - ham verileri (Günlük/Haftalık/ay/üç aylık/Yıllık) sıklığını belirtir.
+* Sıklık - hello ham verileri (Günlük/Haftalık/ay/üç aylık/Yıllık) hello sıklığını belirtir.
 * Yatay - gelecekteki zaman çerçevesi tahmin.
-* Tarih - saat için yeni zaman serisi verilerde ekleme.
-* Değer - yeni zaman serisi veri değerlerini ekleyin.
+* Tarih - hello yeni zaman serisi veri süredir ekleyin.
+* Değer - hello yeni zaman serisi veri değerlerini ekleyin.
 
-Hesaplanan tahmin değerleri hizmet çıkışıdır.
+Merhaba hello hizmet hello tahmin değerler hesaplanan çıkışıdır.
 
 Örnek giriş aşağıdakilerden biri olabilir: 
 
@@ -56,11 +56,11 @@ Hesaplanan tahmin değerleri hizmet çıkışıdır.
 * Tarih - 15/1/2012; 15/2/2012 3/15/2012; 15/4/2012; 15/5/2012; 15/6/2012; 15/7/2012; 8 / 15/2012; 15/9/2012; 15/10/2012; 15/11/2012; 12/15/2012; 15/1/2013 15/2/2013 15/3/2013; 15/4/2013; 15/5/2013; 15/6/2013; 15/7/2013; 8 / 15/2013 15/9/2013 15/10/2013; 15/11/2013; 12/15/2013; 15/1/2014 15/2/2014; 15/3/2014; 15/4/2014; 15/5/2014; 15/6/2014; 15/7/2014; 8 / 15/2014; 15/9/2014
 * Değer - 3.479; 3.68; 3.832; 3.941; 3.797; 3.586; 3.508; 3.731; 3.915; 3.844; 3.634; 3.549; 3.557; 3.785; 3.782; 3.601; 3.544; 3.556; 3.65; 3.709; 3.682; 3.511; 3.429 3.51; 3.523; 3.525; 3.626; 3.695; 3.711; 3.711; 3.693; 3.571; 3.509
 
-> Bu hizmet Azure Marketi üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
+> Bu hizmet Azure Marketi hello üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
 > 
 > 
 
-Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (bir örnek uygulaması [burada](http://microsoftazuremachinelearning.azurewebsites.net/etsForecasting.aspx)).
+Otomatik bir şekilde hello hizmetinde tüketen birkaç yolu vardır (bir örnek uygulaması [burada](http://microsoftazuremachinelearning.azurewebsites.net/etsForecasting.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Web hizmet tüketimi için C# kodunu başlatılıyor:
     public class Input
@@ -95,16 +95,16 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (bir örnek uygul
 
 
 ## <a name="creation-of-web-service"></a>Web hizmeti oluşturma
-> Bu web hizmeti, Azure Machine Learning kullanılarak oluşturuldu. Denemeler oluşturma tanıtım videoları yanı sıra, ücretsiz deneme için ve [web hizmetleri yayımlama](machine-learning-publish-a-machine-learning-web-service.md), lütfen bkz [azure.com/ml](http://azure.com/ml). Bir ekran görüntüsünü her denemenin içinde modülü için web hizmeti ve örnek kod oluşturulan deneme aşağıdadır.
+> Bu web hizmeti, Azure Machine Learning kullanılarak oluşturuldu. Denemeler oluşturma tanıtım videoları yanı sıra, ücretsiz deneme için ve [web hizmetleri yayımlama](machine-learning-publish-a-machine-learning-web-service.md), lütfen bkz [azure.com/ml](http://azure.com/ml). Bir ekran görüntüsünü her hello deneyin içinde hello modüllerin hello web hizmeti ve örnek kod oluşturulan hello deneme aşağıdadır.
 > 
 > 
 
-Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu. Örnek giriş verilerini önceden tanımlanmış veri şeması ile karşıya yüklendi. Verilere bağlı şeması bir [R betiği yürütün] [ execute-r-script] r 'madde işaretleri' ve 'tahmin' işlevlerden kullanarak modeli tahmin madde işaretleri oluşturur Modülü 
+Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu. Örnek giriş verilerini önceden tanımlanmış veri şeması ile karşıya yüklendi. Bağlantılı toohello veri şeması bir [R betiği yürütün] [ execute-r-script] oluşturur modülü hello r 'madde işaretleri' ve 'tahmin' işlevlerden kullanarak modeli tahmin madde işaretleri 
 
 ![Deneme akışı][2]
 
 #### <a name="module-1"></a>Modül 1:
-    # Add in the CSV file with the data in the format shown below 
+    # Add in hello CSV file with hello data in hello format shown below 
 ![Veri örneği][3]    
 
 #### <a name="module-2"></a>Modül 2:
@@ -136,10 +136,10 @@ Azure Machine Learning içinde yeni bir boş deneme oluşturulduğu. Örnek giri
 
 
 ## <a name="limitations"></a>Sınırlamalar
-Madde işaretleri tahmin için çok basit bir örnektir. Yukarıdaki örnek koddan görüldüğü gibi hiçbir hata yakalama uygulanır ve hizmeti varsayar tüm değişkenleri sürekli/pozitif değerler ve sıklığı 1'den büyük bir tamsayı olmalıdır. Tarih ve değer vektörlerinin uzunluğu aynı olmalıdır. Tarih değişkeni ' aa/gg/yyyy' biçimine uyması.
+Madde işaretleri tahmin için çok basit bir örnektir. Yukarıdaki Hello örnek koddan görüldüğü gibi hiçbir hata yakalama uygulanır ve hello hizmeti varsayar tüm hello değişkenleri sürekli/pozitif değerler ve hello sıklığı 1'den büyük bir tamsayı olmalıdır. Başlangıç tarihi ve değer vektörlerinin Hello uzunluğu olması hello aynı. Merhaba tarih değişkeni toohello biçimi 'aa/gg/yyyy' uyması.
 
 ## <a name="faq"></a>SSS
-Web hizmeti veya Azure Marketi'nde yayımlama tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
+Merhaba web hizmetinin veya yayımlama toohello Azure Marketi tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img1.png
 [2]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img2.png

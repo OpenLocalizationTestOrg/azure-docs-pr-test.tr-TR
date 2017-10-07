@@ -1,5 +1,5 @@
 ---
-title: "Azure Sanal Ağ eşlemesi | Microsoft Belgeleri"
+title: "aaaAzure sanal ağ eşlemesi | Microsoft Docs"
 description: "Azure'daki sanal ağ eşlemesi hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
@@ -14,77 +14,77 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: narayan
-ms.openlocfilehash: 393557074db2ddbeb53ca20873a33d06874c4dc8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 46a14b416a7d4389f79a3cd7c55e388b5d312577
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
-Sanal ağ eşlemesi, Azure omurga ağı aracılığıyla aynı bölgedeki iki sanal ağı birbirine bağlamanızı sağlar. Eşleme yapıldıktan sonra, bağlantı açısından iki sanal ağ tek bir sanal ağ gibi görünür. Bu iki sanal ağ ayrı kaynaklar olarak yönetilmeye devam eder, ancak eşlenen sanal ağlardaki sanal makineler özel IP adresleri kullanarak birbirleriyle doğrudan iletişim kurabilir.
+Sanal ağ eşleme etkinleştirir, tooconnect iki sanal ağlarda aynı bölgede aracılığıyla hello Azure omurga ağı hello. Eşlendikten sonra hello iki sanal ağ bağlantısı amacıyla bir olarak görünür. Merhaba iki sanal ağlar hala ayrı kaynakları olarak yönetilebilir, ancak hello eşlenen sanal ağlar can sanal makinelerin birbirleriyle doğrudan, özel IP adresleri kullanarak iletişim.
 
-Eşlenen sanal ağlarda bulunan sanal makineler arasındaki trafik, Azure altyapısı aracılığıyla aynı sanal ağdaki sanal makineler arasında olduğu gibi yönlendirilir. Sanal ağ eşlemesini kullanmanın bazı avantajları şunlardır:
+Merhaba trafik hello içindeki sanal makineler arasında eşlenen sanal ağlar hello hello içindeki sanal makineler arasında trafik çok yönlendirilir gibi Azure altyapısı aracılığıyla yönlendirilir aynı sanal ağ. Sanal Ağ eşlemesi kullanmanın yararları hello bazıları şunlardır:
 
 * Farklı sanal ağlardaki kaynaklar arasında düşük gecikme süresi ve yüksek bant genişlikli bağlantı.
-* VPN ağ geçitleri ve ağ sanal gereçleri gibi kaynakları, eşlenmiş sanal ağ içinde geçiş noktaları olarak kullanabilme özelliği.
-* Azure Resource Manager dağıtım modeliyle oluşturulan iki sanal ağı eşleyebilme veya Resource Manager ile oluşturulan bir sanal ağı klasik dağıtım modeliyle oluşturulan sanal ağ ile eşleyebilme özelliği. İki Azure dağıtım modeli arasındaki fark hakkında daha fazla bilgi almak için [Azure dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesini okuyun.
+* Ağ uygulamaları ve eşlenen bir sanal ağ içinde geçiş noktaları olarak VPN ağ geçitleri gibi Hello özelliği toouse kaynakları.
+* Hello Azure Resource Manager dağıtım modeli aracılığıyla oluşturulan hello özelliği toopeer iki sanal ağ veya toopeer bir sanal ağ hello Klasik dağıtım modeli aracılığıyla oluşturulan Resource Manager tooa sanal ağ üzerinden oluşturuldu. Okuma hello [anlamak Azure dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makale toolearn hello farklarını hello iki Azure dağıtım modelleri hakkında daha fazla bilgi.
 
 ## <a name="requirements-constraints"></a>Gereksinimler ve kısıtlamalar
 
-* Eşlenmiş sanal ağlar aynı Azure bölgesinde bulunmalıdır. Farklı Azure bölgelerindeki sanal ağları bir [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) kullanarak birbirine bağlayabilirsiniz.
-* Eşlenmiş sanal ağların IP adresi alanları çakışmamalıdır.
+* Merhaba eşlenen sanal ağlar hello aynı bulunmalıdır Azure bölgesi. Farklı Azure bölgelerindeki sanal ağları bir [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) kullanarak birbirine bağlayabilirsiniz.
+* Merhaba eşlenen sanal ağlar çakışmayan bir IP adresi alanlarıyla olmalıdır.
 * Bir sanal ağ başka bir sanal ağla eşlendikten sonra sanal ağa adres alanı eklenemez veya ağdaki bir adres alanı silinemez.
-* Sanal ağ eşlemesi iki sanal ağ arasında gerçekleşir. Eşlemeler arasında türetilmiş geçişli bir ilişki yoktur. Örneğin, virtualNetworkA ile virtualNetworkB; virtualNetworkB ile de virtualNetworkC eşlenirse, virtualNetworkA ile virtualNetworkC arasında eşleme *olmaz*.
-* Eşlemenin her iki aboneliğin de ayrıcalıklı bir kullanıcı (bkz. [belirli izinler](create-peering-different-deployment-models-subscriptions.md#permissions)) tarafından yetkilendirilmiş olması ve aboneliklerin aynı Azure Active Directory kiracısı ile ilişkilendirilmesi şartıyla, iki farklı abonelikte mevcut olan sanal ağları eşleyebilirsiniz. Farklı Active Directory kiracılarıyla ilişkili aboneliklerdeki sanal ağları bağlamak için bir [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) kullanabilirsiniz.
-* Her iki sanal ağ da Resource Manager dağıtım modeliyle oluşturulursa veya bir sanal ağ Resource Manager dağıtım modeliyle, diğeri ise klasik dağıtım modeliyle oluşturulursa, sanal ağlar eşlenebilir. Ancak, klasik dağıtım modeliyle oluşturulan iki sanal ağ birbiriyle eşlenemez. Klasik dağıtım modeliyle oluşturulan iki sanal ağı bağlamak için [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) kullanabilirsiniz.
-* Eşlenmiş sanal ağlardaki sanal makineler arasında kurulan iletişim için ek bant genişliği kısıtlamaları olmasa da, sanal makine boyutuna bağlı olarak hala geçerli olan bir ağ bant genişliği üst sınırı vardır. Farklı sanal makine boyutlarına yönelik ağ bant genişliği üst sınırları hakkında daha fazla bilgi edinmek için [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine boyutları makalelerini okuyun.
-* Sanal makinelere yönelik Azure tarafından sağlanan iç DNS adı çözümlemesi, eşlenen sanal ağlarda kullanılamaz. Sanal makinelerin yalnızca yerel sanal ağ üzerinde çözümlenebilen iç DNS adları vardır. Bununla birlikte, eşlenen sanal ağlara bağlı sanal makineleri bir sanal ağ için DNS sunucuları olarak yapılandırabilirsiniz. Daha ayrıntılı bilgi edinmek için [Kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) makalesini okuyun.
+* Sanal ağ eşlemesi iki sanal ağ arasında gerçekleşir. Eşlemeler arasında türetilmiş geçişli bir ilişki yoktur. Örneğin, virtualNetworkA virtualNetworkB ile eşlenen ve virtualNetworkB virtualNetworkC ile eşlenen virtualNetworkA varsa, *değil* eşlenmiş toovirtualNetworkC.
+* Uzun ayrıcalıklı bir kullanıcı olarak iki farklı Aboneliklerde bulunan sanal ağlar eş (bkz [özel izinler](create-peering-different-deployment-models-subscriptions.md#permissions)) hem abonelikleri yetkilendirir hello eşliği ve hello abonelikleri olan ilişkili toohello aynı Azure Active Directory kiracısı. Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) tooconnect sanal ağlar Aboneliklerde toodifferent Active Directory kiracıları ilişkilendirilmiş.
+* Sanal ağlar, her ikisi de hello Resource Manager dağıtım modeli oluşturduysanız veya bir sanal ağı hello Resource Manager dağıtım modeli oluşturulur ve hello diğer hello Klasik dağıtım modeli aracılığıyla oluşturulursa eşlenemez. Merhaba Klasik dağıtım modeli aracılığıyla oluşturulan iki sanal ağ diğer, eşlenmiş tooeach ancak olamaz. Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) tooconnect iki sanal ağlar hello Klasik dağıtım modeli oluşturuldu.
+* Merhaba iletişimi eşlenen sanal ağlardaki sanal makineler arasında hiçbir ek bant genişliği kısıtlaması içermese de en fazla ağ bant genişliği hala geçerli hello sanal makine boyutuna bağlı olarak yoktur. başka bir sanal makine boyutları, hello okumak için maksimum ağ bant genişliği hakkında daha fazla toolearn [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine boyutları makaleleri.
+* Sanal makinelere yönelik Azure tarafından sağlanan iç DNS adı çözümlemesi, eşlenen sanal ağlarda kullanılamaz. Sanal makineler yalnızca hello yerel sanal ağ içinde çözümlenebilen iç DNS adlarına sahip. Ancak, sanal makineleri bağlı toopeered sanal ağlar bir sanal ağ için DNS sunucusu olarak yapılandırın. Daha fazla ayrıntı için hello okuma [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) makalesi.
 
 ![Temel sanal ağ eşleme](./media/virtual-networks-peering-overview/figure01.png)
 
 ## <a name="connectivity"></a>Bağlantı
-İki sanal ağ eşlendikten sonra, eşlenen sanal ağlardan herhangi birindeki kaynaklar diğer sanal ağın kaynaklarıyla doğrudan bağlantı kurabilir. İki sanal ağ da tam IP düzeyinde bağlantıya sahip olur.
+İki sanal ağ eşlendikten sonra iki sanal ağınızdaki kaynaklara hello eşlenen sanal ağınızdaki kaynaklara ile doğrudan bağlanabilirsiniz. Merhaba iki sanal ağlara sahip olacak tam IP düzeyi bağlantısı.
 
-Eşlenen ağlardaki iki sanal makine arasındaki bir gidiş dönüşe ilişkin ağ gecikme süresi, tek bir sanal ağdaki bir gidiş dönüş için olan ağ gecikme süresiyle aynıdır. Ağ verimi, büyüklüğüne orantılı olarak sanal makine için izin verilen bant genişliğine bağlıdır. Eşleme içindeki bant genişliği ile ilgili herhangi bir ek kısıtlama yoktur.
+Merhaba ağ gecikmesi için iki sanal makine eşlenen sanal ağlar arasındaki gidiş dönüş hello aynı tek bir sanal ağ içinde gidiş dönüş ettirilmesi. Merhaba ağ verimliliği ile orantılı tooits boyutu olan hello sanal makine için izin verilen hello bant genişliği temel alır. Merhaba eşliği içinde bant genişliği üzerinde başka bir kısıtlama yoktur.
 
-Eşlenmiş sanal ağlarda bulunan sanal makineler arasındaki trafik bir ağ geçidi üzerinden değil, doğrudan Azure arka uç altyapısı aracılığıyla yönlendirilir.
+Merhaba trafik eşlenen sanal ağlardaki sanal makineler arasında doğrudan hello bir ağ geçidi üzerinden değil Azure arka uç altyapısı aracılığıyla yönlendirilir.
 
-Bir sanal ağa bağlı sanal makineler, eşlenen sanal ağdaki iç yükü dengelenmiş uç noktalara erişebilir. İstendiğinde, diğer sanal ağlara veya alt ağlara erişimi engellemek için her bir sanal ağda ağ güvenlik grupları uygulanabilir.
+Sanal makineler bağlı tooa sanal ağ hello iç yük dengeli uç nokta hello eşlenen sanal ağ erişebilir. Ağ güvenlik grupları sanal ağ tooblock erişim tooother sanal ağları veya alt ağlar, isterseniz uygulanabilir.
 
-Sanal ağ eşlemesi yapılandırırken, sanal ağlar arasındaki ağ güvenlik grubu kurallarını açabilir veya kapatabilirsiniz. Eşlenen sanal ağlar arasında tam bağlantıyı (varsayılan seçenek) açarsanız, belirli erişimleri engellemek ya da reddetmek için belirli alt ağlara veya sanal makinelere ağ güvenlik grupları uygulayabilirsiniz. Ağ güvenlik grupları hakkında daha fazla bilgi edinmek için [Ağ güvenlik gruplarına genel bakış](virtual-networks-nsg.md) makalesini okuyun.
+Sanal Ağ eşlemesi yapılandırırken, açın veya hello ağ güvenlik grubu kural hello sanal ağlar arasında kapatın. (Merhaba varsayılan seçenek olan) eşlenen sanal ağlar arasında tam bağlantı açarsanız, alt ağlar ya da sanal makineleri ağ güvenlik grupları toospecific tooblock uygulayabilir ya da belirli erişimini engellemek. Ağ güvenlik grupları hakkında daha fazla bilgi toolearn okuma hello [ağ güvenlik gruplarını genel bakış](virtual-networks-nsg.md) makalesi.
 
 ## <a name="service-chaining"></a>Hizmet zinciri
-Hizmet zinciri oluşturmayı etkinleştirmek için işlenen sanal ağlardaki sanal makineleri "sonraki atlama" IP adresi olarak işaret eden kullanıcı tanımlı yollar yapılandırabilirsiniz. Hizmet zinciri oluşturma, kullanıcı tanımlı yollar aracılığıyla trafiği bir sanal ağdan eşlenmiş bir sanal ağdaki bir sanal gerece yönlendirmenize imkan tanır.
+Kullanıcı tanımlı yollar bu noktası toovirtual makineler eşlenen sanal ağlarda "sonraki atlama" IP adresi: tooenable hizmet zincirleme hello şekilde yapılandırabilirsiniz. Hizmet zincirleme, kullanıcı tanımlı yollar ile eşlenmiş bir sanal ağ içindeki bir sanal ağ tooa sanal gerecin toodirect trafiği sağlar.
 
-Ayrıca, hub ve bağlı bileşen türündeki ortamları da verimli bir şekilde oluşturabilirsiniz. Bu ortamlarda hub, ağ sanal gereci gibi altyapı bileşenlerini barındırabilir. Daha sonra, tüm ağlı sanal ağlar merkezi sanal ağla eşlenebilir. Trafik, merkezi sanal ağda çalışan ağ sanal gereçleri üzerinden akabilir. Kısacası, sanal ağ eşlemesi sayesinde, kullanıcı tanımlı yolda bir sonraki atlama IP adresi, eşlenen sanal ağdaki bir sanal makinenin IP adresi olabilir. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için, [kullanıcı tanımlı yollara genel bakış](virtual-networks-udr-overview.md) makalesini okuyun.
+Ayrıca etkili bir şekilde hello hub altyapı bileşenlerini bir ağ sanal Gereci gibi barındırabildiği hub ve bağlı bileşen türü ortamları oluşturabilirsiniz. Tüm hello spoke sanal ağları sonra hello hub sanal ağla eş. Trafik hello hub sanal ağda çalışan sanal gereçler ağ üzerinden akabilir. Kısacası, sanal ağ eşlemesi hello sonraki atlama IP adresi hello kullanıcı tarafından tanımlanan rota toobe hello IP adresi hello eşlenen sanal ağındaki bir sanal makinenin üzerinde sağlar. Merhaba okuyun, kullanıcı tanımlı yollar hakkında daha fazla toolearn [kullanıcı tanımlı yollar genel bakış](virtual-networks-udr-overview.md) makalesi.
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Ağ geçitleri ve şirket içi bağlantı
-Her sanal ağ başka bir sanal ağ ile eşlenip eşlenmediğine bakılmaksızın kendi ağ geçidine sahip olabilir ve bu sanal ağ geçidini şirket içi bir ağa bağlanmak için kullanabilir. Ayrıca, sanal ağlar eşlenmiş olsa bile ağ geçitlerini kullanarak [Sanal ağlar arası bağlantılar](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yapılandırabilirsiniz.
+Yine de olup olmadığı başka bir sanal ağ ile eşlenen bağımsız olarak her sanal ağ kendi ağ geçidine sahip ve tooconnect tooan şirket içi ağ kullanın. Ayrıca yapılandırabilirsiniz [sanal ağ sanal ağ bağlantıları](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hello sanal ağlar eşlenmiş olsa bile, ağ geçitleri kullanarak.
 
-Sanal ağlar arası bağlantı için her iki seçenek de yapılandırıldığında, sanal ağlar arasındaki trafik, eşleme yapılandırması (Azure omurgası) üzerinden akış gerçekleştirir.
+Sanal ağ bağlantı için her iki seçenek yapılandırıldığında, hello sanal ağlar arasında trafiği hello hello eşleme yapılandırmasını akar (diğer bir deyişle, ile hello Azure omurga).
 
-Sanal ağlar eşlendiğinde, eşlenmiş sanal ağdaki ağ geçidini şirket içi bir ağa geçiş noktası olarak da yapılandırabilirsiniz. Bu durumda, uzak ağ geçidi kullanan sanal ağın kendi ağ geçidi olamaz. Bir sanal ağın yalnızca bir ağ geçidi olabilir. Ağ geçidi, aşağıdaki resimde gösterildiği gibi yerel veya uzak bir ağ geçidi (eşlenen sanal ağda) olabilir:
+Sanal ağlar eşlendikleri olduğunda, bir geçiş noktası tooan şirket içi ağ olarak hello eşlenen sanal ağında hello ağ geçidi da yapılandırabilirsiniz. Bu durumda, uzak bir ağ geçidi kullanarak hello sanal ağ kendi ağ geçidine sahip olamaz. Bir sanal ağın yalnızca bir ağ geçidi olabilir. Merhaba ağ geçidi hello resim aşağıdaki gösterildiği gibi (Merhaba eşlenen sanal ağ içinde), yerel veya uzak gateway olabilir:
 
 ![VNet eşleme geçişi](./media/virtual-networks-peering-overview/figure02.png)
 
-Farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasındaki eşleme ilişkisinde ağ geçidi geçişi desteklenmez. Bir ağ geçidi geçişinin çalışması için eşleme ilişkisindeki her iki sanal ağ da Resource Manager ile oluşturulmuş olmalıdır.
+Ağ geçidi transit farklı dağıtım modeli oluşturulan sanal ağlar arasında hello eşleme ilişkisindeki desteklenmiyor. Merhaba eşleme ilişkisindeki her iki sanal ağlar Resource Manager aracılığıyla bir ağ geçidi transit toowork için oluşturulmuş olması gerekir.
 
-Tek bir Azure ExpressRoute bağlantısını kullanan sanal ağlar eşlendiğinde, bu iki sanal ağ arasındaki trafik, eşleme ilişkisi (Azure omurga ağı) üzerinden akış gerçekleştirir. Şirket içi devreye bağlanmak için her bir sanal ağ üzerindeki yerel ağ geçitlerini kullanmaya devam edebilirsiniz. Alternatif olarak, paylaşılan bir ağ geçidini kullanıp şirket içi bağlantı için bir geçiş yapılandırabilirsiniz.
+Tek bir Azure ExpressRoute Bağlantısı Paylaşımı hello sanal ağlar eşlendikleri olduğunda, aralarında hello trafiği hello eşleme ilişkisindeki gider (diğer bir deyişle, ile hello Azure omurga ağı). Her sanal ağ tooconnect toohello şirket içi devredeki yerel ağ geçitlerini kullanmaya devam edebilirsiniz. Alternatif olarak, paylaşılan bir ağ geçidini kullanıp şirket içi bağlantı için bir geçiş yapılandırabilirsiniz.
 
 ## <a name="provisioning"></a>Sağlama
-Sanal ağ eşlemesi ayrıcalıklı bir işlemdir. VirtualNetworks ad alanı altında yer alan ayrı bir işlevdir. Bir kullanıcıya eşlemeyi yetkilendirmesi için belirli haklar verilebilir. Sanal ağa yönelik okuma/yazma erişimi olan bir kullanıcı bu haklara otomatik olarak sahip olur.
+Sanal ağ eşlemesi ayrıcalıklı bir işlemdir. Merhaba VirtualNetworks ad alanı altındaki ayrı bir işlevdir. Bir kullanıcı belirli haklar tooauthorize eşliği verilebilir. Okuma-yazma erişimi toohello sanal ağ olan bir kullanıcı bu hakları otomatik olarak devralır.
 
-Eşleme özelliğinin yöneticisi ya da ayrıcalıklı kullanıcısı olan bir kullanıcı, başka bir sanal ağ üzerinde eşleme işlemi başlatabilir. Diğer tarafta eşleme için eşleşen bir istek varsa ve diğer gereksinimler karşılanırsa eşleme gerçekleştirilir.
+Yönetici ya da bir kullanıcı ya da ayrıcalıklı kullanıcısı hello eşleme özelliğinin başka bir sanal ağ eşleme işlemi başlatabilir. Üzerinde eşleme için eşleşen bir istek varsa, diğer taraftaki hello ve diğer gereksinimler karşılanırsa hello eşleme kurulur.
 
 ## <a name="limits"></a>Sınırlar
-Tek bir sanal ağ için izin verilen eşleme sayısı sınırlıdır. Daha fazla bilgi edinmek için [Azure ağ sınırlarını](../azure-subscription-service-limits.md#networking-limits) gözden geçirin.
+Tek bir sanal ağı için izin verilen eşlemeler hello sayısı sınırlamaları vardır. Daha fazla bilgi için hello gözden [Azure ağ sınırlarına](../azure-subscription-service-limits.md#networking-limits).
 
 ## <a name="pricing"></a>Fiyatlandırma
-Sanal ağ eşlemesi kullanan girdi ve çıktı trafiği için nominal bir ücret uygulanır. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
+Sanal ağ eşlemesi kullanan girdi ve çıktı trafiği için nominal bir ücret uygulanır. Daha fazla bilgi için bkz: Merhaba [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Sanal ağ eşleme öğreticisini tamamlayın. Aynı veya farklı aboneliklerde, aynı veya farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasında, bir sanal ağ eşlemesi oluşturulur. Aşağıdaki senaryolardan biri için öğreticiyi tamamlayın:
+* Sanal ağ eşleme öğreticisini tamamlayın. Bir sanal ağ eşlemesi aynı hello oluşturulan sanal ağlar arasında oluşturulur veya aynı ya da farklı Aboneliklerde bulunan farklı dağıtım modellerini hello. Bir öğretici için senaryolar hello birini tamamlayın:
  
     |Azure dağıtım modeli  | Abonelik  |
     |---------|---------|
@@ -93,5 +93,5 @@ Sanal ağ eşlemesi kullanan girdi ve çıktı trafiği için nominal bir ücret
     |Biri Resource Manager, diğeri klasik     |[Aynı](create-peering-different-deployment-models.md)|
     | |[Farklı](create-peering-different-deployment-models-subscriptions.md)|
 
-* [Merkez ve uç ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) oluşturmayı öğrenin 
-* Tüm [sanal ağ eşleme ayarları ve ayarların nasıl değiştirileceği](virtual-network-manage-peering.md) hakkında bilgi edinin
+* Bilgi nasıl toocreate bir [hub ve bağlı bileşen ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 
+* Tüm hakkında bilgi edinin [sanal ağ eşleme ayarları ve nasıl toochange bunları](virtual-network-manage-peering.md)

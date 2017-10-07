@@ -1,6 +1,6 @@
 ---
-title: "ODBC veri depolarına veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak ODBC veri depolarını veri taşıma hakkında bilgi edinin."
+title: "ODBC veri depolarına aaaMove verilerden | Microsoft Docs"
+description: "Azure Data Factory kullanarak ODBC veri toomove verileri nasıl depolar hakkında bilgi edinin."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 269d9802ca4a6a16dbf9021929fe21104cb431f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bf96e71da449313b6144bb194205c572d2ca2030
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ODBC veri depolarını taşıma
-Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi ODBC veri deposundan verileri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
+Bu makalede nasıl toouse hello kopya etkinliği Azure Data Factory toomove verileri bir şirket içi ODBC veri depolamak açıklanmaktadır. Üzerinde hello derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalenin hello kopyalama etkinliği ile veri taşıma için genel bir bakış sunar.
 
-Bir ODBC veri deposundan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca veri taşımayı bir ODBC veri deposundaki diğer veri depolarına, ancak verileri diğer veri depolarına bir ODBC veri deposuna taşıma değil destekler. 
+Bir ODBC veri deposu desteklenen tooany havuz veri deposundan verileri kopyalayabilirsiniz. Verileri bir listesi için desteklenen depoları hello kopyalama etkinliği tarafından havuzlarını hello görür [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda bir ODBC veri verilerden tooother veri depolarına depolamak taşıma yalnızca, ancak diğer veri depoları tooan ODBC veri deposundan veri taşıma değil destekler. 
 
 ## <a name="enabling-connectivity"></a>Bağlantıyı etkinleştirme
-Data Factory hizmetinin şirket içi ODBC kaynaklarına veri yönetimi ağ geçidi kullanarak bağlanmayı desteklemektedir. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale veri yönetimi ağ geçidi ve ağ geçidi kurun ayarlama hakkında adım adım yönergeleri hakkında bilgi edinin. Bir Azure Iaas sanal barındırılan olsa bile bir ODBC veri deposuna bağlanmak için ağ geçidi'ni kullanın.
+Data Factory Hizmeti'ne hello veri yönetimi ağ geçidi kullanarak bağlanan tooon içi ODBC kaynakları destekler. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale toolearn veri yönetimi ağ geçidi ve hello ağ geçidi kurun ayarlama hakkında adım adım yönergeleri hakkında. Bir Azure Iaas sanal barındırılan olsa bile hello ağ geçidi tooconnect tooan ODBC veri deposunu kullan.
 
-ODBC veri deposu olarak aynı şirket içi makineye veya Azure VM ağ geçidi yükleyebilirsiniz. Ancak, bir ayrı makine/Azure Iaas kaynak çekişmesini önlemek için VM üzerinde ve daha iyi performans için ağ geçidi yüklemenizi öneririz. Ağ geçidi ayrı bir makineye yüklediğinizde, makine ODBC veri deposu olan makine erişebilir olması gerekir.
+Merhaba ağ geçidi içi aynı makine veya hello ODBC veri deposu olarak Azure VM hello hello yükleyebilirsiniz. Ancak, bir ayrı makine/Azure Iaas VM hello ağ geçidi yüklemenizi öneririz tooavoid kaynak çekişmesini ve daha iyi performans için. Merhaba ağ geçidi ayrı bir makineye yüklediğinizde hello makine hello ODBC veri deposu ile mümkün tooaccess hello makine olmalıdır.
 
-Veri Yönetimi ağ geçidi dışında Ayrıca ağ geçidi makinesi üzerinde veri deposu için ODBC sürücüsü yüklemeniz gerekir.
+Veri Yönetimi ağ geçidi Hello dışında ayrıca tooinstall hello ODBC sürücüsü hello veri deposu hello gateway makinesinde gerekir.
 
 > [!NOTE]
 > Bkz: [ağ geçidi sorunlarını giderme](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) ilgili sorunlar bağlantı/ağ geçidi sorun giderme ipuçları için.
@@ -38,32 +38,32 @@ Veri Yönetimi ağ geçidi dışında Ayrıca ağ geçidi makinesi üzerinde ver
 ## <a name="getting-started"></a>Başlarken
 Farklı araçlar/API'lerini kullanarak bir ODBC veri deposundan verileri taşır kopyalama etkinliği ile işlem hattı oluşturun.
 
-Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
+Merhaba en kolay yolu toocreate bir ardışık düzen olduğu toouse hello **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) hello kopya veri Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+Aşağıdaki araçlar toocreate bir ardışık düzen hello de kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu **, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) adım adım yönergeler toocreate kopyalama etkinliği ile işlem hattı için. 
 
-Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin: 
+Merhaba araçları veya API'lerle de kullansanız adımları toocreate veri kaynağına veri dosyaları tooa havuz veri deposunu taşır ardışık aşağıdaki hello gerçekleştirin: 
 
-1. Oluşturma **bağlantılı Hizmetleri** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar.
-2. Oluşturma **veri kümeleri** kopyalama işlemi için girdi ve çıktı verilerini temsil etmek için. 
+1. Oluşturma **bağlantılı Hizmetleri** toolink girdi ve çıktı veri depoları tooyour veri fabrikası.
+2. Oluşturma **veri kümeleri** giriş ve çıkış toorepresent hello için veri kopyalama işlemi. 
 3. Oluşturma bir **ardışık düzen** bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile. 
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, JSON biçimini kullanarak bu Data Factory varlıklarını tanımlayın.  Bir ODBC veri deposundan verileri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları içeren bir örnek için bkz: [JSON örnek: ODBC veri verilerini depolamak için Azure Blob](#json-example-copy-data-from-odbc-data-store-to-azure-blob) bu makalenin. 
+Başlangıç Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve hello ardışık düzeni) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıklarını hello JSON biçimini kullanarak tanımlayın.  Bir ODBC veri deposundaki kullanılan toocopy verileri Data Factory varlıkları için JSON tanımları içeren bir örnek için bkz: [JSON örnek: ODBC veri verilerini depolamak tooAzure Blob](#json-example-copy-data-from-odbc-data-store-to-azure-blob) bu makalenin. 
 
-Aşağıdaki bölümler, Data Factory varlıklarını belirli ODBC veri deposuna tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar:
+Aşağıdaki bölümlerde hello kullanılan toodefine Data Factory varlıkları belirli tooODBC veri deposu olan JSON özellikleri hakkında ayrıntılı bilgi sağlar:
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
-Aşağıdaki tabloda, JSON öğeleri için ODBC belirli açıklamasını bağlantılı hizmetinin sağlar.
+Aşağıdaki tablonun hello JSON öğeleri belirli tooODBC bağlantılı hizmeti için bir açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **OnPremisesOdbc** |Evet |
-| connectionString |Bağlantı dizesi ve isteğe bağlı şifrelenmiş kimlik bilgileri olmayan erişim kimlik bilgileri bölümü. Aşağıdaki bölümlerde örneklere bakın. |Evet |
-| kimlik bilgisi |Sürücü özgü özellik değer biçiminde belirtilen bağlantı dizesi erişim kimlik bilgisi bölümü. Örnek: "Uid =<user ID>; PWD =<password>; RefreshToken =<secret refresh token>; ". |Hayır |
-| authenticationType |ODBC veri deposuna bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: anonim ve temel. |Evet |
+| type |Merhaba type özelliği ayarlanmalıdır: **OnPremisesOdbc** |Evet |
+| connectionString |Merhaba olmayan erişim kimlik bilgisi kısmı hello bağlantı dizesini ve isteğe bağlı bir kimlik bilgisi şifrelenir. Aşağıdaki bölümlerde hello örneklere bakın. |Evet |
+| kimlik bilgisi |Merhaba erişim kimlik bilgisi bölümü sürücüye özgü özellik değer biçiminde belirtilen hello bağlantı dizesi. Örnek: "Uid =<user ID>; PWD =<password>; RefreshToken =<secret refresh token>; ". |Hayır |
+| authenticationType |Kimlik doğrulama türü tooconnect toohello ODBC veri deposu kullanılır. Olası değerler şunlardır: anonim ve temel. |Evet |
 | kullanıcı adı |Temel kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
-| gatewayName |Data Factory hizmetinin ODBC veri deposuna bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello ODBC veri deposu kullanmanız gerekir. |Evet |
 
 ### <a name="using-basic-authentication"></a>Temel kimlik doğrulaması kullanma
 
@@ -85,7 +85,7 @@ Aşağıdaki tabloda, JSON öğeleri için ODBC belirli açıklamasını bağlan
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Temel kimlik doğrulaması ile şifrelenmiş kimlik bilgileri kullanma
-Kullanarak kimlik bilgilerini şifrelemek [yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (Azure PowerShell 0,9 veya önceki sürüm).  
+Merhaba kimlik hello kullanarak şifreleyebilirsiniz [yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 veya önceki bir sürümü hello Azure PowerShell).  
 
 ```json
 {
@@ -124,30 +124,30 @@ Kullanarak kimlik bilgilerini şifrelemek [yeni AzureRMDataFactoryEncryptValue](
 
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
+Merhaba bölümleri & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
 
-**TypeProperties** bölüm veri kümesi her tür için farklıdır ve verilerin veri deposunda konumu hakkında bilgi sağlar. TypeProperties bölüm türü veri kümesi için **RelationalTable** (ODBC veri kümesi içeren) aşağıdaki özelliklere sahip
+Merhaba **typeProperties** bölüm veri kümesi her tür için farklıdır ve hello veri deposundaki hello veri hello konumu hakkında bilgi sağlar. Merhaba typeProperties bölüm türü veri kümesi için **RelationalTable** hello aşağıdaki özelliklere sahip (ODBC veri kümesi içerir)
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |ODBC veri deposundaki tablonun adı. |Evet |
+| tableName |Merhaba ODBC veri deposundaki Merhaba tablonun adı. |Evet |
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
-Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
+Merhaba bölümleri & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
-Kullanılabilir özellikler **typeProperties** etkinlik bölümünü diğer yandan her etkinlik türü ile değişir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
+Hello kullanılabilen özellikleri **typeProperties** bölüm diğer yandan hello hello faaliyete, her etkinlik türü ile farklılık gösterir. Kopya etkinliği için bunlar hello türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
 
-Kopyalama etkinliğinde kaynak türü olduğunda **RelationalSource** (içeren ODBC), aşağıdaki özellikler typeProperties bölümünde kullanılabilir:
+Kopyalama etkinliğinde kaynak türü olduğunda **RelationalSource** (içeren ODBC), aşağıdaki özelliklere hello typeProperties bölümünde bulunur:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * from MyTable. |Evet |
+| sorgu |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: seçin * from MyTable. |Evet |
 
 
-## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON örnek: ODBC veri verilerini depolamak için Azure Blob
-Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz JSON tanımları sağlar, [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bir Azure Blob depolama alanına bir ODBC kaynağından veri kopyalamak nasıl gösterir. Ancak, veri herhangi belirtildiği havuzlarını kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopya etkinliği Azure Data Factory kullanarak.
+## <a name="json-example-copy-data-from-odbc-data-store-tooazure-blob"></a>JSON örnek: ODBC veri verilerini depolamak tooAzure Blob
+Bu örnek JSON tanımları sağlar, toocreate bir ardışık düzen kullanarak kullanabilirsiniz [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunu nasıl tooan Azure Blob Storage toocopy bir ODBC veri kaynağı gösterir. Ancak, veri belirtildiği hello havuzlarını, kopyalanan tooany olabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kullanarak Azure Data Factory kopyalama etkinliği hello.
 
-Örnek aşağıdaki data factory varlıklarını sahiptir:
+Merhaba örnek data factory varlıklarını aşağıdaki hello sahiptir:
 
 1. Bağlı hizmet türü [OnPremisesOdbc](#linked-service-properties).
 2. Bağlı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -155,11 +155,11 @@ Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz JSO
 4. Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 5. A [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [RelationalSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Örnek veri sorgu sonucu bir ODBC veri deposundaki bir blobu saatte kopyalar. Bu örnekler kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
+Merhaba örnek verileri bir ODBC veri deposu tooa blob bir sorgu sonucunda her saat kopyalar. Bu örnekler kullanılan hello JSON özellikleri hello örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
-İlk adım olarak, veri yönetimi ağ geçidi kurun ayarlayın. Yönergeler bulunan [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
+İlk adım olarak, hello veri yönetimi ağ geçidi ayarlayın. Merhaba yönergelerdir hello [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
 
-**ODBC bağlantılı hizmeti** Bu örnek, temel kimlik doğrulaması kullanır. Bkz: [ODBC bağlantılı hizmeti](#linked-service-properties) bölümü için farklı tür kimlik doğrulaması kullanabilirsiniz.
+**ODBC bağlantılı hizmeti** kullandığı hello temel kimlik doğrulaması Bu örnek. Bkz: [ODBC bağlantılı hizmeti](#linked-service-properties) bölümü için farklı tür kimlik doğrulaması kullanabilirsiniz.
 
 ```json
 {
@@ -195,9 +195,9 @@ Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz JSO
 
 **ODBC girdi veri kümesi**
 
-Örnek bir ODBC veritabanında bir tablo "MyTable" oluşturdunuz ve zaman serisi veri için "timestampcolumn" adlı bir sütun içerdiği varsayar.
+Merhaba örnek bir ODBC veritabanında bir tablo "MyTable" oluşturdunuz ve zaman serisi veri için "timestampcolumn" adlı bir sütun içerdiği varsayar.
 
-"Dış" ayarı: "true" bildirir Data Factory hizmetinin veri kümesi data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil.
+"Dış" ayarı: "true" bildirir hello Data Factory hizmetinin bu hello dataset dış toohello veri fabrikası olan ve hello veri fabrikasında bir etkinlik tarafından üretilen değil.
 
 ```json
 {
@@ -225,7 +225,7 @@ Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz JSO
 
 **Azure Blob dataset çıktı**
 
-Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob klasör yolu dinamik işlenmekte olan dilim başlangıç zamanı temel alınarak değerlendirilir. Klasör yolu yıl, ay, gün ve saat bölümleri başlangıç saatini kullanır.
+Veri saatte tooa yeni blob yazılır (sıklığı: saat, aralığı: 1). hello blob Hello klasör yolu dinamik işlenmekte olan hello dilimin hello başlangıç zamanı temel alınarak değerlendirilir. Merhaba klasör yolu hello başlangıç zamanı yıl, ay, gün ve saat bölümlerini kullanır.
 
 ```json
 {
@@ -286,7 +286,7 @@ Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob 
 
 **ODBC kaynak (RelationalSource) ve Blob havuz (BlobSink) sahip işlem hattı kopyalama etkinliği**
 
-Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **RelationalSource** ve **havuz** türü ayarlanmış **BlobSink**. SQL sorgusu için belirtilen **sorgu** özelliği veri kopyalamak için son bir saat içindeki seçer.
+Merhaba ardışık düzen içeren bir kopyalama etkinliği, yapılandırılmış toouse bu girdi ve çıktı veri kümeleri ve zamanlanmış toorun her saatte birdir. JSON tanımını Hello ardışık düzeninde, hello **kaynak** türü olarak ayarlanmış çok**RelationalSource** ve **havuz** türü olarak ayarlanmış çok**BlobSink**. Merhaba belirtilen hello SQL sorgusu **sorgu** özelliği saat toocopy geçmiş hello hello veri seçer.
 
 ```json
 {
@@ -334,21 +334,21 @@ Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapıland
 }
 ```
 ### <a name="type-mapping-for-odbc"></a>Tür eşlemesi için ODBC
-Bölümünde belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale, kopyalama etkinliği, aşağıdaki iki aşamalı yaklaşımı türleriyle havuz için kaynak türünden otomatik tür dönüşümleri gerçekleştirir:
+Hello belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale, kopyalama etkinliği gerçekleştiren kaynak türleri toosink türlerinden otomatik tür dönüşümleri iki aşamalı bir yaklaşım aşağıdaki hello ile:
 
-1. Yerel kaynak türlerinden .NET türüne dönüştürün
-2. .NET türünden yerel havuz türüne dönüştürün
+1. Yerel kaynak türleri too.NET türünden Dönüştür
+2. .NET türü toonative havuz türünden Dönüştür
 
-ODBC veri depolarına verilerin taşınması, ODBC veri türleri .NET türlerine bölümünde belirtildiği gibi eşlenir [ODBC veri türü eşlemeleri](https://msdn.microsoft.com/library/cc668763.aspx) konu.
+ODBC veri depolarına verilerin taşınması, ODBC veri türleri eşlenen too.NET hello belirtildiği gibi türleridir [ODBC veri türü eşlemeleri](https://msdn.microsoft.com/library/cc668763.aspx) konu.
 
-## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme
-Havuz dataset sütunlara kaynak kümesindeki eşleme sütunları hakkında bilgi edinmek için [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Kaynak toosink sütunları eşleme
+Kaynak veri kümesi toocolumns havuz kümesindeki eşleme sütunlarında hakkında toolearn bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>İlişkisel kaynaklardan yinelenebilir okuma
-İlişkisel veri kopyalama verileri depoladığında, Yinelenebilirlik istenmeyen sonuçları önlemek için göz önünde bulundurun. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Bir hata oluştuğunda bir dilimi yeniden çalıştırmak için bir veri kümesi için yeniden deneme ilkesi de yapılandırabilirsiniz. Bir dilim iki yolla yeniden çalıştırıldığında, aynı veri dilimi çalıştırmak kaç kez geçtiğinden bağımsız okuduğunuzdan emin olmanız gerekir. Bkz: [ilişkisel kaynaktan okumak Repeatable](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+İlişkisel veri depoları veri kopyalama işlemi sırasında Yinelenebilirlik göz tooavoid tutmak istenmeyen sonuçları. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Bir hata oluştuğunda bir dilimi yeniden çalıştırmak için bir veri kümesi için yeniden deneme ilkesi de yapılandırabilirsiniz. Bir dilim iki yolla yeniden zaman, aynı veri hello emin toomake nasıl geçtiğinden bağımsız okuma gerekir dilim birçok kez çalıştırın. Bkz: [ilişkisel kaynaktan okumak Repeatable](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="ge-historian-store"></a>GE Historian deposu
-Bağlantı için bir ODBC bağlı hizmeti oluşturma bir [GE Proficy Historian (şimdi GE Historian)](http://www.geautomation.com/products/proficy-historian) aşağıdaki örnekte gösterildiği gibi verileri depolamak için bir Azure data factory:
+Bir ODBC bağlantılı hizmet toolink oluşturduğunuz bir [GE Proficy Historian (şimdi GE Historian)](http://www.geautomation.com/products/proficy-historian) hello aşağıdaki örnekte gösterildiği gibi verileri depolamak tooan Azure veri fabrikası:
 
 ```json
 {
@@ -358,7 +358,7 @@ Bağlantı için bir ODBC bağlı hizmeti oluşturma bir [GE Proficy Historian (
         "type": "OnPremisesOdbc",
         "typeProperties":
         {
-            "connectionString": "DSN=<name of the GE Historian store>",
+            "connectionString": "DSN=<name of hello GE Historian store>",
             "gatewayName": "<gateway name>",
             "authenticationType": "Basic",
             "userName": "<user name>",
@@ -368,24 +368,24 @@ Bağlantı için bir ODBC bağlı hizmeti oluşturma bir [GE Proficy Historian (
 }
 ```
 
-Veri Yönetimi ağ geçidi bir şirket içi makineye yükleyin ve ağ geçidi portal ile kaydedin. Şirket içi bilgisayarınıza yüklü olan ağ geçidini GE Historian için ODBC sürücüsü GE Historian veri deposuna bağlanmak için kullanır. Bu nedenle, ağ geçidi makinede zaten yüklü değilse sürücüyü yükleyin. Bkz: [bağlantıyı etkinleştirme](#enabling-connectivity) ayrıntıları bölümü.
+Bir şirket içi veri yönetimi ağ geçidi yükleyin ve hello portalıyla hello ağ geçidini kaydedin. Şirket içi bilgisayarınıza yüklü hello ağ geçidi hello ODBC sürücüsü GE Historian tooconnect toohello GE Historian veri deposu kullanır. Merhaba ağ geçidi makinede zaten yüklü değilse, bu nedenle, hello sürücüsünü yükleyin. Bkz: [bağlantıyı etkinleştirme](#enabling-connectivity) ayrıntıları bölümü.
 
-Veri Fabrikası çözüm GE Historian deposunda kullanmadan önce ağ geçidi bir sonraki bölümde yönergeleri kullanarak veri depolama alanı bağlanıp bağlanamadığını doğrulayın.
+GE Historian depolamak bir veri fabrikası çözümde hello kullanmadan önce hello ağ geçidi toohello veri deposu hello sonraki bölümde yönergeleri kullanarak bağlandığını doğrulayın.
 
-ODBC veri kullanarak makale ayrıntılı bir genel bakış için en başından bir kopyalama işleminde kaynak veri depoları olarak depolar okuyun.  
+ODBC veri kullanımının hello makale okuma ayrıntılı bir genel bakış için hello başından bir kopyalama işleminde kaynak veri depoları olarak depolar.  
 
 ## <a name="troubleshoot-connectivity-issues"></a>Bağlantı sorunlarını giderme
-Bağlantı sorunlarını gidermek için kullanmak **tanılama** sekmesinde **veri yönetimi ağ geçidi Yapılandırma Yöneticisi**.
+tootroubleshoot bağlantı sorunlarını kullanmak hello **tanılama** sekmesinde **veri yönetimi ağ geçidi Yapılandırma Yöneticisi**.
 
-1. Başlatma **veri yönetimi ağ geçidi Yapılandırma Yöneticisi**. İçin "C:\Program Files\Microsoft veri yönetimi Gateway\1.0\Shared\ConfigManager.exe" doğrudan (veya) arama ya da çalıştırabilirsiniz **ağ geçidi** bağlantı bulmak için **Microsoft Veri Yönetimi ağ geçidi** aşağıdaki görüntüde gösterildiği gibi uygulama.
+1. Başlatma **veri yönetimi ağ geçidi Yapılandırma Yöneticisi**. İçin "C:\Program Files\Microsoft veri yönetimi Gateway\1.0\Shared\ConfigManager.exe" doğrudan (veya) arama ya da çalıştırabilirsiniz **ağ geçidi** toofind bağlantı çok**Microsoft Veri Yönetimi ağ geçidi** Görüntü aşağıdaki hello gösterildiği gibi uygulama.
 
     ![Arama ağ geçidi](./media/data-factory-odbc-connector/search-gateway.png)
-2. Geçiş **tanılama** sekmesi.
+2. Geçiş toohello **tanılama** sekmesi.
 
     ![Ağ geçidi tanılama](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
-3. Seçin **türü** (bağlantılı hizmeti) verilerini depolar.
-4. Belirtin **kimlik doğrulaması** ve girin **kimlik bilgileri** (veya) girin **bağlantı dizesi** veri deposuna bağlanmak için kullanılır.
-5. Tıklatın **Bağlantıyı Sına** veri deposu test edin.
+3. Select hello **türü** (bağlantılı hizmeti) verilerini depolar.
+4. Belirtin **kimlik doğrulaması** ve girin **kimlik bilgileri** (veya) girin **bağlantı dizesi** , kullanılan tooconnect toohello veri deposudur.
+5. Tıklatın **Bağlantıyı Sına** tootest hello bağlantı toohello veri deposu.
 
 ## <a name="performance-and-tuning"></a>Performans ve ayarlama
-Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve onu en iyi duruma getirmek için çeşitli yollar etkisi performansını anahtar Etkenler hakkında bilgi edinmek için.
+Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) toolearn anahtarı hakkında Etkenler bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve çeşitli yolları toooptimize etkisi performansını da.

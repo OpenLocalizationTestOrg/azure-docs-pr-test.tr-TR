@@ -1,6 +1,6 @@
 ---
-title: "Node.js içinde Service Bus kuyruklarını kullanma | Microsoft Docs"
-description: "Bir Node.js uygulamasını Azure'da Service Bus kuyruklarını kullanmayı öğrenin."
+title: "aaaHow toouse Service Bus kuyrukları Node.js içinde | Microsoft Docs"
+description: "Hizmet veri yolu toouse Azure'da bir Node.js uygulamasını nasıl kuyruklar öğrenin."
 services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: fe2c02534996d99c190593a419a4823888f03d31
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c55354b2061c41aba1093cc3f12ce2a1bc37a3cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs"></a>Node.js ile Service Bus kuyruklarını kullanma
+# <a name="how-toouse-service-bus-queues-with-nodejs"></a>Node.js ile nasıl toouse Service Bus kuyrukları
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Bu makalede, Node.js ile Service Bus kuyruklarını kullanmayı açıklar. Örnekler JavaScript'te yazılmış ve Node.js Azure modülü kullanın. Kapsamdaki senaryolar dahil **sıra oluşturma**, **ileti gönderme ve alma**, ve **sıraları silme**. Kuyruklar hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
+Bu makalede, Node.js ile nasıl toouse Service Bus kuyrukları açıklanmaktadır. Merhaba örnekler JavaScript'te yazılmış ve hello Node.js Azure modülü kullanın. Merhaba kapsanan senaryolar dahil **sıra oluşturma**, **ileti gönderme ve alma**, ve **sıraları silme**. Merhaba kuyruklar hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
-Boş bir Node.js uygulaması oluşturun. Bir Node.js uygulaması oluşturma hakkında daha fazla yönerge için bkz: [oluşturma ve bir Azure Web sitesine bir Node.js uygulaması dağıtma][Create and deploy a Node.js application to an Azure Website], veya [Node.js bulut hizmeti] [ Node.js Cloud Service] Windows PowerShell kullanarak.
+Boş bir Node.js uygulaması oluşturun. Yönergeler için toocreate bir Node.js uygulaması bkz [oluşturma ve bir Node.js uygulaması tooan Azure Web sitesi dağıtma][Create and deploy a Node.js application tooan Azure Website], veya [Node.js bulut hizmeti] [ Node.js Cloud Service] Windows PowerShell kullanarak.
 
-## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırın
-Azure Service Bus hizmetini kullanmak için karşıdan yükle ve Node.js Azure paketini kullanın. Bu paket Service Bus REST Hizmetleri ile iletişim kitaplıkları kümesi içerir.
+## <a name="configure-your-application-toouse-service-bus"></a>Uygulama toouse Service Bus yapılandırın
+toouse Azure Service Bus, indirin ve hello Node.js Azure paketini kullanın. Bu paket hello Service Bus REST Hizmetleri ile iletişim kitaplıkları kümesi içerir.
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Paket elde etmek için düğüm paketi Yöneticisi (NPM) kullanın
-1. Kullanım **Node.js için Windows PowerShell** gitmek için komut penceresi **c:\\düğümü\\sbqueues\\WebRole1** örneğinizi oluşturduğunuz klasörü uygulama.
-2. Tür **npm yükleme azure** komut penceresinde hangi neden aşağıdakine benzer bir çıktı:
+### <a name="use-node-package-manager-npm-tooobtain-hello-package"></a>Düğüm paketi Yöneticisi (NPM) tooobtain hello paketini kullanın
+1. Kullanım hello **Node.js için Windows PowerShell** komut penceresinde toonavigate toohello **c:\\düğümü\\sbqueues\\WebRole1** içinde oluşturduğunuz klasörü, örnek uygulama.
+2. Tür **npm yükleme azure** hello komut penceresinde, neden çıktı benzer toohello aşağıdakileri:
 
     ```
     azure@0.7.5 node_modules\azure
@@ -53,30 +53,30 @@ Azure Service Bus hizmetini kullanmak için karşıdan yükle ve Node.js Azure p
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. El ile çalıştırabilirsiniz **ls** doğrulamak için komutu bir **node_modules** klasörü oluşturuldu. Bu klasöre Bul **azure** Service Bus kuyruklarını erişmek için gereken kitaplıklar içeren paket.
+3. Merhaba el ile çalıştırabilirsiniz **ls** komutu tooverify, bir **node_modules** klasörü oluşturuldu. Bu klasör Bul hello içinde **azure** tooaccess Service Bus kuyruklarını ihtiyacınız hello kitaplıklarını içeren paket.
 
-### <a name="import-the-module"></a>Modülünü içeri aktarın
-Not Defteri'nde veya başka bir metin düzenleyicisi kullanarak, aşağıdaki üst kısmına ekleyin **server.js** uygulamanın dosya:
+### <a name="import-hello-module"></a>İçeri aktarma hello Modülü
+Not Defteri'nde veya başka bir metin düzenleyicisi kullanarak eklemek hello toohello üstündeki aşağıdaki hello **server.js** hello uygulama dosyası:
 
 ```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Bir Azure hizmet veri yolu bağlantı kurma
-Ortam değişkeni Azure modül okur `AZURE_SERVICEBUS_CONNECTION_STRING` Service Bus hizmetine bağlanmak için gerekli bilgileri elde edilir. Bu ortam değişkenini ayarlanmamışsa çağrılırken hesap bilgileri belirtmelisiniz `createServiceBusService`.
+Hello Azure modül okur hello ortam değişkeni `AZURE_SERVICEBUS_CONNECTION_STRING` tooobtain bilgi tooconnect tooService veri yolu gerekiyor. Bu ortam değişkenini ayarlanmamışsa çağrılırken hello hesap bilgileri belirtmelisiniz `createServiceBusService`.
 
-Azure bulut hizmeti için bir yapılandırma dosyasında ortam değişkenlerini ayarlama örneği için bkz: [depolama Node.js bulut hizmetiyle][Node.js Cloud Service with Storage].
+Azure bulut hizmeti için yapılandırma dosyasında hello ortam değişkenlerini ayarlama örneği için bkz: [depolama Node.js bulut hizmetiyle][Node.js Cloud Service with Storage].
 
-Ortam değişkenlerini ayarlama örnek için [Azure portal] [ Azure portal] bir Azure Web sitesi için bkz: [Node.js Web uygulaması depolama ile] [ Node.js Web Application with Storage].
+Hello hello ortam değişkenlerini ayarlama örneği için [Azure portal] [ Azure portal] bir Azure Web sitesi için bkz: [Node.js Web uygulaması depolama ile] [ Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
-**ServiceBusService** nesnesi ile Service Bus kuyruklarını çalışmanıza olanak sağlar. Aşağıdaki kod oluşturur bir **ServiceBusService** nesnesi. Üst kısmına ekleyin **server.js** Azure modülü içeri aktarmak için deyimi sonra dosyayı:
+Merhaba **ServiceBusService** nesnesi, Service Bus kuyrukları ile toowork sağlar. Merhaba aşağıdaki kod oluşturur bir **ServiceBusService** nesnesi. Merhaba hello yukarıya yakın eklemek **server.js** hello deyimi tooimport hello Azure modülü sonra dosyayı:
 
 ```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Çağırarak `createQueueIfNotExists` üzerinde **ServiceBusService** nesnesi, (varsa) belirtilen sırada döndürülür veya belirtilen ada sahip yeni bir sıra oluşturulur. Aşağıdaki kod `createQueueIfNotExists` oluşturmak veya adlı kuyruğuna bağlanmak için `myqueue`:
+Çağırarak `createQueueIfNotExists` hello üzerinde **ServiceBusService** nesnesi, hello belirtilen sıra döndürülür (varsa) veya hello belirtilen ada sahip yeni bir sıra oluşturulur. Merhaba aşağıdaki kod kullanır `createQueueIfNotExists` toocreate veya adlı toohello sıra bağlanmak `myqueue`:
 
 ```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -86,7 +86,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-`createServiceBusService` Yöntemi de ileti zamanı dinamik veya en büyük sıra boyutu gibi varsayılan sırası ayarlarını geçersiz kılmanıza olanak sağlayan ek seçenekleri destekler. Aşağıdaki örnek en büyük sıra boyutu 5 GB ve bir süre için 1 dakika (TTL) değerini Canlı ayarlar:
+Merhaba `createServiceBusService` yöntemi de ileti zaman toolive veya en büyük sıra boyutu gibi toooverride varsayılan sıra ayarları etkinleştirmek ek seçenekleri destekler. Merhaba aşağıdaki örnek hello en büyük sıra boyutu too5 GB ve bir süre toolive (TTL) değerini 1 dakika ayarlar:
 
 ```javascript
 var queueOptions = {
@@ -102,31 +102,31 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ```
 
 ### <a name="filters"></a>Filtreler
-İsteğe bağlı filtreleme işlemleri kullanarak gerçekleştirilen işlemler için uygulanabilir **ServiceBusService**. İşlemleri filtreleme içerebilir günlüğe kaydetme, otomatik olarak yeniden deneniyor, vs. İmzalı bir yöntem uygulayan nesneler filtreleri şunlardır:
+İsteğe bağlı filtreleme operations kullanılarak gerçekleştirilen uygulanan toooperations olabilir **ServiceBusService**. İşlemleri filtreleme içerebilir günlüğe kaydetme, otomatik olarak yeniden deneniyor, vs. Filtreleri hello imza yöntemiyle uygulayan nesneler şunlardır:
 
 ```javascript
 function handle (requestOptions, next)
 ```
 
-Ön işleme isteği seçenekleri yaptıktan sonra yöntemini çağırmalı `next`, bir geri çağırma aşağıdaki imzayla geçirme:
+Ön işleme hello isteği seçenekleri yaptıktan sonra hello yöntemini çağırmalı `next`, bir geri çağırma imza aşağıdaki hello ile geçirme:
 
 ```javascript
 function (returnObject, finalCallback, next)
 ```
 
-İşleme sonra bu geri çağırma `returnObject` (yanıt istek sunucuya), geri çağırma ya da çağırmanız gerekir `next` diğer filtreleri işlemeye devam et veya yalnızca çağrılacak varsa `finalCallback`, hizmet sona erer çağırma.
+İşleme hello sonra bu geri çağırma `returnObject` (Merhaba isteği toohello sunucudan yanıt hello) hello geri çağırma gerekir ya da çağırma `next` , diğer filtrelerle işleme toocontinue var veya yalnızca çağırma `finalCallback`, hangi sona erer Merhaba hizmet başlatma.
 
-Yeniden deneme mantığını uygulaması iki filtre Node.js için Azure SDK'sı ile birlikte `ExponentialRetryPolicyFilter` ve `LinearRetryPolicyFilter`. Aşağıdaki kod oluşturur bir `ServiceBusService` kullanan nesneyi `ExponentialRetryPolicyFilter`:
+Yeniden deneme mantığını uygulaması iki filtre hello Node.js için Azure SDK ile birlikte `ExponentialRetryPolicyFilter` ve `LinearRetryPolicyFilter`. Merhaba aşağıdaki kod oluşturur bir `ServiceBusService` hello kullanan nesneyi `ExponentialRetryPolicyFilter`:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 ```
 
-## <a name="send-messages-to-a-queue"></a>Kuyruğa ileti gönderme
-Uygulama çağrılarınızı bir Service Bus kuyruğuna bir ileti göndermek için `sendQueueMessage` yöntemi **ServiceBusService** nesnesi. İletileri gönderilen (ve öğesinden alınan) hizmet kuyruklar veri yolu **BrokeredMessage** nesneleri ve bir standart özellikler kümesi sahip (gibi **etiket** ve **TimeToLive**), Özel uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi tutmak için kullanılan sözlüğü. Bir uygulama, iletisi olarak bir dize geçirerek ileti gövdesini ayarlayabilir. Gerekli tüm standart özellikleri varsayılan değerlerle doldurulur.
+## <a name="send-messages-tooa-queue"></a>İletileri tooa sırası Gönder
+ileti tooa Service Bus kuyruğuna toosend, uygulamanızın çağırır hello `sendQueueMessage` hello yöntemi **ServiceBusService** nesnesi. İletileri çok gönderilen (ve öğesinden alınan) hizmet kuyruklar veri yolu **BrokeredMessage** nesneleri ve bir standart özellikler kümesi sahip (gibi **etiket** ve **TimeToLive**), kullanılan toohold özel uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi sözlüğü. Bir uygulama, bir dize selamlama iletisine geçirerek hello hello ileti gövdesi ayarlayabilirsiniz. Gerekli tüm standart özellikleri varsayılan değerlerle doldurulur.
 
-Aşağıdaki örnek adlı sırasına sınama iletisi göndermek nasıl gösterir `myqueue` kullanarak `sendQueueMessage`:
+Merhaba aşağıdaki örnekte nasıl toosend adlı bir sınama iletisi toohello sırası gösteren `myqueue` kullanarak `sendQueueMessage`:
 
 ```javascript
 var message = {
@@ -141,16 +141,16 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına ilişkin bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir. Kotalar hakkında daha fazla bilgi için bkz: [Service Bus kotaları][Service Bus quotas].
+Service Bus kuyruklarını destek maksimum ileti boyutu 256 KB hello [standart katmanı](service-bus-premium-messaging.md) hello 1 MB [Premium katmanı](service-bus-premium-messaging.md). Merhaba standart ve özel uygulama özelliklerini içeren hello üstbilgi en büyük boyutu 64 KB olabilir. Merhaba bir kuyrukta tutulan ileti sayısına bir sınır yoktur ancak kuyruk tarafından tutulan hello iletilerin toplam boyutu hello bir sınır yoktur. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir. Kotalar hakkında daha fazla bilgi için bkz: [Service Bus kotaları][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Kuyruktan ileti alma
-İletileri kullanarak bir Sıraya alınan `receiveQueueMessage` yöntemi **ServiceBusService** nesnesi. Varsayılan olarak, bunlar okurken iletiler sıradan silinir; Ancak, (Özet) okuma ve iletiyi sıradan isteğe bağlı parametresi ayarlanarak silmeden kilitlemek `isPeekLock` için **doğru**.
+İletileri hello kullanarak bir kuyruktan alınan `receiveQueueMessage` hello yöntemi **ServiceBusService** nesnesi. Varsayılan olarak, bunlar okurken iletiler hello sıradan silinir; Ancak, (Özet) okuma ve kilitleme selamlama iletisine hello isteğe bağlı parametre ayarı tarafından hello sıradan silmeden `isPeekLock` çok**doğru**.
 
-Okuma ve ileti alma işleminin bir parçası olarak silme varsayılan davranışı en basit modeldir ve uygulamanın hata oluştuğunda bir iletiyi işlemeyi değil dayanabileceği senaryoları için en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletiyi kullanılıyor olarak işaretlenmiş nedeniyle uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, sonra da çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Okuma varsayılan davranışını hello ve hello parçası işlemi aldıklarında hello iletisi siliniyor hello en basit modeldir ve uygulamanın bir hatanın hello Olay iletisinde işlenmiyor dayanabileceği senaryolarda en iyi şekilde çalışır. toounderstand Bu, hangi hello tüketici sorunları hello alma isteği bir senaryo düşünün ve işlemeden önce çöküyor. Hizmet veri yolu selamlama iletisine hello uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında olduğunda, ardından kullanılıyor olarak işaretlenmiş için onu olan hello iletiyi atlamış olur önceki toohello kilitlenme tüketilen.
 
-Varsa `isPeekLock` parametrenin ayarlanmış **doğru**, alma, iletilere veremeyen uygulamaları desteklemenin mümkün kılar bir iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), çağırarak alma işleminin ikinci aşamasını tamamlar `deleteMessage` yöntemi ve parametre olarak silinecek ileti sağlama. `deleteMessage` Yöntemi iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırır.
+Merhaba, `isPeekLock` parametresi çok ayarlanırsa**true**, hello alma iletilere olası toosupport uygulamaları iki aşamalı işlemi olur. Service Bus bir istek aldığında hello sonraki ileti toobe tüketilen, diğer tüketicilerin alırken tooprevent kilitler ve toohello uygulama döndürür bulur. Merhaba uygulaması hello iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), hello hello ikinci aşamasını tamamlar çağırarak alma işleminin `deleteMessage` yöntemi ve parametre olarak silinmiş hello ileti toobe sağlama. Merhaba `deleteMessage` yöntemi hello iletiyi kullanılıyor olarak işaretler ve hello kuyruktan kaldırır.
 
-Aşağıdaki örnek, kullanarak iletileri almak ve işlemek gösterilmiştir `receiveQueueMessage`. Örnek ilk alır ve bir iletiyi siler ve kullanarak bir ileti alır `isPeekLock` kümesine **true**, iletiyi kullanarak siler `deleteMessage`:
+Merhaba aşağıdaki örnekte nasıl tooreceive ve işlem iletileri kullanarak gösteren `receiveQueueMessage`. Merhaba örnek ilk alır ve bir iletiyi siler ve kullanarak bir ileti alır `isPeekLock` çok ayarlamak**true**, iletiyi kullanarak siler hello sonra `deleteMessage`:
 
 ```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -170,15 +170,15 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 });
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
-Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi herhangi bir nedenden dolayı işleyemedi sonra işleyememesi `unlockMessage` yöntemi **ServiceBusService** nesnesi. Bu, Service Bus hizmetinin Kuyruktaki iletinin kilidini açmasına ve iletiyi aynı veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale getirmesine neden olur.
+## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Nasıl toohandle uygulaması kilitlenir ve Okunmayan iletileri
+Hizmet veri yolu, gerçekleşen hataları uygulama ya da ileti işlenirken zorlukları rahat işlevselliği toohelp sağlar. Alıcı uygulamanın kaydedemediği tooprocess Merhaba ileti herhangi bir nedenden dolayı ardından hello çağırabilirsiniz `unlockMessage` hello yöntemi **ServiceBusService** nesnesi. Bu hizmet veri yolu toounlock hello sıra içinde ileti neden ve yeniden alınan kullanılabilir toobe olun, ya da göre aynı uygulama veya başka bir kullanıcı uygulama tarafından tüketen hello.
 
-Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açmak ve onu kilit zaman aşımı dolmadan yeniden alınabilmesi kullanılabilir.
+Ayrıca hello kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve hello tooprocess önce iletiyi hello hello uygulama başarısız olursa (örneğin, hello uygulama çökerse) Service Bus selamlama iletisine otomatik olarak kilitlenmeden kilit zaman aşımı dolmadan ve yeniden alınan kullanılabilir toobe yapın.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, `deleteMessage` yöntemi çağrıldıktan sonra yeniden başlatıldığında ileti uygulamaya tekrar teslim edilir. Bu genellikle adlandırılır *en az bir kez işleme*, diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılarak elde edilen **MessageID** özelliğini iletinin teslimat denemelerinde.
+Merhaba ileti işlenirken sonra ancak hello önce uygulama hello olay Hello çöküyor `deleteMessage` yöntemi çağrıldıktan sonra başlatıldığında hello ileti yeniden teslim toohello uygulama olacaktır. Bu genellikle adlandırılır *en az bir kez işleme*, diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda hello aynı ileti yeniden teslim. Merhaba senaryo yinelenen işlemeyi kabul etmiyorsa, uygulama geliştiricilerinin ek mantık tootheir uygulama toohandle yinelenen ileti teslimi eklemeniz gerekir. Bu genellikle hello kullanılarak elde edilen **MessageID** teslimat denemelerinde hello iletinin özelliği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kuyruklar hakkında daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın.
+Kuyruklar hakkında daha fazla toolearn kaynakları aşağıdaki hello bakın.
 
 * [Kuyruklar, konu başlıkları ve abonelikler][Queues, topics, and subscriptions]
 * [Düğümü için Azure SDK] [ Azure SDK for Node] github'daki
@@ -189,7 +189,7 @@ Kuyruklar hakkında daha fazla bilgi edinmek için aşağıdaki kaynaklara bakı
 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Create and deploy a Node.js application to an Azure Website]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application tooan Azure Website]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

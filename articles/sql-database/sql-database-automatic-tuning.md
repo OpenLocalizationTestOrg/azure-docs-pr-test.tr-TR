@@ -1,6 +1,6 @@
 ---
-title: "SQL veritabanı - otomatik ayarlama | Microsoft Docs"
-description: "SQL veritabanı SQL sorgusu analiz eder ve automaticaly kullanıcı iş yüküne uyum sağlar."
+title: "aaaSQL veritabanı - otomatik ayarlama | Microsoft Docs"
+description: "SQL veritabanı SQL sorgusu analiz eder ve automaticaly toouser iş yüküne uyum sağlar."
 services: sql-database
 documentationcenter: 
 author: jovanpop-msft
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: jovanpop
-ms.openlocfilehash: f5552793db2d89542782b7d9e8f996314f62e429
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 897a8deaabedb6727dc49958c64d0433c5f2e4f4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automatic-tuning"></a>Otomatik ayarlama
 
-Azure SQL veritabanı veritabanı üzerinde yürütülür ve otomatik olarak iş yükü performansını artırabilir sorguları izleyen bir tam olarak yönetilen veri hizmetidir. Azure SQL veritabanı otomatik olarak ayarlamak ve dinamik olarak İş yükünüzün veritabanına uyarlama tarafından sorgularınızı performansını bir yerleşik zekaya mekanizması vardır. Azure SQL veritabanı'nda otomatik ayarlama, Azure SQL veritabanındaki sorgu performansını iyileştirmek için etkinleştirebilirsiniz en önemli özelliklerden biri olabilir.
+Azure SQL veritabanı hello veritabanı üzerinde yürütülür ve otomatik olarak hello iş yükü performansını artırabilir hello sorguları izleyen bir tam olarak yönetilen veri hizmetidir. Azure SQL veritabanı otomatik olarak ayarlamak ve dinamik olarak hello veritabanı tooyour iş yükü uyarlama tarafından sorgularınızı performansını bir yerleşik zekaya mekanizması vardır. Azure SQL veritabanı'nda otomatik ayarlama, Azure SQL veritabanı toooptimize performansı sorgularınızı üzerinde etkinleştirebilirsiniz hello en önemli özelliklerden biri olabilir.
 
-Bu makalede adımları için bkz: [otomatik ayarlamayı etkinleştirmek](sql-database-automatic-tuning-enable.md) Azure portalını kullanarak.
+Merhaba adımları için bu makalenin çok bkz[otomatik ayarlamayı etkinleştirmek](sql-database-automatic-tuning-enable.md) hello Azure portal kullanarak.
 
 ## <a name="why-automatic-tuning"></a>Neden otomatik ayarlama?
 
-Klasik veritabanı yönetim'deki ana görevlerden birini kritik SQL sorguları, performansı artırmak için eklenmelidir dizinler ve nadiren kullanılan dizinleri tanımlayan iş yükü izlemektedir. Azure SQL veritabanı sorguları ve izlemek için gereken dizinleri ayrıntılı bir anlayış sağlar. Ancak özellikle birden fazla veritabanıyla ilgilenirken bir veritabanını sürekli izlemek zor ve yorucu bir görevdir. Veritabanları büyük sayıda yönetme verimli bir şekilde bile tüm kullanılabilir araçları ve Azure SQL Database ve Azure portal sağlayan raporları yapmak mümkün olabilir. İzleme ve veritabanınızı el ile ayarlama yerine otomatik ayarlama özelliğini kullanarak, Azure SQL veritabanına izleme ve ayarlama eylemlerin bazıları için temsilci seçme düşünebilirsiniz. 
+Klasik veritabanı yönetim hello ana görevlerden birini hello iş yükü izleme kritik SQL tanımlayan sorgular, tooimprove performans eklenmelidir ve dizinler'nadiren kullanılan dizinleri. Azure SQL veritabanı toomonitor gerektiğini ayrıntılı bir anlayış hello sorgular ve dizinleri sağlar. Ancak özellikle birden fazla veritabanıyla ilgilenirken bir veritabanını sürekli izlemek zor ve yorucu bir görevdir. Veritabanları büyük sayıda yönetme bile tüm kullanılabilir araçları ve Azure SQL Database ve Azure portal sağlayan raporları verimli bir şekilde imkansız toodo olabilir. İzleme ve veritabanınızı el ile ayarlama yerine, izleme ve eylemleri tooAzure SQL veritabanı ayarlama hello bazıları için temsilci seçme düşünebilirsiniz otomatik ayarlama özelliğini kullanarak. 
 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-in-the-Enterprise/Enabling-Azure-SQL-Database-Auto-Tuning-at-Scale-for-Microsoft-IT/player]
@@ -37,11 +37,11 @@ Klasik veritabanı yönetim'deki ana görevlerden birini kritik SQL sorguları, 
 
 ## <a name="how-does-automatic-tuning-work"></a>Nasıl yapılır otomatik ayarlama iş?
 
-Azure SQL veritabanı sürekli yükünüzü karakteristiğini hakkında öğrenir ve olası sorunları ve geliştirmeleri belirlemek bir sürekli performans izleme ve çözümleme işlemi vardır.
+Azure SQL veritabanı sürekli hello hakkında iş yükünü özellik öğrenir ve olası sorunları ve geliştirmeleri belirlemek bir sürekli performans izleme ve çözümleme işlemi vardır.
 
 ![Otomatik ayarlama işlemi](./media/sql-database-automatic-tuning/tuning-process.png)
 
-Bu işlem, iş yükü için hangi dizinler ve planları, iş yüklerinin performansının artırılmasına ve iş yüklerinizi hangi dizinleri etkileyen bulma tarafından dinamik olarak uyarlamak Azure SQL veritabanı sağlar. Bu bulgularını üzerinde bağlı olarak, otomatik ayarlama, İş yükünüzün performansını ayarlama eylemlerine uygulanır. Ayrıca, Azure SQL Database, performans, İş yükünüzün performansını artırır emin olmak için otomatik ayarlama tarafından yapılan herhangi bir değişiklik sonra kesintisiz olarak izler. Performansı kaydetmedi herhangi bir eylem otomatik olarak geri döndürüldü. Bu doğrulama işlemi, otomatik ayarlama tarafından yapılan herhangi bir değişiklik, İş yükünüzün performansını azaltamazsınız sağlar anahtar bir özelliktir.
+Azure SQL veritabanı toodynamically hangi dizinler ve planları, iş yüklerinin performansının artırılmasına ve hangi dizine bularak tooyour iş yükü uyum bu işlem etkinleştirir, iş yüklerini etkiler. Bu bulgularını üzerinde bağlı olarak, otomatik ayarlama, İş yükünüzün performansını ayarlama eylemlerine uygulanır. Ayrıca, Azure SQL Database, performans, İş yükünüzün performansını artırır otomatik ayarlama tooensure tarafından yapılan herhangi bir değişiklik sonra kesintisiz olarak izler. Performansı kaydetmedi herhangi bir eylem otomatik olarak geri döndürüldü. Bu doğrulama işlemi, otomatik ayarlama tarafından yapılan herhangi bir değişiklik, İş yükünüzün performansını hello azaltamazsınız sağlar anahtar bir özelliktir.
 
 Azure SQL veritabanı'nda kullanılabilir olan iki otomatik ayarlama yönleri şunlardır:
 
@@ -50,25 +50,25 @@ Azure SQL veritabanı'nda kullanılabilir olan iki otomatik ayarlama yönleri ş
 
 ## <a name="automatic-index-management"></a>Otomatik dizin yönetimi
 
-Azure SQL veritabanı'nda Azure SQL veritabanı yükünüzü hakkında öğrenir ve verilerinizin her zaman en uygun şekilde dizine sağlar çünkü dizin yönetimi kolaydır. Uygun dizin tasarımı, iş yükü en iyi performans için çok önemlidir ve otomatik dizin yönetimi dizinlerinizi en iyi hale getirmenize yardımcı olabilir. Otomatik dizin yönetimi ya da hatalı oluşturulmuş veritabanlarında, performans sorunlarını çözün veya korumak ve var olan veritabanı şeması dizinlerinde artırmak. 
+Azure SQL veritabanı'nda Azure SQL veritabanı yükünüzü hakkında öğrenir ve verilerinizin her zaman en uygun şekilde dizine sağlar çünkü dizin yönetimi kolaydır. Uygun dizin tasarımı, iş yükü en iyi performans için çok önemlidir ve otomatik dizin yönetimi dizinlerinizi en iyi hale getirmenize yardımcı olabilir. Otomatik dizin yönetimi ya da hatalı oluşturulmuş veritabanlarında, performans sorunlarını gidermek veya korumak ve hello varolan veritabanı şeması dizinlerinde artırmak. 
 
 ### <a name="why-do-you-need-index-management"></a>Dizin Yönetimi neden gerekiyor?
 
-Dizinleri, bazı tablolarından veri okuma sorgularınızı hızlandırmak; Ancak, verileri güncelleştiren sorguları yavaşlatabilir. Dizin oluşturmak ne zaman ve hangi sütunların dikkatle analiz etmeniz dizinde eklemeniz gerekir. Bazı dizinleri bir süre sonra gerekli değildir. Bu nedenle, düzenli aralıklarla tanımlamak ve tüm avantajları Getir değil dizinleri bırak gerekir. Kullanılmayan dizinleri yoksayarsanız, verileri güncelleştirmek sorguların performansını veri okuma sorgularını bir fayda olmaksızın azaltılabilir. Ek güncelleştirmeler gereksiz günlük gerektirdiğinden kullanılmayan dizinleri da sistemin genel performansı etkiler.
+Dizinleri, bazı hello tablolarından veri okuma sorgularınızı hızlandırmak; Ancak, verileri güncelleştiren hello sorguları yavaşlatabilir. Toocarefully gerek toocreate dizin ve hangi sütunların içinde tooinclude gereken dizin hello çözümlemek. Bazı dizinleri bir süre sonra gerekli değildir. Bu nedenle tooperiodically gerekir tanımlamak ve tüm avantajları Getir değil hello dizinleri bırakın. Yoksayarsanız kullanılmayan dizinleri Merhaba, verileri güncelleştirmek hello sorguların performansını veri okuma hello sorgularını bir fayda olmaksızın düşürülmesini. Ek güncelleştirmeler gereksiz günlük gerektirdiğinden kullanılmayan dizinler de hello sistemin genel performansı etkiler.
 
-En iyi kümesini, tablolarından veri okumak ve güncelleştirmeleri en az etkisi olan sorguları performansını dizinleri bulma sürekli ve karmaşık analiz gerektirebilir.
+Merhaba, tablolarından veri okumak ve düşük etkili güncelleştirmeleri hello sorguların performansını artırmaya dizinleri en iyi kümesi bulma sürekli ve karmaşık analiz gerektirebilir.
 
-Azure SQL veritabanı yerleşik zekaya ve sorgularınızı çözümlemek, geçerli iş yükleri için en uygun olacak dizinleri tanımlamak Gelişmiş kurallar kullanır ve dizinler kaldırılabilir. Azure SQL veritabanı verileriyle diğer sorgular simge durumuna küçültülmüş etkisini okuma sorguları en iyi duruma getirme dizinleri gerekli en az sayıda sahip olmasını sağlar.
+Azure SQL veritabanı yerleşik zekaya ve sorgularınızı çözümlemek, geçerli iş yükleri için en uygun olacak dizinleri tanımlamak Gelişmiş kurallar kullanır ve hello dizinleri kaldırılabilir. Azure SQL veritabanı veri okuma hello sorguları en iyi duruma getirme dizinleri gerekli en az sayıda sahip olmasını sağlar, üzerindeki etkiyi en aza hello ile diğer sorgular hello.
 
-### <a name="how-to-identify-indexes-that-need-to-be-changed-in-your-database"></a>Veritabanınızda değiştirilmesi gereken dizinleri tanımlamak nasıl?
+### <a name="how-tooidentify-indexes-that-need-toobe-changed-in-your-database"></a>Nasıl tooidentify veritabanınızda değiştirilen bu gereksinimi toobe dizinler?
 
-Azure SQL veritabanı dizin yönetimi işlemini kolaylaştırır. Azure SQL veritabanı yükünüzü çözümler can sıkıcı işlemi el ile iş yükü analiz ve dizin izleme yerine yeni bir dizin ile daha hızlı yürütülebilir sorguları tanımlar ve kullanılmayan veya yinelenen dizinleri tanımlar. Konumundaki değiştirilmelidir dizinleri tanımlaması hakkında daha fazla bilgi bulmak [dizin önerileri Azure Portalı'nda bulmak](sql-database-advisor-portal.md).
+Azure SQL veritabanı dizin yönetimi işlemini kolaylaştırır. Azure SQL veritabanı yükünüzü çözümler hello can sıkıcı işlemi el ile iş yükü analiz ve dizin izleme yerine yeni bir dizin ile daha hızlı yürütülebilir hello sorguları tanımlar ve kullanılmayan veya yinelenen dizinleri tanımlar. Konumundaki değiştirilmelidir dizinleri tanımlaması hakkında daha fazla bilgi bulmak [dizin önerileri Azure Portalı'nda bulmak](sql-database-advisor-portal.md).
 
 ### <a name="automatic-index-management-considerations"></a>Otomatik dizin yönetimi konuları
 
-Yerleşik kurallar veritabanınızın performansını artırmak bulursanız, Azure SQL veritabanını otomatik olarak dizinlerinizi Yönet sağlayabilir.
+Merhaba yerleşik kurallar veritabanınızı hello performansının artırılmasına bulursanız, Azure SQL veritabanını otomatik olarak dizinlerinizi Yönet sağlayabilir.
 
-Azure SQL veritabanlarında gerekli dizinler oluşturmak için gerekli eylemleri kaynaklarını tüketebilir ve geçici olarak iş yükü performansını etkiler. Dizin oluşturma iş yükü performansı üzerindeki etkisini en aza indirmek için Azure SQL veritabanı için herhangi bir dizin yönetimi işlem uygun zaman penceresini bulur. Eylem ayarlama veritabanının yükünüzü yürütmek için kaynakları gerekiyorsa Ertelenen ve veritabanının yeterli olduğunda başlatılan bakım görevini kullanılabilmesi için kullanılmayan kaynaklar. Otomatik Dizin Yönetimi'nde bir önemli özellik eylemlerin bir onaydır. Azure SQL veritabanı oluşturur veya dizin bırakır, izleme işlemi eylemi performansı geliştirildi doğrulamak için İş yükünüzün performansını analiz eder. Önemli iyileştirme – Getir alamadık, eylem hemen geri döndürüldü. Bu şekilde, otomatik Eylemler, İş yükünüzün performansını olumsuz etkilemez Azure SQL veritabanı sağlar. Otomatik ayarlama tarafından oluşturulan dizinleri, temel alınan şema bakım işlemi için saydamdır. Şema değişiklikleri bırakmayı veya sütunları yeniden adlandırma gibi otomatik olarak oluşturulan dizinleri varlığını tarafından engellenmez. Azure SQL veritabanı tarafından otomatik olarak oluşturulan dizinleri hemen bırakılır ne zaman ilgili tablo veya sütun bırakıldı.
+Azure SQL veritabanlarında toocreate gerekli dizinler kaynaklarını tüketebilir ve geçici olarak iş yükü performansını etkileyen eylemler gereklidir. Dizin oluşturma iş yükü performansı, Azure SQL veritabanı toominimize hello etkisini hello uygun zaman penceresi için herhangi bir dizin yönetimi işlem bulur. Eylem ayarlama hello veritabanının yükünüzü kaynakları tooexecute gerekiyorsa Ertelenen ve hello veritabanı yeterli olduğunda başlatılan hello bakım görevini kullanılabilmesi için kullanılmayan kaynaklar. Otomatik Dizin Yönetimi'nde bir önemli özellik hello eylemlerin bir onaydır. Azure SQL veritabanı oluşturur veya dizin bırakır, izleme işlemi hello eylemin hello performans geliştirilmiş, iş yükü tooverify performansını analiz eder. Önemli iyileştirme – Getir alamadık, hello eylem hemen geri döndürüldü. Bu şekilde, otomatik Eylemler, İş yükünüzün performansını olumsuz etkilemez Azure SQL veritabanı sağlar. Otomatik ayarlama tarafından oluşturulan dizinleri hello temel şeması hello bakım işlemi için saydamdır. Şema değişiklikleri bırakmayı veya sütunları yeniden adlandırma gibi otomatik olarak oluşturulan dizinleri hello varlığını tarafından engellenmez. Azure SQL veritabanı tarafından otomatik olarak oluşturulan dizinleri hemen bırakılır ne zaman ilgili tablo veya sütun bırakıldı.
 
 ## <a name="automatic-plan-choice-correction"></a>Otomatik planı seçim düzeltme
 
@@ -76,5 +76,5 @@ Otomatik planı düzeltme SQL Server 2017 CTP2.0 içinde işlemiyorsa SQL planla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure SQL veritabanı'nda otomatik olarak ayarlamayı etkinleştirmek ve işleminizi iş yükü tam olarak yönetmek otomatik ayarlama özelliği sağlar için bkz: [otomatik ayarlamayı etkinleştirmek](sql-database-automatic-tuning-enable.md).
-- El ile ayarlamayı kullanacak şekilde gözden geçirebilirsiniz [önerileri Azure portalında ayarlama](sql-database-advisor-portal.md) ve el ile sorgularınızı performansını olanları uygulayın.
+- tooenable ayarlama Azure SQL veritabanı ve let otomatik otomatik ayarı özelliğini tam olarak İş yükünüzün yönetmek için bkz: [otomatik ayarlamayı etkinleştirmek](sql-database-automatic-tuning-enable.md).
+- toouse el ile ayarlama, gözden geçirebilirsiniz [önerileri Azure portalında ayarlama](sql-database-advisor-portal.md) ve el ile Merhaba sorgularınızı performansını olanları uygulayın.

@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT cihaz SDK'sı c - IoTHubClient | Microsoft Docs"
-description: "Azure IOT cihaz SDK'sı c IoTHubClient kitaplıkta bir IOT hub ile iletişim cihaz uygulamaları oluşturmak için nasıl kullanılacağını."
+title: "c - IoTHubClient aaaAzure IOT cihaz SDK'sı | Microsoft Docs"
+description: "Nasıl toouse hello IoTHubClient C toocreate cihaz uygulamaları için hello Azure IOT cihaz SDK'sı kitaplıkta, bir IOT hub ile iletişim kurar."
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -14,70 +14,70 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-ms.openlocfilehash: 422d89014511f0d08ba57a893570ff7b253b7bc4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d1ece79e9ba6d1e5fd45cabb8fca393b24052e07
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C – IoTHubClient hakkında daha fazla bilgi için Azure IOT cihaz SDK'sı
-[İlk makale](iot-hub-device-sdk-c-intro.md) sunulan bu serideki **C için Azure IOT cihaz SDK'sı**. Bu makale, SDK içinde iki Mimari katman vardır açıklanmıştır. Temeli **IoTHubClient** doğrudan IOT Hub ile iletişim yöneten kitaplığı. Ayrıca **seri hale getirici** serileştirme hizmetleri sağlamak için açık üst o derlemeler kitaplığı. Bu makalede ek ayrıntı sağlarız **IoTHubClient** kitaplığı.
+Merhaba [ilk makale](iot-hub-device-sdk-c-intro.md) bu sunulan serisi hello içinde **C için Azure IOT cihaz SDK'sı**. Bu makale, SDK içinde iki Mimari katman vardır açıklanmıştır. Merhaba Hello temel olan **IoTHubClient** doğrudan IOT Hub ile iletişim yöneten kitaplığı. Ayrıca hello olan **seri hale getirici** tooprovide seri hale getirme hizmetleri üzerinde üst o derlemeler kitaplığı. Bu makalede ek ayrıntı üzerinde hello sağlarız **IoTHubClient** kitaplığı.
 
-Önceki makalede açıklanan nasıl kullanılacağını **IoTHubClient** iletileri IOT Hub'ına olayları göndermek ve almak için kitaplık. Bu makalede bu tartışma nasıl daha kesin olarak yönetilir açıklayarak genişletir *zaman* için giriş veri gönderip **düşük düzeyli API'leri**. Olayları Özellikler ekleme (ve gelen iletileri almak) nasıl ayrıca açıklayacağız özelliklerinde işleme özelliğini kullanarak **IoTHubClient** kitaplığı. Son olarak, IOT Hub'ından alınan iletileri işlemek için farklı yollar ek açıklama sağlarız.
+Merhaba önceki makalede açıklanan nasıl toouse hello **IoTHubClient** kitaplığı toosend olayları tooIoT Hub ve iletileri alabilirsiniz. Bu makalede bu tartışma nasıl toomore tam olarak yönetmek açıklayarak genişletir *zaman* toohello Tanıtımı veri gönderip **düşük düzeyli API'leri**. Ayrıca açıklayacağız nasıl tooattach özellikleri tooevents (ve gelen iletileri almak) hello özelliklerinde işleme hello özelliğini kullanarak **IoTHubClient** kitaplığı. Son olarak, farklı şekillerde toohandle ek açıklaması sağlarız IOT Hub'ından alınan iletileri.
 
-Makaleyi birkaç aygıt kimlik bilgisi ve davranışını değiştirme hakkında daha fazla dahil çeşitli konuları kapsayan sonucuna **IoTHubClient** yapılandırma seçenekleri üzerinden.
+Merhaba makale birkaç cihaz kimlik bilgileri hakkında daha fazla bilgi ve nasıl toochange hello hello davranışını dahil olmak üzere çeşitli konuları kapsayan sonucuna **IoTHubClient** yapılandırma seçenekleri üzerinden.
 
-Kullanacağız **IoTHubClient** SDK örnekleri bu konular açıklanır. İzlemek istiyorsanız, bkz: **ıothub\_istemci\_örnek\_http** ve **ıothub\_istemci\_örnek\_amqp**C. aşağıdaki bölümlerde açıklanan her şey bu örnekleri gösterilmiştir için Azure IOT cihaz SDK'sı bulunan uygulamalar.
+Merhaba kullanacağız **IoTHubClient** SDK Bu konularda tooexplain örnekleri. Merhaba toofollow boyunca istiyorsanız bkz **ıothub\_istemci\_örnek\_http** ve **ıothub\_istemci\_örnek\_amqp** C. hello aşağıdaki bölümlerde açıklanan her şey bu örnekleri gösterilmiştir için hello Azure IOT cihaz SDK'sı bulunan uygulamalar.
 
-Bulabileceğiniz [ **C için Azure IOT cihaz SDK'sı** ](https://github.com/Azure/azure-iot-sdk-c) GitHub depo ve görünüm ayrıntılarını API [C API Başvurusu](https://azure.github.io/azure-iot-sdk-c/index.html).
+Merhaba bulabilirsiniz [ **C için Azure IOT cihaz SDK'sı** ](https://github.com/Azure/azure-iot-sdk-c) GitHub depo ve görünüm ayrıntılarını hello hello API [C API Başvurusu](https://azure.github.io/azure-iot-sdk-c/index.html).
 
-## <a name="the-lower-level-apis"></a>Alt düzey API'ları
-Temel işlemi önceki makalede açıklanan **IotHubClient** bağlamında **ıothub\_istemci\_örnek\_amqp** uygulama. Örneğin, bu kodu kullanarak kitaplığı başlatılamadı nasıl açıklanmıştır.
+## <a name="hello-lower-level-apis"></a>Merhaba düşük düzeyli API'leri
+Merhaba önceki makalede açıklanan hello temel hello işleyişi **IotHubClient** hello Merhaba içeriğine içinde **ıothub\_istemci\_örnek\_amqp** uygulama. Örneğin, nasıl tooinitialize hello bu kodu kullanarak kitaplığı açıklanmıştır.
 
 ```
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-Ayrıca, bu işlev çağrısı kullanarak olayları göndermek nasıl açıklanmaktadır.
+Ayrıca, bu kullanarak toosend olayları nasıl işlev çağrısı açıklanmaktadır.
 
 ```
 IoTHubClient_SendEventAsync(iotHubClientHandle, message.messageHandle, SendConfirmationCallback, &message);
 ```
 
-Makale, bir geri çağırma işlevini kaydederek ileti alma de açıklanmaktadır.
+Merhaba makale, bir geri çağırma işlevini kaydederek tooreceive nasıl iletileri de açıklanmaktadır.
 
 ```
 int receiveContext = 0;
 IoTHubClient_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext);
 ```
 
-Makale ayrıca aşağıdaki gibi kod kullanarak kaynakları serbest nasıl oluşturulacağını gösterir.
+Merhaba makale ayrıca nasıl kullanarak toofree kaynakları hello aşağıdaki gibi kod gösterdi.
 
 ```
 IoTHubClient_Destroy(iotHubClientHandle);
 ```
 
-Ancak bu API'leri her yardımcı işlevleri vardır:
+Ancak bu API'lerden yardımcı işlevleri tooeach vardır:
 
 * IoTHubClient\_ÜM\_CreateFromConnectionString
 * IoTHubClient\_ÜM\_SendEventAsync
 * IoTHubClient\_ÜM\_SetMessageCallback
 * IoTHubClient\_ÜM\_yok
 
-Tüm bu işlevler "Tümü" API adını içerir. İlgili dışında bu işlevlerin her biri parametrelerinin ÜM olmayan dekiler aynıdır. Ancak, bu işlevler davranışını önemli bir şekilde farklıdır.
+Tüm bu işlevler "Tümü" Merhaba API adına dahil et. Dışında bu işlevlerin her biri hello parametrelerinin aynı tootheir ÜM olmayan ortaklarınıza olan. Ancak, bu işlevler hello davranışını önemli bir şekilde farklıdır.
 
-Çağırdığınızda **IoTHubClient\_CreateFromConnectionString**, temel alınan kitaplıkları arka planda çalışan yeni bir iş parçacığı oluşturabilir. Bu iş parçacığı olayları gönderir ve IOT Hub'ından, iletileri alır. Bu tür bir iş parçacığı "ÜM ile" API'leri çalışırken oluşturulur. Arka plan iş parçacığı oluşturmayı geliştiriciye kolaylık sağlamak amacıyla ' dir. Açıkça olayları ileti gönderme ve IOT Hub'ından--arka planda otomatik olarak gerçekleşir alma hakkında endişelenmeniz gerekmez. Buna karşılık, ihtiyacınız olursa "Tümü" API'leri, IOT Hub ile iletişim üzerinde açık denetim sağlar.
+Çağırdığınızda **IoTHubClient\_CreateFromConnectionString**, hello temel kitaplıkları hello arka planda çalışan yeni bir iş parçacığı oluşturabilir. Bu iş parçacığı olayları gönderir ve IOT Hub'ından, iletileri alır. Bu tür bir iş parçacığı hello "Tümü" API'leri ile çalışırken oluşturulur. Merhaba arka plan iş parçacığı Hello oluşturulmasını kolaylık toohello geliştiricisi değildir. Açıkça olayları ileti gönderme ve IOT Hub'ından--hello arka planda otomatik olarak gerçekleşir alma hakkında tooworry yok. Buna karşılık, hello "Tümü" API'leri size IOT Hub ile iletişim açık denetime ihtiyacınız varsa.
 
-Bu daha iyi anlamak için bir örneğe bakalım:
+toounderstand bu daha iyi bir örneğe bakalım:
 
-Çağırdığınızda **IoTHubClient\_SendEventAsync**, gerçekte ne gerçekleştirmekte olduğunuz olay arabellekte koyuyor. Çağırdığınızda oluşturulan arka plan iş parçacığı **IoTHubClient\_CreateFromConnectionString** sürekli olarak bu arabellek izler ve içerdiği herhangi bir veri IOT Hub'ına gönderir. Bu, ana iş parçacığının başka işler gerçekleştiriyor aynı anda arka planda gerçekleşir.
+Çağırdığınızda **IoTHubClient\_SendEventAsync**, ne gerçekte yaptığınız hello olay arabellekte koyuyor. Merhaba çağırdığınızda oluşturulan arka plan iş parçacığı **IoTHubClient\_CreateFromConnectionString** sürekli olarak bu arabellek izler ve herhangi bir veri gönderir tooIoT Hub içerir. Hello adresindeki hello arka planda bu hello aynı zaman böyle ana iş parçacığının başka işler gerçekleştirme.
 
-Benzer şekilde, bir geri çağırma işlevini kullanarak iletileri için kaydettiğinizde **IoTHubClient\_SetMessageCallback**, SDK'sını bir ileti olduğunda geri çağırma işlevi çağırma arka plan iş parçacığı sahip sunuculardaki gerektiğini belirten alınan, ana iş parçacığı bağımsızdır.
+Benzer şekilde, bir geri çağırma işlevini kullanarak iletileri için kaydettiğinizde **IoTHubClient\_SetMessageCallback**, hello SDK toohave hello arka plan sunuculardaki gerektiğini belirten bir ileti olduğunda iş parçacığı çağırma hello geri çağırma işlevi alınan, hello ana iş parçacığı bağımsızdır.
 
-"Tümü" API'leri arka plan iş parçacığı oluşturmayın. Bunun yerine, yeni bir API açıkça göndermek ve IOT Hub'ından veri almak için çağrılmalıdır. Bu aşağıdaki örnekte gösterilmiştir.
+Merhaba "Tümü" API'leri arka plan iş parçacığı oluştur. Bunun yerine, yeni bir API tooexplicitly gönderme çağrılmalıdır ve IOT Hub'ından veri alırsınız. Bu örnekte aşağıdaki hello gösterilmiştir.
 
-**Iothub\_istemci\_örnek\_http** SDK'da bulunan uygulama alt düzey API'ları gösterir. Bu örnekte, biz olayları IOT Hub'ına aşağıdaki gibi kod ile gönder:
+Merhaba **ıothub\_istemci\_örnek\_http** SDK gösteren hello dahil uygulama hello düşük düzeyli API'leri. Bu örnekte, hello aşağıdaki gibi kod ile olayları tooIoT Hub gönder:
 
 ```
 EVENT_INSTANCE message;
@@ -87,7 +87,7 @@ message.messageHandle = IoTHubMessage_CreateFromByteArray((const unsigned char*)
 IoTHubClient_LL_SendEventAsync(iotHubClientHandle, message.messageHandle, SendConfirmationCallback, &message)
 ```
 
-İlk üç satırını iletisi oluşturun ve son satırında olay gönderir. Ancak, daha önce belirtildiği gibi "Olay verileri yalnızca bir arabellek yerleştirilir anlamına gelir gönderme". Biz çağırdığınızda hiçbir şey ağ üzerinde aktarılan **IoTHubClient\_ÜM\_SendEventAsync**. Gerçekte giriş verileri IOT Hub'ına için sırayla çağırmalısınız **IoTHubClient\_ÜM\_DoWork**, bu örnekteki gibi:
+Merhaba ilk üç satırını hello iletisi oluşturun ve hello son satırında hello olay gönderir. Ancak, daha önce belirtildiği gibi "Merhaba veriler yalnızca bir arabellek yerleştirilir hello olay anlamına gelir gönderme". Biz çağırdığınızda hiçbir şey hello ağ üzerinde aktarılan **IoTHubClient\_ÜM\_SendEventAsync**. Sipariş tooactually giriş hello veri tooIoT içinde Hub, çağırmalısınız **IoTHubClient\_ÜM\_DoWork**, bu örnekteki gibi:
 
 ```
 while (1)
@@ -97,13 +97,13 @@ while (1)
 }
 ```
 
-Bu kod (gelen **ıothub\_istemci\_örnek\_http** uygulama) art arda çağırır **IoTHubClient\_ÜM\_DoWork**. Her zaman **IoTHubClient\_ÜM\_DoWork** olan çağrılır, bazı olaylar arabelleğinden IOT Hub'ına gönderir ve cihaza gönderilen sıraya alınmış bir iletiyi alır. İkinci durumda, biz iletiler için bir geri çağırma işlevini kaydettiyseniz, daha sonra geri çağırma (herhangi bir ileti kuyruğa varsayılarak) çağrılması anlamına gelir. Biz bu tür bir geri çağırma işlevi aşağıdaki gibi kod ile kayıtlı:
+Bu kod (Merhaba gelen **ıothub\_istemci\_örnek\_http** uygulama) art arda çağırır **IoTHubClient\_ÜM\_DoWork** . Her zaman **IoTHubClient\_ÜM\_DoWork** olan çağrılır, hello arabellek tooIoT Hub bazı olayların gönderir ve toohello aygıt gönderilen sıraya alınmış bir iletiyi alır. Biz iletiler için bir geri çağırma işlevini kaydolduysanız hello geri çağırma (herhangi bir ileti kuyruğa varsayılarak) çağrıldıktan sonra hello ikinci durumda anlamına gelir. Biz bu tür bir geri çağırma işlevi hello aşağıdaki gibi kod ile kayıtlı:
 
 ```
 IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext)
 ```
 
-Bunun nedeni, **IoTHubClient\_ÜM\_DoWork** çoğunlukla adı verilir bir döngü değil, her kez çağırıldığında, gönderir *bazı* IOT Hub ve alır olaylarınıarabelleğe*sonraki* iletisi sıraya cihaz için. Her çağrı tüm arabelleğe alınmış olayları göndermek için garantisi yoktur veya tüm almak için sıraya alınan iletileri. Arabellekte tüm olayları göndermek ve ardından başka bir işlem ile çalışmaya devam etmek istiyorsanız, aşağıdaki gibi kod ile bu döngü değiştirebilirsiniz:
+Hello neden **IoTHubClient\_ÜM\_DoWork** genellikle adlandırılır bir döngü değil, her kez çağırıldığında, gönderir *bazı* arabelleğe alınmış olayları tooIoT Hub ve alır *hello sonraki* iletisi sıraya hello aygıt için. Her çağrı toosend tüm arabelleğe alınmış olayları garantisi yoktur veya tooretrieve tüm kuyruğa alınan iletileri. Tüm olaylar hello arabellek ve ardından başka bir işlem devam toosend istiyorsanız hello aşağıdaki gibi kod ile bu döngü değiştirebilirsiniz:
 
 ```
 IOTHUB_CLIENT_STATUS status;
@@ -115,29 +115,29 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 }
 ```
 
-Bu kod çağırır **IoTHubClient\_ÜM\_DoWork** arabelleği tüm olayları IOT hub'a gönderilen kadar. Bu ayrıca tüm sıraya alınan iletileri alınmış olan anlamına gelmez unutmayın. Bunun nedeni parçası "tümü" iletileri denetleme gibi belirleyici bir eylem olmadığından emin olur. "Tüm" iletileri almak, ancak başka bir cihaza gönderilir ne olur hemen sonra? Programlı bir zaman aşımı ile ile mücadele etmek için daha iyi bir yoludur. Örneğin, ileti geri çağırma işlevi çağrılması her zaman bir süreölçeri sıfırlanamadı. Örneğin, son alınan ileti değilse, işleme devam etmek için mantığı sonra yazabilirsiniz *X* saniye.
+Bu kod çağırır **IoTHubClient\_ÜM\_DoWork** hello arabelleği tüm olayları tooIoT Hub gönderilen kadar. Bu ayrıca tüm sıraya alınan iletileri alınmış olan anlamına gelmez unutmayın. Bunun nedeni hello parçası "tümü" iletileri denetleme gibi belirleyici bir eylem olmadığından emin olur. "Tüm" Merhaba iletileri almak, ancak başka bir toohello aygıt gönderilir ne olur hemen sonra? Daha iyi bir şekilde toodeal, ile programlı bir zaman aşımı ile olur. Örneğin, çağrılması her zaman hello ileti geri çağırma işlevi bir süreölçer sıfırlanamadı. Örneğin, hiçbir hello en son alınan ileti yok, ardından mantığı toocontinue işleme yazabilirsiniz *X* saniye.
 
-Ne zaman tamamlanmış ingressing olayları olduğunuz ve iletilerini alma kaynakları temizlemek için karşılık gelen işlevi çağırdığınızdan emin olun.
+Ne zaman tamamlanmış ingressing olayları olduğunuz ve iletilerini alma emin toocall hello karşılık gelen işlevi tooclean kaynakları olabilir.
 
 ```
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-Temel olarak yalnızca bir dizi arka plan iş parçacığı ve başka bir dizi arka plan iş parçacığı olmadan aynı şeyi yapar API ile veri göndermek ve almak için API yoktur. Geliştiricilerin çok olmayan - ÜM API'leri tercih edebilirsiniz, ancak geliştirici ağ aktarımları üzerinde açık denetim istediğinde düşük düzeyli API'leri yararlıdır. Örneğin, bazı aygıtlar veri zaman ve yalnızca giriş olayları belirtilen aralıklarla (örneğin, saatte bir kez veya günde bir kez) toplar. IOT Hub'ından veri gönderip alırken düşük düzeyli API'leri, açıkça denetimine sağlıyor. Başkalarının yalnızca alt düzey API'ler sağlar basitliğini tercih eder. Bazı iş oluşmasını arka planda yerine ana iş parçacığı her şeyi olur.
+Temel olarak yalnızca bir dizi API toosend yoktur ve arka plan iş parçacığı ve başka bir dizi hello arka plan iş parçacığı olmadan aynı şeyi hello API ile verilerini alma. Geliştiricilerin çok hello olmayan - ÜM API'leri tercih edebilirsiniz, ancak hello Geliştirici ağ aktarımları üzerinde açık denetim istediğinde hello düşük düzeyli API'leri yararlıdır. Örneğin, bazı aygıtlar veri zaman ve yalnızca giriş olayları belirtilen aralıklarla (örneğin, saatte bir kez veya günde bir kez) toplar. Merhaba IOT Hub'ından veri gönderip alırken özelliği tooexplicitly denetim hello alt düzey API'ler sağlar. Başkalarının yalnızca hello Basitlik alt düzey API'ler sağlar, hello tercih eder. Bazı iş oluşmasını hello arka planda yerine hello ana iş parçacığı her şeyi olur.
 
-Seçtiğiniz hangi model kullandığınız hangi API'leri tutarlı olacak şekilde emin olun. Çağırarak başlatırsanız **IoTHubClient\_ÜM\_CreateFromConnectionString**, yalnızca kullandığınız karşılık gelen alt düzey API'ları için herhangi bir izleme iş emin olun:
+Seçtiğiniz hangi modeli olması emin toobe tutarlı hangi API'leri kullanın. Çağırarak başlatırsanız **IoTHubClient\_ÜM\_CreateFromConnectionString**, herhangi bir izleme iş için alt düzey API'leri karşılık gelen hello yalnızca kullandığınızdan emin olun:
 
 * IoTHubClient\_ÜM\_SendEventAsync
 * IoTHubClient\_ÜM\_SetMessageCallback
 * IoTHubClient\_ÜM\_yok
 * IoTHubClient\_ÜM\_DoWork
 
-Bunun tersi de geçerlidir. İle başlatırsanız, **IoTHubClient\_CreateFromConnectionString**, ardından herhangi bir ek işlem dışı - ÜM API'leri kullanın.
+Merhaba ters de geçerlidir. İle başlatırsanız, **IoTHubClient\_CreateFromConnectionString**, kullanım hello sonra ÜM olmayan API'ler herhangi bir ek işlem için.
 
-Azure IOT cihazı SDK C için bkz: **ıothub\_istemci\_örnek\_http** düşük düzeyli API'leri tam bir örnek uygulama. **Iothub\_istemci\_örnek\_amqp** uygulama tam bir örnek için harici - ÜM API'leri başvuruda bulunabilir.
+Merhaba Hello Azure IOT cihazı SDK C için bkz: **ıothub\_istemci\_örnek\_http** uygulama hello tam bir örnek için alt düzey API'leri. Merhaba **ıothub\_istemci\_örnek\_amqp** uygulama tam bir örnek için hello olmayan - ÜM API'leri başvuruda bulunabilir.
 
 ## <a name="property-handling"></a>Özellik işleme
-Verileri gönderilirken açıklanan zaman kadarki biz ileti gövdesini başvuran. Örneğin, bu kod göz önünde bulundurun:
+Verileri gönderilirken açıklanan zaman kadarki biz toohello hello ileti gövdesi başvuran. Örneğin, bu kod göz önünde bulundurun:
 
 ```
 EVENT_INSTANCE message;
@@ -146,7 +146,7 @@ message.messageHandle = IoTHubMessage_CreateFromByteArray((const unsigned char*)
 IoTHubClient_LL_SendEventAsync(iotHubClientHandle, message.messageHandle, SendConfirmationCallback, &message)
 ```
 
-Bu örnek ileti IOT Hub'ına metinle "Hello World." gönderir Ancak, IOT hub'ı her iletisine iliştirilecek özellikleri de sağlar. İletiye eklenmiş ad/değer çiftleri özelliklerdir. Örneğin, biz iletiye bir özellik eklemek için önceki kod değiştirebilirsiniz:
+Bu örnekte, "Hello World." Merhaba metinle ileti tooIoT Hub gönderilir. Ancak, IOT Hub ayrıca özellikleri toobe ekli tooeach ileti imkan tanır. Ekli toohello ileti olabilir ad/değer çiftleri özelliklerdir. Örneğin, biz hello önceki kod tooattach özellik toohello iletisi değiştirebilirsiniz:
 
 ```
 MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
@@ -154,18 +154,18 @@ sprintf_s(propText, sizeof(propText), "%d", i);
 Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 ```
 
-Arayarak Başlat **IoTHubMessage\_özellikleri** ve bizim ileti işleyicisini geçirme. Ne biz geri alırsınız bir **harita\_İŞLEMEK** Özellikler ekleme başlatmak için bize etkinleştirir başvuru. İkinci çağırarak gerçekleştirilir **harita\_örnek**, bir harita başvuru alır\_TANITICISI, özellik adı ve özellik değeri. Bu API ile biz istediğiniz sayıda özellik ekleyebiliriz.
+Arayarak Başlat **IoTHubMessage\_özellikleri** ve onu bizim ileti hello tanıtıcısı. Ne biz geri alırsınız bir **harita\_İŞLEMEK** bize Özellikler ekleme toostart etkinleştirir başvuru. Merhaba ikinci çağırarak gerçekleştirilir **harita\_örnek**, başvuru tooa harita aldığı\_TANITICISI, hello özellik adı ve Başlangıç özellik değeri. Bu API ile biz istediğiniz sayıda özellik ekleyebiliriz.
 
-Ne zaman olay okunur gelen **olay hub'ları**, alıcı özellikler numaralandırılmaya ve bunlara karşılık gelen değerler alır. Örneğin, .NET içinde bu erişerek gerçekleştirilmesi [EventData nesne üzerindeki özellikleri koleksiyonu](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx).
+Ne zaman hello olay okunur gelen **olay hub'ları**, hello alıcı hello özellikler numaralandırılmaya ve bunlara karşılık gelen değerler alır. Örneğin, .NET içinde bu hello erişerek gerçekleştirilmesi [hello EventData nesne üzerindeki özellikleri koleksiyonu](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx).
 
-Önceki örnekte, biz özellikleri size IOT Hub'ına göndereceğiz olaya ekleniyor. Özellikler, IOT Hub'ından alınan iletileri da eklenebilir. Biz iletiden özelliklerini almak istiyorsanız, aşağıdaki gibi kod bizim ileti geri çağırma işlevini kullanabilirsiniz:
+Merhaba önceki örnekte, biz özellikleri tooan olayı biz tooIoT Hub Gönder ekleniyor. Özellikler, IOT Hub'ından alınan ekli toomessages de olabilir. Bir ileti tooretrieve özelliklerinden istiyoruz, hello aşağıdaki gibi kod bizim ileti geri çağırma işlevini kullanabilirsiniz:
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
 {
     . . .
 
-    // Retrieve properties from the message
+    // Retrieve properties from hello message
     MAP_HANDLE mapProperties = IoTHubMessage_Properties(message);
     if (mapProperties != NULL)
     {
@@ -190,12 +190,12 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-Çağrı **IoTHubMessage\_özellikleri** döndürür **harita\_İŞLEMEK** başvuru. Biz sonra bu başvuruyu iletebilir **harita\_GetInternals** ad/değer çiftleri (yanı sıra özellikleri sayısı) dizisi başvuru elde edilir. Bu noktada istiyoruz değerlerini almak için özellikleri numaralandırma, atmaktan değil.
+Çağrı çok hello**IoTHubMessage\_özellikleri** döndürür hello **harita\_İŞLEMEK** başvuru. Biz daha sonra bu başvuruyu çok geçirin**harita\_GetInternals** tooobtain başvuru tooan dizisi hello ad/değer çiftleri (bir sayım hello özelliklerinin yanı sıra). Bu noktada hello özellikleri tooget toohello değerleri istiyoruz numaralandırma, atmaktan değil.
 
-Uygulamanızda özelliklerini kullanmak zorunda değilsiniz. Ancak, olaylarına ayarlamak veya gelen iletileri almak gerekiyorsa **IoTHubClient** kitaplığı kolaylaştırır.
+Uygulamanızda toouse özellikleri yok. Ancak, tooset ihtiyacınız varsa bunları olaylarına veya bunları gelen iletileri, hello almak **IoTHubClient** kitaplığı kolaylaştırır.
 
 ## <a name="message-handling"></a>İleti işleme
-Daha önce belirtildiği gibi iletiler geldiğinde IOT Hub'ından **IoTHubClient** kitaplığı yanıt kayıtlı geri çağırma işlevini çağırarak. Bazı ek açıklama hak bu işlevin dönüş parametresi yok. Geri çağırma işlevi bir alıntı işte **ıothub\_istemci\_örnek\_http** örnek uygulama:
+Daha önce belirtildiği gibi iletiler geldiğinde IOT hub'ı hello **IoTHubClient** kitaplığı yanıt kayıtlı geri çağırma işlevini çağırarak. Bazı ek açıklama hak bu işlevin dönüş parametresi yok. Merhaba hello geri çağırma işlevinin bir alıntı işte **ıothub\_istemci\_örnek\_http** örnek uygulama:
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -205,35 +205,35 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-Dönüş türü olduğuna dikkat edin **IOTHUBMESSAGE\_değerlendirme\_sonuç** ve bu belirli durumda döndürürüz **IOTHUBMESSAGE\_kabul edilen**. Değiştirme Biz bu işlevden dönebilirsiniz diğer değerler nasıl **IoTHubClient** kitaplığı tepki verdiğini için ileti geri çağırma. Seçenekler aşağıda belirtilmiştir.
+Merhaba dönüş türü olduğuna dikkat edin **IOTHUBMESSAGE\_değerlendirme\_sonuç** ve bu belirli durumda döndürürüz **IOTHUBMESSAGE\_kabul edilen**. Biz dönebilirsiniz bu işlevden değişiklik nasıl hello diğer değerler **IoTHubClient** kitaplığı tepki verdiğini toohello ileti geri çağırma. Merhaba seçenekler aşağıda belirtilmiştir.
 
-* **IOTHUBMESSAGE\_kabul edilen** – iletiyi başarıyla işledi. **IoTHubClient** kitaplığı değil aynı ileti yeniden ile geri çağırma işlevi çağırır.
-* **IOTHUBMESSAGE\_reddedildi** – ileti işlenmedi ve gelecekte bunun için hiçbir desire yoktur. **IoTHubClient** kitaplığı çağrılamadı aynı ileti yeniden ile geri çağırma işlevi.
-* **IOTHUBMESSAGE\_ABANDONED** – ileti başarıyla işlenmedi ancak **IoTHubClient** kitaplığı aynı ileti yeniden ile geri çağırma işlevi çağırma.
+* **IOTHUBMESSAGE\_kabul edilen** – selamlama iletisine başarıyla işlendiğinden. Merhaba **IoTHubClient** kitaplığı değil hello'yla yeniden hello geri çağırma işlevi çağırma aynı ileti.
+* **IOTHUBMESSAGE\_reddedildi** – selamlama iletisine değil işlendiği ve yoktur hiçbir desire toodo bu nedenle de hello gelecekteki. Merhaba **IoTHubClient** kitaplığı çağrılamadı hello geri çağırma işlevi yeniden hello ile aynı ileti.
+* **IOTHUBMESSAGE\_ABANDONED** – selamlama iletisine değil işlendiği başarıyla ancak hello **IoTHubClient** kitaplığı hello'yla yeniden hello geri çağırma işlevi çağırma aynı ileti.
 
-İlk iki dönüş kodları, için **IoTHubClient** kitaplığı ileti gönderir IOT Hub'ına ileti aygıt sıradan silinir ve gerekir yeniden teslim edilmedi olduğunu gösteren. Net etkisi (ileti aygıt sıradan silinir) aynıdır, ancak ileti kabul edilen veya reddedilen hala kaydedilir.  Bu ayrım kaydı geri bildirim için dinleyen ve bir cihaz kabul ettiğini veya belirli bir ileti reddedildi varsa öğrenmek Gönderenler iletinin için yararlıdır.
+Merhaba ilk iki, hello dönüş kodları **IoTHubClient** kitaplığı hello ileti belirten Hub hello aygıt sıradan silinir ve gerekir yeniden teslim edilmedi ileti tooIoT gönderir. Merhaba net etkisi aynı hello olduğu (selamlama iletisine hello aygıt sıradan silinir), ancak selamlama iletisine kabul edilen veya reddedilen hala kaydedilir.  Bu ayrım kaydı geri bildirim için dinleyen ve bir cihaz kabul ettiğini veya belirli bir ileti reddedildi varsa öğrenmek yararlı toosenders hello iletisinin olur.
 
-Son durumda bir ileti da IOT Hub'ına gönderilir, ancak ileti yeniden teslim olduğunu gösterir. Genellikle bazı hatayla karşılaşırsanız, ancak iletiyi yeniden işlemek denemek istiyorsanız bir ileti abandon. Buna karşılık, bir ileti reddetme kurtarılamaz bir hatayla karşılaştığında (veya yalnızca iletiyi işlemek istemediğinize karar verirseniz) uygundur.
+Merhaba son durumda tooIoT Hub ayrıca bir ileti gönderilir, ancak bu hello ileti yeniden teslim edilebilir gösterir. Genellikle bazı hatayla karşılaşırsanız, ancak tootry tooprocess ileti yeniden hello isterseniz bir ileti abandon. Buna karşılık, bir ileti reddetme kurtarılamaz bir hatayla karşılaştığında (veya yalnızca tooprocess selamlama iletisine istemediğinize karar verirseniz) uygundur.
 
-Böylece, istediğiniz davranışı tasarlanmalıdır herhangi bir durumda, farklı dönüş kodları unutmayın **IoTHubClient** kitaplığı.
+Böylece hello istediğiniz hello davranışı tasarlanmalıdır herhangi bir durumda, hello farklı dönüş kodları unutmayın **IoTHubClient** kitaplığı.
 
 ## <a name="alternate-device-credentials"></a>Alternatif aygıt kimlik bilgisi
-İle çalışırken yapılacak ilk şey daha önce açıklandığı gibi **IoTHubClient** kitaplığıdır elde etmek için bir **IOTHUB\_istemci\_İŞLEMEK** aşağıdaki gibi bir çağrıyla:
+Daha önce açıklandığı gibi ilk şey toodo hello ile çalışırken hello **IoTHubClient** kitaplığıdır tooobtain bir **IOTHUB\_istemci\_İŞLEMEK** hello gibi bir çağrıyla Aşağıdaki:
 
 ```
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-Bağımsız değişkenleri **IoTHubClient\_CreateFromConnectionString** cihaz bağlantı dizesini ve IOT Hub ile iletişim kurmak için kullandığımız protokolü belirten bir parametre. Cihaz bağlantı dizesi şu şekilde görünen bir biçime sahiptir:
+bağımsız değişkenler çok hello**IoTHubClient\_CreateFromConnectionString** hello cihaz bağlantı dizesini ve kullanırız toocommunicate IOT Hub ile Merhaba protokolü belirten bir parametre. Merhaba cihaz bağlantı dizesi şu şekilde görünen bir biçime sahiptir:
 
 ```
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-Bu dize bilgilerinde dört adet vardır: IOT hub'ı adı, IOT hub'ı soneki, cihaz kimliği ve paylaşılan erişim anahtarı. Azure portalında, IOT hub örneği oluşturduğunuzda IOT hub'ı tam etki alanı adı (FQDN) elde — Bu, IOT hub adını (FQDN ilk parçası) ve IOT hub soneki (FQDN rest) sunar. IOT Hub ile Cihazınızı kaydederken cihaz kimliği ve paylaşılan erişim anahtarı almanız (açıklandığı gibi [önceki makalede](iot-hub-device-sdk-c-intro.md)).
+Bu dize bilgilerinde dört adet vardır: IOT hub'ı adı, IOT hub'ı soneki, cihaz kimliği ve paylaşılan erişim anahtarı. Hello Azure portal, IOT hub örneği oluşturduğunuzda, IOT hub'ı hello tam etki alanı adı (FQDN) elde — Bu, hello IOT hub adını (FQDN hello hello ilk bölümü) ve hello IOT hub soneki (Merhaba FQDN kalanı hello) sunar. IOT Hub ile Cihazınızı kaydederken hello cihaz kimliği ve hello paylaşılan erişim anahtarı almanız (hello açıklandığı gibi [önceki makalede](iot-hub-device-sdk-c-intro.md)).
 
-**IoTHubClient\_CreateFromConnectionString** kitaplığı başlatmak için bir yol sağlar. İsterseniz, yeni bir oluşturabileceğiniz **IOTHUB\_istemci\_İŞLEMEK** cihaz bağlantı dizesi yerine bu tek tek parametreleri kullanarak. Bu, aşağıdaki kod ile sağlanır:
+**IoTHubClient\_CreateFromConnectionString** tek yönlü tooinitialize hello kitaplığı sağlar. İsterseniz, yeni bir oluşturabileceğiniz **IOTHUB\_istemci\_İŞLEMEK** hello cihaz bağlantı dizesi yerine bu tek tek parametreleri kullanarak. Bu kod aşağıdaki hello ile sağlanır:
 
 ```
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;
@@ -245,12 +245,12 @@ iotHubClientConfig.protocol = HTTP_Protocol;
 IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientConfig);
 ```
 
-Bu aynı gerçekleştirir **IoTHubClient\_CreateFromConnectionString**.
+Bunu hello gerçekleştirir aynı **IoTHubClient\_CreateFromConnectionString**.
 
-Kullanmak istediğiniz belirgin görünebilir **IoTHubClient\_CreateFromConnectionString** başlatma daha ayrıntılı bu yöntem yerine. IOT Hub ' bir aygıtı kaydederken bir cihaz kimliği ve aygıt anahtarı (olmayan bir bağlantı dizesi) aldığınızdır olduğunu, ancak unutmayın. *Aygıt explorer* SDK Aracı kullanıma sunulan [önceki makalede](iot-hub-device-sdk-c-intro.md) kitaplıklarında kullanan **Azure IOT hizmeti SDK'sını** aygıt Kimliğinden cihaz bağlantı dizesi oluşturmak için , aygıt anahtarı ve IOT Hub ana bilgisayar adı. Bu nedenle çağırma **IoTHubClient\_ÜM\_oluşturma** bir bağlantı dizesi oluşturma adım ortadan kaldırdığı için tercih olabilir. Hangi yöntemi uygundur kullanın.
+Toouse istersiniz belirgin görünebilir **IoTHubClient\_CreateFromConnectionString** başlatma daha ayrıntılı bu yöntem yerine. IOT Hub ' bir aygıtı kaydederken bir cihaz kimliği ve aygıt anahtarı (olmayan bir bağlantı dizesi) aldığınızdır olduğunu, ancak unutmayın. Merhaba *aygıt explorer* hello sunulan SDK aracı [önceki makalede](iot-hub-device-sdk-c-intro.md) hello kitaplıklarında kullanır **Azure IOT hizmeti SDK'sını** toocreate hello cihaz bağlantı dizesinden Merhaba cihaz kimliği, aygıt anahtarı ve IOT Hub ana bilgisayar adı. Bu nedenle çağırma **IoTHubClient\_ÜM\_oluşturma** , kaydettiğinden tercih olabilir hello adım bir bağlantı dizesi oluşturma. Hangi yöntemi uygundur kullanın.
 
 ## <a name="configuration-options"></a>Yapılandırma seçenekleri
-Şimdiye kadar her şeyi şekilde anlatılan **IoTHubClient** kitaplığı works varsayılan davranışını yansıtır. Ancak, kitaplık çalışma şeklini değiştirmek için ayarlayabileceğiniz birkaç seçenek vardır. Bu yararlanarak gerçekleştirilir **IoTHubClient\_ÜM\_SetOption** API. Bu örneği göz önünde bulundurun:
+Şimdiye kadar her şeyi hello şekilde hello hakkında anlatılan **IoTHubClient** kitaplığı works varsayılan davranışını yansıtır. Ancak, hello kitaplığı nasıl çalıştığını toochange ayarlayabileceğiniz birkaç seçenek vardır. Bu hello yararlanarak gerçekleştirilir **IoTHubClient\_ÜM\_SetOption** API. Bu örneği göz önünde bulundurun:
 
 ```
 unsigned int timeout = 30000;
@@ -259,17 +259,17 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Birkaç yaygın olarak kullanılan seçenekler şunlardır:
 
-* **SetBatching** (Boole) – varsa **doğru**, sonra da IOT Hub'ına gönderilen verileri toplu olarak gönderilir. Varsa **yanlış**, ayrı ayrı gönderilen iletileri sonra. Varsayılan değer **false**. Unutmayın **SetBatching** seçeneği yalnızca MQTT veya AMQP protokollerini değil de, HTTP protokolü için geçerlidir.
-* **Zaman aşımı** (imzasız int) – bu değer milisaniye cinsinden gösterilir. Bir HTTP isteğinin ya da bir yanıt alırken bu süreden daha uzun sürer gönderme, ardından bağlantı zaman aşımına uğradı.
+* **SetBatching** (Boole) – varsa **doğru**, sonra gönderilen veriler tooIoT Hub toplu olarak gönderilir. Varsa **yanlış**, ayrı ayrı gönderilen iletileri sonra. Merhaba varsayılandır **false**. Bu hello Not **SetBatching** seçeneği yalnızca toohello HTTP protokolü ve değil toohello MQTT veya AMQP protokollerini uygulanır.
+* **Zaman aşımı** (imzasız int) – bu değer milisaniye cinsinden gösterilir. Bir HTTP isteğinin ya da bir yanıt alırken bu süreden daha uzun sürer gönderme, ardından hello bağlantı zaman aşımına uğradı.
 
-Toplu işleme seçeneği önemlidir. Varsayılan olarak, kitaplık ingresses olayları ayrı ayrı (tek bir olay için ne olursa olsun, geçirdiğiniz olan **IoTHubClient\_ÜM\_SendEventAsync**). Toplu işleme seçeneği ise **doğru**, kitaplık (kadar IOT hub'ı kabul edeceği maksimum ileti boyutu) arabellekteki mümkün olduğunca çok olaylarını toplar.  Olay toplu IOT Hub'ına (olayları tek tek bir JSON dizisine paketlenmiştir) tek bir HTTP çağrısıyla gönderilir. Ağ gidiş dönüş azaltma bu yana genellikle toplu etkinleştirme büyük performans artışları sonuçlanır. Tek bir olay toplu ile HTTP üstbilgi kümesi yerine tek tek her olay için üstbilgi kümesi gönderme beri bant genişliği de önemli ölçüde azaltır. Genellikle, aksi takdirde yapmak için özel bir nedeniniz yoksa, toplu etkinleştirme istersiniz.
+seçenek toplu işleme hello önemlidir. Varsayılan olarak, kitaplık ingresses olayları ayrı ayrı hello (tek bir olay ne olursa olsun çok geçirdiğiniz olan**IoTHubClient\_ÜM\_SendEventAsync**). Seçenek toplu işleme hello ise **doğru**, hello kitaplığı hello arabellek (yukarı, IOT hub'ı kabul toohello maksimum ileti boyutu) gelen mümkün olduğunca çok olayları toplar.  Merhaba olay toplu tooIoT Hub tek bir gönderilen HTTP çağrısıyla (Merhaba olayları tek tek paketlenmiş bir JSON dizisine). Ağ gidiş dönüş azaltma bu yana genellikle toplu etkinleştirme büyük performans artışları sonuçlanır. Tek bir olay toplu ile HTTP üstbilgi kümesi yerine tek tek her olay için üstbilgi kümesi gönderme beri bant genişliği de önemli ölçüde azaltır. Tipik olarak belirli bir nedenle toodo Aksi durumda olmadığı sürece tooenable toplu işleme isteyeceksiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede davranışını ayrıntılı olarak **IoTHubClient** kitaplığı bulunan **C için Azure IOT cihaz SDK'sı**. Bu bilgiyle özelliklerini iyi anlamış olmanız **IoTHubClient** kitaplığı. [Sonraki makalede](iot-hub-device-sdk-c-serializer.md) benzer ayrıntı sağlar **seri hale getirici** kitaplığı.
+Bu makalede ayrıntı hello davranışını hello içinde **IoTHubClient** kitaplığı bulunan hello **C için Azure IOT cihaz SDK'sı**. Bu bilgiyle hello hello özelliklerini iyi anlamış olmanız **IoTHubClient** kitaplığı. Merhaba [sonraki makalede](iot-hub-device-sdk-c-serializer.md) hello üzerinde benzer ayrıntı sağlar **seri hale getirici** kitaplığı.
 
-IOT Hub için geliştirme hakkında daha fazla bilgi için bkz: [Azure IOT SDK'ları][lnk-sdks].
+IOT hub'ı geliştirme hakkında daha fazla toolearn bkz hello [Azure IOT SDK'ları][lnk-sdks].
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+toofurther IOT hub'ı hello özelliklerini keşfedin, bakın:
 
 * [Bir aygıt ile Azure IOT kenar benzetimini yapma][lnk-iotedge]
 

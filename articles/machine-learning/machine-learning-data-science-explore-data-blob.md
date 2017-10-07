@@ -1,6 +1,6 @@
 ---
-title: "Pandas ile Azure blob storage keşfedin | Microsoft Docs"
-description: "Pandas kullanarak Azure blob kapsayıcısında depolanan verileri araştırmak nasıl."
+title: aaaExplore verileri Azure blob depolama Pandas ile | Microsoft Docs
+description: "Azure'da depolanan tooexplore veri nasıl Pandas kullanarak kapsayıcı blob."
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: e1b33b17270122a38228484a56c8324c5b4505a0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 28f3c0aebf2300006066c4b19dcb1f0a76a1deb2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Panda ile Azure blob depolama verilerini keşfedin
-Bu belge, Azure blob kapsayıcısını kullanarak depolanan verileri araştırmak alınmaktadır [Pandas](http://pandas.pydata.org/) Python paket.
+Bu belge kapsayıcısı kullanarak Azure'da depolanan tooexplore verileri nasıl blob kapsar [Pandas](http://pandas.pydata.org/) Python paket.
 
-Aşağıdaki **menü** araçları çeşitli depolama ortamlarından verileri araştırmak için nasıl kullanılacağını açıklayan konulara bağlantılar. Bu görev bir adımdır [veri bilimi işlemi]().
+Merhaba aşağıdaki **menü** nasıl toouse tooexplore veri çeşitli depolama ortamlarından araçları açıklamak tootopics bağlar. Bu görev bir hello adımdır [veri bilimi işlemi]().
 
 [!INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -31,12 +31,12 @@ Aşağıdaki **menü** araçları çeşitli depolama ortamlarından verileri ara
 Bu makalede, sahip olduğunuz varsayılmaktadır:
 
 * Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Verilerinizi bir Azure blob depolama hesabında depolanır. Yönergeler gerekiyorsa bkz [için ve Azure Storage veri taşıma](../storage/common/storage-moving-data.md)
+* Verilerinizi bir Azure blob depolama hesabında depolanır. Yönergeler gerekiyorsa bkz [hareketli veri tooand Azure depolama biriminden](../storage/common/storage-moving-data.md)
 
-## <a name="load-the-data-into-a-pandas-dataframe"></a>Pandas DataFrame veri yükleme
-Keşfetmek ve bir veri kümesini değiştirmek için önce blob kaynağından bir Pandas DataFrame yüklenebilir yerel bir dosyaya yüklenmelidir. Bu yordam için izlemeniz gereken adımlar şunlardır:
+## <a name="load-hello-data-into-a-pandas-dataframe"></a>Pandas DataFrame içine hello veri yükleme
+tooexplore ve bir veri kümesini değiştirmek, ardından bir Pandas DataFrame yüklenen hello blob kaynak tooa yerel dosya, ilk indirilmelidir. Bu yordam için hello adımları toofollow şunlardır:
 
-1. Verileri Azure blob'tan blob hizmeti kullanarak aşağıdaki Python kodu örneği ile indirme. Aşağıdaki kodda değişkeni belirli değerleriniz ile değiştirin: 
+1. Azure'dan Hello veri indirme blobu blob hizmeti kullanarak Python kodu örneği aşağıdaki hello ile. Aşağıdaki kod, belirli değerleri içeren hello Hello değişkeninde değiştirin: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -52,52 +52,52 @@ Keşfetmek ve bir veri kümesini değiştirmek için önce blob kaynağından bi
         blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
-        print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. İndirilen Dosya Pandas verileri-çerçeve içine verilerini okur.
+        print(("It takes %s seconds toodownload "+blobname) % (t2 - t1))
+2. Bir Pandas verileri-çerçevesinden hello içine hello veri okuma dosya indirilir.
    
-        #LOCALFILE is the file path    
+        #LOCALFILE is hello file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-Şimdi verileri araştırmak ve bu veri kümesi özellikleri oluşturmak hazır olursunuz.
+Şimdi, hazır tooexplore hello verileri ve bu veri kümesi özellikleri oluşturur.
 
 ## <a name="blob-dataexploration"></a>Veri keşfi Pandas kullanma örnekleri
-Pandas kullanarak verileri araştırmak için yollar bazı örnekleri şunlardır:
+Pandas kullanarak tooexplore veri yolları bazı örnekleri şunlardır:
 
-1. İnceleme **satır ve sütunların sayısı** 
+1. Merhaba incelemek **satır ve sütunların sayısı** 
    
-        print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-2. **İnceleme** ilk veya son birkaç **satırları** aşağıdaki kümesindeki:
+        print 'hello size of hello data is: %d rows and  %d columns' % dataframe_blobdata.shape
+2. **İnceleme** ilk veya son birkaç hello **satırları** dataset aşağıdaki hello içinde:
    
         dataframe_blobdata.head(10)
    
         dataframe_blobdata.tail(10)
-3. Denetleme **veri türü** her sütun, aşağıdaki örnek kod kullanarak olarak içeri aktarıldı
+3. Merhaba denetleyin **veri türü** her sütun örnek kod aşağıdaki hello kullanarak olarak içeri aktarıldı
    
         for col in dataframe_blobdata.columns:
             print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
-4. Denetleme **temel istatistikleri** için aşağıdaki gibi ayarlayın veri sütunları
+4. Merhaba denetleyin **temel istatistikleri** hello sütunlar gibi veri kümesi hello için
    
         dataframe_blobdata.describe()
-5. Her bir sütunun değeri için girdi sayısı gibi bakın
+5. Her bir sütunun değeri girişlerinde hello sayısı gibi bakın
    
         dataframe_blobdata['<column_name>'].value_counts()
-6. **Eksik değerleri saymak** gerçek sayısı aşağıdaki örnek kod kullanarak her bir sütunun giriş karşılaştırması
+6. **Eksik değerleri saymak** hello gerçek sayısı örnek kod aşağıdaki hello kullanarak her bir sütunun giriş karşılaştırması
    
         miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
         print miss_num
-7. Varsa **eksik değerleri** verileri belirli bir sütun için bunları aşağıdaki gibi bıraktığınız:
+7. Varsa **eksik değerleri** için belirli bir sütun hello verilerdeki, bunları aşağıdaki gibi düşürebilir:
    
      dataframe_blobdata_noNA dataframe_blobdata.dropna() dataframe_blobdata_noNA.shape =
    
-   Eksik değerleri değiştirmek için başka bir yol ile modu işlevi şu şekildedir:
+   Başka bir şekilde tooreplace eksik değerleri hello modu işleviyle şöyledir:
    
      dataframe_blobdata_mode dataframe_blobdata.fillna = ({< column_name >: dataframe_blobdata ['< column_name >'] .mode()[0]})        
-8. Oluşturma bir **histogram** bir değişken dağıtımını çizmek için depo değişken sayıda kullanarak çizim    
+8. Oluşturma bir **histogram** depo tooplot hello dağıtım değişkenin değişken sayıda kullanarak Çiz    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
         np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-9. Bakmak **bağıntıları** bir scatterplot veya yerleşik bağıntı işlevi kullanarak değişkenleri arasında
+9. Bakmak **bağıntıları** bir scatterplot veya hello yerleşik bağıntı işlevi kullanarak değişkenleri arasında
    
         #relationship between column_a and column_b using scatter plot
         plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])

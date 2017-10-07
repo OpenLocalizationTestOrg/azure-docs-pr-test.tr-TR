@@ -1,6 +1,6 @@
 ---
-title: "C++ ile Azure File storage için geliştirme | Microsoft Docs"
-description: "C++ uygulamaları ve dosya verilerini depolamak için Azure File storage'ı kullanma hizmetleri geliştirmeyi öğrenin."
+title: "C++ ile Azure File storage için aaaDevelop | Microsoft Docs"
+description: "Nasıl toodevelop C++ uygulamaları ve Azure File storage toostore kullanan hizmetler dosya verileri öğrenin."
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: renashahmsft
-ms.openlocfilehash: fc0d8451442f1337db4a36718c3fc746f8eb5125
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 40c3aac94214a91121913e2ded315031aeed1c30
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="develop-for-azure-file-storage-with-c"></a>C++ ile Azure File storage için geliştirme
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
@@ -27,33 +27,33 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="about-this-tutorial"></a>Bu öğretici hakkında
 
-Bu öğreticide, Azure File storage temel işlemleri gerçekleştirmek öğreneceksiniz. C++'da yazılmış örnekleri sayesinde, paylaşımları ve dizinler oluşturma, karşıya yükleme, liste ve dosyaları silin öğreneceksiniz. Azure dosya depolama alanına yeniyseniz, aşağıdaki bölümlerde açıklanan kavramlar aracılığıyla örnekleri anlaşılmasına yardımcı olur.
+Bu öğreticide şunları öğreneceksiniz nasıl tooperform Azure File storage üzerinde temel işlemler. Aracılığıyla örnekleri, C++ ile yazılmış nasıl toocreate paylaşır öğreneceksiniz ve dizinleri, karşıya yükleme, liste ve dosyaları silin. Yeni tooAzure dosya depolama varsa, hello kavramları izleyin hello bölümlerde aracılığıyla hello örnekleri anlaşılmasına yardımcı olur.
 
 
 * Oluşturma ve Azure dosya paylaşımları silme
 * Oluşturma ve dizinleri silme
 * Dosya ve dizinlerin bir Azure dosya paylaşımında listeleme
 * Karşıya yükleyin, indirin ve dosya silme
-* Bir Azure dosya paylaşımı için kota (en fazla boyut) ayarlama
-* Paylaşımda tanımlı bir paylaşılan erişim ilkesi kullanan bir dosya için paylaşılan erişim imzası (SAS anahtarı) oluşturma.
+* Bir Azure dosya paylaşımı için Hello kota (en fazla boyut) ayarlama
+* Merhaba paylaşımında tanımlı bir paylaşılan erişim ilkesi kullanan bir dosya için paylaşılan erişim imzası (SAS anahtarı) oluşturun.
 
 > [!Note]  
-> SMB üzerinden Azure File storage erişilebileceği için standart C++ g/ç sınıfları ve işlevleri kullanarak Azure dosya paylaşımına erişmek basit uygulamaları yazmak mümkündür. Bu makalede Azure depolama C++ kullanan SDK'ın, uygulamaların nasıl yazılacağını anlatmaktadır [Azure File storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) Azure dosya depolama alanına anlaşmak için.
+> SMB üzerinden Azure File storage erişilebileceği için hello standart C++ g/ç sınıfları ve işlevleri kullanarak hello Azure dosya paylaşımına erişim olası toowrite basit uygulamalar var. Bu makalede nasıl kullanan toowrite uygulamaları hello kullanan Azure depolama C++ SDK hello anlatmaktadır [Azure File storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) tootalk tooAzure dosya depolama.
 
 ## <a name="create-a-c-application"></a>C++ uygulaması oluşturma
-Örnekleri oluşturmak için Azure Storage istemci Kitaplığı'nı 2.4.0 C++ için yüklemeniz gerekir. Ayrıca bir Azure depolama hesabı oluşturduğunuz.
+toobuild hello örnekleri, C++ için tooinstall hello Azure Storage istemci kitaplığı 2.4.0 gerekir. Ayrıca bir Azure depolama hesabı oluşturduğunuz.
 
-C++ için Azure Storage istemcisi 2.4.0 yüklemek için aşağıdaki yöntemlerden birini kullanabilirsiniz:
+tooinstall hello Azure Storage istemcisi 2.4.0 C++ için yöntemler aşağıdaki hello birini kullanabilirsiniz:
 
-* **Linux:** verilen yönergeleri izleyerek [C++ Benioku için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.
-* **Windows:** Visual Studio'da sırasıyla **Araçları &gt; NuGet Paket Yöneticisi &gt; Paket Yöneticisi Konsolu**. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) ve basın **ENTER**.
+* **Linux:** hello verilen hello yönergeleri izleyerek [C++ Benioku için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.
+* **Windows:** Visual Studio'da sırasıyla **Araçları &gt; NuGet Paket Yöneticisi &gt; Paket Yöneticisi Konsolu**. Türü hello şu komutu hello [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) ve basın **ENTER**.
   
 ```
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-file-storage"></a>Uygulamanızı Azure File storage kullanacak şekilde ayarlama
-Azure File storage yönetmek istediğiniz C++ kaynak dosyanın en üstüne deyimleri şunlar ekleyin:
+## <a name="set-up-your-application-toouse-azure-file-storage"></a>Uygulama toouse Azure File storage ayarlayın
+Deyimleri toohello üst toomanipulate Azure File storage istediğiniz hello C++ kaynak dosyasının Hello şunlar ekleyin:
 
 ```cpp
 #include <was/storage_account.h>
@@ -61,16 +61,16 @@ Azure File storage yönetmek istediğiniz C++ kaynak dosyanın en üstüne deyim
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Bir Azure depolama bağlantı dizesi ayarlama
-Dosya depolama kullanmak için Azure depolama hesabınıza bağlanmanız gerekir. İlk adım, depolama hesabınıza bağlanmak için kullanacağız bir bağlantı dizesini yapılandırmak için olacaktır. Şimdi bunun için statik bir değişken tanımlayın.
+Dosya depolama toouse tooconnect tooyour Azure depolama hesabınızın olması gerekir. Merhaba ilk adımı tooconfigure kullanacağız bir bağlantı dizesi olacaktır tooconnect tooyour depolama hesabı. Şimdi bir statik değişken toodo tanımlamak.
 
 ```cpp
-// Define the connection-string with your values.
+// Define hello connection-string with your values.
 const utility::string_t 
 storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-## <a name="connecting-to-an-azure-storage-account"></a>Bir Azure depolama hesabına bağlanma
-Kullanabileceğiniz **cloud_storage_account** depolama hesabı bilgileri temsil eden sınıf. Depolama bağlantı dizesi, depolama hesabı bilgilerini almak için kullanabileceğiniz **ayrıştırma** yöntemi.
+## <a name="connecting-tooan-azure-storage-account"></a>Tooan Azure depolama hesabı bağlanma
+Merhaba kullanabilirsiniz **cloud_storage_account** toorepresent depolama hesabı bilgilerinizi sınıfı. tooretrieve depolama hesap bilgileri hello depolama bağlantı dizesinden, hello kullanabilirsiniz **ayrıştırma** yöntemi.
 
 ```cpp
 // Retrieve storage account from connection string.    
@@ -79,23 +79,23 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Bir Azure dosya paylaşımı oluşturma
-Tüm dosyaları ve dizinleri Azure dosya depolama olarak adlandırılan bir kapsayıcıda yer bir **paylaşımı**. Depolama hesabınız hesap kapasitenizi verdiğinden sayıda paylaşımları olabilir. Bir paylaşımı ve içeriklerini erişim sağlamak için Azure dosya depolama istemcisi kullanmanız gerekir.
+Tüm dosyaları ve dizinleri Azure dosya depolama olarak adlandırılan bir kapsayıcıda yer bir **paylaşımı**. Depolama hesabınız hesap kapasitenizi verdiğinden sayıda paylaşımları olabilir. tooobtain erişim tooa paylaşımı ve içeriklerini, toouse Azure dosya depolama istemcisi gerekir.
 
 ```cpp
-// Create the Azure File storage client.
+// Create hello Azure File storage client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-Azure File storage İstemcisi'ni kullanarak bir paylaşım için bir başvuru edinebilirsiniz.
+Hello Azure File storage İstemcisi'ni kullanarak bir başvuru tooa paylaşımı edinebilirsiniz.
 
 ```cpp
-// Get a reference to the file share
+// Get a reference toohello file share
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 ```
 
-Paylaşımı oluşturmak için kullanın **create_if_not_exists** yöntemi **cloud_file_share** nesnesi.
+toocreate hello paylaşımı, kullanım hello **create_if_not_exists** hello yöntemi **cloud_file_share** nesnesi.
 
 ```cpp
 if (share.create_if_not_exists()) {    
@@ -103,28 +103,28 @@ if (share.create_if_not_exists()) {
 }
 ```
 
-Bu noktada, **paylaşmak** adlı bir paylaşım için bir başvuru tutan **örnek paylaşımı my**.
+Bu noktada, **paylaşmak** adlı bir başvuru tooa paylaşımı tutan **örnek paylaşımı my**.
 
 ## <a name="delete-an-azure-file-share"></a>Bir Azure Dosya Paylaşımı Sil
-Bir paylaşım silme yapılır çağırarak **delete_if_exists** cloud_file_share nesnesi üzerinde yöntemi. Yapan örnek kod aşağıda verilmiştir.
+Bir paylaşım silme arama hello tarafından yapılır **delete_if_exists** cloud_file_share nesnesi üzerinde yöntemi. Yapan örnek kod aşağıda verilmiştir.
 
 ```cpp
-// Get a reference to the share.
+// Get a reference toohello share.
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
-// delete the share if exists
+// delete hello share if exists
 share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Dizin oluşturma
-Depolama kök dizininde yerine bunların tümünün alt dizinleri içindeki dosyaları koyarak düzenleyebilirsiniz. Azure File storage hesabınıza izin verdiği sayıda dizinleri oluşturmanıza olanak sağlar. Aşağıdaki kodu adlı bir dizin oluşturacak **örnek dizin my** adlı bir alt yanı sıra kök dizini altında **örnek alt my**.
+Bunların tümünün hello kök dizinine sahip olmak yerine alt dizinleri içindeki dosyaları koyarak depolama düzenleyebilirsiniz. Azure File storage hesabı olacak olarak birden çok dizini izin toocreate sağlar. Aşağıdaki Hello kodu adlı bir dizin oluşturur **örnek dizin my** adlı bir alt yanı sıra hello kök dizini altında **örnek alt my**.
 
 ```cpp
-// Retrieve a reference to a directory
+// Retrieve a reference tooa directory
 azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
 
-// Return value is true if the share did not exist and was successfully created.
+// Return value is true if hello share did not exist and was successfully created.
 directory.create_if_not_exists();
 
 // Create a subdirectory.
@@ -137,31 +137,31 @@ subdirectory.create_if_not_exists();
 Hala dosyaları içeren bir dizin veya diğer dizinleri silemezsiniz unutulmamalıdır rağmen bir dizin silinmesi basit bir görev olduğundan.
 
 ```cpp
-// Get a reference to the share.
+// Get a reference toohello share.
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
-// Get a reference to the directory.
+// Get a reference toohello directory.
 azure::storage::cloud_file_directory directory = 
   share.get_directory_reference(_XPLATSTR("my-sample-directory"));
 
-// Get a reference to the subdirectory you want to delete.
+// Get a reference toohello subdirectory you want toodelete.
 azure::storage::cloud_file_directory sub_directory =
   directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
 
-// Delete the subdirectory and the sample directory.
+// Delete hello subdirectory and hello sample directory.
 sub_directory.delete_directory_if_exists();
 
 directory.delete_directory_if_exists();
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Dosya ve dizinlerin bir Azure dosya paylaşımında listeleme
-Dosya ve dizinlerin bir paylaşımı içinde listesini alma kolayca yapılır çağırarak **list_files_and_directories** üzerinde bir **cloud_file_directory** başvuru. Zengin özellik ve yöntem erişmek için **list_file_and_directory_item**, çağırmalısınız **list_file_and_directory_item.as_file** almak için yöntemi bir **cloud_file**  nesnesi veya **list_file_and_directory_item.as_directory** almak için yöntemi bir **cloud_file_directory** nesnesi.
+Dosya ve dizinlerin bir paylaşımı içinde listesini alma kolayca yapılır çağırarak **list_files_and_directories** üzerinde bir **cloud_file_directory** başvuru. tooaccess hello zengin özellik ve yöntem **list_file_and_directory_item**, hello çağırmalısınız **list_file_and_directory_item.as_file** yöntemi tooget bir **cloud_ Dosya** nesne veya hello **list_file_and_directory_item.as_directory** yöntemi tooget bir **cloud_file_directory** nesnesi.
 
-Aşağıdaki kod, almak ve paylaşımın kök dizininde bulunan her öğesinin URI çıkış gösterilmiştir.
+koddan hello tooretrieve ve çıkış URI hello paylaşımının hello kök dizininde her öğesinin nasıl hello gösterir.
 
 ```cpp
-//Get a reference to the root directory for the share.
+//Get a reference toohello root directory for hello share.
 azure::storage::cloud_file_directory root_dir = 
   share.get_root_directory_reference();
 
@@ -182,16 +182,16 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Dosyayı karşıya yükleme
-En azından bir Azure dosya paylaşımı dosyalarının bulunduğu kök dizini içerir. Bu bölümde, bir paylaşım kök dizini üzerine yerel depolama biriminden bir dosya karşıya nasıl yükleneceğini öğreneceksiniz.
+Merhaba çok, bir Azure dosya paylaşımı dosyalarının bulunduğu bir kök dizin içeriyor. Bu bölümde, nasıl tooupload hello üzerine yerel depolama biriminden bir dosya kök dizini bir paylaşımın öğreneceksiniz.
 
-Bir dosyayı karşıya yüklemeyi ilk adımı bulunduğu dizin başvuru elde edilir. Çağırarak bunu **get_root_directory_reference** Paylaşım nesnesinin yöntemi.
+bir dosyayı karşıya yüklemeyi hello ilk adımı tooobtain bulunduğu bir başvuru toohello dizin oluşturur. Arama hello tarafından bunu **get_root_directory_reference** hello Paylaşım nesnesinin yöntemi.
 
 ```cpp
-//Get a reference to the root directory for the share.
+//Get a reference toohello root directory for hello share.
 azure::storage::cloud_file_directory root_dir = share.get_root_directory_reference();
 ```
 
-Bir başvuru paylaşımının kök dizinine sahip olduğunuza göre üzerine bir dosyayı karşıya yükleyebilirsiniz. Bu örnek, bir dosya, metin ve bir akış yükler.
+Bir başvuru toohello kök dizin hello paylaşımının sahip olduğunuza göre üzerine bir dosyayı karşıya yükleyebilirsiniz. Bu örnek, bir dosya, metin ve bir akış yükler.
 
 ```cpp
 // Upload a file from a stream.
@@ -214,9 +214,9 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## <a name="download-a-file"></a>Dosya indirme
-Dosyalarını indirmek için önce bir dosya başvurusu alın ve ardından arama **download_to_stream** dosya içeriğini sonra yerel bir dosyaya kalıcı bir akış nesnesine aktarmak için yöntem. Alternatif olarak, kullanabileceğiniz **download_to_file** yerel bir dosyaya bir dosyanın içeriğini indirmek için yöntem. Kullanabileceğiniz **download_text** bir metin dizesi olarak bir dosyanın içeriğini indirmek için yöntem.
+toodownload dosyaları, önce dosya başvurusu alın ve ardından hello çağırın **download_to_stream** sonra sürdürebilirsiniz yöntemi tootransfer hello dosya içeriği tooa akış nesne tooa yerel dosya. Alternatif olarak, hello kullanabilirsiniz **download_to_file** yöntemi toodownload hello bir dosya tooa yerel dosyanın içeriğini. Merhaba kullanabilirsiniz **download_text** yöntemi toodownload hello bir metin dizesi olarak bir dosyanın içeriğini.
 
-Aşağıdaki örnek kullanır **download_to_stream** ve **download_text** önceki kısımlarında oluşturulan dosyaları indirme göstermek için yöntemleri.
+Merhaba aşağıdaki örnek kullanır hello **download_to_stream** ve **download_text** yöntemleri toodemonstrate önceki kısımlarında oluşturulan hello dosyaları indirme.
 
 ```cpp
 // Download as text
@@ -239,10 +239,10 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Dosya silme
-Başka bir ortak Azure File storage dosya silme işlemdir. Aşağıdaki kod, my-örnek-dosya-kök dizini altında depolanan 3 adlı bir dosyayı siler.
+Başka bir ortak Azure File storage dosya silme işlemdir. Merhaba aşağıdaki kod my-örnek-dosya-hello kök dizini altında depolanan 3 adlı bir dosyayı siler.
 
 ```cpp
-// Get a reference to the root directory for the share.    
+// Get a reference toohello root directory for hello share.    
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
@@ -255,30 +255,30 @@ azure::storage::cloud_file file =
 file.delete_file_if_exists();
 ```
 
-## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Bir Azure dosya paylaşımı için kota (en fazla boyut) ayarlama
-Gigabayt cinsinden bir dosya paylaşımı için kota (veya üst sınırı) ayarlayabilirsiniz. Paylaşımda halihazırda ne kadar verinin depolandığını da kontrol edebilirsiniz.
+## <a name="set-hello-quota-maximum-size-for-an-azure-file-share"></a>Bir Azure dosya paylaşımı için Hello kota (en fazla boyut) ayarlama
+Gigabayt cinsinden bir dosya paylaşımı için hello kota (veya üst sınırı) ayarlayabilirsiniz. Ayrıca, ne kadar veri şu anda hello paylaşımında depolanan toosee kontrol edebilirsiniz.
 
-Paylaşım için kota ayarlayarak paylaşımda depolanan toplam dosya boyutunu kısıtlayabilirsiniz. Paylaşımdaki toplam dosya boyutu belirlediğiniz kotayı aşarsa, istemciler mevcut dosyaların boyutunu artıramaz veya boş olmamaları halinde yeni dosyalar oluşturamaz.
+Ayarı hello tarafından paylaşımı için kota bir, hello paylaşımında depolanan hello dosyaların toplam boyutu hello sınırlayabilirsiniz. Hello hello paylaşımdaki dosyaların toplam boyutu aşarsa hello kota hello paylaşımında ayarlayın, sonra istemcileri oluşturulamıyor tooincrease hello mevcut dosyaların boyutunu olabilir veya bu dosyaları boş olmadığı sürece, yeni dosyalar oluşturma.
 
-Aşağıdaki örnekte, paylaşımdaki mevcut kullanımını nasıl kontrol edileceği veya paylaşım için nasıl kota ayarlanacağı gösterilmiştir.
+Aşağıdaki örnek Hello nasıl toocheck hello bir paylaşım için geçerli kullanım ve nasıl tooset hello hello paylaşımı için kota gösterir.
 
 ```cpp
-// Parse the connection string for the storage account.
+// Parse hello connection string for hello storage account.
 azure::storage::cloud_storage_account storage_account = 
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the file client.
+// Create hello file client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 
-// Get a reference to the share.
+// Get a reference toohello share.
 azure::storage::cloud_file_share share = 
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 if (share.exists())
 {
     std::cout << "Current share usage: " << share.download_share_usage() << "/" << share.properties().quota();
 
-    //This line sets the quota to 2560GB
+    //This line sets hello quota too2560GB
     share.resize(2560);
 
     std::cout << "Quota increased: " << share.download_share_usage() << "/" << share.properties().quota();
@@ -287,16 +287,16 @@ if (share.exists())
 ```
 
 ## <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Dosya veya dosya paylaşımı için paylaşılan erişim imzası oluşturma
-Paylaşılan erişim imzası (SAS) tek bir dosyayı veya dosya paylaşımı için oluşturabilirsiniz. Ayrıca, paylaşılan erişim imzalarını yönetmek için dosya paylaşımında bir paylaşılan erişim ilkesi oluşturabilirsiniz. Gizliliğinin tehlikeye girdiği durumlarda SAS’yi iptal etme aracı olarak kullanılabilmesi nedeniyle bir paylaşılan erişim ilkesi oluşturmanız önerilir.
+Paylaşılan erişim imzası (SAS) tek bir dosyayı veya dosya paylaşımı için oluşturabilirsiniz. Ayrıca, bir dosya paylaşımı toomanage paylaşılan erişim imzaları bir paylaşılan erişim ilkesi oluşturabilirsiniz. Tehlikeye girdiği durumlarda hello SAS iptal etme yolu sağladığı gibi bir paylaşılan erişim ilkesi oluşturmanız önerilir.
 
-Aşağıdaki örnekte, paylaşım için bir paylaşılan erişim ilkesi oluşturulur, daha sonra bu ilke paylaşımdaki bir dosyada bulunan SAS için sınırlamalar sağlamak amacıyla kullanılır.
+Aşağıdaki örneğine hello bir paylaşılan erişim ilkesi oluşturulur ve Itanium tabanlı sistemler için ilke tooprovide hello kısıtlamaları SAS için hello bir dosyada paylaşıma kullanır.
 
 ```cpp
-// Parse the connection string for the storage account.
+// Parse hello connection string for hello storage account.
 azure::storage::cloud_storage_account storage_account = 
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the file client and get a reference to the share
+// Create hello file client and get a reference toohello share
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 
@@ -311,37 +311,37 @@ if (share.exists())
     azure::storage::file_shared_access_policy sharedPolicy = 
       azure::storage::file_shared_access_policy();
 
-    //set permissions to expire in 90 minutes
+    //set permissions tooexpire in 90 minutes
     sharedPolicy.set_expiry(utility::datetime::utc_now() + 
        utility::datetime::from_minutes(90));
 
     //give read and write permissions
     sharedPolicy.set_permissions(azure::storage::file_shared_access_policy::permissions::write | azure::storage::file_shared_access_policy::permissions::read);
 
-    //set permissions for the share
+    //set permissions for hello share
     azure::storage::file_share_permissions permissions;    
 
-    //retrieve the current list of shared access policies
+    //retrieve hello current list of shared access policies
     azure::storage::shared_access_policies<azure::storage::file_shared_access_policy> policies;
 
-    //add the new shared policy
+    //add hello new shared policy
     policies.insert(std::make_pair(policy_name, sharedPolicy));
 
-    //save the updated policy list
+    //save hello updated policy list
     permissions.set_policies(policies);
     share.upload_permissions(permissions);
 
-    //Retrieve the root directory and file references
+    //Retrieve hello root directory and file references
     azure::storage::cloud_file_directory root_dir = 
         share.get_root_directory_reference();
     azure::storage::cloud_file file = 
       root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 
-    // Generate a SAS for a file in the share 
+    // Generate a SAS for a file in hello share 
     //  and associate this access policy with it.        
     utility::string_t sas_token = file.get_shared_access_signature(sharedPolicy);
 
-    // Create a new CloudFile object from the SAS, and write some text to the file.        
+    // Create a new CloudFile object from hello SAS, and write some text toohello file.        
     azure::storage::cloud_file file_with_sas(azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()));
     utility::string_t text = _XPLATSTR("My sample content");        
     file_with_sas.upload_text(text);        
@@ -354,7 +354,7 @@ if (share.exists())
 }
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Storage hakkında daha fazla bilgi için şu kaynakları araştırın:
+Azure Storage hakkında daha fazla toolearn bu kaynakları araştırın:
 
 * [C++ için Depolama İstemcisi Kitaplığı](https://github.com/Azure/azure-storage-cpp)
 * [Azure depolama dosya hizmeti örnekleri c++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)

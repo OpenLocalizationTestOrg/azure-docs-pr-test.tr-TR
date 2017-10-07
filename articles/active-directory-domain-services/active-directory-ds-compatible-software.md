@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 1a4af8c9a5f30cf7ea24d587866d1b41ab9cfb2c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7c393eead91ff43dd862bbf10e3af44062ffeff9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Üçüncü taraf yazılım Azure AD etki alanı Hizmetleri ile uyumlu
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 07/11/2017
 
 ![Bir kimlik](./media/compatible-software-icons/OneIdentity.png)
 
-Bir kimlik kimlik doğrulama hizmetleri erişim, kimlik doğrulama ve yetkilendirme kuruluşun mevcut Active Directory (AD) altyapısının kullanılacağını UNIX, Linux ve Mac OS X sistemleri sağlar. Kimlik doğrulama hizmetleri artık Azure Active Directory etki alanı Windows olmayan kaynakları etkinleştirme zaten var, SaaS çözümlerinin kullanan aynı nesil platformu kullanmaya Hizmetleri destekler.
+UNIX, Linux ve Mac OS X sistemleri toouse hello erişim, kimlik doğrulama ve yetkilendirme kuruluşun mevcut Active Directory (AD) altyapısının bir kimlik kimlik doğrulama hizmetleri sağlar. Kimlik doğrulama hizmetleri artık Azure Active Directory etki alanı tooutilize hello zaten var, SaaS çözümlerinin kullanan aynı nesil platform Windows olmayan kaynakları Etkinleştirme Hizmetleri destekler.
 
 [Bir kimlik kimlik doğrulama hizmetleri](https://www.quest.com/products/authentication-services/)
 
@@ -37,6 +37,6 @@ Bir kimlik kimlik doğrulama hizmetleri erişim, kimlik doğrulama ve yetkilendi
 
 ![RedHat](./media/compatible-software-icons/RedHat.png)
 
-Red Hat Enterprise Linux günümüzün modern Kurumsal ihtiyaçlarını karşılamak üzere yerleşik dünyanın en önde gelen enterprise Linux platformudur. Red Hat Enterprise Linux Microsoft Azure enterprise Linux sanal makine (VM) iş yükleri için tercih edilen seçimdir. Red Hat Enterprise Linux dağıtım esneklik istiyorsanız, iş açısından kritik iş yüklerini - sıkı bir şekilde desteğiyle Azure bulutuna - veri merkezinden müşteriler için tasarlanmış bir açık, güvenilir ve güvenli platform tümleşik, kurumsal düzeyde Destek'ten olduğunda Red Hat ve Microsoft.
+Red Hat Enterprise Linux hello dünyanın en önde gelen enterprise Linux platformu toomeet günümüzün modern Kurumsal hello ihtiyaçlarını oluşturulmuş olur. Red Hat Enterprise Linux, Microsoft Azure enterprise Linux sanal makine (VM) iş yükleri için tercih edilen hello seçimdir. Red Hat Enterprise Linux güvenilir bir açık olduğundan ve - hello veri merkezi toohello Azure bulut - alanından kritik iş yüklerini için dağıtım esneklik isteyen müşteriler için tasarlanmış güvenli platform tarafından sıkı bir şekilde tümleşik Kurumsal düzeyde yedeklenen Red Hat ve Microsoft destekler.
 
-[RedHat Enterprise Linux 7.2 katılma Azure AD etki alanı Hizmetleri VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+[Birleşim RedHat Enterprise Linux 7.2 VM'i tooAzure AD etki alanı Hizmetleri](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

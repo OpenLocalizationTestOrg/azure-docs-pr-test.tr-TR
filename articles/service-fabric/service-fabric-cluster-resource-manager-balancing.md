@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric kümesi Bakiye | Microsoft Docs"
-description: "Service Fabric kümesi Resource Manager ile kümenizi Dengeleme giriş bilgileri."
+title: "aaaBalance Azure Service Fabric kümesi | Microsoft Docs"
+description: "Bir giriş toobalancing kümenizle hello Service Fabric kümesi Resource Manager."
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 34eacb29f324025c1d2803c9690600227d3ec457
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5f7ad2f5cf4cfb3751a860f5293b03d2d5266d99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Service fabric kümesi Dengeleme
-Service Fabric kümesi kaynak yöneticisi ekleme veya kaldırma işlemleri düğümleri veya hizmetlerin tepki dinamik yük değişiklikleri destekler. Bir kısıtlama ihlali de otomatik olarak düzeltir ve proaktif olarak küme yeniden dengeler. Ancak bu eylemler ne sıklıkta alınır ve bunları tetikleyen?
+Merhaba Service Fabric kümesi Kaynak Yöneticisi, dinamik yük değişiklikleri, tanımlandığında tooadditions veya düğümler veya hizmetleri kaldırma işlemleri destekler. Bir kısıtlama ihlali de otomatik olarak düzeltir ve önceden hello küme yeniden dengeler. Ancak bu eylemler ne sıklıkta alınır ve bunları tetikleyen?
 
-Küme Kaynak Yöneticisi'ni gerçekleştiren iş üç farklı kategorisi vardır. Bunlar:
+Küme Kaynak Yöneticisi'ni gerçekleştirir bu hello iş üç farklı kategorisi vardır. Bunlar:
 
 1. Yerleştirme – bu aşamada herhangi bir durum bilgisi olan çoğaltmaları veya eksik olan durum bilgisiz örnekleri yerleştirme ile ilgilidir. Yerleştirme, hem yeni hizmetleri hem de işleme durum bilgisi olan çoğaltmaları veya başarısız olan durum bilgisiz örnekleri içerir. Silme ve çoğaltmalar veya örnekleri bırakma burada ele alınır.
-2. Kısıtlama denetler – Bu aşama olup olmadığını denetler ve farklı kısıtlamalarından (kurallar) sistemi içinde ihlalleri düzeltir. Düğümler kapasite değildir ve bir hizmetin kısıtlamalarından karşılandığından emin olduktan gibi şeyler kuralları örnekleridir.
-3. – Bu aşama denetler dengelenmesi farklı ölçümleri bakiyesini yapılandırılmış istenilen düzeyine göre gerekli olup olmadığını görmek için Dengeleme. Bu durumda daha dengeli kümede düzenleme bulmaya çalışır.
+2. Kısıtlama denetler – Bu aşama olup olmadığını denetler ve hello farklı yerleştirme kısıtlamaları (kurallar) hello sistem içinde ihlalleri düzeltir. Düğümler kapasite değildir ve bir hizmetin kısıtlamalarından karşılandığından emin olduktan gibi şeyler kuralları örnekleridir.
+3. Dengeleme – bu aşama dengelenmesi üzerinde yapılandırılmış hello dayalı gerekliyse toosee istenen farklı ölçümleri bakiyesini düzeyini denetler. Öyleyse hello bir düzende küme diğer bir deyişle daha dengeli toofind çalışır.
 
 ## <a name="configuring-cluster-resource-manager-timers"></a>Küme Kaynak Yöneticisi zamanlayıcıları yapılandırma
-İlk Dengeleme geçici denetimleri kümesini zamanlayıcılar kümesidir. Bu zamanlayıcılar ne sıklıkta Küme Kaynak Yöneticisi'ni küme inceler ve düzeltici eylemleri gerçekleştirir yönetir.
+Merhaba ilk Dengeleme geçici denetimleri kümesini zamanlayıcılar kümesidir. Bu zamanlayıcılar ne sıklıkta hello küme Resource Manager hello küme inceler ve düzeltici eylemleri gerçekleştirir yönetir.
 
-Küme Kaynak Yöneticisi yapabilir düzeltmeleri farklı bu türlerinin her biri kendi sıklığı yöneten farklı bir Zamanlayıcı tarafından denetlenir. Her Zamanlayıcı başlatıldığında görevi zamanlandı. Resource Manager varsayılan olarak:
+Küme Kaynak Yöneticisi yapabilir düzeltmeleri hello farklı bu türlerinin her biri kendi sıklığı yöneten farklı bir Zamanlayıcı tarafından denetlenir. Her Zamanlayıcı başlatıldığında başlangıç görevi zamanlandı. Varsayılan olarak, Resource Manager hello:
 
 * durumu tarar ve güncelleştirmeleri (örneğin, bir düğümü çalışmıyor kayıt) uygular her 1/saniyede 10
-* yerleştirme denetim bayrağını ayarlar 
-* saniyede kısıtlaması onay bayrağını ayarlar
-* beş saniyede karşı bayrağını ayarlar.
+* Merhaba yerleştirme onay bayrağını ayarlar 
+* saniyede Hello kısıtlaması onay bayrağını ayarlar
+* beş saniyede bayrağı Dengeleme hello ayarlar.
 
-Aşağıda bu zamanlayıcılar yöneten yapılandırma örnekleri şunlardır:
+Aşağıda bu zamanlayıcılar yöneten hello yapılandırma örnekleri şunlardır:
 
 ClusterManifest.xml:
 
@@ -80,16 +80,16 @@ tek başına dağıtımlarında ClusterConfig.json ya da Azure için Template.js
 ]
 ```
 
-Bugün Küme Kaynak Yöneticisi'ni yalnızca bu eylemlerden biri, bir kerede sırayla gerçekleştirir. Biz "minimum aralıkları" ve zamanlayıcılar "ayarı bayrakları" devre dışı olduğunda gerçekleştirilecek eylemleri olarak bu zamanlayıcılar başvurmak nedeni budur. Örneğin, Küme Kaynak Yöneticisi'ni Dengeleme kümesi önce hizmetleri oluşturmak üzere bekleyen istekleri ilgilenir. Belirtilen varsayılan zaman aralıklarına göre gördüğünüz gibi Küme Kaynak Yöneticisi'ni sık yapması gereken her şey için tarar. Normalde bu her adımı sırasında yapılan değişiklikler kümesi küçük olduğunu gösterir. Sık olarak küçük değişiklikler Küme Kaynağı Yöneticisi'nin şeyler kümede gerçekleştiğinde esnek olmasını sağlar. Varsayılan zamanlayıcılar olayları aynı türde çoğunu aynı anda ortaya eğilimindedir bu yana bazı yığınlama sağlar. 
+Bugün hello küme kaynak yöneticisi yalnızca bu eylemlerden biri, aynı anda sırayla gerçekleştirir. "En düşük aralıkları" olarak toothese zamanlayıcılar bakın ve hello zamanlayıcılar "ayarı bayrakları" devre dışı olduğunda gerçekleştirilecek eylemleri hello nedeni budur. Örneğin, küme Resource Manager, bekleyen mvc'deki hello hello küme Dengeleme önce toocreate Hizmetleri ister. Belirtilen hello varsayılan zaman aralıklarıyla görebileceğiniz gibi hello küme kaynak yöneticisi için herhangi bir şey bu gereksinimlerini toodo sık tarar. Normalde bu her adımı sırasında yapılan değişiklikler hello kümesi küçük anlamına gelir. Şeyler hello kümede gerçekleştiğinde sık olarak küçük değişiklikler hello küme Resource Manager toobe yanıt verir. Merhaba varsayılan zamanlayıcılar bazı birçok hello itibaren aynı toplu işleme sağlamak olay türleri toooccur aynı anda eğilimi gösterir. 
 
-Örneğin, başarısız olduğunda düğümleri aynı anda kadar tüm hata etki alanlarını yapabilirsiniz. Tüm bu hatalar sonraki durum sırasında yakalanan güncelleştirme sonra *PLBRefreshGap*. Düzeltmeleri, kısıtlama denetimi gibi aşağıdaki yerleştirme sırasında belirlenir ve Dengeleme çalıştırır. Varsayılan olarak Küme Kaynak Yöneticisi'ni değil kümesindeki değişiklikleri saatlik aracılığıyla tarama ve adresi aynı anda tüm değişiklikleri çalışılıyor. Bunun yapılması karmaşası WINS'e için yol açar.
+Örneğin, başarısız olduğunda düğümleri aynı anda kadar tüm hata etki alanlarını yapabilirsiniz. Tüm bu hatalar hello sonraki durum sırasında yakalanan güncelleştirme hello sonra *PLBRefreshGap*. Merhaba düzeltmeleri yerleştirme, kısıtlama denetimi aşağıdaki ve çalıştırmalarını Dengeleme hello sırasında belirlenir. Varsayılan hello tarafından küme Resource Manager değil hello kümesindeki değişiklikleri saatlik aracılığıyla tarama ve tooaddress tüm değişiklikleri aynı anda çalışıyor. Bunun yapılması karmaşası toobursts sunulmasını sağlar.
 
-Küme Kaynak Yöneticisi'ni de belirlemek için bazı ek bilgiler gerekir imbalanced küme. İçin sahip olduğumuz iki parça yapılandırma: *BalancingThresholds* ve *ActivityThresholds*.
+Merhaba küme hello Küme Kaynak Yöneticisi ayrıca bazı ek bilgiler toodetermine imbalanced gerekir. İçin sahip olduğumuz iki parça yapılandırma: *BalancingThresholds* ve *ActivityThresholds*.
 
 ## <a name="balancing-thresholds"></a>Dengeleme eşikleri
-Dengeleme eşik dengelenmesi tetiklemek ana denetimdir. Ölçüm için Dengeleme eşik bir _oranı_. Bu ölçüm ait bir ölçüm yük miktarı az yüklenen düğümde bölü en yüklenen düğümde yük aşarsa, *BalancingThreshold*, küme imbalanced olur. Sonuç olarak Dengeleme Küme Kaynak Yöneticisi'ni denetlediğinde tetiklenir. *MinLoadBalancingInterval* Zamanlayıcı tanımlar dengelenmesi gerekliyse, Küme Kaynak Yöneticisi ' ne sıklıkta denetlemeniz gerekir. Denetimi, herhangi bir şey olur anlamına gelmez. 
+Dengeleme eşik dengelenmesi tetiklemek hello ana denetimdir. Merhaba Dengeleme eşik bir ölçüm için ise bir _oranı_. Merhaba üzerinde bir ölçüm için Hello yükü en hello yük miktarı az yüklenen hello bölü düğümü yüklerse Bu ölçüm 's düğümü aşıyor *BalancingThreshold*, hello küme imbalanced olur. Sonuç olarak Dengeleme küme Resource Manager denetler tetiklenen hello sonraki zaman hello olur. Merhaba *MinLoadBalancingInterval* Zamanlayıcı tanımlar dengelenmesi gerekliyse, ne sıklıkta hello küme Resource Manager denetlemeniz gerekir. Denetimi, herhangi bir şey olur anlamına gelmez. 
 
-Dengeleme eşikleri küme tanımının bir parçası olarak ölçüm başına temelinde tanımlanır. Ölçümler hakkında daha fazla bilgi için kullanıma [bu makalede](service-fabric-cluster-resource-manager-metrics.md).
+Dengeleme eşikleri hello küme tanımının bir parçası olarak ölçüm başına temelinde tanımlanır. Ölçümler hakkında daha fazla bilgi için kullanıma [bu makalede](service-fabric-cluster-resource-manager-metrics.md).
 
 ClusterManifest.xml
 
@@ -124,30 +124,30 @@ tek başına dağıtımlarında ClusterConfig.json ya da Azure için Template.js
 ![Eşik örnek Dengeleme][Image1]
 </center>
 
-Bu örnekte, her hizmetin bazı ölçüsünün bir birimi kullanıyor. Üst örnekte, bir düğümde en fazla yük beştir ve iki en düşük gereksinimdir. Bu ölçüm karşı eşiği üç olduğunu düşünelim. Kümedeki oranı 5/2 olduğundan 2.5 ve diğer bir deyişle belirtilenden daha az = üç eşiğinin Dengeleme, küme dengelenir. Küme Kaynak Yöneticisi'ni denetlediğinde dengelemesiz tetiklenir.
+Bu örnekte, her hizmetin bazı ölçüsünün bir birimi kullanıyor. Merhaba üst örnekte, bir düğümde en fazla yük hello beş ve hello en az iki. Bu ölçüm eşiği Dengeleme bu hello üç olduğunu düşünelim. Merhaba oranı hello kümedeki 5/2 olduğundan 2.5 ve bu, üç, hello küme eşiğinin dengeleme dengeli hello belirtilenden azdır =. Merhaba küme Resource Manager denetlediğinde dengelemesiz tetiklenir.
 
-En az iki oranı beş içinde kaynaklanan olsa da alt örnekte bir düğümde en fazla yük 10 ' dur. Beş üç bu ölçümü için belirlenen karşı eşiği değerinden daha büyük. Sonuç olarak, bir çalıştırma dengelenmesi karşı Zamanlayıcı harekete zamanlanan sonraki sefer olacaktır. Böyle bir durumda bazı yük Düğüm3 için genellikle dağıtılır. Service Fabric kümesi Kaynak Yöneticisi doyumsuz bir yaklaşım kullanmadığı için bazı yükleme Düğüm2 için de dağıtılmış. 
+Merhaba en az iki oranı beş içinde kaynaklanan ederken hello altındaki örnekte, bir düğümde en fazla yük hello 10 ' dur. Beş hello belirlenen karşı eşiğinin Bu ölçüm için üç değerinden daha büyük. Sonuç olarak, yeniden dengelenemiyor Çalıştır sonraki zamanlanan saat hello Zamanlayıcı ateşlenir Dengeleme olacaktır. Böyle bir durumda bazı genellikle dağıtılmış tooNode3 yüktür. Merhaba Service Fabric kümesi Kaynak Yöneticisi doyumsuz bir yaklaşım kullanmadığı için bazı yükleme dağıtılmış tooNode2 de olabilir. 
 
 <center>
 ![Eşik örnek Eylemler Dengeleme][Image2]
 </center>
 
 > [!NOTE]
-> "Dengeleme" Yük kümenizdeki yönetmek için iki farklı stratejileri işler. Küme Kaynak Yöneticisi'ni kullanan varsayılan strateji, kümedeki düğümler arasında yük dağıtmaktır. Diğer strateji [birleştirme](service-fabric-cluster-resource-manager-defragmentation-metrics.md). Birleştirme aynı Dengeleme çalışması sırasında gerçekleştirilir. Yük Dengeleme ve birleştirme stratejilerini aynı kümedeki farklı ölçümleri için kullanılabilir. Bir hizmetin Dengeleme ve birleştirme ölçümleri olabilir. Birleştirme ölçümleri için kümedeki yükleri oranını tetikler olduğunda dengelenmesi _aşağıda_ karşı eşiği. 
+> "Dengeleme" Yük kümenizdeki yönetmek için iki farklı stratejileri işler. Küme Kaynak Yöneticisi'ni kullanır hello hello varsayılan stratejisi toodistribute hello kümedeki hello düğümler arasında yüktür. Merhaba diğer stratejidir [birleştirme](service-fabric-cluster-resource-manager-defragmentation-metrics.md). Birleştirme sırasında hello gerçekleştirilen Dengeleme aynı çalıştırın. Merhaba Dengeleme ve birleştirme stratejilerini hello içinde farklı ölçümleri kullanılabilir aynı küme. Bir hizmetin Dengeleme ve birleştirme ölçümleri olabilir. Birleştirme ölçümlerini hello hello oranını yükler olduğunda dengelenmesi hello küme Tetikleyicileri _aşağıda_ eşik Dengeleme hello. 
 >
 
-Dengeleme eşiğin altına alma, açık bir hedef değil. Dengeleme eşikleri olan yalnızca bir *tetikleyici*. Çalıştırır Dengeleme olduğunda Küme Kaynak Yöneticisi'ni varsa bunu yapabilirsiniz, hangi iyileştirmeleri belirler. Karşı arama yalnızca koparılan devre dışı olduğundan, hiçbir şey taşır anlamına gelmez. Bazen küme imbalanced ancak düzeltmek için çok kısıtlanmış olabilir. Alternatif olarak, çok hareketleri geliştirmeleri gerektiren [pahalı](service-fabric-cluster-resource-manager-movement-cost.md)).
+Eşik Dengeleme hello alma, açık bir hedef değil. Dengeleme eşikleri olan yalnızca bir *tetikleyici*. Çalıştırır Dengeleme olduğunda hello küme Resource Manager bunu yapabilirsiniz, hangi iyileştirmeleri varsa belirler. Karşı arama yalnızca koparılan devre dışı olduğundan, hiçbir şey taşır anlamına gelmez. Bazen hello imbalanced ancak çok kısıtlanmış toocorrect kümedir. Alternatif olarak, çok hareketleri hello geliştirmeleri gerektiren [pahalı](service-fabric-cluster-resource-manager-movement-cost.md)).
 
 ## <a name="activity-thresholds"></a>Etkinlik eşikleri
-Bazen, düğümleri görece imbalanced olmasına rağmen *toplam* yük devretme kümesinde miktarı düşük. Yük eksikliği geçici DIP olabilir ya da küme yeni yalnızca alma olduğundan ve önyükleme içinde. Her iki durumda da olduğundan biraz kazanılacak Dengeleme kümesi süre beklemesini istemeyebilirsiniz. Küme Dengeleme yapılan, ağ harcamanız ve işlem kaynaklarını daha büyük yapmadan şeyler hareket etmek için *mutlak* fark. Önlemek için gereksiz taşır, etkinlik eşikleri bilinen başka bir denetim yoktur. Etkinlik eşikleri bazı mutlak alt bağımlı etkinliğinin belirtmenize olanak sağlar. Hiçbir düğümü bu eşiğin üstünde ise, Dengeleme eşiğine olsa bile Dengeleme tetiklenen değil.
+Düğümleri görece imbalanced olsa da, bazı durumlarda, hello *toplam* hello kümedeki yük miktarı düşük. Yük Hello eksikliği geçici DIP olabilir veya hello kümesi yeni ve yalnızca alma olduğundan önyükleme içinde. Her iki durumda da, elde edilen az toobe olduğundan Dengeleme hello kümesi toospend zaman istemeyebilirsiniz. Dengeleme Hello küme yapılan, ağ harcamanız ve her büyük yapmadan kaynakları toomove şeyler geçici işlem *mutlak* fark. gereksiz tooavoid taşır, etkinlik eşikleri bilinen başka bir denetim yoktur. Etkinlik eşikleri etkinliği için bazı mutlak alt sınır toospecify sağlar. Hiçbir düğümü bu eşiğin üstünde ise, hello Dengeleme eşiğine olsa bile Dengeleme tetiklenen değil.
 
-Biz bizim Dengeleme eşiğinin Bu ölçüm için üç korumak varsayalım. Ayrıca 1536 etkinlik eşiğinin sahibiz varsayalım. Küme Dengeleme var. eşik imbalanced olsa ilk durumda, bu etkinlik eşik hiçbir düğümü hiçbir şey olmaz şekilde karşılar. Alt örnekte Düğüm1 etkinliği eşiğin üstünde ' dir. Dengeleme eşik ve ölçüm etkinlik eşiği aştığından, Dengeleme zamanlanır. Örnek olarak, aşağıdaki diyagramda bakalım: 
+Biz bizim Dengeleme eşiğinin Bu ölçüm için üç korumak varsayalım. Ayrıca 1536 etkinlik eşiğinin sahibiz varsayalım. Hello ilk durumda, hello küme hello imbalanced olsa eşik Dengeleme var. hiçbir düğüm karşılıyor bu etkinlik eşik, böylece hiçbir şey olmaz. Merhaba altındaki örnekte Düğüm1 etkinlik eşik hello ' dir. Her ikisi de Dengeleme eşik hello hello ölçüm Merhaba etkinlik eşiği aşıldı yana Dengeleme zamanlanır. Örnek olarak, diyagram aşağıdaki hello bakalım: 
 
 <center>
 ![Etkinlik eşik örneği][Image3]
 </center>
 
-Yalnızca Dengeleme eşikleri gibi etkinlik eşikleri tanımlı başına Metrik Küme tanımı aracılığıyla şunlardır:
+Yalnızca Dengeleme eşikleri gibi etkinlik eşikleri tanımlı başına Metrik hello Küme tanımı aracılığıyla şunlardır:
 
 ClusterManifest.xml
 
@@ -173,12 +173,12 @@ tek başına dağıtımlarında ClusterConfig.json ya da Azure için Template.js
 ]
 ```
 
-Yük Dengeleme ve etkinlik hem Dengeleme belirli bir ölçüm için - bağlı tetiklenir yalnızca Dengeleme eşik ve etkinlik eşiği aşıldı varsa aynı ölçümü eşiklere.
+Yük Dengeleme ve etkinlik eşiklere hem bağlı tooa belirli ölçüm Dengeleme - yalnızca her ikisi de Dengeleme eşik hello ve etkinlik eşiği Merhaba aşıldı tetiklenir aynı Ölçüm.
 
 ## <a name="balancing-services-together"></a>Hizmetleri birlikte Dengeleme
-Küme imbalanced olup olmamasına küme çapında bir karardır. Ancak, düzeltme hakkında Git şekilde bireysel hizmet çoğaltmaları ve geçici örnekleri taşımaktır. Bu doğru mantıklıdır? Bellek bir düğümde yığılmış, birden çok çoğaltmalar veya örnekleri için katkıda bulunan. Dengesizliği düzelttikten herhangi bir durum bilgisi olan çoğaltmaları veya imbalanced ölçümün kullanmak durum bilgisiz örneklerinin hareketli gerektirebilir.
+Merhaba küme imbalanced olup olmadığını küme çapında bir karardır. Ancak, düzeltme hakkında Git hello şekilde bireysel hizmet çoğaltmaları ve geçici örnekleri taşımaktır. Bu doğru mantıklıdır? Bellek bir düğümde yığılmış, birden çok çoğaltmalar veya örnekleri tooit katılan. Giderilmesi hello dengesizliği herhangi hello durum bilgisi olan çoğaltmaları veya hello imbalanced ölçümün kullanmak durum bilgisiz örneklerinin hareketli gerektirebilir.
 
-Bazen imbalanced kendisini değildi bir hizmet taşınmış ancak (yerel tartışma unutmayın ve daha önce genel ağırlık verir). Tüm bu hizmetin ölçümleri dengeli neden bir hizmet taşındığında? Bir örnek görelim:
+Bazen imbalanced kendisini değildi bir hizmet taşınmış ancak (yerel hello tartışma unutmayın ve daha önce genel ağırlık verir). Tüm bu hizmetin ölçümleri dengeli neden bir hizmet taşındığında? Bir örnek görelim:
 
 - Dört Hizmetleri, Service1, Service2, Service3 ve Service4 varsayalım. 
 - Service1 ölçümleri Metric1 ve Metric2 bildirir. 
@@ -192,18 +192,18 @@ Burada burada yapacağız kötülerinden görebilirsiniz: bir zinciri! Biz gerç
 ![Hizmetleri birlikte Dengeleme][Image4]
 </center>
 
-Bu zincir nedeniyle bir dengesizliği ölçümleri 1-4, çoğaltmaları veya hizmetleri hareket etmek için 1-3 ait örnekleri neden olabilir. mümkündür. Ölçümleri 1, 2 veya 3 içinde bir dengesizliği içinde Service4 hareketleri sebep olamaz biliyoruz. Çoğaltmaları taşıyarak bu yana hiçbir noktası olacaktır veya Service4 ait örnekleri ölçümleri 1-3 bakiyesini etkilemeye kesinlikle hiçbir şey yapabilirsiniz.
+Bu zincir nedeniyle bir dengesizliği ölçümleri 1-4, çoğaltmalar veya örnekleri tooservices ait geçici 1-3 toomove neden olabilir. Ölçümleri 1, 2 veya 3 içinde bir dengesizliği içinde Service4 hareketleri sebep olamaz biliyoruz. Merhaba çoğaltmaları taşıyarak bu yana hiçbir noktası olacaktır veya can geçici tooService4 ait örnekleri kesinlikle hiçbir şey yapmak tooimpact hello Bakiye ölçümleri 1-3.
 
-Küme Kaynak Yöneticisi'ni otomatik olarak hangi hizmetlerin ilgili rakamlar. Ekleme, kaldırma veya hizmetleri için ölçümler değiştirme ilişkilerini etkileyebilir. Örneğin, Service2 Dengeleme iki çalışmaları arasında Metric2 kaldırmak için güncelleştirilmiş olabilir. Service1 Service2 arasındaki zinciri keser. Şimdi yerine iki grup ilgili hizmetlerin vardır üç:
+Merhaba Küme Kaynak Yöneticisi'ni otomatik olarak hangi hizmetlerin ilgili rakamlar. Ekleme, kaldırma veya hizmetleri için değişen hello ölçümleri ilişkilerini etkileyebilir. Örneğin, güncelleştirilmiş tooremove Metric2 Service2 Dengeleme iki çalışmaları arasında olabilir. Service1 Service2 arasındaki hello zinciri keser. Şimdi yerine iki grup ilgili hizmetlerin vardır üç:
 
 <center>
 ![Hizmetleri birlikte Dengeleme][Image5]
 </center>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Service Fabric kümesi Kaynak Yöneticisi, kullanım ve kapasite kümedeki nasıl yönettiğini ölçümleridir. Ölçümleri ve bunların nasıl yapılandırılacağı hakkında daha fazla bilgi için kullanıma [bu makalede](service-fabric-cluster-resource-manager-metrics.md)
-* Taşıma maliyeti için Küme Kaynak Yöneticisi'ni, belirli hizmetleri diğerlerinden taşımak daha pahalı sinyal bir yoludur. Taşıma maliyeti hakkında daha fazla bilgi için başvurmak [bu makalede](service-fabric-cluster-resource-manager-movement-cost.md)
-* Küme Kaynak Yöneticisi'ni kümedeki karmaşası aşağı yavaş yapılandırdığınız birkaç kısıtlamaları vardır. Bunlar normalde gerekli değildir, ancak bunlara ihtiyacınız varsa bunları hakkında bilgi edinebilirsiniz [burada](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* Kullanım ve kapasite hello kümedeki hello Service Fabric kümesi kaynak yöneticisi nasıl yönettiğini ölçümleridir. Ölçümler hakkında daha fazla toolearn ve nasıl tooconfigure bunları kullanıma [bu makalede](service-fabric-cluster-resource-manager-metrics.md)
+* Taşıma maliyeti belirli hizmetleri diğerlerinden daha pahalı toomove olduğunu toohello küme Resource Manager sinyal bir yoludur. Taşıma maliyeti hakkında daha fazla bilgi için çok başvuran[bu makalede](service-fabric-cluster-resource-manager-movement-cost.md)
+* Merhaba küme Resource Manager hello kümede karmaşası aşağı tooslow yapılandırabilirsiniz birkaç kısıtlamaları vardır. Bunlar normalde gerekli değildir, ancak bunlara ihtiyacınız varsa bunları hakkında bilgi edinebilirsiniz [burada](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

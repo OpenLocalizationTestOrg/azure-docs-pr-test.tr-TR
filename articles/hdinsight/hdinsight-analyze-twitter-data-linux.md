@@ -1,6 +1,6 @@
 ---
-title: "Apache Hive - Azure Hdınsight ile twitter veri çözümleme | Microsoft Docs"
-description: "Kullanmayı öğrenin Hive ve hdınsight'ta Hadoop ham TWitter verilerini aranabilir Hive tabloya dönüştürür."
+title: "Apache Hive - Azure Hdınsight ile Twitter veri aaaAnalyze | Microsoft Docs"
+description: "Nasıl toouse Hive ve Hadoop Hdınsight tootransform ham TWitter verilerini aranabilir Hive tabloya bilgi edinin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,32 +16,32 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 02c4d027c7bbf390ac1c3724c14f8d549ea5195e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Twitter verilerini Hdınsight'ta Hive ve Hadoop kullanarak çözümleme
 
-Apache Hive işlem Twitter verilerini kullanmayı öğrenin. Sonucu, belirli bir sözcük içeren çoğu tweet'leri gönderilen Twitter kullanıcıların bir listesidir.
+Bilgi nasıl toouse Apache Hive tooprocess Twitter veri. Merhaba, belirli bir sözcük içeren çoğu tweet'leri hello gönderen Twitter kullanıcıların listesini sonucudur.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar, Hdınsight 3.6 üzerinde test edilmiş.
+> Bu belgedeki Hello adımlar Hdınsight 3.6 üzerinde test edilmiş.
 >
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="get-the-data"></a>Verileri alma
+## <a name="get-hello-data"></a>Merhaba Veri Al
 
-Twitter almanıza olanak tanır [her tweet için veri](https://dev.twitter.com/docs/platform-objects/tweets) bir REST API'si aracılığıyla JavaScript nesne gösterimi (JSON) belgesi olarak. [OAuth](http://oauth.net) API kimlik doğrulaması için gereklidir.
+Twitter tooretrieve hello verir [her tweet için veri](https://dev.twitter.com/docs/platform-objects/tweets) bir REST API'si aracılığıyla JavaScript nesne gösterimi (JSON) belgesi olarak. [OAuth](http://oauth.net) kimlik doğrulaması toohello API için gereklidir.
 
 ### <a name="create-a-twitter-application"></a>Bir Twitter uygulaması oluşturma
 
-1. Bir web tarayıcısından oturum [https://apps.twitter.com/](https://apps.twitter.com/). Tıklatın **kaydolma şimdi** bir Twitter hesabı yoksa bağlantı.
+1. Bir web tarayıcısından çok oturum[https://apps.twitter.com/](https://apps.twitter.com/). Merhaba tıklatın **kaydolma şimdi** bir Twitter hesabı yoksa bağlantı.
 
 2. Tıklatın **yeni uygulama oluştur**.
 
-3. Girin **adı**, **açıklama**, **Web sitesi**. Bir URL yukarı yapabileceğiniz **Web sitesi** alan. Aşağıdaki tabloda bazı örnek değerleri gösterir:
+3. Girin **adı**, **açıklama**, **Web sitesi**. Hello için bir URL yukarı yapabileceğiniz **Web sitesi** alan. Aşağıdaki tablonun hello bazı örnek değerleri toouse gösterir:
 
    | Alan | Değer |
    |:--- |:--- |
@@ -51,24 +51,24 @@ Twitter almanıza olanak tanır [her tweet için veri](https://dev.twitter.com/d
 
 4. Denetleme **Evet, kabul ediyorum**ve ardından **Twitter uygulamanızı oluşturma**.
 
-5. Tıklatın **izinleri** sekmesi. Varsayılan izni **salt okunur**.
+5. Merhaba tıklatın **izinleri** sekmesini hello varsayılan izni **salt okunur**.
 
-6. Tıklatın **anahtarları ve erişim belirteçleri** sekmesi.
+6. Merhaba tıklatın **anahtarları ve erişim belirteçleri** sekmesi.
 
 7. Tıklatın **my erişim belirteci oluşturma**.
 
-8. Tıklatın **Test OAuth** sayfanın sağ üst köşesindeki.
+8. Tıklatın **Test OAuth** hello sayfasının hello sağ üst köşesindeki.
 
 9. Yazma **tüketici anahtarı**, **tüketici gizli**, **erişim belirteci**, ve **erişim belirteci gizli anahtarı**.
 
 ### <a name="download-tweets"></a>Tweet'leri indirin
 
-Aşağıdaki Python kodu 10.000 tweet'leri Twitter ve bunları kaydetmek adlı bir dosya yüklemeleri **tweets.txt**.
+Python kodu aşağıdaki hello indirmeleri 10.000 tweet'leri Twitter ve bunları kaydetme adlı tooa dosya **tweets.txt**.
 
 > [!NOTE]
-> Python zaten yüklendiği aşağıdaki adımlarda Hdınsight kümesinde gerçekleştirilir.
+> Python zaten yüklemenizden sonra aşağıdaki adımları hello hello Hdınsight kümesinde gerçekleştirilir.
 
-1. SSH kullanarak HDInsight kümesine bağlanma:
+1. SSH kullanarak toohello Hdınsight kümesine bağlanın:
 
     ```bash
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -76,7 +76,7 @@ Aşağıdaki Python kodu 10.000 tweet'leri Twitter ve bunları kaydetmek adlı b
 
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Yüklemek için aşağıdaki komutları kullanın [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2)ve diğer gerekli paketleri:
+3. Kullanım hello aşağıdaki komutları tooinstall [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2)ve diğer gerekli paketleri:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -89,13 +89,13 @@ Aşağıdaki Python kodu 10.000 tweet'leri Twitter ve bunları kaydetmek adlı b
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-4. Adlı bir dosya oluşturmak için aşağıdaki komutu kullanın **gettweets.py**:
+4. Kullanım hello şu komutu toocreate adlı bir dosya **gettweets.py**:
 
    ```bash
    nano gettweets.py
    ```
 
-5. Aşağıdaki metni içeriğini kullanmak **gettweets.py** dosyası:
+5. Metin hello Merhaba içeriğine aşağıdaki kullanım hello **gettweets.py** dosyası:
 
    ```python
    #!/usr/bin/python
@@ -112,29 +112,29 @@ Aşağıdaki Python kodu 10.000 tweet'leri Twitter ve bunları kaydetmek adlı b
    access_token='Your access token'
    access_token_secret='Your access token secret'
 
-   #The number of tweets we want to get
+   #hello number of tweets we want tooget
    max_tweets=10000
 
-   #Create the listener class that receives and saves tweets
+   #Create hello listener class that receives and saves tweets
    class listener(StreamListener):
-       #On init, set the counter to zero and create a progress bar
+       #On init, set hello counter toozero and create a progress bar
        def __init__(self, api=None):
            self.num_tweets = 0
            self.pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=max_tweets).start()
 
        #When data is received, do this
        def on_data(self, data):
-           #Append the tweet to the 'tweets.txt' file
+           #Append hello tweet toohello 'tweets.txt' file
            with open('tweets.txt', 'a') as tweet_file:
                tweet_file.write(data)
-               #Increment the number of tweets
+               #Increment hello number of tweets
                self.num_tweets += 1
-               #Check to see if we have hit max_tweets and exit if so
+               #Check toosee if we have hit max_tweets and exit if so
                if self.num_tweets >= max_tweets:
                    self.pbar.finish()
                    sys.exit(0)
                else:
-                   #increment the progress bar
+                   #increment hello progress bar
                    self.pbar.update(self.num_tweets)
            return True
 
@@ -142,68 +142,68 @@ Aşağıdaki Python kodu 10.000 tweet'leri Twitter ve bunları kaydetmek adlı b
        def on_error(self, status):
            print status
 
-   #Get the OAuth token
+   #Get hello OAuth token
    auth = OAuthHandler(consumer_key, consumer_secret)
    auth.set_access_token(access_token, access_token_secret)
-   #Use the listener class for stream processing
+   #Use hello listener class for stream processing
    twitterStream = Stream(auth, listener())
    #Filter for these topics
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
     > [!IMPORTANT]
-    > Aşağıdaki öğeler için yer tutucu metni twitter uygulamanızdan bilgileri ile değiştirin:
+    > Twitter uygulamanızdan hello bilgilerle öğeleri aşağıdaki hello Hello yer tutucu metnini değiştirin:
     >
     > * `consumer_secret`
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
 
-6. Kullanım **Ctrl + X**, ardından **Y** dosyayı kaydetmek için.
+6. Kullanım **Ctrl + X**, ardından **Y** toosave hello dosya.
 
-7. Dosyasını çalıştırın ve tweet'leri karşıdan yüklemek için aşağıdaki komutu kullanın:
+7. Aşağıdaki komut toorun hello dosyasına hello kullanın ve tweet'leri karşıdan yükleyin:
 
     ```bash
     python gettweets.py
     ```
 
-    Bir İlerleme göstergesi görünür. Tweet'leri indirildiğini % 100 sayar.
+    Bir İlerleme göstergesi görünür. Bu too100% tweet'leri indirilir hello sayılır.
 
    > [!NOTE]
-   > İlerlemek ilerleme çubuğu uzun bir süredir sürüyorsa oluşturan eğilim konuları izlemek için filtreyi değiştirmeniz gerekir. Hakkında filtre konusundaki birçok tweetler olduğunda gerekli 10000 tweet'leri hızlı bir şekilde alabilir.
+   > Merhaba ilerleme çubuğu tooadvance uzun bir süredir sürüyorsa hello filtre tootrack oluşturan eğilim konuları değiştirmeniz gerekir. Filtre hello konuda hakkında birçok tweetler olduğunda gerekli 10000 tweet'leri hello hızlı bir şekilde alabilir.
 
-### <a name="upload-the-data"></a>Veri yükleme
+### <a name="upload-hello-data"></a>Merhaba veri yükleme
 
-Hdınsight depolama alanına veri yüklemek için aşağıdaki komutları kullanın:
+tooupload hello veri tooHDInsight depolama, aşağıdaki komutları kullanın hello:
 
    ```bash
    hdfs dfs -mkdir -p /tutorials/twitter/data
    hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
-Bu komutlar veri kümedeki tüm düğümlerin erişebildiği bir konuma depolayın.
+Bu komutlar hello veri hello kümedeki tüm düğümlerin erişebildiği bir konuma depolayın.
 
-## <a name="run-the-hiveql-job"></a>HiveQL işini çalıştır
+## <a name="run-hello-hiveql-job"></a>Merhaba HiveQL işini çalıştır
 
-1. HiveQL ifadelerini içeren bir dosya oluşturmak için aşağıdaki komutu kullanın:
+1. Komut toocreate aşağıdaki HiveQL ifadelerini içeren bir dosyasına hello kullan:
 
    ```bash
    nano twitter.hql
    ```
 
-    Aşağıdaki metin dosyasının içeriği kullanın:
+    Metin hello hello dosyasının içeriğini aşağıdaki hello kullan:
 
    ```hiveql
    set hive.exec.dynamic.partition = true;
    set hive.exec.dynamic.partition.mode = nonstrict;
    -- Drop table, if it exists
    DROP TABLE tweets_raw;
-   -- Create it, pointing toward the tweets logged from Twitter
+   -- Create it, pointing toward hello tweets logged from Twitter
    CREATE EXTERNAL TABLE tweets_raw (
        json_response STRING
    )
    STORED AS TEXTFILE LOCATION '/tutorials/twitter/data';
-   -- Drop and recreate the destination table
+   -- Drop and recreate hello destination table
    DROP TABLE tweets;
    CREATE TABLE tweets
    (
@@ -238,8 +238,8 @@ Bu komutlar veri kümedeki tüm düğümlerin erişebildiği bir konuma depolay�
        profile_image_url STRING,
        json_response STRING
    );
-   -- Select tweets from the imported data, parse the JSON,
-   -- and insert into the tweets table
+   -- Select tweets from hello imported data, parse hello JSON,
+   -- and insert into hello tweets table
    FROM tweets_raw
    INSERT OVERWRITE TABLE tweets
    SELECT
@@ -299,16 +299,16 @@ Bu komutlar veri kümedeki tüm düğümlerin erişebildiği bir konuma depolay�
    WHERE (length(json_response) > 500);
    ```
 
-2. Basın **Ctrl + X**, tuşuna basarak **Y** dosyayı kaydetmek için.
-3. Dosyada bulunan HiveQL çalıştırmak için aşağıdaki komutu kullanın:
+2. Basın **Ctrl + X**, tuşuna basarak **Y** toosave hello dosya.
+3. Aşağıdaki HiveQL hello dosyasında yer alan komut toorun hello hello kullan:
 
    ```bash
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    Bu komut çalıştırır **twitter.hql** dosya. Sorgu tamamlandığında gördüğünüz bir `jdbc:hive2//localhost:10001/>` istemi.
+    Çalıştırır hello hello bu komut **twitter.hql** dosya. Gördüğünüz Hello sorgu tamamlandıktan sonra bir `jdbc:hive2//localhost:10001/>` istemi.
 
-4. Beeline isteminden veri içeri aktarıldığını doğrulamak için aşağıdaki sorguyu kullanın:
+4. Merhaba beeline isteminden veri içeri aktarılmış sorgu tooverify aşağıdaki hello kullan:
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
@@ -318,11 +318,11 @@ Bu komutlar veri kümedeki tüm düğümlerin erişebildiği bir konuma depolay�
        ORDER BY cc DESC LIMIT 10;
    ```
 
-    Bu sorgunun döndürdüğü sözcüğünü içeren 10 tweet'leri maksimum **Azure** ileti metin.
+    Bu sorgunun döndürdüğü hello sözcüğünü içeren 10 tweet'leri maksimum **Azure** hello ileti metin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yapılandırılmamış bir JSON veri kümesi içinde yapılandırılmış bir Hive tablosu dönüştürme öğrendiniz. Hdınsight'ta Hive hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+Öğrendiğiniz nasıl tootransform yapılandırılmış bir Hive tablosu yapılandırılmamış bir JSON veri kümesi. toolearn, hdınsight'ta Hive hakkında daha fazla belgeleri aşağıdaki hello bakın:
 
 * [Hdınsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Hdınsight kullanma uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md)

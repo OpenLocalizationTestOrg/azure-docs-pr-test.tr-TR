@@ -1,6 +1,6 @@
 ---
-title: "Azure sanal ağında silemezsiniz | Microsoft Docs"
-description: "Azure sanal ağında silemezsiniz sorunu gidermek öğrenin."
+title: "aaaCannot Sil Azure sanal ağında | Microsoft Docs"
+description: "Nasıl tootroubleshoot hello Azure sanal ağında silemezsiniz sorun hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -14,70 +14,70 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: genli
-ms.openlocfilehash: 55c42a91bb1c5fad289b975ffae8ce4d6e7343dd
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: a9050ab238ccb0380fd46130430222efb8f42388
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Sorun giderme: Azure sanal ağ silinemedi
+# <a name="troubleshooting-failed-toodelete-a-virtual-network-in-azure"></a>Sorun giderme: toodelete Azure sanal ağında başarısız oldu
 
-Microsoft Azure sanal ağında silmeye çalıştığınızda hata alabilirsiniz. Bu makalede, bu sorunu gidermenize yardımcı olmak için sorun giderme adımlarını sağlar. 
+Microsoft Azure sanal ağında toodelete çalıştığınızda hata alabilirsiniz. Bu makalede, sorun giderme adımları toohelp sağlanmaktadır. Bu sorunu çözün. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-guidance"></a>Sorun giderme rehberi 
 
-1. [Bir sanal ağ geçidi sanal ağda çalışır durumda olup olmadığını denetleyin](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
-2. [Bir uygulama ağ geçidi sanal ağda çalışır durumda olup olmadığını denetleyin](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Azure Active Directory etki alanı hizmeti sanal ağında etkinleştirilip etkinleştirilmediğini kontrol](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Sanal ağ diğer kaynağa bağlı olup olmadığını denetleyin](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Bir sanal makinenin sanal ağda hala çalışıp çalışmadığını denetleyin](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Sanal ağ içinde geçiş takıldı olup olmadığını denetleyin](#check-whether-the-virtual-network-is-stuck-in-migration).
+1. [Bir sanal ağ geçidi hello sanal ağda çalışır durumda olup olmadığını denetleyin](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
+2. [Bir uygulama ağ geçidi hello sanal ağda çalışır durumda olup olmadığını denetleyin](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
+3. [Azure Active Directory etki alanı hizmeti hello sanal ağında etkinleştirilip etkinleştirilmediğini kontrol](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+4. [Merhaba sanal ağ bağlantılı tooother kaynak olup olmadığını denetleyin](#check-whether-the-virtual-network-is-connected-to-other-resource).
+5. [Bir sanal makine hello sanal ağında hala çalışıp çalışmadığını denetleyin](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+6. [Merhaba sanal ağ içinde geçiş takıldı olup olmadığını denetleyin](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Sorun giderme adımları
 
-### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Bir sanal ağ geçidi sanal ağda çalışır durumda olup olmadığını denetleyin
+### <a name="check-whether-a-virtual-network-gateway-is-running-in-hello-virtual-network"></a>Bir sanal ağ geçidi hello sanal ağda çalışır durumda olup olmadığını denetleyin
 
-Sanal ağı kaldırmak için öncelikle sanal ağ geçidi kaldırmanız gerekir.
+tooremove hello sanal ağ, hello sanal ağ geçidi önce kaldırmanız gerekir.
 
-Klasik sanal ağlar için Git **genel bakış** Azure portalında bir Klasik sanal ağının sayfası. İçinde **VPN bağlantıları** bölümünde, ağ geçidi sanal ağda çalışıyorsa, ağ geçidinin IP adresi görürsünüz. 
+Klasik sanal ağlar için toohello Git **genel bakış** sayfa hello Azure Portalı'nda hello Klasik sanal ağ. Merhaba, **VPN bağlantıları** bölümünde, hello ağ geçidi hello sanal ağda çalışıyorsa, hello IP görürsünüz hello ağ geçidi adresi. 
 
 ![Ağ geçidi çalışır durumda olup olmadığını denetleyin](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-Sanal ağlar için Git **genel bakış** sanal ağın sayfası. Denetleme **bağlı cihazları** sanal ağ geçidi için.
+Sanal ağlar için toohello Git **genel bakış** hello sanal ağ sayfası. Denetleme **bağlı cihazları** hello sanal ağ geçidi için.
 
-![Bağlı bir aygıt denetleyin](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Merhaba bağlı aygıt denetleyin](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
-Ağ geçidi kaldırmadan önce ilk herhangi kaldırın **bağlantı** ağ geçidi nesneleri. 
+Hello ağ geçidi kaldırmadan önce ilk herhangi kaldırın **bağlantı** hello ağ geçidi nesneleri. 
 
-### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>Bir uygulama ağ geçidi sanal ağda çalışır durumda olup olmadığını denetleyin
+### <a name="check-whether-an-application-gateway-is-running-in-hello-virtual-network"></a>Bir uygulama ağ geçidi hello sanal ağda çalışır durumda olup olmadığını denetleyin
 
-Git **genel bakış** sanal ağın sayfası. Denetleme **bağlı cihazları** uygulama ağ geçidi için.
+Toohello Git **genel bakış** hello sanal ağ sayfası. Merhaba denetleyin **bağlı cihazları** hello uygulama ağ geçidi için.
 
-![Bağlı bir aygıt denetleyin](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Merhaba bağlı aygıt denetleyin](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
-Bir uygulama ağ geçidi varsa, sanal ağı silmeden önce onu kaldırmanız gerekir.
+Bir uygulama ağ geçidi ise hello sanal ağı silmeden önce onu kaldırmanız gerekir.
 
-### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Azure Active Directory etki alanı hizmeti sanal ağda etkin olup olmadığını denetleyin
+### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-hello-virtual-network"></a>Azure Active Directory etki alanı hizmeti hello sanal ağda etkin olup olmadığını denetleyin
 
-Active Directory etki alanı hizmeti etkin ve sanal ağa bağlı değilse, bu sanal ağ silinemiyor. 
+Merhaba Active Directory etki alanı hizmeti etkin ve bağlı toohello sanal ağ ise, bu sanal ağ silinemiyor. 
 
-![Bağlı bir aygıt denetleyin](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Merhaba bağlı aygıt denetleyin](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Hizmetini devre dışı bırakmak için aşağıdaki adımları izleyin:
+toodisable Merhaba hizmeti, şu adımları izleyin:
 
-1. [Klasik Azure portalı](https://manage.windowsazure.com)'na gidin.
-2. Sol bölmede seçin **Active Directory**.
-3. Active Directory etki alanı hizmeti etkin olan Azure Active Directory (Azure AD) dizini seçin.
-4. **Configure (Yapılandır)** sekmesini seçin.
-5. Altında **etki alanı Hizmetleri**, değiştirme **bu dizin için etki alanı Hizmetleri'ni etkinleştirme** için seçenek **Hayır**.  
+1. Toohello Git [Klasik Azure portalı](https://manage.windowsazure.com).
+2. Merhaba sol bölmesinde seçin **Active Directory**.
+3. Active Directory etki alanı hizmeti etkin olan hello Azure Active Directory (Azure AD) dizini seçin.
+4. Select hello **yapılandırma** sekmesi.
+5. Altında **etki alanı Hizmetleri**, hello değiştirme **bu dizin için etki alanı Hizmetleri'ni etkinleştirme** çok seçenek**Hayır**.  
 
-### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Sanal ağ diğer kaynağa bağlı olup olmadığını denetleyin
+### <a name="check-whether-hello-virtual-network-is-connected-tooother-resource"></a>Merhaba sanal ağ bağlantılı tooother kaynak olup olmadığını denetleyin
 
-Bağlantı hattı bağlantıları, bağlantıları ve sanal ağ eşlemesi bulunabilir denetleyin. Bunlardan herhangi bir sanal ağ silme başarısız olmasına neden olabilir. 
+Bağlantı hattı bağlantıları, bağlantıları ve sanal ağ eşlemesi bulunabilir denetleyin. Bunlardan herhangi bir sanal ağ silme toofail neden olabilir. 
 
-Önerilen silme sipariş aşağıdaki gibidir:
+Merhaba önerilen silme sipariş şu şekildedir:
 
 1. Ağ Geçidi bağlantıları
 2. Ağ geçitleri
@@ -85,13 +85,13 @@ Bağlantı hattı bağlantıları, bağlantıları ve sanal ağ eşlemesi buluna
 4. Sanal Ağ eşlemesi bulunabilir
 5. Uygulama hizmeti ortamı (ana)
 
-### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Bir sanal makinenin sanal ağda hala çalışıp çalışmadığını denetleyin
+### <a name="check-whether-a-virtual-machine-is-still-running-in-hello-virtual-network"></a>Bir sanal makine hello sanal ağında hala çalışıp çalışmadığını denetleyin
 
-Hiçbir sanal makinenin sanal ağ olduğundan emin olun.
+Hiçbir sanal makine hello sanal ağda olduğundan emin olun.
 
-### <a name="check-whether-the-virtual-network-is-stuck-in-migration"></a>Sanal ağ içinde geçiş takıldı olup olmadığını denetleyin
+### <a name="check-whether-hello-virtual-network-is-stuck-in-migration"></a>Merhaba sanal ağ içinde geçiş takıldı olup olmadığını denetleyin
 
-Sanal ağı geçiş durumunda takılıyorsa silinemiyor. Geçiş işlemi iptal etmek için aşağıdaki komutu çalıştırın ve sanal ağ silin.
+Merhaba sanal ağ bir geçiş durumunda takılıyorsa silinemiyor. Komut tooabort hello geçiş aşağıdaki hello çalıştırın ve hello sanal ağ silin.
 
     Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 

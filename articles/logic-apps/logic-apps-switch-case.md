@@ -1,6 +1,6 @@
 ---
-title: "Azure Logic Apps içinde deyimi farklı eylemler için geçiş | Microsoft Docs"
-description: "Switch deyimi kullanarak ifade değerlerine göre logic apps gerçekleştirmek için farklı eylemleri seçin"
+title: "Azure Logic Apps farklı eylemler için aaaSwitch bildirimi | Microsoft Docs"
+description: "Switch deyimi kullanarak ifade değerlerine göre logic apps farklı eylemler tooperform seçin"
 services: logic-apps
 keywords: Switch deyimi
 author: derek1ee
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09ed7e4a752003aba157e9156bf4dc89ef86f5ad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Logic apps ile switch deyimi içinde farklı eylemler gerçekleştirme
 
-Bir iş akışı yazma, genellikle nesne veya ifade değere göre farklı eylemleri sahiptir. Örneğin, farklı bir HTTP isteğinin ya da bir e-posta içinde seçili bir seçenek durum kodunu göre davranmasına mantıksal uygulamanızı isteyebilirsiniz.
+Bir iş akışı yazma, genellikle nesne veya ifade hello değere göre tootake farklı eylemler vardır. Örneğin, farklı bir HTTP isteği durum kodu hello göre logic app toobehave ya da bir e-posta içinde seçili bir seçenek isteyebilirsiniz.
 
-Bu senaryolar uygulamak için bir anahtar ifadesi kullanabilirsiniz. Mantıksal uygulamanızı bir belirteç veya ifade değerlendirin ve belirtilen eylemleri yürütmek için aynı değere sahip bir servis talebi seçin. Switch deyimi yalnızca bir örnek eşleşmelidir.
+Switch deyimi tooimplement bu senaryoları kullanabilirsiniz. Mantıksal uygulamanızı bir belirteç veya ifade değerlendirin ve hello hello durumuyla seçin aynı değeri tooexecute hello belirtilen eylemler. Yalnızca bir örnek hello switch deyimi eşleşmelidir.
 
 > [!TIP]
 > Tüm programlama dilleri gibi switch deyimleri yalnızca eşitlik işleçleri destekler. Diğer ilişkisel işleçleri gerekirse "büyüktür gibi", bir koşul deyimi kullanın.
-> Belirleyici yürütme davranışı sağlamak için durumlarda dinamik belirteçleri veya ifade yerine benzersiz ve statik bir değer içermesi gerekir.
+> tooensure belirleyici yürütme davranışını durumlarda dinamik belirteçleri veya ifade yerine benzersiz ve statik bir değer içermelidir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Etkin bir Azure aboneliği. Etkin bir Azure aboneliğiniz yoksa [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/), veya deneyin [Logic Apps için ücretsiz](https://tryappservice.azure.com/).
 - [Mantıksal uygulamalar hakkındaki temel bilgileri](logic-apps-what-are-logic-apps.md)
 
-## <a name="add-a-switch-statement-to-your-workflow"></a>Switch deyimi akışınıza ekleme
+## <a name="add-a-switch-statement-tooyour-workflow"></a>Switch deyimi tooyour iş akışını Ekle
 
-Switch deyimi nasıl çalıştığını göstermek için bu örnek için Dropbox karşıya yüklenen dosyaların izler bir mantıksal uygulama oluşturur. Yeni dosyalar yüklenirken mantıksal uygulama aktarılmayacağını SharePoint'e bu dosyaları seçen onaylayıcı e-posta gönderir. Uygulama onaylayan seçtiği değere göre farklı eylemler gerçekleştiren bir anahtar deyimi kullanır.
+switch deyimi nasıl çalıştığını tooshow, bu örnek izleyiciler dosyaları tooDropbox karşıya bir mantıksal uygulama oluşturur. Merhaba yeni dosyaları karşıya zaman hello mantıksal uygulama seçen e-posta tooan onaylayan gönderir olup olmadığını tootransfer bu dosyaları tooSharePoint. Merhaba uygulama onaylayan seçer hello hello değere göre farklı eylemler gerçekleştiren bir anahtar deyimi kullanır.
 
 1. Bir mantıksal uygulama oluşturun ve bu Tetikleyici seçin: **bir dosya oluşturulduğunda, Dropbox -**.
 
    ![Bir dosya tetikleyici oluşturulduğunda, Dropbox - kullanın](./media/logic-apps-switch-case/dropbox-trigger.jpg)
 
-2. Bu eylem tetikleyici altında ekleyin: **Outlook.com - onay e-postası gönderme**
+2. Bu eylemin Hello tetikleyici altında ekleyin: **Outlook.com - onay e-postası gönderme**
 
    > [!TIP]
    > Logic apps ayrıca bir Office 365 Outlook hesaptan gönderme onay e-posta senaryoları destekler.
 
-   - Varolan bir bağlantıyı sahip değilseniz, birini oluşturmanız istenir.
-   - Gerekli alanları doldurun. Örneğin, altında **için**, onaylayan e-posta göndermek için e-posta adresi belirtin.
+   - Varolan bir bağlantıyı yoksa istenir toocreate biri.
+   - Merhaba gerekli alanları doldurun. Örneğin, altında **için**, hello onaylayan e-posta göndermek için hello e-posta adresi belirtin.
    - Altında **kullanıcı seçenekleri**, girin `Approve, Reject`.
 
    ![Bağlantıyı yapılandırın](./media/logic-apps-switch-case/send-approval-email-action.jpg)
@@ -58,30 +58,30 @@ Switch deyimi nasıl çalıştığını göstermek için bu örnek için Dropbox
 3. Switch deyimi ekleyin.
 
    - Seçin **+ yeni adım** > **... Daha fazla** > **anahtar durumu ekleme**. 
-   - Gerçekleştirilecek eylemi seçin istiyoruz artık temel `SelectedOptions` çıktısı *onay e-posta Gönder* eylem. 
-   Bu alanda bulabileceğiniz **dinamik içerik eklemek** Seçici.
-   - Kullanım *durum 1* onaylayan seçtiğinde işlemek için `Approve`.
-     - SharePoint Online ile onaylanırsa, özgün dosya kopyalama [ **SharePoint Online - dosyası oluşturma** eylem](../connectors/connectors-create-api-sharepointonline.md).
-     - Yeni bir dosya SharePoint üzerinde kullanılabilir olduğunu kullanıcılara bildirmek için durum içindeki başka bir eylem ekleyin.
-   - Kullanıcı seçtiğinde işlemek için başka bir örneği eklemek `Reject`.
-     - Reddedilirse, diğer onaylayanlar dosya reddedilir ve başka bir eylem gerekli değildir bildiren bir bildirim e-postası gönderin.
-   - `SelectedOptions`Biz bırakabilirsiniz, bu nedenle yalnızca iki seçenek sunar **varsayılan** durum boş.
+   - Merhaba üzerinde temel tooselect hello eylem tooperform istiyoruz artık `SelectedOptions` hello çıktı *onay e-posta Gönder* eylem. 
+   Bu alan hello bulabilirsiniz **dinamik içerik eklemek** Seçici.
+   - Kullanım *durum 1* hello onaylayan seçtiğinde toohandle `Approve`.
+     - Onaylanırsa, çevrimiçi hello ile Merhaba özgün dosya tooSharePoint kopyalama [ **SharePoint Online - dosyası oluşturma** eylem](../connectors/connectors-create-api-sharepointonline.md).
+     - Yeni bir dosya SharePoint üzerinde kullanılabilir olduğunu hello servis talebi toonotify kullanıcılar başka bir eylem ekleyin.
+   - Kullanıcı seçtiğinde başka bir örneği toohandle eklemek `Reject`.
+     - Reddedilirse, diğer onaylayanlar hello dosya reddedilir ve başka bir eylem gerekli değildir bildiren bir bildirim e-postası gönderin.
+   - `SelectedOptions`Biz hello bırakabilirsiniz için yalnızca iki seçenek sunar **varsayılan** durum boş.
 
    ![Switch deyimi](./media/logic-apps-switch-case/switch.jpg)
 
    > [!NOTE]
-   > Switch deyimi varsayılan durumda yanı sıra en az bir örnek gerekiyor.
+   > Switch deyimi toplama toohello varsayılan durumda en az bir örnek gerekiyor.
 
-4. Switch deyimi sonra bu eylem ekleyerek Dropbox'a karşıya özgün dosyayı silmektir: **Dropbox - dosya silinemiyor**
+4. Bu eylem ekleyerek hello özgün dosya karşıya tooDropbox Hello switch deyimi sonra silin: **Dropbox - dosya silinemiyor**
 
-5. Mantıksal uygulamanızı kaydedin. Dropbox için bir dosyayı karşıya yükleyerek uygulamanızı test edin. Kısa süre içinde bir onay e-posta alacaksınız. Bir seçenek belirleyin ve davranışı uyun.
+5. Mantıksal uygulamanızı kaydedin. Bir dosya tooDropbox karşıya yükleyerek uygulamanızı test edin. Kısa süre içinde bir onay e-posta alacaksınız. Bir seçenek belirleyin ve hello davranışı uyun.
 
    > [!TIP]
-   > Nasıl yapılır kullanıma [mantıksal uygulamalarınızı izleme](logic-apps-monitor-your-logic-apps.md).
+   > Nasıl çok denetleyin[mantıksal uygulamalarınızı izleme](logic-apps-monitor-your-logic-apps.md).
 
-## <a name="understand-the-code-behind-switch-statements"></a>Switch deyimleri arka plan kodu anlama
+## <a name="understand-hello-code-behind-switch-statements"></a>Switch deyimleri arkasındaki Hello kodu anlama
 
-Switch deyimi kullanarak bir mantıksal uygulama başarıyla oluşturuldu, switch deyimi arkasındaki kod tanımı bakalım.
+Switch deyimi kullanarak bir mantıksal uygulama başarıyla oluşturuldu, hello kod tanımı hello switch deyimi arkasında bakalım.
 
 ```json
 "Switch": {
@@ -108,20 +108,20 @@ Switch deyimi kullanarak bir mantıksal uygulama başarıyla oluşturuldu, switc
 }
 ```
 
-* `"Switch"`Okunabilirlik için yeniden adlandırabilirsiniz switch deyimi adıdır. 
-* `"type": "Switch"`Eylem switch deyimi olduğunu gösterir. 
-* `"expression"`Bu örnekte onaylayanın seçili seçenektir ve tanımı içinde bildirilen her durumda karşı değerlendirilir. 
-* `"cases"`herhangi bir sayıda durumları içerebilir. Her bir olay `"Case *"` okunabilirlik için yeniden adlandırabilirsiniz durumunun varsayılan addır. 
-`"case"`anahtar ifadesi karşılaştırma için kullanır, servis talebi etiketini belirtir ve sabit ve benzersiz bir değer olmalıdır. Örneklerin hiçbiri anahtar ifadesi, Eylemler altında eşleşiyorsa `"default"` yürütülür.
+* `"Switch"`Okunabilirlik için yeniden adlandırabilirsiniz hello switch deyimi Hello adıdır. 
+* `"type": "Switch"`Merhaba eylem switch deyimi olduğunu gösterir. 
+* `"expression"`Bu örnekte Hello onaylayanın seçili seçenektir ve daha sonra hello tanımında bildirilen her durumda karşı değerlendirilir. 
+* `"cases"`herhangi bir sayıda durumları içerebilir. Her bir olay `"Case *"` okunabilirlik için yeniden adlandırabilirsiniz hello durumunun hello varsayılan addır. 
+`"case"`anahtar ifadesi karşılaştırma kullanımları hello ve sabit ve benzersiz bir değer olmalıdır hello servis talebi etiket belirtir. Merhaba durumlarda hiçbiri hello anahtar ifadesi, Eylemler altında eşleşiyorsa `"default"` yürütülür.
 
 ## <a name="get-help"></a>Yardım alın
 
-Sorular sormak, soruları yanıtlamak ve diğer Azure Logic Apps kullanıcılarının neler yaptığını görmek için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+tooask sorular, soruları ve diğer Azure mantıksal uygulamaları kullanıcıların gittiğini, bkz: ziyaret hello [Azure Logic Apps Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-Azure Logic Apps ve bağlayıcıları geliştirmeye yardımcı olmak için, [Azure Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish) oy kullanın veya fikirlerinizi paylaşın.
+toohelp Azure mantıksal uygulamaları ve bağlayıcıların geliştirmek, oy veya hello fikir gönderme [Azure Logic Apps kullanıcı geri bildirim sitesi](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [koşulları ekleme](logic-apps-use-logic-app-features.md)
+- Nasıl çok öğrenin[koşulları ekleme](logic-apps-use-logic-app-features.md)
 - Hakkında bilgi edinin [hata ve özel durum işleme](logic-apps-exception-handling.md)
 - Daha fazla araştırmak [iş akışı dil özellikleri](logic-apps-author-definitions.md)

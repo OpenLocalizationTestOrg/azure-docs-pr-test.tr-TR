@@ -1,6 +1,6 @@
 ---
-title: "Azure Portal kullanarak Azure Data Lake Analytics işlerini sorunlarını giderme | Microsoft Docs"
-description: "Data Lake Analytics işlerini gidermek için Azure Portalı'nı kullanmayı öğrenin. "
+title: "Azure Portal kullanarak aaaTroubleshoot Azure Data Lake Analytics işlerini | Microsoft Docs"
+description: "Nasıl toouse hello Azure Portal tootroubleshoot Data Lake Analytics işlerini öğrenin. "
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e810d56bab8f1a8254721ec9906bb6a4508dc22a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Azure Portal kullanarak Azure Data Lake Analytics işlerini sorun giderme
-Data Lake Analytics işlerini gidermek için Azure Portalı'nı kullanmayı öğrenin.
+Nasıl toouse hello Azure Portal tootroubleshoot Data Lake Analytics işlerini öğrenin.
 
-Bu öğreticide, bir eksik kaynak dosyası sorunu Kurulum ve sorun giderme için Azure Portalı'nı kullanın.
+Bu öğreticide, bir eksik kaynak dosyası sorunu Kurulum ve hello Azure Portal tootroubleshoot hello sorun kullanın.
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Data Lake Analytics işi gönderme
 
-Aşağıdaki U-SQL işi gönder:
+U-SQL işi aşağıdaki hello gönder:
 
 ```
 @searchlog =
@@ -42,38 +42,38 @@ Aşağıdaki U-SQL işi gönder:
    USING Extractors.Tsv();
 
 OUTPUT @searchlog   
-   TO "/output/SearchLog-from-adls.csv"
+   too"/output/SearchLog-from-adls.csv"
    USING Outputters.Csv();
 ```
     
-Komut dosyasında tanımlı kaynak dosyası **/Samples/Data/SearchLog.tsv1**, burada olmalıdır **/Samples/Data/SearchLog.tsv**.
+Merhaba kaynak dosyası hello komut dosyasında tanımlı olan **/Samples/Data/SearchLog.tsv1**, burada olmalıdır **/Samples/Data/SearchLog.tsv**.
 
 
-## <a name="troubleshoot-the-job"></a>İş sorunlarını giderme
+## <a name="troubleshoot-hello-job"></a>Merhaba işi sorunlarını giderme
 
-**Tüm işleri görmek için**
+**toosee tüm işleri hello**
 
-1. Azure portalından tıklatın **Microsoft Azure** sol üst köşedeki.
-2. Data Lake Analytics hesap adınızı içeren kutucuğa tıklayın.  İş özeti gösterilir **iş yönetimi** döşeme.
+1. Hello ifadesini Azure portal'ı tıklatın **Microsoft Azure** hello sol üst köşedeki.
+2. Data Lake Analytics hesap adınızı içeren Hello kutucuğa tıklayın.  Merhaba işi Özet hello üzerinde gösterilen **iş yönetimi** döşeme.
 
     ![Azure Data Lake Analytics iş yönetimi](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
-    Proje yönetimi, iş durumunu bir bakışta sağlar. Başarısız bir işi olduğuna dikkat edin.
-3. Tıklatın **iş yönetimi** işleri görmek için döşeme. İşlerini kategorilere ayrılır **çalıştıran**, **sıraya alınan**, ve **sona erdi**. Başarısız işinizde göreceksiniz **sona erdi** bölümü. Listedeki ilk bir olacaktır. İşlerini çok sahip olduğunuzda, tıklayabilirsiniz **filtre** işleri bulmanıza yardımcı olacak.
+    Merhaba iş yönetimi hello iş durumunu bir bakışta sağlar. Başarısız bir işi olduğuna dikkat edin.
+3. Merhaba tıklatın **iş yönetimi** toosee hello işleri kutucuğu. Merhaba işleri kategorilere içinde **çalıştıran**, **sıraya alınan**, ve **sona erdi**. Merhaba başarısız işinizde göreceksiniz **sona erdi** bölümü. Birincisi hello listesinde olacaktır. İşlerini çok sahip olduğunuzda, tıklayabilirsiniz **filtre** toohelp, toolocate işler.
 
     ![Azure Data Lake Analytics işleri filtreleyin](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Yeni bir dikey pencerede iş ayrıntılarını açmak için listeden başarısız işi tıklayın:
+4. Yeni bir dikey penceresinde hello listesi tooopen hello iş ayrıntıları Hello başarısız işi tıklayın:
 
     ![Azure Data Lake Analytics işi başarısız oldu](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
-    Bildirim **yeniden gönderin** düğmesi. Sorunu düzelttikten sonra işi yeniden gönderebilirsiniz.
-5. Hata ayrıntılarını açmak için önceki ekran görüntüsünde vurgulanan bölümünden'ı tıklatın.  Benzer bir şey göreceksiniz:
+    Bildirim hello **yeniden gönderin** düğmesi. Merhaba sorunu düzelttikten sonra hello işi yeniden gönderebilirsiniz.
+5. Vurgulanan bölümünden hello önceki ekran tooopen hello hata ayrıntıları'ı tıklatın.  Benzer bir şey göreceksiniz:
 
     ![Azure Data Lake Analytics işi ayrıntıları ile başarısız oldu.](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
 
-    Kaynak klasörü bulunamadı söyler.
+    Merhaba kaynak klasörü bulunamadı söyler.
 6. Tıklatın **yinelenen komut dosyası**.
-7. Güncelleştirme **FROM** aşağıdaki yolu:
+7. Güncelleştirme hello **FROM** yolu toohello aşağıdaki:
 
     "/ Samples/Data/SearchLog.tsv"
 8. **İşi Gönder**'e tıklayın.

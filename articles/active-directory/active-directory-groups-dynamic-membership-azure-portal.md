@@ -1,0 +1,304 @@
+---
+title: "Azure Active Directory'de aaaAttribute tabanlı dinamik grup üyeliği | Microsoft Docs"
+description: "Dinamik grup üyeliği de dahil olmak üzere kurallarını nasıl toocreate Gelişmiş ifade kural işleçleri ve parametreleri desteklenmiyor."
+services: active-directory
+documentationcenter: 
+author: curtand
+manager: femila
+editor: 
+ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/18/2017
+ms.author: curtand
+ms.reviewer: piotrci
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 8cd06ed70433eff65401c67d7351d5dcc12a9dd5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
+Azure Active Directory (Azure AD), tooenable karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler Gelişmiş kurallar oluşturabilirsiniz. Bu makalede hello öznitelikleri ve kullanıcılara veya cihazlara sözdizimi toocreate dinamik Üyelik kuralları ayrıntıları.
+
+Merhaba değişiklik tetikleyecek varsa herhangi bir kullanıcı veya aygıt değişikliği özniteliklerini hello sistem dizin toosee tüm dinamik Grup kurallarında değerlendirildiğinde herhangi bir grup ekler veya kaldırır. Bir kullanıcı veya cihaza bir grupta kuralı uymazsa, bunlar bu grubun bir üyesi olarak eklenir. Bunlar artık hello kural karşılamak varsa, bunlar kaldırılır.
+
+> [!NOTE]
+> - Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
+>
+> - Bu özellik, her kullanıcı üye eklenen tooat en az bir dinamik bir grup için bir Azure AD Premium P1 lisansı gerektirir.
+>
+> - Aygıtların veya kullanıcıların dinamik bir grup oluşturabilirsiniz, ancak kullanıcı ve aygıt nesneleri içeren bir kuralı oluşturulamıyor.
+
+> - Merhaba şu anda olası toocreate kullanıcının özniteliklere sahip bir cihaz grubuna bağlı değil. Cihaz Üyelik kuralları yalnızca başvuru hemen öznitelikleri cihaz nesnelerinin hello dizin olabilir.
+
+## <a name="toocreate-an-advanced-rule"></a>toocreate Gelişmiş bir kuralı
+1. İçinde toohello oturum [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) genel bir yönetici veya kullanıcı hesabı yönetici olan bir hesapla.
+2. Seçin **kullanıcılar ve gruplar**.
+3. Seçin **tüm grupları**.
+
+   ![Açılış hello grupları dikey penceresi](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
+4. İçinde **tüm grupları**seçin **yeni grup**.
+
+   ![Yeni Grup Ekle](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
+5. Merhaba üzerinde **grup** dikey penceresinde, bir ad ve hello yeni grup için bir açıklama girin. Seçin bir **üyelik türü** herhangi birinin **dinamik kullanıcı** veya **dinamik cihaz**, olup, kullanıcılar veya cihazlar için bir kural toocreate istediğiniz ve seçinbağlıolarak**Ekle dinamik sorgu**. Cihaz kuralları için kullanılan hello öznitelikler için bkz: [için cihaz nesnelerinin öznitelikleri toocreate kurallarını kullanarak](#using-attributes-to-create-rules-for-device-objects).
+
+   ![Dinamik Üyelik Kuralı Ekle](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
+6. Hello üzerinde **dinamik Üyelik kuralları** dikey penceresinde hello kuralınız girin **Ekle dinamik üyelik kuralı Gelişmiş** kutusuna Enter tuşuna basın ve ardından **oluşturma** hello altındaki Merhaba dikey.
+7. Seçin **oluşturma** hello üzerinde **grup** dikey toocreate hello grubu.
+
+## <a name="constructing-hello-body-of-an-advanced-rule"></a>Gelişmiş bir kural gövdesi Hello oluşturma
+gruplara yönelik dinamik üyelikler hello için oluşturabileceğiniz hello Gelişmiş üç bölümden oluşur ve bir true veya false sonucu Sonuçlar aslında bir ikili ifade kuralıdır. Merhaba üç bölümden şunlardır:
+
+* Sol parametre
+* İkili işleç
+* Sağ sabiti
+
+Tam gelişmiş kural benzer toothis arar: (leftParameter işlecin "RightConstant"), açma ve kapama parantezi hello hello tüm ikili ifade için isteğe bağlı olduğu, çift tırnak işareti de sadece hello sağ gerekli isteğe bağlıdır dize olduğunda ve hello sol parametre hello sözdizimi user.property sabiti. Gelişmiş bir kural birden fazla ikili ifadeler hello tarafından ayrılmış oluşabilir- ve- ya da ve - değil mantıksal işleçler.
+
+Merhaba, doğru şekilde oluşturulmuş bir Gelişmiş kural örnekleri şunlardır:
+```
+(user.department -eq "Sales") -or (user.department -eq "Marketing")
+(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+```
+Merhaba tam listesi ve desteklenen parametreler ve ifade kural işleçleri için aşağıdaki bölümlere bakın. Cihaz kuralları için kullanılan hello öznitelikler için bkz: [için cihaz nesnelerinin öznitelikleri toocreate kurallarını kullanarak](#using-attributes-to-create-rules-for-device-objects).
+
+Merhaba, Gelişmiş kural gövdesi Hello toplam uzunluğu 2048 karakterden uzun olamaz.
+
+> [!NOTE]
+> Dize ve regex işlemlerinin büyük küçük harfe duyarlı değildir. Ayrıca gerçekleştirebilirsiniz Null denetimleri, örneğin bir sabit değer olarak $null kullanarak, user.department - eq $null.
+> Tırnak işareti içeren bir dizeler "kullanarak kaçışlı ' karakter, örneğin, user.department - eq \`"Satış".
+
+## <a name="supported-expression-rule-operators"></a>Desteklenen ifade kural işleçleri
+Merhaba aşağıdaki tabloda tüm desteklenen hello ifade kural işleçleri ve kural Gelişmiş hello hello gövdesinde kullanılan kendi sözdizimi toobe listelenmektedir:
+
+| işleci | Sözdizimi |
+| --- | --- |
+| Eşit değildir |-ne |
+| eşittir |-eq |
+| İle başlayan değil |-notStartsWith |
+| İle başlar |-startsWith |
+| İçermez |-notContains |
+| Contains |-içerir |
+| Eşleşmiyor |-notMatch |
+| eşleşme |-eşleşmesi |
+| İçinde | -içinde |
+| İçinde değil | -notIn |
+
+## <a name="operator-precedence"></a>İşleç önceliği
+
+Tüm işleçleri, daha düşük toohigher öncelikten başına aşağıda listelenmiştir. Aynı satırdaki işleçleri içinde eşit önceliğe şunlardır:
+````
+-any -all
+-or
+-and
+-not
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+````
+Tüm işleçleri ile veya hello tire öneki olmadan kullanılabilir. Yalnızca öncelik gereksinimlerinizi karşılamadığında parantez gereklidir.
+Örneğin:
+```
+   user.department –eq "Marketing" –and user.country –eq "US"
+```
+eşdeğerdir:
+```
+   (user.department –eq "Marketing") –and (user.country –eq "US")
+```
+## <a name="using-hello--in-and--notin-operators"></a>Kullanarak hello - içinde ve - notIn işleçleri
+
+Bir dizi farklı değerlere karşı bir kullanıcı özniteliğinin toocompare hello değeri istiyorsanız kullanabileceğiniz hello - içinde ya da - notIn işleçler. Örneği kullanarak hello - işleci:
+```
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+```
+Not hello hello "[" ve "]" Merhaba başına ve değer hello listesi sonundaki. Bu durum hello listesinde hello değerlerin user.department eşittir bir hello değerinin tooTrue değerlendirir.
+
+
+## <a name="query-error-remediation"></a>Sorgu hata düzeltme
+Merhaba aşağıdaki tabloda olası hataları listeler ve nasıl toocorrect bunları oluşursa
+
+| Sorgu ayrıştırma hatası | Hata kullanımı | Düzeltilmiş kullanımı |
+| --- | --- | --- |
+| Hata: özniteliği desteklenmiyor. |(user.invalidProperty - eq "Value") |(user.department - eq "value")<br/>Özellik hello birinden eşleşmelidir [özellikleri listesi desteklenen](#supported-properties). |
+| Hata: Öznitelikte işleci desteklenmiyor. |(user.accountEnabled-true içerir) |(user.accountEnabled - eq true)<br/>Özellik olduğu boolean türü. Desteklenen hello işleçleri kullanın (-eq veya - ne) listesinin hello Boole türünden üzerinde. |
+| Hata: Sorgu derleme hatası oluştu. |(user.department - eq "Satış")- ve (user.department - eq "Pazarlama") (user.userPrincipalName-eşleşen "*@domain.ext") |(user.department - eq "Satış")- ve (user.department - eq "Pazarlama")<br/>Mantıksal işleç, listeden bir desteklenen hello özellikleri yukarıdaki eşleşmelidir. (user.userPrincipalName-eşleşen ". *@domain.ext") veya (user.userPrincipalName-eşleşen "@domain.ext$") normal ifadede hata. |
+| Hata: İkili ifade doğru biçimde değil. |(user.department-eq "Satış") (user.department - eq "Satış") (user.department-eq "Satış") |(user.accountEnabled - eq true)- ve (user.userPrincipalName-içeren "alias@domain")<br/>Sorgu birden çok hata içeriyor. Parantez doğru yerde içinde değil. |
+| Hata: Dinamik üyelikleri ayarı sırasında bilinmeyen bir hata oluştu. |(user.accountEnabled - eq "True" ve user.userPrincipalName-içeren "alias@domain") |(user.accountEnabled - eq true)- ve (user.userPrincipalName-içeren "alias@domain")<br/>Sorgu birden çok hata içeriyor. Parantez doğru yerde içinde değil. |
+
+## <a name="supported-properties"></a>Desteklenen özellikler
+Merhaba, Gelişmiş kuralınız kullanabileceğiniz tüm hello kullanıcı özellikleri şunlardır:
+
+### <a name="properties-of-type-boolean"></a>Boolean özelliklerini türü
+İzin verilen işleçleri
+
+* -eq
+* -ne
+
+| Özellikler | İzin verilen değerler | Kullanım |
+| --- | --- | --- |
+| accountEnabled |doğru false |user.accountEnabled - eq true |
+| dirSyncEnabled |doğru false |user.dirSyncEnabled - eq true |
+
+### <a name="properties-of-type-string"></a>Dize türünde özellikleri
+İzin verilen işleçleri
+
+* -eq
+* -ne
+* -notStartsWith
+* -StartsWith
+* -içerir
+* -notContains
+* -eşleşmesi
+* -notMatch
+* -içinde
+* -notIn
+
+| Özellikler | İzin verilen değerler | Kullanım |
+| --- | --- | --- |
+| city |Herhangi bir dize değeri veya $null |(user.city - eq "value") |
+| Ülke |Herhangi bir dize değeri veya $null |(Resource.country - eq "value") |
+| Şirket adı | Herhangi bir dize değeri veya $null | (user.companyName - eq "value") |
+| Bölüm |Herhangi bir dize değeri veya $null |(user.department - eq "value") |
+| Görünen adı |Herhangi bir dize değeri |(user.displayName - eq "value") |
+| facsimileTelephoneNumber |Herhangi bir dize değeri veya $null |(user.facsimileTelephoneNumber - eq "value") |
+| givenName |Herhangi bir dize değeri veya $null |(user.givenName - eq "value") |
+| İş Unvanı |Herhangi bir dize değeri veya $null |(user.jobTitle - eq "value") |
+| Posta |Herhangi bir dize değeri veya $null (Merhaba kullanıcının SMTP adresi) |(user.mail - eq "value") |
+| mailNickName |Herhangi bir dize değeri (Merhaba kullanıcı diğer adı posta) |(user.mailNickName - eq "value") |
+| Mobil |Herhangi bir dize değeri veya $null |(user.mobile - eq "value") |
+| objectID |Merhaba kullanıcı nesnesinin GUID |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | Gelen eşitlenmiş olan kullanıcılar için şirket içi güvenlik tanımlayıcısı (SID) toohello bulut şirket içi. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| passwordPolicies |Hiçbiri DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
+| physicalDeliveryOfficeName |Herhangi bir dize değeri veya $null |(user.physicalDeliveryOfficeName - eq "value") |
+| posta kodu |Herhangi bir dize değeri veya $null |(user.postalCode - eq "value") |
+| preferredLanguage |ISO 639-1 kodu |(user.preferredLanguage - eq "en-US") |
+| sipProxyAddress |Herhangi bir dize değeri veya $null |(user.sipProxyAddress - eq "value") |
+| durum |Herhangi bir dize değeri veya $null |(user.state - eq "value") |
+| StreetAddress |Herhangi bir dize değeri veya $null |(user.streetAddress - eq "value") |
+| Soyadı |Herhangi bir dize değeri veya $null |(user.surname - eq "value") |
+| telephoneNumber |Herhangi bir dize değeri veya $null |(user.telephoneNumber - eq "value") |
+| usageLocation |İki harflerin ülke kodu |(user.usageLocation - eq "ABD") |
+| userPrincipalName |Herhangi bir dize değeri |(user.userPrincipalName - eq "alias@domain") |
+| UserType |üye Konuk $null |(user.userType - eq "Üye") |
+
+### <a name="properties-of-type-string-collection"></a>Türü dize koleksiyonunun özellikleri
+İzin verilen işleçleri
+
+* -içerir
+* -notContains
+
+| Özellikler | İzin verilen değerler | Kullanım |
+| --- | --- | --- |
+| otherMails |Herhangi bir dize değeri |(user.otherMails-içeren "alias@domain") |
+| proxyAddresses |SMTP: alias@domain smtp:alias@domain |(user.proxyAddresses-içeren "SMTP: alias@domain") |
+
+## <a name="multi-value-properties"></a>Birden çok değerli özellikleri
+İzin verilen işleçleri
+
+* -herhangi (Merhaba koleksiyonda en az bir öğe hello koşul eşleştiğinde memnun)
+* -(tüm hello koleksiyondaki tüm öğeleri hello koşul eşleştiğinde memnun)
+
+| Özellikler | Değerler | Kullanım |
+| --- | --- | --- |
+| assignedPlans |Aşağıdaki dize özelliklere hello hello koleksiyondaki her nesneyi sunar: capabilityStatus, hizmet, servicePlanId |user.assignedPlans-tüm (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- ve assignedPlan.capabilityStatus - eq "Etkin") |
+
+Çoklu değer özelliklerdir hello nesne koleksiyonları aynı türde. Kullanabileceğiniz - hello tümünün veya bir koşul tooone öğelerini hello koleksiyonunda sırasıyla tüm ve - tüm işleçleri tooapply. Örneğin:
+
+assignedPlans toohello kullanıcı atanan tüm hizmet planları listeleyen birden çok değerli bir özelliktir. Merhaba ifade aşağıda da etkin durumda olan hello Exchange Online (planı 2) hizmet planı olan kullanıcılar seçer:
+
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+(Merhaba GUID tanımlayıcısı hello Exchange Online (planı 2) hizmet planı tanımlar.)
+
+> [!NOTE]
+> Tooidentify tüm kullanıcıların kendisi için istiyorsanız kullanışlıdır bir Office 365 (veya diğer Microsoft çevrimiçi hizmet) özelliği etkinleştirildi, örnek tootarget için bunları ilkeleri belirli bir dizi.
+
+Merhaba ifadesini hello ("SCO" hizmet adı tarafından tanımlanan) Intune hizmeti ile ilişkili herhangi bir hizmet planının olan tüm kullanıcıları seçer:
+```
+user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+## <a name="use-of-null-values"></a>Null değerleri kullanımı
+
+toospecify bir null değer bir kuralı, "null" ya da $null kullanabilirsiniz. Örnek:
+```
+   user.mail –ne null
+```
+eşdeğerdir
+```
+   user.mail –ne $null
+   ```
+
+## <a name="extension-attributes-and-custom-attributes"></a>Uzantı öznitelikleri ve özel öznitelikler
+Uzantı öznitelikleri ve özel öznitelikler dinamik üyelik kurallarında desteklenir.
+
+Uzantı öznitelikleri AD şirket içi penceresi sunucusundan eşitlenen ve "X 1-15 burada eşittir ExtensionAttributeX" Merhaba biçimi uygulayın.
+Bir uzantı özniteliği kullanan bir kural, bir örnek olabilir
+```
+(user.extensionAttribute15 -eq "Marketing")
+```
+Özel öznitelikler, şirket içi Windows Server AD veya bir bağlı SaaS uygulama ve hello hello biçimine eşitlenen "user.extension_[GUID]\__ [öznitelik]", [GUID] hello uygulamanın benzersiz tanımlayıcısı aad'de hello olduğu, oluşturulan hello özniteliğinde AAD ve [öznitelik] oluşturulduğu hello özniteliğinin hello adı aynıdır.
+Özel bir öznitelik kullanan bir kural örneğidir
+```
+user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
+```
+Merhaba özel öznitelik adı hello dizininde bir kullanıcı sorgulanarak bulunabilir özniteliği grafik Gezgini'ni kullanarak ve hello öznitelik adı için arama.
+
+## <a name="direct-reports-rule"></a>"Doğrudan raporları" kuralı
+Yöneticinin tüm doğrudan raporları içeren bir grup oluşturabilirsiniz. Hello Yöneticisi'nin doğrudan raporları hello gelecekteki değiştirdiğinizde, hello grubun üyeliği otomatik olarak ayarlanır.
+
+> [!NOTE]
+> 1. Merhaba kural toowork için emin hello olun **Manager kimliği** özelliği ayarlanmış doğru kiracınızda kullanıcıları. Bir kullanıcı için geçerli değer hello denetleyebilirsiniz kendi **Profil sekmesi**.
+> 2. Bu kural yalnızca destekler **doğrudan** raporlar. Şu anda olası toocreate iç içe geçmiş bir hiyerarşi, örneğin doğrudan raporlar ve bunların raporları içeren bir grubu için bir grup değil.
+
+**tooconfigure hello grubu**
+
+1. 1-5 bölümünden adımlarını [toocreate hello Gelişmiş kural](#to-create-the-advanced-rule)seçip bir **üyelik türü** , **dinamik kullanıcı**.
+2. Merhaba üzerinde **dinamik Üyelik kuralları** dikey penceresinde hello kural sözdizimi aşağıdaki hello ile girin:
+
+    *"{ObectID_of_manager}" için doğrudan raporları*
+
+    Geçerli bir kural örneği:
+```
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is hello objectID of hello manager. hello object ID can be found on manager's **Profile tab**.
+3. Hello kural kaydedildikten sonra hello tüm kullanıcılarla toohello Grup Yöneticisi kimlik değeri eklenecek belirtilmiş.
+
+## <a name="using-attributes-toocreate-rules-for-device-objects"></a>İçin cihaz nesnelerinin öznitelikleri toocreate kurallarını kullanma
+Bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsiniz. cihaz öznitelikleri aşağıdaki hello kullanılabilir.
+
+ Cihaz özniteliği  | Değerler | Örnek
+ ----- | ----- | ----------------
+ accountEnabled | doğru false | (device.accountEnabled - eq true)
+ Görünen adı | Herhangi bir dize değeri |(device.displayName - eq "Ramiz Iphone")
+ deviceOSType | Herhangi bir dize değeri | (device.deviceOSType - eq "IOS")
+ DeviceOSVersion | Herhangi bir dize değeri | (cihazı. OSVersion - eq "9.1")
+ deviceCategory | Geçerli bir aygıt kategori adı | (device.deviceCategory - eq "KCG")
+ DeviceManufacturer | Herhangi bir dize değeri | (device.deviceManufacturer - eq "Samsung")
+ DeviceModel | Herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")
+ deviceOwnership | Kişisel, şirket | (device.deviceOwnership - eq "Şirket")
+ domainName | Herhangi bir dize değeri | (device.domainName - eq "contoso.com")
+ enrollmentProfileName | Apple cihaz kayıt profilinin adı | (device.enrollmentProfileName - eq "DEP iPhone")
+ isRooted | doğru false | (device.isRooted - eq true)
+ managementType | MDM (için mobil cihazlar)<br>PC (Merhaba Intune bilgisayar aracı tarafından yönetilen bilgisayarlar için) | (device.managementType - eq "MDM")
+ Kuruluş birimi | bir şirket içi Active Directory tarafından ayarlanmış hello kuruluş biriminin Hello adıyla eşleşen herhangi bir dize değeri | (device.organizationalUnit - eq "ABD PC'ler")
+ deviceId | Geçerli bir Azure AD cihaz kimliği | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objectID | Geçerli bir Azure AD nesne kimliği |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+
+
+
+
+## <a name="next-steps"></a>Sonraki adımlar
+Bu makaleler Azure Active Directory'de gruplar hakkında ek bilgiler sağlar.
+
+* [Var olan grupları bakın](active-directory-groups-view-azure-portal.md)
+* [Yeni bir grup oluşturun ve üye ekleme](active-directory-groups-create-azure-portal.md)
+* [Bir grubu ayarlarını yönetme](active-directory-groups-settings-azure-portal.md)
+* [Bir grubun üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
+* [Bir gruptaki kullanıcılar için dinamik kurallarını yönet](active-directory-groups-dynamic-membership-azure-portal.md)

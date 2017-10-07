@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Ağ İzleyicisi örneği oluşturma | Microsoft Docs"
-description: "Bu sayfa portal ve Azure REST API'sini kullanarak Ağ İzleyicisi örneği oluşturmak için aşağıdaki adımları sağlar."
+title: "aaaCreate Azure Ağ İzleyicisi örneği | Microsoft Docs"
+description: "Bu sayfa, hello portalı ve Azure REST API'sini kullanarak Ağ İzleyicisi örneği hello adımları toocreate sağlar"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 2aeaffdd5ab552e18677cbd1a24a748dd14bf172
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 90d4f90c9709a80e4b27863e79e5b6e16de145c7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Bir Azure Ağ İzleyicisi örneği oluşturma
 
-Ağ İzleyicisi İzleme ve koşullar bir ağ düzeyinde senaryo içinde gelen ve giden Azure tanılama sağlayan bölgesel bir hizmettir. Senaryo düzeyi izleme, bir uçtan uca ağ düzey görünümü adresindeki sorunlara tanı koymak sağlar. Ağ Tanılama ve görselleştirme Ağ İzleyicisi ile kullanılabilen araçlar anlamak, tanılama ve Azure ağınızdaki serisidir yardımcı olur.
+Ağ İzleyicisi'ni ve koşullar bir ağ düzeyinde senaryo içinde gelen ve giden Azure Tanılama, toomonitor sağlayan bölgesel bir hizmettir. Senaryo düzeyi izleme bir bitiş tooend ağ düzey görünümü adresindeki toodiagnose sorunları sağlar. Ağ Tanılama ve görselleştirme Ağ İzleyicisi ile kullanılabilen araçlar anlamak, tanılama ve Öngörüler tooyour Azure ağında geçirmesine yardımcı olur.
 
 > [!NOTE]
-> Ağ İzleyicisi'ni şu anda yalnızca CLI 1.0 destekler gibi CLI 1.0 için yeni bir Ağ İzleyicisi örneği oluşturmak için yönergeler sağlanır.
+> Ağ İzleyicisi'ni şu anda yalnızca CLI 1.0 destekler gibi hello yönergeleri toocreate CLI 1.0 için yeni bir Ağ İzleyicisi örnek sağlanır.
 
-## <a name="create-a-network-watcher-in-the-portal"></a>Portalda bir Ağ İzleyicisi oluşturma
+## <a name="create-a-network-watcher-in-hello-portal"></a>Ağ İzleyicisi Merhaba Portalı'nda oluşturma
 
-Gidin **daha fazla hizmet** > **ağ** > **Ağ İzleyicisi**. Ağ İzleyicisi için etkinleştirmek istediğiniz tüm abonelikleri seçebilirsiniz. Bu eylem, kullanılabilir olan her bölgede bir Ağ İzleyicisi oluşturur.
+Çok gidin**daha Hizmetleri** > **ağ** > **Ağ İzleyicisi**. Ağ İzleyicisi tooenable istediğiniz tüm hello abonelikleri seçebilirsiniz için. Bu eylem, kullanılabilir olan her bölgede bir Ağ İzleyicisi oluşturur.
 
 ![Ağ İzleyicisi oluşturma][1]
 
-Ağ İzleyicisi'ni Portalı'nı kullanarak etkinleştirdiğinizde, Ağ İzleyicisi örneğinin adını burada region_name örneği etkinleştirdiğiniz Azure bölgesine karşılık gelen NetworkWatcher_region_name otomatik olarak ayarlanır.  Örneğin, Batı Orta ABD bölgesinde etkin bir Ağ İzleyicisi NetworkWatcher_westcentralus adlandırılır
+Ağ İzleyicisi Merhaba Portal kullanarak etkinleştirdiğinizde hello hello Ağ İzleyicisi örneğinin adını otomatik olarak tooNetworkWatcher_region_name nerede region_name toohello Azure hello örneği etkinleştirdiğiniz bölge karşılık gelen ayarlanır.  Örneğin, Batı Orta ABD bölgesinde etkin bir Ağ İzleyicisi NetworkWatcher_westcentralus adlandırılır
 
-Ayrıca, Ağ İzleyicisi örneği NetworkWatcherRG adlı bir kaynak grubuna otomatik olarak eklenir.  Bu kaynak grubu, zaten yoksa, oluşturulur.
+Ayrıca, hello Ağ İzleyicisi örneği NetworkWatcherRG adlı bir kaynak grubuna otomatik olarak eklenir.  Bu kaynak grubu, zaten yoksa, oluşturulur.
 
-Bir Ağ İzleyicisi örneği ve kaynak grubu adını özelleştirmek istiyorsanız içine yerleştirildiğinde, aşağıda açıklanan Powershell, REST API veya ARMClient yöntemlerini kullanabilirsiniz.  Ağ İzleyicisi'ni içine yerleştirmeden önce her seçenekte, kaynak grubu mevcut olmalıdır.  
+Ağ İzleyicisi örneği ve hello toocustomize hello adı istiyorsanız içine yerleştirilen kaynak grubu, aşağıda açıklanan Powershell, hello REST API veya ARMClient yöntemlerini kullanabilirsiniz.  Ağ İzleyicisi Merhaba içine yerleştirmeden önce her seçenekte, hello kaynak grubu mevcut olmalıdır.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>PowerShell ile bir Ağ İzleyicisi oluşturma
 
-Ağ İzleyicisi örneği oluşturmak için aşağıdaki örnekte çalıştırın:
+toocreate Ağ İzleyicisi, aşağıdaki örneğine hello çalıştırmak örneği:
 
 ```powershell
 New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
-## <a name="create-a-network-watcher-with-the-rest-api"></a>Ağ İzleyicisi ile REST API'si oluşturma
+## <a name="create-a-network-watcher-with-hello-rest-api"></a>Ağ İzleyicisi Merhaba REST API ile oluşturma
 
-ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
+ARMclient PowerShell kullanarak kullanılan toocall hello REST API ' dir. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
 
 ### <a name="log-in-with-armclient"></a>Oturum ARMClient oturum
 
@@ -57,7 +57,7 @@ ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. AR
 armclient login
 ```
 
-### <a name="create-the-network-watcher"></a>Ağ İzleyicisi oluşturma
+### <a name="create-hello-network-watcher"></a>Merhaba Ağ İzleyicisi oluşturma
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -75,7 +75,7 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ağ İzleyicisi örneği sahip olduğunuza göre kullanılabilir özellikleri hakkında bilgi edinin:
+Ağ İzleyicisi örneği sahip olduğunuza göre kullanılabilir hello özellikleri hakkında bilgi edinin:
 
 * [Topoloji](network-watcher-topology-overview.md)
 * [Paket yakalama](network-watcher-packet-capture-overview.md)
@@ -85,7 +85,7 @@ Ağ İzleyicisi örneği sahip olduğunuza göre kullanılabilir özellikleri ha
 * [NSG akış günlüğe kaydetme](network-watcher-nsg-flow-logging-overview.md)
 * [Sanal ağ geçidi sorunlarını giderme](network-watcher-troubleshoot-overview.md)
 
-Ağ İzleyicisi örneği oluşturulduktan sonra paket yakalama makaleyi izleyerek yapılandırılabilir: [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
+Paket yakalama Ağ İzleyicisi örneği oluşturulduktan sonra aşağıdaki hello makalesiyle yapılandırılabilir: [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
 
 [1]: ./media/network-watcher-create/figure1.png
 

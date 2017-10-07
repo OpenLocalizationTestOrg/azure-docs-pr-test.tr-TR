@@ -1,6 +1,6 @@
 ---
 title: "Azure CLI: SQL veritabanı oluşturma | Microsoft Docs"
-description: "Azure CLI kullanarak SQL Veritabanı mantıksal sunucusu, sunucu düzeyi güvenlik duvarı kuralı ve veritabanı oluşturmayı öğrenin."
+description: "Azure CLI toocreate SQL Database mantıksal sunucusu, sunucu düzeyinde güvenlik duvarı kuralı ve kullanarak veritabanlarını nasıl hello öğrenin."
 keywords: "sql veritabanı öğreticisi, sql veritabanı oluşturma"
 services: sql-database
 documentationcenter: 
@@ -16,52 +16,52 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: a735f7e6aa65ac36dc4e5a49c5a9a834be43d71a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b1ffb17eabeb70a000ff0c997128832b07aa4fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Azure CLI ile tek Azure SQL veritabanı oluşturma
+# <a name="create-a-single-azure-sql-database-using-hello-azure-cli"></a>Hello Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma
 
-Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuzda bir [Azure SQL Veritabanı mantıksal sunucusundaki](sql-database-features.md) [Azure kaynak grubuna](../azure-resource-manager/resource-group-overview.md) Azure SQL veritabanı dağıtmak için Azure CLI kullanma ayrıntılı olarak açıklanmaktadır.
+Hello Azure CLI kullanılan toocreate olan ve hello komut satırından veya komut dosyalarında Azure kaynaklarını yönetin. Bir Azure SQL veritabanında bu kılavuzu kullanarak hello Azure CLI toodeploy ayrıntılarını bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) içinde bir [Azure SQL Database mantıksal sunucusu](sql-database-features.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="define-variables"></a>Değişkenleri tanımlama
 
-Bu hızlı başlangıçtaki betiklerde kullanılacak değişkenleri tanımlayın.
+Bu hızlı başlangıç hello komut içinde kullanmak için değişkenleri tanımlayın.
 
 ```azurecli-interactive
-# The data center and resource name for your resources
+# hello data center and resource name for your resources
 export resourcegroupname = myResourceGroup
 export location = westeurope
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# hello logical server name: Use a random value or replace with your own value (do not capitalize)
 export servername = server-$RANDOM
 # Set an admin login and password for your database
 export adminlogin = ServerAdmin
 export password = ChangeYourAdminPassword1
-# The ip address range that you want to allow to access your DB
+# hello ip address range that you want tooallow tooaccess your DB
 export startip = "0.0.0.0"
 export endip = "0.0.0.0"
-# The database name
+# hello database name
 export databasename = mySampleDatabase
 ```
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutunu kullanarak bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek `westeurope` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur.
+Oluşturma bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) hello kullanarak [az grubu oluşturma](/cli/azure/group#create) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu `myResourceGroup` hello içinde `westeurope` konumu.
 
 ```azurecli-interactive
 az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>Mantıksal sunucu oluşturma
 
-[az sql server create](/cli/azure/sql/server#create) komutunu kullanarak [Azure SQL Veritabanı mantıksal sunucusu](sql-database-features.md) oluşturun. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir. Aşağıdaki örnek, kaynak grubunuzda `ServerAdmin` yönetici oturum açma bilgileri ve `ChangeYourAdminPassword1` parolası ile rastgele olarak adlandırılmış bir sunucu oluşturur. Bu önceden tanımlı değerleri istediğiniz gibi değiştirin.
+Oluşturma bir [Azure SQL Database mantıksal sunucusu](sql-database-features.md) hello kullanarak [az sql server oluşturun](/cli/azure/sql/server#create) komutu. Mantıksal sunucu, grup olarak yönetilen bir veritabanı grubu içerir. Merhaba aşağıdaki örnek rastgele adlandırılmış bir sunucu, kaynak grubunda adlı bir yönetici oturum açma ile oluşturur `ServerAdmin` ve bir parola `ChangeYourAdminPassword1`. Bu önceden tanımlı değerleri istediğiniz gibi değiştirin.
 
 ```azurecli-interactive
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
@@ -70,7 +70,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 ## <a name="configure-a-server-firewall-rule"></a>Sunucu güvenlik duvarı kurallarını yapılandırma
 
-[az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) komutunu kullanarak [sunucu düzeyinde bir Azure SQL Veritabanı güvenlik duvarı kuralı](sql-database-firewall-configure.md) oluşturun. Bir sunucu düzeyi güvenlik duvarı kuralı SQL Server Management Studio veya SQLCMD yardımcı programı gibi bir dış uygulamanın SQL Veritabanı hizmet güvenlik duvarı üzerinden bir SQL veritabanına bağlanmasına olanak sağlar. Aşağıdaki örnekte, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. Dışarıdan bağlantı kurulabilmesi için IP adresini ortamınız için uygun bir adres olarak değiştirin. Tüm IP adreslerini açmak için başlangıç IP adresi olarak 0.0.0.0’ı, bitiş adresi olaraksa 255.255.255.255’i kullanın.  
+Oluşturma bir [Azure SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı](sql-database-firewall-configure.md) hello kullanarak [az sql server güvenlik duvarı oluşturma](/cli/azure/sql/server/firewall-rule#create) komutu. Sunucu düzeyinde güvenlik duvarı kuralı SQL Server Management Studio veya hello SQLCMD yardımcı programını tooconnect tooa SQL veritabanı gibi hello SQL Database hizmeti güvenlik duvarı üzerinden bir dış uygulamaya verir. Aşağıdaki örneğine hello hello Güvenlik Duvarı'nı yalnızca diğer Azure kaynakları için açıldı. tooenable harici bağlantı, başlangıç IP adresi tooan uygun adresini Değiştir ortamınız için. tooopen tüm IP adresleri hello bitiş adresi başlangıç IP adresi ve 255.255.255.255 hello olarak 0.0.0.0 kullanın.  
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
@@ -78,12 +78,12 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 ```
 
 > [!NOTE]
-> SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucusuna bağlanamazsınız.
+> SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir şirket ağından gelen tooconnect çalışıyorsanız, bağlantı noktası 1433 üzerinden giden trafik, ağınızın güvenlik duvarı tarafından izin verilmiyor. Öyleyse, BT departmanınızın 1433 numaralı bağlantı noktasını açar sürece mümkün tooconnect tooyour Azure SQL veritabanı sunucusu olmaz.
 >
 
-## <a name="create-a-database-in-the-server-with-sample-data"></a>Sunucuda örnek verilerle veritabanı oluşturma
+## <a name="create-a-database-in-hello-server-with-sample-data"></a>Merhaba sunucu örnek verilerle bir veritabanı oluşturun
 
-[az sql db create](/cli/azure/sql/db#create) komutunu kullanarak [S0 performans düzeyine](sql-database-service-tiers.md) sahip bir veritabanı oluşturun. Aşağıdaki örnek, `mySampleDatabase` adlı bir veritabanı oluşturur ve AdventureWorksLT örnek verilerini bu veritabanına yükler. Önceden tanımlanmış bu değerleri istediğiniz gibi değiştirin (bu koleksiyondaki diğer hızlı başlangıçlar, bu hızlı başlangıçtaki değerlere göre belirlenir).
+Bir veritabanı oluşturmak bir [S0 performans düzeyi](sql-database-service-tiers.md) hello kullanarak hello Server'daki [az sql db Oluştur](/cli/azure/sql/db#create) komutu. Merhaba aşağıdaki örnek adlı bir veritabanı oluşturur `mySampleDatabase` ve bu veritabanına yükleri hello AdventureWorksLT örnek verileri. Bu önceden tanımlanmış Değiştir istendiği gibi (Bu koleksiyonu yapıda Bu hızlı başlangıç hello değerleri bağlı diğer hızlı başlar) değerleri.
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -95,7 +95,7 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 Bu koleksiyondaki diğer hızlı başlangıçlar, bu hızlı başlangıca göre belirlenir. 
 
 > [!TIP]
-> Sonraki hızlı başlangıçlarla çalışmaya devam etmeyi planlıyorsanız, bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız, Azure portalda bu hızlı başlangıç ile oluşturulan tüm kaynakları silmek için aşağıdaki adımları kullanın.
+> Sonraki hızlı başlangıçlar ile toowork üzerinde toocontinue planlıyorsanız, temiz oluşturulan bu hızlı başlangıç kaynakları başlatılmaz. Toocontinue düşünmüyorsanız bu hızlı başlangıç bölümünde hello Azure portal tarafından oluşturulan tüm kaynakları adımları toodelete aşağıdaki hello kullanın.
 >
 
 ```azurecli-interactive

@@ -1,5 +1,5 @@
 ---
-title: "SQL veritabanı genel bakış | Microsoft Docs"
+title: "aaaSQL veritabanı genel bakış | Microsoft Docs"
 description: "Yardım içeriği Azure portalındaki SQL veritabanı genel bakış"
 services: sql-database
 author: sewatson
@@ -8,19 +8,19 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: b41b4b7d302b0f3c528fa424627b4446a5e2c0ca
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bc843de3b18e552aad68c0c754be968b5fbbe217
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-database-documentation"></a>SQL Veritabanı Belgeleri
 
-Azure SQL Veritabanı, Microsoft SQL Server Altyapısını kullanan bir hizmet olarak ilişkisel veritabanıdır. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
+Azure SQL veritabanı hello Microsoft SQL Server altyapısını kullanarak bir ilişkisel veritabanı-olarak-bir hizmettir. SQL veritabanı toobuild veri tabanlı uygulamalar ve Web siteleri toomanage altyapı gerek kalmadan programlama dili tercih ettiğiniz hello kullanabileceğiniz bir yüksek performanslı, güvenilir ve güvenli veritabanıdır. Bilgi toouse SQL veritabanı nasıl bizim quickstarts, öğreticiler ve örnekleri.
 
 ## <a name="5-minute-quickstarts"></a>5 Dakikalık Hızlı Başlangıçlar
 
-SQL Veritabanı oluşturma, SQL Management Studio kullanarak yönetme ve C#, Java, Python, Node.js ve Ruby dillerinde geliştirme hakkında bilgi edinin:
+Nasıl toocreate bir SQL veritabanı, SQL Management Studio'yu kullanarak yönetmek ve onunla C#, Java, Python, Node.js ve Ruby geliştirmek öğrenin:
 
 - [Azure Portal](/azure/sql-database/sql-database-get-started-portal)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)
@@ -28,10 +28,10 @@ SQL Veritabanı oluşturma, SQL Management Studio kullanarak yönetme ve C#, Jav
 
 ## <a name="step-by-step-tutorials"></a>Adım Adım Öğreticiler
 
-Oluşturma, yönetme ve SQL DB kullanarak veritabanlarını geçirme hakkında bilgi edinin.
+Nasıl toocreate, yönetmek ve SQL DB kullanarak veritabanlarını geçirme öğrenin.
 
-- [Yeni SQL Veritabanı için şema oluşturma ve tasarlama](/azure/sql-database/sql-database-design-first-database)
-- [Mevcut SQL Server Veritabanını Azure SQL Veritabanı kullanmak üzere geçirme](/azure/sql-database/sql-database-migrate-your-sql-server-database)
+- [Oluşturun ve yeni bir SQL veritabanı için hello şema tasarlama](/azure/sql-database/sql-database-design-first-database)
+- [Varolan bir SQL Server veritabanı toouse Azure SQL veritabanına geçirme](/azure/sql-database/sql-database-migrate-your-sql-server-database)
 - [SQL Veritabanınızın güvenliğini sağlama](/azure/sql-database/sql-database-security-tutorial)
 - [SQL Veritabanı performansını iyileştirme](/azure/sql-database/sql-database-performance-tutorial)
 - [SQL DB kullanarak çok kiracılı SaaS uygulaması yerleştirme](/azure/sql-database/sql-database-multi-tenant-application)
@@ -42,12 +42,12 @@ Oluşturma, yönetme ve SQL DB kullanarak veritabanlarını geçirme hakkında b
 
 ## <a name="samples"></a>Örnekler 
 
-Genel görevleri yönetmeye yönelik betikleri bulun.
+Komut dosyaları toomanage ortak görevleri öğrenin.
 
 - [Azure CLI](/azure/sql-database/sql-database-cli-samples)
 - [Azure PowerShell](/azure/sql-database/sql-database-powershell-samples)
 
 ## <a name="more"></a>Diğer tüm bulut sağlayıcılarından
 
-- [Daha fazla bilgi için belgeleri ziyaret edin](/azure/sql-database/index)
+- [Daha fazla belge toolearn ziyaret edin](/azure/sql-database/index)
 - [Tüm Azure hizmetleri hakkında bilgi edinin](https://aka.ms/j3wr7y)

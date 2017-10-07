@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri izleme | Microsoft Docs"
-description: "Azure işlevleri izleme öğrenin."
+title: "Azure işlevleri aaaMonitoring | Microsoft Docs"
+description: "Bilgi nasıl toomonitor Azure işlevleri."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -16,30 +16,30 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-ms.openlocfilehash: b70214593b1417265387f42306a633bb0df2920e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 254348d1cefce925654bd9532715b6def571e0ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitoring-azure-functions"></a>Azure İşlevleri’ni izleme
 
 ## <a name="overview"></a>Genel Bakış 
 
 
-**İzleyici** sekmesi her işlevi işlevinin her yürütme gözden geçirmenizi sağlar.
+Merhaba **İzleyici** her işlev tooreview verir sekmesi her yürütülmesini bir işlev.
 
 ![Azure işlevleri İzleyici sekmesi](./media/functions-monitoring/monitor-tab.png) 
 
-Bir yürütme tıklatmak süresi, giriş verilerini, hataları ve ilişkili günlük dosyalarını gözden geçirmenizi sağlar. Yararlı hata ayıklama ve performans işlevlerinizi ayarlama budur.
+Bir yürütme tıklatmak, tooreview hello süresi, giriş verilerini, hataları ve ilişkili günlük dosyaları sağlar. Yararlı hata ayıklama ve performans işlevlerinizi ayarlama budur.
 
 
 > [!IMPORTANT]
-> Kullanırken [barındırma planı tüketim](functions-overview.md#pricing) Azure işlevleri için **izleme** döşeme işlev uygulaması genel bakış dikey penceresinde herhangi bir veri görüntülenmez. Platform dinamik olarak ölçeklendirir ve işlem örnekleri, bu ölçümleri tüketim plan üzerinde anlamlı olmayacak şekilde yönetir olmasıdır. İşlevi uygulamalarınızı kullanımını izlemek için bunun yerine bu makaledeki yönergeleri kullanmanız gerekir.
+> Merhaba kullanırken [barındırma planı tüketim](functions-overview.md#pricing) Azure işlevleri için hello **izleme** döşeme hello işlev uygulaması genel bakış dikey penceresinde herhangi bir veri görüntülenmez. Merhaba platform dinamik olarak ölçeklendirir ve işlem örnekleri, bu ölçümleri tüketim plan üzerinde anlamlı olmayacak şekilde yönetir olmasıdır. İşlevi uygulamalarınızın toomonitor hello kullanımı, bu makaledeki hello yönergeler yerine kullanmanız gerekir.
 > 
-> Aşağıdaki ekran görüntüsünde bir örnek gösterilmektedir:
+> Aşağıdaki ekran görüntüsünde hello bir örnek gösterilmektedir:
 > 
-> ![Ana kaynak dikey penceresinde izleme](./media/functions-monitoring/app-service-overview-monitoring.png)
+> ![Merhaba ana kaynak dikey penceresinde izleme](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
 
@@ -47,24 +47,24 @@ Bir yürütme tıklatmak süresi, giriş verilerini, hataları ve ilişkili gün
 
 Gerçek zamanlı izleme kullanılabilir tıklayarak **canlı olay akışının** aşağıda gösterildiği gibi. 
 
-![Canlı olay akışı seçeneği İzleyici sekmesi](./media/functions-monitoring/monitor-tab-live-event-stream.png)
+![Canlı olay akışı seçeneği hello İzleyici sekmesi](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
-Canlı olay akışının yeni bir tarayıcı sekmesinde aşağıda gösterildiği gibi grafik haline. 
+Merhaba canlı olay akışının yeni bir tarayıcı sekmesinde aşağıda gösterildiği gibi grafik haline. 
 
 ![Canlı olay akışı örnek](./media/functions-monitoring/live-event-stream.png)
 
 
 > [!NOTE]
-> Verilerinizi doldurulmalıdır başarısız olmasına neden olabilecek bilinen bir sorun yoktur. Bu karşılaşırsanız, canlı olay akışının içeren tarayıcı sekmesini kapatın ve ardından gerekebilir **canlı olay akışının** olay akışı verilerinizi düzgün bir şekilde doldurmak yeniden izin vermek için. 
+> Doldurulmuş, veri toofail toobe neden olabilecek bilinen bir sorun yoktur. Bu karşılaşırsanız, tooclose hello tarayıcı sekmesinde içeren hello canlı olay akışının ve ardından gerekebilir **canlı olay akışının** yeniden tooallow, tooproperly doldurmak olay akışı veri. 
 
-Canlı olay akışının işlevinizi aşağıdaki istatistikleri grafik:
+Merhaba canlı olay akışının işlevinizi istatistiklerini aşağıdaki hello grafik:
 
 * Saniye başına başlatılan yürütmeleri
 * Saniyede tamamlanan yürütmeleri
 * Saniyede başarısız yürütmeleri
 * Milisaniye cinsinden ortalama yürütme süresi.
 
-Bu istatistikler gerçek zamanlı ancak gerçek yürütme verileri Grafikleme yaklaşık 10 saniye gecikme süresi olabilir.
+Bu istatistikler gerçek zamanlı ancak hello hello yürütme verileri Grafikleme gerçek yaklaşık 10 saniye gecikme süresi olabilir.
 
 
 
@@ -74,53 +74,53 @@ Bu istatistikler gerçek zamanlı ancak gerçek yürütme verileri Grafikleme ya
 ## <a name="monitoring-log-files-from-a-command-line"></a>Bir komut satırından izleme günlük dosyaları
 
 
-Yerel iş istasyonunda Azure komut satırı arabirimi (CLI) veya PowerShell kullanarak bir komut satırı oturumu için günlük dosyalarını akışını sağlayabilirsiniz.
+Günlük dosyaları tooa komut satırı oturumu hello Azure komut satırı arabirimi (CLI) veya PowerShell kullanarak bir yerel iş istasyonunda akışını sağlayabilirsiniz.
 
-### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Azure CLI ile izleme işlevi uygulama günlük dosyaları
+### <a name="monitoring-function-app-log-files-with-hello-azure-cli"></a>İşlev uygulama günlük dosyalarının hello Azure CLI ile izleme
 
-Başlamak için [Azure CLI yükleme](../cli-install-nodejs.md)
+başlatıldı, tooget [hello Azure CLI yükleme](../cli-install-nodejs.md)
 
-Aşağıdaki komutu ya da, ele diğer seçeneklerden birini kullanarak Azure hesabınıza günlüğüne [oturum açmak için Azure Azure CLI üzerinden](../xplat-cli-connect.md).
+Merhaba aşağıdakileri kullanarak Azure hesabınıza günlüğüne komutu ya da hiçbirini Merhaba, ele diğer seçenekleri [tooAzure hello Azure CLI gelen oturum](../xplat-cli-connect.md).
 
     azure login
 
-Azure CLI Hizmet Yönetimi (ASM) modunu etkinleştirmek için aşağıdaki komutu kullanın:.
+Kullanım hello şu komutu tooenable Azure CLI Hizmet Yönetimi (ASM) mod:.
 
     azure config mode asm
 
-Birden çok aboneliğiniz varsa, aboneliklerinizi listelemek ve geçerli Abonelik işlevi uygulamanızı içeren aboneliği ayarlamak için aşağıdaki komutları kullanın.
+Birden çok aboneliğiniz varsa, aşağıdaki komutları toolist hello aboneliklerinizi ve işlev uygulamanızı içeren kümesi hello geçerli abonelik toohello abonelik kullanın.
 
     azure account list
     azure account set <subscriptionNameOrId>
 
-Aşağıdaki komutu, günlük dosyaları, komut satırı işlevi uygulamanızın akışı:
+Merhaba bir işlev uygulaması toohello komut satırında hello günlük dosyalarının en aşağıdaki komutu akışı:
 
     azure site log tail -v <function app name>
 
 ### <a name="monitoring-function-app-log-files-with-powershell"></a>PowerShell ile izleme işlevi uygulama günlük dosyaları
 
-Başlamak için [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
+başlatıldı, tooget [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
 
-Azure hesabınızda, aşağıdaki komutu çalıştırarak ekleyin:
+Azure hesabınızda hello aşağıdaki komutu çalıştırarak ekleyin:
 
     PS C:\> Add-AzureAccount
 
-Birden çok aboneliğiniz varsa, bunları doğru abonelik şu anda seçili bağlı olup olmadığını görmek için aşağıdaki komutu kullanarak ada göre listeleyebilirsiniz `IsCurrent` özelliği:
+Birden çok aboneliğiniz varsa, bunları adıyla hello abonelik hello şu anda seçili olan doğru temel komutu toosee aşağıdaki hello ile listeleyebilirsiniz `IsCurrent` özelliği:
 
     PS C:\> Get-AzureSubscription
 
-Etkin bir aboneliğiniz işlevi uygulamanızı içeren bir ayarlamak gerekiyorsa, aşağıdaki komutu kullanın:
+Tooset hello etkin bir aboneliğiniz toohello bir işlev uygulaması içeren gerekiyorsa, komutu aşağıdaki hello kullan:
 
     PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
 
-Aşağıdaki komut ile PowerShell oturumunuz için günlükleri akışı:
+Akış hello günlükleri tooyour PowerShell oturumu komutu aşağıdaki hello:
 
     PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-Daha fazla bilgi için bkz [nasıl yapılır: akış günlükleri web uygulamaları için](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
+Daha fazla bilgi için çok başvurun[nasıl yapılır: akış günlükleri web uygulamaları için](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
 * [İşlevi test etme](functions-test-a-function.md)
 * [Ölçek işlevi](functions-scale.md)

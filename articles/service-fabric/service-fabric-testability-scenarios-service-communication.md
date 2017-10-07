@@ -14,45 +14,45 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: c182cc2062ada40029504de5b2b64b021c614ce6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a8f941c1e8e641384a9ee3a1149dabaaf9983cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric Test Edilebilirlik senaryoları: hizmet iletişimi
-Mikro hizmetler ve hizmet odaklı mimari stilleri yüzey doğal olarak Azure Service Fabric. Bu dağıtılmış mimariler türlerinde bileşenlerden oluşan mikro hizmet uygulamaları genelde birbirleriyle iletişim kurmalarını gerek birden çok hizmet oluşur. En basit durumlarda bile, genellikle en az bir durum bilgisi olmayan web hizmeti ve iletişim kurması gereken bir durum bilgisi olan veri depolama hizmeti vardır.
+Mikro hizmetler ve hizmet odaklı mimari stilleri yüzey doğal olarak Azure Service Fabric. Bu dağıtılmış mimariler türlerinde bileşenlerden oluşan mikro hizmet uygulamaları genellikle tootalk tooeach diğer gereken birden çok hizmetlerini oluşur. Hatta hello en basit durumda, genellikle en az bir durum bilgisi olmayan web hizmeti ve toocommunicate gereken bir durum bilgisi olan veri depolama hizmeti vardır.
 
-Hizmet hizmet iletişimi kritik tümleştirme noktası bir uygulamanın çünkü her hizmetin diğer hizmetlere uzak bir API sunar. Genellikle g/ç içeren bir dizi API sınırları çalışmak bazı dikkatli iyi miktarda sınama ve doğrulama gerektirir.
+Hizmet hizmet iletişimi kritik tümleştirme noktası bir uygulamanın çünkü her hizmetin bir Uzak API tooother hizmetleri sunar. Genellikle g/ç içeren bir dizi API sınırları çalışmak bazı dikkatli iyi miktarda sınama ve doğrulama gerektirir.
 
-Bu hizmet sınırları birlikte dağıtılmış bir sistemde kablolu sağlamak için çeşitli noktalar vardır:
+Bu hizmet sınırları birlikte dağıtılmış bir sistemde kablolu, çok sayıda konuları toomake vardır:
 
 * *Aktarım Protokolü*. HTTP artan birlikte çalışabilirliğini ya da özel bir ikili protokol için en yüksek verimlilik kullanacaksınız?
-* *Hata işleme*. Kalıcı ve geçici hataları nasıl işleneceğini? Bir hizmet farklı bir düğüme taşındığında ne?
-* *Zaman aşımları ve gecikme süresi*. Çok uygulamalarda her hizmet katmanı gecikme yığın aracılığıyla ve kullanıcıya nasıl işler mi?
+* *Hata işleme*. Kalıcı ve geçici hataları nasıl işleneceğini? Bir hizmet tooa farklı bir düğüme taşındığında ne?
+* *Zaman aşımları ve gecikme süresi*. Çok uygulamalarda her hizmet katmanı gecikme hello yığını ve toohello kullanıcı üzerinden nasıl işler mi?
 
-Service Fabric tarafından sağlanan yerleşik hizmet iletişimi bileşenleri birini kullanın ya da kendi hizmetlerinizi arasındaki etkileşimler sınama yapı uygulamanızda dayanıklılık sağlamak için önemlidir.
+Service Fabric tarafından sağlanan hello yerleşik hizmet iletişimi bileşenlerden biri kullanabilir veya kendi oluşturabilirsiniz, hizmetlerinizi arasındaki hello etkileşimler sınama kritik tooensuring dayanıklılık uygulamanızda olup.
 
-## <a name="prepare-for-services-to-move"></a>Taşıma hizmetleri için hazırlama
-Hizmet örnekleri zaman içinde hareket etme. Bu, özellikle özel uyarlanmış en iyi kaynak Dengeleme için yük ölçümlerle yapılandırıldığında geçerlidir. Service Fabric yükseltmelerinin, yük devretme, genişleme ve dağıtılmış bir sistemde ömrü boyunca gerçekleşen diğer durumlarda sırasında bile bunların kullanılabilirliğini en üst düzeye çıkarmak, hizmet örnekleri taşır.
+## <a name="prepare-for-services-toomove"></a>Hizmetleri toomove için hazırlama
+Hizmet örnekleri zaman içinde hareket etme. Bu, özellikle özel uyarlanmış en iyi kaynak Dengeleme için yük ölçümlerle yapılandırıldığında geçerlidir. Service Fabric hizmeti örnekleri toomaximize yükseltmeler, yük devretme, genişleme ve dağıtılmış bir sistemde hello ömrü boyunca gerçekleşen diğer durumlarda sırasında bile kullanılabilirliklerini taşır.
 
-Kümedeki hizmetleri taşımak gibi istemcilerinizi ve diğer hizmetleri bir hizmete konuşurken iki senaryo işlemek için hazırlanması gerekir:
+Merhaba kümede Hizmetleri dolaşmak gibi istemcilerinizi ve diğer hizmetleri tooa hizmet konuşurken hazırlıklı toohandle iki senaryo olmalıdır:
 
-* Hizmet örneği veya bölüm çoğaltma için açıklandı en son ne zaman bu yana taşınmıştır. Bu hizmet yaşam döngüsü normal bir parçası olan ve uygulamanızın ömrü boyunca gerçekleşmesi beklenmelidir.
-* Hizmet örneği veya bölüm çoğaltma geçme işleminde özelliğidir. Bir hizmetin bir düğümden diğerine yük devretme Service Fabric çok hızlı bir şekilde oluşur ancak bir gecikme olabilir kullanılabilirlik hizmetinizin iletişim bileşeni başlatmak yavaş ise.
+* Merhaba hizmet örneği veya bölüm çoğaltma tooit açıklandı son zamanı hello itibaren taşınmıştır. Bu hizmet yaşam döngüsü normal bir parçası olan ve uygulamanızı hello ömrü boyunca beklenen toohappen olmalıdır.
+* Merhaba hizmet örneği veya bölüm çoğaltma taşıma hello işlemi devam ediyor. Bir düğüm tooanother hizmetinden Yük Devretmesini Service Fabric çok hızlı bir şekilde oluşur ancak bir gecikme olabilir kullanılabilirlik hello iletişim bileşeni hizmetinizin yavaş toostart ise.
 
-Bu senaryolar düzgün biçimde işleme düzgün çalışmasını sistemi için önemlidir. Bunu yapmak için unutmayın:
+Bu senaryolar düzgün biçimde işleme düzgün çalışmasını sistemi için önemlidir. toodo, bu nedenle, göz önünde bulundurun:
 
-* Her hizmet için bağlı olan bir *adresi* , (örneğin, HTTP veya WebSockets) dinler. Bir hizmet örneği veya bölüm taşındığında, adresi uç noktasında değiştirir. (Bunu farklı bir IP adresi ile farklı bir düğüme taşınır.) Yerleşik iletişim bileşenleri kullanıyorsanız, bunlar yeniden çözümleme hizmeti adresleri sizin için işler.
-* Olabilir hizmet gecikme hizmet örneği başlatır, dinleyicisi yukarı olarak geçici bir artış yeniden. Bu hizmet örneği taşındıktan sonra ne kadar hızlı hizmet dinleyici üzerinde bağlıdır.
-* Var olan tüm bağlantıları kapatılıp yeniden açılmasını yeni bir düğüm üzerinde hizmet açıldıktan sonra gerekir. Normal düğümün kapanması veya yeniden başlatma düzgün biçimde kapatılması varolan bağlantılar için zaman sağlar.
+* Bağlı toohas olabilir her hizmetin bir *adresi* , (örneğin, HTTP veya WebSockets) dinler. Bir hizmet örneği veya bölüm taşındığında, adresi uç noktasında değiştirir. (Bu, farklı bir düğüme tooa farklı bir IP adresi ile taşınır.) Merhaba yerleşik iletişim bileşenleri kullanıyorsanız, bunlar yeniden çözümleme hizmeti adresleri sizin için işler.
+* Olabilir hizmet gecikme hello hizmet örneği başlatır, dinleyicisi yukarı olarak geçici bir artış yeniden. Bu hello hizmet örneği taşındıktan sonra ne kadar hızlı hello hizmet hello dinleyicisi üzerinde bağlıdır.
+* Var olan tüm bağlantıları yeni bir düğümde hello hizmet açıldıktan sonra kapatıp toobe gerekir. Normal düğümün kapanması veya yeniden başlatma düzgün biçimde kapatılamadı varolan bağlantılar toobe için zaman sağlar.
 
 ### <a name="test-it-move-service-instances"></a>Test: taşıma hizmet örnekleri
-Service Fabric'ın Test Edilebilirlik araçlarını kullanarak, bu gibi durumlarda farklı şekillerde test etmek için bir test senaryosu yazabilirsiniz:
+Service Fabric'ın Test Edilebilirlik araçlarını kullanarak, farklı şekillerde bu gibi durumlarda bir test senaryosu tootest yazabilirsiniz:
 
 1. Bir durum bilgisi olan hizmetin birincil çoğaltma taşıyın.
    
-    Bir durum bilgisi olan hizmet bölüm birincil çoğaltmasını birkaç nedenden dolayı için taşınabilir. Bu, hizmetlerinizi taşımak için çok denetimli bir şekilde nasıl tepki görmek için belirli bir bölüm birincil çoğaltmasını hedeflemek için kullanın.
+    Merhaba bir durum bilgisi olan hizmet bölüm birincil çoğaltmasını birkaç nedenden dolayı için taşınabilir. Bu tootarget hello birincil çoğaltmasını nasıl tepki, hizmetleri toohello hareket çok denetimli bir şekilde belirli bir bölüm toosee kullanın.
    
     ```powershell
    
@@ -61,9 +61,9 @@ Service Fabric'ın Test Edilebilirlik araçlarını kullanarak, bu gibi durumlar
     ```
 2. Bir düğüm durdurun.
    
-    Bir düğüm durdurulduğunda, Service Fabric tüm hizmet örneği ya da bu düğümde kümedeki kullanılabilir diğer düğümlerden biri olan bölümleri taşır. Burada kümenizi ve tüm hizmet örneklerinin bir düğüm kaybolur ve çoğaltmaları bu düğüme taşımak sahip bir durum sınamak için bunu kullanın.
+    Bir düğüm durdurulduğunda, tüm hello hizmet örneği veya bu düğüm tooone üzerinde olan bölümleri Service Fabric taşır hello kümedeki kullanılabilir diğer düğümlere hello. Bu tootest Burada, kümeden bir düğümü kaybolur ve tüm hello hizmet örneği ve çoğaltmaları bu düğümde toomove sahip bir durum kullanın.
    
-    PowerShell kullanarak bir düğümü durdurabilirsiniz **Stop-ServiceFabricNode** cmdlet:
+    Merhaba PowerShell kullanarak bir düğümü durdurabilirsiniz **Stop-ServiceFabricNode** cmdlet:
    
     ```powershell
    
@@ -72,14 +72,14 @@ Service Fabric'ın Test Edilebilirlik araçlarını kullanarak, bu gibi durumlar
     ```
 
 ## <a name="maintain-service-availability"></a>Hizmet kullanılabilirliği sürdürmek
-Bir platform Service Fabric, hizmetlerin yüksek kullanılabilirlik sağlamak için tasarlanmıştır. Ancak olağanüstü durumlarda, temel alınan altyapı hala kullanılamazlık sorunlara yol açabilir. Bu senaryolar için çok sınamak önemlidir.
+Bir platform tasarlanmış tooprovide yüksek hizmetlerinizin kullanılabilirliğini Service Fabric eklentisidir. Ancak olağanüstü durumlarda, temel alınan altyapı hala kullanılamazlık sorunlara yol açabilir. Bu senaryolarda önemli tootest çok uzun.
 
-Durum bilgisi olan hizmetler çekirdek tabanlı bir sistem durumu yüksek kullanılabilirlik için çoğaltmak için kullanın. Bu çekirdek çoğaltmalarının yazma işlemleri gerçekleştirmek kullanılabilir olması gerektiği anlamına gelir. Nadir durumlarda, yaygın donanım arızası gibi bir çekirdek çoğaltmalarının kullanılamayabilir. Bu durumda, yazma işlemleri gerçekleştirmek mümkün olmaz ancak hala okuma işlemleri açamaz.
+Durum bilgisi olan hizmetler yüksek kullanılabilirlik için bir çekirdek tabanlı sistem tooreplicate durumu kullanın. Bu, bir çekirdek çoğaltmalarının toobe kullanılabilir tooperform yazma işlemleri gerektiği anlamına gelir. Nadir durumlarda, yaygın donanım arızası gibi bir çekirdek çoğaltmalarının kullanılamayabilir. Bu gibi durumlarda mümkün tooperform yazma işlemleri olmaz ancak mümkün tooperform okuma işlemleri olmaya devam edecektir.
 
 ### <a name="test-it-write-operation-unavailability"></a>Test: yazma işlemi kullanılamazlık
-Service Fabric Test Edilebilirlik araçlarını kullanarak, bir test olarak çekirdek kayıp gerektiriyorsa bir arıza ekleyemezsiniz. Böyle bir senaryo ender olsa da, istemciler ve durum bilgisi olan bir hizmete bağlı hizmetler bunlar yazma isteklerine burada yapamazsınız durumları işlemek için hazırlanan önemlidir. Durum bilgisi olan hizmet bu olasılığını bilmektedir ve düzgün biçimde arayanlara iletişim kurabildiğini önemlidir.
+Service Fabric Hello Test Edilebilirlik araçlarını kullanarak, bir test olarak çekirdek kayıp gerektiriyorsa bir arıza ekleyemezsiniz. Böyle bir senaryo ender olsa da, istemciler ve durum bilgisi olan bir hizmete bağlı hizmetler toohandle durumlarda bunlar istekleri tooit yazma burada yapamazsınız hazırlanır önemlidir. Durum bilgisi olan hizmet hello kendisini bu olasılığını bilmektedir ve toocallers düzgün bir şekilde iletişim kurmak önemlidir.
 
-Çekirdek kayıp PowerShell kullanarak anlamına **Invoke-ServiceFabricPartitionQuorumLoss** cmdlet:
+Çekirdek kayıp hello PowerShell kullanarak anlamına **Invoke-ServiceFabricPartitionQuorumLoss** cmdlet:
 
 ```powershell
 
@@ -87,7 +87,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-Bu örnekte, ayarlarız `QuorumLossMode` için `QuorumReplicas` tüm çoğaltmaları bırakmadan çekirdek kayıp anlamına istediğimizi belirtmek için. Bu şekilde, okuma işlemleri hala mümkündür. Bölümünün tamamını nerede kullanılamıyorsa bir senaryoyu test etmek için bu anahtarı ayarlayabilirsiniz `AllReplicas`.
+Bu örnekte, ayarlarız `QuorumLossMode` çok`QuorumReplicas` tüm çoğaltmaları bırakmadan tooinduce çekirdek kayıp istiyoruz tooindicate. Bu şekilde, okuma işlemleri hala mümkündür. tootest bir senaryo burada bölümünün tamamını kullanılamıyor, bu anahtarı çok ayarlayabilirsiniz`AllReplicas`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Test Edilebilirlik eylemler hakkında daha fazla bilgi edinin](service-fabric-testability-actions.md)

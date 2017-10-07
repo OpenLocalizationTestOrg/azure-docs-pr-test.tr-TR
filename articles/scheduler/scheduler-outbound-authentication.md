@@ -1,5 +1,5 @@
 ---
-title: "Scheduler giden bağlantı kimlik doğrulaması"
+title: "aaaScheduler giden bağlantı kimlik doğrulaması"
 description: "Scheduler giden bağlantı kimlik doğrulaması"
 services: scheduler
 documentationcenter: .NET
@@ -14,42 +14,42 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deli
-ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef713f4770b48d0a9176415e87c1042a823582e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scheduler-outbound-authentication"></a>Scheduler giden bağlantı kimlik doğrulaması
-Zamanlayıcı işlerinin kimlik doğrulaması gerektiren hizmetleri çağrısı gerekebilir. Bu şekilde, Scheduler işi kaynaklarına erişebilir, çağrılan hizmet belirleyebilirsiniz. Bu hizmetlerden bazılarını diğer Azure Hizmetleri, Salesforce.com, Facebook ve güvenli özel Web siteleri içerir.
+Zamanlayıcı işlerinin kimlik doğrulaması gerektiren tooservices çıkışı toocall gerekebilir. Bu şekilde hello Scheduler işi kaynaklarına erişebilir, çağrılan hizmet belirleyebilirsiniz. Bu hizmetlerden bazılarını diğer Azure Hizmetleri, Salesforce.com, Facebook ve güvenli özel Web siteleri içerir.
 
 ## <a name="adding-and-removing-authentication"></a>Ekleme ve kaldırma kimlik doğrulaması
-Scheduler işi için kimlik doğrulaması basittir – bir JSON alt öğesi ekleyin ekleme `authentication` için `request` oluştururken veya güncelleştirirken bir iş öğesi. Gizli bir parçası olarak bir PUT, PATCH veya POST isteğinde – Zamanlayıcı hizmeti için geçirilen `authentication` nesnesi – hiçbir zaman yanıtları döndürülür. Yanıtları, gizli bilgilerini ayarlamak null veya kimliği doğrulanmış varlık temsil eden bir ortak belirteci olabilir.
+Kimlik doğrulama tooa Scheduler işi basittir – bir JSON alt öğesi ekleyin ekleme `authentication` toohello `request` oluştururken veya güncelleştirirken bir iş öğesi. Gizli hello bir parçası olarak bir PUT, PATCH veya POST isteğinde – toohello Zamanlayıcı hizmeti geçirilen `authentication` nesnesi – hiçbir zaman yanıtları döndürülür. Yanıtlar, gizli bilgi toonull ayarlayın veya kimliği doğrulanmış hello varlığı temsil eden bir ortak belirteci olabilir.
 
-Kimlik doğrulama kaldırmak için PUT veya ayarlama işi açıkça, düzeltme eki `authentication` nesne null. Tüm kimlik doğrulama özellikleri geri yanıtında görmezsiniz.
+tooremove kimlik doğrulaması, PUT veya hello ayarı hello işi açıkça, düzeltme eki `authentication` toonull nesne. Tüm kimlik doğrulama özellikleri geri yanıtında görmezsiniz.
 
-Şu anda, yalnızca desteklenen kimlik doğrulama türleridir `ClientCertificate` (için SSL/TLS istemci sertifikalarını kullanarak), model `Basic` (Temel kimlik doğrulaması için), model ve `ActiveDirectoryOAuth` model (için Active Directory OAuth kimlik doğrulaması.)
+Şu anda, yalnızca desteklenen hello kimlik doğrulaması hello türleridir `ClientCertificate` (Merhaba SSL/TLS istemci sertifikalarını kullanan) modeli, hello `Basic` model (Temel kimlik doğrulaması için) ve hello `ActiveDirectoryOAuth` (için Active Directory OAuth model kimlik doğrulaması.)
 
 ## <a name="request-body-for-clientcertificate-authentication"></a>İstek gövdesindeki ClientCertificate kimlik doğrulaması için
-Kimlik doğrulaması kullanarak eklerken `ClientCertificate` model, aşağıdaki ek öğeler istek gövdesinde belirtin.  
+Hello kullanarak kimlik doğrulaması eklerken `ClientCertificate` model, ek öğeler hello istek gövdesindeki aşağıdaki hello belirtin.  
 
 | Öğesi | Açıklama |
 |:--- |:--- |
 | *kimlik doğrulaması (üst öğe)* |Bir SSL istemci sertifikası kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Gerekli. Kimlik doğrulama türü. SSL istemci sertifikaları için değer olmalıdır `ClientCertificate`. |
-| *PFX* |Gerekli. PFX dosyasının içeriği Base64 ile kodlanmış. |
-| *Parola* |Gerekli. PFX dosyası erişim için parola. |
+| *türü* |Gereklidir. Kimlik doğrulama türü. SSL istemci sertifikaları için başlangıç değeri olmalıdır `ClientCertificate`. |
+| *PFX* |Gereklidir. Base64 ile kodlanmış hello PFX dosyasının içeriğini. |
+| *Parola* |Gereklidir. Parola tooaccess hello PFX dosyası. |
 
 ## <a name="response-body-for-clientcertificate-authentication"></a>Yanıt gövdesi ClientCertificate kimlik doğrulaması
-Kimlik bilgileri ile bir istek gönderildiğinde, yanıt kimlik doğrulaması ile ilgili aşağıdaki öğeleri içerir.
+Kimlik bilgileri ile bir istek gönderildiğinde hello yanıt kimlik doğrulaması ile ilgili öğeleri aşağıdaki hello içerir.
 
 | Öğesi | Açıklama |
 |:--- |:--- |
 | *kimlik doğrulaması (üst öğe)* |Bir SSL istemci sertifikası kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Kimlik doğrulama türü. SSL istemci sertifikaları için değeri olan `ClientCertificate`. |
-| *certificateThumbprint* |Sertifikanın parmak izi. |
-| *certificateSubjectName* |Sertifika konu ayırt edici adı. |
-| *certificateExpiration* |Sertifikanın sona erme tarihi. |
+| *türü* |Kimlik doğrulama türü. SSL istemci sertifikaları için hello değerdir `ClientCertificate`. |
+| *certificateThumbprint* |Merhaba sertifikanın parmak izi hello. |
+| *certificateSubjectName* |Merhaba sertifikanın Hello konu ayırt edici adı. |
+| *certificateExpiration* |Merhaba sertifika Hello sona erme tarihi. |
 
 ## <a name="sample-rest-request-for-clientcertificate-authentication"></a>ClientCertificate kimlik doğrulaması için örnek REST istek
 ```
@@ -144,23 +144,23 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 ```
 
 ## <a name="request-body-for-basic-authentication"></a>Temel kimlik doğrulaması için istek gövdesi
-Kimlik doğrulaması kullanarak eklerken `Basic` model, aşağıdaki ek öğeler istek gövdesinde belirtin.
+Hello kullanarak kimlik doğrulaması eklerken `Basic` model, ek öğeler hello istek gövdesindeki aşağıdaki hello belirtin.
 
 | Öğesi | Açıklama |
 |:--- |:--- |
 | *kimlik doğrulaması (üst öğe)* |Temel kimlik doğrulaması kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Gerekli. Kimlik doğrulama türü. Temel kimlik doğrulaması için değer olmalıdır `Basic`. |
-| *Kullanıcı adı* |Gerekli. Kimlik doğrulaması için kullanıcı adı. |
-| *Parola* |Gerekli. Kimlik doğrulaması için parola. |
+| *türü* |Gereklidir. Kimlik doğrulama türü. Temel kimlik doğrulaması için hello değeri olmalıdır `Basic`. |
+| *Kullanıcı adı* |Gereklidir. Kullanıcı adı tooauthenticate. |
+| *Parola* |Gereklidir. Parola tooauthenticate. |
 
 ## <a name="response-body-for-basic-authentication"></a>Temel kimlik doğrulaması için yanıt gövdesi
-Kimlik bilgileri ile bir istek gönderildiğinde, yanıt kimlik doğrulaması ile ilgili aşağıdaki öğeleri içerir.
+Kimlik bilgileri ile bir istek gönderildiğinde hello yanıt kimlik doğrulaması ile ilgili öğeleri aşağıdaki hello içerir.
 
 | Öğesi | Açıklama |
 |:--- |:--- |
 | *kimlik doğrulaması (üst öğe)* |Temel kimlik doğrulaması kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Kimlik doğrulama türü. Temel kimlik doğrulaması için değerdir `Basic`. |
-| *Kullanıcı adı* |Kimliği doğrulanmış kullanıcı adı. |
+| *türü* |Kimlik doğrulama türü. Temel kimlik doğrulaması için hello değerdir `Basic`. |
+| *Kullanıcı adı* |Merhaba, kullanıcı adı kimlik doğrulaması. |
 
 ## <a name="sample-rest-request-for-basic-authentication"></a>Temel kimlik doğrulaması için örnek REST istek
 ```
@@ -254,30 +254,30 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 ```
 
 ## <a name="request-body-for-activedirectoryoauth-authentication"></a>İstek gövdesindeki ActiveDirectoryOAuth kimlik doğrulaması için
-Kimlik doğrulaması kullanarak eklerken `ActiveDirectoryOAuth` model, aşağıdaki ek öğeler istek gövdesinde belirtin.
+Hello kullanarak kimlik doğrulaması eklerken `ActiveDirectoryOAuth` model, ek öğeler hello istek gövdesindeki aşağıdaki hello belirtin.
 
 | Öğesi | Açıklama |
 |:--- |:--- |
 | *kimlik doğrulaması (üst öğe)* |ActiveDirectoryOAuth kimlik doğrulaması kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Gerekli. Kimlik doğrulama türü. ActiveDirectoryOAuth kimlik doğrulaması için değer olmalıdır `ActiveDirectoryOAuth`. |
-| *Kiracı* |Gerekli. Azure AD kiracısı için Kiracı tanımlayıcı. |
-| *Hedef kitle* |Gerekli. Bu https://management.core.windows.net/ için ayarlanır. |
-| *istemci kimliği* |Gerekli. İstemci tanımlayıcısı için Azure AD uygulaması sağlar. |
-| *Gizli* |Gerekli. Belirteç isteme istemci gizli anahtarı. |
+| *türü* |Gereklidir. Kimlik doğrulama türü. ActiveDirectoryOAuth kimlik doğrulaması için hello değeri olmalıdır `ActiveDirectoryOAuth`. |
+| *Kiracı* |Gereklidir. hello Azure AD Kiracı Hello Kiracı tanımlayıcısı. |
+| *Hedef kitle* |Gereklidir. Bu toohttps://management.core.windows.net/ ayarlanır. |
+| *istemci kimliği* |Gereklidir. Merhaba istemci tanımlayıcısı hello Azure AD uygulaması sağlar. |
+| *Gizli* |Gereklidir. Merhaba belirteç isteme hello istemci gizli anahtarı. |
 
 ### <a name="determining-your-tenant-identifier"></a>Kiracı Tanımlayıcınız belirleme
-Azure AD kiracısı için Kiracı tanımlayıcı çalıştırarak bulabilirsiniz `Get-AzureAccount` Azure PowerShell'de.
+Merhaba Kiracı tanımlayıcı hello Azure AD kiracısı çalıştırarak bulabileceğiniz `Get-AzureAccount` Azure PowerShell'de.
 
 ## <a name="response-body-for-activedirectoryoauth-authentication"></a>Yanıt gövdesi ActiveDirectoryOAuth kimlik doğrulaması
-Kimlik bilgileri ile bir istek gönderildiğinde, yanıt kimlik doğrulaması ile ilgili aşağıdaki öğeleri içerir.
+Kimlik bilgileri ile bir istek gönderildiğinde hello yanıt kimlik doğrulaması ile ilgili öğeleri aşağıdaki hello içerir.
 
 | Öğesi | Açıklama |
 |:--- |:--- |
 | *kimlik doğrulaması (üst öğe)* |ActiveDirectoryOAuth kimlik doğrulaması kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Kimlik doğrulama türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. |
-| *Kiracı* |Azure AD kiracısı için Kiracı tanımlayıcı. |
-| *Hedef kitle* |Bu https://management.core.windows.net/ için ayarlanır. |
-| *istemci kimliği* |Azure AD uygulaması istemci tanımlayıcısı. |
+| *türü* |Kimlik doğrulama türü. ActiveDirectoryOAuth kimlik doğrulaması için hello değerdir `ActiveDirectoryOAuth`. |
+| *Kiracı* |hello Azure AD Kiracı Hello Kiracı tanımlayıcısı. |
+| *Hedef kitle* |Bu toohttps://management.core.windows.net/ ayarlanır. |
+| *istemci kimliği* |Merhaba Azure AD uygulaması için istemci tanımlayıcı hello. |
 
 ## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>ActiveDirectoryOAuth kimlik doğrulaması için örnek REST istek
 ```
@@ -380,7 +380,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
  [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
 
- [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
+ [Zamanlayıcı hello Azure portalını kullanmaya başlama](scheduler-get-started-portal.md)
 
  [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
 

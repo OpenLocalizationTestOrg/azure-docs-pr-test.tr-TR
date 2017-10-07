@@ -1,5 +1,5 @@
 ---
-title: "Saydam veri şifreleme SQL Data warehouse'da (Portal) | Microsoft Docs"
+title: "aaaTransparent veri şifrelemesi SQL Data warehouse'da (Portal) | Microsoft Docs"
 description: "SQL Data warehouse'da saydam veri şifreleme (TDE)"
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8233886ecf170844104e0d1459e2a829cafa9b8d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>İle saydam veri şifreleme (TDE) SQL veri ambarı kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -31,30 +31,30 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="required-permssions"></a>Gerekli izinleri
-Saydam veri şifreleme (TDE) etkinleştirmek için bir yönetici veya dbmanager rolünün bir üyesi olması gerekir.
+tooenable saydam veri şifreleme (TDE), bir yönetici veya hello dbmanager rolünün bir üyesi olmanız gerekir.
 
 ## <a name="enabling-encryption"></a>Şifrelemeyi etkinleştirme
-Bir SQL Data Warehouse için TDE etkinleştirmek için aşağıdaki adımları izleyin:
+tooenable TDE bir SQL Data Warehouse için hello adımları izleyin:
 
-1. Veritabanında açmak [Azure portalı](https://portal.azure.com)
-2. Veritabanı dikey penceresinde tıklayın **ayarları** düğmesi
-3. Seçin **saydam veri şifreleme** seçeneği![][1]
-4. Seçin **üzerinde** ayarı![][2]
+1. Merhaba açık hello veritabanında [Azure portalı](https://portal.azure.com)
+2. Merhaba veritabanı dikey penceresinde hello tıklayın **ayarları** düğmesi
+3. Select hello **saydam veri şifreleme** seçeneği![][1]
+4. Select hello **üzerinde** ayarı![][2]
 5. Seçin **Kaydet**
    ![][3]  
 
 ## <a name="disabling-encryption"></a>Şifreleme devre dışı bırakma
-Bir SQL Data Warehouse için TDE devre dışı bırakmak için aşağıdaki adımları izleyin:
+toodisable TDE bir SQL Data Warehouse için hello adımları izleyin:
 
-1. Veritabanında açmak [Azure portalı](https://portal.azure.com)
-2. Veritabanı dikey penceresinde tıklayın **ayarları** düğmesi
-3. Seçin **saydam veri şifreleme** seçeneği![][1]
-4. Seçin **kapalı** ayarı![][4]
+1. Merhaba açık hello veritabanında [Azure portalı](https://portal.azure.com)
+2. Merhaba veritabanı dikey penceresinde hello tıklayın **ayarları** düğmesi
+3. Select hello **saydam veri şifreleme** seçeneği![][1]
+4. Select hello **kapalı** ayarı![][4]
 5. Seçin **Kaydet**
    ![][5]  
 
 ## <a name="encryption-dmvs"></a>Şifreleme Dmv'leri
-Şifreleme ile aşağıdaki Dmv'leri onaylanabilir:
+Şifreleme ile Dmv'leri aşağıdaki hello onaylanabilir:
 
 * [sys.Databases]
 * [sys.dm_pdw_nodes_database_encryption_keys]

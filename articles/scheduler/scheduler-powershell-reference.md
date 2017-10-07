@@ -1,5 +1,5 @@
 ---
-title: "Scheduler PowerShell cmdlet'leri başvurusu"
+title: "aaaScheduler PowerShell cmdlet'leri başvurusu"
 description: "Scheduler PowerShell cmdlet'leri başvurusu"
 services: scheduler
 documentationcenter: .NET
@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 141919ab4506b3de4c4a69670dcf54c60ee6409c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2b23bcd3e4493ffba1dbf21fbb87818be7c01e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Scheduler PowerShell cmdlet'leri başvurusu
-Aşağıdaki tabloda açıklar ve her Azure Scheduler ana cmdlet'lerin başvuru sayfası bağlar.
+Aşağıdaki tablonun hello açıklar ve her bir ana cmdlet'leri Azure Scheduler hello toohello başvuru sayfası bağlar.
 
-Azure PowerShell'i yüklemek ve Azure aboneliğinizle ilişkilendirmek için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview). 
+tooinstall Azure PowerShell ve Azure aboneliğinizle ilişkilendirmek için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview). 
 
 Hakkında daha fazla bilgi için [Azure Resource Manager cmdlet'lerini](/powershell/azure/overview), bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
 
@@ -47,7 +47,7 @@ Hakkında daha fazla bilgi için [Azure Resource Manager cmdlet'lerini](/powersh
 | [Set-AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebustopicjob) |Hizmet veri yolu konusu işi değiştirir. |
 | [Set-AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerstoragequeuejob) |Bir depolama kuyruğu işi değiştirir. |
 
-Daha ayrıntılı bilgi için aşağıdaki cmdlet çalıştırabilirsiniz: 
+Daha ayrıntılı bilgi için aşağıdaki cmdlet'leri hello çalıştırabilirsiniz: 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -64,7 +64,7 @@ Get-Help <cmdlet name> -Full
 
  [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
 
- [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
+ [Zamanlayıcı hello Azure portalını kullanmaya başlama](scheduler-get-started-portal.md)
 
  [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
 

@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
-title: "Service Bus Mesajlaşma Belgeleri"
-description: "Şirket içi ortam ve bulut ortamındaki uygulama ve hizmetleri bağlayan bir mesajlaşma hizmeti ayarlama hakkında bilgi edinin."
-ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+title: aaaService veri yolu ileti belgeleri
+description: "Bulut ortamları ve ileti yukarı tooset uygulamaları ve Hizmetleri şirket içi arasında şeklini öğrenin."
+ms.openlocfilehash: ea8c58b6e954cc0d53c3eed1f761b1d1e3984e66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-bus-messaging-documentation"></a>Service Bus Mesajlaşma Belgeleri
-Mesajlaşma hizmeti, aracılı veya üçüncü taraf iletişim mekanizması olarak bağımlı bilgi teslimi sağlar.
+ileti hizmeti hello güvenilir bilgi teslimi aracılı ya da üçüncü taraf iletişim mekanizması olarak sağlar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -59,7 +59,7 @@ Mesajlaşma hizmeti, aracılı veya üçüncü taraf iletişim mekanizması olar
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Portalı kullanarak ad alanı oluşturma</h3>
+                        <h3>Merhaba portalını kullanarak ad alanı oluşturma</h3>
                     </div>
                 </div>
             </div>

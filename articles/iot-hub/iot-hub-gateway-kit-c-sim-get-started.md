@@ -1,12 +1,12 @@
 ---
 title: "Sanal cihaz & Azure IOT ağ geçidi - Başlarken | Microsoft Docs"
-description: "IOT ağ geçidi Starter Kit ile çalışmaya başlama, Azure IOT hub'ınızı oluşturun ve IOT hub'ı ağ geçidine bağlanmak"
+description: "IOT ağ geçidi Starter Kit ile çalışmaya başlama, Azure IOT hub'ınızı oluşturun ve ağ geçidi toohello IOT hub'ı Bağlan"
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "Azure IOT hub, IOT ağ geçidi, noktalar, IOT Araç Seti Internet ile çalışmaya başlama"
+keywords: "Azure IOT hub, IOT ağ geçidi, Başlarken hello nesnelerin interneti, IOT Araç Seti"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 0c110b8b-bee4-4aec-a18a-dfc292aa17a3
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 916fa40d9ac857dfa72197b40c232834593d3891
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1a54a5e5f1c1d9b2e657c9e4448274256e2533f2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-iot-gateway-starter-kit-with-a-simulated-device"></a>IOT ağ geçidi Starter Kit ile bir sanal cihaz ile çalışmaya başlama
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/11/2017
 > * [SensorTag](iot-hub-gateway-kit-c-get-started.md)
 > * [Sanal cihaz](iot-hub-gateway-kit-c-sim-get-started.md)
 
-Bu öğreticide, ile çalışmanın temelleri öğrenerek başlamadan [IOT ağ geçidi Starter Kit](https://aka.ms/gateway-kit). Intel NUC ile Rüzgar Akarsu Linux çalıştıran çalışacaksınız. Şunları öğreneceksiniz seamleesly için Azure IOT hub'ı kullanarak bulut aygıtlarınıza nasıl bağlanacağını.
+Bu öğreticide, ile çalışmanın temelleri hello öğrenerek başlamadan [IOT ağ geçidi Starter Kit](https://aka.ms/gateway-kit). Intel NUC ile Rüzgar Akarsu Linux çalıştıran çalışacaksınız. Nasıl tooseamleesly bağlanacağını aygıtları toohello bulut Azure IOT hub'ı kullanarak öğreneceksiniz.
 
 ***
 **Bir pakete henüz yok mu?:** tıklatın [burada](https://aka.ms/gateway-kit).
@@ -38,73 +38,73 @@ Bu öğreticide, ile çalışmanın temelleri öğrenerek başlamadan [IOT ağ g
 ## <a name="lesson-1-configure-your-nuc"></a>Ders 1: NUC cihazınızı yapılandırma
 ![Lesson1 uçtan uca diyagramı](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
-Bu ders, Intel NUC (sonraki birim, bilgisayar) bir Azure IOT ağ geçidi olarak Seti'nde ayarlama, Azure IOT kenar paket üzerinde NUC yükleyin ve bir örnek uygulama ağ geçidi işlevlerini doğrulayın çalıştırın.
+Bu ders içinde Intel NUC (sonraki birim, bilgisayar) hello Seti Azure IOT ağ geçidi olarak ayarlamak, NUC üzerinde hello Azure IOT kenar paketi yükleyin ve bir örnek uygulama tooverify hello ağ geçidi işlevi çalıştırın.
 
-*Tahmini tamamlanma süresi: 15 dakika*
+*Zaman toocomplete tahmini: 15 dakika*
 
-Git [Intel NUC IOT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+Çok Git[Intel NUC IOT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Ders 2: IoT Hub'ı oluşturma
 ![Lesson2 uçtan uca diyagramı](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
 
-Bu ders, ana bilgisayara yazılım ve araçları yükleyin. Ardından, ücretsiz Azure hesabınızı oluşturmak, Azure IOT hub'ınızı sağlamak ve ilk Cihazınızı IOT hub'ı oluşturun.
+Bu alıştırmanın ilerisinde ana bilgisayarınızda hello araçları ve yazılımını yükleyin. Ardından, ücretsiz Azure hesabı oluşturun, Azure IOT hub'ınızı sağlamanıza ve ilk aygıtınızı hello IOT hub'ı oluşturmak.
 
 Bu ders başlamadan önce Ders 1 tamamlayın.
 
-### <a name="get-the-tools"></a>Araçları edinin
-Yazılım ve araçları, ana bilgisayara yükleyin.
+### <a name="get-hello-tools"></a>Merhaba araçları edinin
+Merhaba araçları ve yazılım, ana bilgisayara yükleyin.
 
-*Tahmini tamamlanma süresi: 20 dakika*
+*Zaman toocomplete tahmini: 20 dakika*
 
-Git [araçları edinin](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+Çok Git[alma hello araçları](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
 
 ### <a name="create-an-iot-hub-and-register-your-device"></a>IOT hub'ı oluşturma ve Cihazınızı kaydetme
-Kaynak grubu oluşturmak, ilk Azure IOT hub'ınızı sağlamak ve Azure CLI kullanarak IOT hub'ına ilk aygıtınızı ekleyin.
+Kaynak grubu oluşturmak, ilk Azure IOT hub'ınızı sağlamak ve hello Azure CLI kullanarak ilk aygıt toohello IOT hub'ınızı ekleyin.
 
-*Tahmini tamamlanma süresi: 10 dakika*
+*Zaman toocomplete tahmini: 10 dakika*
 
-Git [IOT hub'ı oluşturma ve Cihazınızı kaydetme](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
+Çok Git[IOT hub'ı oluşturma ve Cihazınızı kaydetme](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
-## <a name="lesson-3-receive-messages-from-the-simulated-device-and-read-messages-from-your-iot-hub"></a>Ders 3: sanal cihaz iletileri almak ve IOT hub'ından iletileri okur
-Bu ders, yapılandırma ve sanal cihaz uygulaması yürütülmesini, ağ geçidi otomatikleştirmek için komut dosyalarını kullanır. Sanal cihaz uygulamasının örnek sıcaklık verileri oluşturur ve bir IOT hub modülüne gönderir. IOT hub modülü alınan verileri paketler ve Azure IOT Edge'de sağlanan ağ geçidi çerçevesi aracılığıyla IOT hub'ınıza gönderir.
+## <a name="lesson-3-receive-messages-from-hello-simulated-device-and-read-messages-from-your-iot-hub"></a>Ders 3: hello benzetimli aygıttan iletileri almasına ve IOT hub'ından iletileri okur
+Bu alıştırmanın ilerisinde, ağ geçidi betikleri tooautomate hello yapılandırması ve sanal cihaz uygulaması yürütülmesi kullanır. Merhaba sanal cihaz uygulamasının örnek sıcaklık verileri oluşturur ve tooan IOT hub modül gönderir. IOT hub modülü paketleri Hello veri tooyour IOT hub'ı sağlanan hello ağ geçidi çerçevesi aracılığıyla Azure IOT Edge'de gönderir ve alınan hello.
 
 ![Ders 3 uçtan uca diyagramı](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson3.png)
 
 ### <a name="configure-and-run-a-simulated-device"></a>Yapılandırma ve bir sanal cihaz çalıştırma
-Örnek kodları hazırlayın. Ardından yapılandırın ve sanal cihaz örnek uygulamayı çalıştırın.
+Merhaba örnek kodları hazırlayın. Ardından yapılandırıp benzetimli hello aygıt örnek uygulamayı çalıştırın.
 
-*Tahmini tamamlanma süresi: 15 dakika*
+*Zaman toocomplete tahmini: 15 dakika*
 
-Git [yapılandırma ve çalıştırma bir sanal cihaz](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+Çok Git[yapılandırma ve çalıştırma bir sanal cihaz](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
 
 ### <a name="read-messages-from-your-iot-hub"></a>IOT hub'ından iletilerini okuyun
-Örnek kod, IOT hub'ından iletileri okumak için ana bilgisayarınız çalıştırın.
+Örnek kod, IOT hub'ından ana bilgisayar tooread hello iletilerde çalıştırın.
 
-*Tahmini tamamlanma süresi: 15 dakika*
+*Zaman toocomplete tahmini: 15 dakika*
 
-Git [IOT hub'ından iletilerini okuyun](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
+Çok Git[IOT hub'ından iletilerini okuyun](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
 
-## <a name="lesson-4-save-messages-to-azure-table-storage"></a>Ders 4: İletileri Azure Tablo depolamaya kaydetme
-IOT hub'ından gelen iletileri alır ve bunları Azure Table depolama alanına yazan bir Azure işlevi uygulaması oluşturursunuz.
+## <a name="lesson-4-save-messages-tooazure-table-storage"></a>Ders 4: iletileri tooAzure tablo depolama kaydedin.
+IOT hub'ından gelen iletileri alır ve bunları tooAzure Table storage yazan bir Azure işlevi uygulaması oluşturursunuz.
 
 ![Ders 4 uçtan uca diyagramı](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson4.png)
 
 ### <a name="create-an-azure-function-app-and-azure-storage-account"></a>Bir Azure işlevi uygulama ve Azure depolama hesabı oluştur
-Bir Azure işlevi uygulama ve bir Azure Storage hesabı oluşturmak için bir Azure Resource Manager şablonunu kullanın.
+Bir Azure Resource Manager şablonu toocreate bir Azure işlevi uygulama ve bir Azure Storage hesabı kullanın.
 
-*Tahmini tamamlanma süresi: 10 dakika*
+*Zaman toocomplete tahmini: 10 dakika*
 
-Git [bir Azure işlevi uygulama ve Azure depolama hesabı oluştur](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
+Çok Git[bir Azure işlevi uygulama ve Azure depolama hesabı oluştur](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 
 ### <a name="read-messages-persisted-in-azure-table-storage"></a>İletileri okuma Azure tablo Depolama'da kalıcı
-Azure Table depolama alanına yazılır gibi ağ geçidi bulut iletileri izleyin.
+TooAzure Table storage yazıldığı şekilde hello ağ geçidi bulut iletileri izleyin.
 
-*Tahmini tamamlanma süresi: 5 dakika*
+*Zaman toocomplete tahmini: 5 dakika*
 
-Git [iletilerini okuma Azure Table storage ' kalıcı](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).
+Çok Git[iletilerini okuma Azure Table storage ' kalıcı](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Çözümlerinde dersleri sırasında herhangi bir sorun varsa, arayın [sorun giderme](iot-hub-gateway-kit-c-sim-troubleshooting.md) makalesi.
+Merhaba çözümlerinde hello dersleri sırasında herhangi bir sorun varsa, arayın [sorun giderme](iot-hub-gateway-kit-c-sim-troubleshooting.md) makalesi.
 
 ## <a name="explore-more"></a>Daha fazlasını keşfedin
-Ziyaret [Intel IOT ağ geçidi Seti Geliştirici bölge](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit) daha fazla bilgi için.
+Merhaba ziyaret [Intel IOT ağ geçidi Seti Geliştirici bölge](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit) toolearn daha fazla.

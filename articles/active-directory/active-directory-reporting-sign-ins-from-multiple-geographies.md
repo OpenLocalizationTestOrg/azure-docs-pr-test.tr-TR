@@ -1,6 +1,6 @@
 ---
-title: "Birden çok coğrafyadan oturum"
-description: "Farklı bölgelerdeki ve bileşenler kullanıcının bu bölgeler arasında Seyahat etmiş olması imkansız yapar oturum arasındaki süre kaynaklanan için iki oturum kullanıcıları gösteren bir rapor görüldü."
+title: "aaaSign birden çok coğrafyadan"
+description: "İki oturum kullanıcıları gösteren bir rapor toooriginate farklı bölgelerdeki ve bileşenler bu bölgeler arasında Seyahat etmiş hello kullanıcı toohave mümkün kılar hello oturum arasındaki hello süre görüldü."
 services: active-directory
 documentationcenter: 
 author: SSalahAhmed
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f7c2e9589558476f36f6ae319f807f151b6144e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-from-multiple-geographies"></a>Birden çok coğrafyadan gerçekleştirilen oturum açma işlemleri
-Bu rapor, başarılı oturum açma işlemleri burada iki oturum açma işlemleri farklı bölgelerden kaynaklanacak şekilde görünen ve oturum açma işlemleri arasındaki süre kullanıcının bu bölgeler arasında Seyahat etmiş mümkün kılar, bir kullanıcıdan içerir. Olası nedenler şunlardır:
+Bu rapor, başarılı oturum açma işlemleri burada iki oturum açma işlemleri farklı bölgelerdeki toooriginate görünen ve hello oturum açma işlemleri arasındaki hello süre bu bölgeler arasında seyahat hello kullanıcı toohave olanaksız yapar, bir kullanıcıdan içerir. Olası nedenler şunlardır:
 
 * Kullanıcı parolalarını diğer kullanıcılarla paylaşma
-* Kullanıcı oturum açma için bir web tarayıcısı başlatmak için bir Uzak Masaüstü'nü kullanma
-* Bir bilgisayar korsanının bir kullanıcı hesabı için farklı bir ülkeden oturum açtığı
+* Kullanıcı oturum açma için Uzak Masaüstü toolaunch bir web tarayıcısı kullanma
+* Bir bilgisayar korsanının toohello hesabında farklı bir ülkeden bir kullanıcının oturum
 * Kullanıcı bir VPN ya da proxy kullanma
-* Kullanıcı birden çok cihazı aynı zamanda, bir masaüstü ve cep telefonu gibi oturum ve cep telefonu IP adresini olağandışıdır.
+* Kullanıcı imzalandığından içinde aynı zaman, bir masaüstü ve cep telefonu gibi ve IP hello hello adresindeki birden çok aygıtlardan hello cep telefonu olağan dışı adresidir.
 
-Bu rapor sonuçlarını Bu bölgeler arasında başarılı oturum açma olayları, oturum açma işlemleri, burada oturum açma işlemleri kaynaklanan görüldü bölgeler ve tahmini seyahat saat arasındaki zaman birlikte gösterilir. Gösterilen seyahat zaman sadece bir tahmindir ve konumları arasında gerçek seyahat zamandan farklı olabilir.
+Bu rapor sonuçlarını, başarılı oturum açma olayları Merhaba, hello saat arasında birlikte oturum açma işlemleri Merhaba, burada toooriginate gelen hello oturum açma işlemleri görünen ve bu bölgeler arasında seyahat süresi hello tahmini bölgeler hello gösterir. gösterilen hello seyahat zaman sadece bir tahmindir ve hello konumlar arasında hello gerçek seyahat zamandan farklı olabilir.
 
 ![Birden çok coğrafyadan oturum](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 

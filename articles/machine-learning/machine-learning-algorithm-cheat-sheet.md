@@ -1,6 +1,6 @@
 ---
-title: "Makine öğrenimi algoritması bilgi sayfası | Microsoft Docs"
-description: "Bir yazdırılabilir makine öğrenimi algoritması bilgi sayfası Azure Machine Learning Studio'da Tahmine dayalı modelinizin doğru algoritması seçmenize yardımcı olur."
+title: "aaaMachine algoritması bilgi sayfası öğrenme | Microsoft Docs"
+description: "Bir yazdırılabilir makine öğrenimi algoritması bilgi sayfası Azure Machine Learning Studio'da Tahmine dayalı modeliniz için hello sağ algoritma seçmenize yardımcı olur."
 keywords: "Makine öğrenme algoritmasını algoritması bilgi sayfası, kopya sayfası"
 services: machine-learning
 documentationcenter: 
@@ -15,66 +15,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: 2cf4f498a107b8c6085489723ae946b119bb6244
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bedd77bfc65128a90c6128743016415dd8609d7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Microsoft Azure Machine Learning Studio için machine learning algoritması kopya sayfası
-**Microsoft Azure Machine Learning algoritmasını sayfası kopya** Tahmine dayalı analiz modelinin doğru algoritması seçmenize yardımcı olur.
+Merhaba **Microsoft Azure Machine Learning algoritmasını sayfası kopya** hello sağ algoritması için Tahmine dayalı bir analiz modeli seçmenize yardımcı olur.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) algoritmalarından büyük kitaplığı sahip ***regresyon***, ***sınıflandırma***, ***Kümeleme***, ve *** anomali algılama*** aileleri. Her farklı türde bir machine learning sorun gidermek için tasarlanmıştır.
+[Azure Machine Learning Studio](https://studio.azureml.net/) hello algoritmalarından büyük kitaplığı sahip ***regresyon***, ***sınıflandırma***, ***Kümeleme***ve ***anomali algılama*** aileleri. Her tasarlanmış tooaddress farklı türde bir machine learning sorun içerir.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>İndirin: Makine öğrenimi algoritması bilgi sayfası
-**Kopya sayfası buradan indirin: [makine öğrenme algoritmasını kopya sayfası (11 x 17 inç)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+**Burada Hello kopya sayfası indirin: [makine öğrenme algoritmasını kopya sayfası (11 x 17 inç)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
-![Makine öğrenimi algoritması bilgi sayfası: Machine Learning algoritmasını seçin öğrenin.][cheat-sheet]
+![Makine öğrenimi algoritması bilgi sayfası: öğrenin nasıl toochoose bir makine öğrenimi algoritması.][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
-Karşıdan yükle ve makine öğrenme algoritmasını kopya elinizin altında tutun ve bir algoritma seçme Yardım almak için sayfanın tabloid boyutunda yazdırın.
+Karşıdan yükleyip elinizin altında ve bir algoritma seçme get Yardım tabloid boyutu tookeep hello makine öğrenme algoritmasını kopya sayfası yazdırın.
 
 > [!NOTE]
-> Makalesine bakın [için Microsoft Azure Machine Learning algoritmaları seçme](machine-learning-algorithm-choice.md) bu kopya sayfası kullanımı için ayrıntılı bir kılavuz için.
+> Merhaba makalesine bakın [nasıl Microsoft Azure Machine Learning için toochoose algoritmaları](machine-learning-algorithm-choice.md) ayrıntılı kılavuz toousing için bu kopya sayfası.
 > 
 > 
 
 ## <a name="more-help-with-algorithms"></a>Daha fazla yardıma algoritmaları
-* Sağ algoritması yanı sıra, machine learning algoritmaları ve bunların nasıl kullanıldığı farklı türdeki daha ayrıntılı bir tartışma seçmek için bu kopya sayfası kullanarak daha fazla yardım için bkz: [Microsoft Azure Machine Learning içinalgoritmalarseçme](machine-learning-algorithm-choice.md).
+* Merhaba sağ algoritması artı hello farklı türdeki machine learning algoritmaları ve bunların nasıl kullanıldığı daha derin bir irdelemesi seçmek için bu kopya sayfası kullanarak daha fazla yardım için bkz: [nasıl Microsoft Azure Machine Learningiçintoochoosealgoritmaları](machine-learning-algorithm-choice.md).
 * Algoritmaları açıklar ve örnekler sağlayan bir indirilebilir bilgi grafiği için bkz: [indirilebilir bilgi grafiği: Makine öğrenme algoritmasını örneklerle temel](machine-learning-basics-infographic-with-algorithm-examples.md).
-* Machine Learning Studio'da kullanılabilen tüm makine öğrenimi algoritma kategoriye göre bir listesi için bkz: [modeli Başlat] [ initialize-model] Machine Learning Studio algoritması ve modülü Yardımı'nda.
+* Tüm hello makine öğrenimi algoritma Machine Learning Studio'da kullanılabilen kategoriye göre bir listesi için bkz: [modeli Başlat] [ initialize-model] hello Machine Learning Studio algoritması ve modülü Yardımı'nda.
 * Bir tam alfabetik listesi algoritmaları ve Machine Learning Studio'daki modüller için bkz: [Machine Learning Studio modülleri A-Z listesi] [ a-z-list] Machine Learning Studio algoritması ve modülü Yardımı'nda.
-* Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](machine-learning-studio-overview-diagram.md).
+* Machine Learning Studio'nun hello özelliklerine genel bakış sağlayan bir diyagram toodownload ve yazdırma bkz [Azure Machine Learning Studio işlevlerine genel bakış diyagramı](machine-learning-studio-overview-diagram.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="notes-and-terminology-definitions-for-the-machine-learning-algorithm-cheat-sheet"></a>Notlar ve makine öğrenimi algoritması terim tanımları kopya sayfası
+## <a name="notes-and-terminology-definitions-for-hello-machine-learning-algorithm-cheat-sheet"></a>Notlar ve terim tanımları hello makine öğrenme algoritmasının kopya sayfası
 
-* Bu algoritması bilgi sayfası sunulan yaklaşık kuralları-in-Flash önerilerdir. Bazı Bükülü ve bazı flagrantly ihlal edildi. Bu, bir başlangıç noktası önermek üzere tasarlanmıştır. Verileriniz üzerinde birkaç algoritmaları arasında head-to-head rekabet çalıştırmak korkutmasın. Her algoritma ilkelerini anlama ve verilerinizi oluşturulan sistem anlamak için sadece hiçbir yedek yoktur.
+* Bu algoritması bilgi sayfası sunulan hello yaklaşık kuralları-in-Flash önerilerdir. Bazı Bükülü ve bazı flagrantly ihlal edildi. Bu, hedeflenen toosuggest bir başlangıç noktası olur. Afraid toorun head-to-head rekabet verileriniz üzerinde birkaç algoritmaları arasında çekinmeyin. Hello ilkeleri her algoritmasının anlama ve verilerinizi oluşturulan hello sistem anlamak için sadece hiçbir yedek yoktur.
 
-* Her makine öğrenme algoritmasını kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha iyi bir uyum olabilir. Ancak her zaman en uygun olduğu önceden bilmesi mümkün değildir. Bu gibi durumlarda birkaç algoritmaları kopya sayfada birlikte listelenir. Uygun bir strateji bir algoritma ve sonuçları henüz tatmin edici, değilseniz, diğer deneyin olur. Bir örnek şudur [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/) aynı verilere göre çeşitli algoritmalar çalışır ve sonuçları karşılaştırır deneme: [çok sınıfı sınıflandırıcı karşılaştırın: Harf tanıma](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Her makine öğrenme algoritmasını kendi stilde veya *Endüktif sapması*. Belirli bir sorun için çeşitli algoritmalar uygun olabilir ve bir algoritma diğerlerinden daha iyi bir uyum olabilir. Ancak her zaman hello en uygun olan olası tooknow önceden değil. Bu gibi durumlarda birden fazla algoritmaları hello kopya sayfası birlikte listelenir. Uygun bir strateji tootry bir algoritma olabilir ve diğerleri hello hello sonuçları henüz tatmin edici, değilse deneyin. Merhaba bir örnek şudur [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/) birkaç algoritmaları hello karşı çalışır bir deneme sonuçları verilere ve karşılaştırır hello: [çok sınıfı sınıflandırıcı karşılaştırın: Harf tanıma ](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Machine learning üç ana kategoriye ayrılır: **denetimli öğrenme**, **Denetimsiz öğrenme**, ve **öğrenmeyi öğrenme**.
 
-  * İçinde **denetimli öğrenme**, her veri noktası etiketli ya da bir kategori veya ilgi alanı değeri ile ilişkilendirilmiş.  Kategorik bir etiket örneği bir görüntü olarak 'Kat' veya 'köpek' atama.  Bir değer etiketi ile kullanılan bir araba ilişkili satış fiyatı örnektir. Bu gibi birçok etiketli örnekler incelemek için denetimli öğrenme belirtilir ve gelecekteki veri noktaları hakkında Öngörüler olması. Örneğin, yeni fotoğraflar doğru hayvan veya diğer kullanılan araba doğru satış fiyatları atama ile tanımlama. Bu makine öğrenme popüler ve kullanışlı bir türde değil. Learning algoritmaları dışında tüm Azure Machine Learning modülleri denetimli [K-ortalamaları Kümeleme][k-means-clustering].
+  * İçinde **denetimli öğrenme**, her veri noktası etiketli ya da bir kategori veya ilgi alanı değeri ile ilişkilendirilmiş.  Kategorik bir etiket örneği bir görüntü olarak 'Kat' veya 'köpek' atama.  Merhaba satış fiyatı kullanılan car ile ilişkili değer etiketi örnektir. Merhaba denetimli öğrenme toostudy hedefidir çoğu bu gibi örnekler ve toobe mümkün toomake tahminleri gelecekteki veri noktaları hakkında etiketli. Örneğin, yeni fotoğraflar hello hayvan veya doğru satış fiyatları tooother atama araba kullanılan doğru ile tanımlama. Bu makine öğrenme popüler ve kullanışlı bir türde değil. Learning algoritmaları dışında tüm Azure Machine Learning hello modülleri denetimli [K-ortalamaları Kümeleme][k-means-clustering].
 
-  * İçinde **Denetimsiz öğrenme**, veri noktalarına sahip kendileriyle ilişkilendirilmiş etiket yok. Bunun yerine, bir Denetimsiz öğrenme algoritmasını verileri bazı şekilde düzenlemek için veya yapısını açıklamak için hedefidir. Bu K-ortalamaları yaptığı gibi kümeler halinde gruplandırmak veya basit görünmesi karmaşık veri arayan farklı yöntemler bulma anlamına gelebilir.
+  * İçinde **Denetimsiz öğrenme**, veri noktalarına sahip kendileriyle ilişkilendirilmiş etiket yok. Bunun yerine, bir Denetimsiz öğrenme algoritmasını amacı hello tooorganize hello bazı yolu veya toodescribe yapısını verilerdir. Bu K-ortalamaları yaptığı gibi kümeler halinde gruplandırmak veya basit görünmesi karmaşık veri arayan farklı yöntemler bulma anlamına gelebilir.
 
-  * İçinde **öğrenmeyi öğrenme**, her veri noktası yanıtta bir eylem seçmenizi algoritma alır. Burada zaman içinde bir noktada sensör okumaları veri noktası kümesidir ve algoritma robot kullanıcının bir sonraki eylem seçmeniz gerekir robotics içinde ortak bir yaklaşımdır. Aynı zamanda bir doğal olan nesnelerin interneti uygulamalar için uygun. Öğrenme algoritmasını de ödül sinyal kısa ne kadar iyi kararı olduğunu belirten bir süre sonra alır. Algoritma bunu temel alarak, yüksek ödül elde etmek için kendi stratejisi değiştirir. Şu anda Azure ML algoritması modülleri öğrenme hiçbir öğrenmeyi vardır.
+  * İçinde **öğrenmeyi öğrenme**, hello algoritması yanıt tooeach veri noktasında bir eylem toochoose alır. Burada hello zaman içinde bir noktada sensör okumaları kümesi, veri noktası ve hello algoritması hello robot'ın bir sonraki eylem seçmelisiniz robotics, ortak bir yaklaşımdır. Aynı zamanda bir doğal olan nesnelerin interneti uygulamalar için uygun. Merhaba öğrenme algoritmasını ayrıca bir kısa ne kadar iyi hello karar belirten süresi daha sonra bir ödül sinyali alır. Bunu temel alarak, sipariş tooachieve hello yüksek ödül kendi stratejinize hello algoritması değiştirir. Şu anda Azure ML algoritması modülleri öğrenme hiçbir öğrenmeyi vardır.
 
-* **Bayesian yöntemleri** istatistiksel olarak bağımsız veri noktaları olduğu varsayımını yaparsınız. Bunun anlamı bir veri noktası Modellenmemiþ sonuçlarındaki başkalarıyla uncorrelated, diğer bir deyişle, bu tahmin edilemez. Örneğin, kaydedilen veri sonraki Yeraltı treni tren gelene kadar dakika sayısını ise, bir gün parçalayın alınan iki ölçümlere istatistiksel olarak bağımsızdır. Ancak, bir dakika parçalayın alınan iki ölçümlere istatistiksel olarak bağımsız olmayan - birinin değeri, diğer yüksek oranda Tahmine dayalı bir değerdir.
+* **Bayesian yöntemleri** istatistiksel olarak bağımsız veri noktaları hello olduğu varsayımını yaparsınız. Bir veri noktası Modellenmemiþ sonuçlarındaki hello Bunun anlamı başkalarıyla uncorrelated, diğer bir deyişle, bu tahmin edilemez. Örneğin, kaydedilen hello veri hello hello sonraki Yeraltı treni Eğitimi, günde bir uzaklıkta alınan iki ölçümlere gelene kadar dakika sayısını ise istatistiksel olarak bağımsız olur. Ancak, bir dakika parçalayın alınan iki ölçümlere istatistiksel olarak bağımsız olmayan - hello bir hello diğer hello değerini yüksek oranda Tahmine dayalı bir değerdir.
 
-* **Boosted karar ağacı regresyon** özelliği çakışma veya özellikler arasındaki etkileşimi avantajlarından yararlanır. Verilen veri noktasında herhangi bir özellik değerini başka bir değeri biraz Tahmine dayalı olduğunu, anlamına gelir. Örneğin, günlük yüksek/düşük sıcaklık verileri güne ait düşük sıcaklık bilerek en yüksek makul bir tahmin yapmanızı sağlar. İki özellik yer alan bilgileri biraz gereksizdir.
+* **Boosted karar ağacı regresyon** özelliği çakışma veya özellikler arasındaki etkileşimi avantajlarından yararlanır. Belirtilen tüm veri noktası deyişle, bir özellik değerini hello başka bir hello değerini biraz Tahmine dayalı. Örneğin, günlük yüksek/düşük sıcaklık verilerde hello düşük sıcaklık hello gün için bilerek toomake makul tahmin hello yüksek sağlar. Merhaba iki özelliklerinde içerdiği hello bilgi biraz gereksizdir.
 
-* İkiden fazla kategoriye veri sınıflandırma yapılabilir kendiliğinden çok sınıfı sınıflandırıcı kullanarak veya iki sınıflı sınıflandırıcı bir dizi birleştiren bir **ensemble**. Ensemble yaklaşım her sınıf için ayrı bir iki sınıflı sınıflandırıcı yoktur - her bir veri iki kategoriye ayırır: "" ve "değil Bu sınıf." Ardından bu sınıflandırıcı veri noktasının doğru atamada oy verin. Bu arkasında işletimsel ilkesidir [veya bir vs tüm çoklu sınıflar][one-vs-all-multiclass].
+* İkiden fazla kategoriye veri sınıflandırma yapılabilir kendiliğinden çok sınıfı sınıflandırıcı kullanarak veya iki sınıflı sınıflandırıcı bir dizi birleştiren bir **ensemble**. Merhaba ensemble yaklaşım her sınıf için ayrı bir iki sınıflı sınıflandırıcı yoktur - her biri iki kategoride hello veri ayırır: "" ve "değil Bu sınıf." Ardından bu sınıflandırıcı hello doğru hello veri noktası atamada oy verin. Bu hello işletimsel arkasında ilkesidir [veya bir vs tüm çoklu sınıflar][one-vs-all-multiclass].
 
-* Lojistik regresyon ve Bayes noktası makinesi dahil olmak üzere çeşitli yöntemleri varsayın **doğrusal sınıfı sınırları**. Diğer bir deyişle, bunlar sınıflar arasındaki sınırların yaklaşık düz satırları (veya daha fazla genel durumda hyperplanes) olduğunu varsayar. Bu özelliği, ayırmak çalıştınız sonra kadar tanımadığınız verilerin görülür, ancak genellikle önceden görselleştirme tarafından öğrenilebilecek bir şey olduğunu. Sınıf sınırları çok düzensiz bakarsanız, karar ağaçları ile takılıyor, ormanları karar, vektör makineleri veya sinir ağları destekler.
+* Lojistik regresyon ve hello Bayes noktası makinesi dahil olmak üzere çeşitli yöntemler varsayın **doğrusal sınıfı sınırları**. Diğer bir deyişle, bunlar bu hello varsayın sınırlarıdır sınıflar arasındaki yaklaşık düz çizgiler (veya hyperplanes içinde hello daha genel durumda). Bu bir özellik görülür hello verilerin, ancak bunu tooseparate çalıştınız sonra kadar bilmiyorsanız genellikle önceden görselleştirme tarafından öğrenilebilecek bir şeydir. Merhaba sınıfı sınırları çok düzensiz bakarsanız, karar ağaçları ile takılıyor, ormanları karar, vektör makineleri veya sinir ağları destekler.
 
-* Sinir ağları kullanılabilir kategorik değişkenlerle oluşturarak bir **kukla değişkeni** 1 durumlarda kategori geçerli olduğu, burada değil 0 ayarı, her kategori için.
+* Sinir ağları kullanılabilir kategorik değişkenlerle oluşturarak bir **kukla değişkeni** her kategori için too1 hello kategori geçerli olduğu, 0 nerede değil durumlarda ayarlama.
 
 
-<!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.
+<!-- This is how you can embed a link in an image in HTML. Don't know how toodo this in markdown.
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-docs-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>

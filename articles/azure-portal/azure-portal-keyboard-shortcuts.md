@@ -1,6 +1,6 @@
 ---
-title: "Azure portal klavye kısayolları | Microsoft Docs"
-description: "Azure portalında çalışma klavye kısayolları hakkında bilgi edinin."
+title: "aaaAzure portal klavye kısayolları | Microsoft Docs"
+description: "Hello Azure portal iş hello klavye kısayolları hakkında bilgi edinin."
 services: azure-portal
 documentationcenter: 
 author: flanakin
@@ -15,35 +15,35 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7d0130e1d7175cef07038bef0a4c47a4c1291050
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure portalında klavye kısayolları
-Bu makalede Azure portal çalışmak klavye kısayolları gösterilmektedir. Tek tek Hizmetleri kendi klavye kısayolları olabilir.
+# <a name="keyboard-shortcuts-in-hello-azure-portal"></a>Hello Azure portal klavye kısayolları
+Bu makalede Azure portal hello iş hello klavye kısayolları gösterilmektedir. Tek tek Hizmetleri kendi klavye kısayolları olabilir.
 
 ## <a name="actions"></a>Eylemler
-|Bunu yapmak için |Tuşuna basın |
+|toodo bu |Tuşuna basın |
 | --- | --- |
 |Yeni bir kaynak oluşturun|G + N|
-|'Daha fazla hizmet' bölmesini açın|G + B|
+|Açık hello bölmesini 'Daha Hizmetleri'|G + B|
 |Kaynakları Ara|G +/| 
 |Arama kaynak menü öğeleri|CTRL +/ |
-|Sol bölmede seçili öğeyi Yukarı Taşı |ALT + ÜST KARAKTER + YUKARI OK|
-|Sol bölmede seçili öğeyi aşağı taşı |ALT + üst karakter + aşağı ok|
+|Merhaba sol bölmede seçili öğeyi Yukarı Taşı |ALT + ÜST KARAKTER + YUKARI OK|
+|Merhaba sol bölmede seçili öğeyi aşağı taşı |ALT + üst karakter + aşağı ok|
 
 ## <a name="navigation"></a>Gezinme
-|Bunu yapmak için |Tuşuna basın |
+|toodo bu |Tuşuna basın |
 | --- | --- |
-|Odağı komut çubuğuna taşı |G + |
+|Odak toocommand çubuğunu taşıma |G + |
 |Odağı üst çubuk ve kenar çubuğu arasında değiştir | G +. |
 
 ## <a name="go-to"></a>Git
-|Bunu yapmak için |Tuşuna basın |
+|toodo bu |Tuşuna basın |
 | --- | --- |
-|Panoya gitmek |G + D |
-|Tüm kaynaklara gidin|G + A |
-|Kaynak gruplarına gidin|G + R |
-|Bu konumda sol bölmesinde öğeyi açın |G + sayı|
+|Toodashboard gidin |G + D |
+|Tooall kaynaklara bakın|G + A |
+|Tooresource grupları gidin|G + R |
+|Bu konumda açık hello sol bölme öğesi |G + sayı|

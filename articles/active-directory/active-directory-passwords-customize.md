@@ -16,96 +16,96 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8b9c120815473b25140b8717f8fdd539c97ebb04
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4762fffef040f9b409355f9ee0e8cc593e3eea0d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Self Servis parola sıfırlama için Azure AD işlevselliği özelleştirme
 
-Self Servis parola sıfırlama dağıtmak isteyen BT uzmanları, kullanıcıları eşleştirmek için deneyimi özelleştirebilirsiniz.
+BT uzmanları toodeploy Self Servis parola sıfırlama arayan hello deneyimi toomatch kullanıcılarının özelleştirebilirsiniz.
 
-## <a name="customize-the-contact-your-administrator-link"></a>Kişinin yöneticisine bağlantınız özelleştirme
+## <a name="customize-hello-contact-your-administrator-link"></a>Yönetici bağlantı Hello kişi özelleştirme
 
-SSPR etkinleştirilmemiş olsa bile kullanıcılar hala bir "yöneticinize başvurun" parola bağlantı portal sıfırlayın.  Bu bağlantıyı tıklatarak kullanıcının parolasını değiştirme konusunda yardım almak için isteyen yöneticilerinizi e-postalar. Bu e-posta aşağıdaki sırayla aşağıdaki alıcılara gönderilir:
+SSPR etkin kullanıcıları olsa bile hello parola hala bir "yöneticinize başvurun" bağlantısında portal sıfırlayın.  Bu bağlantıyı tıklatarak hello kullanıcının parolasını değiştirme konusunda yardım almak için isteyen yöneticilerinizi e-postalar. Bu e-posta alıcıları sırasının hello aşağıdaki toohello gönderilir:
 
-1. Varsa **parola Yöneticisi** rol atanır, Yöneticiler bu rolüne sahip bildirim
-2. Parola yöneticileri atanır varsa, ardından yöneticilerine **Kullanıcı Yöneticisi** rol bildirim
-3. Önceki roller hiçbiri, ardından atanmış ise **genel Yöneticiler** bildirilir
+1. Merhaba, **parola Yöneticisi** rol atanır, Yöneticiler bu rolüne sahip bildirim
+2. Parola yöneticileri atanır varsa, ardından hello yöneticilerine **Kullanıcı Yöneticisi** rol bildirim
+3. Merhaba önceki roller hiçbiri, ardından atanmış ise **genel Yöneticiler** bildirilir
 
 Her durumda en fazla 100 alıcıların bildirim.
 
-Farklı yönetici hakkında daha fazla bilgi için roller ve bunları atama belgesine bakın [Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles.md)
+Merhaba farklı yönetici rolleri ve nasıl görebileceği tooassign hello belge hakkında daha fazla toofind [Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>Devre dışı bırakma, yönetici e-postaları başvurun
 
-Kuruluşunuzun parola hakkında bildirim Yöneticiler istekleri sıfırlama istemiyorsa aşağıdaki yapılandırma etkinleştirilebilir
+Kuruluşunuzun parola hakkında bildirim Yöneticiler istekleri sıfırlama istemiyorsa hello aşağıdaki yapılandırma etkinleştirilebilir
 
 * Self Servis parola sıfırlama tüm son kullanıcılarınız için etkinleştirin. Bu seçenek altındadır **parola sıfırlama > Özellikler**.
-    * Kullanıcıların kendi parolalarını sıfırlamasına izin istemezseniz, boş bir grubu erişim kapsamını belirleyebilirsiniz **bu seçeneği önermiyoruz**.
-* Bir web URL'si veya mailto sağlamak için Yardım Masası bağlantısı özelleştirme: kullanıcıların Yardım almak için kullanabileceği adresi. Bu seçenek altındadır **parola sıfırlama > özelleştirme > özel Yardım Masası e-posta veya URL**.
+    * Kullanıcıların kendi parolalarını kullanıcılar tooreset istemiyorsanız erişim tooan boş grubu kapsamını belirleyebilirsiniz **bu seçeneği önermiyoruz**.
+* Web URL veya mailto Hello Yardım Masası bağlantısı tooprovide özelleştirme: adresi kullanıcılar tooget Yardım kullanabilir. Bu seçenek altındadır **parola sıfırlama > özelleştirme > özel Yardım Masası e-posta veya URL**.
 
 ## <a name="customize-adfs-sign-in-page-for-sspr"></a>SSPR için ADFS oturum açma sayfasını özelleştirme
 
-ADFS Yöneticiler makalede bulunan yönergeleri kullanarak kullanıcıların oturum açma sayfasına bir bağlantı ekleyebilirsiniz [Ekle oturum açma sayfası açıklaması](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
+ADFS Yöneticiler hello makalede bulunan hello kılavuzu kullanarak bir bağlantıyı tootheir oturum açma sayfası ekleyebilirsiniz [Ekle oturum açma sayfası açıklaması](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
 
-ADFS sunucunuzda aşağıdaki komutu kullanarak, kullanıcıların Self Servis parola girmesini sağlayan ADFS oturum açma sayfasına bir bağlantı iş akışı doğrudan sıfırlama ekler.
+ADFS sunucunuzda aşağıdaki hello komutunu kullanarak kullanıcıların tooenter hello Self Servis parola sıfırlama iş akışı doğrudan sağlayan bir bağlantı toohello ADFS oturum açma sayfasına ekler.
 
 ``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
-## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>Oturum açma ve erişim panelinde görünüm özelleştirme
+## <a name="customize-hello-sign-in-and-access-panel-look-and-feel"></a>Merhaba oturum açma ve erişim panelinde görünüm özelleştirme
 
-Kullanıcılarınız oturum açma sayfasına eriştiğinde, şirket markanızla sığması için oturum açma sayfası görüntüsü yanı sıra görünür logosunu özelleştirebilirsiniz.
+Kullanıcılarınızın hello oturum açma sayfasına eriştiğinizde, şirket markanızla hello oturum açma sayfası görüntü toofit yanı sıra görünür hello logosu özelleştirebilirsiniz.
 
-Bu grafik, aşağıdaki durumlarda gösterilir:
+Bu grafik koşullar aşağıdaki hello gösterilmektedir:
 
 * Sonra bir kullanıcının kullanıcı adı türleri
 * Özelleştirilmiş url kullanıcının eriştiği
-    * "Ws" geçirerek parola parametresi "https://login.microsoftonline.com/?whr=contoso.com" gibi sayfa Sıfırla
-    * "Username" geçirerek gibi sayfasında, parametre parolayı Sıfırla "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * Geçirme hello tarafından sayfası "https://login.microsoftonline.com/?whr=contoso.com" gibi "ws" parametresi toohello parola sıfırlama
+    * Gibi sayfa, "kullanıcıadı" Merhaba tarafından geçirme parametresi toohello parola sıfırlama "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 ### <a name="graphics-details"></a>Grafik ayrıntıları
 
-Aşağıdaki ayarlar, oturum açma sayfasının görsel özelliklerini değiştirmenize izin verir ve altında bulunan **Azure Active Directory**, **şirket markası**, **düzenleme şirket markası**
+Merhaba aşağıdaki ayarları toochange hello görsel özelliklerini hello oturum açma sayfasının izin ve altında bulunan **Azure Active Directory**, **şirket markası**, **şirket Düzenle Markalama**
 
-* Oturum açma sayfası görüntü PNG veya JPG dosya 1420 x 1200 piksel ve no olmalıdır 500KB daha büyük. En iyi sonuçlar için yaklaşık 200 KB olmasını öneririz.
-* Oturum açma sayfası arka plan rengi Yüksek gecikmeli bağlantılarında kullanılır ve RGB onaltılık biçiminde olması gerekir.
+* Oturum açma sayfası görüntü PNG veya JPG dosya 1420 x 1200 piksel ve no olmalıdır 500KB daha büyük. Bu toobe yaklaşık 200 KB en iyi sonuçlar için öneririz.
+* Oturum açma sayfası arka plan rengi Yüksek gecikmeli bağlantılarında kullanılır ve hello RGB onaltılık biçiminde olması gerekir.
 * Başlık resmi, PNG veya JPG dosya 60 x 280 piksel ve no olmalıdır 10 KB'den büyük.
 * Kare logo (normal açık ve koyu renkli tema) PNG veya JPG 240 x 240 (yeniden boyutlandırılabilir) 10 KB'den büyük.
 
 ### <a name="sign-in-text-options"></a>Metin oturum açma seçenekleri
 
-Aşağıdaki ayarlar, oturum açma sayfası kuruluşunuza uygun metin eklemenize olanak sağlar. Bu ayarlar altında bulunabilir **Azure Active Directory**, **şirket markası**, **düzenleme şirket markası**
+ayarları aşağıdaki hello tooadd metin toohello oturum açma sayfasında ilgili tooyour kuruluş izin verin. Bu ayarlar altında bulunabilir **Azure Active Directory**, **şirket markası**, **düzenleme şirket markası**
 
-* **Kullanıcı adı İpucu** örnek metnini değiştirir someone@example.com bir şey ile kullanıcılarınız için daha uygun, önerilen varsayılan iç ve dış kullanıcılar desteklendiğinde bırakılması için
-* **Oturum açma sayfası metni** en fazla 256 karakter uzunluğunda. Bu metin herhangi bir yere çevrimiçi ve Windows 10 Azure AD katılım deneyimi, kullanıcıların oturum açma görüntülenir. Bu metin koşullarını kullanın, yönergeler ve kullanıcılarınız için ipuçları için kullanın. **Herkes herhangi bir önemli bilgi burada sağlamaz, oturum açma sayfanızı görebilirsiniz.**
+* **Kullanıcı adı İpucu** değiştirir hello örnek metnin someone@example.com bir şey ile kullanıcılarınız için daha uygun, iç ve dış kullanıcılar desteklendiğinde toobe sol varsayılan önerilir
+* **Oturum açma sayfası metni** en fazla 256 karakter uzunluğunda. Bu metin, kullanıcıların oturum açma çevrimiçi ve hello Azure AD katılım deneyimi Windows 10 herhangi bir yerde görüntülenir. Bu metin koşullarını kullanın, yönergeler ve kullanıcılarınız için ipuçları için kullanın. **Herkes herhangi bir önemli bilgi burada sağlamaz, oturum açma sayfanızı görebilirsiniz.**
 
 ### <a name="keep-me-signed-in-disabled"></a>Oturumumu açık bırak devre dışı
 
-Seçeneğini kapatın ve bunların tarayıcı penceresini yeniden açın, oturum açmış durumda kalmak için kullanıcıların "Benim devre dışı imzalı tut" sağlar. Bu seçenek oturum süreleri etkilemez. Bu ayarı altında bulunan **Azure Active Directory > Şirket markası > Düzenle şirket markası**.
+Merhaba seçeneği "tutmak Oturumumu açık devre dışı" kullanıcılar tooremain kapatın ve bunların tarayıcı penceresini yeniden açın, oturum sağlar. Bu seçenek oturum süreleri etkilemez. Bu ayarı altında bulunan **Azure Active Directory > Şirket markası > Düzenle şirket markası**.
 
-SharePoint Online ve Office 2010 özelliklerinden bazıları bu kutuyu yetkisi olan kullanıcılar bir bağımlılık sahip. Bu seçenek gizleme, kullanıcıları ek ve beklenmeyen oturum açma komut istemlerini alabilir.
+SharePoint Online ve Office 2010 özelliklerinden bazıları mümkün toocheck bu kutu olan kullanıcılar bir bağımlılık vardır. Bu seçenek gizleme, kullanıcıları ek ve beklenmeyen oturum açma komut istemlerini alabilir.
 
 ### <a name="directory-name"></a>Dizin adı
 
-Ad özniteliği altında değiştirebilirsiniz **Azure Active Directory > Özellikler** portal ve otomatik iletişimlerde görülen bir kolay kuruluş adı göstermek için. Bu seçenek en izleyin formlarda otomatik e-postalar biçiminde görülebilir
+Merhaba name özniteliği altında değiştirebilirsiniz **Azure Active Directory > Özellikler** tooshow kolay kuruluş adı hello Portalı'nda görülen ve iletişim otomatik. Bu seçenek en izleyin hello formlarda otomatik e-postalar hello biçiminde görülebilir
 
 * E-posta "Microsoft CONTOSO tanıtım adına" kolay ad
 * E-posta "CONTOSO demo hesabı e-posta doğrulama kodu" konu satırında
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
+bağlantılar aşağıdaki hello parola sıfırlama ve Azure AD kullanma ile ilgili ek bilgiler sağlar
 
 * [**Hızlı Başlangıç**](active-directory-passwords-getting-started.md) - Azure AD self servis parola yönetimi ile çalışmaya hazırlanın 
 * [**Lisanslama**](active-directory-passwords-licensing.md) - Azure AD Lisanslarınızı yapılandırın
-* [**Veri**](active-directory-passwords-data.md) - Gerekli olan verileri ve parola yönetimi için nasıl kullanıldığını anlayın
-* [**Kullanıma Sunma** ](active-directory-passwords-best-practices.md) - Buradaki yönergelerle SSPR’ı planlayın ve kullanıcılarınıza dağıtın
+* [**Veri** ](active-directory-passwords-data.md) - gereklidir hello verileri anlamak ve nasıl kullanıldığı için parola yönetimi
+* [**Sunum** ](active-directory-passwords-best-practices.md) -planlama ve burada bulunan hello kılavuzu kullanarak SSPR tooyour kullanıcılara dağıtma
 * [**İlke**](active-directory-passwords-policy.md) - Azure AD parola ilkelerini anlayın ve ayarlayın
 * [**Parola Geri Yazma**](active-directory-passwords-writeback.md) - Şirket içi dizininizde parola geri yazma özelliğinin nasıl çalıştığını anlayın
 * [**Raporlama**](active-directory-passwords-reporting.md) - Kullanıcılarınızın SSPR işlevine erişip erişmediğini, ne zaman ve nerede eriştiğini öğrenin
-* [**Teknik Ayrıntı**](active-directory-passwords-how-it-works.md) - Nasıl çalıştığını anlamak için perde arkasına gidin
-* [**Sık Sorulan Sorular**](active-directory-passwords-faq.md) - Nasıl? Neden? Ne? Nerede? Kim? Ne zaman? - Her zaman sormak istediğiniz soruların yanıtları
-* [**Sorun giderme**](active-directory-passwords-troubleshoot.md) - SSPR ile yaygın olarak karşılaştığımız sorunların çözümü hakkında bilgi alın
+* [**Teknik derinlemesine** ](active-directory-passwords-how-it-works.md) -hello perdenin toounderstand nasıl çalıştığını gidin
+* [**Sık Sorulan Sorular**](active-directory-passwords-faq.md) - Nasıl? Neden? Ne? Nerede? Kim? Ne zaman? -Her zaman tooask istediğinizi tooquestions yanıtlar
+* [**Sorun giderme** ](active-directory-passwords-troubleshoot.md) -nasıl biz SSPR ile bkz tooresolve ortak sorunları öğrenin
 

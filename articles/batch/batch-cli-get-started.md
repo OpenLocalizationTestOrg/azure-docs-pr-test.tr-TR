@@ -1,6 +1,6 @@
 ---
-title: "Batch için Azure CLI kullanmaya başlama | Microsoft Docs"
-description: "Azure Batch hizmet kaynaklarını yönetmek üzere Azure CLI’daki Batch komutlarına hızlı bir giriş yapın"
+title: "Toplu işlemi için Azure CLI aaaGet Başlarken | Microsoft Docs"
+description: "Bir giriş, Azure Batch hizmetinin kaynakları yönetmek için Azure CLI toohello toplu iş komutları Al"
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,90 +15,90 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 14f28311ecb16c8097d0d304a4ad89de282a2e9b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch kaynaklarını Azure CLI ile yönetme
 
-Azure CLI 2.0, Azure kaynaklarını yönetmek için Azure tarafından sunulan yeni komut satırı deneyimidir. MacOS, Linux ve Windows’da kullanılabilir. Azure CLI 2.0, Azure kaynaklarını komut satırından yönetmek üzere iyileştirilmiştir. Azure CLI kullanarak Azure Batch hesaplarınızın yanı sıra havuzlar, işler ve görevler gibi kaynakları yönetebilirsiniz. Azure Batch CLI ile Batch API'leri, Azure portalı ve Batch PowerShell cmdlet’leri ile gerçekleştirdiğiniz görevlerin çoğu için betik oluşturabilirsiniz.
+Hello Azure CLI 2.0 Azure kaynaklarını yönetmek için Azure'nın yeni komut satırı deneyimidir. MacOS, Linux ve Windows’da kullanılabilir. Azure CLI 2.0 yönetmek ve hello komut satırından Azure kaynaklarını yönetmek için optimize edilmiştir. Azure toplu işlem hesaplarını ve havuzlar, işler ve görevler gibi toomanage kaynakları hello Azure CLI toomanage kullanabilirsiniz. Merhaba çoğunu komut Hello Azure CLI, yürütmek ile aynı görevleri hello Batch API'leri, Azure portal ve Batch PowerShell cmdlet'leri.
 
-Bu makalede Batch ile [Azure CLI sürüm 2.0](https://docs.microsoft.com/cli/azure/overview) kullanımına genel bakışa yer verilmiştir. Azure ile CLI kullanımı hakkında bilgi için bkz. [Azure CLI 2.0'ı kullanmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Bu makalede Batch ile [Azure CLI sürüm 2.0](https://docs.microsoft.com/cli/azure/overview) kullanımına genel bakışa yer verilmiştir. Bkz: [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) Azure ile Merhaba CLI kullanarak genel bir bakış için.
 
-Microsoft, en son Azure CLI sürümü olan 2.0'ı kullanmanızı önerir. Sürüm 2.0 hakkında daha fazla bilgi için bkz. [Azure Komut Satırı 2.0 genel kullanıma sunuldu](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
+Microsoft hello Azure CLI, sürüm 2.0 hello en son sürümünü kullanmanızı önerir. Sürüm 2.0 hakkında daha fazla bilgi için bkz. [Azure Komut Satırı 2.0 genel kullanıma sunuldu](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 
-## <a name="set-up-the-azure-cli"></a>Azure CLI'yı kurma
+## <a name="set-up-hello-azure-cli"></a>Azure CLI Hello ayarlayın
 
-Azure CLI'yı yüklemek için [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli.md) sayfasındaki adımları izleyin.
+tooinstall hello Azure CLI adımları özetlenen hello [yükleme hello Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
 
 > [!TIP]
-> Hizmet güncelleştirmeleri ve geliştirmelerinden yararlanmak için Azure CLI yüklemenizi sık sık güncelleştirmeniz önerilir.
+> Azure CLI yüklemenizi güncelleştirmenizi öneririz sık tootake avantajlarından hizmet güncelleştirmeleri ve geliştirmeleri.
 > 
 > 
 
 ## <a name="command-help"></a>Komut yardımı
 
-Komuttan sonra `-h` ekleyerek Azure CLI'daki her komut için yardım metni görüntüleyebilirsiniz. Diğer seçenekleri atın. Örneğin:
+Her komut için Yardım metni hello Azure CLI ekleyerek görüntüleyebileceğiniz `-h` toohello komutu. Diğer seçenekleri atın. Örneğin:
 
-* `az` komutuyla ilgili yardım almak için şunu girin: `az -h`
-* CLI’daki tüm Batch komutlarının listesini almak için şunu kullanın: `az batch -h`
-* Batch hesabı oluşturmayla ilgili yardım almak için şunu girin: `az batch account create -h`
+* Merhaba tooget yardımını `az` komutu, girin:`az -h`
+* tooget hello CLI, tüm toplu komutlarda listesini kullanın:`az batch -h`
+* bir Batch hesabı oluşturma tooget Yardım girin:`az batch account create -h`
 
-Emin olmadığınızda herhangi bir Azure CLI komutuyla ilgili yardım almak için `-h` komut satırı seçeneğini kullanın.
+Şüpheli zaman hello kullan `-h` komut satırı seçeneği tooget Yardım herhangi bir Azure CLI komutu.
 
 > [!NOTE]
-> Önceki Azure CLI sürümlerinde CLI komutu yazmaya başlamak için `azure` kullanılıyordu. Sürüm 2.0'da tüm komutlar `az` ile kullanılıyor. Betiklerinizi sürüm 2.0 ile yeni söz dizimini kullanacak şekilde güncelleştirmeyi unutmayın.
+> Merhaba kullanılan Azure CLI'ın önceki sürümlerini `azure` toopreface CLI komutu. Sürüm 2.0'da tüm komutlar `az` ile kullanılıyor. Sürüm 2.0, komut dosyaları toouse hello yeni sözdizimi emin tooupdate olabilir.
 >
 >  
 
-Ayrıca [Batch için Azure CLI komutları](https://docs.microsoft.com/cli/azure/batch) hakkında ayrıntılı bilgi için Azure CLI referans belgelerini inceleyin. 
+Ayrıca, hakkında ayrıntılar için toohello Azure CLI başvuru belgelerine başvurun [toplu için Azure CLI komutları](https://docs.microsoft.com/cli/azure/batch). 
 
 ## <a name="log-in-and-authenticate"></a>Oturum açma ve kimlik doğrulaması
 
-Batch ile Azure CLI kullanmak için oturum açmanız ve kimlik doğrulamasından geçmeniz gerekir. İzlemeniz gereken iki basit adım vardır:
+toouse hello Azure CLI toplu işlem ile içinde toolog gerekir ve kimlik doğrulaması. İki basit adımları toofollow vardır:
 
-1. **Azure'da oturum açın.** Azure'da oturum açarak [Batch Management hizmeti](batch-management-dotnet.md) komutları dahil olmak üzere Azure Resource Manager komutlarına erişebilirsiniz.  
-2. **Batch hesabınızda oturum açın.** Batch hesabınızda oturum açarak Batch hizmeti komutlarına erişebilirsiniz.   
+1. **Azure'da oturum açın.** Azure verir oturum dahil olmak üzere, tooAzure Resource Manager komutlara erişmek [toplu yönetim hizmeti](batch-management-dotnet.md) komutları.  
+2. **Batch hesabınızda oturum açın.** Toplu işlem hesabı verir oturum tooBatch hizmeti komutları erişin.   
 
-### <a name="log-in-to-azure"></a>Azure'da oturum açma
+### <a name="log-in-tooazure"></a>İçinde tooAzure oturum
 
-Azure'da oturum açmanın birkaç farklı yolu vardır ve hepsi [Azure CLI 2.0 ile oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) sayfasında ayrıntılı olarak açıklanmıştır:
+Azure, ayrıntılı olarak açıklanmıştır içine birkaç farklı şekilde toolog vardır [oturum Azure CLI 2.0 oturum](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Etkileşimli olarak oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Azure CLI komutlarını komut satırından çalıştırmak için etkileşimli olarak oturum açın.
+1. [Etkileşimli olarak oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Azure CLI komutları kendiniz hello komut satırından çalıştırırken etkileşimli olarak oturum açın.
 2. [Hizmet sorumlusu ile oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Azure CLI komutlarını bir betikten veya uygulamadan çalıştırdığınızda hizmet sorumlusuyla oturum açın.
 
-Bu makalede Azure'da etkileşimli oturum açmayı göstereceğiz. Komut satırına [az login](https://docs.microsoft.com/cli/azure/#login) yazın:
+Bu makalede Hello amaçlarla gösteriyoruz nasıl toolog Azure içine etkileşimli olarak. Tür [az oturum açma](https://docs.microsoft.com/cli/azure/#login) hello komut satırında:
 
 ```azurecli
-# Log in to Azure and authenticate interactively.
+# Log in tooAzure and authenticate interactively.
 az login
 ```
 
-`az login` komutu, burada gösterildiği gibi kimlik doğrulaması için kullanabileceğiniz bir belirteç döndürür. Bir web sayfası açmak ve belirteci Azure'a göndermek için yönergeleri izleyin:
+Merhaba `az login` tooauthenticate, aşağıda gösterildiği gibi kullanabileceğiniz belirteci komutu döndürür. Hello sağlanan yönergeleri tooopen bir web sayfası izleyin ve hello belirteci tooAzure gönderin:
 
-![Azure'da oturum açma](./media/batch-cli-get-started/az-login.png)
+![İçinde tooAzure oturum](./media/batch-cli-get-started/az-login.png)
 
-[Örnek kabuk betikleri](#sample-shell-scripts) bölümünde listelenen örnekler de Azure'da etkileşimli olarak oturum açarak Azure CLI oturumunuzu nasıl başlatacağınızı göstermektedir. Oturum açtıktan sonra Batch hesapları, anahtarları, uygulama paketleri ve kotaları dahil olmak üzere Batch Management kaynaklarıyla çalışmak için komutları çağırabilirsiniz.  
+Merhaba örnekler listelenen hello [örnek Kabuk komut dosyalarını](#sample-shell-scripts) de Göster nasıl bölümünde toostart Azure'da etkileşimli olarak oturum açarak, Azure CLI oturumunuz. Oturum açtıktan sonra toplu hesaplar, anahtarları, uygulama paketleri ve kotalar dahil olmak üzere Batch Yönetimi kaynaklarla komutları toowork çağırabilirsiniz.  
 
-### <a name="log-in-to-your-batch-account"></a>Batch hesabınızda oturum açma
+### <a name="log-in-tooyour-batch-account"></a>Toplu işlem hesabı tooyour içinde oturum
 
-Havuzlar, işler ve görevler gibi Batch kaynaklarını yönetmek üzere Azure CLI kullanmak için Batch hesabınızda oturum açıp kimlik doğrulamasından geçmeniz gerekir. Batch hizmetinde oturum açmak için [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) komutunu kullanın. 
+toouse hello Azure CLI toomanage toplu gibi kaynaklar havuzlar, işler ve görevler, Batch hesabınızda toolog gerekir ve kimlik doğrulaması. toohello Batch hizmeti toolog kullanmak hello [az toplu işlem hesabı oturum açma](https://docs.microsoft.com/cli/azure/batch/account#login) komutu. 
 
 Batch hesabınızla kimlik doğrulamasından geçmek için kullanabileceğiniz iki seçenek vardır:
 
 - **Azure Active Directory (Azure AD) kimlik doğrulamasını kullanmak.** 
 
-    Azure AD kimlik doğrulamasını kullanmak, Batch ile Azure CLI kullandığınızda varsayılan ve çoğu senaryo için önerilen yöntemdir. 
+    Azure AD ile kimlik doğrulaması toplu işlemle hello Azure CLI kullandığınızda hello varsayılan ayardır ve çoğu senaryolar için önerilir. 
     
-    Önceki bölümde anlatıldığı şekilde Azure'da etkileşimli olarak oturum açtığınızda kimlik bilgileriniz önbelleğe alınır ve Azure CLI bu kimlik bilgilerini kullanarak Batch hesabınızda oturum açabilir. Azure'da hizmet sorumlusu kullanarak oturum açarsanız o kimlik bilgileri de Batch hesabınıza oturum açmak için kullanılır.
+    İçinde tooAzure hello önceki bölümde açıklandığı gibi etkileşimli olarak oturum açtığınızda hello Azure CLI tooyour toplu işlem hesabı bu kimlik bilgilerini kullanarak oturum için kimlik bilgilerinizi, önbelleğe alınır. Bir hizmet sorumlusunu kullanarak tooAzure içinde oturum açarsanız, bu kimlik bilgilerini tooyour toplu işlem hesabı içinde kullanılan toolog ayrıca değildir.
 
-    Azure AD'nin avantajlarından biri rol tabanlı erişim denetimine (RBAC) sahip olmasıdır. RBAC sayesinde kullanıcı erişimi hesap anahtarına sahip olma durumuna göre değil kendisine atanan role göre belirlenir. Hesap anahtarlarını yönetmek yerine RBAC rollerini yönetebilir ve erişimle kimlik doğrulamasını Azure AD'ye bırakabilirsiniz.  
+    Azure AD'nin avantajlarından biri rol tabanlı erişim denetimine (RBAC) sahip olmasıdır. Bunlar hello hesabı anahtarları sahip olup olmadığına yerine RBAC ile bir kullanıcının erişimi kendilerine atanmış rolün bağlıdır. Hesap anahtarlarını yönetmek yerine RBAC rollerini yönetebilir ve erişimle kimlik doğrulamasını Azure AD'ye bırakabilirsiniz.  
 
-    Azure Batch hesabınızı havuz ayırma modu "Kullanıcı Aboneliği" olarak ayarlanmış halde oluşturduysanız Azure AD ile kimlik doğrulaması yapmanız gerekir. 
+    Azure AD ile kimlik doğrulaması gereklidir oluşturduysanız Azure Batch hesabınızla kendi havuzu ayırma modu ayarlamak too'User abonelik '. 
 
-    Azure AD ile Batch hesabınızda oturum açmak için [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) komutunu çağırın: 
+    toolog tooyour toplu olarak Azure AD kullanarak hesap, çağrı hello [az toplu işlem hesabı oturum açma](https://docs.microsoft.com/cli/azure/batch/account#login) komutu: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -106,25 +106,25 @@ Batch hesabınızla kimlik doğrulamasından geçmek için kullanabileceğiniz i
 
 - **Paylaşılan Anahtar kimlik doğrulamasını kullanarak.**
 
-    [Paylaşılan Anahtar kimlik doğrulaması](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) hesap erişim anahtarlarınızı kullanarak Batch hizmeti için Azure CLI komutlarının kimlik doğrulamasından geçmesini sağlar.
+    [Paylaşılan anahtar kimlik doğrulaması](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) kullanır, hesabınız erişim tuşları tooauthenticate Azure CLI komutları hello için Batch hizmeti.
 
-    Batch komutlarını otomatikleştirme amacıyla Azure CLI betikleri oluşturuyorsanız Paylaşılan Anahtar kimlik doğrulaması veya Azure AD hizmet sorumlusu kullanabilirsiniz. Bazı senaryolarda Paylaşılan Anahtar ile kimlik doğrulaması, hizmet sorumlusu oluşturmaktan daha kolay olabilir.  
+    Azure CLI betikleri tooautomate çağıran toplu iş komutları oluşturuyorsanız, paylaşılan anahtar kimlik doğrulaması veya bir Azure AD hizmet sorumlusu kullanabilirsiniz. Bazı senaryolarda Paylaşılan Anahtar ile kimlik doğrulaması, hizmet sorumlusu oluşturmaktan daha kolay olabilir.  
 
-    Paylaşılan Anahtar kimlik doğrulamasını kullanarak oturum açmak için komut satırına `--shared-key-auth` seçeneğini dahil edin:
+    Paylaşılan anahtar kimlik doğrulaması kullanarak toolog dahil hello `--shared-key-auth` hello komut satırı seçeneği:
 
     ```azurecli
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-[Örnek kabul betikleri](#sample-shell-scripts) bölümünde listelenen örnekler, hem Azure AD hem de Paylaşılan Anahtar kullanarak Azure CLI ile Batch hesabınızda nasıl oturum açacağınızı göstermektedir.
+Merhaba örnekler listelenen hello [örnek Kabuk komut dosyalarını](#sample-shell-scripts) bölüm Göster nasıl toolog Batch hesabınızla içine hello Azure CLI her ikisini de kullanarak Azure AD ve paylaşılan anahtar.
 
 ## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI Şablonlarını ve Dosya Aktarımı (Önizleme) özelliğini kullanma
 
-Azure CLI, Batch işlerini kod yazmadan uçtan uca çalıştırmak için kullanılabilir. Batch şablon dosyaları Azure CLI’da havuz, iş ve görev oluşturmayı destekler. Azure CLI, Batch hesabıyla ilişkilendirilmiş Azure Depolama hesabına işin giriş dosyalarını yüklemek ve bu hesaptan iş çıkış dosyalarını indirmek için de kullanılabilir. Daha fazla bilgi için bkz. [Azure Batch CLI Şablonlarını ve Dosya Aktarımı (Önizleme) özelliğini kullanma](batch-cli-templates.md).
+Kod yazmadan hello Azure CLI toorun toplu işleri uçtan uca kullanabilirsiniz. Toplu işlem şablonu dosyaları oluşturma havuzlar, işler ve görevler hello Azure CLI ile destekler. Hello Azure CLI tooupload iş girdi dosyalarını da kullanabilirsiniz hello ile ilişkili toohello Azure depolama hesabı Batch hesabı ve proje çıktı dosyalarını indirin. Daha fazla bilgi için bkz. [Azure Batch CLI Şablonlarını ve Dosya Aktarımı (Önizleme) özelliğini kullanma](batch-cli-templates.md).
 
 ## <a name="sample-shell-scripts"></a>Örnek kabuk betikleri
 
-Aşağıdaki tabloda yer alan örnek betikler, sık kullanılan görevleri gerçekleştirmek için Azure CLI komutlarını Batch ve Batch Management hizmetiyle birlikte nasıl kullanacağınızı göstermektedir. Bu örnek betikler Batch için Azure CLI'da yer alan birçok komutu kapsamaktadır. 
+Merhaba örnek komut dosyaları, toplu yönetim hizmeti tooaccomplish ortak görevleri hello Batch hizmeti ile nasıl toouse Azure CLI komutları Tablo Göster aşağıdaki hello listelenir. Bu örnek komut dosyalarını hello toplu işlemi için Azure CLI bulunan hello komutların çoğu kapsar. 
 
 | Betik | Notlar |
 |---|---|
@@ -135,61 +135,61 @@ Aşağıdaki tabloda yer alan örnek betikler, sık kullanılan görevleri gerç
 
 ## <a name="json-files-for-resource-creation"></a>Kaynak oluşturmak için JSON dosyaları
 
-Havuzlar ve işler gib Batch kaynakları oluşturduğunuzda parametrelerini komut satırı seçenekleri olarak geçirmek yerine yeni kaynağın yapılandırmasını içeren bir JSON dosyası belirtebilirsiniz. Örneğin:
+Havuzlar ve işler gibi Batch kaynaklarını oluşturduğunuzda, komut satırı seçeneklerini parametrelerini geçirme yerine hello yeni kaynağın yapılandırmasını içeren bir JSON dosyası belirtebilirsiniz. Örneğin:
 
 ```azurecli
 az batch pool create my_batch_pool.json
 ```
 
-Yalnızca komut satırı seçeneklerini kullanarak çoğu Batch kaynağını oluşturabilirsiniz ancak bazı özellikler, kaynak ayrıntılarını içeren JSON biçimli bir dosya belirtmenizi gerektirir. Örneğin, bir başlatma görevi için kaynak belirtmek istiyorsanız bir JSON dosyası kullanmanız gerekir.
+Yalnızca komut satırı seçeneklerini kullanarak birçok Batch kaynaklarını oluşturabilirsiniz, ancak bazı özellikler hello kaynak ayrıntılarını içeren bir JSON biçimli dosya belirttiğiniz gerektirir. Örneğin, toospecify kaynak dosyaları için bir başlangıç görevi istiyorsanız bir JSON dosyası kullanmanız gerekir.
 
-Kaynak oluşturmak için gereken JSON söz dizimi dosyasını bulmak üzere [Batch REST API başvurusu][rest_api] belgelerine bakın. REST API başvurusundaki her bir "Ekle *kaynak türü*" konusu ilgili kaynağı oluşturmak için örnek JSON betikleri içerir. Bu örnek JSON betiklerini Azure CLI ile kullanabileceğiniz JSON dosyası şablonu olarak değerlendirebilirsiniz. Örneğin havuz oluşturmak için JSON söz dizimini görmek istiyorsanız bkz. [Bir hesaba havuz ekleme][rest_add_pool].
+bir kaynak toosee hello JSON söz dizimi gerekli toocreate, toohello başvuran [Batch REST API'si başvurusu] [ rest_api] belgeleri. Her "Ekle *kaynak türü*" Merhaba REST API Başvurusu konudaki bu kaynağı oluşturmak için örnek JSON komut dosyaları içerir. JSON dosyaları toouse hello Azure CLI ile için bu örnek JSON komutlar şablon olarak kullanabilirsiniz. Toosee hello JSON söz dizimi havuzu oluşturma, örneğin, başvuran çok[bir havuz tooan hesabı eklemek][rest_add_pool].
 
 Bir JSON dosyasını belirten örnek bir betik için bkz. [Batch ile bir iş ve görevlerini çalıştırma](./scripts/batch-cli-sample-run-job.md).
 
 > [!NOTE]
-> Bir kaynak oluştururken JSON dosyası belirtirseniz, komut satırında ilgili kaynak için belirttiğiniz diğer parametreler yok sayılır.
+> Bir kaynak oluşturduğunuzda bir JSON dosyası belirtirseniz, bu kaynak için hello komut satırında belirttiğiniz herhangi bir parametre yoksayılır.
 > 
 > 
 
 ## <a name="efficient-queries-for-batch-resources"></a>Batch kaynakları için etkili sorgular
 
-Her Batch kaynak türü, Batch hesabınızı sorgulayan ve bu türdeki kaynakları listeleyen bir `list` komutunu destekler. Örneğin, hesabınızdaki havuzları ve bir işteki görevleri listeleyebilirsiniz:
+Her Batch kaynak türü, Batch hesabınızı sorgulayan ve bu türdeki kaynakları listeleyen bir `list` komutunu destekler. Örneğin, bir iş hesabı ve hello görevleri de hello havuzları listeleyebilirsiniz:
 
 ```azurecli
 az batch pool list
 az batch task list --job-id job001
 ```
 
-Batch hizmetini bir `list` işlemiyle sorguladığınızda döndürülen veri miktarını sınırlamak için OData yan tümcesi belirtebilirsiniz. Tüm filtreleme sunucu tarafında oluştuğu için yalnızca istediğiniz veriler aktarılır. Liste işlemleri gerçekleştirirken bant genişliğinden (ve böylece zamandan) tasarruf etmek için bu yan tümceleri kullanın.
+Merhaba Batch hizmetiyle sorguladığınızda bir `list` işlemi, döndürülen veriler, bir OData yan tümcesi toolimit hello miktarını belirtebilirsiniz. Filtre işleminin tümü sunucu tarafında oluştuğundan, yalnızca, istek hello verileri hello kablo kestiği. Bu yan tümceleri toosave bant genişliğini kullan (ve bu nedenle saat) listeleme işlemleri gerçekleştirdiğinizde.
 
-Aşağıdaki tabloda Batch hizmeti tarafından desteklenen OData yan tümceleri listelenmiştir:
+Merhaba aşağıdaki tabloda hello OData yan tümceleri hello Batch hizmeti tarafından desteklenen açıklanmaktadır:
 
 | Yan Tümce | Açıklama |
 |---|---|
 | `--select-clause [select-clause]` | Her varlık için bir özellik alt kümesi döndürür. |
-| `--filter-clause [filter-clause]` | Yalnızca belirtilen OData ifadesiyle eşleşen varlıklar döndürür. |
-| `--expand-clause [expand-clause]` | Tek bir temel alınan REST çağrısındaki varlık bilgilerini alır. Expand yan tümcesi şu anda yalnızca `stats` özelliğini desteklemektedir. |
+| `--filter-clause [filter-clause]` | Merhaba eşleşen döndürür yalnızca varlıklar OData ifade belirtildi. |
+| `--expand-clause [expand-clause]` | Tek bir temel REST çağrısı Hello varlık bilgileri alır. Merhaba genişletin destekler yalnızca hello yan tümcesi şu anda `stats` özelliği. |
 
-Bir OData yan tümcesinin nasıl kullanılacağını gösteren örnek betik için bkz. [Batch ile bir iş ve görevlerini çalıştırma](./scripts/batch-cli-sample-run-job.md).
+Bir örnek komut dosyası için nasıl toouse bir OData yan tümcesi bkz gösteren [toplu işlemle bir işi ve görevleri çalıştırmak](./scripts/batch-cli-sample-run-job.md).
 
-OData yan tümceleriyle etkili liste sorguları gerçekleştirme hakkında bilgi için bkz. [Azure Batch hizmetini etkili bir şekilde sorgulama](batch-efficient-list-queries.md).
+OData yan tümceleri içeren verimli listesi sorguları gerçekleştirme hakkında daha fazla bilgi için bkz: [hello Azure Batch hizmetinin verimli bir şekilde sorgu](batch-efficient-list-queries.md).
 
 ## <a name="troubleshooting-tips"></a>Sorun giderme ipuçları
 
-Azure CLI sorunlarını giderirken aşağıdaki ipuçları yardımcı olabilir:
+Azure CLI sorunlarını giderirken hello aşağıdaki ipuçları yardımcı olabilir:
 
-* Herhangi bir CLI komutu için **yardım metni** almak üzere `-h` kullanın
-* **Ayrıntılı** komut çıktısını görüntülemek için `-v` ve `-vv` kullanın. `-vv` bayrağı eklendiğinde Azure CLI gerçek REST isteklerini ve yanıtlarını görüntüler. Bu anahtarlar tam hata çıktısını görüntülemek için kullanışlıdır.
-* `--json` seçeneği ile **komut çıktısını JSON olarak** görüntüleyebilirsiniz. Örneğin, `az batch pool show pool001 --json` seçeneği pool001'in özelliklerini JSON biçiminde gösterir. Bundan sonra bu çıktıyı kopyalayıp bir `--json-file` içinde kullanmak üzere değiştirebilirsiniz (bu makalenin başındaki [JSON dosyaları](#json-files) kısmına bakın).
-<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-* [Batch forumu][batch_forum] Batch ekibi üyeleri tarafından takip edilmektedir. Sorun yaşamanız veya belirli bir işlemle ilgili yardım almak istemeniz durumunda sorularınızı gönderebilirsiniz.
+* Kullanım `-h` tooget **Yardım metni** için herhangi bir CLI komutu
+* Kullanım `-v` ve `-vv` toodisplay **ayrıntılı** komut çıktı. Ne zaman hello `-vv` bayrağı dahil, hello Azure CLI hello gerçek REST isteklerinin ve yanıtlarının görüntüler. Bu anahtarlar tam hata çıktısını görüntülemek için kullanışlıdır.
+* Görüntüleyebileceğiniz **komutu çıktıyı JSON olarak** hello ile `--json` seçeneği. Örneğin, `az batch pool show pool001 --json` seçeneği pool001'in özelliklerini JSON biçiminde gösterir. Daha sonra kopyalayın ve bu çıkış toouse değiştirme bir `--json-file` (bkz [JSON dosyaları](#json-files) bu makalenin önceki).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting tooany location.--->
+* Merhaba [toplu işlem Forumu] [ batch_forum] Batch ekip üyeleri tarafından izlenir. Sorun yaşamanız veya belirli bir işlemle ilgili yardım almak istemeniz durumunda sorularınızı gönderebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).
+* Merhaba hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 * Batch kaynakları hakkında daha fazla bilgi için bkz. [Geliştiriciler için Azure Batch'e genel bakış](batch-api-basics.md).
-* Batch şablonlarını kullanarak havuz, iş ve görevleri kod yazmadan oluşturma hakkında daha fazla bilgi için bkz. [Azure Batch CLI Şablonlarını ve Dosya Aktarımı (Önizleme) özelliğini kullanma](batch-cli-templates.md).
+* Kod yazmadan toplu şablonları toocreate havuzlar, işler ve görevler kullanma hakkında daha fazla bilgi için bkz: [kullanım Azure Batch CLI şablonları ve dosya aktarımı (Önizleme)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

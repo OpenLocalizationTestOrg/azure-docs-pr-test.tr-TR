@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric olay toplama EventFlow | Microsoft Docs
+title: Service Fabric olay toplama EventFlow aaaAzure | Microsoft Docs
 description: "Toplama ve izleme ve tanılama Azure Service Fabric kümeleri için EventFlow kullanarak olay toplama hakkında bilgi edinin."
 services: service-fabric
 documentationcenter: .net
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.openlocfilehash: 90d26a77b749e70de3a7d910f15820653e2ef39b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c0141d3ed72d835139250af3589e298fd22d8f89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Olay toplama ve EventFlow kullanarak koleksiyonu
 
-[Microsoft tanılama EventFlow](https://github.com/Azure/diagnostics-eventflow) olayları bir düğümden bir veya daha fazla izleme hedeflere yönlendirebilir. Hizmet projenizdeki NuGet paketi olarak dahil olduğundan EventFlow kod ve yapılandırma hizmetiyle Azure Tanılama hakkında daha önce bahsedilen düğüm başına yapılandırma sorunu ortadan ilerler. EventFlow hizmet işlemi içinde çalıştırılan ve yapılandırılmış çıktıları doğrudan bağlanır. Doğrudan bağlantı nedeniyle EventFlow Azure, kapsayıcı ve şirket içi hizmet dağıtımları için çalışır. Her EventFlow ardışık düzen bir dış bağlantısı yaptığından EventFlow yüksek yoğunluklu senaryolarda gibi bir kapsayıcıda çalıştırırsanız dikkatli olun. Bu nedenle, çeşitli işlemleri barındırıyorsanız, birkaç giden bağlantılar alın! Bu Service Fabric uygulamaları için kadar bir sorun olduğundan değil tüm çoğaltmaları bir `ServiceType` aynı işlem içinde çalıştırın ve bu giden bağlantı sayısını sınırlar. Böylece yalnızca belirtilen filtreyle eşleşen olaylar gönderilen olay filtreleme, EventFlow de sunar.
+[Microsoft tanılama EventFlow](https://github.com/Azure/diagnostics-eventflow) düğümü tooone ya da daha fazla izleme hedefleri olaylarından yönlendirebilir. Hizmet projenizdeki NuGet paketi olarak dahil olduğundan Azure Tanılama hakkında daha önce bahsedilen hello düğüm başına yapılandırma sorunu ortadan hello hizmetiyle EventFlow kod ve yapılandırma ilerler. EventFlow hizmet işlemi içinde çalıştırılan ve yapılandırılmış toohello çıkışları doğrudan bağlanır. Merhaba doğrudan bağlantı nedeniyle EventFlow Azure, kapsayıcı ve şirket içi hizmet dağıtımları için çalışır. Her EventFlow ardışık düzen bir dış bağlantısı yaptığından EventFlow yüksek yoğunluklu senaryolarda gibi bir kapsayıcıda çalıştırırsanız dikkatli olun. Bu nedenle, çeşitli işlemleri barındırıyorsanız, birkaç giden bağlantılar alın! Bu Service Fabric uygulamaları için kadar bir sorun olduğundan değil tüm çoğaltmaları bir `ServiceType` çalıştırın hello aynı işlemi ve bu giden bağlantılar hello sayısını sınırlar. Böylece hello belirtilen filtreyle eşleşen hello olayları gönderilir EventFlow ayrıca olay filtreleme, sunar.
 
 ## <a name="setting-up-eventflow"></a>EventFlow ayarlama
 
-EventFlow ikili dosyaları NuGet paketlerini bir dizi kullanılabilir. Bir Service Fabric hizmeti projesine EventFlow eklemek, Çözüm Gezgini'nde projeye sağ tıklayın ve "Manage NuGet paketlerini." Arayın ve geçiş için "Gözat" sekmesinde "`Diagnostics.EventFlow`":
+EventFlow ikili dosyaları NuGet paketlerini bir dizi kullanılabilir. tooadd EventFlow tooa Service Fabric hizmeti projesi, hello Çözüm Gezgini hello projeye sağ tıklayın ve "Manage NuGet paketlerini."'i seçin Toohello "Gözat" sekmesini ve aramak için anahtar "`Diagnostics.EventFlow`":
 
 ![Visual Studio NuGet Paket Yöneticisi kullanıcı Arabirimi EventFlow NuGet paketleri](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-Çeşitli paketler, "Girdi" ve "Çıkaran" etiketli gösteri listesini görürsünüz. EventFlow çeşitli farklı günlüğü sağlayıcıları ve çözümleyiciler destekler. EventFlow barındırma hizmeti için kaynak ve hedef uygulama günlüklerini bağlı olarak uygun paketleri içermelidir. Çekirdek ServiceFabric paketi yanı sıra da en az bir giriş gerekir ve çıktı yapılandırılır. Exmaple için Application Insights gönderilen EventSource olaylarını aşağıdaki paketler ekleyebilirsiniz:
+Çeşitli paketler, "Girdi" ve "Çıkaran" etiketli gösteri listesini görürsünüz. EventFlow çeşitli farklı günlüğü sağlayıcıları ve çözümleyiciler destekler. hello service EventFlow barındırma hello kaynak ve hedef hello uygulama günlükleri için bağlı olarak uygun paketleri içermelidir. Ayrıca toohello çekirdek ServiceFabric paketi, ayrıca en az bir giriş ve çıkış yapılandırılması gerekir. Exmaple için paketler toosent EventSource olaylarını tooApplication Öngörüler aşağıdaki hello ekleyebilirsiniz:
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource`verileri hizmetin EventSource sınıfı ve standart EventSources gibi yakalamak için *Microsoft ServiceFabric Hizmetleri* ve *Microsoft ServiceFabric aktörler*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`(biz günlükleri için Azure Application Insights kaynağı göndereceğiniz)
-* `Microsoft.Diagnostics.EventFlow.ServiceFabric`(Service Fabric hizmet yapılandırmasını EventFlow ardışık düzen başlatma sağlar ve Service Fabric sistem durumu raporlarının Tanılama verileri gönderme ile herhangi bir sorun raporları)
+* `Microsoft.Diagnostics.EventFlow.Input.EventSource`toocapture veri hello hizmetin EventSource sınıfı ve gibi standart EventSources *Microsoft ServiceFabric Hizmetleri* ve *Microsoft ServiceFabric aktörler*)
+* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`(biz toosend hello günlükleri tooan Azure Application Insights kaynağı kalacaklarını)
+* `Microsoft.Diagnostics.EventFlow.ServiceFabric`(Merhaba EventFlow ardışık Service Fabric hizmet yapılandırmasından başlatma sağlar ve Service Fabric sistem durumu raporlarının Tanılama verileri gönderme ile herhangi bir sorun raporları)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource`Paketi, .NET Framework 4.6 veya daha yeni hedeflemek için hizmet projesi gerektiriyor. Bu paketi yüklemeden önce Proje Özellikleri'nde uygun hedef Framework'ü ayarladığınızdan emin olun.
+>`Microsoft.Diagnostics.EventFlow.Input.EventSource`Paket hello hizmet projesi tootarget .NET Framework 4.6 gerektiren ya da daha yeni. Bu paketi yüklemeden önce Proje Özellikleri'nde hello uygun hedef framework ayarladığınızdan emin olun.
 
-Tüm paketler yüklendikten sonra sıradaki adım yapılandırın ve hizmeti EventFlow etkinleştirin olacak.
+Tüm hello paketleri yüklendi, hello sonraki adımı tooconfigure ve EventFlow hello hizmeti etkinleştirin.
 
 ## <a name="configuring-and-enabling-log-collection"></a>Yapılandırma ve günlük toplama etkinleştirme
-Günlükleri göndermek için sorumlu EventFlow ardışık düzen yapılandırma dosyasında depolanan belirtiminden oluşturulur. `Microsoft.Diagnostics.EventFlow.ServiceFabric` Paketi yükler altında başlangıç EventFlow yapılandırma dosyası `PackageRoot\Config` adlı Çözüm klasörü `eventFlowConfig.json`. Bu yapılandırma dosyası varsayılan hizmet verilerini yakalamak için değiştirilmesi gereken `EventSource` sınıfı ve yapılandırmak ve uygun bir konuma veri göndermek istediğiniz girdi.
+Merhaba EventFlow ardışık düzen hello günlükleri göndermek için sorumlu bir yapılandırma dosyasında depolanan belirtiminden oluşturulur. Merhaba `Microsoft.Diagnostics.EventFlow.ServiceFabric` paketi yükler altında başlangıç EventFlow yapılandırma dosyası `PackageRoot\Config` adlı Çözüm klasörü `eventFlowConfig.json`. Bu yapılandırma dosyasını değiştirdi toobe toocapture verilerinin hello varsayılan hizmetinden gerekir. `EventSource` sınıfı ve tooconfigure istediğiniz ve veri toohello uygun yere gönderme tüm diğer girişler.
 
-Örnek bir işte *eventFlowConfig.json* yukarıda belirtilen NuGet paketlerini göre:
+Örnek bir işte *eventFlowConfig.json* yukarıda belirtilen hello NuGet paketlerini göre:
 ```json
 {
   "inputs": [
@@ -53,7 +53,7 @@ Günlükleri göndermek için sorumlu EventFlow ardışık düzen yapılandırma
       "sources": [
         { "providerName": "Microsoft-ServiceFabric-Services" },
         { "providerName": "Microsoft-ServiceFabric-Actors" },
-        // (replace the following value with your service's ServiceEventSource name)
+        // (replace hello following value with your service's ServiceEventSource name)
         { "providerName": "your-service-EventSource-name" }
       ]
     }
@@ -67,7 +67,7 @@ Günlükleri göndermek için sorumlu EventFlow ardışık düzen yapılandırma
   "outputs": [
     {
       "type": "ApplicationInsights",
-      // (replace the following value with your AI resource's instrumentation key)
+      // (replace hello following value with your AI resource's instrumentation key)
       "instrumentationKey": "00000000-0000-0000-0000-000000000000"
     }
   ],
@@ -75,7 +75,7 @@ Günlükleri göndermek için sorumlu EventFlow ardışık düzen yapılandırma
 }
 ```
 
-Hizmetin ServiceEventSource adını adı özniteliğinin değeri `EventSourceAttribute` ServiceEventSource sınıfına uygulanan. Bunu tüm belirtilen `ServiceEventSource.cs` hizmet kod parçası olan dosya. Örneğin, aşağıdaki kod parçacığında ServiceEventSource adıdır *Şirketim Application1 Stateless1*:
+Merhaba hizmetin ServiceEventSource adıdır hello hello adını hello değerini `EventSourceAttribute` toohello ServiceEventSource sınıfı uygulanır. Tüm hello belirtildiği `ServiceEventSource.cs` hello hizmet kod parçası olan dosya. Örneğin, hello aşağıdaki kod parçacığını hello hello ServiceEventSource adıdır *Şirketim Application1 Stateless1*:
 
 ```csharp
 [EventSource(Name = "MyCompany-Application1-Stateless1")]
@@ -85,11 +85,11 @@ internal sealed class ServiceEventSource : EventSource
 }
 ```
 
-Unutmayın `eventFlowConfig.json` dosya hizmeti yapılandırma paketi bir parçasıdır. Bu dosyadaki değişiklikler tam veya yapılandırma-salt yükseltmeler Service Fabric yükseltme sistem durumu denetimlerinin ve yükseltme hatası olursa otomatik geri alma tabi hizmetinin eklenebilir. Daha fazla bilgi için bkz: [Service Fabric uygulama yükseltme](service-fabric-application-upgrade.md).
+Unutmayın `eventFlowConfig.json` dosya hizmeti yapılandırma paketi bir parçasıdır. Tam veya yapılandırma-yalnızca hello hizmetinin yükseltmeleri değişiklikleri toothis dosya eklenebilir, konu tooService doku yükseltin sistem durumu denetimlerinin ve Otomatik geri alma yükseltme hatası ise. Daha fazla bilgi için bkz: [Service Fabric uygulama yükseltme](service-fabric-application-upgrade.md).
 
-*Filtreleri* yapılandırma bölümünde daha fazla EventFlow ardışık düzen üzerinden bırakma veya belirli bilgileri dahil izin veren çıktıları giderek bilgileri özelleştirin veya olay verilerinin yapısını değiştirme olanak tanır. Filtreleri hakkında daha fazla bilgi için bkz: [EventFlow filtreleri](https://github.com/Azure/diagnostics-eventflow#filters).
+Merhaba *filtreleri* hello yapılandırma bölümünü toofurther verir hello değiştirmek toodrop izin vererek hello EventFlow ardışık düzen toohello çıkışlarını üzerinden giderek toogo hello bilgileri özelleştirin veya belirli bilgiler içerir Merhaba olay veri yapısı. Filtreleri hakkında daha fazla bilgi için bkz: [EventFlow filtreleri](https://github.com/Azure/diagnostics-eventflow#filters).
 
-EventFlow ardışık düzeninde bulunan Hizmetinizin başlangıç kodu örneği oluşturmak için son adımdır `Program.cs` dosyası:
+Merhaba son adımdır tooinstantiate EventFlow ardışık Hizmetinizin başlangıç kod içinde bulunan, `Program.cs` dosyası:
 
 ```csharp
 using System;
@@ -106,7 +106,7 @@ namespace Stateless1
     internal static class Program
     {
         /// <summary>
-        /// This is the entry point of the service host process.
+        /// This is hello entry point of hello service host process.
         /// </summary>
         private static void Main()
         {
@@ -134,21 +134,21 @@ namespace Stateless1
 }
 ```
 
-Name parametresi olarak geçirilen `CreatePipeline` yöntemi `ServiceFabricDiagnosticsPipelineFactory` adı *sistem durumu varlık* EventFlow günlük toplama ardışık temsil eden. Bu ad EventFlow karşılaşırsa kullanılır ve hata ve Service Fabric sistem durumu alt raporlar.
+Merhaba adı hello hello parametre olarak geçirilen `CreatePipeline` hello yöntemi `ServiceFabricDiagnosticsPipelineFactory` hello hello adıdır *sistem durumu varlık* hello EventFlow günlük toplama ardışık temsil eden. Bu ad EventFlow karşılaşırsa kullanılır ve hata ve Service Fabric sistem durumu alt hello bildirir.
 
-### <a name="using-service-fabric-settings-and-application-parameters-to-in-eventflowconfig"></a>Service Fabric ayarları ve uygulama parametreleri eventFlowConfig içinde kullanma
+### <a name="using-service-fabric-settings-and-application-parameters-tooin-eventflowconfig"></a>Service Fabric ayarları ve uygulama parametreleri tooin eventFlowConfig kullanma
 
-EventFlow EventFlow ayarlarını yapılandırmak için Service Fabric ayarları ve uygulama parametreler kullanarak destekler. Service Fabric ayarlar parametreleri için değerleri bu özel sözdizimini kullanarak başvurabilirsiniz:
+Service Fabric ve uygulama parametreler tooconfigure EventFlow ayarlarını EventFlow kullanılmasını destekler. Bu özel bir sözdizimi için değerleri kullanarak tooService yapı ayarları parametrelerini başvurabilir:
 
 ```json
 servicefabric:/<section-name>/<setting-name>
 ``` 
 
-`<section-name>`Service Fabric yapılandırma bölümü adıdır ve `<setting-name>` EventFlow ayarını yapılandırmak için kullanılan değer sağlayan yapılandırma ayarı. Okumak için bunun nasıl yapılacağı hakkında daha fazla Git [Service Fabric ayarları ve uygulama parametreleri desteği](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>`Merhaba Service Fabric yapılandırma bölümü Hello adıdır ve `<setting-name>` hello yapılandırma ayarı EventFlow ayarı kullanılan tooconfigure hello değer sağlama. tooread nasıl hakkında daha fazla toodo Bu, Git çok[Service Fabric ayarları ve uygulama parametreleri desteği](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Doğrulama
 
-Hizmetinizi başlatın ve hata ayıklama uyun Visual Studio çıktı penceresinde. Hizmeti başlatıldıktan sonra hizmetiniz kayıtları yapılandırdığınız çıktı gönderiyor kanıt görmeye başlayacaksınız. Olay çözümleme ve görselleştirme platformunuz için gidin ve günlükleri göstermek başlatılmış olduğunu onaylayın Yukarı (birkaç dakika sürebilir).
+Hizmetinizi başlatın ve hata ayıklama hello uyun Visual Studio çıktı penceresinde. Merhaba hizmeti başlatıldıktan sonra yapılandırdığınız toohello çıkış hizmetinizi gönderme bulgu kayıtları görmeye başlayacaksınız. Tooyour olay çözümleme ve görselleştirme platform gidin ve günlükleri tooshow başlatılmış olduğunu onaylayın Yukarı (birkaç dakika sürebilir).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

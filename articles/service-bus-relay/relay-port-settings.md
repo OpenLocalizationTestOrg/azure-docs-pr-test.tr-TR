@@ -1,5 +1,5 @@
 ---
-title: "Azure geçiş bağlantı noktası ayarları | Microsoft Docs"
+title: "aaaAzure geçiş bağlantı noktası ayarları | Microsoft Docs"
 description: "Azure geçiş bağlantı noktası değerlerini hakkında ayrıntılar."
 services: service-bus-relay
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: sethm
-ms.openlocfilehash: 5906495c565dad583e74a43b2e5eed57e0c68df1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e66785f786ee241c974d250f9ec29dfcc1fdc3fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-relay-port-settings"></a>Azure geçiş bağlantı noktası ayarları
 
-Aşağıdaki tabloda Azure geçiş için bağlantı noktası değerleri için gerekli yapılandırma açıklanmaktadır.
+Merhaba aşağıdaki tabloda hello Azure geçiş için bağlantı noktası değerleri için gerekli yapılandırma açıklanmaktadır.
 
 ## <a name="hybrid-connections"></a>Karma Bağlantılar
-Karma bağlantılar kullanan WebSockets kullanan temelindeki iletim mekanizması, **HTTPS** yalnızca. 
+Karma bağlantılar kullanan WebSockets kullanan bir aktarım mekanizması temel hello **HTTPS** yalnızca. 
 
 ## <a name="wcf-relays"></a>WCF Geçişleri
   
@@ -49,6 +49,6 @@ Karma bağlantılar kullanan WebSockets kullanan temelindeki iletim mekanizması
 |[WS2007HttpRelayBinding sınıfı](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (hizmeti)|Her iki|9351/HTTP|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure geçişi hakkında daha fazla bilgi için bu bağlantıları ziyaret edin:
+toolearn Azure geçişi hakkında daha fazla bilgi için bu bağlantıları ziyaret edin:
 * [Azure Geçiş nedir?](relay-what-is-it.md)
 * [Geçiş hakkında SSS](relay-faq.md)

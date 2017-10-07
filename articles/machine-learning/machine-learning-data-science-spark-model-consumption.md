@@ -1,6 +1,6 @@
 ---
-title: "Spark yerleşik makine öğrenimi modellerini faaliyete | Microsoft Docs"
-description: "Yük ve Python ile Azure Blob Storage (WASB) içinde depolanan modelleri öğrenme puanı nasıl."
+title: "aaaOperationalize Spark yerleşik makine öğrenimi modellerinin oluşturulmasına | Microsoft Docs"
+description: "Nasıl tooload ve modelleri öğrenme puanı Python ile Azure Blob Storage (WASB) içinde depolanır."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 00fec675bed0137473f7e3c5ddfe9c3c0e8344c6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c5fadcb13257b94dcb28a522be454f6e03dfa991
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark yerleşik makine öğrenimi modellerini faaliyete
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-Bu konu Python Hdınsight Spark kümeleri kullanarak kaydedilmiş machine learning modelini (ML) faaliyete gösterilmektedir. Spark Mllib'i kullanarak yerleşik makine öğrenimi modellerini yük açıklar ve Azure Blob Storage (WASB) ve bunları da WASB içinde depolanan veri kümeleriyle puan nasıl depolanır. Dizin oluşturma ve kodlama işlevleri Mllib'i araç setindeki kullanarak özellik dönüştürme nasıl giriş verilerini önceden işleyebilir ve ML modelleriyle Puanlama için giriş olarak kullanılabilen etiketli noktası veri nesnesinin nasıl oluşturulacağını gösterir. Puanlama için kullanılan modelleri doğrusal regresyon, lojistik regresyon, rastgele orman modeli ve gradyan artırmanın ağaç modeli içerir.
+Bu konu Python Hdınsight Spark kullanarak kaydedilmiş makine öğrenimi modeline (ML) nasıl toooperationalize kümeleri gösterir. Tooload makine nasıl Spark Mllib'i kullanılarak oluşturulmuş ve Azure Blob Storage (WASB) depolanan learning modellerini ve nasıl açıklar tooscore de WASB içinde depolanan veri kümeleriyle bunları. Nasıl toopre işlem hello giriş verileri gösterir, dizin oluşturma ve kodlama işlevlerde hello Mllib'i Araç Seti ve nasıl hello ML modelleriyle Puanlama toocreate olarak kullanılan bir etiketli noktası veri nesnesi giriş dönüştürme özellikleri kullanarak hello. Puanlama için kullanılan hello modelleri doğrusal regresyon, lojistik regresyon, rastgele orman modeli ve gradyan artırmanın ağaç modeli içerir.
 
 ## <a name="spark-clusters-and-jupyter-notebooks"></a>Spark kümeleri ve Jupyter Not Defterleri
-Kurulum adımlarını ve ML model faaliyete kodu Spark 2.0 küme yanı sıra bir Hdınsight Spark 1.6 kümesi kullanmak için bu kılavuzda sağlanır. Bu yordamlar için kod Jupyter not defterlerinde de sağlanır.
+Kurulum adımlarını ve hello kod toooperationalize ML modelinde, bu kılavuzda Spark 2.0 küme yanı sıra bir Hdınsight Spark 1.6 kümesi kullanmak için sağlanır. Bu yordamları Hello kodunu Jupyter not defterlerinde de sağlanır.
 
 ### <a name="notebook-for-spark-16"></a>Spark 1.6 için not defteri
-[PySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) Jupyter not defteri Hdınsight kümelerinde Python kullanarak kaydedilmiş modeli faaliyete nasıl gösterir. 
+Merhaba [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) nasıl toooperationalize Python kullanarak kaydedilmiş modeli kümeleri Jupyter not defteri gösterir. 
 
 ### <a name="notebook-for-spark-20"></a>Spark 2.0 için not defteri
-Spark Hdınsight Spark 2.0 kümesi ile kullanmak üzere 1.6 için Jupyter not defteri değiştirmek için Python kodu dosyasıyla Değiştir [bu dosyayı](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Bu kod, Spark 2. 0'oluşturulan modelleri kullanma gösterilmektedir.
+bir Hdınsight Spark 2.0 kümesi ile Spark 1.6 toouse toomodify hello Jupyter not defteri hello Python kodu dosyasıyla Değiştir [bu dosyayı](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Bu kod tooconsume hello modelleri Spark 2. 0'nasıl oluşturulacağını gösterir.
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-1. Bir Azure hesabı ve Spark 1.6 (veya Spark 2.0) ihtiyacınız bu yönlendirmeyi tamamlamak için Hdınsight kümesi. Bkz: [genel bakış, verileri Azure Hdınsight'ta Spark kullanmanın Bilim](machine-learning-data-science-spark-overview.md) yönelik bu gereksinimleri karşılamak yönergeler. Bu konu ayrıca açıklamasını buraya kullanılan NYC 2013 ücreti verileri ve Spark kümesinde Jupyter not defteri gelen kod yürütmek yönergeler içerir. 
-2. Makine öğrenimi modellerini aracılığıyla çalışarak burada belirtmek için de oluşturmalısınız [veri keşfi ve modelleme Spark ile](machine-learning-data-science-spark-data-exploration-modeling.md) konu Spark 1.6 küme veya Spark 2.0 dizüstü bilgisayarlar için. 
-3. Spark 2.0 dizüstü bilgisayarlar, sınıflandırma görevi, iyi bilinen uçak zamanında ayrılma kümesinden 2011 ve 2012 için ek bir veri kümesi kullanın. Not defterlerini ve bağlantılarını bir açıklaması verilmiştir [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) bunları içeren GitHub deposunu için. Ayrıca, kodu buraya ve bağlantılı not defterlerini geneldir ve tüm Spark kümesi üzerinde çalışması gerekir. Hdınsight Spark kullanmıyorsanız küme kurulum ve yönetim adımlar ne burada gösterilenden biraz farklı olabilir. 
+1. Bir Azure hesabı ve Spark 1.6 (veya Spark 2.0) ihtiyacınız Hdınsight küme toocomplete Bu izlenecek yol. Merhaba bkz [genel bakış, verileri Azure Hdınsight'ta Spark kullanmanın Bilim](machine-learning-data-science-spark-overview.md) yönelik yönergeler toosatisfy bu gereksinimleri. Bu konu ayrıca açıklamasını hello burada kullanılan NYC 2013 ücreti verileri ve nasıl tooexecute kod hello Spark kümesinde Jupyter not defteri gelen yönergeleri içerir. 
+2. Merhaba makine öğrenimi modellerini oluşturmalısınız toobe skoru burada hello aracılığıyla çalışarak [veri keşfi ve modelleme Spark ile](machine-learning-data-science-spark-data-exploration-modeling.md) konu hello Spark 1.6 küme veya hello Spark 2.0 dizüstü bilgisayarlar için. 
+3. Merhaba Spark 2.0 not defterlerini hello sınıflandırma görevi, hello iyi bilinen uçak zamanında ayrılma kümesinden 2011 ve 2012 için ek bir veri kümesi kullanın. Merhaba not defterlerini ve bağlantıları toothem açıklamasını hello sağlanan [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) bunları içeren hello GitHub depo. Ayrıca, hello kod burada ve bağlı hello not defterlerini geneldir ve tüm Spark kümesi üzerinde çalışması gerekir. Hdınsight Spark kullanmıyorsanız hello Küme kurulumu ve Yönetimi adımları ne burada gösterilenden biraz farklı olabilir. 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Kurulumu: depolama konumları, kitaplıklar ve hazır Spark bağlamı
-Spark okuyabilmesini ve bir Azure Storage blobu (WASB) yazma. Varolan verilerinizi depolanan şekilde var. Spark ve yeniden WASB içinde depolanan sonuçları kullanarak işlenebilir.
+## <a name="setup-storage-locations-libraries-and-hello-preset-spark-context"></a>Kurulumu: Spark bağlam depolama konumları, kitaplıklar ve hello hazır
+Spark mümkün tooread ve yazma tooan Azure Blob Storage (WASB) olur. Bu nedenle depolanan mevcut verilerinizi Spark kullanarak işlenebilir ve depolanan yeniden WASB hello sonuçlanır.
 
-Modelleri veya dosyaları içinde WASB kaydetmek için yolun düzgün belirtilmesi gerekiyor. Spark kümeye eklenen varsayılan kapsayıcı ile başlayan bir yol kullanarak başvurulabilir: *"wasb / /"*. Aşağıdaki kod örneği okunacak veriler ve model çıkış kaydedildiği modeli depolama dizini için yol konumunu belirtir. 
+toosave modelleri veya WASB dosyalarında, hello yolu düzgün belirtilen toobe gerekir. Merhaba varsayılan kapsayıcı bağlı toohello Spark kümesi ile başlayan bir yol kullanarak başvurulabilir: *"wasb / /"*. Merhaba aşağıdaki kod örneği hello konumunu okuma hello veri toobe belirtir ve hello yolu hello modeli depolama dizini toowhich hello modeli çıktı için kaydedilir. 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Dizin yolları için depolama konumları WASB ayarlayın
 Modelleri kaydedilir: "wasb: / / / kullanıcı/remoteuser/NYCTaxi/modelleri". Bu yolu düzgün şekilde ayarlanmamışsa, modelleri Puanlama için yüklü değil.
 
-Puanlanmış sonuçları içinde kaydedildi: "wasb: / / / kullanıcı/remoteuser/NYCTaxi/ScoredResults". Klasör yolu yanlış ise, sonuçları klasörde kaydedilmez.   
+Merhaba puanlanmış sonuçları içinde kaydedildi: "wasb: / / / kullanıcı/remoteuser/NYCTaxi/ScoredResults". Merhaba yolu toofolder yanlış ise, sonuçları klasörde kaydedilmez.   
 
 > [!NOTE]
-> Dosya yolu konumlarını kopyalanır ve en son hücresini çıktısından bu kodda yer tutucuları içine yapıştırdığınız **machine-learning-data-science-spark-data-exploration-modeling.ipynb** dizüstü bilgisayar.   
+> Merhaba dosya yolu konumlarını kopyalanır ve bu koddan hello son hello hücrenin hello çıktısını hello yer tutucuları içine yapıştırdığınız **machine-learning-data-science-spark-data-exploration-modeling.ipynb** dizüstü bilgisayar.   
 > 
 > 
 
-Dizin yolları ayarlamak için kod aşağıdaki gibidir: 
+Merhaba kod tooset dizin yolu şöyledir: 
 
-    # LOCATION OF DATA TO BE SCORED (TEST DATA)
+    # LOCATION OF DATA tooBE SCORED (TEST DATA)
     taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
 
-    # SET THE MODEL STORAGE DIRECTORY PATH 
-    # NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
+    # SET hello MODEL STORAGE DIRECTORY PATH 
+    # NOTE hello LAST BACKSLASH IN THIS PATH IS NEEDED
     modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 
     # SET SCORDED RESULT DIRECTORY PATH
-    # NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
+    # NOTE hello LAST BACKSLASH IN THIS PATH IS NEEDED
     scoredResultDir = "wasb:///user/remoteuser/NYCTaxi/ScoredResults/"; 
 
-    # FILE LOCATIONS FOR THE MODELS TO BE SCORED
+    # FILE LOCATIONS FOR hello MODELS tooBE SCORED
     logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-1817_40_35.796789"
     linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-1817_44_00.993832"
     randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-1817_42_58.899412"
@@ -88,7 +88,7 @@ Dizin yolları ayarlamak için kod aşağıdaki gibidir:
 DateTime.DateTime (2016, 4, 25, 23, 56, 19, 229403)
 
 ### <a name="import-libraries"></a>Kitaplıkları içeri aktarma
-Spark bağlamını ayarlayın ve aşağıdaki kod ile gerekli kitaplıkları içeri aktarma
+Spark bağlamını ayarlayın ve gerekli kitaplıkları koddan hello ile içeri aktarma
 
     #IMPORT LIBRARIES
     import pyspark
@@ -107,23 +107,23 @@ Spark bağlamını ayarlayın ve aşağıdaki kod ile gerekli kitaplıkları iç
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Spark bağlamını ve PySpark sihirler hazır
-Jupyter not defterleri ile sağlanan PySpark tekrar önceden belirlenmiş bir içerik var. Bu nedenle Spark kümesi gerekmez veya açıkça uygulama ile çalışmaya başlamadan önce Hive bağlamları geliştirme. Bunlar varsayılan olarak sizin için kullanılabilir. Bu içerikler şunlardır:
+Jupyter not defterleri ile sağlanan hello PySpark tekrar önceden belirlenmiş bir içerik var. Geliştirdiğiniz Merhaba uygulaması ile çalışmaya başlamadan önce bu nedenle, tooset hello Spark veya Hive bağlamları açıkça gerekmez. Bunlar varsayılan olarak sizin için kullanılabilir. Bu içerikler şunlardır:
 
 * SC - Spark 
 * sqlContext - Hive için
 
-Bazı önceden tanımlanmış "sihirleri" ile çağırabilir özel komutlar olduğu PySpark çekirdeği sağlar %%. Bu kod örneklerinde kullanılan olan iki komut vardır.
+Merhaba PySpark çekirdeği bazı önceden tanımlanmış "sihirleri" ile çağırabilir özel komutlar olduğu sağlar %%. Bu kod örneklerinde kullanılan olan iki komut vardır.
 
-* **%% yerel** belirtilen sonraki satırların kodda yerel olarak yürütülür. Kod geçerli Python kodu olmalıdır.
+* **%% yerel** belirtilen sonraki satırların hello kodda yerel olarak yürütülür. Kod geçerli Python kodu olmalıdır.
 * **%% sql -o<variable name>** 
-* Bir Hive sorgusu sqlContext yürütür. -O parametre verilmezse, sorgunun sonucu kalıcı hale getirilir %% Pandas dataframe olarak yerel Python bağlamı.
+* Merhaba sqlContext bir Hive sorgusu yürütür. Merhaba -o parametre aktarılırsa hello hello sorgunun sonucu hello kalıcı %% Pandas dataframe olarak yerel Python bağlamı.
 
-Tekrar Jupyter not defterlerini ve önceden tanımlanmış hakkında daha fazla bilgi "magics için" sağladıkları, bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Hdınsight Spark Linux kümeleri Hdınsight'ta](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Hello tekrar Jupyter not defterlerini ve önceden tanımlanmış hello hakkında daha fazla bilgi "magics için" sağladıkları, bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Hdınsight Spark Linux kümeleri Hdınsight'ta](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Veri alma ve Temizlenen veri çerçeve oluşturma
-Bu bölümde belirtmek için veri alma için gereken görevleri bir dizi kodunu içerir. Bir birleştirilmiş % 0,1 örnek (.tsv dosyası olarak depolanır) ücreti seyahat ve ücreti dosyanın biçimi verileri okuma ve ardından temiz veri çerçevesi oluşturur.
+Bu bölümde bir dizi görevleri gerekli tooingest hello veri toobe skoru hello kodunu içerir. Bir birleştirilmiş % 0,1 örnek dosyasının (.tsv dosyası olarak depolanır) hello ücreti seyahat ve ücreti biçiminde hello verileri okuma ve ardından temiz veri çerçevesi oluşturur.
 
-Ücreti seyahat ve ücreti dosyaları göre sağlanan yordamı katılan: [takım veri bilimi işleminde eylemi: Hdınsight Hadoop kümeleri kullanarak](machine-learning-data-science-process-hive-walkthrough.md) konu.
+Merhaba ücreti seyahat ve ücreti dosyaları alanına göre sağlanan hello yordamı: [takım veri bilimi işlemi eylemde hello: Hdınsight Hadoop kümeleri kullanarak](machine-learning-data-science-process-hive-walkthrough.md) konu.
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -133,7 +133,7 @@ Bu bölümde belirtmek için veri alma için gereken görevleri bir dizi kodunu 
     # IMPORT FILE FROM PUBLIC BLOB
     taxi_test_file = sc.textFile(taxi_test_file_loc)
 
-    # GET SCHEMA OF THE FILE FROM HEADER
+    # GET SCHEMA OF hello FILE FROM HEADER
     taxi_header = taxi_test_file.filter(lambda l: "medallion" in l)
 
     # PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
@@ -142,7 +142,7 @@ Bu bölümde belirtmek için veri alma için gereken görevleri bir dizi kodunu 
                             float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
                             float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 
-    # GET SCHEMA OF THE FILE FROM HEADER
+    # GET SCHEMA OF hello FILE FROM HEADER
     schema_string = taxi_test_file.first()
     fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
     fields[7].dataType = IntegerType() #Pickup hour
@@ -178,24 +178,24 @@ Bu bölümde belirtmek için veri alma için gereken görevleri bir dizi kodunu 
     # REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
     taxi_df_test_cleaned.registerTempTable("taxi_test")
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **ÇIKTI:**
 
-Hücre yürütülmesi için geçen süre: 46.37 saniye
+Hücre tooexecute geçen süre: 46.37 saniye
 
 ## <a name="prepare-data-for-scoring-in-spark"></a>Spark Puanlama için verileri hazırlama
-Bu bölümde, dizin, kodlama ve bunları Mllib'i denetimli öğrenme algoritmaları kullanımda sınıflandırma ve regresyon hazırlamak için kategorik özellikleri ölçeklendirme gösterilmektedir.
+Bu bölümde, nasıl tooindex, kodlama ve kendileri için sınıflandırma ve regresyon Mllib'i denetimli öğrenme algoritmalara kullanın kategorik özellikleri tooprepare ölçeği gösterir.
 
 ### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Özellik dönüşümü: dizin ve puanlama modelleri giriş için kategorik özellikleri kodlama
-Bu bölümde kullanarak kategorik veri dizin gösterilmektedir bir `StringIndexer` ve özelliklerle kodlamak `OneHotEncoder` modellerini giriş.
+Bu bölümde gösterilmiştir nasıl tooindex kategorik verileri kullanarak bir `StringIndexer` ve özelliklerle kodlamak `OneHotEncoder` hello modellerini giriş.
 
-[StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) bir dize sütunu bir sütuna etiket dizin etiketlerinin kodlayan. Dizinler etiket sıklıklarını göre sıralanır. 
+Merhaba [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) bir dize sütunu etiketlerini tooa sütununun etiket dizinlerini kodlar. Merhaba dizinlerini etiket sıklıklarını göre sıralanır. 
 
-[OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) ikili vektörler, en çok bir değerle tek bir-bir sütunu etiketi dizinlerini sütunun eşler. Bu kodlama kategorik özellikleri uygulanacak Lojistik regresyon gibi sürekli değerli özellikleri beklediğiniz algoritmaları sağlar.
+Merhaba [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) sütununun etiket dizinlerini tooa ikili vektörler, en çok bir değerle tek bir-bir sütun eşler. Bu kodlama Lojistik regresyon gibi sürekli değerli özellikleri beklediğiniz algoritmalarına olanak uygulanan toobe toocategorical özellikleri.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -224,7 +224,7 @@ Bu bölümde kullanarak kategorik veri dizin gösterilmektedir bir `StringIndexe
 
     # INDEX AND ONE-HOT ENCODING
     stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
-    model = stringIndexer.fit(taxi_df_test_with_newFeatures) # Input data-frame is the cleaned one from above
+    model = stringIndexer.fit(taxi_df_test_with_newFeatures) # Input data-frame is hello cleaned one from above
     indexed = model.transform(taxi_df_test_with_newFeatures)
     encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
     encoded1 = encoder.transform(indexed)
@@ -250,19 +250,19 @@ Bu bölümde kullanarak kategorik veri dizin gösterilmektedir bir `StringIndexe
     encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
     encodedFinal = encoder.transform(indexed)
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **ÇIKTI:**
 
-Hücre yürütülmesi için geçen süre: 5.37 saniye
+Hücre tooexecute geçen süre: 5.37 saniye
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Özellik dizisi modelleri giriş için olan RDD nesneleri oluşturma
-Bu bölümde kategorik metin veri RDD nesne olarak dizin ve böylece eğitmek ve Mllib'i Lojistik regresyon ve ağaç tabanlı modelleri test etmek için kullanılabilir bir hot kodlamak gösterilmektedir kodunu içerir. Dizinlenmiş veri depolanan [dayanıklı Dağıtılmış veri kümesi (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) nesneleri. Spark temel soyutlama bunlar. RDD nesne üzerinde Spark ile paralel işletilen öğe değişmez, bölümlenmiş bir koleksiyonunu temsil eder.
+Bu bölüm, nasıl bir RDD olarak tooindex kategorik metin veri nesnesi ve kullanılan tootrain ve test Mllib'i Lojistik regresyon ve ağaç tabanlı modelleri olamaz bir hot kodlamak gösteren kod içerir. Merhaba dizinlenmiş veri depolanan [dayanıklı Dağıtılmış veri kümesi (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) nesneleri. Merhaba temel soyutlama Spark bunlar. RDD nesne üzerinde Spark ile paralel işletilen öğe değişmez, bölümlenmiş bir koleksiyonunu temsil eder.
 
-Ayrıca verilerle ölçeklendirmek nasıl oluşturulduğunu gösteren kodu içerir `StandardScalar` doğrusal regresyon ile Stokastik gradyan düşüşü (SGD), machine learning modellerini çeşitli eğitim için yaygın olarak kullanılan bir algoritma kullanmak için Mllib'i tarafından sağlanan. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) birim farkı özellikleri ölçeklemek için kullanılır. Özellik ölçeklendirme, veri normalleştirme da bilinen, yaygın olarak yapılan değerlerle özellikleri olan belirli bir aşırı tartmanız olduğunu hedefi işlevinde oluşturmasını sağlar. 
+Ayrıca nasıl tooscale verilerle hello gösteren kodu içerir `StandardScalar` doğrusal regresyon ile Stokastik gradyan düşüşü (SGD), machine learning modellerini çeşitli eğitim için yaygın olarak kullanılan bir algoritma kullanmak için Mllib'i tarafından sağlanan. Merhaba [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) kullanılan tooscale hello özellikleri toounit farkı değil. Özellik ölçeklendirme, veri normalleştirme da bilinen, yaygın olarak yapılan değerlerle özellikleri olan belirli bir aşırı tartmanız olduğunu hello hedefi işlevinde oluşturmasını sağlar. 
 
     # CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
 
@@ -324,17 +324,17 @@ Ayrıca verilerle ölçeklendirmek nasıl oluşturulduğunu gösteren kodu içer
     oneHotTESTreg.cache();
     oneHotTESTregScaled.cache();
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **ÇIKTI:**
 
-Hücre yürütülmesi için geçen süre: 11.72 saniye
+Hücre tooexecute geçen süre: 11.72 saniye
 
-## <a name="score-with-the-logistic-regression-model-and-save-output-to-blob"></a>İle Lojistik regresyon modeli Puanlama ve BLOB çıkış kaydedin
-Bu bölümdeki kod Azure blob depolama alanına kaydedildi Lojistik regresyon modeli yüklemek ve bir ipucu bir ücreti seyahat Ücretli olsun veya olmasın tahmin, standart sınıflandırma Ölçümleriyle puan kaydedin ve blob depolama sonuçları çizmek için nasıl kullanılacağını gösterir. Puanlanmış sonuçları RDD nesnelerinde depolanır. 
+## <a name="score-with-hello-logistic-regression-model-and-save-output-tooblob"></a>Merhaba ile Lojistik regresyon modeli Puanlama ve çıktı tooblob Kaydet
+Bu bölümdeki Hello kodu nasıl tooload Azure'da kaydedilmiş bir Lojistik regresyon modeli blob depolamaya ve ücreti seyahat üzerinde bir ipucu desteklemediğini Ücretli toopredict kullanın, standart sınıflandırma Ölçümleriyle puan ve kaydedin gösterir ve hello sonuçları tooblob çizmek depolama alanı. sonuçları skoru hello RDD nesneleri depolanır. 
 
     # SCORE AND EVALUATE LOGISTIC REGRESSION MODEL
 
@@ -348,26 +348,26 @@ Bu bölümdeki kod Azure blob depolama alanına kaydedildi Lojistik regresyon mo
     savedModel = LogisticRegressionModel.load(sc, logisticRegFileLoc)
     predictions = oneHotTESTbinary.map(lambda features: (float(savedModel.predict(features))))
 
-    ## SAVE SCORED RESULTS (RDD) TO BLOB
+    ## SAVE SCORED RESULTS (RDD) tooBLOB
     datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
     logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp + ".txt";
     dirfilename = scoredResultDir + logisticregressionfilename;
     predictions.saveAsTextFile(dirfilename)
 
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds";
 
 **ÇIKTI:**
 
-Hücre yürütülmesi için geçen süre: 19.22 saniye
+Hücre tooexecute geçen süre: 19.22 saniye
 
 ## <a name="score-a-linear-regression-model"></a>Doğrusal regresyon modeli Puanlama
-Kullandık [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) Ücretli ipucu miktarı tahmin etmek için Stokastik gradyan düşüşü (SGD) en iyi duruma getirme kullanarak doğrusal regresyon modelini eğitmek için. 
+Kullandık [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) tootrain Itanium tabanlı sistemler için en iyi duruma getirme toopredict hello tutar ucunun için Stokastik gradyan düşüşü (SGD) kullanarak bir doğrusal regresyon modeli Ücretli. 
 
-Bu bölümdeki kod, Azure blob depolama alanından bir doğrusal regresyon modeli yüklemek, ölçeklendirilmiş değişkenler kullanarak Puanlama ve sonuçları blob geri kaydedin gösterilmektedir.
+Bu bölümdeki Hello kod nasıl tooload bir doğrusal regresyon modeli Azure blob depolama biriminden ölçeklendirilmiş değişkenler kullanarak Puanlama ve hello sonuçları geri toohello blob kaydedin gösterir.
 
     #SCORE LINEAR REGRESSION MODEL
 
@@ -387,20 +387,20 @@ Bu bölümdeki kod, Azure blob depolama alanından bir doğrusal regresyon model
     dirfilename = scoredResultDir + linearregressionfilename;
     predictions.saveAsTextFile(dirfilename)
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **ÇIKTI:**
 
-Hücre yürütülmesi için geçen süre: 16.63 saniye
+Hücre tooexecute geçen süre: 16.63 saniye
 
 ## <a name="score-classification-and-regression-random-forest-models"></a>Sınıflandırma ve regresyon rastgele orman modeli Puanlama
-Bu bölümdeki kod kaydedilmiş sınıflandırma yüklemek nasıl gösterir ve regresyon rastgele orman modelleri Azure blob depolama alanına kaydedildi, standart sınıflandırıcı ve regresyon ölçüleri kendi performansını Puanlama ve sonuçları blob depolama birimi kaydedin.
+Bu bölümdeki Hello kod tooload hello sınıflandırma kaydedilme gösterir ve regresyon rastgele orman Azure blob depolama alanına kaydedildi modelleri standart sınıflandırıcı ve regresyon ölçüleri kendi performansını Puanlama ve hello sonuçları geri tooblob depolama kaydedin.
 
-[Rastgele ormanlar](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) karar ağaçları ensembles şunlardır.  Bunlar overfitting riskini azaltmak için birçok karar ağaçları birleştiren. Rastgele ormanlar kategorik özellikleri işlemek için çok sınıflı sınıflandırma ayarı genişletmek, özellik ölçeklendirme gerektirmez ve sapmalar yakalamak ve etkileşimleri özellik. Rastgele ormanlar en başarılı makine öğrenimi modellerini sınıflandırma ve regresyon biridir.
+[Rastgele ormanlar](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) karar ağaçları ensembles şunlardır.  Bunlar, birçok karar ağaçları tooreduce hello riskini overfitting birleştirin. Rastgele ormanlar kategorik özellikleri işleyebilir toohello çok sınıflı sınıflandırma ayarı genişletmek, özellik ölçeklendirme gerektirmez ve mümkün toocapture sapmalar olan ve etkileşimleri özellik. Rastgele ormanlar hello en başarılı machine learning modellerini sınıflandırma ve regresyon biridir.
 
 [Spark.mllib](http://spark.apache.org/mllib/) ve sürekli ve kategorik özelliklerini kullanarak regresyon, çok sınıflı ve ikili sınıflandırma için rastgele ormanlar destekler. 
 
@@ -413,7 +413,7 @@ Bu bölümdeki kod kaydedilmiş sınıflandırma yüklemek nasıl gösterir ve r
     from pyspark.mllib.tree import RandomForest, RandomForestModel
 
 
-    # CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+    # CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK tooBLOB
     savedModel = RandomForestModel.load(sc, randomForestClassificationFileLoc)
     predictions = savedModel.predict(indexedTESTbinary)
 
@@ -424,7 +424,7 @@ Bu bölümdeki kod kaydedilmiş sınıflandırma yüklemek nasıl gösterir ve r
     predictions.saveAsTextFile(dirfilename)
 
 
-    # REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+    # REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK tooBLOB
     savedModel = RandomForestModel.load(sc, randomForestRegFileLoc)
     predictions = savedModel.predict(indexedTESTreg)
 
@@ -434,21 +434,21 @@ Bu bölümdeki kod kaydedilmiş sınıflandırma yüklemek nasıl gösterir ve r
     dirfilename = scoredResultDir + rfregressionfilename;
     predictions.saveAsTextFile(dirfilename)
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds";
 
 **ÇIKTI:**
 
-Hücre yürütülmesi için geçen süre: 31.07 saniye
+Hücre tooexecute geçen süre: 31.07 saniye
 
 ## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>Sınıflandırma ve regresyon gradyan artırmanın ağaç modeli Puanlama
-Bu bölümdeki kod, Sınıflandırma ve regresyon gradyan artırmanın ağaç modelleri Azure blob depolama alanından yük, standart sınıflandırıcı ve regresyon ölçüleri kendi performansını Puanlama ve sonuçları blob depolama birimi kaydedin gösterilmektedir. 
+Bu bölümdeki Hello kod nasıl tooload sınıflandırma ve Azure blob depolama biriminden regresyon gradyan artırmanın ağaç modelleri standart sınıflandırıcı ve regresyon ölçüleri kendi performansını Puanlama ve hello sonuçları geri tooblob depolama Kaydet gösterir. 
 
 **Spark.mllib** GBTs ikili sınıflandırma ve regresyon, sürekli ve kategorik özelliklerini kullanmayı destekler. 
 
-[Gradyan artırmanın ağaçları](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) olan karar ağaçları ensembles. GBTs tekrarlayarak kaybı işlevi en aza indirmek için karar ağaçları eğitmek. GBTs kategorik özellikleri işleyebilir, özellik ölçeklendirme gerektirmez ve sapmalar yakalamak ve etkileşimleri özelliği. Bir sınıflandırma veya çoklu sınıflar ayarında de kullanılabilir.
+[Gradyan artırmanın ağaçları](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) olan karar ağaçları ensembles. GBTs tren karar tekrarlayarak toominimize kaybı işlevi ağaçları. GBTs kategorik özellikleri işleyebilir, özellik ölçeklendirme gerektirmez ve mümkün toocapture sapmalar olan ve etkileşimleri özellik. Bir sınıflandırma veya çoklu sınıflar ayarında de kullanılabilir.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -458,9 +458,9 @@ Bu bölümdeki kod, Sınıflandırma ve regresyon gradyan artırmanın ağaç mo
     #IMPORT MLLIB LIBRARIES
     from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 
-    # CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+    # CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK tooBLOB
 
-    #LOAD AND SCORE THE MODEL
+    #LOAD AND SCORE hello MODEL
     savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
     predictions = savedModel.predict(indexedTESTbinary)
 
@@ -471,7 +471,7 @@ Bu bölümdeki kod, Sınıflandırma ve regresyon gradyan artırmanın ağaç mo
     predictions.saveAsTextFile(dirfilename)
 
 
-    # REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+    # REGRESSION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK tooBLOB
 
     # LOAD AND SCORE MODEL 
     savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeRegressionFileLoc)
@@ -484,14 +484,14 @@ Bu bölümdeki kod, Sınıflandırma ve regresyon gradyan artırmanın ağaç mo
     predictions.saveAsTextFile(dirfilename)
 
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **ÇIKTI:**
 
-Hücre yürütülmesi için geçen süre: 14.6 saniye
+Hücre tooexecute geçen süre: 14.6 saniye
 
 ## <a name="clean-up-objects-from-memory-and-print-scored-file-locations"></a>Nesneleri bellekten temizlemek ve puanlanmış dosya konumları yazdırma
     # UNPERSIST OBJECTS CACHED IN MEMORY
@@ -503,7 +503,7 @@ Hücre yürütülmesi için geçen süre: 14.6 saniye
     oneHotTESTregScaled.unpersist();
 
 
-    # PRINT OUT PATH TO SCORED OUTPUT FILES
+    # PRINT OUT PATH tooSCORED OUTPUT FILES
     print "logisticRegFileLoc: " + logisticregressionfilename;
     print "linearRegFileLoc: " + linearregressionfilename;
     print "randomForestClassificationFileLoc: " + rfclassificationfilename;
@@ -527,38 +527,38 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Bir web arabirimi üzerinden Spark modelleri kullanma
-Spark uzaktan Livy adlı bir bileşen ile toplu işler veya bir REST arabiriminden etkileşimli sorguları göndermek için bir mekanizma sağlar. Livy Hdınsight Spark kümenizin üzerinde varsayılan olarak etkindir. Livy hakkında daha fazla bilgi için bkz: [uzaktan Livy kullanarak Spark gönderme işleri](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Spark tooremotely gönderme toplu işleri bir mekanizma sağlar veya Livy adlı bir bileşen bir REST aracılığıyla etkileşimli sorgular arabirim. Livy Hdınsight Spark kümenizin üzerinde varsayılan olarak etkindir. Livy hakkında daha fazla bilgi için bkz: [uzaktan Livy kullanarak Spark gönderme işleri](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
 
-Bir Azure blob depolanır ve ardından sonuçları için başka bir blob yazan bir dosya uzaktan puanları toplu bir işi göndermek için Livy kullanabilirsiniz. Bunu yapmak için Python komut dosyasını karşıya yükleyin.  
-[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) Spark kümesi blob için. Gibi bir araç kullanabilirsiniz **Microsoft Azure Storage Gezgini** veya **AzCopy** küme blob komut dosyasını kopyalamak için. Örneğimizde sorundan betiğe karşıya ***wasb:///example/python/ConsumeGBNYCReg.py***.   
+Tooremotely bir Azure blob depolanır ve hello sonuçları tooanother blob yazan bir dosya puanları toplu iş gönderme Livy kullanabilirsiniz. toodo bunu hello Python komut dosyasını karşıya yükle  
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) toohello blob hello Spark kümesi. Gibi bir araç kullanabilirsiniz **Microsoft Azure Storage Gezgini** veya **AzCopy** toocopy hello betik toohello küme blob. Örneğimizde biz hello betik çok karşıya***wasb:///example/python/ConsumeGBNYCReg.py***.   
 
 > [!NOTE]
-> Spark kümesiyle ilişkili depolama hesabı için portalda bulunabilir erişim anahtarları. 
+> hello Spark kümesi ile ilişkili hello depolama hesabı için hello portalı bulunabilir erişim tuşları hello. 
 > 
 > 
 
-Bu konuma karşıya sonra dağıtılmış bir bağlamda Spark kümesi içinde bu komut dosyasını çalıştırır. Model yükler ve giriş dosyaları modele dayalı Öngörüler çalışır.  
+Toothis konumu karşıya sonra dağıtılmış bir bağlamda hello Spark kümesinde bu komut dosyasını çalıştırır. Merhaba modelini yükler ve giriş dosyaları hello modeline dayalı Öngörüler çalışır.  
 
-Basit bir HTTPS/REST istek üzerinde Livy yaparak, bu komut dosyası uzaktan çağırabilirsiniz.  Python betiğini uzaktan çağırmak için HTTP isteği oluşturmak için curl komutunu aşağıda verilmiştir. CLUSTERLOGIN, CLUSTERPASSWORD, CLUSTERNAME Spark kümeniz için uygun değerlerle değiştirin.
+Basit bir HTTPS/REST istek üzerinde Livy yaparak, bu komut dosyası uzaktan çağırabilirsiniz.  İşte uzaktan bir curl komutunu tooconstruct hello HTTP isteği tooinvoke hello Python komut dosyası. CLUSTERLOGIN, CLUSTERPASSWORD, CLUSTERNAME Spark kümenizin hello uygun değerlerle değiştirin.
 
-    # CURL COMMAND TO INVOKE PYTHON SCRIPT WITH HTTP REQUEST
+    # CURL COMMAND tooINVOKE PYTHON SCRIPT WITH HTTP REQUEST
 
     curl -k --user "CLUSTERLOGIN:CLUSTERPASSWORD" -X POST --data "{\"file\": \"wasb:///example/python/ConsumeGBNYCReg.py\"}" -H "Content-Type: application/json" https://CLUSTERNAME.azurehdinsight.net/livy/batches
 
-Temel kimlik doğrulaması ile basit bir HTTPS çağrı yaparak Livy aracılığıyla Spark iş çağrılacak uzak sistemde herhangi bir dil kullanın.   
+Temel kimlik doğrulaması ile basit bir HTTPS çağrı yaparak hello uzak sistem tooinvoke hello Spark iş Livy aracılığıyla üzerinde herhangi bir dil kullanabilirsiniz.   
 
 > [!NOTE]
-> Bu HTTP arama yaparken Python istekleri kitaplığı kullanmak için uygun olacaktır, ancak şu anda Azure işlevlerinde varsayılan olarak yüklü değildir. Bu nedenle eski HTTP kitaplıkları onun yerine kullanılır.   
+> Bu HTTP arama yaparken bu kullanışlı toouse hello Python istekleri kitaplığı olacaktır, ancak şu anda Azure işlevlerinde varsayılan olarak yüklü değildir. Bu nedenle eski HTTP kitaplıkları onun yerine kullanılır.   
 > 
 > 
 
-HTTP çağrısı için Python kod aşağıdaki gibidir:
+Merhaba Python kodu hello HTTP çağrısı şöyledir:
 
     #MAKE AN HTTPS CALL ON LIVY. 
 
     import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
+    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF hello REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
     import httplib, urllib, base64
 
     # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER
@@ -571,21 +571,21 @@ HTTP çağrısı için Python kod aşağıdaki gibidir:
     auth = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
     headers = {'Content-Type': 'application/json', 'Authorization': 'Basic %s' % auth}
 
-    # SPECIFY THE PYTHON SCRIPT TO RUN ON THE SPARK CLUSTER
-    # IN THE FILE PARAMETER OF THE JSON POST REQUEST BODY
+    # SPECIFY hello PYTHON SCRIPT tooRUN ON hello SPARK CLUSTER
+    # IN hello FILE PARAMETER OF hello JSON POST REQUEST BODY
     r=conn.request("POST", '/livy/batches', '{"file": "wasb:///example/python/ConsumeGBNYCReg.py"}', headers )
     response = conn.getresponse().read()
     print(response)
     conn.close()
 
 
-Bu Python kodu da ekleyebilirsiniz [Azure işlevleri](https://azure.microsoft.com/documentation/services/functions/) Zamanlayıcı, oluşturma veya güncelleştirme bir BLOB gibi çeşitli olayları temel alan bir blob puanlar bir Spark iş gönderme tetiklemek için. 
+Bu Python kodu çok ekleyebilirsiniz[Azure işlevleri](https://azure.microsoft.com/documentation/services/functions/) tootrigger blob puanlar bir Spark iş gönderme Zamanlayıcı, oluşturma veya güncelleştirme bir BLOB gibi çeşitli olayları temel. 
 
-Kod boş istemci deneyimini tercih ederseniz, kullanın [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) Spark toplu üzerinde bir HTTP eylemi tanımlayarak Puanlama çağrılacak **Logic Apps Tasarımcısı** ve parametrelerini ayarlama. 
+Kod boş istemci deneyimini tercih ederseniz, hello kullan [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) tooinvoke hello Spark toplu hello üzerinde bir HTTP eylemi tanımlayarak Puanlama **Logic Apps Tasarımcısı** ve parametrelerini ayarlama. 
 
 * Azure portalından seçerek yeni bir mantıksal uygulama oluşturma **+ yeni** -> **Web + mobil** -> **mantıksal uygulama**. 
-* Ortaya çıkarmak için **Logic Apps Tasarımcısı**, mantıksal uygulama ve uygulama hizmeti planı adını girin.
-* Bir HTTP eylem seçin ve aşağıdaki çizimde gösterilen parametreler girin:
+* Merhaba yukarı toobring **Logic Apps Tasarımcısı**, hello hello mantıksal uygulama adını ve uygulama hizmeti planı girin.
+* Bir HTTP eylem seçin ve aşağıdaki şekilde hello gösterilen hello parametreleri girin:
 
 ![Logic Apps Tasarımcısı](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 

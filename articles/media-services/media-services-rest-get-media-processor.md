@@ -1,6 +1,6 @@
 ---
-title: "REST kullanarak medya işlemcisi örneği alma | Microsoft Docs"
-description: "Kodlama, biçimine dönüştürmek, şifrelemek veya medya içeriği için Azure Media Services şifresini çözmek için bir medya işlemci bileşeni oluşturmayı öğrenin."
+title: "Medya işlemcisi örneği kullanarak tooget nasıl REST aaa | Microsoft Docs"
+description: "Nasıl toocreate medya işlemci bileşeni tooencode biçimine dönüştürmek, şifrelemek veya medya içeriği şifresini çözmek için Azure Media Services öğrenin."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9f423648ab73c90405c64895ce0f5b6a457862e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Medya işlemcisi örneği alma
+# <a name="how-tooget-a-media-processor-instance"></a>Nasıl tooget bir medya işlemcisi örneği
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -28,11 +28,11 @@ ms.lasthandoff: 08/29/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Medya işlemcisi kodlama gibi kodlama, ek olarak, belirli işleme görevi işleyen bir bileşenidir Media Services'de şifreleme veya medya içeriği çözme dönüştürme biçimi. Kodlama, şifreleme veya medya içeriği biçimine dönüştürmek için bir görev oluştururken genellikle medya işlemcisi oluşturun.
+Medya işlemcisi kodlama gibi kodlama, ek olarak, belirli işleme görevi işleyen bir bileşenidir Media Services'de şifreleme veya medya içeriği çözme dönüştürme biçimi. Genellikle bir görev tooencode oluşturulurken medya işlemcisi oluşturma, şifrelemek veya medya içeriği hello biçimine dönüştürün.
 
 ## <a name="azure-media-processors"></a>Azure medya işlemcileri 
 
-Aşağıdaki konu medya işlemcileri listesi sağlar:
+konu aşağıdaki hello medya işlemcileri listesi sağlar:
 
 * [Kodlama medya işlemcileri](scenarios-and-availability.md#encoding-media-processors)
 * [Analizi medya işlemcileri](scenarios-and-availability.md#analytics-media-processors)
@@ -40,16 +40,16 @@ Aşağıdaki konu medya işlemcileri listesi sağlar:
 >[!NOTE]
 >Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
+## <a name="connect-toomedia-services"></a>TooMedia Hizmetleri'ne Bağlama
 
-AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+Nasıl tooconnect toohello AMS API, bkz. bilgi [Azure AD kimlik doğrulaması ile erişim hello Azure Media Services API](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
+>Başarıyla toohttps://media.windows.net bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Sonraki çağrılar toohello yapmanız gereken yeni bir URI.
 
 ## <a name="get-a-media-processor"></a>Medya işlemcisi Al
 
-Medya işlemcisi örneği tarafından adını almak nasıl aşağıdaki REST çağrısı gösterir (Bu durumda, **Medya Kodlayıcısı standart**). 
+REST çağrısı aşağıdaki hello gösterir nasıl tooget medya işlemcisi örneği adıyla (Bu durumda, **Medya Kodlayıcısı standart**). 
 
 İsteği:
 
@@ -89,5 +89,5 @@ Yanıtı:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Medya işlemcisi örneği alma bildiğinize göre Git [bir varlık kodlama](media-services-rest-get-started.md) konu Medya Kodlayıcısı standart bir varlık kodlama için nasıl kullanılacağını gösterir.
+Artık bildiğinize göre nasıl tooget medya işlemci örneği Git toohello [nasıl tooEncode bir varlık](media-services-rest-get-started.md) nasıl toouse hello Medya Kodlayıcısı standart tooencode bir varlık gösterecektir konu.
 

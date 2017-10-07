@@ -1,6 +1,6 @@
 ---
-title: "Kaydolmak için Office 365 ile Azure hesabı | Microsoft Docs"
-description: "Bir Azure hesabı kullanarak bir Office 365 aboneliği oluşturma hakkında bilgi edinin"
+title: "Azure hesabı ile Office 365 için aaaSign | Microsoft Docs"
+description: "Bilgi nasıl bir Azure hesabı kullanarak toocreate bir Office 365 aboneliği"
 services: 
 documentationcenter: 
 author: JiangChen79
@@ -15,58 +15,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: cjiang
-ms.openlocfilehash: 1c6e277e321980aaf30f821dbb41c7eaf296b4cf
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d19e1c1edff0b9658b639e796a72bbf4e87b9c3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Bir Office 365 aboneliğine Azure hesabınızla kaydolun
-Azure abone değilseniz, bir Office 365 aboneliği için kaydolmak için Azure hesabınızı kullanabilirsiniz. Bir Azure aboneliğine sahip kuruluş parçası sizseniz, mevcut Azure Active Directory'de (Azure AD) kullanıcıları için Office 365 abonelikleri oluşturabilirsiniz. Azure Active Directory kiracınızda genel yönetici veya faturalama yönetici izinlerine sahip bir hesabı kullanarak Office 365 için kaydolun. Daha fazla bilgi için bkz: [Azure AD'de my hesap izinlerini denetlemek](#RoleInAzureAD) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/active-directory-assign-admin-roles.md).
+Azure abone değilseniz, bir Office 365 aboneliği için Azure hesabı toosign kullanabilirsiniz. Bir Azure aboneliğine sahip kuruluş parçası sizseniz, mevcut Azure Active Directory'de (Azure AD) kullanıcıları için Office 365 abonelikleri oluşturabilirsiniz. TooOffice 365, Azure Active Directory kiracınızda genel yönetici veya faturalama yönetici izinlerine sahip bir hesabı kullanarak oturum. Daha fazla bilgi için bkz: [Azure AD'de my hesap izinlerini denetlemek](#RoleInAzureAD) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/active-directory-assign-admin-roles.md).
 
-Office 365 hesabı ve bir Azure aboneliğiniz zaten varsa, [bir Azure aboneliği için bir Office 365 Kiracı ilişkilendirmek](billing-add-office-365-tenant-to-azure-subscription.md).
+Office 365 hesabı ve bir Azure aboneliğiniz zaten varsa, [bir Office 365 Kiracı tooan Azure aboneliği ilişkilendirmek](billing-add-office-365-tenant-to-azure-subscription.md).
 
 ## <a name="get-an-office-365-subscription-by-using-your-azure-account"></a>Azure hesabınızı kullanarak bir Office 365 aboneliği edinme
 
-1. Git [Office 365 ürün sayfası](https://products.office.com/business)ve bir planı seçin.
-2. Tıklatın **oturum** sayfanın sağ üst köşesinde üzerinde.
+1. Toohello Git [Office 365 ürün sayfası](https://products.office.com/business)ve bir planı seçin.
+2. Tıklatın **oturum** hello hello sayfanın sağ üst köşesinde üzerinde.
 
     ![Office 365 deneme sayfasının ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/12-office-365-trial-page.png)
-3. Azure hesabı kimlik bilgilerinizle oturum. Kuruluşunuz için bir abonelik oluşturuyorsanız, Azure Active Directory kiracınızda genel yönetici veya faturalama Yöneticisi dizin rolünün bir üyesi olan bir Azure hesabı kullanın.
+3. Azure hesabı kimlik bilgilerinizle oturum. Kuruluşunuz için bir abonelik oluşturuyorsanız, Azure Active Directory kiracınızda hello genel yönetici veya faturalama Yöneticisi dizin rolünün bir üyesi olan bir Azure hesabı kullanın.
 
     ![Office 365 ekran oturum açma](./media/billing-use-existing-azure-account-office-365-subscription/13-office-365-sign-in.png)
 4. Tıklatın **şimdi deneyin**.
 
     ![Office 365 için sipariş onaylar ekran görüntüsü.](./media/billing-use-existing-azure-account-office-365-subscription/14-office-365-confirm-your-order.png)
-5. Sipariş giriş sayfasında, tıklatın **devam**.
+5. Merhaba sipariş giriş sayfasında, tıklatın **devam**.
 
-    ![Office 365 sipariş girişi ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
+    ![Merhaba Office 365 sipariş girişi ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
-Artık başlamaya hazırsınız. Kuruluşunuz için Office 365 aboneliği oluşturduysanız, Azure AD kullanıcılarınız artık Office 365'te olduğunu denetlemek için aşağıdaki adımları kullanın.
+Artık başlamaya hazırsınız. Kuruluşunuz için hello Office 365 aboneliği oluşturduysanız, Azure AD kullanıcıları artık Office 365'te olan adımları toocheck aşağıdaki hello kullanın.
 
-1. Office 365 Yönetici merkezini açın.
+1. Merhaba Office 365 Yönetici merkezini açın.
 2. Genişletme **kullanıcılar**ve ardından **etkin kullanıcılar**.
 
-    ![Office 365 Yönetici merkezi kullanıcılar ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Merhaba Office 365 Yönetici merkezi kullanıcılar ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
 
-Kaydolduktan sonra Office 365 aboneliğine Azure aboneliğinize ait aynı Azure Active Directory örneğini eklenir. Daha fazla bilgi için bkz: [Azure ve Office 365 abonelikleri hakkında daha fazla](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) ve [Azure aboneliklerinin Azure Active Directory ile ilişkili](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Kaydolduktan sonra Office 365 aboneliği hello toohello eklenen Azure aboneliğinize ait aynı Azure Active Directory örneği. Daha fazla bilgi için bkz: [Azure ve Office 365 abonelikleri hakkında daha fazla](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) ve [Azure aboneliklerinin Azure Active Directory ile ilişkili](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a id="RoleInAzureAD"></a>Azure AD'de hesabı izinlerimi denetleyin
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
 2. Tıklatın **daha fazla hizmet**, arayın ve sonra **Active Directory**.
 
-    ![Ekran görüntüsü, Active Directory'de Azure portalı](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
+    ![Ekran görüntüsü, Active Directory'de hello Azure portalı](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Tıklatın **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
-4. Kullanıcı adı seçin. 
+4. Merhaba kullanıcı adını seçin. 
 
-    ![Azure Active Directory Kullanıcıları gösteren ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
+    ![Hello Azure Active Directory Kullanıcıları gösteren ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
 
 5. Tıklatın **dizin rolünü**.
   
-    ![Azure portal dizin rolünü gösteren ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
-6.  Rol **genel yönetici** veya **sınırlı yönetici** > **Faturalama Yöneticisi** kullanıcılar için bir Office 365 aboneliği oluşturmak için gereklidir var olan Azure Active Directory'yi.
+    ![Hello Azure portal dizin rolünü gösteren ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
+6.  Merhaba rol **genel yönetici** veya **sınırlı yönetici** > **Faturalama Yöneticisi** gerekli toocreate kullanıcılar için bir Office 365 aboneliği olduğunu var olan Azure Active Directory'yi.
 
     ![Azure portal dizin rolünü Faturalama Yöneticisi gösteren ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için. 
+Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorunu Çözümlendi hızla tooget. 

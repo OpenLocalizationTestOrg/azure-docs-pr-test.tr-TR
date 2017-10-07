@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT - Ders 1 Intel Edison'u (düğüm) bağlanma: uygulama dağıtma | Microsoft Docs"
-description: "Örnek C uygulama github'dan kopyalama ve Intel Edison'u panonuzu bu uygulamayı dağıtmak için gulp çalıştırın. Bu örnek uygulama panosuna her iki saniye bağlı ışığı yanıp."
+title: "Intel Edison'u (düğüm) tooAzure IOT - Ders 1 bağlanın: uygulama dağıtma | Microsoft Docs"
+description: "Merhaba örnek C uygulaması github'dan kopyalayın ve bu uygulama tooyour Intel Edison'u Panosu gulp toodeploy çalıştırın. Bu örnek uygulama hello bağlı LED toohello Panosu her iki saniye yanıp."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,34 +17,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 8490fbbf14183432c665165412f00955d6323580
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bc03c7e45bd1ba9e9b2c8f2fec70a1be647e96b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Blink uygulaması oluşturma ve dağıtma
+# <a name="create-and-deploy-hello-blink-application"></a>Merhaba blink uygulama oluşturun ve dağıtın
 ## <a name="what-you-will-do"></a>Ne yapacağını
-Örnek C uygulama github'dan kopyalama ve Intel Edison'u örnek uygulamayı dağıtmak için gulp aracını kullanın. Örnek uygulama panosuna her iki saniye bağlı ışığı yanıp. Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası][troubleshooting].
+Merhaba örnek C uygulaması github'dan kopyalama ve hello gulp aracı toodeploy hello örnek uygulama tooIntel Edison'u kullanın. Merhaba örnek uygulaması, her iki saniye hello bağlı LED toohello Panosu yanıp. Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
-* Nasıl dağıtmak ve Edison'u üzerinde örnek uygulamayı çalıştırın.
+* Nasıl toodeploy ve çalışma hello Edison'u üzerinde örnek uygulama.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
-Aşağıdaki işlemleri başarıyla tamamlandı gerekir:
+Başarıyla işlemleri aşağıdaki hello tamamlamış olmanız gerekir:
 
 * [Cihazınızı yapılandırın][configure-your-device]
-* [Araçları edinin][get-the-tools]
+* [Merhaba araçları edinin][get-the-tools]
 
-## <a name="open-the-sample-application"></a>Örnek uygulamayı Aç
-Örnek uygulamayı açmak için şu adımları izleyin:
+## <a name="open-hello-sample-application"></a>Açık Merhaba örnek uygulaması
+tooopen hello örnek uygulama, aşağıdaki adımları izleyin:
 
-1. Aşağıdaki komutu çalıştırarak github'dan örnek depoyu kopyalayın:
+1. Merhaba örnek depoyu github'dan hello aşağıdaki komutu çalıştırarak kopyalayın:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-edison-getting-started.git
    ```
-2. Örnek uygulama, aşağıdaki komutları çalıştırarak Visual Studio kodda açın:
+2. Merhaba aşağıdaki komutları çalıştırarak örnek uygulama Visual Studio Code açık hello:
 
    ```bash
    cd iot-hub-node-edison-getting-started
@@ -54,27 +54,27 @@ Aşağıdaki işlemleri başarıyla tamamlandı gerekir:
 
    ![Depodaki yapısı][repo-structure]
 
-Dosyada `app` alt denetim LED koda içeren anahtar kaynak dosyası klasörüdür.
+Merhaba Hello dosyasında `app` alt hello kod toocontrol hello LED içeren hello anahtar kaynak dosyası klasörüdür.
 
 ### <a name="install-application-dependencies"></a>Uygulama bağımlılıkları yükler
-Kitaplıklar ve örnek uygulama için aşağıdaki komutu çalıştırarak gereken diğer modüller yükleyin:
+Merhaba kitaplıkları ve hello aşağıdaki komutu çalıştırarak hello örnek bir uygulama için gereken diğer modüller yükleyin:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Aygıt bağlantısını yapılandırın
-Aygıt bağlantısını yapılandırmak için aşağıdaki adımları izleyin:
+## <a name="configure-hello-device-connection"></a>Merhaba aygıt bağlantısını yapılandırın
+tooconfigure Merhaba cihaz bağlantısı, şu adımları izleyin:
 
-1. Aşağıdaki komutu çalıştırarak aygıt yapılandırma dosyası oluşturun:
+1. Hello aşağıdaki komutu çalıştırarak Hello aygıt yapılandırma dosyası oluşturun:
 
    ```bash
    gulp init
    ```
 
-   Yapılandırma dosyası `config-edison.json` Edison'u için oturum açmak için kullandığınız kullanıcı kimlik bilgilerini içerir. Kullanıcı kimlik bilgilerini sızıntısını önlemek için yapılandırma dosyası alt klasöründe oluşturulur `.iot-hub-getting-started` bilgisayarınızda giriş klasörünün.
+   Merhaba yapılandırma dosyası `config-edison.json` içinde tooEdison toolog kullanmak hello kullanıcı kimlik bilgilerini içerir. tooavoid hello sızıntısı kullanıcı kimlik bilgilerini, hello yapılandırma dosyası hello alt klasöründe oluşturulur `.iot-hub-getting-started` bilgisayarınızda hello giriş klasörünün.
 
-2. Aygıt yapılandırma dosyası, aşağıdaki komutu çalıştırarak Visual Studio kodda açın:
+2. Merhaba aygıt yapılandırma dosyasını Visual Studio kodda hello aşağıdaki komutu çalıştırarak açın:
 
    ```bash
    # For Windows command prompt
@@ -84,31 +84,31 @@ Aygıt bağlantısını yapılandırmak için aşağıdaki adımları izleyin:
    code ~/.iot-hub-getting-started/config-edison.json
    ```
 
-3. Yer tutucu Değiştir `[device hostname or IP address]` ve `[device password]` içinde önceki Ders düşürüleceği parolanın ve IP adresi ile.
+3. Merhaba yer tutucu Değiştir `[device hostname or IP address]` ve `[device password]` başlangıç IP adresi ve içinde önceki Ders düşürüleceği parola.
 
    ![Config.JSON](media/iot-hub-intel-edison-lessons/lesson1/vscode-config-mac.png)
 
-Tebrikler! İlk örnek uygulama Edison'u için başarıyla oluşturdunuz.
+Tebrikler! Merhaba ilk örnek bir uygulama için Edison'u başarıyla oluşturdunuz.
 
-## <a name="deploy-and-run-the-sample-application"></a>Dağıtma ve örnek uygulamayı çalıştırma
+## <a name="deploy-and-run-hello-sample-application"></a>Dağıtma ve hello örnek uygulamayı çalıştırma
 
-### <a name="deploy-and-run-the-sample-app"></a>Dağıtma ve örnek uygulamayı çalıştırma
-Dağıtma ve aşağıdaki komutu çalıştırarak örnek uygulamayı çalıştırın:
+### <a name="deploy-and-run-hello-sample-app"></a>Dağıtma ve hello örnek uygulamayı çalıştırma
+Dağıtma ve hello aşağıdaki komutu çalıştırarak hello örnek uygulamayı çalıştırın:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### <a name="verify-the-app-works"></a>Uygulama çalıştığını doğrulama
-Örnek uygulama için 20 kez ışığı yanıp sonra otomatik olarak sonlandırır. IŞIĞI yanıp sönen görmüyorsanız bkz [sorun giderme kılavuzu] [ troubleshooting] yaygın sorunların çözümleri için.
+### <a name="verify-hello-app-works"></a>Merhaba uygulama çalıştığını doğrulama
+Merhaba örnek uygulama için 20 kez Hello ışığı yanıp sonra otomatik olarak sonlandırır. Merhaba hello ışığı yanıp sönen görmüyorsanız bkz [sorun giderme kılavuzu] [ troubleshooting] çözümleri toocommon sorunları.
 
 ![IŞIĞI yanıp sönen][led-blinking]
 
 ## <a name="summary"></a>Özet
-Edison'u ile çalışmak için gerekli araçları yüklü ve ışığı yanıp sönen bir örnek uygulamanın Edison'u için dağıtılır. Şimdi oluşturmanıza, dağıtmanıza ve Edison'u ileti gönderme ve alma için Azure IOT hub'a bağlanan başka bir örnek uygulamayı çalıştırın.
+Gerekli hello araçları toowork ile Edison'u yüklü ve örnek uygulama tooEdison tooblink hello LED dağıtılır. Artık oluşturmak, dağıtmak ve Edison'u tooAzure IOT hub'ı toosend bağlayan başka bir örnek uygulamayı çalıştırın ve iletileri alabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Araçları edinin][get-the-azure-tools]
+[Hello Azure Araçları edinin][get-the-azure-tools]
 
 <!-- Images and links -->
 

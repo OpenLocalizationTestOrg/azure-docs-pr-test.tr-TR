@@ -1,12 +1,12 @@
 ---
-title: "Buluta (Node.js) - Azure IOT Hub'ına bağlanmak Raspberry Pi'yi Böğürtlenli Pi | Microsoft Docs"
-description: "Azure bulut veri göndermek Raspberry Pi'yi için Azure IOT Hub ile Raspberry Pi'yi bağlayın."
+title: "aaaRaspberry Pi toocloud (Node.js) - bağlanmak Raspberry Pi'yi tooAzure IOT hub'ı | Microsoft Docs"
+description: "Raspberry Pi'yi toosend veri toohello Azure bulut için Raspberry Pi'yi tooAzure IOT hub'ı bağlayın."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "Azure IOT Böğürtlenli PI Böğürtlenli PI IOT hub, bulut için Böğürtlenli pi gönderme, verileri buluta Böğürtlenli pi"
+keywords: "Azure IOT Böğürtlenli Böğürtlenli pi pi IOT hub'ı Böğürtlenli pi gönderme veri toocloud, Böğürtlenli PI toocloud"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
@@ -17,50 +17,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/27/2017
 ms.author: xshi
-ms.openlocfilehash: 956ed5ab0ed38ddebd978b35eb54bc96567f0d57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 07bc66983c427eab8118be18d91abb25deb03ad3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Azure IOT Hub (Node.js) Böğürtlenli Pi Bağlan
+# <a name="connect-raspberry-pi-tooazure-iot-hub-nodejs"></a>Raspberry Pi'yi tooAzure IOT hub'ı (Node.js) bağlanma
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Bu öğreticide, Raspbian çalıştıran Raspberry Pi'yi ile çalışmanın temelleri öğrenerek başlayın. Daha sonra sorunsuzca aygıtlarınızı buluta kullanarak bağlanmasına nasıl öğrenin [Azure IOT Hub](iot-hub-what-is-iot-hub.md). Windows 10 IOT Core örnekleri için Git [Windows Geliştirme Merkezi](http://www.windowsondevices.com/).
+Bu öğreticide, Raspberry Pi'yi ile Raspbian çalıştıran çalışmanın hello temelleri öğrenerek başlayın. Daha sonra nasıl tooseamlessly bağlanacağını aygıtları toohello bulutunuzu kullanarak öğrenin [Azure IOT Hub](iot-hub-what-is-iot-hub.md). Windows 10 IOT Core örnekleri için toohello Git [Windows Geliştirme Merkezi](http://www.windowsondevices.com/).
 
-Bir pakete henüz yok mu? Deneyin [Raspberry Pi 3 öykünücü](https://blogs.msdn.microsoft.com/iliast/2016/11/10/how-to-emulate-raspberry-pi/). Veya yeni bir paket satın [burada](https://azure.microsoft.com/develop/iot/starter-kits).
+Bir pakete henüz yok mu? Merhaba deneyin [Raspberry Pi 3 öykünücü](https://blogs.msdn.microsoft.com/iliast/2016/11/10/how-to-emulate-raspberry-pi/). Veya yeni bir paket satın [burada](https://azure.microsoft.com/develop/iot/starter-kits).
 
 ## <a name="what-you-do"></a>Neler
 
 * Böğürtlenli PI kurulumu.
 * IOT hub'ı oluşturun.
 * Bir cihaz IOT hub'ınıza Pi için kaydetme.
-* Pi algılayıcı verilerini IOT hub'ınıza gönderilecek örnek bir uygulamayı çalıştırın.
+* Pi toosend algılayıcı verileri tooyour IOT hub'ına bir örnek uygulamayı çalıştırın.
 
-Raspberry Pi'yi, oluşturduğunuz bir IOT hub'ına bağlanın. Pi BME280 algılayıcı sıcaklık ve nem verileri toplamak için bir örnek uygulamayı çalıştırın. ardından. Son olarak, IOT hub'ınıza algılayıcı verileri gönderin.
+Oluşturduğunuz Raspberry Pi'yi tooan IOT hub bağlayın. Daha sonra örnek bir uygulama BME280 algılayıcının Pi toocollect sıcaklık ve nem veri üzerinde çalıştırın. Son olarak, hello algılayıcı verileri tooyour IOT hub'ı gönderin.
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-* Azure IOT hub oluşturma ve yeni cihaz bağlantı dizenizi elde etme.
-* Pi BME280 algılayıcı ile bağlanma.
-* Pi üzerinde bir örnek uygulamayı çalıştırarak algılayıcı verilerini toplamak nasıl.
-* IOT hub'ınıza algılayıcı verileri göndermek nasıl.
+* Nasıl toocreate Azure IOT hub'ı ve yeni cihaz bağlantı dizenizi alın.
+* Nasıl tooconnect ile BME280 algılayıcı Pi.
+* Nasıl Pi üzerinde bir örnek uygulamayı çalıştırarak toocollect algılayıcı verileri.
+* Nasıl toosend algılayıcı verileri tooyour IOT hub'ı.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
 ![Ne gerekiyor](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
-* Raspberry Pi 2 veya Raspberry Pi 3 Panosu.
+* Merhaba Raspberry Pi 2 veya Raspberry Pi 3 Panosu.
 * Etkin bir Azure aboneliği. Bir Azure hesabınız yoksa [ücretsiz Azure deneme hesabı oluşturma](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
-* Bir izleyici, bir USB klavye ve fare Pi bağlanan.
+* Bir izleyici, bir USB klavye ve fare tooPi bağlanan.
 * Mac veya Windows veya Linux çalıştıran bir bilgisayar.
 * Bir Internet bağlantısı.
 * 16 GB veya üzeri microSD kartı.
-* İşletim sistemi görüntüsü microSD kartı üzerine yazmak için bir USB SD bağdaştırıcı veya microSD kartı.
-* 5-volt 2 amp güç 6 kaplama alanı mikro USB kablosu ile sağlayın.
+* Bir USB SD bağdaştırıcı veya microSD kartı tooburn hello işletim sistemi görüntüsünü hello microSD kartı.
+* 5-volt 2 amp güç hello 6 kaplama alanı mikro USB kablosu ile sağlayın.
 
-Aşağıdaki öğeler isteğe bağlıdır:
+Aşağıdaki öğelerindeki hello isteğe bağlıdır:
 
 * Bir birleştirilmiş Adafruit BME280 sıcaklık, baskısı ve nem algılayıcı.
 * Bir breadboard.
@@ -68,50 +68,50 @@ Aşağıdaki öğeler isteğe bağlıdır:
 * Yayılmış 10 mm LED.
 
   > [!NOTE] 
-  Kod örneği desteği algılayıcı verilerini benzetimli çünkü bu öğeler isteğe bağlıdır.
+  Merhaba kod örnek desteği algılayıcı verilerini benzetimli çünkü bu öğeler isteğe bağlıdır.
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="setup-raspberry-pi"></a>Böğürtlenli PI Kurulumu
 
-### <a name="install-the-raspbian-operating-system-for-pi"></a>Pi için Raspbian işletim sistemini yükleme
+### <a name="install-hello-raspbian-operating-system-for-pi"></a>Pi için Hello Raspbian işletim sistemini yükleme
 
-MicroSD kartı Raspbian görüntünün yüklenmesi için hazırlayın.
+Merhaba microSD kartı hello Raspbian görüntü yüklemesi için hazırlayın.
 
 1. Raspbian indirin.
-   1. [Piksel ile Raspbian Jessie karşıdan](https://www.raspberrypi.org/downloads/raspbian/) (.zip dosyası).
-   1. Raspbian görüntünün bilgisayarınızdaki bir klasöre ayıklayın.
-1. Raspbian microSD kartı yükleyin.
-   1. [Etcher SD kart yazıcı yardımcı programı yükleyip](https://etcher.io/).
-   1. Etcher çalıştırın ve 1. adımda ayıkladığınız Raspbian görüntüyü seçin.
-   1. MicroSD kartı sürücü seçin. Etcher zaten doğru sürücü seçmiş olabilirsiniz olduğunu unutmayın.
-   1. Raspbian microSD kartı yüklemek için Flash'ı tıklatın.
-   1. Yükleme tamamlandığında microSD kartı bilgisayarınızdan kaldırın. Etcher otomatik olarak çıkarır veya tamamlanmasından sonra microSD kartı çıkarır çünkü microSD kartı doğrudan kaldırmak güvenlidir.
-   1. MicroSD kartı Pi yerleştirin.
+   1. [Piksel ile Raspbian Jessie karşıdan](https://www.raspberrypi.org/downloads/raspbian/) (Merhaba .zip dosyası).
+   1. Bilgisayarınızdaki Hello Raspbian görüntü tooa klasöre ayıklayın.
+1. Raspbian toohello microSD kartı yükleyin.
+   1. [Merhaba Etcher SD kart yazıcı yardımcı programı yükleyip](https://etcher.io/).
+   1. Etcher çalıştırın ve 1. adımda ayıkladığınız hello Raspbian görüntüsünü seçin.
+   1. Merhaba microSD kartı sürücü seçin. Etcher zaten hello doğru sürücü seçmiş olabilirsiniz olduğunu unutmayın.
+   1. Flash tooinstall Raspbian toohello microSD kartı tıklatın.
+   1. Yükleme tamamlandığında hello microSD kartı bilgisayarınızdan kaldırın. Etcher otomatik olarak çıkarır veya hello microSD kartı tamamlanmasından sonra çıkarır güvenli tooremove hello microSD kartı doğrudan demektir.
+   1. Merhaba microSD kartı Pi yerleştirin.
 
 ### <a name="enable-ssh-and-i2c"></a>SSH ve I2C etkinleştir
 
-1. Monitör, klavye ve fare pi bağlanmak, Pi başlatın ve ardından içinde Raspbian kullanarak oturum `pi` kullanıcı adı ve `raspberry` ve parola olarak.
-1. Böğürtlenli simgesine tıklayın > **Tercihler** > **Raspberry Pi yapılandırma**.
+1. Pi toohello monitör, klavye ve fare bağlanmak, Pi başlatın ve ardından içinde Raspbian kullanarak oturum `pi` hello kullanıcı adı ve `raspberry` hello parola olarak.
+1. Merhaba Böğürtlenli simgesine tıklayın > **Tercihler** > **Raspberry Pi yapılandırma**.
 
-   ![Raspbian Tercihler menüsü](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
+   ![Merhaba Raspbian Tercihler menüsü](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
-1. Üzerinde **arabirimleri** sekmesinde, ayarlamak **I2C** ve **SSH** için **etkinleştirmek**ve ardından **Tamam**. Fiziksel algılayıcılar varsa ve benzetimli algılayıcı verilerini kullanmak istediğiniz yok, bu adım isteğe bağlıdır.
+1. Merhaba üzerinde **arabirimleri** sekmesinde, ayarlamak **I2C** ve **SSH** çok**etkinleştirmek**ve ardından **Tamam**. Fiziksel algılayıcılar varsa ve benzetimli toouse algılayıcı verilerini istediğiniz yok, bu adım isteğe bağlıdır.
 
    ![I2C ve Böğürtlenli Pi üzerinde SSH etkinleştir](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-SSH ve I2C etkinleştirmek için daha fazla başvuru belgeleri bulabilirsiniz [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) ve [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
+tooenable SSH ve I2C bulabilirsiniz daha fazla başvuru belgeleri üzerinde [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) ve [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
-### <a name="connect-the-sensor-to-pi"></a>Pi algılayıcı Bağlan
+### <a name="connect-hello-sensor-toopi"></a>Merhaba algılayıcı tooPi Bağlan
 
-Bir LED ve bir BME280 Pi şu şekilde bağlanmak için breadboard ve anahtar kablolarını kullanır. Algılayıcı yoksa bu bölümü atlayabilirsiniz.
+Merhaba breadboard ve anahtar kablolarını tooconnect bir LED ve BME280 tooPi aşağıdaki şekilde kullanın. Merhaba algılayıcı yoksa bu bölümü atlayabilirsiniz.
 
-![Raspberry Pi'yi ve algılayıcı bağlantısı](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
+![Merhaba Raspberry Pi'yi ve algılayıcı bağlantısı](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
-BME280 algılayıcı sıcaklık ve nem verileri toplayabilir. Ve cihaz ve bulut arasındaki iletişimi ise LED blink. 
+Merhaba BME280 algılayıcı sıcaklık ve nem verileri toplayabilir. Ve cihaz ve hello bulut arasındaki iletişimi ise hello LED blink. 
 
-Algılayıcı PIN'ler için aşağıdaki kablolama kullanın:
+Algılayıcı PIN'ler için kablolama aşağıdaki hello kullan:
 
 | Başlangıç (algılayıcı & LED)     | Bitiş (kartı)            | Kablo rengi   |
 | -----------------------  | ---------------------- | ------------: |
@@ -122,65 +122,65 @@ Algılayıcı PIN'ler için aşağıdaki kablolama kullanın:
 | LED VDD (PIN 18F)        | GPIO'yu 24 (PIN 18)       | Beyaz kablosu   |
 | LED GND (PIN 17F)        | GND (PIN 20)           | Siyah kablosu   |
 
-Görüntülemek için tıklatın [Raspberry Pi 2 ve 3 PIN eşlemeleri](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) daha sonra başvurmak üzere.
+Tooview tıklatın [Raspberry Pi 2 ve 3 PIN eşlemeleri](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) daha sonra başvurmak üzere.
 
-Raspberry Pi'yi BME280 başarıyla bağlandıktan sonra görüntü gibi olmalıdır.
+BME280 tooyour Raspberry Pi'yi başarıyla bağlandıktan sonra görüntü gibi olmalıdır.
 
 ![Bağlı Pi ve BME280](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
-### <a name="connect-pi-to-the-network"></a>Pi ağa bağlanın
+### <a name="connect-pi-toohello-network"></a>Pi toohello ağa bağlan
 
-Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak açın. Pi kablolu ağa bağlanın veya izleyin için Ethernet kablosu kullanın [Raspberry Pi Foundation yönergeleri](https://www.raspberrypi.org/learning/software-guide/wifi/) Pi kablosuz ağınıza bağlanmak için. Not yapmanıza gerek, Pi ağa başarıyla bağlandı sonra [IP adresi, pi'nin](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
+Pi üzerinde hello mikro USB kablosu ve hello güç kaynağı kullanarak açın. Kullanım hello Ethernet kablo tooconnect PI tooyour kablolu ağ veya hello izleyin [hello Raspberry Pi Foundation yönergeleri](https://www.raspberrypi.org/learning/software-guide/wifi/) tooconnect PI tooyour kablosuz ağ. Pi başarıyla bağlı toohello ağ sağlandıktan sonra tootake hello Not gereksinim [IP adresi, pi'nin](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Kablolu ağa bağlı](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
+![Bağlı toowired ağ](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
 > [!NOTE]
-> Pi bilgisayarınızın aynı ağa bağlı olduğundan emin olun. Örneğin, pi kablolu bir ağa bağlıyken, bilgisayarınızın kablosuz bir ağa bağlıysa, IP adresi devdisco çıkışı göremeyebilirsiniz.
+> Pi bağlı toohello aynı bilgisayarınızda olarak ağ olduğundan emin olun. Pi kablolu ağ bağlantılı tooa olsa da, bilgisayarınız bağlı tooa kablosuz ağ ise, örneğin, size hello IP göremeyebilirsiniz hello devdisco çıkış adresi.
 
 ## <a name="run-a-sample-application-on-pi"></a>Pi üzerinde bir örnek uygulamayı çalıştırın
 
-### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>Örnek uygulama kopyalamak ve önkoşul yükleyin
+### <a name="clone-sample-application-and-install-hello-prerequisite-packages"></a>Örnek uygulama kopyalamak ve hello önkoşul yükleyin
 
-1. Raspberry Pi'yi bağlanmak için ana bilgisayarınız aşağıdaki SSH istemcilerden birini kullanın.
-    - [PuTTY](http://www.putty.org/) Windows için. SSH bağlanmak için Pi IP adresi gerekir.
-    - Ubuntu veya macOS üzerindeki yerleşik SSH istemcisi. Çalıştırma `ssh pi@<ip address of pi>` Pi SSH aracılığıyla bağlanmak için.
+1. SSH istemcilerini, ana bilgisayar tooconnect tooyour Raspberry Pi'yi aşağıdaki hello birini kullanın.
+    - [PuTTY](http://www.putty.org/) Windows için. Pi tooconnect hello IP adresine ihtiyacınız, SSH aracılığıyla.
+    - Merhaba yerleşik SSH istemcisi Ubuntu veya macOS. Çalıştırma `ssh pi@<ip address of pi>` tooconnect Pi SSH aracılığıyla.
 
    > [!NOTE] 
-   Varsayılan kullanıcı adı `pi` , ve parola `raspberry`.
+   Merhaba varsayılan kullanıcı adı `pi` , ve hello parola `raspberry`.
 
-1. Node.js ve NPM, Pi yükleyin.
+1. Node.js ve NPM tooyour Pi yükleyin.
    
-   Önce aşağıdaki komutu kullanarak, Node.js sürümünü kontrol etmeniz gerekir. 
+   İlk komut aşağıdaki hello ile Node.js sürümünüzü kontrol etmeniz gerekir. 
    
    ```bash
    node -v
    ```
 
-   Sürüm 4.x düşük olduğu veya, Pi üzerinde hiçbir Node.js yüklemek veya Node.js güncelleştirmek için aşağıdaki komutu çalıştırın.
+   Merhaba sürüm 4.x düşük olduğu veya, Pi üzerinde hiçbir Node.js komut tooinstall aşağıdaki hello çalıştırmak veya Node.js güncelleştirin.
 
    ```bash
    curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
-1. Örnek uygulama, aşağıdaki komutu çalıştırarak kopyalama:
+1. Merhaba örnek uygulaması hello aşağıdaki komutu çalıştırarak kopyalama:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
    ```
 
-1. Tüm paketler aşağıdaki komutu tarafından yükleyin. Azure IOT cihaz SDK'sı, BME280 algılayıcı kitaplığı ve geriye Pi kitaplığı içerir.
+1. Tüm paketler komutu aşağıdaki hello tarafından yükleyin. Azure IOT cihaz SDK'sı, BME280 algılayıcı kitaplığı ve geriye Pi kitaplığı içerir.
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
    > [!NOTE] 
-   Bu yükleme işlemini denpening ağ bağlantınızdaki tamamlanması birkaç dakika sürebilir.
+   Bu işlem, ağ bağlantısı üzerinde bu yükleme işlemini denpening birkaç dakika toofinish sürebilir.
 
-### <a name="configure-the-sample-application"></a>Örnek uygulamayı yapılandırma
+### <a name="configure-hello-sample-application"></a>Merhaba örnek uygulamayı yapılandırma
 
-1. Yapılandırma dosyası, aşağıdaki komutları çalıştırarak açın:
+1. Merhaba yapılandırma dosyası hello aşağıdaki komutları çalıştırarak açın:
 
    ```bash
    nano config.json
@@ -188,30 +188,30 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak açın. Pi kablolu 
 
    ![Yapılandırma dosyası](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
 
-   İki öğe bu dosyada configurate olabilir. İlk sağlayıcıdır `interval`, bulut göndermek iki ileti arasındaki zaman aralığını tanımlar. İkincisi `simulatedData`, benzetimli algılayıcı verilerini veya kullanıp kullanmayacağınızı için bir Boolean değeri değil.
+   İki öğe bu dosyada configurate olabilir. Merhaba ilk biridir `interval`, toocloud Gönder iki ileti arasındaki hello zaman aralığını tanımlar. İkinci bir hello `simulatedData`, veya toouse algılayıcı verilerini olup benzetimi için bir Boole değeri değil.
 
-   Varsa, **algılayıcı yok**ayarlayın `simulatedData` değeri `true` oluşturma ve sanal algılayıcı verilerini kullanma örnek uygulamayı yapmak için.
+   Varsa, **hello algılayıcı yok**ayarlayın hello `simulatedData` çok değer`true` toomake Merhaba örnek uygulaması oluşturup benzetimli algılayıcı verilerini kullanabilirsiniz.
 
 1. Kaydedip çıkmak denetimi O tuşlarına basarak > Enter > Denetim X.
 
-### <a name="run-the-sample-application"></a>Örnek uygulamayı çalıştırın
+### <a name="run-hello-sample-application"></a>Merhaba örnek uygulamayı çalıştırın
 
-1. Aşağıdaki komutu çalıştırarak örnek uygulamayı çalıştırın:
+1. Merhaba aşağıdaki komutu çalıştırarak Hello örnek uygulamayı çalıştırın:
 
    ```bash
    sudo node index.js '<your Azure IoT hub device connection string>'
    ```
 
    > [!NOTE] 
-   Kopyalama cihaz bağlantı dizesi tek tırnak yapıştırma emin olun.
+   Kopyalama hello cihaz bağlantı dizesi hello tek tırnak yapıştırma emin olun.
 
 
-Algılayıcı verilerini ve IOT hub'ına gönderilen iletileri gösterir aşağıdaki çıktı görmeniz gerekir.
+Gösterir tooyour IOT hub gönderilen algılayıcı verileri ve hello iletileri hello hello aşağıdaki çıktı görmeniz gerekir.
 
-![Çıktı - Raspberry Pi'yi IOT hub'ına gönderilen algılayıcı verileri](media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
+![Çıktı - Raspberry Pi'yi tooyour IOT hub'ından gönderilen algılayıcı verileri](media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Algılayıcı verilerini toplamak ve IOT hub'ınıza göndermek için örnek bir uygulamayı çalıştırdıktan.
+Bir örnek uygulama toocollect algılayıcı verilerini çalıştırdıktan ve tooyour IOT hub'ı gönderebilirsiniz.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

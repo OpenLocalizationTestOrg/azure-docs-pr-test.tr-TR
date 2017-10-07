@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama | Microsoft Docs"
-description: "Sorgu Microsoft Graph risk olaylarına ve ilişkili bilgi listesi için Azure Active Directory'den tanıtılmaktadır."
+title: "aaaGet başlatılan Azure Active Directory kimlik koruması ve Microsoft Graph | Microsoft Docs"
+description: "Bir giriş tooquery Microsoft Graph risk olaylarına ve ilişkili bilgi listesi için Azure Active Directory'den sağlar."
 services: active-directory
 keywords: "Azure active directory kimlik koruması, risk olay, güvenlik açığı, güvenlik ilkesi, Microsoft Graph"
 documentationcenter: 
@@ -15,60 +15,60 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9b01ff86da6a1fd4a439a6ba59ea15ed6480cdad
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 75b8b7629a0120d8101f6fde0d9163122503d276
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama
-Microsoft Graph olan Microsoft unified API uç noktasını ve giriş, [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, bir listesi için Microsoft Graph sorgu sayesinde [risk olayları](active-directory-identityprotection-risk-events-types.md) ve bilgi ilişkili. Bu makalede bu API sorgulama başlamanızı sağlar. Bir ayrıntılı giriş, tam belgelere ve Graph Explorer'da erişim için bakın [Microsoft Graph site](https://graph.microsoft.io/).
+Microsoft Graph, Microsoft unified API uç noktası hello ve, ev hello [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) API'leri. Merhaba ilk API **identityRiskEvents**, bir listesi için Microsoft Graph tooquery sağlar, [risk olayları](active-directory-identityprotection-risk-events-types.md) ve bilgileri ilişkilendirilmiş. Bu makalede bu API sorgulama başlamanızı sağlar. Bir ayrıntılı giriş, tam belgelere ve erişim toohello Graph Explorer'a için hello bakın [Microsoft Graph site](https://graph.microsoft.io/).
 
 > [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor.
+> Microsoft önerir hello kullanarak Azure AD'yi yönetme [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) hello yerine Azure portal hello bu makalede başvurulan Klasik Azure portalı.
 
-Microsoft Graph kimlik koruması verilere erişmek için üç adım vardır:
+Üç adımları tooaccessing kimlik koruması verilerine Microsoft Graph vardır:
 
 1. Bir istemci parolası uygulamayla ekleyin. 
-2. Bu gizli anahtar ve birkaç bilgi parçalarını bir kimlik doğrulama belirteci almanıza Microsoft Graph için kimlik doğrulaması yapmak için kullanın. 
-3. İstekte API uç noktasına ve kimlik koruma verilerini geri almak için bu belirteci kullanın.
+2. Bu gizli anahtar ve birkaç bilgi tooauthenticate tooMicrosoft grafiği, bir kimlik doğrulama belirteci almanıza parçalarını kullanın. 
+3. Bu belirteç toomake istekleri toohello API uç noktası kullan ve kimlik koruması verileri geri alın.
 
 Başlamadan önce ihtiyacınız vardır:
 
-* Azure AD içinde uygulama oluşturmak için yönetici ayrıcalıkları
-* Kiracı'nın etki alanı (örneğin, contoso.onmicrosoft.com) adı
+* Azure AD'de yönetici ayrıcalıkları toocreate hello uygulaması
+* Kiracı'nın etki alanı (örneğin, contoso.onmicrosoft.com) Hello adı
 
 ## <a name="add-an-application-with-a-client-secret"></a>Bir istemci parolası ile uygulama ekleme
-1. [Oturum](https://manage.windowsazure.com) yönetici olarak, Azure Klasik portalı. 
-2. Sol gezinti bölmesinde, tıklayın **Active Directory**. 
+1. [Oturum](https://manage.windowsazure.com) tooyour Klasik Azure portalında yönetici olarak. 
+2. Merhaba sol gezinti bölmesinde, tıklayın **Active Directory**. 
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_01.png)
-3. Gelen **Directory** listesinde, directory tümleştirmesini etkinleştirmek istediğiniz dizini seçin.
-4. Üstteki menüde tıklatın **uygulamaları**.
+3. Merhaba gelen **Directory** listesi, tooenable dizin tümleştirme istediğiniz select başlangıç dizini.
+4. Hello içinde hello üst menüsünde **uygulamaları**.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_02.png)
-5. Tıklatın **Ekle** sayfanın sonundaki.
+5. Tıklatın **Ekle** hello sayfanın hello sonundaki.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_03.png)
-6. Üzerinde **ne yapmak istiyorsunuz** iletişim kutusunda, tıklatın **kuruluşumun geliştirmekte olduğu bir uygulama Ekle**.
+6. Merhaba üzerinde **neler toodo istediğiniz** iletişim kutusunda, tıklatın **kuruluşumun geliştirmekte olduğu bir uygulama Ekle**.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_04.png)
-7. Üzerinde **bize uygulamanızı anlatın** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+7. Merhaba üzerinde **bize uygulamanızı anlatın** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_05.png)
    
-    a. İçinde **adı** metin kutusuna, uygulamanız için bir ad yazın (örneğin: AADIP Risk olayı API uygulama).
+    a. Merhaba, **adı** metin kutusuna, uygulamanız için bir ad yazın (örneğin: AADIP Risk olayı API uygulama).
    
     b. Olarak **türü**seçin **Web uygulaması ve / veya Web API**.
    
     c. **İleri**’ye tıklayın.
-8. Üzerinde **uygulama özellikleri** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+8. Merhaba üzerinde **uygulama özellikleri** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_06.png)
    
-    a. İçinde **oturum açma URL'si** metin kutusuna, türü `http://localhost`.
+    a. Merhaba, **oturum açma URL'si** metin kutusuna, türü `http://localhost`.
    
-    b. İçinde **uygulama kimliği URI'si** metin kutusuna, türü `http://localhost`.
+    b. Merhaba, **uygulama kimliği URI'si** metin kutusuna, türü `http://localhost`.
    
     c. **Tamamla**’ya tıklayın.
 
@@ -76,14 +76,14 @@ Can şimdi uygulamanızı yapılandırın.
 
 ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_07.png)
 
-## <a name="grant-your-application-permission-to-use-the-api"></a>Uygulama API kullanma izni verin
-1. Uygulamanızın sayfasında, üst menüsünde tıklatın **yapılandırma**. 
+## <a name="grant-your-application-permission-toouse-hello-api"></a>Uygulama izni toouse hello API verin
+1. Uygulamanızın sayfasında hello üst hello menüsünde tıklatın **yapılandırma**. 
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
-2. İçinde **diğer uygulamalara izinler** 'yi tıklatın **uygulama eklemek**.
+2. Merhaba, **izinleri tooother uygulamaları** 'yi tıklatın **uygulama eklemek**.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_09.png)
-3. Üzerinde **diğer uygulamalara izinler** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **izinleri tooother uygulamaları** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_10.png)
    
@@ -93,35 +93,35 @@ Can şimdi uygulamanızı yapılandırın.
 4. Tıklatın **uygulama izinleri: 0**ve ardından **tüm kimlik risk olay bilgilerini okuma**.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_11.png)
-5. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
+5. Tıklatın **kaydetmek** hello sayfanın hello sonundaki.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
 
 ## <a name="get-an-access-key"></a>Bir erişim anahtarı alma
-1. Uygulamanızın sayfasında içinde **anahtarları** bölümünde, 1 yıl süre olarak seçin.
+1. Uygulamanızın sayfasında hello **anahtarları** bölümünde, 1 yıl süre olarak seçin.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_13.png)
-2. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
+2. Tıklatın **kaydetmek** hello sayfanın hello sonundaki.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
-3. anahtarları bölümünde, yeni oluşturulan anahtarı değerini kopyalayın ve güvenli bir konuma yapıştırın.
+3. Merhaba anahtarları bölümünde, yeni oluşturulan anahtarınızı hello değerini kopyalayın ve güvenli bir konuma yapıştırın.
    
     ![Uygulama oluşturma](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_14.png)
    
    > [!NOTE]
-   > Bu anahtar kaybederseniz, bu bölüme geri dönün ve yeni bir anahtar oluşturun gerekecektir. Bu anahtarı bir gizli tutma: olan herkes verilerinize erişebilir.
+   > Bu anahtar kaybederseniz, tooreturn toothis bölümü ve yeni bir anahtar oluşturun. Bu anahtarı bir gizli tutma: olan herkes verilerinize erişebilir.
    > 
    > 
-4. İçinde **özellikleri** bölümünde, kopyalama **istemci kimliği**ve güvenli bir konuma yapıştırın. 
+4. Merhaba, **özellikleri** bölümü, kopyalama hello **istemci kimliği**ve güvenli bir konuma yapıştırın. 
 
-## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Microsoft Graph için kimlik doğrulaması ve kimlik Risk olayları API sorgulama
+## <a name="authenticate-toomicrosoft-graph-and-query-hello-identity-risk-events-api"></a>TooMicrosoft grafik ve sorgu hello kimlik Risk olayları API kimlik doğrulaması
 Bu noktada, olmalıdır:
 
-* İstemci kimliği üzerinde kopyalanır
-* Yukarıdaki kopyaladığınız anahtar
-* Kiracı'nın etki alanı adı
+* Yukarıdaki kopyaladığınız hello istemci kimliği
+* Yukarıdaki kopyaladığınız hello anahtarı
+* Merhaba, kiracının etki alanı adı
 
-Kimlik doğrulaması için bir post İsteği Gönder `https://login.microsoft.com` gövdesinde aşağıdaki parametrelerle:
+tooauthenticate, gönderme bir post isteği çok`https://login.microsoft.com` şu parametreler hello gövdesindeki hello ile:
 
 * grant_type: "**client_credentials**"
 * Kaynak: "**https://graph.microsoft.com**"
@@ -129,23 +129,23 @@ Kimlik doğrulaması için bir post İsteği Gönder `https://login.microsoft.co
 * client_secret:<your key>
 
 > [!NOTE]
-> İçin değerler sağlaması gereken **client_id** ve **client_secret** parametresi.
+> Merhaba tooprovide değerlerine gereksinim **client_id** ve hello **client_secret** parametresi.
 > 
 > 
 
 Başarılı olursa, bu kimlik doğrulama belirtecini döndürür.  
-API'yi çağırmak için bir başlığı aşağıdaki parametreyle oluşturun:
+toocall hello API, parametre aşağıdaki hello bir üstbilgi oluşturun:
 
     `Authorization`=”<token_type> <access_token>"
 
 
-Kimlik doğrulamasını yaparken, belirteç türü ve erişim belirteci döndürülen belirteç bulabilirsiniz.
+Kimlik doğrulamasını yaparken, belirteç döndürdü hello hello belirteç türü ve erişim belirteci bulabilirsiniz.
 
-Bu üst aşağıdaki API URL'si bir istek gönderin:`https://graph.microsoft.com/beta/identityRiskEvents`
+Bu üst API URL aşağıdaki isteği toohello gönder:`https://graph.microsoft.com/beta/identityRiskEvents`
 
-Yanıt başarılı olursa, kimlik risk olaylarına ve ilişkili veriler, ayrıştırılmış ve uygun gördüğünüz şekilde ele OData JSON biçiminde koleksiyonudur.
+Merhaba yanıt başarılı olursa, kimlik, risk olaylarını koleksiyonudur ve hello ayrıştırılır ve uygun gördüğünüz şekilde ele OData JSON biçimine verilerde ilişkili.
 
-Kimlik doğrulaması ve Powershell kullanarak API'yi çağıran için örnek kod aşağıda verilmiştir.  
+Kimlik doğrulaması ve Powershell kullanarak hello API'sini çağırmak için örnek kod aşağıda verilmiştir.  
 Yalnızca istemci Kimliğiniz Ekle anahtarı ve Kiracı etki alanı.
 
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
@@ -178,10 +178,10 @@ Yalnızca istemci Kimliğiniz Ekle anahtarı ve Kiracı etki alanı.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tebrikler, Microsoft Graph, ilk çağrıda yaptığınız.  
-Şimdi kimlik risk olaylarını sorgular ve uygun gördüğünüz ancak verileri kullanın.
+Tebrikler, ilk çağrı tooMicrosoft grafiği yaptığınız.  
+Şimdi kimlik risk olaylarını sorgular ve uygun gördüğünüz ancak hello verileri kullanın.
 
-Microsoft Graph ve grafik API'sini kullanarak uygulamaların nasıl yapılandırıldığı hakkında daha fazla bilgi için kullanıma [belgelerine](https://graph.microsoft.io/docs) ve çok daha fazlası üzerinde [Microsoft Graph site](https://graph.microsoft.io/). Ayrıca, yer işareti emin [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) tüm grafiğinde kullanılabilir kimlik koruma API'leri listeler sayfası. API aracılığıyla kimlik koruması çalışmak için yeni yollar eklediğimiz gibi ilgili sayfada görürsünüz.
+toolearn Microsoft Graph hakkında daha fazla grafik API'sini kullanarak toobuild uygulamaları nasıl hello denetleyip hello [belgelerine](https://graph.microsoft.io/docs) ve hello hakkında daha fazla [Microsoft Graph site](https://graph.microsoft.io/). Ayrıca, emin toobookmark hello olun [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) tüm hello kimlik koruma API'leri grafiğinde kullanılabilir listeler sayfası. API aracılığıyla kimlik koruması ile yeni yolları toowork eklediğimiz gibi ilgili sayfada görürsünüz.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [Azure Active Directory kimlik koruması](active-directory-identityprotection.md)

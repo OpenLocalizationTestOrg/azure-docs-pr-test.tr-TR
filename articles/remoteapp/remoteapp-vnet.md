@@ -1,6 +1,6 @@
 ---
-title: "Azure RemoteApp ile kullanmak için Azure VNET doğrulama | Microsoft Docs"
-description: "Azure sanal Azure RemoteApp ile kullanıma hazır olduğundan emin olun öğrenin"
+title: Azure RemoteApp ile aaaValidate hello Azure VNET toouse | Microsoft Docs
+description: "Nasıl toomake emin Azure sanal hazır olduğunu öğrenin toouse Azure RemoteApp ile"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 05c8a0ff04293947cec391b6467cc4adddb6a7b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5587556c264356e6ab6039b983a38cb2b95ed268
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="validate-the-azure-vnet-to-use-with-azure-remoteapp"></a>Azure RemoteApp ile kullanmak için Azure VNET doğrula
+# <a name="validate-hello-azure-vnet-toouse-with-azure-remoteapp"></a>Azure RemoteApp ile Hello Azure VNET toouse doğrula
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Azure RemoteApp ile bir Azure sanal kullanmadan önce sanal ağ doğrulamak isteyebilirsiniz. Bu bağlantı sorunları önlemeye yardımcı olur.
+Azure RemoteApp ile bir Azure sanal kullanmadan önce toovalidate hello VNET isteyebilirsiniz. Bu bağlantı sorunları önlemeye yardımcı olur.
 
-Azure sanal doğrulamak için aşağıdakileri yapın:
+toovalidate Azure sanal ağınızın, aşağıdaki hello:
 
-1. Azure RemoteApp ile kullanmak istediğiniz Azure sanal alt ağ içindeki bir Azure sanal makine oluşturun.
-2. Bağlan'kullanarak bu VM'ye **Bağlan** Yönetim Portalı'nda seçeneği.
-3. Sanal makineyi Azure RemoteApp ile kullanmak istediğiniz aynı etki alanına katılın. Şirket içi ağınıza bağlanan bir karma koleksiyon oluşturuyorsanız, sanal makinenin yerel etki alanınıza ekleyin.
+1. Bir Azure sanal makinesi hello Azure toouse Azure RemoteApp ile istediğiniz sanal alt ağdan hello içinde oluşturun.
+2. Toothat VM hello kullanarak bağlanmak **Bağlan** hello Yönetim Portalı'nda seçeneği.
+3. Merhaba sanal makine toohello katılma toouse Azure RemoteApp ile istediğiniz aynı etki alanı. Tooyour şirket içi ağınızı bağlayan karma koleksiyon oluşturuyorsanız hello sanal makine tooyour yerel etki alanına katılın.
 
-Bu başarılı olursa, Azure VNET RemoteApp ile kullanmak hazırdır.
+Bu başarılı olursa, hello Azure VNET RemoteApp ile hazır toouse ' dir.
 
-Uçtan uca karma koleksiyonu iş akışı hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Merhaba uçtan uca karma koleksiyonu iş akışı hakkında daha fazla bilgi için aşağıdaki makaleler hello bakın:
 
-* [Azure RemoteApp için sanal ağınızı planlama hakkında](remoteapp-planvnet.md)
+* [Nasıl tooplan Azure RemoteApp için sanal ağınıza](remoteapp-planvnet.md)
 * [Karma koleksiyon oluşturma](remoteapp-create-hybrid-deployment.md)
-* [Azure sanal ağınıza (desteğiyle ExpressRoute) Azure RemoteApp koleksiyonu dağıtma](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
+* [Azure RemoteApp koleksiyonu tooyour Azure Virtual Network (desteğiyle ExpressRoute) dağıtma](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 

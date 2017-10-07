@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri olay hub'ları bağlamaları | Microsoft Docs"
-description: "Azure Event Hubs bağlamaları Azure işlevlerini kullanmak nasıl anlayın."
+title: "aaaAzure işlevleri olay hub'ları bağlamaları | Microsoft Docs"
+description: "Anlamak nasıl toouse Azure Event Hubs bağlamaları Azure işlevlerinde."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -16,55 +16,55 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/20/2017
 ms.author: wesmc
-ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e864f032ad5ac58d318c9843c3844b5642733a70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Azure işlevleri olay hub'ları bağlamaları
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Bu makalede, yapılandırmak ve kullanmak açıklanmaktadır [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) Azure işlevleri için bağlamaları.
+Bu makalede açıklanır nasıl tooconfigure ve [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) Azure işlevleri için bağlamaları.
 Tetikler ve olay hub'ları için bağlamaları çıktı Azure işlevleri destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Azure Event Hubs'a yeni istiyorsanız bkz [Event Hubs'a genel bakış](../event-hubs/event-hubs-what-is-event-hubs.md).
+Yeni tooAzure olay hub'ları olup olmadığını hello görmek [Event Hubs'a genel bakış](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
 ## <a name="event-hub-trigger"></a>Olay hub'ı tetikleyicisi
-Bir olay hub'ı olay akışı gönderilen bir olayın yanıtlamak için olay hub'ları tetikleyici kullanın. Olay hub'ına tetikleyecek için okuma erişimi olmalıdır.
+Merhaba olay hub'ı kullan tooan olay hub'ı olay akışının gönderilen toorespond tooan olay tetikler. Okuma erişimi toohello olay hub'ı tooset hello tetikleyici yukarı olması gerekir.
 
-Olay hub'ları işlevi tetikleyici aşağıdaki JSON nesnesinde kullanan `bindings` function.json dizisi:
+Merhaba olay hub'ları işlevi tetikleyici kullanan hello JSON nesnesinde aşağıdaki hello `bindings` function.json dizisi:
 
 ```json
 {
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the event hub>",
-    "consumerGroup": "Consumer group to use - see below",
+    "path": "<Name of hello event hub>",
+    "consumerGroup": "Consumer group toouse - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
 ```
 
-`consumerGroup`ayarlamak için kullanılan isteğe bağlı bir özellik [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) hub olaylara abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır.  
-`connection`Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı olması gerekir.
-Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi en az tetikleyici etkinleştirmek için Okuma izinleriniz olmalıdır.
+`consumerGroup`kullanılan isteğe bağlı özellik tooset hello olan [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) toosubscribe tooevents hello hub kullanılır. Atlanırsa, hello `$Default` tüketici grubu kullanılır.  
+`connection`Merhaba bağlantı dizesi toohello olay hub'ın ad alanı içeren bir uygulama ayarı Hello adı olması gerekir.
+Merhaba tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** hello düğmesi *ad alanı*, değil hello olay hub'ı kendisi. Bu bağlantı dizesi, en az izinleri tooactivate hello tetikleyici okuma sahiptir.
 
-[Ek ayarları](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) daha fazla olay hub'ları Tetikleyicileri ince için host.json dosyasında sağlanabilir.  
+[Ek ayarları](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) bir host.json dosya toofurther ince ince ayar sağlanan olay hub'ları Tetikleyicileri olabilir.  
 
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Tetikleyici kullanımı
-Bir olay hub'ları Tetik işlevi tetiklendiğinde tetikler ileti işlevdeki bir dize olarak geçirilir.
+Bir olay hub'ları Tetik işlevi tetiklendiğinde tetikler selamlama iletisine tabloya hello işlev bir dize olarak geçirilir.
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Tetikleyici örnek
-Aşağıdaki olduğunu varsayalım, olay hub'ları tetiklemek `bindings` function.json dizisi:
+Aşağıdaki olay hub'ları tetiklemek hello hello olduğunu varsayalım `bindings` function.json dizisi:
 
 ```json
 {
@@ -76,7 +76,7 @@ Aşağıdaki olduğunu varsayalım, olay hub'ları tetiklemek `bindings` functio
 }
 ```
 
-Olay hub'ı tetikleyicisi ileti gövdesini günlüklerini dile özgü örneğe bakın.
+Merhaba olay hub'ı tetikleyicisi hello ileti gövdesi günlüklerini hello dile özgü örneğine bakın.
 
 * [C#](#triggercsharp)
 * [F#](#triggerfsharp)
@@ -95,7 +95,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Olayı olarak da alabileceğiniz bir [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) olay meta verilere erişmenizi nesnesi.
+Merhaba olayı olarak da alabileceğiniz bir [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) size verir nesneye erişim toohello olay meta verileri.
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -108,7 +108,7 @@ public static void Run(EventData myEventHubMessage, TraceWriter log)
 }
 ```
 
-Bir toplu işlemde olaylarını almak için yöntem imzası değiştirme `string[]` veya `EventData[]`.
+bir toplu tooreceive olayları değiştir hello yöntem imzası çok`string[]` veya `EventData[]`.
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -143,9 +143,9 @@ module.exports = function (context, myEventHubMessage) {
 <a name="output"></a>
 
 ## <a name="event-hubs-output-binding"></a>Olay hub'ları bağlama çıktı
-Bir olay hub'ı olay akışına yazma olayları bağlama olay hub'ları çıkış kullanın. Yazma olayları için bir olay hub'ına gönderme izni olmalıdır.
+Kullanım hello olay hub'ları bağlama toowrite olayları tooan olay hub'ı olay akışının çıktı. Gönderme izni tooan olay hub'ı toowrite olayları tooit olması gerekir.
 
-Aşağıdaki JSON nesnesinde çıkış bağlama kullanır `bindings` function.json dizisi:
+Merhaba çıkış bağlama kullanır hello JSON nesnesinde aşağıdaki hello `bindings` function.json dizisi:
 
 ```json
 {
@@ -157,22 +157,22 @@ Aşağıdaki JSON nesnesinde çıkış bağlama kullanır `bindings` function.js
 }
 ```
 
-`connection`Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı olması gerekir.
-Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi olay akışının ileti göndermek için Gönder izinleri olmalıdır.
+`connection`Merhaba bağlantı dizesi toohello olay hub'ın ad alanı içeren bir uygulama ayarı Hello adı olması gerekir.
+Merhaba tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** hello düğmesi *ad alanı*, değil hello olay hub'ı kendisi. Bu bağlantı dizesi gönderme izinleri toosend hello ileti toohello olay akışı olması gerekir.
 
 ## <a name="output-usage"></a>Çıktı kullanımı
-Bu bölümde işlevi kodunuzda bağlama, olay hub'ları çıkış kullanmayı gösterir.
+Bu bölümde, nasıl işlevi kodunuzda bağlama toouse, olay hub'larınızı çıktısını gösterir.
 
-Aşağıdaki parametre türleri ile yapılandırılmış olay hub'ına iletileri çıkarabilirsiniz:
+Parametre türleri şu hello ile yapılandırılmış toohello event hub'ı iletileri çıkarabilirsiniz:
 
 * `out string`
-* `ICollector<string>`(birden çok ileti çıkışı için)
+* `ICollector<string>`(toooutput birden fazla ileti)
 * `IAsyncCollector<string>`(zaman uyumsuz sürümü `ICollector<T>`)
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Çıkış örneği
-Aşağıdaki olduğunu varsayalım olay hub'ları bağlamasında çıktı `bindings` function.json dizisi:
+Merhaba aşağıdaki olduğunu varsayalım olay hub'ları hello bağlamasında çıktı `bindings` function.json dizisi:
 
 ```json
 {
@@ -184,7 +184,7 @@ Aşağıdaki olduğunu varsayalım olay hub'ları bağlamasında çıktı `bindi
 }
 ```
 
-Bir olay bile akışa Yazar dile özgü örneğine bakın.
+Bir olay toohello bile akışa Yazar hello dile özgü örneğine bakın.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -205,7 +205,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-Veya birden çok iletileri oluşturmak için:
+Veya, toocreate birden fazla ileti:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -241,7 +241,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Veya birden çok ileti göndermek için
+Veya, toosend birden fazla ileti
 
 ```javascript
 module.exports = function(context) {

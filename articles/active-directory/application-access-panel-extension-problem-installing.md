@@ -1,6 +1,6 @@
 ---
-title: "Uygulama erişimi yükleme sorunu panel tarayıcı uzantısı | Microsoft Docs"
-description: "Erişim paneli tarayıcı uzantısı yüklenirken karşılaşılan yaygın hataları gidermek nasıl"
+title: "Merhaba uygulama erişim paneli tarayıcı uzantısı yükleme aaaProblem | Microsoft Docs"
+description: "Hello erişim paneli tarayıcı uzantısı yüklerken toofix sık karşılaşılan hataların nasıl karşılaştı"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5f750d12c5f9b405ec4f81596d5cc5e0a48f9a62
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="problem-installing-the-application-access-panel-browser-extension"></a>Uygulama erişimi yükleme sorun tarayıcı uzantısı paneli
+# <a name="problem-installing-hello-application-access-panel-browser-extension"></a>Merhaba uygulama erişim paneli tarayıcı uzantısı yükleme sorunu
 
-Erişim paneli, Azure AD Yöneticisi erişim verildi görünümü ve başlatma bulut tabanlı uygulamalar Azure Active Directory (Azure AD) bir iş veya Okul hesabı olan bir kullanıcının sağlayan bir web tabanlı portal olmaktır. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Erişim paneli Azure Portalı'ndan ayrıdır ve kullanıcıların bir Azure aboneliğine sahip olmasını gerektirmez.
+Merhaba erişim paneli, hangi etkinleştirir bir iş veya Okul sahip bir kullanıcı hesabı Azure Active Directory (Azure AD) tooview ve başlatma bulut tabanlı uygulamalarda o hello Azure AD yönetici web tabanlı bir portal erişim verildi ' dir. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve hello erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Merhaba erişim paneli hello Azure portal ' ayrıdır ve kullanıcıların toohave bir Azure aboneliği gerektirmez.
 
-Parola tabanlı çoklu oturum açma (SSO) erişimi Masası'nda kullanmak için erişim paneli uzantısı kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
+toouse parola tabanlı çoklu oturum açma (SSO) hello erişim paneli, hello erişim paneli uzantısı içinde hello kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Erişim paneli toplantı tarayıcı gereksinimleri
+## <a name="meeting-browser-requirements-for-hello-access-panel"></a>Merhaba erişim paneli toplantı tarayıcı gereksinimleri
 
-Erişim paneli JavaScript destekleyen bir tarayıcı gerektirir ve CSS etkinleştirdi. Parola tabanlı çoklu oturum açma (SSO) erişimi Masası'nda kullanmak için erişim paneli uzantısı kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
+JavaScript destekleyen bir tarayıcı Hello erişim paneli gerektirir ve CSS etkinleştirdi. toouse parola tabanlı çoklu oturum açma (SSO) hello erişim paneli, hello erişim paneli uzantısı içinde hello kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
 
-Parola tabanlı, SSO için son kullanıcının tarayıcılar olabilir:
+Parola tabanlı, SSO için hello son kullanıcının tarayıcılar olabilir:
 
 -   Internet Explorer 8, 9, 10, 11--Windows 7 veya üzeri
 
@@ -40,25 +40,25 @@ Parola tabanlı, SSO için son kullanıcının tarayıcılar olabilir:
 
 -   Firefox 26,0 veya daha sonra--Windows XP SP2 veya sonraki ve Mac OS X 10,6 veya üzeri
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleme
+## <a name="how-tooinstall-hello-access-panel-browser-extension"></a>Nasıl tooinstall hello erişim paneli tarayıcı uzantısı
 
-Erişim paneli tarayıcı uzantısı yüklemek için aşağıdaki adımları izleyin:
+tooinstall hello erişim paneli tarayıcı uzantısı hello adımları izleyin:
 
-1.  Açık [erişim paneli](https://myapps.microsoft.com) olarak oturum açın ve desteklenen tarayıcılar birinde bir **kullanıcı** Azure ad.
+1.  Açık hello [erişim paneli](https://myapps.microsoft.com) hello Desteklenen tarayıcılar ve oturum açma olarak birinde bir **kullanıcı** Azure ad.
 
-2.  tıklatın bir **parola SSO uygulaması** erişim panelinde.
+2.  Tıklatın bir **parola SSO uygulaması** hello erişim paneli içinde.
 
-3.  Yazılımı yüklemek soran istem içinde seçin **Şimdi Yükle**.
+3.  Hello komut istemi soran tooinstall hello yazılımda seçin **Şimdi Yükle**.
 
-4.  Tarayıcınıza bağlı için karşıdan yükleme bağlantısı yönlendirilmiş. **Ekleme** tarayıcınız uzantısı.
+4.  Tarayıcınıza bağlı yönlendirilmiş toohello indirme bağlantısı olabilir. **Ekleme** hello uzantısı tooyour tarayıcı.
 
-5.  Tarayıcınız isterse, ya da seçin **etkinleştirmek** veya **izin** uzantısı.
+5.  Tarayıcınız isterse, tooeither seçin **etkinleştirmek** veya **izin** hello uzantısı.
 
 6.  Bir kez yüklenir, **yeniden** tarayıcı oturumunda.
 
-7.  Erişim paneline oturum açın ve, varsa görebilirsiniz **başlatma** parola SSO uygulamaları
+7.  Erişim paneli hello oturum açın ve, varsa görebilirsiniz **başlatma** parola SSO uygulamaları
 
-Ayrıca uzantısı Chrome ve kenar için aşağıdaki doğrudan bağlantılarından yükleyebilirsiniz:
+Ayrıca hello uzantısı Chrome ve kenar hello doğrudan bağlantılarından aşağıdaki yükleyebilirsiniz:
 
 -   [Chrome erişim paneli uzantısı](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
@@ -66,23 +66,23 @@ Ayrıca uzantısı Chrome ve kenar için aşağıdaki doğrudan bağlantıların
 
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Internet Explorer için Grup İlkesi ayarı
 
-Uzaktan erişim paneli uzantısı Internet Explorer için kullanıcılarınızın makinelere yüklemeniz olanak tanıyan Grup İlkesi ayarlayabilirsiniz.
+Kullanıcılarınızın makinelerde Internet Explorer için tooremotely yükleme hello erişim paneli uzantısına izin ver Grup İlkesi ayarlayabilirsiniz.
 
-Önkoşullar şunlardır:
+Merhaba Önkoşullar şunlardır:
 
--   Ayarlamış olduğunuz [Active Directory etki alanı Hizmetleri](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), ve kullanıcılarınızın makineler, etki alanına.
+-   Ayarlamış olduğunuz [Active Directory etki alanı Hizmetleri](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), ve kullanıcılarınızın makineler tooyour etki alanına katılmış.
 
--   Grup İlkesi nesnesi (GPO) düzenlemek için "Ayarları düzenleme" izni olması gerekir. Varsayılan olarak, aşağıdaki güvenlik gruplarının üyeleri bu izne sahip: etki alanı yöneticileri, kuruluş yöneticileri ve Group Policy Creator Owners. [Daha fazla bilgi edinin](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Merhaba "ayarlarını Düzenle" izni tooedit hello Grup İlkesi nesnesi (GPO) olması gerekir. Varsayılan olarak, güvenlik grupları aşağıdaki hello üyeleri bu izne sahip: etki alanı yöneticileri, kuruluş yöneticileri ve Group Policy Creator Owners. [Daha fazla bilgi edinin](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Öğreticiyi izleyin [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtma](active-directory-saas-ie-group-policy.md) adım adım yönergeler için Grup İlkesi yapılandırmak ve kullanıcılara dağıtma.
+Merhaba öğreticisini izleyin [nasıl tooDeploy hello erişim paneli uzantısı Grup İlkesi'ni kullanarak Internet Explorer için](active-directory-saas-ie-group-policy.md) ilişkin adım adım yönergeler nasıl tooconfigure hello Grup İlkesi ve toousers dağıtın.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Internet Explorer erişim panelinde sorun giderme
+## <a name="troubleshoot-hello-access-panel-in-internet-explorer"></a>Merhaba erişim paneli Internet Explorer'da sorun giderme
 
-İzleyin [erişim paneli uzantısı Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md) uzantısı için IE yapılandırma erişim için bir tanılama aracı ve adım adım yönergeler Kılavuzu.
+Merhaba izleyin [sorun giderme hello Internet Explorer için erişim paneli uzantısı](active-directory-saas-ie-troubleshooting.md) hello uzantısı için IE yapılandırma erişim için bir tanılama aracı ve adım adım yönergeler Kılavuzu.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Bu sorun giderme adımları sorunu çözmezse
+## <a name="if-these-troubleshooting-steps-do-not-resolve-hello-issue"></a>Bu sorun giderme adımları hello sorunu çözmezse
 
-bir destek bileti aşağıdaki bilgilerle varsa açın:
+bir destek bileti varsa aşağıdaki bilgilerle hello ile açın:
 
 -   Bağıntı hata kimliği
 

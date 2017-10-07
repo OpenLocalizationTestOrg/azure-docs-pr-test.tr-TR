@@ -1,7 +1,7 @@
 ---
 title: "Azure Data Lake araçları: Kullanım Azure Data Lake araçları Visual Studio kodunu | Microsoft Docs"
-description: "Visual Studio Code için Azure Data Lake araçları oluşturun, test ve U-SQL betikleri çalıştırmak için nasıl kullanılacağını öğrenin. "
-Keywords: "VScode, Azure Data Lake araçları, yerel çalıştırma, yerel hata ayıklama, yerel hata ayıklama, Önizleme depolama dosyası, depolama birimi yolu için karşıya yükleme"
+description: "Nasıl toouse Azure Data Lake araçları Visual Studio Code toocreate için test ve U-SQL betikleri çalıştırmak öğrenin. "
+Keywords: "VScode, Azure Data Lake araçları, yerel çalıştırma, yerel hata ayıklama, yerel hata ayıklama, Önizleme depolama dosyası toostorage yolu karşıya yükle"
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -16,122 +16,122 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/14/2017
 ms.author: jejiang
-ms.openlocfilehash: 833d14af47454a01fa3c97ffa854d688dd35871f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 77771c5d5dae3bfce4ad2df240ea6c6ef848f288
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake araçları Visual Studio kodunu kullanın
 
-U-SQL komut dosyalarını çalıştırmak ve Azure Data Lake araçları Visual Studio kodunu (VS Code) oluşturmak, sınamak için nasıl kullanılacağını öğrenin. Bilgiler aşağıdaki videoda da ele alınmıştır:
+Nasıl toouse Azure Data Lake araçları Visual Studio Code (VS Code) toocreate için test ve U-SQL betikleri çalıştırmak öğrenin. Merhaba bilgileri de video aşağıdaki hello ele alınmıştır:
 
 <a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Data Lake araçları, VS kodu tarafından desteklenen platformlarda yüklenebilir. Desteklenen platformlar, Windows, Linux ve MacOS içerir. Farklı platformlarda aşağıdaki önkoşullara sahip:
+Data Lake araçları, VS kodu tarafından desteklenen hello platformlarda yüklenebilir. Merhaba desteklenen platformlar, Windows, Linux ve MacOS içerir. Hello farklı platformlarda hello aşağıdaki önkoşullar vardır:
 
 - Windows
 
     - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx).
-    - [Java SE çalışma zamanı ortamı sürüm 8 güncelleştirme 77 veya sonrası](https://java.com/download/manual.jsp). Sistem ortam değişkeni yoluna java.exe yolunu ekleyin. Yapılandırma yönergeleri için bkz: [nasıl ayarlayın veya yol sistem değişkeni değiştirmeniz?]( https://www.java.com/download/help/path.xml). Yol, C:\Program Files\Java\jdk1.8.0_77\jre\bin benzer.
+    - [Java SE çalışma zamanı ortamı sürüm 8 güncelleştirme 77 veya sonrası](https://java.com/download/manual.jsp). Merhaba java.exe yol toohello sistem ortam değişkeni yol ekleyin. Yapılandırma yönergeleri için bkz: [nasıl ayarlayın veya hello Path sistem değişkeni değiştirme?]( https://www.java.com/download/help/path.xml). Merhaba, benzer tooC:\Program Files\Java\jdk1.8.0_77\jre\bin yoludur.
     - [.NET core SDK 1.0.3 veya .NET Core 1.1 çalışma zamanı](https://www.microsoft.com/net/download).
     
 - Linux (Ubuntu 14.04 LTS önerilir)
 
-    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx). Kod yüklemek için aşağıdaki komutu girin:
+    - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx). tooinstall Merhaba kod, komutu aşağıdaki hello girin:
 
               sudo dpkg -i code_<version_number>_amd64.deb
 
     - [Mono 4.2.x](http://www.mono-project.com/docs/getting-started/install/linux/). 
 
-        - Deb paket kaynağını güncelleştirmek için aşağıdaki komutları girin:
+        - tooupdate hello deb paket kaynağı, hello aşağıdaki komutları girin:
 
                 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
                 echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots 4.2.4.4/main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
                 sudo apt-get update
 
-        - Mono yüklemek için aşağıdaki komutu girin:
+        - tooinstall Mono, komutu aşağıdaki hello girin:
 
                 sudo apt-get install mono-complete
 
             > [!NOTE] 
             > Mono 4.6 desteklenmiyor. Tamamen 4.2.x yüklemeden önce sürüm 4.6 kaldırın.  
 
-        - [Java SE çalışma zamanı ortamı sürüm 8 güncelleştirme 77 veya sonrası](https://java.com/download/manual.jsp). Yükleme yönergeleri için bkz: [Linux 64 bit yükleme yönergeleri için Java]( https://java.com/en/download/help/linux_x64_install.xml) sayfası.
+        - [Java SE çalışma zamanı ortamı sürüm 8 güncelleştirme 77 veya sonrası](https://java.com/download/manual.jsp). Yükleme yönergeleri için bkz: Merhaba [Linux 64 bit yükleme yönergeleri için Java]( https://java.com/en/download/help/linux_x64_install.xml) sayfası.
         - [.NET core SDK 1.0.3 veya .NET Core 1.1 çalışma zamanı](https://www.microsoft.com/net/download).
 - macOS
 
     - [Visual Studio Code]( https://www.visualstudio.com/products/code-vs.aspx).
     - [Mono 4.2.4](http://download.mono-project.com/archive/4.2.4/macos-10-x86/). 
-    - [Java SE çalışma zamanı ortamı sürüm 8 güncelleştirme 77 veya sonrası](https://java.com/download/manual.jsp). Yükleme yönergeleri için bkz: [Linux 64 bit yükleme yönergeleri için Java](https://java.com/en/download/help/mac_install.xml) sayfası.
+    - [Java SE çalışma zamanı ortamı sürüm 8 güncelleştirme 77 veya sonrası](https://java.com/download/manual.jsp). Yükleme yönergeleri için bkz: Merhaba [Linux 64 bit yükleme yönergeleri için Java](https://java.com/en/download/help/mac_install.xml) sayfası.
     - [.NET core SDK 1.0.3 veya .NET Core 1.1 çalışma zamanı](https://www.microsoft.com/net/download).
 
 ## <a name="install-data-lake-tools"></a>Data Lake araçları yükleme
 
-Önkoşulları yüklendikten sonra VS Code için Data Lake araçları yükleyebilirsiniz.
+Merhaba önkoşulları yüklendikten sonra VS Code için Data Lake araçları yükleyebilirsiniz.
 
-**Data Lake araçları yüklemek için**
+**tooinstall Data Lake araçları**
 
 1. Visual Studio Code'da açın.
-2. CTRL + P seçin ve ardından aşağıdaki komutu girin:
+2. CTRL + P seçin ve ardından hello aşağıdaki komutu girin:
 ```
 ext install usql-vscode-ext
 ```
 Visual Studio kod uzantılarının bir listesini görebilirsiniz. Bunlardan biri olan **Azure Data Lake Araçları**.
 
-3. Seçin **yükleme** yanına **Azure Data Lake Araçları**. Birkaç saniye sonra **yükleme** düğmesi değişiklikler **yeniden**.
-4. Seçin **yeniden** uzantısını etkinleştirmek için.
-5. Seçin **Tamam** onaylamak için. Azure Data Lake araçları içinde gördüğünüz **uzantıları** bölmesi.
+3. Seçin **yükleme** sonraki çok**Azure Data Lake Araçları**. Birkaç saniye sonra hello **yükleme** düğmesini değişiklikleri çok**yeniden**.
+4. Seçin **yeniden** tooactivate hello uzantısı.
+5. Seçin **Tamam** tooconfirm. Azure Data Lake araçları hello görebilirsiniz **uzantıları** bölmesi.
     ![Visual Studio kod uzantılarını bölmesi için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extensions.png)
 
 ## <a name="activate-azure-data-lake-tools"></a>Azure Data Lake araçları etkinleştirme
-Yeni bir .usql dosyası oluşturun veya uzantıyı etkinleştirmek için mevcut bir .usql dosyasını açın. 
+Yeni bir .usql dosyası oluşturun veya varolan .usql dosya tooactivate hello uzantı açın. 
 
-## <a name="connect-to-azure"></a>Azure'a Bağlanma
+## <a name="connect-tooazure"></a>TooAzure Bağlan
 
-Derleme ve Data Lake Analytics U-SQL betikleri çalıştırmak için önce Azure hesabınızda bağlanmanız gerekir.
+Derleme ve Data Lake Analytics U-SQL betikleri çalıştırmak için önce tooyour Azure hesabı bağlanmanız gerekir.
 
-**Azure'a bağlanmak için**
+**tooconnect tooAzure**
 
-1.  Komut paletini açmak için Ctrl + Shift + P seçin. 
-2.  Girin **ADL: oturum açma**. Oturum açma bilgileri görünür **çıkış** bölmesi.
+1.  Ctrl + Shift + P tooopen hello komutu palet seçin. 
+2.  Girin **ADL: oturum açma**. Merhaba oturum açma bilgilerini görünür hello **çıkış** bölmesi.
 
     ![Data Lake araçları Visual Studio Code komutu paletini](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Visual Studio Code cihaz oturum açma bilgileri için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Seçin CTRL + üzerinde oturum açma URL'Sİ'ı tıklatın: oturum açma Web sayfası açmak için https://aka.ms/devicelogin. Kodu girin **G567LX42V** metin kutusuna yazın ve ardından **devam**.
+3. Seçin CTRL + hello oturum açma URL'ı tıklatın: https://aka.ms/devicelogin tooopen hello oturum açma Web sayfası. Merhaba kodu girin **G567LX42V** hello metin kutusuna ve ardından **devam**.
 
    ![Visual Studio Code oturum açma için Data Lake araçları kodu yapıştırın](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
-4.  Web sayfasından oturum açmak için yönergeleri izleyin. Bağlandığınızda, Azure hesap adınızı sol alt köşesindeki durum çubuğunda görünür **VS Code** penceresi. 
+4.  Merhaba yönergeleri toosign hello Web sayfasından izleyin. Bağlandığınızda, Azure hesap adınızı hello durum çubuğunda hello sol alt köşesinde hello görüntülenir. **VS Code** penceresi. 
 
     > [!NOTE] 
     > İki etmen etkin hesabınız varsa, PIN kullanmak yerine telefon kimlik doğrulaması kullanmanızı öneririz.
 
-Oturumu kapatmak için aşağıdaki komutu girin **ADL: oturum kapatma**.
+Çıkış toosign hello komutu girin **ADL: oturum kapatma**.
 
 ## <a name="list-your-data-lake-analytics-accounts"></a>Data Lake Analytics hesaplarını listeler
 
-Bağlantıyı sınamak için Data Lake Analytics hesaplarının bir listesini alın.
+tootest hello bağlantısı, bir Data Lake Analytics hesapları listesini alın.
 
-**Azure aboneliğinizin Data Lake Analytics hesaplarla listelemek için**
+**Azure aboneliğinizdeki toolist hello Data Lake Analytics hesapları**
 
-1. Komut paletini açmak için Ctrl + Shift + P seçin.
-2. Girin **ADL: liste hesapları**. Hesapları görünür **çıkış** bölmesi.
+1. Ctrl + Shift + P tooopen hello komutu palet seçin.
+2. Girin **ADL: liste hesapları**. Merhaba hesapları görünmez hello **çıkış** bölmesi.
 
-## <a name="open-the-sample-script"></a>Örnek komut dosyasını açın
-Komut palet (Ctrl + Shift + P) açın ve girin **ADL: açık örnek komut dosyası**. Bu örnek başka bir örneği açılır. Ayrıca düzenleyebilir, yapılandırmak ve bu örnek komut gönderme.
+## <a name="open-hello-sample-script"></a>Açık hello örnek komut dosyası
+Merhaba komutu palet (Ctrl + Shift + P) açın ve girin **ADL: açık örnek komut dosyası**. Bu örnek başka bir örneği açılır. Ayrıca düzenleyebilir, yapılandırmak ve bu örnek komut gönderme.
 
 ## <a name="work-with-u-sql"></a>U-SQL ile çalışma
 
-U-SQL dosya veya U-SQL ile çalışmak için bir klasör açın.
+U-SQL ile bir U-SQL dosya veya klasör toowork açın.
 
-**U-SQL projeniz için bir klasör açmak için**
+**U-SQL projeniz için bir klasör tooopen**
 
-1. Visual Studio koddan seçin **dosya** menüsüne ve ardından **Klasör Aç**.
+1. Visual Studio koddan hello seçin **dosya** menüsüne ve ardından **Klasör Aç**.
 2. Bir klasör belirtin ve ardından **Klasör Seç**.
-3. Seçin **dosya** menüsüne ve ardından **yeni**. Adsız-1 dosyası projeye eklenir.
-4. Adsız-1 dosyasına aşağıdaki kodu girin:
+3. Select hello **dosya** menüsüne ve ardından **yeni**. Adsız-1 dosya toohello projesi eklenir.
+4. Merhaba adsız 1 dosyasına koddan hello girin:
 
         @departments  = 
             SELECT * FROM 
@@ -146,68 +146,68 @@ U-SQL dosya veya U-SQL ile çalışmak için bir klasör açın.
         OUTPUT @departments
             TO “/Output/departments.csv”
 
-    Komut dosyası/Output klasöründe bulunan bazı veriler içeren bir departments.csv dosyası oluşturur.
+    Merhaba betik hello/Output klasöründe bulunan bazı veriler içeren bir departments.csv dosyası oluşturur.
 
-5. Dosyayı Farklı Kaydet **myUSQL.usql** açılan klasörde. Bir adltools_settings.json yapılandırma dosyası projeye de eklenir.
-4. Açın ve aşağıdaki özelliklere sahip adltools_settings.json yapılandırın:
+5. Merhaba dosyası olarak kaydetmeniz **myUSQL.usql** hello klasörünü açılır. Bir adltools_settings.json yapılandırma dosyası da toohello projesi eklenir.
+4. Açın ve aşağıdaki özelliklere hello ile adltools_settings.json yapılandırın:
 
     - : Bir Data Lake Analytics hesabı, Azure aboneliğinizin altında.
-    - Veritabanı: Hesabınız altındaki bir veritabanı. Varsayılan değer **ana**.
-    - Şema: Veritabanınızı altında bir şema. Varsayılan değer **dbo**.
+    - Veritabanı: Hesabınız altındaki bir veritabanı. Merhaba varsayılandır **ana**.
+    - Şema: Veritabanınızı altında bir şema. Merhaba varsayılandır **dbo**.
     - İsteğe bağlı ayarlar:
-        - Öncelik: Öncelik 1 ile-1 ile 1000 en yüksek öncelikli olarak aralıktır. Varsayılan değer **1000**.
-        - Paralellik: Paralellik 1 ila 150 için aralıktır. Azure Data Lake Analytics hesabınızı izin verilen maksimum paralellik varsayılan değerdir. 
+        - Öncelik: hello öncelik aralığı 1 ile 1 too1000 hello en yüksek öncelikli olarak arasındadır. Merhaba varsayılan değer **1000**.
+        - Paralellik: 1 too150 hello paralellik aralıktır. Azure Data Lake Analytics hesabınızı izin verilen maksimum paralellik hello Hello varsayılan değerdir. 
         
         > [!NOTE] 
-        > Ayarları geçersiz varsa, varsayılan değerler kullanılır.
+        > Hello ayarları geçersiz varsa, hello varsayılan değerler kullanılır.
 
     ![Visual Studio Code yapılandırma dosyası için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
 
-    İşlem Data Lake Analytics hesabı derlemek ve U-SQL işleri çalıştırmak için gereklidir. Derleme ve U-SQL işleri çalıştırma önce bilgisayar hesabını yapılandırmanız gerekir.
+    Data Lake Analytics hesabı bir işlem toocompile ve Çalıştır U-SQL işleri gerekli. Derleme ve U-SQL işleri çalıştırma önce hello bilgisayar hesabı yapılandırmanız gerekir.
     
-Yapılandırma kaydedildikten sonra hesap, veritabanı ve şema bilgilerini karşılık gelen .usql dosyası sol alt köşesindeki durum çubuğunda görünür. 
+Merhaba yapılandırma kaydedildikten sonra hello hesap, veritabanı ve şema bilgilerini hello sol alt köşesindeki hello karşılık gelen .usql dosyası hello durum çubuğunda görünür. 
  
  
-Yapabilecekleriniz bir klasörü açtığınızda, bir dosyanın açılması için karşılaştırıldığında:
+Karşılaştırılan tooopening yapabileceğiniz bir klasörü açtığınızda, bir dosya:
 
-- Arka plan kodu dosyasını kullanın. Tek dosya modunda arka plan kodu desteklenmiyor.
-- Bir yapılandırma dosyası kullanın. Bir klasörü açtığınızda, çalışma klasörü komut tek yapılandırma dosya paylaşımı.
+- Arka plan kodu dosyasını kullanın. Arka plan kodu Hello tek dosya modunda desteklenmiyor.
+- Bir yapılandırma dosyası kullanın. Bir klasörü açtığınızda, çalışma klasörü hello hello betiklerde tek yapılandırma dosya paylaşımı.
 
 
-U-SQL betiği Data Lake Analytics hizmeti aracılığıyla uzaktan derler. Çıkarırsanız **derleme** komutu, U-SQL betiği, Data Lake Analytics hesabınızı gönderilir. Daha sonra Visual Studio Code derleme sonucu alır. Uzak derleme nedeniyle, Data Lake Analytics hesabınızı yapılandırma dosyasındaki bağlanma bilgilerini listesinde Visual Studio Code gerektirir.
+U-SQL betiği Hello hello Data Lake Analytics hizmeti uzaktan derler. Merhaba çıkarırsanız **derleme** komutunu hello U-SQL betiği tooyour Data Lake Analytics hesabı gönderilir. Daha sonra Visual Studio Code hello derleme sonucu alır. Toohello uzak derleme, Visual Studio Code tooconnect tooyour hello yapılandırma dosyasında Data Lake Analytics hesabı hello bilgileri listelemek gerektirir.
 
-**U-SQL betiği derlemek için**
+**toocompile U-SQL komut dosyası**
 
-1. Komut paletini açmak için Ctrl + Shift + P seçin. 
-2. Girin **ADL: derleme betik**. Derleme sonuçları görünür **çıkış** penceresi. Ayrıca bir komut dosyasını sağ tıklatın ve ardından **ADL: derleme betik** bir U-SQL işi derlemek için. Derleme sonucu görünür **çıkış** bölmesi.
+1. Ctrl + Shift + P tooopen hello komutu palet seçin. 
+2. Girin **ADL: derleme betik**. Merhaba derleme sonuçları görünen hello **çıkış** penceresi. Ayrıca bir komut dosyasını sağ tıklatın ve ardından **ADL: derleme betik** toocompile U-SQL işi. Merhaba derleme sonucu görünür hello **çıkış** bölmesi.
  
 
-**U-SQL betiği göndermek için**
+**toosubmit U-SQL komut dosyası**
 
-1. Komut paletini açmak için Ctrl + Shift + P seçin. 
+1. Ctrl + Shift + P tooopen hello komutu palet seçin. 
 2. Girin **ADL: işi göndermek**.  Ayrıca bir komut dosyasını sağ tıklatın ve ardından **ADL: işi Gönder**. 
 
-U-SQL işi gönderdikten sonra gönderme günlükleri görünür **çıkış** VS Code penceresinde. Gönderim başarılı olursa, proje URL'si de görüntülenir. Proje URL'si gerçek zamanlı iş durumunu izlemek için bir web tarayıcısı açabilirsiniz.
+U-SQL işi gönderdikten sonra hello gönderimi günlükleri hello görünür **çıkış** VS Code penceresinde. Merhaba gönderme başarılı olursa, hello iş URL de görüntülenir. Bir web tarayıcısı tootrack hello gerçek zamanlı iş durumu hello iş URL açabilirsiniz.
 
-İş ayrıntılarını çıktısını etkinleştirmek için ayarlanmış **jobInformationOutputPath** içinde **vs code için u sql_settings.json** dosya.
+Merhaba iş ayrıntıları, tooenable hello çıktısı ayarlamak **jobInformationOutputPath** hello içinde **vs code hello u-sql_settings.json için** dosya.
  
 ## <a name="use-a-code-behind-file"></a>Bir arka plan kod dosyası kullanın
 
-Tek bir U-SQL betiği ile ilişkili bir C# dosyasına bir arka plan kodu dosyasıdır. UDO, UDA, UDT ve arka plan kod dosyasına UDF için adanmış bir komut dosyası tanımlayabilirsiniz. UDO, UDA, UDT ve UDF doğrudan komut dosyası derleme ilk kaydettirmeden kullanılabilir. Kendi eşleme U-SQL komut dosyası ile aynı klasörde arka plan kod dosyasına yerleştirin. Komut dosyası xxx.usql olarak adlandırılmışsa, arka plan kodu xxx.usql.cs adlandırılır. Arka plan kodu dosyasını el ile silin, arka plan kodu özelliği, ilişkili U-SQL betiği için devre dışı bırakılır. U-SQL betiği için müşteri kod yazma hakkında daha fazla bilgi için bkz: [yazma ve özel kodda kullanarak U-SQL: kullanıcı tanımlı işlevler]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+Tek bir U-SQL betiği ile ilişkili bir C# dosyasına bir arka plan kodu dosyasıdır. Ayrılmış betik tooUDO, UDA, UDT ve UDF hello arka plan kod dosyasına tanımlayabilirsiniz. Merhaba UDO, UDA, UDT ve UDF doğrudan hello komut dosyasında hello derleme ilk kaydettirmeden kullanılabilir. Merhaba arka plan kod dosyasına hello aynı yerleştirileceği klasörü kendi eşleme U-SQL komut dosyası olarak. Merhaba betik xxx.usql olarak adlandırılmışsa hello arka plan kod xxx.usql.cs adlandırılır. Merhaba arka plan kodu dosyasını el ile silin, hello arka plan kodu özelliği, ilişkili U-SQL betiği için devre dışı bırakılır. U-SQL betiği için müşteri kod yazma hakkında daha fazla bilgi için bkz: [yazma ve özel kodda kullanarak U-SQL: kullanıcı tanımlı işlevler]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
-Arka plan kodu desteklemek için bir çalışma klasörü açmanız gerekir. 
+toosupport arka plan kod, bir çalışma klasörü açmanız gerekir. 
 
-**Bir arka plan kod dosyası oluşturmak için**
+**toogenerate bir arka plan kod dosyası**
 
 1. Bir kaynak dosyasını açın. 
-2. Komut paletini açmak için Ctrl + Shift + P seçin.
-3. Girin **ADL: arka plan kod oluşturmak**. Arka plan kod dosyası, aynı klasörde oluşturulur. 
+2. Ctrl + Shift + P tooopen hello komutu palet seçin.
+3. Girin **ADL: arka plan kod oluşturmak**. Bir arka plan kod dosyası hello aynı oluşturulur klasör. 
 
 Ayrıca bir komut dosyasını sağ tıklatın ve ardından **ADL: kod arkasında oluşturmak**. 
 
-Derleme ve U-SQL betiği bir arka plan kodu dosya göndermek için tek başına U-SQL betiği ile aynıdır.
+toocompile ve U-SQL betiği bir arka plan kod dosyası ile aynı hello tek başına U-SQL ile dosyası hello olduğu gönderin.
 
-Aşağıdaki iki ekran görüntüleri bir arka plan kod dosyası ve onun ilişkili U-SQL komut dosyası gösterilmektedir:
+iki ekran görüntüleri aşağıdaki hello bir arka plan kod dosyası ve onun ilişkili U-SQL komut dosyası gösterilmektedir:
  
 ![Visual Studio Code arka plan kod için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind.png)
 
@@ -217,37 +217,37 @@ Aşağıdaki iki ekran görüntüleri bir arka plan kod dosyası ve onun ilişki
 
 Derlemeler geliştirme hakkında daha fazla bilgi için bkz: [Azure Data Lake Analytics işleri için U-SQL geliştirmek derlemeleri](data-lake-analytics-u-sql-develop-assemblies.md).
 
-Data Lake araçları, Data Lake Analytics Kataloğu'nda özel kod derlemeleri kaydetmek için kullanabilirsiniz.
+Data Lake araçları tooregister özel kod derlemeleri hello Data Lake Analytics Kataloğu'nda kullanabilirsiniz.
 
-**Bir derlemeyi kaydetmek için**
+**tooregister derleme**
 
-Derleme aracılığıyla kaydedebilirsiniz **ADL: kaydetmek derleme** veya **ADL: kaydetmek derleme yapılandırma yoluyla** komutları.
+Merhaba derleme hello aracılığıyla kaydedebilirsiniz **ADL: kaydetmek derleme** veya **ADL: kaydetmek derleme yapılandırma yoluyla** komutları.
 
-**ADL kaydetmek için: kayıt derleme komutu**
-1.  Komut paletini açmak için Ctrl + Shift + P seçin.
+**Merhaba ADL aracılığıyla tooregister: kaydetmek derleme komutu**
+1.  Ctrl + Shift + P tooopen hello komutu palet seçin.
 2.  Girin **ADL: kaydetmek derleme**. 
-3.  Yerel derleme yolu belirtin. 
+3.  Merhaba yerel derleme yolu belirtin. 
 4.  Bir Data Lake Analytics hesabı seçin.
 5.  Bir veritabanı seçin.
 
-Sonuçları: Portal bir tarayıcıda açıldığından ve derleme kayıt işlemi görüntüler.  
+Sonuçları: hello portalı bir tarayıcıda açıldığından ve hello derleme kayıt işlemi görüntüler.  
 
-Tetiklemek için kullanışlı bir başka yolu **ADL: kaydetmek derleme** komuttur dosya Gezgini'nde .dll dosyasını sağ tıklatın. 
+Başka bir uygun şekilde tootrigger hello **ADL: kaydetmek derleme** tooright tıklatma hello .dll dosyasının dosya Gezgini'nde bir komuttur. 
 
-**ADL yine de kaydetmek için: kayıt derleme yapılandırma komutu**
-1.  Komut paletini açmak için Ctrl + Shift + P seçin.
+**tooregister ancak hello ADL: kaydetmek derleme yapılandırma komutu**
+1.  Ctrl + Shift + P tooopen hello komutu palet seçin.
 2.  Girin **ADL: kaydetmek derleme yapılandırma yoluyla**. 
-3.  Yerel derleme yolu belirtin. 
-4.  JSON dosyası görüntülenir. Gözden geçirin ve kaynak parametreleri ve derleme bağımlılıklar gerekiyorsa düzenleyin. Yönergeler görüntülenir **çıkış** penceresi. Derleme kayıt aşamasına ilerlemek için (Ctrl + S) JSON dosyasını kaydedin.
+3.  Merhaba yerel derleme yolu belirtin. 
+4.  Merhaba JSON dosyası görüntülenir. Gözden geçirin ve gerekirse hello derleme bağımlılıkları ve kaynak parametreleri düzenleyin. Yönergeler hello görüntülenen **çıkış** penceresi. tooproceed toohello derleme kaydı (Ctrl + S) hello JSON dosyasını kaydedin.
 
 ![Visual Studio Code arka plan kod için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
 >[!NOTE]
->- Derleme bağımlılıkları: Azure Data Lake araçları autodetects DLL bağımlılıkları sahip olup olmadığını belirler. Algılandıkları sonra bağımlılıkları JSON dosyasında görüntülenir. 
->- Kaynaklar: Derleme kaydı bir parçası olarak, DLL kaynakları (örneğin, .txt, .png ve .csv) karşıya yükleyebilir. 
+>- Derleme bağımlılıkları: Azure Data Lake araçları autodetects hello DLL bağımlılıkları sahip olup olmadığını belirler. algılandıkları sonra hello bağımlılıkları hello JSON dosyasında görüntülenir. 
+>- Kaynaklar: Hello derleme kaydı bir parçası olarak, DLL kaynakları (örneğin, .txt, .png ve .csv) karşıya yükleyebilir. 
 
-Tetiklemek için başka bir yolu **ADL: kaydetmek derleme yapılandırma yoluyla** komuttur dosya Gezgini'nde .dll dosyasını sağ tıklatın. 
+Başka bir şekilde tootrigger hello **ADL: kaydetmek derleme yapılandırma yoluyla** tooright tıklatma hello .dll dosyasının dosya Gezgini'nde bir komuttur. 
 
-Aşağıdaki U-SQL kodu, bütünleştirilmiş çağırmayı gösterir. Örnekte, derleme adı: *test*.
+U-SQL kodunu aşağıdaki hello gösteren nasıl toocall derleme. Merhaba örnek hello derleme adı: *test*.
 
 ```
 REFERENCE ASSEMBLY [test];
@@ -276,62 +276,62 @@ REFERENCE ASSEMBLY [test];
     USING new USQLApplication_codebehind.MyProcessor();
 
 OUTPUT @d1 
-    TO @"Sample/SearchLogtest.txt" 
+    too@"Sample/SearchLogtest.txt" 
     USING Outputters.Tsv();
 ```
 
 
-## <a name="access-the-data-lake-analytics-catalog"></a>Data Lake Analytics Kataloğu'na erişme
+## <a name="access-hello-data-lake-analytics-catalog"></a>Merhaba Data Lake Analytics Kataloğu'na erişme
 
-Azure'a bağlandıktan sonra U-SQL Kataloğu'na erişmek için aşağıdaki adımları kullanabilirsiniz.
+TooAzure bağlandıktan sonra aşağıdaki adımları tooaccess hello U-SQL kataloğunu hello kullanabilirsiniz.
 
-**Azure Data Lake Analytics meta verilerine erişmek için**
+**tooaccess hello Azure Data Lake Analytics meta verileri**
 
 1.  Ctrl + Shift + P seçin ve ardından girin **ADL: liste tabloları**.
-2.  Data Lake Analytics hesaplardan birini seçin.
-3.  Data Lake Analytics veritabanlarından birini seçin.
-4.  Şemalar birini seçin. Tabloların listesini görebilirsiniz.
+2.  Merhaba Data Lake Analytics hesaplardan birini seçin.
+3.  Merhaba Data Lake Analytics veritabanlarından birini seçin.
+4.  Merhaba şemaları birini seçin. Tabloları hello listesini görebilirsiniz.
 
 ## <a name="view-data-lake-analytics-jobs"></a>Görünüm Data Lake Analytics işleri
 
-**Data Lake Analytics işleri görüntülemek için**
-1.  Komut palet (Ctrl + Shift + P) açın ve seçin **ADL: Göster iş**. 
+**tooview Data Lake Analytics işleri**
+1.  Merhaba komutu palet (Ctrl + Shift + P) açıp seçin **ADL: Göster iş**. 
 2.  Bir Data Lake Analytics veya yerel bir hesap seçin. 
-3.  İşleri listesini görünmesi hesabı için bekleyin.
-4.  İş listesinden bir iş seçin, Data Lake araçları Azure Portalı'nda iş ayrıntılarını açar ve VS Code'da iş tanımı dosyası gösterir.
+3.  Merhaba işleri listesini hello hesap tooappear için bekleyin.
+4.  İş listesinden bir iş seçin, Data Lake araçları hello Azure portal hello iş ayrıntılarını açar ve VS Code'da hello iş tanımı dosyası gösterir.
 
 ![Visual Studio kod IntelliSense nesne türleri için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-show-job.png)
 
 ## <a name="azure-data-lake-storage-integration"></a>Azure Data Lake Storage tümleştirme
 
 Azure Data Lake Store ile ilgili komutları kullanabilirsiniz:
- - Azure Data Lake Storage kaynaklara göz atın. 
- - Azure Data Lake Storage dosyanın önizlemesini görüntüleyin.  
- - VS code'da Azure Data Lake Storage için doğrudan dosyası yükleyin. 
+ - Üzerinden Hello Azure Data Lake Storage kaynaklara göz atın. 
+ - Önizleme hello Azure Data Lake Storage dosyası.  
+ - Merhaba karşıya tooAzure Data Lake Storage VS Code'da dosyasını doğrudan. 
 
-### <a name="list-the-storage-path"></a>Depolama alanı yolu listesi 
-Depolama alanı yolu komut palet ya da sağ tıklatma listeleyebilirsiniz.
+### <a name="list-hello-storage-path"></a>Liste hello depolama yolu 
+Merhaba depolama yolu hello komutu palet ya da sağ tıklatma listeleyebilirsiniz.
 
-**Komut palet depolama yolundan listelemek için**
+**Merhaba komutu palet üzerinden toolist hello depolama yolu**
 
-1.  Komut palet (Ctrl + Shift + P) açın ve girin **ADL: listesi depolama yolu**.
+1.  Merhaba komutu palet (Ctrl + Shift + P) açın ve girin **ADL: listesi depolama yolu**.
 
     ![Visual Studio Code listesi depolama birimi yolu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-storage.png)
 
-2.  Depolama alanı yolu listeleme, tercih edilen yol seçin. Bu oluşturularak kullanan **bir yol girin** bir örnek olarak.
+2.  Merhaba depolama yolu listeleme, tercih edilen yol seçin. Bu oluşturularak kullanan **bir yol girin** bir örnek olarak.
 
-    ![Visual Studio Code depolama yolu listesine bir yolu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
+    ![Visual Studio Code tek yönlü toolist hello depolama birimi yolu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
 
     > [!NOTE]
-    >- VS Code her Data Lake Analytics hesabı son ziyaret edilen yolu tutar. Örneğin: / tt/sn.
-    >- Kök yolu tarayıcısından: Seçili Data Lake Analytics hesabınızı veya yerel bir yol listesi kök yolu.
+    >- VS Code her Data Lake Analytics hesabı hello son ziyaret edilen yolu tutar. Örneğin: / tt/sn.
+    >- Kök yolu tarayıcısından: hello listesi kök yolu, seçilen Data Lake Analytics hesabı veya yerel bir yol.
     >- Bir yol girin: Seçili Data Lake Analytics hesabınızı belirtilen yoldan veya yerel bir yol listesi.
     
-3. Bir hesap, yerel yol veya bir Data Lake Analytics hesabı seçin.
+3. Bir hesap hello yerel yol veya bir Data Lake Analytics hesabı seçin.
 
     ![Daha fazla bilgi için Visual Studio Code Data Lake araçları seçin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
-4. Seçin **daha fazla** daha fazla Data Lake Analytics hesaplarını listelemek ve Data Lake Analytics hesabı seçin.
+4. Seçin **daha fazla** toolist daha fazla Data Lake Analytics hesapları ve Data Lake Analytics hesabı seçin.
 
     ![Data Lake araçları Visual Studio Code için bir hesap seçin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
 
@@ -339,44 +339,44 @@ Depolama alanı yolu komut palet ya da sağ tıklatma listeleyebilirsiniz.
 
     ![Data Lake araçları Visual Studio Code için depolama alanı yolu girin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-path.png)
 
-6.  Sonuçları: Komutu palet girişlerini temel yol bilgileri listeler.
+6.  Sonuçları: hello komutu palet girişlerini temel alarak hello yol bilgileri listeler.
 
     ![Data Lake araçları Visual Studio Code için depolama birimi yolu sonuçları listesi](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-path.png)
 
-Sağ bağlam menüsü göreli yolu listelemek için daha kullanışlı bir yoludur.
+Toolist hello göreli yol hello olup daha kolay bir yol bağlam menüsü sağ tıklayın.
 
-**Sağ depolama yolundan listelemek için**
+**toolist hello depolama yolundan sağ tıklayın**
 
-1.  Seçmek için yol dizesi sağ **listesi depolama yolu**.
+1.  Merhaba yolu dizesi tooselect sağ **listesi depolama yolu**.
 
        ![Visual Studio Code için Data Lake Araçları bağlam menüsü sağ tıklayın](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
-2. Seçilen göreli yol komutu palette görünür.
+2. Merhaba seçili göreli yolu hello komutu palette görünür.
 
    ![Data Lake araçları Visual Studio Code seçili göreli yolu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-relative-path.png)
 
-3.  Bir hesap, yerel yol veya bir Data Lake Analytics hesabı seçin.
+3.  Bir hesap hello yerel yol veya bir Data Lake Analytics hesabı seçin.
 
        ![Data Lake araçları Visual Studio Code için bir hesap seçin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
-4.  Sonuçları: Komutu palet geçerli yolu için dosya ve klasörleri listeler.
+4.  Sonuçları: hello komutu palet hello klasörleri ve dosyaları hello geçerli yolu için listeler.
 
-       ![Visual Studio Code listeden geçerli yolu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-current.png)
+       ![Visual Studio Code listeden hello geçerli yolu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-current.png)
 
-### <a name="preview-the-storage-file"></a>Depolama dosya önizleme
-Depolama dosyası komutu palet ya da sağ tıklatma önizleyebilirsiniz.
+### <a name="preview-hello-storage-file"></a>Önizleme hello depolama dosyası
+Merhaba depolama dosyasını sağ tıklatın veya hello komutu palet aracılığıyla önizleyebilirsiniz.
 
-**Depolama dosyası komutu palet aracılığıyla önizlemek için**
+**Merhaba komutu palet aracılığıyla toopreview hello depolama dosyası**
 
-1.  Komut palet (Ctrl + Shift + P) açın ve girin **ADL: Önizleme depolama dosyası**.
+1.  Merhaba komutu palet (Ctrl + Shift + P) açın ve girin **ADL: Önizleme depolama dosyası**.
 
        ![Visual Studio Code Önizleme depolama dosyası için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-preview.png)
 
-2.  Bir hesap, yerel yol veya bir Data Lake Analytics hesabı seçin.
+2.  Bir hesap hello yerel yol veya bir Data Lake Analytics hesabı seçin.
 
        ![Visual Studio Code için Data Lake araçları hesabı listesi](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
-3.  Seçin **daha fazla** daha fazla Data Lake Analytics hesaplarını listelemek ve Data Lake Analytics hesabı seçin.
+3.  Seçin **daha fazla** toolist daha fazla Data Lake Analytics hesapları ve Data Lake Analytics hesabı seçin.
 
        ![Data Lake araçları Visual Studio Code için bir hesap seçin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-select-adla-account.png)
 
@@ -384,43 +384,43 @@ Depolama dosyası komutu palet ya da sağ tıklatma önizleyebilirsiniz.
 
        ![Data Lake araçları Visual Studio Code için depolama birimi yolu ve dosya girin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-input-preview-file.png)
 
-5.  Sonuçları: Komutu palet girişlerini temel yol bilgileri listeler.
+5.  Sonuçları: hello komutu palet girişlerini temel alarak hello yol bilgileri listeler.
 
        ![Visual Studio Code için Data Lake araçları dosya sonucu Önizleme](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
 
-**Sağ depolama yolundan listelemek için**
+**toolist hello depolama yolundan sağ tıklayın**
 
-1.  Bir dosyayı önizlemek için dosya yolu sağ tıklatın.
+1.  bir dosya toopreview hello dosya yolu sağ tıklatın.
 
    ![Visual Studio Code için Data Lake Araçları bağlam menüsü sağ tıklayın](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-preview.png) 
 
-2.  Bir hesap, yerel yol veya bir Data Lake Analytics hesabı seçin.
+2.  Bir hesap hello yerel yol veya bir Data Lake Analytics hesabı seçin.
 
        ![Data Lake araçları Visual Studio Code için bir hesap seçin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
-3.  Sonuçları: VS Code dosya önizleme sonuçlarını görüntüler.
+3.  Sonuçları: VS Code hello dosyasının hello Önizleme sonuçlarını görüntüler.
 
        ![Visual Studio Code için Data Lake araçları dosya sonucu Önizleme](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-preview-results.png)
 
 ### <a name="upload-a-file"></a>Dosyayı karşıya yükleme 
 
-Komutları girerek dosyaları karşıya yükleyebilir **ADL: dosyasını karşıya yükle** veya **ADL: yapılandırma yoluyla dosyasını karşıya yükle**.
+Merhaba komutları girerek dosyaları karşıya yükleyebilir **ADL: dosyasını karşıya yükle** veya **ADL: yapılandırma yoluyla dosyasını karşıya yükle**.
 
-**Karşıya yüklemek için yine de ADL dosyaları: karşıya dosya komutu**
-1. Komut paletini açmak veya komut dosyası Düzenleyicisi'ni sağ tıklatın ve ardından girin için Ctrl + Shift + P seçin **dosyasını karşıya yükle**.
-2.  Dosyayı karşıya yüklemek için yerel bir yol girin.
+**tooupload dosyaları yine de hello ADL: karşıya dosya komutu**
+1. Ctrl + Shift + P tooopen hello komutu palet seçin veya hello komut dosyası Düzenleyicisi'ni sağ tıklatın ve ardından girin **dosyasını karşıya yükle**.
+2.  tooupload hello dosya, yerel bir yol girin.
 
     ![Visual Studio Code için Data Lake araçları yerel yolu girin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-input-local-path.png)
 
-3. Depolama alanı yolu listeleme yöntemlerden birini seçin. Bu oluşturularak kullanan **bir yol girin** bir örnek olarak.
+3. Merhaba yolları listeleme hello depolama yolunun birini seçin. Bu oluşturularak kullanan **bir yol girin** bir örnek olarak.
 
     ![Visual Studio Code listesi depolama birimi yolu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account-selectoneway.png)
     >[!NOTE]
-    >- VS Code her Data Lake Analytics hesabı son ziyaret edilen yolu tutar. Örneğin: / tt/sn.
-    >- Kök yolu tarayıcısından: Seçili Data Lake Analytics hesabınızı veya yerel bir yol listesi kök yolu.
+    >- VS Code her Data Lake Analytics hesabı hello son ziyaret edilen yolu tutar. Örneğin: / tt/sn.
+    >- Kök yolu tarayıcısından: hello listesi kök yolu, seçilen Data Lake Analytics hesabı veya yerel bir yol.
     >- Bir yol girin: Seçili Data Lake Analytics hesabınızı belirtilen yoldan veya yerel bir yol listesi.
 
-4. Bir hesap, yerel yol veya bir Data Lake Analytics hesabı seçin.
+4. Bir hesap hello yerel yol veya bir Data Lake Analytics hesabı seçin.
 
     ![Visual Studio Code için Data Lake araçları depolama sağ tıklayın](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-list-account.png)
 
@@ -432,46 +432,46 @@ Komutları girerek dosyaları karşıya yükleyebilir **ADL: dosyasını karşı
 
     ![Data Lake araçları Visual Studio Code için bir klasör seçin](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-choose-current-folder.png)
 
-7.  Sonuçları: **çıkış** penceresi dosya karşıya yükleme durumunu görüntüler.
+7.  Sonuçları: Merhaba **çıkış** penceresinde hello dosya karşıya yükleme durumunu gösterir.
 
        ![Visual Studio Code için Data Lake araçları karşıya yükleme durumu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)    
 
-**Karşıya yüklemek için yine de ADL dosyaları: yapılandırma komutu aracılığıyla dosyasını karşıya yükle**
-1.  Komut paletini açmak veya komut dosyası Düzenleyicisi'ni sağ tıklatın ve ardından girin için Ctrl + Shift + P seçin **yapılandırma yoluyla dosyasını karşıya yükle**.
-2.  VS Code'da JSON dosyasını görüntüler. Dosya yolları girin ve aynı anda birden çok dosya yükleyin. Yönergeler görüntülenir **çıkış** penceresi. Dosyayı karşıya yüklemeye devam etmek için (Ctrl + S) JSON dosyasını kaydedin.
+**tooupload dosyaları yine de hello ADL: yapılandırma komutu aracılığıyla dosyasını karşıya yükle**
+1.  Ctrl + Shift + P tooopen hello komutu palet seçin veya hello komut dosyası Düzenleyicisi'ni sağ tıklatın ve ardından girin **yapılandırma yoluyla dosyasını karşıya yükle**.
+2.  VS Code'da JSON dosyasını görüntüler. Dosya yolları girin ve hello adresindeki birden çok dosya karşıya yükleme aynı anda. Yönergeler hello görüntülenen **çıkış** penceresi. tooproceed tooupload hello dosyası (Ctrl + S) hello JSON dosyasını kaydedin.
 
        ![Visual Studio Code dosya yolu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
 
-3.  Sonuçları: **çıkış** penceresi dosya karşıya yükleme durumunu görüntüler.
+3.  Sonuçları: Merhaba **çıkış** penceresinde hello dosya karşıya yükleme durumunu gösterir.
 
        ![Visual Studio Code için Data Lake araçları karşıya yükleme durumu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
 
-Bir dosya depolama alanına yüklemek için başka bir dosyanın tam yolunu veya dosyanın göreli yolu komut dosyası Düzenleyicisi'nde sağ tıklatma menüsünden aracılığıyla yoludur. Yerel dosya yolu girin ve sonra hesabı seçin. **Çıkış** penceresi yükleme durumunu görüntüler. 
+Merhaba dosya toostorage olan başka bir şekilde tooupload sağ tıklatma menüsünden hello dosyanın tam yolunu veya hello komut dosyası Düzenleyicisi'nde hello dosyanın göreli yolu. Merhaba yerel dosya yolu girin ve ardından hello hesabını seçin. Merhaba **çıkış** penceresinde hello karşıya yükleme durumunu gösterir. 
 
 ### <a name="open-azure-storage-explorer"></a>Açık Azure Storage Gezgini
-Açabilirsiniz **Azure Storage Gezgini** komutu girerek **ADL: Web Azure Storage Gezgini açmak** veya sağ tıklama bağlam menüsünden seçerek.
+Açabilirsiniz **Azure Storage Gezgini** hello komutu girerek **ADL: Web Azure Storage Gezgini açmak** veya hello sağ bağlam menüsünden seçerek.
 
-**Azure Depolama Gezgini'ni açmak için**
+**tooopen Azure Storage Gezgini**
 
-1. Komut paletini açmak için Ctrl + Shift + P seçin.
-2. Girin **açık Web Azure Storage Gezgini** veya göreli bir yol veya tam yolunu komut dosyası Düzenleyicisi'nde sağ tıklayın ve ardından **açık Web Azure Storage Gezgini**.
+1. Ctrl + Shift + P tooopen hello komutu palet seçin.
+2. Girin **açık Web Azure Storage Gezgini** veya göreli bir yol veya hello komut dosyası Düzenleyicisi'nde hello tam yolu sağ tıklayın ve ardından **açık Web Azure Storage Gezgini**.
 3. Bir Data Lake Analytics hesabı seçin.
 
-Data Lake araçları Azure portalında Azure depolama yol açar. FIND yol ve dosya Web'den Önizleme.
+Data Lake araçları hello Azure portal hello Azure depolama yol açar. Merhaba dosyasından yolu ve önizleme hello hello web bulabilirsiniz.
 
 ### <a name="local-run-and-local-debug-for-windows-users"></a>Yerel çalıştırma ve yerel kullanıcılar için Windows hata ayıklama
-U-SQL yerel çalıştırma yerel verilerinizi sınar ve kodunuzu Data Lake Analytics yayımlanmadan önce komut yerel olarak doğrular. Yerel hata ayıklama özelliği kodunuzu Data Lake Analytics gönderilmeden önce şu görevleri tamamlamanıza sağlar: 
+U-SQL yerel çalıştırma yerel verilerinizi sınar ve kodunuzu yayımlanan tooData Lake Analytics önce komut yerel olarak doğrular. kodunuzu önce aşağıdaki görevler, toocomplete hello tooData Lake Analytics gönderilen hello yerel hata ayıklama özellik sağlar: 
 - C# arka plan kod hata ayıklaması. 
-- Kod üzerinden adım. 
+- Merhaba kod üzerinden adım. 
 - Komut dosyası yerel olarak doğrulayın.
 
 Yerel çalıştırma ve yerel hata ayıklama hakkında yönergeler için bkz: [U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 ## <a name="additional-features"></a>Ek Özellikler
 
-VS Code'da için Data Lake araçları aşağıdaki özellikleri destekler:
+VS Code'da için Data Lake araçları hello aşağıdaki özellikleri destekler:
 
--   IntelliSense otomatik tamamlama: önerileri anahtar sözcükler, yöntemleri ve değişkenler gibi öğelerin etrafında açılır pencere görünür. Farklı simgeler farklı tip nesneyi temsil eder:
+-   IntelliSense otomatik tamamlama: önerileri anahtar sözcükler, yöntemleri ve değişkenler gibi öğelerin etrafında açılır pencere görünür. Farklı simgeler farklı hello nesne türlerini temsil eder:
 
     - Scala veri türü
     - karmaşık veri türü
@@ -484,12 +484,12 @@ VS Code'da için Data Lake araçları aşağıdaki özellikleri destekler:
  
     ![Visual Studio kod IntelliSense nesne türleri için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
  
--   IntelliSense otomatik tamamlama Data Lake Analytics meta: Data Lake araçları, Data Lake Analytics meta veri bilgileri yerel olarak indirir. IntelliSense özelliği, veritabanı, şema, tablo, görünüm, tablo değerli işlevi, yordamlar ve C# derlemeleri, Data Lake Analytics meta veriler dahil olmak üzere nesneleri, otomatik olarak doldurur.
+-   IntelliSense otomatik tamamlama Data Lake Analytics meta: Data Lake araçları hello Data Lake Analytics meta veri bilgileri yerel olarak indirir. Merhaba IntelliSense özelliği hello veritabanı, şema, tablo, görünüm, Tablo Değerli Fonksiyon, yordamlar ve hello Data Lake Analytics meta verilerden C# derlemeleri, nesneleri otomatik olarak doldurur.
  
     ![Visual Studio kod IntelliSense meta verileri için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 
--   IntelliSense hata işaret: Data Lake araçları U-SQL ve C# için düzenleme hataları altını çizer. 
--   Sözdizimi vurgular: Data Lake araçları, değişkenleri, anahtar sözcükler, veri türü ve işlevleri gibi öğeleri ayırt etmek için farklı bir renk kullanır. 
+-   IntelliSense hata işaret: Data Lake araçları hataları U-SQL ve C# için düzenleme hello altını çizer. 
+-   Sözdizimi vurgular: Data Lake araçları değişkenleri, anahtar sözcükler, veri türü ve işlevleri gibi farklı renkler toodifferentiate öğeleri kullanır. 
 
     ![Visual Studio Code sözdizimi için Data Lake araçları vurgular](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure mikro KVSActorStateProvider ayarlarında değişiklik | Microsoft Docs"
+title: "Azure mikro aaaChange KVSActorStateProvider ayarlarında | Microsoft Docs"
 description: "Durum bilgisi olan Azure Service Fabric aktör türü KVSActorStateProvider yapılandırma hakkında bilgi edinin."
 services: Service-Fabric
 documentationcenter: .net
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/29/2017
 ms.author: sumukhs
-ms.openlocfilehash: 2af1d21a46cde5ba63c967461a1835b5e34ca3cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e003512678556e68a8926b1b9c6c28d9ae3979d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Güvenilir aktörler--KVSActorStateProvider yapılandırma
-Belirtilen aktör için Microsoft Visual Studio Paketi kök yapılandırma klasörü altında oluşturulan settings.xml dosyasını değiştirerek KVSActorStateProvider varsayılan yapılandırmasını değiştirebilirsiniz.
+Merhaba Microsoft Visual Studio Paketi kök hello belirtilen aktör hello yapılandırma klasörü altında oluşturulan hello settings.xml dosyasını değiştirerek KVSActorStateProvider hello varsayılan yapılandırmasını değiştirebilirsiniz.
 
-Azure Service Fabric çalışma zamanı settings.xml dosyasında tanımlanmış bölüm adları arar ve temeldeki çalışma zamanı bileşenleri oluşturulurken yapılandırma değerlerini kullanır.
+Hello Azure Service Fabric çalışma zamanı hello settings.xml dosyasında tanımlanmış bölüm adları arar ve çalışma zamanı bileşenleri için temel alınan hello oluşturulurken hello yapılandırma değerlerini kullanır.
 
 > [!NOTE]
-> Yapmak **değil** silebilir veya Visual Studio çözümünde oluşturulan settings.xml dosyasında aşağıdaki yapılandırmalardan birini bölüm adlarını değiştirebilirsiniz.
+> Yapmak **değil** silebilir veya yapılandırmaları hello Visual Studio çözümü oluşturulan hello settings.xml dosyasında aşağıdaki hello hello bölüm adlarını değiştirebilirsiniz.
 > 
 > 
 
 ## <a name="replicator-security-configuration"></a>Çoğaltıcı güvenlik yapılandırması
-Çoğaltıcı güvenlik yapılandırmalarını çoğaltma sırasında kullanılır ve iletişim kanalının güvenliğini sağlamak için kullanılır. Bu hizmetler yüksek oranda kullanılabilir hale getirileceğini verileri de güvenli olduğundan emin olmanın birbirlerinin çoğaltma trafiği, göremeyeceği anlamına gelir.
+Çoğaltıcı güvenlik çoğaltma sırasında kullanılan kullanılan toosecure hello iletişim kanalını bağlantılardır. Bu hizmetler yüksek oranda kullanılabilir hale getirileceğini hello verileri de güvenli olduğundan emin olmanın birbirlerinin çoğaltma trafiği, göremeyeceği anlamına gelir.
 Varsayılan olarak, bir boş güvenlik yapılandırması bölümü çoğaltma güvenlik engeller.
 
 ### <a name="section-name"></a>Bölüm adı
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Çoğaltıcı yapılandırma
-Çoğaltıcı yapılandırmaları aktör durumu sağlayıcısı durumu yüksek oranda güvenilir yapmaktan sorumlu çoğaltıcı yapılandırın.
-Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yeterli olacaktır. Bu bölümde çoğaltıcı ayarlamak kullanılabilir olan ek yapılandırmalar hakkında alınmaktadır.
+Çoğaltıcı yapılandırmaları hello aktör durumu sağlayıcısı durumu yüksek oranda güvenilir yapmaktan sorumlu hello çoğaltıcı yapılandırın.
+Merhaba varsayılan yapılandırması hello Visual Studio şablon tarafından oluşturulan ve yeterli olacaktır. Bu bölümde, kullanılabilir tootune hello çoğaltıcı hakkında ek yapılandırmaları açıklanmaktadır.
 
 ### <a name="section-name"></a>Bölüm adı
 &lt;ActorName&gt;ServiceReplicatorConfig
@@ -47,16 +47,16 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 ### <a name="configuration-names"></a>Yapılandırma adları
 | Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler adresindeki çoğaltıcı geri bir bildirim için birincil süre. Bu aralık dahilinde işlenen işlemleri için gönderilmek üzere başka bir onayları bir yanıt olarak gönderilir. |
-| ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı diğer çoğaltıcılar yineleme ile iletişim kurmak için kullanacağı bağlantı noktası olarak ayarlayın. Bu hizmet bildiriminde TCP kaynak uç noktası başvuruda bulunmalıdır. Başvurmak [Service manifest kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için uç nokta kaynakları hizmet bildiriminde tanımlama hakkında. |
-| Retryınterval |Saniye |5 |Süre bir işlem için bir onay almazsa geçmesi çoğaltıcı bir ileti yeniden iletir. |
+| BatchAcknowledgementInterval |Saniye |0.015 |Bir dönemde hangi hello çoğaltıcı için geri bildirim toohello birincil göndermeden önce bir işlem aldıktan sonra hello ikincil bekler. Bu aralık dahilinde işlenen işlemleri için gönderilen diğer onayları toobe bir yanıt olarak gönderilir. |
+| ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı hello bağlantı noktası toocommunicate hello yineleme kümesindeki diğer çoğaltıcılar kullanır. Bu, bir TCP kaynak uç noktası hello hizmet bildiriminde başvuruda bulunmalıdır. Çok başvuran[Service manifest kaynakları](service-fabric-service-manifest-resources.md) tooread endpoint kaynakları hello hizmet bildiriminde tanımlama hakkında daha fazla bilgi. |
+| Retryınterval |Saniye |5 |Hangi hello çoğaltıcı yeniden aktaran bir işlem için bir onay almazsa iletisi sonra süre. |
 | MaxReplicationMessageSize |Bayt |50 MB |Tek bir iletiye iletilen çoğaltma verilerinin en büyük boyutu. |
-| MaxPrimaryReplicationQueueSize |İşlem sayısı |1024 |Birincil kuyruk işlemlerinde maksimum sayısı. Birincil çoğaltma tüm ikincil çoğaltıcılar alındısı sonra bir işlem yukarı serbest bırakılır. Bu değer 64 ve 2'in büyük olmalıdır. |
-| MaxSecondaryReplicationQueueSize |İşlem sayısı |2048 |İkincil kuyruk işlemlerinde maksimum sayısı. Bir işlem yukarı durumuna Kalıcılık üzerinden yüksek oranda kullanılabilir yaptıktan sonra serbest bırakılır. Bu değer 64 ve 2'in büyük olmalıdır. |
+| MaxPrimaryReplicationQueueSize |İşlem sayısı |1024 |Merhaba birincil kuyruk işlemlerinde maksimum sayısı. Merhaba birincil çoğaltıcı tüm hello ikincil çoğaltıcılar alındısı sonra bir işlem yukarı serbest bırakılır. Bu değer 64 ve 2'in büyük olmalıdır. |
+| MaxSecondaryReplicationQueueSize |İşlem sayısı |2048 |Merhaba ikincil sıra işlemlerinde maksimum sayısı. Bir işlem yukarı durumuna Kalıcılık üzerinden yüksek oranda kullanılabilir yaptıktan sonra serbest bırakılır. Bu değer 64 ve 2'in büyük olmalıdır. |
 
 ## <a name="store-configuration"></a>Depolama yapılandırması
-Depolama yapılandırmaları çoğaltılmakta olan durumu sürdürmek için kullanılan yerel deposunu yapılandırmak için kullanılır.
-Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yeterli olacaktır. Bu bölümde yerel deposu ayarlamak kullanılabilir olan ek yapılandırmalar hakkında alınmaktadır.
+Mağaza, çoğaltılmakta olan kullanılan toopersist hello durumu kullanılan tooconfigure hello yerel deposu bağlantılardır.
+Merhaba varsayılan yapılandırması hello Visual Studio şablon tarafından oluşturulan ve yeterli olacaktır. Bu bölümde, kullanılabilir tootune hello yerel deposu hakkında ek yapılandırmaları açıklanmaktadır.
 
 ### <a name="section-name"></a>Bölüm adı
 &lt;ActorName&gt;ServiceLocalStoreConfig
@@ -64,8 +64,8 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 ### <a name="configuration-names"></a>Yapılandırma adları
 | Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
-| MaxAsyncCommitDelayInMilliseconds |milisaniye |200 |Toplu işleme aralığı dayanıklı yerel depo yürütme için maksimum ayarlar. |
-| MaxVerPages |Sayfa sayısı |16384 |En fazla yerel sürüm sayfa sayısını veritabanına depolar. Bekleyen işlemlerin sayısını belirler. |
+| MaxAsyncCommitDelayInMilliseconds |milisaniye |200 |Dayanıklı yerel depo yürütme için aralığı toplu işleme hello maksimum ayarlar. |
+| MaxVerPages |Sayfa sayısı |16384 |Merhaba yerel sürüm sayfalarına Hello sayısının veritabanına depolar. Bekleyen işlemlerin hello sayısını belirler. |
 
 ## <a name="sample-configuration-file"></a>Örnek yapılandırma dosyası
 ```xml
@@ -90,6 +90,6 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 </Settings>
 ```
 ## <a name="remarks"></a>Açıklamalar
-BatchAcknowledgementInterval parametre çoğaltma gecikmesi denetler. (Daha fazla bildirim iletileri gerekir gönderilmesine ve işlenen her daha az onayları içeren gibi) '0' değeri, üretilen işi, en düşük olası gecikme sonuçlanır.
-BatchAcknowledgementInterval için büyük değer, o kadar yüksektir genel çoğaltma üretilen işi, daha yüksek işlem gecikme artması pahasına olur. Bu işlem yürütme gecikmesi için doğrudan dönüşür.
+Merhaba BatchAcknowledgementInterval parametre çoğaltma gecikmesi denetler. (Daha fazla bildirim iletileri gerekir gönderilmesine ve işlenen her daha az onayları içeren gibi) '0' değeri sn'ye hello maliyetle hello düşük olası gecikme sonuçlanır.
+Merhaba BatchAcknowledgementInterval, büyük hello değeri hello yüksek hello genel yüksek işlem gecikme hello maliyetle çoğaltma işleme. Bu işlem yürütme toohello gecikme doğrudan dönüşür.
 

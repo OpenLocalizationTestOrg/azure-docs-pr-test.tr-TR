@@ -1,6 +1,6 @@
 ---
-title: "Nesnelerin İnterneti (IoT Paketi) için Azure çözümleri | Microsoft Docs"
-description: "Azure'da IoT'ye, örnek bir çözüm mimarisini ve bunun Azure IoT Paketi ve önceden yapılandırılmış çözümlerle nasıl ilişkili olduğunu içeren genel bir bakış."
+title: "aaaAzure çözümleri nesnelerin interneti (IOT paketi) | Microsoft Docs"
+description: "Bir genel bakış örnek bir çözüm mimarisi ve tooAzure IOT paketi ve hello ilişkilendirilme şekli dahil olmak üzere Azure IOT önceden yapılandırılmış çözümler."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: 320190488bb4c7b8192421f9dd50a5264f558584
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e527ca3f7541c84fbd6abc99ee38792468f88644
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Azure IoT Paketi
-Microsoft Azure IoT Paketi, kapsamlı önceden yapılandırılmış çözümler sayesinde hızlı başlangıç yapmanızı sağlayan kurumsal düzeyde bir çözümdür. Bu çözümler [uzaktan izleme][lnk-preconfigured-solutions], [tahmine dayalı bakım][lnk-predictive-maintenance] ve [bağlı fabrika][lnk-connected-factory] gibi yaygın IoT senaryolarını hedeflemektedir. Bu çözümler, bu makalede ana hatlarıyla açıklanan IOT çözüm mimarisinin uygulamalarıdır.
+Merhaba Microsoft Azure IOT paketi, bir dizi Genişletilebilir önceden yapılandırılmış çözümler ile hızlı şekilde kullanmaya tooget sağlayan bir kurumsal düzeyde çözümüdür. Bu çözümler [uzaktan izleme][lnk-preconfigured-solutions], [tahmine dayalı bakım][lnk-predictive-maintenance] ve [bağlı fabrika][lnk-connected-factory] gibi yaygın IoT senaryolarını hedeflemektedir. Bu çözümlerin hello bu makalede açıklanan IOT çözüm mimarisi uygulamalarıdır.
 
-Bu önceden yapılandırılmış çözümler, şunları içeren eksiksiz, çalışan ve uçtan uca çözümlerdir:
+Merhaba önceden yapılandırılmış çözümler eksiksiz, çalışan, dahil uçtan uca Çözümler:
 
-- Başlamanıza yardımcı olmak için sanal cihazlar.
+- Başlattığınız aygıtları tooget benzetimi.
 - [Azure IoT Hub][Azure IoT Hub], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning] ve [Azure depolama][Azure storage] gibi önceden yapılandırılmış Azure hizmetleri.
 - Çözüme özel yönetim konsolları.
 
-Önceden yapılandırılmış çözümlerde, özelleştirebildiğiniz ve kendi özel IoT senaryolarınıza uygulamak amacıyla uzanabildiğiniz kanıtlanmış, üretime hazır kod bulunur.
+Merhaba önceden yapılandırılmış çözümleri özelleştirme ve kendi özel IOT senaryolarınıza tooimplement genişletmek kanıtlanmış, üretime hazır kod bulunur.
 
-Çok sayıda önceden yapılandırılmış çözümün kullandığı [Azure IoT Hub][Azure IoT Hub] hizmeti de ilginizi çekebilir. [Azure IoT Hub][Azure IoT Hub], önceden yapılandırılmış çözüm mimarisinde kullanılan, cihazlar ve bulut arasındaki güvenli ve çift yönlü iletişimi sağlar.
+Ayrıca hello ilgilenebilirsiniz [Azure IOT Hub] [ Azure IoT Hub] hello önceden yapılandırılmış çözümleri çoğunu kullandıkları hizmet. [Azure IOT Hub] [ Azure IoT Hub] aygıtlar ve hello önceden yapılandırılmış çözüm mimarisinde kullanılan hello bulut arasında hello güvenli ve güvenilir çift yönlü iletişim sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-IoT Paketi ve önceden yapılandırılmış çözümler hakkında bilgi almaya devam etmek için aşağıdaki kaynakları keşfedin:
+IOT paketi hakkında öğrenme bu kaynakları toocontinue keşfedin ve önceden yapılandırılmış çözümler hello:
 
 * [Azure IoT Paketi nedir?][lnk-whatissuite]
-* [Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?][lnk-whatarepreconfigured]
+* [Hello Azure IOT paketi önceden yapılandırılmış çözümleri nelerdir?][lnk-whatarepreconfigured]
 
 [lnk-whatissuite]: iot-suite-overview.md
 [lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md

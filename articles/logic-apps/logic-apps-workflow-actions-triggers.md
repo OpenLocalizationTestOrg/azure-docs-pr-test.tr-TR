@@ -1,5 +1,5 @@
 ---
-title: "İş akışı eylemleri ve Tetikleyicileri - Azure Logic Apps | Microsoft Docs"
+title: aaaWorkflow eylemleri ve Tetikleyicileri - Azure Logic Apps | Microsoft Docs
 description: 
 services: logic-apps
 author: MandiOhlinger
@@ -14,25 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bd3f1d225b974ebde889738bb435825658d1e1e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 857927b7d7df3fc9cdc4931ffdb613efde0db9f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="workflow-actions-and-triggers-for-azure-logic-apps"></a>İş akışı eylemleri ve Azure Logic Apps için Tetikleyiciler
 
-Logic apps tetikleyiciler ve Eylemler oluşur. Tetikleyiciler altı tür vardır. Her tür farklı arabirimi ve farklı bir davranışı vardır. Ayrıntılarını bakarak ilgili diğer ayrıntıları öğrenebilirsiniz [iş akışı tanımlama dili](logic-apps-workflow-definition-language.md).  
+Logic apps tetikleyiciler ve Eylemler oluşur. Tetikleyiciler altı tür vardır. Her tür farklı arabirimi ve farklı bir davranışı vardır. Merhaba hello ayrıntılarını bakarak ilgili diğer ayrıntıları öğrenebilirsiniz [iş akışı tanımlama dili](logic-apps-workflow-definition-language.md).  
   
-İçin okumaya tetikleyiciler ve Eylemler ve iş süreçlerini ve iş akışları geliştirmek için mantığı uygulamalar oluşturmak için bunları nasıl kullanacağınızı hakkında daha fazla bilgi edinin.  
+Toolearn tetikleyiciler ve Eylemler ve nasıl bunları toobuild logic apps tooimprove kullanabilir hakkında daha fazla iş süreçlerini ve iş akışları okumaya devam edin.  
   
 ### <a name="triggers"></a>Tetikleyiciler  
 
-Tetikleyicinin mantığını uygulama akışınızın bir farklı çalıştır başlatabilirsiniz çağrıları belirtir. İş akışınızı yürütülmesi başlatmak için iki farklı şekilde şunlardır:  
+Tetikleyicinin mantığını uygulama akışınızın bir farklı çalıştır başlatabilirsiniz hello çağrıları belirtir. Merhaba iki farklı şekilde tooinitiate, iş akışınızın bir farklı çalıştır şunlardır:  
   
 -   Yoklama tetikleyici  
 
--   Çağırarak itme tetikleyici - [iş akışı hizmeti REST API'si](https://docs.microsoft.com/rest/api/logic/workflows)  
+-   Anında iletme tetikleyici - arama hello tarafından [iş akışı hizmeti REST API'si](https://docs.microsoft.com/rest/api/logic/workflows)  
   
 Tüm Tetikleyicileri bu üst düzey öğeleri içerir:  
   
@@ -45,8 +45,8 @@ Tüm Tetikleyicileri bu üst düzey öğeleri içerir:
         "interval": "<recurrence interval in units of frequency>"
     },
     "conditions": [ <array-of-required-conditions > ],
-    "splitOn" : "<property to create runs for>",
-    "operationOptions": "<operation options on the trigger>"
+    "splitOn" : "<property toocreate runs for>",
+    "operationOptions": "<operation options on hello trigger>"
 }
 ```
 
@@ -54,22 +54,22 @@ Tüm Tetikleyicileri bu üst düzey öğeleri içerir:
 
 Bu tür tetikleyici sunucusu kullanabilirsiniz:
   
--   **İstek** \- mantıksal uygulamayı çağırmak size bir uç nokta yapar  
+-   **İstek** \- hello mantıksal uygulama, toocall için bir uç nokta yapar  
   
 -   **Yineleme** \- ateşlenir dayalı tanımlanmış bir zamanlamaya göre  
   
--   **HTTP** \- bir HTTP web uç noktası yoklar. HTTP uç noktası için belirli bir tetikleme sözleşme uymalıdır \- bir 202 kullanarak ya da\-zaman uyumsuz desen veya bir dizi döndürerek  
+-   **HTTP** \- bir HTTP web uç noktası yoklar. Merhaba HTTP uç noktası tooa belirli tetikleme sözleşme uygun olmalıdır \- bir 202 kullanarak ya da\-zaman uyumsuz desen veya bir dizi döndürerek  
   
--   **ApiConnection** \- HTTP gibi yoklamalar tetikleyin, ancak bunu yararlanan [Microsoft tarafından yönetilen API'ler](https://docs.microsoft.com/azure/connectors/apis-list)  
+-   **ApiConnection** \- hello HTTP gibi yoklamalar tetikleyin, ancak bunu hello yararlanan [Microsoft tarafından yönetilen API'ler](https://docs.microsoft.com/azure/connectors/apis-list)  
   
--   **HTTPWebhook** \- uç noktası, el ile tetikleyici, Bununla birlikte, benzer bir açılır de çağırır kaydedin ve kaydı için belirtilen URL  
+-   **HTTPWebhook** \- açılır uç noktası, benzer toohello el ile tetikleyici, ancak, bir de çağırır tooa URL tooregister belirtilen ve kaldırılamadı  
   
--   **ApiConnectionWebhook** \- Operates Microsoft tarafından yönetilen API'ları yararlanarak HTTPWebhook tetikleyici gibi       
+-   **ApiConnectionWebhook** \- hello Microsoft tarafından yönetilen API yararlanarak HTTPWebhook tetikleyici hello gibi çalışır       
     Farklı bir kümesini her tetikleyici türünde **girişleri** davranışını tanımlar.  
   
 ## <a name="request-trigger"></a>Tetikleyici isteği  
 
-Bu tetikleyici bir uç nokta mantıksal uygulamanızı çağırmak için bir HTTP isteği çağıran işlevi görür. Bir istek tetikleyici aşağıdaki gibi görünür:  
+Bu tetikleyici bir uç noktası olarak bir HTTP isteği tooinvoke mantıksal uygulamanızı çağıran işlevi görür. Bir istek tetikleyici aşağıdaki gibi görünür:  
   
 ```json
 "<name-of-the-trigger>" : {
@@ -92,9 +92,9 @@ Ayrıca adlı isteğe bağlı bir özellik olan **şema**:
   
 |Öğe adı|Gerekli|Açıklama|  
 |----------------|------------|---------------|  
-|Şema|Hayır|JSON şeması gelen isteği doğrular. Sonraki iş akışı adımları başvurmak için hangi özelliklerin bilmeniz yardımcı olmak için kullanışlıdır.|
+|Şema|Hayır|JSON şeması hello gelen isteği doğrular. Sonraki iş akışı adımları hangi özellikleri tooreference bilmeniz yardımcı olmak için kullanışlıdır.|
 
-Bu uç noktaya çağrılacak çağırması gerekir *listCallbackUrl* API. Bkz: [iş akışı hizmeti REST API'si](https://docs.microsoft.com/rest/api/logic/workflows).  
+tooinvoke Bu uç noktaya toocall hello gereksinim *listCallbackUrl* API. Bkz: [iş akışı hizmeti REST API'si](https://docs.microsoft.com/rest/api/logic/workflows).  
   
 ## <a name="recurrence-trigger"></a>Yineleme tetikleyici  
 
@@ -110,16 +110,16 @@ Bir yineleme tetikleyici tanımlanmış bir zamanlamaya göre çalıştırır bi
 }
 ```
 
-Gördüğünüz gibi bir iş akışını çalıştırmak için basit bir yoludur.  
+Gördüğünüz gibi bir basit yol toorun bir iş akışı gereklidir.  
   
 |Öğe adı|Gerekli|Açıklama|  
 |----------------|------------|---------------|  
-|Sıklık|Evet|Ne sıklıkta tetikleyici yürütür. Bu değerlerden yalnızca birini kullanın: saniye, dakika, saat, gün, hafta, ay veya yıl|  
-|aralığı|Evet|Verilen sıklığı aralığını yineleme için|  
+|frequency|Evet|Ne sıklıkta hello tetikleyici yürütür. Bu değerlerden yalnızca birini kullanın: saniye, dakika, saat, gün, hafta, ay veya yıl|  
+|interval|Evet|Merhaba yinelemesi sıklığı verilen hello aralığı|  
 |startTime|Hayır|Bir startTime UTC uzaklığı sağlanırsa, bu saat dilimi kullanılır.|  
 |saat dilimi|Yok|Bir startTime UTC uzaklığı sağlanırsa, bu saat dilimi kullanılır.|  
   
-Ayrıca, belirli bir noktada gelecekte çalıştırmaya başlamak için bir tetikleyici zamanlayabilirsiniz. Örneğin, haftalık bir rapor her Pazartesi başlatmak istiyorsanız aşağıdaki tetikleyici oluşturarak her Pazartesi başlatmak için mantıksal uygulama zamanlayabilirsiniz:  
+Ayrıca, bir tetikleyici toostart hello gelecekteki belirli bir noktada yürütme zamanlayabilirsiniz. Haftalık rapor her Pazartesi toostart isterseniz, örneğin, hello mantığı uygulama toostart her Pazartesi tetikleyici aşağıdaki hello oluşturarak zamanlayabilirsiniz:  
 
 ```json
 "dailyReport" : {
@@ -134,46 +134,46 @@ Ayrıca, belirli bir noktada gelecekte çalıştırmaya başlamak için bir teti
 
 ## <a name="http-trigger"></a>HTTP tetikleyicisi  
 
-HTTP Tetikleyicileri belirtilen uç nokta yoklamak ve iş akışı yürütülüp yürütülmeyeceğini belirlemek için yanıtı denetleyin. Giriş nesnesi bir HTTP çağrısıyla oluşturmak için gerekli parametreleri kümesini alır:  
+HTTP Tetikleyicileri belirtilen uç nokta yoklamak ve hello yanıt toodetermine hello iş akışı yürütülmesi gereken olup olmadığını denetleyin. Merhaba girişleri nesne parametreleri gerekli tooconstruct bir HTTP çağrısıyla hello kümesini alır:  
   
 |Öğe adı|Gerekli|Açıklama|Tür|  
 |----------------|------------|---------------|--------|  
-|Yöntemi|Evet|Aşağıdaki HTTP yöntemlerden biri olabilir: GET, POST, PUT, DELETE, düzeltme eki veya HEAD|Dize|  
-|URI|Evet|Çağrılan http veya https uç noktası. 2 kilobayt sayısı.|Dize|  
-|Sorguları|Hayır|URL'ye eklemek için sorgu parametreleri temsil eden bir nesne. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL.|Nesne|  
-|Üstbilgileri|Hayır|Her isteği gönderilen üstbilgilerini temsil eden bir nesne. Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Nesne|  
-|Gövde|Hayır|Uç noktasına gönderilen yükünü temsil eden bir nesne.|Nesne|  
-|retryPolicy|Hayır|4xx veya 5xx hataları yeniden deneme davranışı özelleştirmenize olanak sağlayan bir nesne.|Nesne|  
-|Kimlik doğrulaması|Hayır|İsteğin kimliği olduğunu yöntemi temsil eder. Bu nesne üzerinde daha fazla bilgi için bkz [Scheduler giden bağlantı kimlik doğrulaması](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Zamanlayıcı daha desteklenen bir özellik yok: `authority` varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak gibi farklı bir kitleye kullanabilirsiniz`https://login.windows\-ppe.net`|Nesne|  
+|Yöntemi|Evet|HTTP yöntemleri aşağıdaki hello biri olabilir: GET, POST, PUT, DELETE, düzeltme eki veya HEAD|Dize|  
+|URI|Evet|çağrılan hello http veya https uç noktası. 2 kilobayt sayısı.|Dize|  
+|Sorguları|Hayır|Merhaba sorgu parametreleri tooadd toohello URL'yi temsil eden bir nesne. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` toohello URL.|Nesne|  
+|Üstbilgileri|Hayır|Her toohello isteği gönderilir hello üstbilgilerinin temsil eden bir nesne. Örneğin, tooset hello dil ve istek üzerine yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|Nesne|  
+|Gövde|Hayır|Toohello endpoint gönderilen hello yükünü temsil eden bir nesne.|Nesne|  
+|retryPolicy|Hayır|Merhaba yeniden deneme davranışı 4xx veya 5xx hataları özelleştirmenize olanak sağlayan bir nesne.|Nesne|  
+|Kimlik doğrulaması|Hayır|İstek hello temsil hello yöntemi kimlik doğrulaması. Bu nesne üzerinde daha fazla bilgi için bkz [Scheduler giden bağlantı kimlik doğrulaması](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Zamanlayıcı daha desteklenen bir özellik yok: `authority` varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak gibi farklı bir kitleye kullanabilirsiniz`https://login.windows\-ppe.net`|Nesne|  
   
-HTTP tetikleyicisini iyi mantığı uygulamanızın üzerinde çalışmak için belirli bir desendeki uygun olması HTTP API gerektiriyor. Aşağıdaki alanları gerektirir:  
+Merhaba HTTP tetikleyicisini hello HTTP API tooconform belirli bir desene toowork mantıksal uygulamanızı ile iyi ile gerektirir. Alanları aşağıdaki hello gerektirir:  
   
 |Yanıt|Açıklama|  
 |------------|---------------|  
-|Durum kodu|Durum kodu 200 \(Tamam\) Çalıştır neden olacak. Diğer bir durum kodu bir Farklı Çalıştır neden olmaz.|  
-|Yeniden deneme\-üstbilgi sonra|Mantıksal uygulama uç nokta yeniden yoklar kadar saniye sayısı.|  
-|Konum üstbilgisi|Sonraki yoklama aralığını üzerinde çağrısı için URL. Belirtilmezse, özgün URL'si kullanılır.|  
+|Durum kodu|Durum kodu 200 \(Tamam\) toocause Çalıştır. Diğer bir durum kodu bir Farklı Çalıştır neden olmaz.|  
+|Yeniden deneme\-üstbilgi sonra|Merhaba mantıksal uygulama hello uç nokta yeniden yoklar kadar saniye sayısı.|  
+|Konum üstbilgisi|Merhaba URL toocall hello sonraki yoklama aralığı. Belirtilmezse, hello özgün URL'si kullanılır.|  
   
 İstekleri farklı türleri için farklı davranışlar bazı örnekleri şunlardır:  
   
 |Yanıt kodu|Yeniden deneme\-sonra|Davranışı|  
 |-----------------|----------------|------------|  
-|200|\(yok\)|Değil geçerli tetikleyici yeniden deneme\-sonra gereklidir veya başka altyapısı sonraki istek için hiçbir zaman yoklar.|  
-|202|60|İş akışı tetiklemez. Sonraki girişiminde bir dakika içinde gerçekleşir.|  
-|200|10|İş akışını çalıştırmak ve daha fazla içerik için 10 saniye içinde yeniden kontrol edin.|  
-|400|\(yok\)|Hatalı istek, iş akışı çalıştırmayın. Varsa hiçbir **yeniden deneme ilkesi** tanımlanan varsayılan ilke kullanılır. Yeniden deneme sayısı üst sınırına ulaşıldı sonra tetikleyici artık geçerli değil.|  
-|500|\(yok\)|Sunucu hatası, iş akışı çalıştırmayın.  Varsa hiçbir **yeniden deneme ilkesi** tanımlanan varsayılan ilke kullanılır. Yeniden deneme sayısı üst sınırına ulaşıldı sonra tetikleyici artık geçerli değil.|  
+|200|\(yok\)|Değil geçerli tetikleyici yeniden deneme\-sonra gerekli ya da başka hello hiçbir zaman hello sonraki istek için yoklamaları altyapısıdır.|  
+|202|60|Merhaba iş akışı tetiklemez. Merhaba sonraki girişiminde bir dakika içinde gerçekleşir.|  
+|200|10|Merhaba iş akışını çalıştırma ve daha fazla içerik için 10 saniye içinde yeniden kontrol edin.|  
+|400|\(yok\)|Hatalı istek, hello iş akışı çalıştırmayın. Varsa hiçbir **yeniden deneme ilkesi** tanımlanan hello varsayılan ilke kullanılır. Merhaba yeniden deneme sayısı üst sınırına ulaşıldı sonra hello tetikleyici artık geçerli değil.|  
+|500|\(yok\)|Sunucu hatası, hello iş akışı çalıştırmayın.  Varsa hiçbir **yeniden deneme ilkesi** tanımlanan hello varsayılan ilke kullanılır. Merhaba yeniden deneme sayısı üst sınırına ulaşıldı sonra hello tetikleyici artık geçerli değil.|  
   
-Bir HTTP tetikleyicisi çıkışları aşağıdaki gibi görünür:  
+bir HTTP tetikleyicisi Hello çıkışları aşağıdaki gibi görünür:  
   
 |Öğe adı|Açıklama|Tür|  
 |----------------|---------------|--------|  
-|Üstbilgileri|Http yanıtı üstbilgileri.|Nesne|  
-|Gövde|Http yanıt gövdesi.|Nesne|  
+|Üstbilgileri|Merhaba http yanıtının Hello üstbilgileri.|Nesne|  
+|Gövde|Merhaba hello http yanıt gövdesi.|Nesne|  
   
 ## <a name="api-connection-trigger"></a>API bağlantı tetikleyici  
 
-API bağlantı tetikleyici temel işlevselliğini HTTP tetikleyicinin benzer. Bununla birlikte, eylem tanımlamak için farklı parametreleridir. Örnek aşağıda verilmiştir:  
+Merhaba API bağlantı tetikleyici temel işlevselliği de benzer toohello HTTP tetikleyici ' dir. Ancak, hello eylem tanımlamak için başlangıç parametreleri farklıdır. Örnek aşağıda verilmiştir:  
   
 ```json
 "dailyReport" : {
@@ -197,31 +197,31 @@ API bağlantı tetikleyici temel işlevselliğini HTTP tetikleyicinin benzer. Bu
 
 |Öğe adı|Gerekli|Tür|Açıklama|  
 |----------------|------------|--------|---------------|  
-|ana bilgisayar|Evet||Ağ geçidi ve kimliği ApiApp barındırılan.|  
-|Yöntemi|Evet|Dize|Aşağıdaki HTTP yöntemlerden biri olabilir: **almak**, **POST**, **PUT**, **silmek**, **düzeltme eki**, veya  **HEAD**|  
-|Sorguları|Hayır|Nesne|URL'ye eklenecek sorgu parametreleri temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL.|  
-|Üstbilgileri|Hayır|Nesne|Her isteği gönderilen üstbilgilerinin temsil eder. Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Gövde|Hayır|Nesne|Uç noktasına gönderilen yükünü temsil eder.|  
-|retryPolicy|Hayır|Nesne|4xx veya 5xx hataları yeniden deneme davranışını özelleştirmenizi sağlar.|  
-|Kimlik doğrulaması|Hayır|Nesne|İsteğin kimliği olduğunu yöntemi temsil eder. Bu nesne üzerinde daha fazla bilgi için bkz [Scheduler giden bağlantı kimlik doğrulaması](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)|  
+|ana bilgisayar|Evet||Merhaba ApiApp ağ geçidi ve kimliği barındırılan.|  
+|Yöntemi|Evet|Dize|HTTP yöntemleri aşağıdaki hello biri olabilir: **almak**, **POST**, **PUT**, **silmek**, **düzeltme eki**, veya  **HEAD**|  
+|Sorguları|Hayır|Nesne|Temsil hello sorgu parametreleri toobe toohello URL eklendi. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` toohello URL.|  
+|Üstbilgileri|Hayır|Nesne|Her toohello isteği gönderilir hello üstbilgilerinin temsil eder. Örneğin, tooset hello dil ve istek üzerine yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Gövde|Hayır|Nesne|Toohello endpoint gönderilen hello yükünü temsil eder.|  
+|retryPolicy|Hayır|Nesne|Toocustomize hello yeniden deneme davranışı 4xx veya 5xx hataları sağlar.|  
+|Kimlik doğrulaması|Hayır|Nesne|İstek hello temsil hello yöntemi kimlik doğrulaması. Bu nesne üzerinde daha fazla bilgi için bkz [Scheduler giden bağlantı kimlik doğrulaması](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)|  
   
-Konak özellikleri şunlardır:  
+ana bilgisayar için Hello özellikleri şunlardır:  
   
 |Öğe adı|Gerekli|Açıklama|  
 |----------------|------------|---------------|  
-|API runtimeUrl|Evet|Yönetilen API uç noktası.|  
-|Bağlantı adı||Adlı bir parametre için bir başvurusu olmalıdır `$connection` ve iş akışının kullandığı yönetilen API bağlantı adıdır.|
+|API runtimeUrl|Evet|Merhaba Hello uç noktasını API yönetilen.|  
+|Bağlantı adı||Bir başvuru tooa parametre çağrılmalıdır `$connection` ve iş akışı kullanır hello yönetilen hello API bağlantı hello adıdır.|
   
-Bir API bağlantı tetikleyicisi çıkışları şunlardır:
+bir API bağlantı tetikleyicisi Hello çıkışları şunlardır:
   
 |Öğe adı|Tür|Açıklama|  
 |----------------|--------|---------------|  
-|Üstbilgileri|Nesne|Http yanıtı üstbilgileri.|  
-|Gövde|Nesne|Http yanıt gövdesi.|  
+|Üstbilgileri|Nesne|Merhaba http yanıtının Hello üstbilgileri.|  
+|Gövde|Nesne|Merhaba hello http yanıt gövdesi.|  
   
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook tetikleyici  
 
-Bir uç nokta, el ile tetikleyiciye benzer HTTPWebhook tetikleyici açar ancak HTTPWebhook tetikleyici de kaydetme ve kaydını kaldırmak için belirtilen URL çağırır. Bir HTTPWebhook tetikleyicisi aşağıdaki gibi görünmelidir örneği şöyledir:  
+bir uç nokta, benzer toohello el ile tetikleyici, ancak hello HTTPWebhook tetikleyici de tooa çağırır hello HTTPWebhook tetikleyici açar URL tooregister belirtilen ve kaydını silin. Bir HTTPWebhook tetikleyicisi aşağıdaki gibi görünmelidir örneği şöyledir:  
 
 ```json
 "myappspottrigger": {
@@ -254,41 +254,41 @@ Bir uç nokta, el ile tetikleyiciye benzer HTTPWebhook tetikleyici açar ancak H
     }
 ```
 
-Bu bölümler çoğunu isteğe bağlıdır ve Web kancası davranışını hangi bölümlerinin sağlanan atlanmış veya bağlıdır.  
-Bir Web kancası özelliklerini aşağıdaki gibidir:  
+Bu bölümler çoğunu isteğe bağlıdır ve hello Web kancası hello davranışını hangi bölümlerinin sağlanan atlanmış veya bağlıdır.  
+bir Web kancası Hello özelliklerini aşağıdaki gibidir:  
   
 |Öğe adı|Gerekli|Açıklama|  
 |----------------|------------|---------------|  
-|abone olma|Hayır|Tetikleyici oluşturulduğunda ve ilk kaydı gerçekleştiren çağrılan giden istek.|  
-|Aboneliği Kaldır|Hayır|Tetikleyici silindiğinde giden istek.|  
+|abone olma|Hayır|Merhaba Hello tetikleyici oluşturulduğunda ve hello ilk kaydı gerçekleştiren çağrılan isteği giden.|  
+|Aboneliği Kaldır|Hayır|Merhaba Hello tetikleyici silindiğinde isteği giden.|  
   
--   **Abone** olaylarını dinleme başlatmak için yaptığı giden çağrıdır. Bu çağrı normal HTTP eylemleri gerçekleştirebilirsiniz parametreleri aynı kümesiyle başlatır. Bu giden çağrı herhangi bir iş akışı herhangi bir şekilde, örneğin, kimlik bilgileri alınır veya tetikleyici giriş parametreleri değiştirmek her değiştiğinde yapılır.
+-   **Abone** olan hello giden toostart dinleme tooevents yaptı çağrısı. Bu çağrı aynı normal HTTP Eylemler hello parametre kümesine yapmak hello ile başlar. Bu giden çağrı hiçbir zaman hello yapılan herhangi bir şekilde değişiklikler iş akışı, örneğin, her hello kimlik yapılır ya da hello tetikleyici parametreleri değişiklik girdisini.
   
-    Bu çağrı desteklemek için bir yeni işlevi yoktur: `@listCallbackUrl()`. Bu işlev, bu iş akışındaki belirli Bu tetikleyici için benzersiz bir URL döndürür. Bu hizmet REST kullanan uç noktaları için benzersiz tanımlayıcıyı temsil eder.  
+    toosupport bu çağrı, yeni bir işlev yok: `@listCallbackUrl()`. Bu işlev, bu iş akışındaki belirli Bu tetikleyici için benzersiz bir URL döndürür. Merhaba hizmet REST kullanan hello uç noktaları için benzersiz tanımlayıcı hello temsil eder.  
   
 -   **Aboneliği** bir işlem Bu tetikleyici geçersiz dahil olmak üzere işler olduğunda çağrılır:  
   
-    -   Silme veya tetikleyici devre dışı bırakma  
+    -   Silme veya hello tetikleyici devre dışı bırakma  
   
-    -   Silme veya iş akışını devre dışı bırakma  
+    -   Silme veya hello iş akışını devre dışı bırakma  
   
-    -   Silme veya abonelik devre dışı bırakma  
+    -   Silme veya hello abonelik devre dışı bırakma  
   
-    Mantıksal uygulama otomatik olarak abonelikten eylemini çağırır. Bu işlev parametreleri HTTP tetikleyicisini ile aynıdır.  
+    Merhaba mantıksal uygulama otomatik olarak hello çağıran eylem aboneliği. toothis işlevini hello parametreleri aynı hello HTTP tetikleyici olarak hello.  
   
-    Gelen istek içeriği HTTPWebhook tetikleyici çıkışları şunlardır:  
+    Merhaba hello HTTPWebhook tetikleyici çıkışları hello gelen istek Merhaba içeriğine şunlardır:  
   
 |Öğe adı|Tür|Açıklama|  
 |-----------------|--------|---------------|  
-|Üstbilgileri|Nesne|Http isteği üstbilgileri.|  
-|Gövde|Nesne|Http istek gövdesi.|  
+|Üstbilgileri|Nesne|Merhaba http istek üstbilgilerinin Hello.|  
+|Gövde|Nesne|Merhaba hello http istek gövdesi.|  
 
-Bir Web kancası eylemi sınırları, aynı şekilde belirtilebilir [HTTP zaman uyumsuz sınırları](#asynchronous-limits).
+Bir Web kancası eylemi sınırları hello belirtilebilir aynı şekilde [HTTP zaman uyumsuz sınırları](#asynchronous-limits).
   
 
 ## <a name="conditions"></a>Koşullar  
 
-Herhangi bir tetikleyici için iş akışı veya çalıştırılması gerekip gerekmediğini belirlemek için bir veya daha fazla koşulları kullanabilirsiniz. Örneğin:  
+Merhaba iş akışı çalışıp çalışmayacağını olup olmadığını, herhangi bir tetikleyici için bir veya daha fazla koşullar toodetermine kullanabilirsiniz. Örneğin:  
 
 ```json
 "dailyReport" : {
@@ -303,7 +303,7 @@ Herhangi bir tetikleyici için iş akışı veya çalıştırılması gerekip ge
 }
 ```
 
-Bu durumda, rapor yalnızca Tetikleyicileri iş akışı çalışırken `sendReports` parametrenin ayarlanmış true. Son olarak, koşullar tetikleyici durum kodunu başvurabilir. Örneğin, yalnızca Web sitenizin bir durum kodu 500, aşağıdaki gibi geri döndüğünde devre dışı bir iş akışı kazandırın:
+Bu durumda, rapor yalnızca Tetikleyicileri hello iş akışı çalışırken hello `sendReports` parametresini tootrue ayarlayın. Son olarak, koşullar hello tetikleyici hello durum kodunu başvurabilir. Örneğin, yalnızca Web sitenizin bir durum kodu 500, aşağıdaki gibi geri döndüğünde devre dışı bir iş akışı kazandırın:
   
 ```  
 "conditions": [  
@@ -314,13 +314,13 @@ Bu durumda, rapor yalnızca Tetikleyicileri iş akışı çalışırken `sendRep
 ```  
   
 > [!NOTE]  
-> Herhangi bir ifade tetikleyici durum kodunu başvurduğunda \(herhangi bir şekilde\), varsayılan davranışı \(200 yalnızca Tetikle \(Tamam\) \) değiştirilir. Durum kodu 200 hem 201 durum kodunu tetiklemek istiyorsanız, örneğin, dahil etmek zorunda: `@or(equals(triggers().code, 200),equals(triggers().code,201))` koşulunuz olarak.  
+> Herhangi bir ifade hello tetikleyici hello durum kodunu başvurduğunda \(herhangi bir şekilde\), hello varsayılan davranışı \(200 yalnızca Tetikle \(Tamam\) \) değiştirilir. Örneğin, durum kodu 200 ve 201 durum kodunu tootrigger isterseniz, tooinclude gerekir: `@or(equals(triggers().code, 200),equals(triggers().code,201))` koşulunuz olarak.  
   
 ## <a name="start-multiple-runs-for-a-request"></a>Bir istek için birden çok çalışmalarını Başlat
 
-Tek bir istek için birden çok çalıştırır kapalı kazandırın için `splitOn` yoklama aralıkları arasında birden çok yeni öğeleri olan bir uç nokta yoklamak istediğinizde, örneğin, yararlıdır.
+tek bir istek için birden çok çalıştırır kapalı tookick `splitOn` toopoll yoklama aralıkları arasında birden çok yeni öğeleri olan bir uç nokta istediğinizde, örneğin, yararlıdır.
   
-İle `splitOn`, her biri tetikleyicinin çalıştırmasını başlatmak için kullanmak istediğiniz öğeleri dizisi içeren yanıt yükünün özelliğini belirtin. Örneğin, aşağıdaki yanıtı döndüren bir API olduğunu düşünün:  
+İle `splitOn`, her biri istediğiniz öğeleri hello dizisi içerir hello yanıt yükünün hello özelliği belirtin toouse toostart hello tetikleyici yürütülmesi. Örneğin, yanıt aşağıdaki hello döndüren bir API olduğunu düşünün:  
   
 ```json
 {
@@ -338,7 +338,7 @@ Tek bir istek için birden çok çalıştırır kapalı kazandırın için `spli
 }
 ```
   
-Bu örnek gibi tetikleyici gerçekleştirebilmesi için mantıksal uygulamanızı yalnızca satır içerik gerekir:  
+Bu örnek gibi tetikleyici gerçekleştirebilmesi için mantıksal uygulamanızı hello satırları içeriği, yalnızca gerekir:  
   
 ```json
 "mysplitter" : {
@@ -355,7 +355,7 @@ Bu örnek gibi tetikleyici gerçekleştirebilmesi için mantıksal uygulamanız�
 }
 ```
   
-Daha sonra iş akışı tanımında `@triggerBody().name` döndürür `mycoolrow` ilk çalıştırma için ve `another row` ikinci çalıştırma için. Bu örnek tetikleyici çıkışları görünümlü:  
+Daha sonra hello iş akışı tanımında `@triggerBody().name` döndürür `mycoolrow` ilk çalıştırma hello için ve `another row` hello ikinci çalıştırma için. Bu örnek gibi Hello tetikleyici çıkışları bakın:  
   
 ```json
 {
@@ -366,16 +366,16 @@ Daha sonra iş akışı tanımında `@triggerBody().name` döndürür `mycoolrow
 }
 ```
 
-Kullanırsanız, bunu `SplitOn`, bu durumda, dizi dışında olan özellikler alınamıyor `Status` alan.  
+Kullanırsanız, bunu `SplitOn`, hello dizi dışında bu durumda, hello hello özellikler alınamıyor `Status` alan.  
   
 > [!NOTE]  
-> Bu örnekte, kullandığımız `?` bir hata durumunda kaçınabilirsiniz işleci `Rows` özelliği mevcut değil. 
+> Bu örnekte, kullandığımız hello `?` işleci toobe mümkün tooavoid hello durumunda bir hata `Rows` özelliği mevcut değil. 
   
 ## <a name="single-run-instance"></a>Tek çalışma örneği
 
-Tüm etkin metinler tamamladıysanız, yalnızca tetiklenecek yinelenme özelliğine sahip Tetikleyicileri yapılandırabilirsiniz. Bir çalıştırma sürüyor olsa zamanlanmış bir yinelenme meydana gelirse, tetikleyici atlar ve yeniden denetlemek için bir sonraki zamanlanmış yinelenme aralığı kadar bekler.
+Tüm etkin metinler tamamladıysanız, yineleme özelliği tooonly yangın sahip Tetikleyicileri yapılandırabilirsiniz. Bir çalıştırma sürüyor olsa zamanlanmış bir yinelenme meydana gelirse, hello tetikleyici atlar ve hello sonraki zamanlanmış yineleme aralığı toocheck kadar yeniden bekler.
 
-Bu ayar işlemi seçeneklerle yapılandırabilirsiniz:
+Bu ayar hello işlemi seçeneklerle yapılandırabilirsiniz:
 
 ```json
 "triggers": {
@@ -396,9 +396,9 @@ Eylemler, her benzersiz davranışına sahip birçok tür vardır. Koleksiyon Ey
 
 -   **HTTP** bir HTTP web uç noktası bu eylemi çağırır.  
   
--   **ApiConnection** \- Bu eylem HTTP eylemi gibi davranır, ancak Microsoft tarafından yönetilen API'lerini kullanır.  
+-   **ApiConnection** \- Bu eylem HTTP eylemi hello gibi davranır, ancak kullanır hello Microsoft tarafından yönetilen API'ler.  
   
--   **ApiConnectionWebhook** \- gibi HTTPWebhook, ancak Microsoft tarafından yönetilen API'lerini kullanır.  
+-   **ApiConnectionWebhook** \- gibi HTTPWebhook ancak kullanır hello Microsoft tarafından yönetilen API'ler.  
   
 -   **Yanıt** \- gelen bir arama için bir yanıt bu eylemi tanımlar.  
   
@@ -412,30 +412,30 @@ Eylemler, her benzersiz davranışına sahip birçok tür vardır. Koleksiyon Ey
 
 -   **Kapsam** \- bu eylemi diğer Eylemler, mantıksal bir gruplandırmasıdır.
 
--   **Koşul** \- Bu eylem bir ifadeyi değerlendirir ve karşılık gelen sonuç dal yürütür.
+-   **Koşul** \- Bu eylem bir ifadeyi değerlendirir ve hello karşılık gelen sonuç dal yürütür.
 
 -   **ForEach** \- döngü Bu eylem bir dizisini yineler ve her öğe için iç eylemleri gerçekleştirir.
 
--   **Kadar** \- bir koşul true olarak sonuçları kadar bu döngü eylem iç Eylemler yürütür.
+-   **Kadar** \- tootrue bir koşul sonuçları kadar bu döngü eylem iç Eylemler yürütür.
   
 Her eylem farklı bir dizi türü **girişleri** bir eylemin davranışını tanımlayın.  
   
 ## <a name="http-action"></a>HTTP eylemi  
 
-HTTP Eylemler belirtilen uç noktasını çağırmak ve iş akışı çalıştırılması gerekip gerekmediğini belirlemek için yanıtı denetleyin. **Girişleri** nesnesini HTTP çağrısıyla oluşturmak için gerekli parametreleri kümesini alır:  
+HTTP Eylemler belirtilen uç noktasını çağırmak ve hello yanıt toodetermine hello iş akışının çalışması gerektiğini olup olmadığını denetleyin. Merhaba **girişleri** nesnesini parametreleri gerekli tooconstruct hello HTTP çağrısı hello kümesini alır:  
   
 |Öğe adı|Gerekli|Tür|Açıklama|  
 |----------------|------------|--------|---------------|  
-|Yöntemi|Evet|Dize|Aşağıdaki HTTP yöntemlerden biri olabilir: **almak**, **POST**, **PUT**, **silmek**, **düzeltme eki**, veya  **HEAD**|  
-|URI|Evet|Dize|Çağrılan http veya https uç noktası. En fazla uzunluğu 2 kilobayttır.|  
-|Sorguları|Hayır|Nesne|URL'ye eklemek için sorgu parametreleri temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL.|  
-|Üstbilgileri|Hayır|Nesne|Her isteği gönderilen üstbilgilerinin temsil eder. Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Gövde|Hayır|Nesne|Uç noktasına gönderilen yükünü temsil eder.|  
-|retryPolicy|Hayır|Nesne|4xx veya 5xx hataları yeniden deneme davranışını özelleştirmenizi sağlar.|  
-|operationsOptions|Hayır|Dize|Geçersiz kılmak için özel davranışları kümesini tanımlar.|  
-|Kimlik doğrulaması|Hayır|Nesne|İsteğin kimliği olduğunu yöntemi temsil eder. Bu nesne üzerinde daha fazla bilgi için bkz [Scheduler giden bağlantı kimlik doğrulaması](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, `https://login.windows.net` belirtilmediğinde, ancak gibi farklı bir kitleye kullanabilirsiniz`https://login.windows\-ppe.net`|  
+|Yöntemi|Evet|Dize|HTTP yöntemleri aşağıdaki hello biri olabilir: **almak**, **POST**, **PUT**, **silmek**, **düzeltme eki**, veya  **HEAD**|  
+|URI|Evet|Dize|çağrılan hello http veya https uç noktası. En fazla uzunluğu 2 kilobayttır.|  
+|Sorguları|Hayır|Nesne|Merhaba sorgu parametreleri tooadd toohello URL'yi temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` toohello URL.|  
+|Üstbilgileri|Hayır|Nesne|Her toohello isteği gönderilir hello üstbilgilerinin temsil eder. Örneğin, tooset hello dil ve istek üzerine yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Gövde|Hayır|Nesne|Toohello endpoint gönderilen hello yükünü temsil eder.|  
+|retryPolicy|Hayır|Nesne|Merhaba yeniden deneme davranışı 4xx veya 5xx hataları özelleştirmenizi sağlar.|  
+|operationsOptions|Hayır|Dize|Özel davranışlar toooverride Hello kümesini tanımlar.|  
+|Kimlik doğrulaması|Hayır|Nesne|İstek hello temsil hello yöntemi kimlik doğrulaması. Bu nesne üzerinde daha fazla bilgi için bkz [Scheduler giden bağlantı kimlik doğrulaması](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, `https://login.windows.net` belirtilmediğinde, ancak gibi farklı bir kitleye kullanabilirsiniz`https://login.windows\-ppe.net`|  
   
-HTTP Eylemler \(ve API bağlantısı\) Eylemler destek ilkeleri yeniden deneyin. 408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için bir yeniden deneme ilkesi uygulanır. Bu ilke kullanılarak tanımlanır *retryPolicy* aşağıda gösterildiği gibi tanımlanan nesnesi:
+HTTP Eylemler \(ve API bağlantısı\) Eylemler destek ilkeleri yeniden deneyin. Bir yeniden deneme ilkesi toointermittent hataları, HTTP durum işlemleri uygular kodları 408, 429 ve ayrıca tooany bağlantı özel durumlarda 5xx. Bu ilke hello kullanarak açıklanan *retryPolicy* aşağıda gösterildiği gibi tanımlanan nesnesi:
   
 ```json
 "retryPolicy" : {
@@ -445,9 +445,9 @@ HTTP Eylemler \(ve API bağlantısı\) Eylemler destek ilkeleri yeniden deneyin.
 }
 ```
   
-Yeniden deneme aralığını ISO 8601 biçiminde belirtilir. En büyük değer bir saat olsa da bu aralığı 20 saniye varsayılan ve en az değerine sahip. Varsayılan ve en fazla yeniden deneme sayısı dört saattir. Yeniden deneme ilkesi tanımı belirtilmezse, bir `fixed` stratejisi varsayılan yeniden deneme sayısı ve aralığı değerlerle kullanılır. Yeniden deneme ilkesi devre dışı bırakmak için türünü ayarlamak `None`.  
+Merhaba yeniden deneme aralığı hello ISO 8601 biçiminde belirtilir. Hello en büyük değer bir saat olsa da bu aralık varsayılan ve 20 saniye, en küçük değerini sahiptir. Merhaba varsayılan ve en fazla yeniden deneme sayısı dört saattir. Merhaba yeniden deneme ilkesi tanımı belirtilmezse, bir `fixed` stratejisi varsayılan yeniden deneme sayısı ve aralığı değerlerle kullanılır. toodisable hello yeniden deneme İlkesi ayarlamak türü çok`None`.  
   
-Her denemesi arasındaki 30 saniyelik gecikmeyle üç yürütmeleri toplam aralıklı hatalar varsa en son haberleri iki kez getiriliyor. Örneğin, aşağıdaki eylem yeniden deneme sayısı:  
+Her denemesi arasındaki 30 saniyelik gecikmeyle üç yürütmeleri toplam aralıklı hatalar varsa örneğin, hello aşağıdaki eylemi getirilirken hello en son haberleri iki kez yeniden dener:  
   
 ```json
 "latestNews" : {
@@ -465,9 +465,9 @@ Her denemesi arasındaki 30 saniyelik gecikmeyle üç yürütmeleri toplam aral�
 ```
 ### <a name="asynchronous-patterns"></a>Zaman uyumsuz desenleri
 
-Varsayılan olarak, tüm HTTP tabanlı eylemleri standart zaman uyumsuz işlem düzenini destekler. Uzak sunucu isteği bir 202 işleme için kabul edilir olduğunu gösteriyorsa, bunu \(kabul edilen\) yanıt, Logic Apps altyapısı tutar yoklama terminaldurumunaulaşmasınıkadaryanıtınkonumuüstbilgisindebelirtilenURL\(olmayan bir\-202 yanıt\).  
+Varsayılan olarak, tüm HTTP tabanlı eylemleri hello standart zaman uyumsuz işlem düzenini destekler. Merhaba uzak sunucu bu hello istek gösterirse bir 202 işleme için kabul edilir şekilde \(kabul edilen\) yanıtı hello Logic Apps altyapısı tutar yoklama terminal ulaşmasını kadar hello yanıtın konumu üstbilgisinde belirtilen hello URL'si durumu \(olmayan bir\-202 yanıt\).  
   
-Daha önce açıklanan zaman uyumsuz davranışı devre dışı bırakmak için ayarlanmış bir `DisableAsyncPattern` eylem girişleri seçeneği. Bu durumda, eylemin çıkış sunucusundan ilk 202 yanıt temel alır.  
+toodisable hello zaman uyumsuz davranışı, daha önce açıklandığı gibi ayarlanmış bir `DisableAsyncPattern` hello eylem girişleri seçeneği. Bu durumda, hello eylemin hello çıktı hello ilk 202 yanıt hello sunucusundan temel alır.  
   
 ```json
 "invokeLongRunningOperation" : {
@@ -482,7 +482,7 @@ Daha önce açıklanan zaman uyumsuz davranışı devre dışı bırakmak için 
 
 #### <a name="asynchronous-limits"></a>Zaman uyumsuz sınırları
 
-Zaman uyumsuz desen süresinin belirli bir zaman aralığı için sınırlı olabilir.  Terminal durumuna erişmeden zaman aralığını aşılırsa, eylemin durumunu işaretlenecek `Cancelled` koduyla `ActionTimedOut`.  Sınır zaman aşımı ISO 8601 biçiminde belirtilir.  Sınırları, aşağıdaki sözdizimi ile belirtilebilir:
+Zaman uyumsuz desen kendi süresi tooa belirli bir zaman aralığı içinde sınırlı olabilir.  Terminal durumuna erişmeden Hello zaman aralığı sona erdiğinde, hello eylemin hello durumunu işaretlenecek `Cancelled` koduyla `ActionTimedOut`.  ISO 8601 biçiminde Hello sınırı zaman aşımı belirtildi.  Sınırları sözdizimi aşağıdaki hello ile belirtilebilir:
 
 ``` json
 "<action-name>": {
@@ -497,18 +497,18 @@ Zaman uyumsuz desen süresinin belirli bir zaman aralığı için sınırlı ola
 ## <a name="api-connection"></a>API bağlantısı  
 
 API bağlantı Microsoft tarafından yönetilen bir bağlayıcı başvuruda bulunan bir eylemdir.
-Bu eylem geçerli bir bağlantı ve API ve gerekli parametreleri hakkında bilgi için bir başvuru gerektirir.
+Bu eylem, bir başvuru tooa geçerli bağlantı ve hello API ve gerekli parametreleri hakkında bilgi gerektirir.
 
 |Öğe adı|Gerekli|Tür|Açıklama|  
 |----------------|------------|--------|---------------|  
-|ana bilgisayar|Evet|Nesne|Bağlantı nesnesine başvuru ve runtimeUrl gibi bağlayıcı bilgileri temsil eder|
-|Yöntemi|Evet|Dize|Aşağıdaki HTTP yöntemlerden biri olabilir: **almak**, **POST**, **PUT**, **silmek**, **düzeltme eki**, veya  **HEAD**|  
-|Yol|Evet|Dize|API işlemi yolu.|  
-|Sorguları|Hayır|Nesne|URL'ye eklemek için sorgu parametreleri temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL.|  
-|Üstbilgileri|Hayır|Nesne|Her isteği gönderilen üstbilgilerinin temsil eder. Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Gövde|Hayır|Nesne|Uç noktasına gönderilen yükünü temsil eder.|  
-|retryPolicy|Hayır|Nesne|4xx veya 5xx hataları yeniden deneme davranışını özelleştirmenizi sağlar.|  
-|operationsOptions|Hayır|Dize|Geçersiz kılmak için özel davranışları kümesini tanımlar.|  
+|ana bilgisayar|Evet|Nesne|Merhaba runtimeUrl ve başvuru toohello bağlantı nesnesi gibi Hello bağlayıcı bilgileri temsil eder|
+|Yöntemi|Evet|Dize|HTTP yöntemleri aşağıdaki hello biri olabilir: **almak**, **POST**, **PUT**, **silmek**, **düzeltme eki**, veya  **HEAD**|  
+|Yol|Evet|Dize|Merhaba API işlemi Hello yolu.|  
+|Sorguları|Hayır|Nesne|Merhaba sorgu parametreleri tooadd toohello URL'yi temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` toohello URL.|  
+|Üstbilgileri|Hayır|Nesne|Her toohello isteği gönderilir hello üstbilgilerinin temsil eder. Örneğin, tooset hello dil ve istek üzerine yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Gövde|Hayır|Nesne|Toohello endpoint gönderilen hello yükünü temsil eder.|  
+|retryPolicy|Hayır|Nesne|Merhaba yeniden deneme davranışı 4xx veya 5xx hataları özelleştirmenizi sağlar.|  
+|operationsOptions|Hayır|Dize|Özel davranışlar toooverride Hello kümesini tanımlar.|  
 
 ```json
 "Send_Email": {
@@ -563,11 +563,11 @@ Bu eylem geçerli bir bağlantı ve API ve gerekli parametreleri hakkında bilgi
 }
 ```
 
-Bir Web kancası eylemi sınırları, aynı şekilde belirtilebilir [HTTP zaman uyumsuz sınırları](#asynchronous-limits).
+Bir Web kancası eylemi sınırları hello belirtilebilir aynı şekilde [HTTP zaman uyumsuz sınırları](#asynchronous-limits).
   
 ## <a name="response-action"></a>Yanıt eylemi  
 
-Bu eylem türü bir HTTP isteği tüm yanıt yükü içerir ve bir statusCode, metnini ve üst bilgileri içerir:  
+Bu eylem türü bir HTTP isteğinden hello tüm yanıt yükü içerir ve bir statusCode, metnini ve üst bilgileri içerir:  
   
 ```json
 "myresponse" : {
@@ -587,17 +587,17 @@ Bu eylem türü bir HTTP isteği tüm yanıt yükü içerir ve bir statusCode, m
 }
 ```
   
-Yanıt eylemi diğer eylemler için uygulama özel sınırlamalar vardır. Bu avantajlar şunlardır:  
+Merhaba yanıt eylem tooother Eylemler uygulanmaz özel sınırlamalar vardır. Bu avantajlar şunlardır:  
   
--   Gelen istek belirleyici yanıt gerektiğinden yanıt eylemlerinizi bir tanım paralel olamaz.  
+-   Belirleyici yanıt toohello gelen isteği gerektiğinden yanıt eylemlerinizi bir tanım paralel olamaz.  
   
--   Gelen istek yanıt aldıktan sonra bir yanıt eylemi ulaştıysanız, eylem olarak kabul başarısız \(çakışma\), ve sonuç olarak, çalışma `Failed`.  
+-   Merhaba gelen istek yanıt aldıktan sonra bir yanıt eylemi ulaştıysanız, hello eylem olarak kabul başarısız \(çakışma\), ve bunun sonucunda çalıştırmak hello `Failed`.  
   
--   Yanıt eylemleri içeren bir iş akışının olamaz `splitOn` , tetikleyici içinde birçok çalışır bir çağrı neden olduğundan. Sonuç olarak, akış PUT ve nedeni hatalı istek olduğunda bu doğrulanmalıdır.  
+-   Yanıt eylemleri içeren bir iş akışının olamaz `splitOn` , tetikleyici içinde birçok çalışır bir çağrı neden olduğundan. Sonuç olarak, Hello akış PUT ve nedeni hatalı istek olduğunda bu doğrulanmalıdır.  
   
 ## <a name="wait-action"></a>Eylem bekleyin  
 
-`wait` Eylem iş akışı yürütme belirtilen zaman aralığı için askıya alır. Örneğin, 15 dakika beklemek için bu parçacığı kullanabilirsiniz:  
+Merhaba `wait` eylemin hello belirtilen zaman aralığı için iş akışı yürütme askıya alır. Örneğin, toowait 15 dakika, bu kod parçacığında kullanabilirsiniz:  
   
 ```json
 "waitForFifteenMinutes" : {
@@ -611,7 +611,7 @@ Yanıt eylemi diğer eylemler için uygulama özel sınırlamalar vardır. Bu av
 }
 ```  
   
-Alternatif olarak, zaman içinde belirli bir süre kadar beklemek için bu örnek kullanabilirsiniz:  
+Alternatif olarak, toowait zaman belirli bir süre kadar bu örnek kullanabilirsiniz:  
   
 ```json
 "waitUntilOctober" : {
@@ -625,19 +625,19 @@ Alternatif olarak, zaman içinde belirli bir süre kadar beklemek için bu örne
 ```
   
 > [!NOTE]  
-> Bekleme süresi kullanılarak da belirtilebilir **aralığı** nesne veya **kadar** nesnesi, ancak ikisini birden değil.  
+> Merhaba bekleme süresini ya da hello kullanılarak belirtilebilir **aralığı** nesne veya hello **kadar** nesnesi, ancak ikisini birden değil.  
   
 |Ad|Gerekli|Tür|Açıklama|  
 |--------|------------|--------|---------------|  
-|aralığı|Hayır|Nesne|Zaman miktarına bağlı bekleme süresi.|  
+|interval|Hayır|Nesne|Merhaba zaman miktarına göre süre bekleyin.|  
 |aralığı birimi|Evet|Dize|Bu aralıklar birini: saniye, dakika, saat, gün, hafta, ay, yıl.|  
-|Aralık sayısı|Evet|Dize|Verilen iç birimine dayalı süresi.|  
-|kadar|Hayır|Nesne|Bekleme süresi bir noktasında zaman dayanır.|  
-|zaman damgası kadar|Evet|Dize|Dize &#124; Bekleme süresi dolduğunda UTC zaman içinde nokta.|  
+|Aralık sayısı|Evet|Dize|İç birim verilen hello üzerinde temel süresi.|  
+|kadar|Hayır|Nesne|Merhaba zamandaki bir noktasında temel süre bekleyin.|  
+|zaman damgası kadar|Evet|Dize|Dize &#124; hello bekleme süresi dolduğunda UTC zamanı başlangıç noktası.|  
 
 ## <a name="query-action"></a>Sorgu eylemi
 
-`query` Eylemi bir koşula göre bir dizi filtre olanak sağlar. Örneğin, 2'den büyük sayılar seçmek için kullanabilirsiniz:
+Merhaba `query` eylemi bir koşula göre bir dizi filtre olanak sağlar. Örneğin, 2'den büyük tooselect sayılar, kullanabilirsiniz:
 
 ```json
 "FilterNumbers" : {
@@ -649,20 +649,20 @@ Alternatif olarak, zaman içinde belirli bir süre kadar beklemek için bu örne
 }
 ```
 
-Çıktısını `query` koşulu karşılıyor giriş dizisi öğelerinden sahip bir dizi eylemdir.
+Merhaba hello çıktısını `query` hello koşulu karşılıyor hello Giriş dizisinin öğelerinden sahip bir dizi eylemdir.
 
 > [!NOTE]
-> Hiçbir değer belirtecini karşılıyorsa `where` sonucu durumudur boş bir dizi.
+> Hiçbir değer hello belirtecini karşılıyorsa `where` koşul, hello boş bir dizi sonucudur.
 
 |Ad|Gerekli|Tür|Açıklama|
 |--------|------------|--------|---------------|
-|Kaynak|Evet|Dizi|Kaynak dizi.|
-|Burada|Evet|Dize|Kaynak dizinin her öğeye uygulamak için koşulu.|
+|Kaynak|Evet|Dizi|Merhaba kaynak dizi.|
+|Burada|Evet|Dize|Merhaba kaynak dizinin Hello koşulu tooapply tooeach öğesi.|
 
 ## <a name="select-action"></a>Bir eylem seçin
 
-`select` Eylemi yeni bir değer dizideki her öğe proje olanak sağlar.
-Örneğin, bir dizi sayının nesnelerinin bir dizisi dönüştürmek için kullanabilirsiniz:
+Merhaba `select` eylem yeni bir değer dizideki her öğe proje olanak sağlar.
+Örneğin, bir dizi sayılara nesnelerinin dizisi tooconvert kullanabilirsiniz:
 
 ```json
 "SelectNumbers" : {
@@ -674,16 +674,16 @@ Alternatif olarak, zaman içinde belirli bir süre kadar beklemek için bu örne
 }
 ```
 
-Çıktısını `select` giriş dizisi olarak aynı kardinalite tarafından tanımlandığı şekilde dönüştürülmüş her öğeye sahip olan bir dizi eylemdir `select` özelliği. Girdi boş bir dizi çıkışı da boş bir dizi ise.
+Merhaba hello çıktısını `select` aynı kardinalite olarak dönüştürülen her bir öğesiyle Giriş dizisinin hello olarak tanımlanan hello hello tarafından sahip bir dizi eylemdir `select` özelliği. Merhaba giriş boş bir dizi hello çıktı da boş bir dizi ise.
 
 |Ad|Gerekli|Tür|Açıklama|
 |--------|------------|--------|---------------|
-|Kaynak|Evet|Dizi|Kaynak dizi.|
-|seçin|Evet|Herhangi biri|Kaynak dizinin her öğeye uygulamak için yansıtma.|
+|Kaynak|Evet|Dizi|Merhaba kaynak dizi.|
+|seçin|Evet|Herhangi biri|Merhaba kaynak dizinin Hello projeksiyon tooapply tooeach öğesi.|
 
 ## <a name="terminate-action"></a>Sonlandırma eylemi
 
-Sonlandırma eyleminin yürütülen tüm eylemler durduruluyor ve kalan herhangi bir eylem atlanıyor iş akışı çalışmanın yürütülmesi durdurur. Örneğin, bir çalışma durumuna sahip sonlandırmak için **başarısız**, aşağıdaki kod parçacığında kullanabilirsiniz:
+Merhaba sonlandırma eyleminin yürütülen tüm eylemler durduruluyor ve kalan herhangi bir eylem atlanıyor Çalıştır hello iş akışının yürütülmesini durdurur. Örneğin, tooterminate durumuna sahip bir Farklı Çalıştır **başarısız**, aşağıdaki kod parçacığında hello kullanabilirsiniz:
 
 ```json
 "HandleUnexpectedResponse" : {
@@ -699,18 +699,18 @@ Sonlandırma eyleminin yürütülen tüm eylemler durduruluyor ve kalan herhangi
 ```
 
 > [!NOTE]
-> Zaten tamamlanmış Eylemler Sonlandır eylemi tarafından etkilenmez.
+> Zaten tamamlanmış eylemler tarafından hello etkilenmez sonlandırma eylemi.
 
 |Ad|Gerekli|Tür|Açıklama|
 |--------|------------|--------|---------------|
-|runStatus|Evet|Dize|Hedef durumu çalıştırma. Her iki **başarısız** veya **iptal**.|
-|runError|Hayır|Nesne|Hata ayrıntıları. Ne zaman desteklenen yalnızca **runStatus** ayarlanır **başarısız**.|
-|runError kodu|Hayır|Dize|Çalışma hata kodu.|
-|runError iletisi|Hayır|Dize|Çalışma hata iletisi.|
+|runStatus|Evet|Dize|Merhaba hedef durumu çalıştırın. Her iki **başarısız** veya **iptal**.|
+|runError|Hayır|Nesne|Merhaba hata ayrıntıları. Ne zaman desteklenen yalnızca **runStatus** çok ayarlanır**başarısız**.|
+|runError kodu|Hayır|Dize|Merhaba hata kodu çalıştırma.|
+|runError iletisi|Hayır|Dize|Merhaba, hata iletisi çalıştırın.|
 
 ## <a name="compose-action"></a>Eylem oluşturma
 
-Oluşturma eylem rastgele bir nesne oluşturmak olanak sağlar. Oluşturma eylem çıktısını girdilerinden değerlendirme sonucudur. Örneğin, birden çok eylem çıkışları birleştirmek için oluşturma eylemini kullanabilirsiniz:
+Merhaba Oluştur eylemi, rastgele bir nesne oluşturmak olanak tanır. Merhaba Hello çıktısını oluşturan eylem girdilerinden değerlendirme hello sonucudur. Örneğin, hello kullanabilirsiniz birden çok eylem eylem toomerge çıkışları oluşturun:
 
 ```json
 "composeUserRecord" : {
@@ -725,11 +725,11 @@ Oluşturma eylem rastgele bir nesne oluşturmak olanak sağlar. Oluşturma eylem
 ```
 
 > [!NOTE]
-> **Oluşturma** eylem nesneleri, dizileri ve yerel olarak XML ve ikili gibi mantıksal uygulamalar tarafından desteklenen herhangi bir türü de dahil olmak üzere herhangi bir çıktı oluşturmak için kullanılabilir.
+> Merhaba **oluşturma** eylem kullanılan tooconstruct nesneleri, dizileri ve yerel olarak XML ve ikili gibi mantıksal uygulamalar tarafından desteklenen herhangi bir türü de dahil olmak üzere herhangi bir çıktı olabilir.
 
 ## <a name="table-action"></a>Tablo eylemi
 
-`table` Öğeleri dizisi dönüştürmenize olanak sağlayan bir **CSV** veya **HTML** tablo.
+Merhaba `table` öğeleri dizisi bir tooconvert sağlayan bir **CSV** veya **HTML** tablo.
 
 Varsayalım @triggerBody() değil
 
@@ -743,7 +743,7 @@ Varsayalım @triggerBody() değil
 }]
 ```
 
-Ve olarak tanımladığı eylem izin verin
+Ve hello eylem olarak tanımlanması izin verin
 
 ```json
 "ConvertToTable" : {
@@ -755,11 +755,11 @@ Ve olarak tanımladığı eylem izin verin
 }
 ```
 
-Yukarıdaki oluşturur
+Yukarıdaki Hello oluşturur
 
 <table><thead><tr><th>id</th><th>ad</th></tr></thead><tbody><tr><td>0</td><td>elmalar</td></tr><tr><td>1</td><td>portakallar</td></tr></tbody></table>"
 
-Tablo özelleştirmek için sütunları açıkça belirtebilirsiniz. Örneğin:
+Sipariş toocustomize hello tabloda hello sütunları açıkça belirtebilirsiniz. Örneğin:
 
 ```json
 "ConvertToTable" : {
@@ -778,29 +778,29 @@ Tablo özelleştirmek için sütunları açıkça belirtebilirsiniz. Örneğin:
 }
 ```
 
-Yukarıdaki oluşturur
+Yukarıdaki Hello oluşturur
 
 <table><thead><tr><th>kimliği oluşturmak</th><th>Açıklama</th></tr></thead><tbody><tr><td>0</td><td>Yeni elmalar</td></tr><tr><td>1</td><td>Yeni portakallar</td></tr></tbody></table>"
 
-Varsa `from` özellik değeri boş bir dizi, çıktı boş bir tablo.
+Merhaba, `from` özellik değeri boş bir dizi, hello çıkış boş bir tablo.
 
 |Ad|Gerekli|Tür|Açıklama|
 |--------|------------|--------|---------------|
-|Kaynak|Evet|Dizi|Kaynak dizi.|
-|Biçimi|Evet|Dize|Biçim ya da **CSV** veya **HTML**.|
-|sütunları|Hayır|Dizi|Sütunlar. Tablonun varsayılan Şekil geçersiz kılmasını sağlar.|
-|sütun başlığı|Hayır|Dize|Sütun başlığı.|
-|Sütun değeri|Evet|Dize|Sütun değeri.|
+|Kaynak|Evet|Dizi|Merhaba kaynak dizi.|
+|Biçimi|Evet|Dize|Biçim, ya da hello **CSV** veya **HTML**.|
+|sütunları|Hayır|Dizi|Merhaba sütun. Merhaba tablonun toooverride hello varsayılan şekil sağlar.|
+|sütun başlığı|Hayır|Dize|Merhaba sütunun başlığını Hello.|
+|Sütun değeri|Evet|Dize|Merhaba sütunun Hello değeri.|
 
 ## <a name="workflow-action"></a>İş akışı eylemi   
 
 |Ad|Gerekli|Tür|Açıklama|  
 |--------|------------|--------|---------------|  
-|ana bilgisayar kimliği|Evet|Dize|Aramak istediğiniz iş akışı kaynak kimliği.|  
-|ana bilgisayar tetikleyiciadı|Evet|Dize|Çağrılacak istediğiniz Tetikleyici adı.|  
-|Sorguları|Hayır|Nesne|URL'ye eklemek için sorgu parametreleri temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL.|  
-|Üstbilgileri|Hayır|Nesne|Her isteği gönderilen üstbilgilerinin temsil eder. Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
-|Gövde|Hayır|Nesne|Uç noktasına gönderilen yükünü temsil eder.|  
+|ana bilgisayar kimliği|Evet|Dize|Merhaba iş akışı toocall istediğiniz Hello kaynak kimliği.|  
+|ana bilgisayar tetikleyiciadı|Evet|Dize|tooinvoke istediğiniz hello tetikleyici Hello adı.|  
+|Sorguları|Hayır|Nesne|Merhaba sorgu parametreleri tooadd toohello URL'yi temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` toohello URL.|  
+|Üstbilgileri|Hayır|Nesne|Her toohello isteği gönderilir hello üstbilgilerinin temsil eder. Örneğin, tooset hello dil ve istek üzerine yazın:`"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
+|Gövde|Hayır|Nesne|Toohello endpoint gönderilen hello yükünü temsil eder.|  
   
 ```json
 "mynestedwf" : {
@@ -826,19 +826,19 @@ Varsa `from` özellik değeri boş bir dizi, çıktı boş bir tablo.
     }
 ```
   
-Bir erişim denetimi akışında yapılan \(daha belirgin olarak tetikleyici\), iş akışı erişmesi gereken anlamına gelir.  
+Bir erişim denetimi hello iş akışında yapılan \(daha belirgin olarak hello tetikleyici\), başka bir deyişle toohello iş akışı erişim.  
   
-Çıkışlarından `workflow` eylem ne tanımlanan üzerinde dayalı `response` alt iş akışı eylemi. Herhangi bir tanımlamadığınız varsa `response` eylemi ve ardından çıkışları boş.  
+Merhaba çıkarır hello `workflow` eylemin hello tanımlanan dayalı `response` hello alt iş akışı eylemi. Herhangi bir tanımlamadığınız varsa `response` eylemi ve ardından hello çıkışları boş.  
 
 ## <a name="function-action"></a>İşlev eylemi   
 
 |Ad|Gerekli|Tür|Açıklama|  
 |--------|------------|--------|---------------|  
-|İşlev kimliği|Evet|Dize|Çağırmak için istediğiniz işlev kaynak kimliği.|  
-|Yöntemi|Hayır|Dize|İşlevi çağırmak için kullanılan HTTP yöntemi. Varsayılan olarak, olmasından `POST` belirtilmemiş olduğunda.|  
-|Sorguları|Hayır|Nesne|URL'ye eklemek için sorgu parametreleri temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL.|  
-|Üstbilgileri|Hayır|Nesne|Her isteği gönderilen üstbilgilerinin temsil eder. Örneğin, bir isteği dil ve türünü ayarlamak için: `"headers" : { "Accept-Language": "en-us" }`.|  
-|Gövde|Hayır|Nesne|Uç noktasına gönderilen yükünü temsil eder.|  
+|İşlev kimliği|Evet|Dize|tooinvoke istediğiniz hello işlevini Hello kaynak kimliği.|  
+|Yöntemi|Hayır|Dize|Merhaba HTTP yöntemini tooinvoke hello işlevi kullanılır. Varsayılan olarak, olmasından `POST` belirtilmemiş olduğunda.|  
+|Sorguları|Hayır|Nesne|Merhaba sorgu parametreleri tooadd toohello URL'yi temsil eder. Örneğin, `"queries" : { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` toohello URL.|  
+|Üstbilgileri|Hayır|Nesne|Her toohello isteği gönderilir hello üstbilgilerinin temsil eder. Örneğin, tooset başlangıç dili ve istek üzerine türü: `"headers" : { "Accept-Language": "en-us" }`.|  
+|Gövde|Hayır|Nesne|Toohello endpoint gönderilen hello yükünü temsil eder.|  
 
 ```json
 "myfunc" : {
@@ -863,25 +863,25 @@ Bir erişim denetimi akışında yapılan \(daha belirgin olarak tetikleyici\), 
 }
 ```
 
-Mantıksal uygulama kaydettiğinizde, biz başvurulan işlev üzerinde bazı denetimler gerçekleştirin:
--   İşlev erişiminizin olması gerekir.
+Merhaba mantıksal uygulama kaydettiğinizde, biz başvurulan hello işlevi üzerinde bazı denetimler gerçekleştirin:
+-   Toohave erişim toohello işlevi gerekir.
 -   Yalnızca standart HTTP tetikleyicisi veya genel JSON Web kancası tetikleyici izin verilir.
 -   Tanımlı yol olmamalıdır.
 -   Yalnızca "işlev" ve "anonim" yetki düzeyini izin verilmez.
 
-Tetikleme URL'si alınan, önbelleğe alınmış ve çalışma zamanında kullanılır. Herhangi bir işlem önbelleğe alınmış URL'sini geçersiz kılar, dolayısıyla eylemi çalışma zamanında başarısız olur. Bu sorunu çözmek için almak ve tetikleme URL'si tekrar önbelleğe mantıksal uygulama neden olacak mantıksal uygulama yeniden kaydedin.
+Merhaba tetikleme URL'si alınan, önbelleğe alınan ve çalışma zamanında kullanılan. Herhangi bir işlem önbelleğe hello URL geçersiz kılar, dolayısıyla hello eylem çalışma zamanında başarısız olur. Bu, geçici toowork mantığı uygulama tooretrieve neden ve hello tetikleme URL'si tekrar önbelleğe hello mantıksal uygulama yeniden kaydedin.
 
 ## <a name="collection-actions-scopes-and-loops"></a>Koleksiyon eylemleri (kapsamlar ve döngüler)
 
-Bazı eylem türleri kendilerini içinde eylemler içerebilir. Bir koleksiyon içinde başvurusu Eylemler doğrudan dışında koleksiyonu başvurulabilir. Tanımladıysanız `http` bir kapsamda `@body('http')` herhangi bir iş akışında hala geçerlidir. Bir koleksiyon içinde eylemler olabilir `runAfter` yalnızca aynı koleksiyondaki diğer eylemler.
+Bazı eylem türleri kendilerini içinde eylemler içerebilir. Bir koleksiyon içinde başvurusu Eylemler doğrudan hello koleksiyonu dışında başvurulabilir. Tanımladıysanız `http` bir kapsamda `@body('http')` herhangi bir iş akışında hala geçerlidir. Bir koleksiyon içinde eylemler için `runAfter` içindeki diğer eylemleri hello aynı koleksiyonu.
 
 ## <a name="scope-action"></a>Kapsam eylemi
 
-`scope` Eylem sağlar, mantıksal olarak bir iş akışında Grup eylemler.
+Merhaba `scope` eylem sağlar, mantıksal olarak bir iş akışında Grup eylemler.
 
 |Ad|Gerekli|Tür|Açıklama|  
 |--------|------------|--------|---------------|  
-|Eylemler|Evet|Nesne|Kapsam içinde yürütmek için iç Eylemler|
+|Eylemler|Evet|Nesne|İç Eylemler tooexecute hello kapsam içinde|
 
 ```json
 {
@@ -901,13 +901,13 @@ Bazı eylem türleri kendilerini içinde eylemler içerebilir. Bir koleksiyon i�
 
 ## <a name="foreach-action"></a>ForEach eylemi
 
-Bu döngü eylem bir dizisini yineler ve her öğe için iç eylemleri gerçekleştirir. Varsayılan olarak, (20 yürütmeleri paralel birer birer) paralel foreach döngüsü yürütür. Yürütme kurallarını kullanarak ayarlayabilirsiniz `operationOptions` parametresi.
+Bu döngü eylem bir dizisini yineler ve her öğe için iç eylemleri gerçekleştirir. Varsayılan olarak, paralel (20 yürütmeleri paralel birer birer) hello foreach döngüsü yürütür. Hello kullanarak yürütme kurallarını ayarlayabilmeniz için `operationOptions` parametresi.
 
 |Ad|Gerekli|Tür|Açıklama|  
 |--------|------------|--------|---------------|  
-|Eylemler|Evet|Nesne|Döngü içinde yürütmek için iç Eylemler|
-|foreach|Evet|Dize|Dizi üzerinden yineleme|
-|operationOptions|Yok|Dize|İşlemi için herhangi bir seçenek davranışı. Şu anda yalnızca destekler `sequential` yineleme sırayla yürütmek için (varsayılan davranıştır paralel)|
+|Eylemler|Evet|Nesne|İç Eylemler tooexecute hello döngü içinde|
+|foreach|Evet|Dize|Merhaba dizi tooiterate üzerinden|
+|operationOptions|Yok|Dize|İşlemi için herhangi bir seçenek davranışı. Şu anda yalnızca destekler `sequential` tooexecute yineleme sırayla (varsayılan davranıştır paralel)|
 
 ```json
 "forEach_email": {
@@ -938,15 +938,15 @@ Bu döngü eylem bir dizisini yineler ve her öğe için iç eylemleri gerçekle
 
 ## <a name="until-action"></a>Eylem kadar
 
-Bir koşul true olarak sonuçları kadar bu döngü eylem iç Eylemler yürütür.
+Bir koşul tootrue sonuçları kadar bu döngü eylem iç Eylemler yürütür.
 
 |Ad|Gerekli|Tür|Açıklama|  
 |--------|------------|--------|---------------|  
-|Eylemler|Evet|Nesne|Döngü içinde yürütmek için iç Eylemler|
-|ifade|Evet|Dize|Her yinelemeden sonra değerlendirilecek ifade|
-|Sınırı|Evet|Nesne|Döngü - en az bir sınır sınırlarını tanımlanmış olması gerekir|
-|Sayısı|Yok|Int|Gerçekleştirilebilir yineleme sayısını sınırla|
-|Zaman aşımı|Yok|Dize|Ne kadar süreyle döndürmelidir için zaman aşımı.  ISO 8601 biçim|
+|Eylemler|Evet|Nesne|İç Eylemler tooexecute hello döngü içinde|
+|ifade|Evet|Dize|Her yinelemeden sonra Hello ifade tooevaluate|
+|Sınırı|Evet|Nesne|Merhaba sınırları hello döngü - en az bir sınır için tanımlanmış olması gerekir|
+|Sayısı|Yok|Int|Merhaba sınırı toohello gerçekleştirilebilir yineleme sayısı|
+|Zaman aşımı|Yok|Dize|ne kadar süreyle döndürmelidir için hello zaman aşımı.  ISO 8601 biçim|
 
 
 ```json
@@ -973,13 +973,13 @@ Bir koşul true olarak sonuçları kadar bu döngü eylem iç Eylemler yürütü
 
 ## <a name="conditions---if-action"></a>-Varsa koşulları eylemi
 
-`If` Eylem, bir koşulu değerlendirmek ve olup olmadığını ifade değerlendiren üzerinde dayalı bir dal yürütme sağlar `true`.
+Merhaba `If` eylem, bir koşulu değerlendirmek ve olup hello ifadeyi çok hesaplar üzerinde dayalı bir dal yürütme sağlar`true`.
 
 |Ad|Gerekli|Tür|Açıklama|  
 |--------|------------|--------|---------------|  
-|Eylemler|Evet|Nesne|İfade olarak değerlendirildiğinde yürütmek için iç Eylemler`true`|
-|ifade|Evet|Dize|Değerlendirilecek ifade|
-|else|Yok|Nesne|İfade olarak değerlendirildiğinde yürütmek için iç Eylemler`false`|
+|Eylemler|Evet|Nesne|İfade çok değerlendirirken, iç Eylemler tooexecute`true`|
+|ifade|Evet|Dize|Merhaba ifade tooevaluate|
+|else|Yok|Nesne|İfade çok değerlendirirken, iç Eylemler tooexecute`false`|
   
 ```json
 "My_condition": {
@@ -1011,17 +1011,17 @@ Bir koşul true olarak sonuçları kadar bu döngü eylem iç Eylemler yürütü
 }
 ```  
   
-Aşağıdaki tabloda koşullar bir eylemi ifade nasıl kullanabileceğiniz örnekler gösterilmektedir:  
+Merhaba aşağıdaki tabloda koşullar bir eylemi ifade nasıl kullanabileceğiniz örnekler gösterilmektedir:  
   
 |JSON değeri|Sonuç|  
 |--------------|----------|  
-|`"expression": "@parameters('hasSpecialAction')"`|True olarak değerlendirecek herhangi bir değer geçirmek bu koşul neden olur. Yalnızca Boole ifadeleri desteklenir. Diğer türleri Boolean değerine dönüştürmek için işlevlerini kullanın `empty`, `equals`.|  
-|`"expression": "@greater(actions('act1').output.value, parameters('threshold'))"`|Karşılaştırma işlevleri desteklenir. Act1 çıktısı eşik değerinden yüksek olduğunda örnek için eylem yalnızca yürütür.|  
-|`"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"`|Mantığı işlevleri iç içe geçmiş Boole ifadeleri oluşturmak için de desteklenir. Bu durumda, act1 çıktısını eşiğin üstünde veya altında 100 olduğunda eylemi yürütür.|  
-|`"expression": "@equals(length(actions('act1').outputs.errors), 0))"`|Dizi işlevleri, bir dizinin tüm öğeleri olup olmadığını denetlemek için kullanabilirsiniz. Bu durumda, hataları dizi boş olduğunda eylemi yürütür.| 
+|`"expression": "@parameters('hasSpecialAction')"`|Tootrue değerlendirecek herhangi bir değer bu koşul toopass neden olur. Yalnızca Boole ifadeleri desteklenir. tooconvert diğer türleri tooBoolean, kullanım işlevleri `empty`, `equals`.|  
+|`"expression": "@greater(actions('act1').output.value, parameters('threshold'))"`|Karşılaştırma işlevleri desteklenir. Act1 Hello çıktısını hello eşik değerinden yüksek olduğunda burada hello örneğin hello eylem yalnızca yürütür.|  
+|`"expression": "@or(greater(actions('act1').output.value, parameters('threshold')), less(actions('act1').output.value, 100))"`|Mantığı da desteklenen toocreate Boolean ifadeleri iç içe işlevlerdir. Bu durumda, act1 Hello çıktısını hello eşiğin üstünde veya altında 100 olduğunda hello eylem yürütür.|  
+|`"expression": "@equals(length(actions('act1').outputs.errors), 0))"`|Bir dizinin tüm öğeleri varsa, dizi işlevleri toocheck kullanabilirsiniz. Bu durumda, Hello hataları dizi boş olduğunda hello eylem yürütür.| 
 |`"expression": "parameters('hasSpecialAction')"`|Hata - geçerli bir @ için gerekli olduğundan koşul koşulları.|  
   
-Bir koşul başarıyla değerlendirilirse koşul olarak işaretlenmiş `Succeeded`. Ya da içinde eylemler `actions` veya `else` nesneleri değerlendirmek için `Succeeded` yürütülen ve başarılı oldu, `Failed` yürütülen ve başarısız olduğunda veya `Skipped` zaman o şubedeki yürütülmez.
+Bir koşul başarıyla değerlendirilirse hello koşulu olarak işaretlenmiş `Succeeded`. Ya da hello içinde eylemler `actions` veya `else` nesneleri değerlendirmek çok`Succeeded` yürütülen ve başarılı oldu, `Failed` yürütülen ve başarısız olduğunda veya `Skipped` zaman o şubedeki yürütülmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

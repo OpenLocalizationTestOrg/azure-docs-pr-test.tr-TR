@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme | Microsoft Docs"
-description: "Visual Studio için Data Lake Araçları'nı nasıl yükleyeceğinizi ve U-SQL betiklerini nasıl geliştirip test edeceğinizi öğrenin."
+title: "Visual Studio için Data Lake araçları kullanarak aaaDevelop U-SQL komut dosyalarını | Microsoft Docs"
+description: "Visual Studio için tooinstall Data Lake araçları nasıl ve ne öğrenin toodevelop ve test U-SQL komut dosyaları."
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2017
 ms.author: saveenr, yanacai
-ms.openlocfilehash: 7bbbb08ff635477a88403a3ae6bd3486d31838ef
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7a0c02c275b8cefecbe784ba63969cbf24a150d8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
-Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde işler tanımlamak ve Data Lake Analytics hizmetine iş göndermek için Visual Studio’nun nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
+Bilgi nasıl toouse Visual Studio toocreate Azure Data Lake Analytics hesapları tanımlayın işler [U-SQL](data-lake-analytics-u-sql-get-started.md)ve işleri toohello Data Lake Analytics hizmeti gönderin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -33,26 +33,26 @@ Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
-* **.NET için Microsoft Azure SDK** 2.7.1 sürümü veya sonraki sürümleri.  [Web platformu yükleyicisini](http://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
-* **Data Lake Analytics** hesabı. Hesap oluşturmak için bkz. [Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md).
+* **.NET için Microsoft Azure SDK** 2.7.1 sürümü veya sonraki sürümleri.  Hello kullanarak yükleme [Web Platformu yükleyicisi](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Data Lake Analytics** hesabı. hesabı, bir toocreate bkz [Azure portal kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md).
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake Araçları’nı yükleme 
 
-[İndirme Merkezi'nden](http://aka.ms/adltoolsvs) Visual Studio için Azure Data Lake Araçları’nı indirip yükleyin. Yükleme işleminden sonra şunları kontrol edin:
-* **Sunucu Gezgini** > **Azure** düğümü, **Data Lake Analytics** düğümü içerir. 
-* **Araçlar** menüsünde **Data Lake** öğesi vardır.
+Azure Data Lake araçları Visual Studio için yükleyip [hello İndirme Merkezi gelen](http://aka.ms/adltoolsvs). Yükleme işleminden sonra şunları kontrol edin:
+* Merhaba **Sunucu Gezgini** > **Azure** düğümü içeren bir **Data Lake Analytics** düğümü. 
+* Merhaba **Araçları** menü sahip bir **Data Lake** öğesi.
 
-## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Azure Data Lake Analytics hesabına bağlanma
+## <a name="connect-tooan-azure-data-lake-analytics-account"></a>Tooan Azure Data Lake Analytics hesabı Bağlan
 
 1. Visual Studio'yu açın.
 2. **Görünüm** > **Sunucu Gezgini**’ni seçerek Sunucu Gezgini’ni açın.
-3. **Azure**’a sağ tıklayın. Ardından **Microsoft Azure Aboneliğine Bağlan**’ı seçin ve yönergeleri uygulayın.
+3. **Azure**’a sağ tıklayın. Ardından **tooMicrosoft Azure aboneliğine bağlanma** ve hello yönergeleri izleyin.
 4. Sunucu Gezgini'nde **Azure** > **Data Lake Analytics**’i seçin. Data Lake Analytics hesaplarınızın listesini görürsünüz.
 
 
 ## <a name="write-your-first-u-sql-script"></a>İlk U-SQL betiğinizi yazma
 
-Aşağıda basit bir U-SQL betiği gösterilmiştir. Küçük bir veri kümesini tanımlar ve bu veri kümesini `/data.csv` adlı bir dosya olarak varsayılan Data Lake Store’a yazar.
+metin aşağıdaki hello basit bir U-SQL komut dosyasıdır. Küçük bir veri kümesini ve bir dosya olarak dataset toohello varsayılan Data Lake Store adlı yazma tanımlar `/data.csv`.
 
 ```
 @a  = 
@@ -63,7 +63,7 @@ Aşağıda basit bir U-SQL betiği gösterilmiştir. Küçük bir veri kümesini
         ) AS 
               D( customer, amount );
 OUTPUT @a
-    TO "/data.csv"
+    too"/data.csv"
     USING Outputters.Csv();
 ```
 
@@ -71,44 +71,44 @@ OUTPUT @a
 
 1. **Dosya** > **Yeni** > **Proje**’yi seçin.
 
-2. **U-SQL Projesi** türünü seçin ve **Tamam**’a tıklayın. Visual Studio, **Script.usql** dosyasıyla bir çözüm oluşturur.
+2. Select hello **U-SQL projesi** yazın ve ardından **Tamam**. Visual Studio, **Script.usql** dosyasıyla bir çözüm oluşturur.
 
-3. Önceki betiği **Script.usql** penceresine yapıştırın.
+3. Hello önceki betik hello yapıştırma **Script.usql** penceresi.
 
-4. **Script.usql** penceresinin sol üst köşesinde Data Lake Analytics hesabını belirtin.
+4. Merhaba hello sol üst köşesindeki **Script.usql** penceresinde hello Data Lake Analytics hesabı belirtin.
 
     ![U-SQL Visual Studio projesini gönderme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
-5. **Script.usql** penceresinin sol üst köşesinde **Gönder**’i seçin.
-6. **Analytics Hesabı**’nı doğrulayın ve ardından **Gönder**’i seçin. Gönderim tamamlandıktan sonra, gönderme işleminin sonuçları Visual Studio için Data Lake Araçları Sonuçları içinde sunulur.
+5. Merhaba hello sol üst köşesindeki **Script.usql** penceresinde, seçin **gönderme**.
+6. Merhaba doğrulayın **Analytics hesabı**ve ardından **gönderme**. Merhaba gönderimi tamamlandıktan sonra gönderme işleminin sonuçları hello Data Lake araçları Visual Studio sonuçlar için kullanılabilir.
 
     ![U-SQL Visual Studio projesini gönderme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. En son iş durumunu görmek ve ekranı yenilemek için **Yenile**’ye tıklayın. İş başarılı olduğunda **İş Grafiği**, **Meta Veri İşlemleri**, **Durum Geçmişi** ve **Tanılama**’yı gösterir:
+7. toosee hello en son iş durumunu ve yenileme Merhaba ekranında tıklatın **yenileme**. Merhaba iş başarılı olduğunda hello gösterir **iş grafiği**, **meta veri işlemleri**, **Durum geçmişi**, ve **tanılama**:
 
     ![U-SQL Visual Studio Data Lake Analytics iş performans grafiği](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   * **İş Özeti**, işin özetini gösterir.   
-   * **İş Ayrıntıları**, iş hakkında betik, kaynaklar ve köşeler gibi daha özel bilgiler gösterir.
-   * **İş Grafiği**, işin ilerleme durumunu görselleştirir.
-   * **Meta Veri İşlemleri**, U-SQL kataloğunda yapılan tüm işlemleri gösterir.
-   * **Veri** tüm girdileri ve çıktıları gösterir.
+   * **İş özeti** hello hello iş özetini gösterir.   
+   * **İş ayrıntılarını** hello komut dosyası, kaynakları ve köşeleri dahil olmak üzere hello iş hakkında daha ayrıntılı bilgileri gösterir.
+   * **İş grafiğinin** hello işinin ilerleme durumunu hello visualizes.
+   * **Meta veri işlemleri** hello U-SQL kataloğunu üzerinde gerçekleştirilen tüm hello eylemleri gösterir.
+   * **Veri** tüm hello girişleri ve çıkışları gösterir.
    * **Tanılama**, iş yürütme ve performans iyileştirme için gelişmiş bir analiz sağlar.
 
-### <a name="to-check-job-state"></a>İş durumu denetlemek için
+### <a name="toocheck-job-state"></a>toocheck iş durumu
 
 1. Sunucu Gezgini'nde **Azure** > **Data Lake Analytics**’i seçin. 
-2. Data Lake Analytics hesap adını genişletin.
+2. Merhaba Data Lake Analytics hesap adını genişletin.
 3. **İşler**’e çift tıklayın.
-4. Daha önce gönderdiğiniz işi seçin.
+4. Daha önce gönderilen hello işi seçin.
 
-### <a name="to-see-the-output-of-a-job"></a>Bir işin çıktısını görmek için
+### <a name="toosee-hello-output-of-a-job"></a>İş toosee hello çıktısı
 
-1. Sunucu Gezgini’nde gönderdiğiniz işe gidin.
-2. **Veri** sekmesine tıklayın.
-3. **İş Çıktıları** sekmesinde `"/data.csv"` dosyasını seçin.
+1. Server Explorer'da gönderdiğiniz toohello işi bulun.
+2. Merhaba tıklatın **veri** sekmesi.
+3. Merhaba, **iş çıkışları** sekmesi, select hello `"/data.csv"` dosya.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Test etmek ve hata ayıklamak için kendi iş istasyonunuzda U-SQL betiklerini çalıştırma](data-lake-analytics-data-lake-tools-local-run.md)
 * [U-SQL işlerinde C# kodu hatalarını ayıklama](data-lake-analytics-debug-u-sql-jobs.md)
-* [Visual Studio Code için Azure Data Lake Araçları’nı kullanma](data-lake-analytics-data-lake-tools-for-vscode.md)
+* [Hello Azure Data Lake araçları Visual Studio kodunu kullanın](data-lake-analytics-data-lake-tools-for-vscode.md)

@@ -1,6 +1,6 @@
 ---
-title: "Senaryolar ve örnekler için abonelik idare | Microsoft Docs"
-description: "Yaygın senaryolar için Azure aboneliği idare uygulamak örnekler sağlar."
+title: "aaaScenarios örnekleri ve abonelik yönetimi | Microsoft Docs"
+description: "Örnekleri sağlar tooimplement ortak senaryolar için Azure aboneliği idare."
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,114 +14,114 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f750e834519c8e64f57f87e2067801feb38b5c29
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Azure enterprise iskele uygulamanın örnekleri
-Bu konu kuruluş için önerilerin nasıl uygulayabilirsiniz örnekler sağlayan bir [Azure enterprise iskele](resource-manager-subscription-governance.md). Contoso adlı kurgusal bir şirket yaygın senaryolar için en iyi yöntemleri göstermek için kullanır.
+Bu konu kuruluş hello önerileri için nasıl uygulayabilirsiniz örnekler sağlayan bir [Azure enterprise iskele](resource-manager-subscription-governance.md). Contoso tooillustrate en iyi uygulamalar için genel senaryolar adlı kurgusal bir şirket kullanır.
 
 ## <a name="background"></a>Arka plan
-Contoso, paketlenmiş bir modele "Hizmet olarak yazılım" modelden her şeyi müşteriler için tedarik zinciri çözümleri sağlayan dünya çapında şirket içi dağıtılan ' dir.  Bunlar, Hindistan, ABD ve Kanada önemli geliştirme merkezlerine dünya çapında yazılım geliştirin.
+Contoso, bir "Hizmet olarak yazılım" modeli tooa paketlenmiş modelinden her şeyi müşteriler için tedarik zinciri çözümleri sağlayan dünya çapında şirket içi dağıtılan ' dir.  Bunlar, Hindistan, hello ABD ve Kanada önemli geliştirme merkezleri ile Merhaba dünya genelinde yazılım geliştirin.
 
-Şirket ISV kısmı önemli bir işletmede ürünleri Yönet birkaç bağımsız iş birimleri ayrılmıştır. Her iş birimi kendi geliştiriciler, ürün yöneticileri ve mimarları sahiptir.
+Merhaba ISV hello şirket kısmı önemli bir işletmede ürünleri Yönet birkaç bağımsız iş birimleri ayrılmıştır. Her iş birimi kendi geliştiriciler, ürün yöneticileri ve mimarları sahiptir.
 
-Madde Kurumsal teknoloji Hizmetleri (işaretleri) departmanı merkezi BT yeteneği sağlar ve Departmanlar uygulamalarını ana bilgisayar birkaç veri merkezleri yönetir. Veri merkezleri yönetme, birlikte madde işaretleri kuruluş sağlar ve merkezi işbirliği (örneğin, e-posta ve Web siteleri) ve ağ/telefon hizmetleri yönetir. Bunlar ayrıca müşterilerle iş yükleri işletimsel personel sahip olmayan küçük iş birimleri için yönetin.
+Merhaba madde Kurumsal teknoloji Hizmetleri (işaretleri) departmanı merkezi BT yeteneği sağlar ve Departmanlar uygulamalarını ana bilgisayar birkaç veri merkezleri yönetir. Merhaba veri merkezleri yönetme, birlikte hello madde işaretleri kuruluş sağlar ve merkezi işbirliği (örneğin, e-posta ve Web siteleri) ve ağ/telefon hizmetleri yönetir. Bunlar ayrıca müşterilerle iş yükleri işletimsel personel sahip olmayan küçük iş birimleri için yönetin.
 
-Bu konuda aşağıdaki kişiler kullanılır:
+Bu konudaki kişiler aşağıdaki hello kullanılır:
 
-* Dave madde işaretleri Azure yöneticisidir.
-* Alice'i Contoso geliştirme Director tedarik zinciri departmandaki ' dir.
+* Dave hello madde işaretleri Azure yöneticisidir.
+* Alice'i Contoso geliştirme Director hello tedarik zinciri departmandaki ' dir.
 
-Bir iş kolu satır uygulama ve müşteri yönelik uygulama oluşturmak contoso gerekir. Azure üzerinde uygulamaları çalıştırmak karar vermiştir. Dave okur [Düzenleyici abonelik idare](resource-manager-subscription-governance.md) konusuna ve artık önerileri uygulamak hazırdır.
+Contoso toobuild bir satır iş kolu uygulaması ve bir müşteri dönük uygulaması gerekir. Azure üzerinde toorun hello uygulamaları karar vermiştir. Dave okur hello [Düzenleyici abonelik idare](resource-manager-subscription-governance.md) konusuna ve şimdi hazır tooimplement hello öneriler.
 
 ## <a name="scenario-1-line-of-business-application"></a>Senaryo 1: İş kolu satır uygulama
-Contoso kaynak kodu yönetimi sistemi dünya genelindeki geliştiriciler tarafından kullanılacak (BitBucket) oluşturuyor.  Uygulama barındırma için hizmet (Iaas) olarak altyapısı kullanır ve web sunucuları ve bir veritabanı sunucusu oluşur. Geliştiriciler kendi geliştirme ortamlarında sunuculara erişmek, ancak azure'da sunucularına erişimi gerekmez. Contoso madde işaretleri uygulama sahibi ve ekibi uygulamasını yönetmek izin istiyor. Uygulama yalnızca Contoso şirket ağında sırasında kullanılabilir. Dave abonelik bu uygulama için ayarlamanız gerekir. Abonelik de gelecekte diğer Geliştirici ile ilgili yazılım barındırır.  
+Contoso Merhaba dünya genelindeki geliştiriciler tarafından kullanılan bir kaynak kod yönetim sistemi (BitBucket) toobe oluşturuyor.  Merhaba uygulaması barındırmak için bir hizmet (Iaas) olarak altyapısını kullanır ve web sunucuları ve bir veritabanı sunucusu oluşur. Geliştiriciler kendi geliştirme ortamlarında sunuculara erişmek, ancak bunlar toohello sunucularınızı erişmeyin. Contoso madde işaretleri tooallow hello uygulama sahibi ve ekip toomanage hello uygulama istiyor. Merhaba uygulaması yalnızca Contoso şirket ağında sırasında kullanılabilir. Dave tooset hello abonelik yukarı bu uygulama için gerekir. Hello abonelik hello Gelecekteki Geliştirici ilgili diğer yazılımda da barındırır.  
 
 ### <a name="naming-standards--resource-groups"></a>& Kaynak grupları adlandırma standartları
-Dave tüm iş birimleri arasında ortak olan geliştirici araçları desteklemek için bir abonelik oluşturur. Abonelik ve kaynak grupları (uygulama ve ağları) için anlamlı adlar oluşturmak gerekir. Şu abonelik ve kaynak grupları oluşturur:
+Dave tüm hello iş birimleri arasında ortak olan toosupport geliştirici araçları bir abonelik oluşturur. Kendisine toocreate anlamlı adlar hello abonelik ve kaynak grupları (Merhaba uygulaması ve hello ağlar için) gerekir. Abonelik ve kaynak grupları aşağıdaki hello oluşturur:
 
 | Öğe | Ad | Açıklama |
 | --- | --- | --- |
 | Abonelik |Contoso madde işaretleri DeveloperTools üretim |Ortak geliştirici araçları destekler |
-| Kaynak Grubu |rgBitBucket |Uygulama web sunucusu ve veritabanı sunucusu içerir |
-| Kaynak Grubu |rgCoreNetworks |Sanal ağlar ve siteden siteye ağ geçidi bağlantısı içerir |
+| Kaynak Grubu |rgBitBucket |Merhaba uygulama web sunucusu ve veritabanı sunucusu içerir |
+| Kaynak Grubu |rgCoreNetworks |Merhaba sanal ağlar ve siteden siteye ağ geçidi bağlantısı içerir |
 
 ### <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
-Bu abonelik oluşturduktan sonra Dave uygun ekipleri ve uygulama sahipleri kaynaklarını erişebildiğinden emin olmak istiyor. Dave her takım farklı gereksinimlere sahip olduğunu algılar. Kendisine Contoso'nun şirket içi Active Directory (AD) Azure Active Directory ile eşitlenmiş grupları kullanır ve sağ takımlar için erişim düzeyi sağlar.
+Kendi abonelik oluşturduktan sonra uygun takımlar hello tooensure Dave istediği ve uygulama sahipleri kaynaklarına erişebilir. Dave her takım farklı gereksinimlere sahip olduğunu algılar. Kendisine Contoso'nun şirket içi Active Directory (AD) tooAzure Active Directory eşitlenen hello grupları kullanır ve erişim toohello takımlar doğru düzeyde hello sağlar.
 
-Aşağıdaki roller için abonelik Dave atar:
+Dave hello abonelik için rolleri aşağıdaki hello atar:
 
-| Rol | Atanan | Açıklama |
+| Rol | Çok atanan| Açıklama |
 | --- | --- | --- |
 | [Sahibi](../active-directory/role-based-access-built-in-roles.md#owner) |Contoso'nun kimliği yönetilen AD |Bu kimliği ile sadece anında (JIT) erişim Contoso'nun kimlik yönetimi aracı üzerinden denetlenir ve abonelik sahibi erişim tam olarak denetlenir sağlar. |
-| [Güvenlik Yöneticisi](../active-directory/role-based-access-built-in-roles.md#security-manager) |Güvenliği ve risk yönetimi bölümü |Bu rol, kullanıcıların Azure Güvenlik Merkezi ve kaynakların durumunu bakın olanak tanır. |
-| [Ağ Katılımcısı](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Ağ ekibi |Bu rolü Contoso'nun ağ takım siteden siteye VPN ve sanal ağlar yönetmenizi sağlar. |
-| *Özel rol* |Uygulama sahibi |Dave kaynakların kaynak grubunda değiştirme olanağı veren bir rolü oluşturur. Daha fazla bilgi için bkz: [Azure rbac'de özel roller](../active-directory/role-based-access-control-custom-roles.md) |
+| [Güvenlik Yöneticisi](../active-directory/role-based-access-built-in-roles.md#security-manager) |Güvenliği ve risk yönetimi bölümü |Bu rolü hello Azure Güvenlik Merkezi, kullanıcıların toolook ve hello hello kaynakların durumunu sağlar. |
+| [Ağ Katılımcısı](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Ağ ekibi |Bu rolü Contoso'nun ağ takım toomanage hello Site tooSite VPN verir ve sanal ağlar hello. |
+| *Özel rol* |Uygulama sahibi |Dave hello özelliği toomodify kaynakları hello kaynak grubunda veren bir rolü oluşturur. Daha fazla bilgi için bkz: [Azure rbac'de özel roller](../active-directory/role-based-access-control-custom-roles.md) |
 
 ### <a name="policies"></a>İlkeler
-Dave abonelik kaynaklarını yönetmek için aşağıdaki gereksinimlere sahiptir:
+Dave hello abonelik kaynaklarını yönetmek için gereksinimler aşağıdaki hello sahiptir:
 
-* Geliştirme araçları dünya genelindeki geliştiriciler desteklediğinden, kendisine herhangi bir bölgede kaynakları oluşturma kullanıcıların engellemek istememektedir. Ancak, kendisinin kaynakları oluşturulduğu bilmesi gerekir.
-* Müşterinizle maliyetleri ile ilgili. Bu nedenle, uygulama sahipleri gereksiz yere pahalı sanal makinelerin oluşturulmasını önlemek istediği.  
-* Geliştiriciler birçok iş birimleri bu uygulamaya hizmet olduğundan iş birimi ve uygulama sahip her bir kaynağın etiketlemek istediği. Bu etiketler kullanarak madde işaretleri uygun takımlar faturalandıracaktır.
+* Merhaba geliştirme araçları Merhaba dünya genelindeki geliştiriciler desteklediğinden, kendisinin tooblock kullanıcıların herhangi bir bölgede kaynakları oluşturma istememektedir. Ancak, kaynaklar nerede oluşturulacağını tooknow gerekir.
+* Müşterinizle maliyetleri ile ilgili. Bu nedenle, gereksiz yere pahalı sanal makineler oluşturmasına tooprevent uygulama sahipleri istediği.  
+* Geliştiriciler birçok iş birimleri bu uygulamaya hizmet çünkü tootag her bir kaynağın hello iş birimi ve uygulama sahibiyle istediği. Bu etiketler kullanarak madde işaretleri hello uygun takımlar faturalandıracaktır.
 
-Aşağıdaki oluşturur [Resource Manager ilkeleri](resource-manager-policy.md):
+Merhaba aşağıdaki oluşturur [Resource Manager ilkeleri](resource-manager-policy.md):
 
 | Alan | Etki | Açıklama |
 | --- | --- | --- |
-| location |Denetim |Denetim tüm bölgelerdeki kaynakları oluşturma |
+| location |Denetim |Tüm bölgelerdeki hello kaynakların hello oluşturmayı denetle |
 | type |Reddet |G-serisi sanal makinelerin oluşturulmasını Reddet |
 | etiketler |Reddet |Uygulama sahibi etiketi gerektirir |
 | etiketler |Reddet |Maliyet merkezi etiketi gerektirir |
-| etiketler |ekleme |Etiket adı append **departmanı** ve etiket değeri **madde işaretleri** tüm kaynaklar için |
+| etiketler |ekleme |Etiket adı append **departmanı** ve etiket değeri **madde işaretleri** tooall kaynakları |
 
 ### <a name="resource-tags"></a>Kaynak etiketleri
-Dave BitBucket uygulaması için maliyet merkezini tanımlamak için fatura belirli bilgileri olması gerektiğini bilir. Ayrıca, Dave madde işaretleri sahip tüm kaynakları bilmek ister.
+Dave pastaya hello fatura tooidentify hello maliyet merkezi toohave belirli bilgileri hello BitBucket uygulanması için ihtiyacı bilir. Ayrıca, tüm madde işaretleri sahip kaynaklar hello tooknow Dave istemektedir.
 
-Müşterinizle aşağıdaki ekler [etiketleri](resource-group-using-tags.md) kaynak grupları ve kaynaklara.
+Müşterinizle hello aşağıdaki ekler [etiketleri](resource-group-using-tags.md) toohello kaynak grupları ve kaynakları.
 
 | Etiket adı | Etiket değeri |
 | --- | --- |
-| ApplicationOwner |Bu uygulama yöneten kişinin adı. |
-| costCenter |Maliyet merkezi Azure tüketimi için ödeme grubunun. |
-| Departmanı |**Madde işaretleri** (abonelikle ilişkili iş birimi) |
+| ApplicationOwner |Bu uygulama yöneten hello kişinin adını Hello. |
+| costCenter |hello Azure tüketim için ödeme hello grubunun Hello maliyet merkezi. |
+| Departmanı |**Madde işaretleri** (Merhaba abonelikle ilişkili hello departman) |
 
 ### <a name="core-network"></a>Çekirdek Ağ
-Contoso madde işaretleri bilgi güvenliği ve risk yönetimi ekibi uygulamayı Azure'a taşımak için önerilen planı Dave'nın inceler. Uygulamanın Internet'e gösterilmeyen olmak isterler.  Dave Azure'a gelecekte taşınır Geliştirici uygulamaları da sahiptir. Bu uygulamalar genel arabirimler gerektirir.  Bu gereksinimleri karşılamak için kendisine iç ve dış sanal ağlar ve erişimi kısıtlamak için bir ağ güvenlik grubu sağlar.
+Merhaba Contoso bilgi güvenliği ve risk yönetimi ekibi Dave'nın inceleyene önerilen madde işaretleri toomove hello uygulama tooAzure planlayın. Merhaba uygulaması değil tooensure açığa toohello istedikleri Internet.  Dave, gelecekteki hello taşınan tooAzure olacak Geliştirici uygulamaları da sahiptir. Bu uygulamalar genel arabirimler gerektirir.  toomeet bu gereksinimleri kendisinin hem iç ve dış sanal ağlar ve ağ güvenlik grubu toorestrict erişim sağlar.
 
-Aşağıdaki kaynaklar oluşturur:
+Kaynakları aşağıdaki hello oluşturur:
 
 | Kaynak türü | Ad | Açıklama |
 | --- | --- | --- |
-| Sanal Ağ |vnInternal |ExpressRoute aracılığıyla Contoso şirket ağına ve BitBucket uygulama ile kullanılır.  Bir alt ağ (sbBitBucket) belirli bir IP adresi alanı uygulamayla sağlar. |
+| Sanal Ağ |vnInternal |BitBucket uygulama Hello ile kullanılan ve ExpressRoute tooContoso'nın şirket ağına bağlı.  Bir alt ağ (sbBitBucket) belirli bir IP adres alanı ile Merhaba uygulaması sağlar. |
 | Sanal Ağ |vnExternal |Genel kullanıma yönelik uç noktalar gerektiren gelecekteki uygulamalar için kullanılabilir. |
-| Ağ güvenlik grubu |nsgBitBucket |Bu iş yükü, saldırı yüzeyini nerede (sbBitBucket) uygulama yaşıyor yalnızca bağlantı noktası 443 üzerinden alt ağ için bağlantılara izin vererek indirilir sağlar. |
+| Ağ güvenlik grubu |nsgBitBucket |Bu hello sağlar, bu iş yükü saldırı yüzeyini en aza nerede Merhaba uygulaması yaşıyor (sbBitBucket) yalnızca bağlantı noktası 443 üzerinden hello alt ağ için bağlantılara izin vererek. |
 
 ### <a name="resource-locks"></a>Kaynak kilitleri
-Contoso şirket ağı iç sanal ağ bağlantısını herhangi bir wayward komut dosyası veya yanlışlıkla silinmesini korunmalıdır Dave tanır.
+Contoso şirket ağı toohello iç sanal ağ hello bağlantısı herhangi bir wayward komut dosyası veya yanlışlıkla silinmesini korunmalıdır Dave tanır.
 
-Aşağıdaki oluşturur [kaynak kilidi](resource-group-lock-resources.md):
+Merhaba aşağıdaki oluşturur [kaynak kilidi](resource-group-lock-resources.md):
 
 | Kilit türü | Kaynak | Açıklama |
 | --- | --- | --- |
-| **CanNotDelete** |vnInternal |Kullanıcıların sanal ağ veya alt ağlar silmesini engeller, ancak yeni alt ağlar eklenmesi engellemez. |
+| **CanNotDelete** |vnInternal |Kullanıcıları silme hello sanal ağ veya alt ağlar engeller, ancak yeni alt ağlar hello eklenmesi engellemez. |
 
 ### <a name="azure-automation"></a>Azure Otomasyonu
-Dave bu uygulama için otomatik hale getirmek için hiçbir şey vardır. Kendisine bir Azure Otomasyonu hesabı oluşturuldu ancak kendisine başlangıçta kullanmaz.
+Dave sahip hiçbir şey bu uygulama için tooautomate. Kendisine bir Azure Otomasyonu hesabı oluşturuldu ancak kendisine başlangıçta kullanmaz.
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
-Contoso BT Hizmet Yönetimi, hızlı bir şekilde tanımlamak ve tehditleri işlemek gerekiyor. Ayrıca hangi sorunları bulunabilecek anlamak isterler.  
+Contoso BT hizmet yönetimi gereksinimlerini tooquickly tanımlamak ve işlemek tehditleri. Ayrıca toounderstand hangi sorunları bulunabilecek isterler.  
 
-Bu gereksinimleri karşılamak üzere Dave etkinleştirir [Azure Güvenlik Merkezi](../security-center/security-center-intro.md)ve güvenlik yöneticisi rolü erişim sağlar.
+toofulfill bu gereksinimleri, Dave etkinleştirir hello [Azure Güvenlik Merkezi](../security-center/security-center-intro.md)ve erişim toohello güvenlik yöneticisi rolü sağlar.
 
 ## <a name="scenario-2-customer-facing-app"></a>Senaryo 2: Müşteri dönük uygulama
-Tedarik zinciri departmandaki iş liderlik bağlılık kart kullanarak Contoso'nun müşterilerle katılım artırmak için çeşitli fırsatlar belirledi. Alice'in ekibi, bu uygulama oluşturmanız gerekir ve Azure iş gereksinimini karşılamak üzere yeteneklerini artırır karar verir. Geliştirme ve bu uygulamayı işletim iki aboneliklerini yapılandırmak için madde işaretleri gelen Dave Alice çalışır.
+Merhaba iş liderlik hello tedarik zinciri departmandaki bağlılık kart kullanarak Contoso'nun müşterilerle çeşitli fırsatlar tooincrease katılım belirledi. Alice'in ekibi, bu uygulama oluşturmanız gerekir ve Azure kendi yeteneği toomeet artırır karar hello iş gereksinimi. Alice, madde işaretleri tooconfigure iki aboneliklerinden geliştirme ve bu uygulamayı işletim Dave ile çalışır.
 
 ### <a name="azure-subscriptions"></a>Azure abonelikleri
-Dave Azure Enterprise Portal'de oturum açması ve tedarik zinciri departmanı zaten görür.  Ancak, bu proje için Azure tedarik zinciri grupta ilk geliştirme projesi olduğu gibi Dave Alice'in geliştirme ekibi yeni bir hesaba gereksinimini tanır.  Kendisi ekibi "R & D" hesabı oluşturur ve Alice için erişim atar. Alice Azure portalı üzerinden günlüğe kaydeder ve iki abonelikleri oluşturur: biri geliştirme sunucuları ve bir üretim sunucuları tutmak için tutmak için.  Aynen aşağıdaki abonelikler oluştururken, daha önce oluşturulmuş adlandırma standartları aşağıdaki gibidir:
+Dave toohello Azure Enterprise Portal günlüğe kaydeder ve bu hello tedarik zinciri departmanı zaten görür.  Ancak, bu proje hello ilk geliştirme projeyi azure'da hello tedarik zinciri ekibi için olduğu gibi Dave Alice'in geliştirme ekibi yeni bir hesaba hello gereksinimini tanır.  Kendisi ekibi için hello "R & D" hesabı oluşturur ve erişim tooAlice atar. Alice hello Azure portal günlüğe kaydeder ve iki abonelikleri oluşturur: bir toohold hello geliştirme sunucuları ve bir toohold hello üretim sunucuları.  Aynen abonelikleri aşağıdaki hello oluştururken, daha önce oluşturulmuş hello adlandırma standartları aşağıdaki gibidir:
 
 | Abonelik kullan | Ad |
 | --- | --- |
@@ -129,71 +129,71 @@ Dave Azure Enterprise Portal'de oturum açması ve tedarik zinciri departmanı z
 | Üretim |SupplyChain işlemleri LoyaltyCard üretim |
 
 ### <a name="policies"></a>İlkeler
-Dave Alice uygulama görüşmek ve bu uygulamaya yalnızca Kuzey Amerika bölgede müşteriler hizmet tanımlayın.  Alice ve ekibi uygulaması oluşturmak için Azure uygulama hizmeti ortamı ve Azure SQL kullanmayı planlayın. Geliştirme sırasında sanal makineleri oluşturmanız gerekebilir.  Alice, kendi geliştiriciler keşfedin ve madde işaretleri içinde çekme olmadan sorunları incelemek için gereksinim duydukları kaynaklara sahip olduğundan emin olun ister.
+Dave Alice Merhaba uygulaması görüşmek ve bu uygulamaya yalnızca Müşteriler hello Kuzey Amerika bölgede hizmet tanımlayın.  Alice ve ekibi toouse Azure'nın uygulama hizmeti ortamı ve Azure SQL toocreate Merhaba uygulaması planlayın. Geliştirme sırasında ihtiyaç duydukları toocreate sanal makineler.  Alice, kendi geliştiriciler tooexplore ihtiyaç duydukları ve madde işaretleri içinde çekme olmadan sorunları inceleyin hello kaynaklarınız tooensure istemektedir.
 
-İçin **geliştirme abonelik**, aşağıdaki ilkesi oluşturun:
-
-| Alan | Etki | Açıklama |
-| --- | --- | --- |
-| location |Denetim |Tüm bölgelerdeki kaynakları oluşturulmasını denetim. |
-
-Bir kullanıcı geliştirme oluşturabilirsiniz sku türünü sınırlamaz ve bunların etiketlerini herhangi bir kaynak grupları veya kaynaklar için gerektirmez.
-
-İçin **üretim abonelik**, bunlar aşağıdaki ilkeleri oluşturur:
+Hello için **geliştirme abonelik**, ilke aşağıdaki hello oluşturun:
 
 | Alan | Etki | Açıklama |
 | --- | --- | --- |
-| location |Reddet |ABD veri merkezleri dışında herhangi bir kaynağa oluşturulmasına izin verme. |
+| location |Denetim |Tüm bölgelerdeki hello kaynakları Hello oluşturulmasını denetim. |
+
+Bir kullanıcı geliştirme oluşturabilirsiniz sku hello türü sınırlamaz ve bunların etiketlerini herhangi bir kaynak grupları veya kaynaklar için gerektirmez.
+
+Hello için **üretim abonelik**, ilkelere hello oluşturun:
+
+| Alan | Etki | Açıklama |
+| --- | --- | --- |
+| location |Reddet |Merhaba ABD veri merkezleri dışında herhangi bir kaynağa Hello oluşturulmasına izin verme. |
 | etiketler |Reddet |Uygulama sahibi etiketi gerektirir |
 | etiketler |Reddet |Departman etiketi gerektirir. |
-| etiketler |ekleme |Etiket üretim ortamına gösteren her kaynak grubuna ekleyin. |
+| etiketler |ekleme |Üretim ortamında gösterir etiketi tooeach kaynak grubu ekleyin. |
 
-Bir kullanıcı üretimde oluşturabilirsiniz sku türünü sınırlamaz.
+Bir kullanıcı üretimde oluşturabilirsiniz sku hello türü sınırlamaz.
 
 ### <a name="resource-tags"></a>Kaynak etiketleri
-Faturalama ve sahipliği için doğru iş gruplarını tanımlamak için özel bilgiler olması gerektiğini Dave bilir. Hüseyin, kaynak grupları ve kaynaklar için kaynak etiketleri tanımlar.
+Dave faturalama ve sahipliği pastaya toohave belirli bilgiler tooidentify hello doğru iş grupları ihtiyacı olduğunu bilir. Hüseyin, kaynak grupları ve kaynaklar için kaynak etiketleri tanımlar.
 
 | Etiket adı | Etiket değeri |
 | --- | --- |
-| ApplicationOwner |Bu uygulama yöneten kişinin adı. |
-| Bölüm |Maliyet merkezi Azure tüketimi için ödeme grubunun. |
-| EnvironmentType |**Üretim** (abonelik içerir olsa bile **üretim** adlarında bu etiketi de dahil olmak üzere kolay bir şekilde tanımlanması kaynakları portal ya da fatura bakıldığında etkinleştirir.) |
+| ApplicationOwner |Bu uygulama yöneten hello kişinin adını Hello. |
+| Bölüm |hello Azure tüketim için ödeme hello grubunun Hello maliyet merkezi. |
+| EnvironmentType |**Üretim** (Merhaba abonelik olsa bile **üretim** hello adlarında bu etiketi de dahil olmak üzere kolay bir şekilde tanımlanması hello portalında veya hello fatura kaynakları bakıldığında etkinleştirir.) |
 
 ### <a name="core-networks"></a>Çekirdek Ağ
-Contoso madde işaretleri bilgi güvenliği ve risk yönetimi ekibi uygulamayı Azure'a taşımak için önerilen planı Dave'nın inceler. Bunlar bağlılık kart uygulamasını düzgün bir şekilde yalıtılmış ve bir çevre ağında korumalı olmasını sağlamak istiyorsunuz.  Bu gereksinimi karşılamak için Dave ve Alice bir dış sanal ağ ve Bağlılık kartı uygulama Contoso şirket ağından ayırmak için bir ağ güvenlik grubu oluşturun.  
+Merhaba Contoso bilgi güvenliği ve risk yönetimi ekibi Dave'nın inceleyene önerilen madde işaretleri toomove hello uygulama tooAzure planlayın. Bağlılık kartı uygulama hello tooensure düzgün bir şekilde yalıtılmış ve bir çevre ağında korumalı isterler.  toofulfill, bu gereksinim, Dave ve Gamze hello Contoso şirket ağından bir dış sanal ağ ve ağ güvenlik grubu tooisolate hello Bağlılık kartı uygulama oluşturun.  
 
-İçin **geliştirme abonelik**, bunlar oluşturur:
-
-| Kaynak türü | Ad | Açıklama |
-| --- | --- | --- |
-| Sanal Ağ |vnInternal |Contoso Bağlılık kartı geliştirme ortamı sunar ve ExpressRoute aracılığıyla Contoso şirket ağına bağlanır. |
-
-İçin **üretim abonelik**, bunlar oluşturur:
+Hello için **geliştirme abonelik**, bunlar oluşturur:
 
 | Kaynak türü | Ad | Açıklama |
 | --- | --- | --- |
-| Sanal Ağ |vnExternal |Bağlılık kartı uygulamayı barındıran ve doğrudan Contoso'nun ExpressRoute bağlı değil. Kod kaynak kodu sistemlerine doğrudan PaaS hizmetlere gönderilir. |
-| Ağ güvenlik grubu |nsgBitBucket |Bu iş yükü, saldırı yüzeyini bağlı iletişimi yalnızca TCP 443 numaralı vererek indirilir sağlar.  Contoso ek koruma için bir Web uygulaması Güvenlik Duvarı'nı kullanarak da incelemektedir. |
+| Sanal Ağ |vnInternal |Merhaba Contoso Bağlılık kartı geliştirme ortamı sunar ve ExpressRoute tooContoso'nın şirket ağına bağlanır. |
+
+Hello için **üretim abonelik**, bunlar oluşturur:
+
+| Kaynak türü | Ad | Açıklama |
+| --- | --- | --- |
+| Sanal Ağ |vnExternal |Merhaba Bağlılık kartı uygulaması barındırır ve ExpressRoute tooContoso kullanıcının doğrudan bağlı değil. Kod kaynak kodu sistemlerine gönderilen doğrudan toohello PaaS Hizmetleri. |
+| Ağ güvenlik grubu |nsgBitBucket |Bu hello sağlar bu iş yükü, saldırı yüzeyini en aza bağlı iletişimi yalnızca TCP 443 numaralı vererek.  Contoso ek koruma için bir Web uygulaması Güvenlik Duvarı'nı kullanarak da incelemektedir. |
 
 ### <a name="resource-locks"></a>Kaynak kilitleri
-Dave Alice confer ve bazı yalıtılarak bir kodun sırasında yanlışlıkla silinmesini önlemek için ortamı anahtar kaynakların kaynak kilitleri eklemeye karar.
+Dave Alice confer ve tooadd kaynak kilitleri bazı hello anahtar kaynakları hello ortamı tooprevent yanlışlıkla silme yalıtılarak bir kodun sırasında karar verin.
 
-Bunlar aşağıdaki kilit oluşturun:
+Bunlar, kilit aşağıdaki hello oluşturun:
 
 | Kilit türü | Kaynak | Açıklama |
 | --- | --- | --- |
-| **CanNotDelete** |vnExternal |Kişiler sanal ağ veya alt ağlar silmesini önlemek için. Kilit yeni alt ağlar eklenmesi engellemez. |
+| **CanNotDelete** |vnExternal |Merhaba sanal ağ veya alt ağları silme tooprevent kişilerin. Merhaba kilit yeni alt ağlar hello eklenmesi engellemez. |
 
 ### <a name="azure-automation"></a>Azure Otomasyonu
-Alice ve geliştirme ekibi bu uygulama için ortamınızı yönetmek için kapsamlı runbook'lar sahiptir. Runbook'ları uygulama ve diğer DevOps görevler için düğümleri eklendiği/silindiği izin verir.
+Alice ve geliştirme ekibi bu uygulama için kapsamlı runbook'lar toomanage hello ortamına sahip. Merhaba runbook'ları Merhaba uygulaması için düğümleri hello eklendiği/silindiği ve diğer DevOps görevler için izin verir.
 
-Bu runbook'ları kullanmak için bunlar etkinleştirmeniz [Otomasyon](../automation/automation-intro.md).
+toouse bu runbook'lar bunlar etkinleştirmek [Otomasyon](../automation/automation-intro.md).
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
-Contoso BT Hizmet Yönetimi, hızlı bir şekilde tanımlamak ve tehditleri işlemek gerekiyor. Ayrıca hangi sorunları bulunabilecek anlamak isterler.  
+Contoso BT hizmet yönetimi gereksinimlerini tooquickly tanımlamak ve işlemek tehditleri. Ayrıca toounderstand hangi sorunları bulunabilecek isterler.  
 
-Bu gereksinimleri karşılamak üzere Azure Güvenlik Merkezi Dave sağlar. Kendisine Azure Güvenlik Merkezi kaynakları izleme ve DevOps ve güvenlik ekipleri erişim sağlayan sağlar.
+toofulfill bu gereksinimleri Dave Azure Güvenlik Merkezi sağlar. Kendisine hello Azure Güvenlik Merkezi hello kaynakları izleme ve toohello DevOps ve güvenlik ekipleri erişim sağlayan sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Resource Manager şablonları oluşturma hakkında bilgi edinmek için [en iyi uygulamalar Azure Resource Manager şablonları oluşturmak için](resource-manager-template-best-practices.md).
+* Resource Manager şablonları oluşturma hakkında daha fazla toolearn bkz [en iyi uygulamalar Azure Resource Manager şablonları oluşturmak için](resource-manager-template-best-practices.md).
 

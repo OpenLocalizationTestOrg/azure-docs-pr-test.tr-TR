@@ -1,5 +1,5 @@
 ---
-title: "Azure komut satırı derleme | Microsoft Docs"
+title: "Azure için aaaCommand satır içi derleme | Microsoft Docs"
 description: "Azure komut satırı derleme"
 services: visual-studio-online
 documentationcenter: na
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 295b61ba162dd4373ee3f56cc1462decb3e16762
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="building-azure-projects-from-the-command-line"></a>Komut satırından Azure projeler derleme
-Microsoft Build Engine (MSBuild) kullanarak, Visual Studio değil yüklendiği yapı Laboratuvar ortamlarında ürünleri oluşturabilir. MSBuild genişletilebilir ve Microsoft tarafından tam olarak desteklenen proje dosyaları için bir XML biçimi kullanır. MSBuild dosya biçimini kullanarak, hangi öğeler olmalıdır açıklayabilirsiniz bir veya daha fazla platformlar ve yapılandırmaları için oluşturulmuştur.
+# <a name="building-azure-projects-from-hello-command-line"></a>Merhaba komut satırından Azure projeler derleme
+Merhaba Microsoft Build Engine (MSBuild) kullanarak, Visual Studio değil yüklendiği yapı Laboratuvar ortamlarında ürünleri oluşturabilir. MSBuild genişletilebilir ve Microsoft tarafından tam olarak desteklenen proje dosyaları için bir XML biçimi kullanır. Merhaba MSBuild dosya biçimini kullanarak, hangi öğeler olmalıdır açıklayabilirsiniz bir veya daha fazla platformlar ve yapılandırmaları için oluşturulmuştur.
 
-MSBuild komut satırında çalıştırabilirsiniz ve bu konuda, bu yaklaşımı açıklanmaktadır. Komut satırında özellikleri ayarlayarak, belirli yapılandırmaları bir proje oluşturabilirsiniz. Benzer şekilde, MSBuild derlemeler hedefleri tanımlayabilirsiniz. Komut satırı parametreleri ve MSBuild hakkında daha fazla bilgi için bkz: [MSBuild komut satırı başvurusu](https://msdn.microsoft.com/library/ms164311.aspx).
+Bu konu, bu yaklaşımı açıklar ve MSBuild hello komut satırında çalıştırabilirsiniz. Merhaba komut satırında özellikleri ayarlayarak, belirli yapılandırmaları bir proje oluşturabilirsiniz. Benzer şekilde, MSBuild derlemeler hello hedefleri tanımlayabilirsiniz. Komut satırı parametreleri ve MSBuild hakkında daha fazla bilgi için bkz: [MSBuild komut satırı başvurusu](https://msdn.microsoft.com/library/ms164311.aspx).
 
 ## <a name="msbuild-parameters"></a>MSBuild parametreleri
-MSBuild ile çalıştırmak için bir paket oluşturmak için en basit yolu olan `/t:Publish` seçeneği. Varsayılan olarak, bu komut bir dizin projenin kök klasörüne göre gibi oluşturur `<ProjectDirectory>\bin\Configuration\app.publish\`. Bir Azure projesi derlerken, iki dosya oluşturulur: Paket dosyası kendisi ve eşlik eden yapılandırma dosyası:
+Merhaba en basit yolu toocreate bir paket olup toorun MSBuild hello ile `/t:Publish` seçeneği. Varsayılan olarak, bu komutu bir ilişkisi toohello kök klasöründe hello projesi için gibi dizini `<ProjectDirectory>\bin\Configuration\app.publish\`. Bir Azure projesi derlerken, iki dosya oluşturulur: Merhaba paket dosyasının kendisini ve hello eşlik eden yapılandırma dosyası:
 
 * Paket dosyası (`project.cspkg`)
 * Yapılandırma dosyası (`ServiceConfiguration.TargetProfile.cscfg`)
 
-Varsayılan olarak, her Azure projesi yerel (hata ayıklama) yapılar için bir hizmet yapılandırma dosyası ve başka bir bulut (hazırlık veya üretim) derlemeleri içerir. Ancak, ekleyebilir veya gerektiği gibi hizmet yapılandırma dosyalarını kaldırabilirsiniz. Visual Studio içinde bir paket oluşturduğunuzda, hangi hizmet yapılandırma dosyasında paketini içerecek şekilde istenir. MSBuild kullanarak bir paket oluşturduğunuzda, yerel hizmet yapılandırma dosyası varsayılan olarak dahil edilir. Farklı bir hizmet yapılandırma dosyası içerecek şekilde `TargetProfile` MSBuild komut özelliği (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
+Varsayılan olarak, her Azure projesi yerel (hata ayıklama) yapılar için bir hizmet yapılandırma dosyası ve başka bir bulut (hazırlık veya üretim) derlemeleri içerir. Ancak, ekleyebilir veya gerektiği gibi hizmet yapılandırma dosyalarını kaldırabilirsiniz. Visual Studio içinde bir paket oluşturduğunuzda, hangi hizmet yapılandırma dosyası tooinclude hello paket yanında istenir. MSBuild kullanarak bir paket oluşturduğunuzda, hello yerel hizmet yapılandırma dosyası varsayılan olarak dahil edilir. tooinclude farklı bir hizmet yapılandırma dosyası, kümesi hello `TargetProfile` hello MSBuild komut özelliği (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
 
-Yapılandırma dosyalarını ve saklı paket için alternatif bir dizin kullanmak istiyorsanız, yolu kullanarak ayarlamak `/p:PublishDir=Directory\` sondaki eğik çizgi ayırıcı dahil olmak üzere seçeneği.
+Toouse istiyorsanız hello için alternatif bir dizin paketini ve yapılandırma dosyaları, hello kullanarak hello yolu ayarla depolanan `/p:PublishDir=Directory\` ters eğik çizgi ayırıcı sondaki hello dahil olmak üzere seçeneği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Paket oluşturulduktan sonra Azure'a dağıtabilirsiniz. Bu işlem otomatik hale getirmek nasıl oluşturulduğunu gösteren bir öğretici için bkz [Azure bulut Hizmetleri için devamlı teslim](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
+Merhaba paket oluşturulduktan sonra tooAzure dağıtabilirsiniz. Gösteren bir öğretici için tooautomate işlem bkz [Azure bulut Hizmetleri için devamlı teslim](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
 

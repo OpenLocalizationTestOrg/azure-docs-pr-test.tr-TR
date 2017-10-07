@@ -1,6 +1,6 @@
 ---
-title: "Android için Azure Authenticator | Microsoft Docs"
-description: "Microsoft Azure Authenticator uygulamasını oturum iş kaynaklarına erişmek için açmak için kullanılabilir. Azure Authenticator uygulamasını bekleniyor iki Faktörlü doğrulama isteklerini size mobil cihazınıza bir uyarı görüntüleyerek bildirir."
+title: "Android için Doğrulayıcı aaaAzure | Microsoft Docs"
+description: "Microsoft Azure Authenticator uygulamasını kullanılan toosign tooaccess iş kaynaklarına olabilir. Hello Azure Authenticator uygulamasını, bekleyen iki Faktörlü doğrulama isteklerini bir uyarı tooyour mobil cihaz görüntüleyerek bildirir."
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,107 +15,107 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d6cc5c2f6a3a67847ae4076424746f73d7f48411
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Android için Azure Authenticator
-BT yöneticiniz oturum iş kaynaklarınıza erişmek için açmak için Microsoft Azure Authenticator kullanmanızı tavsiye. Bu uygulama bu iki oturum açma seçenekleri sağlar:
+BT yöneticiniz, Microsoft Azure Authenticator toosign bileşenini tooaccess toouse hello iş kaynaklarınıza önermiş olabilir. Bu uygulama bu iki oturum açma seçenekleri sağlar:
 
-* Çok faktörlü kimlik doğrulaması, iş veya Okul hesaplarınıza iki aşamalı doğrulama ile güvenli hale getirmek sağlar. (Örneğin, parolanızı) bilmeniz ve hesabı koruyan bir şey kullanarak oturum açın (Bu uygulama bir güvenlik anahtarı) ile bir şey olması daha. Azure Authenticator uygulamasını bekleniyor iki Faktörlü doğrulama isteklerini size mobil cihazınıza bir uyarı görüntüleyerek bildirir. Uygulama ve dokunun istekte doğrulamak veya iptal yalnızca görünümüne gerekir. Alternatif olarak, uygulamada görüntülenen bir parola girmeniz istenebilir.
-* İş hesabı, Android telefonunuzu veya Tabletinizi güvenilir bir cihaz haline getirebilir ve şirket uygulamaları için çoklu oturum açma (SSO) sağlamanıza olanak verir. BT yöneticiniz, şirket kaynaklarına erişmek için bir iş hesabı eklemeye gerektirebilir. SSO kez oturum açarak şirketinizin sizin kullanımınıza sunduğu tüm uygulamalar arasında açarken otomatik olarak kullanılabilir kredi olanak sağlar.
+* Çok faktörlü kimlik doğrulaması ile iki aşamalı doğrulama, iş veya Okul hesapları toosecure sağlar. (Örneğin, parolanızı) bilmeniz ve hello hesabı korumanıza kullanarak oturum açın (Bu uygulama bir güvenlik anahtarı) ile bir şey olması daha. Hello Azure Authenticator uygulamasını, bekleyen iki Faktörlü doğrulama isteklerini bir uyarı tooyour mobil cihaz görüntüleyerek bildirir. Toosimply görünüm hello hello istekte gereken uygulama ve doğrulamak veya İptal'e dokunun. Alternatif olarak, istendiğinde tooenter hello geçiş kodu hello uygulamada görüntülenen olabilir.
+* İş hesabı kullanarak tooturn Android telefonunuzu veya tablet güvenilir bir cihaz haline ve çoklu oturum açma (SSO) toocompany uygulamaları sağlar. BT yöneticiniz tooadd bir iş hesabı sipariş tooaccess şirket kaynaklarında gerektirebilir. SSO oturum kez olanak tanır ve şirket tüm uygulamalar için oturum açma kullanılabilir kullanılabilir tooyou otomatik olarak yapıldı.
 
-## <a name="installing-the-azure-authenticator-app"></a>Azure Authenticator uygulamasını yükleme
-Azure Authenticator uygulamasını Google Play Mağazası'ndan yükleyebilirsiniz.
-İş hesabı Samsung Android cihaz vs Samsung olmayan Android aygıttan eklemek için yönergeleri biraz farklıdır. Her ikisi için yönergeler aşağıda listelenmiştir.
+## <a name="installing-hello-azure-authenticator-app"></a>Hello Azure Authenticator uygulamasını yükleme
+Hello Azure Authenticator uygulamasını Google Play Mağazası'ndan yükleyebilir.
+Merhaba yönergeleri tooadd iş Samsung Android cihaz vs hesabından Samsung Android cihaz biraz farklı. her ikisi için de Hello yönergeler aşağıda listelenmiştir.
 
-## <a name="adding-the-work-account-from-samsung-android-device"></a>İş hesabı Samsung Android aygıttan ekleme
-### <a name="adding-the-work-account-through-the-app-home-screen"></a>Uygulama giriş ekranı aracılığıyla iş hesabı ekleme
-Aşağıdaki yönergeleri, Samsung GS3 ve telefonları ya da not2 üstünde ve tabletler yukarıda geçerlidir.
+## <a name="adding-hello-work-account-from-samsung-android-device"></a>Samsung Android aygıttan Hello iş hesabı ekleme
+### <a name="adding-hello-work-account-through-hello-app-home-screen"></a>Merhaba uygulama giriş ekranı aracılığıyla Hello iş hesabı ekleme
+Merhaba aşağıdaki geçerli tooSamsung GS3 yönergelerdir ve telefonları ya da not2 üstünde ve tabletler üstünde.
 
-1. Uygulamanın giriş ekranında, son kullanıcı lisans sözleşmesi (EULA) kabul edin.
-2. Hesap etkinleştirme ekranında, bağlam menüsünü seçin ve sağ tıklatın **iş hesabı**.
-3. Hesap Ekle ekranda, select ** iş hesabı **.
+1. Merhaba giriş ekranında hello uygulamasının hello son kullanıcı lisans sözleşmesi (EULA) kabul edin.
+2. Merhaba hesabı etkinleştirme ekranında hello bağlam menüsünde hello seçin ve sağ tıklatın **iş hesabı**.
+3. Merhaba hesabı Ekle ekranında, select ** iş hesabı **.
 4. Etkinleştirme Aygıt Yöneticisi ekranında tıklatın **etkinleştirme**.
-5. Gizlilik İlkesi ekranında, onay kutusunu işaretleyin ve **Onayla**.
-6. Çalışma alanına katılma ekranda tıklatın ve kuruluş tarafından sağlanan kullanıcı kimliği girin **katılma**.
-7. Azure Authenticator uygulamasını oturum açmak için kuruluşunuzun girin bir *** edef parola ve tıklatın ve **oturum**.
-8. Çok faktörlü kimlik doğrulaması (MFA) hakkında bilgi görüntüler sonraki ekranda için güvenlik eklenir ve isteğe bağlıdır. İşiniz veya okulunuz iş hesabı oluşturmak için ikinci faktör kimlik doğrulaması gerektiriyorsa, bu ekranı görürsünüz. Daha fazla hesabınızı doğrulamak için yönergeler sağlar.
-9. İleti çalışma alanına katılma ekranını görüntüler "**, çalışma alanına katılma**". Azure authenticator uygulamasını Cihazınızı çalışma alanına katılmaya çalışıyor.
-10. Sonraki ekranda çalışma alanına katılmış iletiyi görmeniz gerekir.
+5. Merhaba gizlilik ilkesi ekranında hello onay kutusunu seçin ve **Onayla**.
+6. Çalışma alanına katılma Merhaba ekranında kuruluş ve tıklatın tarafından sağlanan hello UserID girin **katılma**.
+7. toohello Azure Authenticator uygulamasını toosign girin, kurumsal bir *** edef parola ve tıklatın ve **oturum**.
+8. çok faktörlü kimlik doğrulaması (MFA) hakkında bilgi görüntüler hello sonraki ekranda için güvenlik eklenir ve isteğe bağlıdır. İşiniz veya okulunuz iş hesabı oluşturmak için ikinci faktör kimlik doğrulaması gerektiriyorsa, bu ekranı görürsünüz. Toofurther hesabınızı doğrulayın yönergeler sağlar.
+9. Merhaba çalışma alanına katılma ekranını görüntüler selamlama iletisine "**, çalışma alanına katılma**". Hello Azure authenticator uygulamasını cihaz tooyour işyeriniz toojoin deniyor.
+10. Sonraki ekranında hello çalışma alanına katılmış iletide hello görmeniz gerekir.
 
 > [!NOTE]
 > Cihazınızda bir tek iş hesabı izin verilir.
 > 
 > 
 
-### <a name="adding-the-work-account-from-the-settings-menu"></a>İş hesabı ayarları menüsünden ekleme
-Azure Authenticator uygulamasını yükledikten sonra bir iş hesabı Android Hesap Yöneticisi'nden de oluşturabilirsiniz.
+### <a name="adding-hello-work-account-from-hello-settings-menu"></a>Hello ayarları menüsünden Hello iş hesabı ekleme
+Hello Azure Authenticator uygulamasını yükledikten sonra bir iş hesabı hello Android Hesap Yöneticisi ' de oluşturabilirsiniz.
 
-1. Ayarlar menüsünden gidin **hesapları** tıklatıp **hesabı Ekle**.
-2. Bir iş hesabı eklemek için uygulama giriş ekranı, iş hesabıyla ekleme yordamı, 3-10 adımları izleyin.
+1. Hello ayarları menüsünden çok gidin**hesapları** tıklatıp **hesabı Ekle**.
+2. Merhaba yordamdaki ekleme hello iş hesabı hello uygulama giriş ekranı, bir iş hesabı tooadd aracılığıyla 3-10 adımları izleyin.
 
-## <a name="adding-the-work-account-from-a-non-samsung-android-device"></a>Bir Samsung Android aygıttan iş hesabı ekleme
-### <a name="adding-the-work-account-through-the-app-home-screen"></a>Uygulama giriş ekranı aracılığıyla iş hesabı ekleme
-1. Uygulamanın giriş ekranında, son kullanıcı lisans sözleşmesi (EULA) kabul edin.
-2. Hesap etkinleştirme ekranında, bağlam menüsünü seçin ve sağ tıklatın **iş hesabı**.
-3. Hesapları ekranında tıklatın **hesabı Ekle**.
-4. Hesapları ekran görürseniz tıklatın **hesabı eklemek**. Bir iş hesabı zaten daha önce oluşturulan iş hesabı var olan gösteren bir eşitleme ekran görürsünüz. İş hesabı giriş ekranına geri oku dokunarak tutabilirsiniz. Alternatif olarak, kaldırmak ve üzerinde çalışma alanına katılma yeni bir iş hesabı ekran yeniden, kuruluşunuz tarafından sağlanan kullanıcı kimliği girin ve katılma hesabı seçebilirsiniz.
-5. Azure Authenticator uygulamasını oturum açmak için Kurumsal hesap ve parola girin ve **oturum**.
-6. Çok faktörlü kimlik doğrulaması (MFA) hakkında bilgi görüntüler sonraki ekranda için güvenlik eklenir ve isteğe bağlıdır. İşiniz veya okulunuz iş hesabı oluşturmak için ikinci faktör kimlik doğrulaması gerektiriyorsa, bu ekranı görürsünüz. Daha fazla hesabınızı doğrulamak için yönergeler sağlar.
-7. Tıklatın **Tamam** sonraki ekranda. Sertifika adı değiştirmeyin.
-   ", çalışma alanına katılma" iletisi. Azure authenticator uygulamasını Cihazınızı çalışma alanına katılmaya çalışıyor.
-   Sonraki ekranda çalışma alanına katılmış iletiyi görmeniz gerekir.
+## <a name="adding-hello-work-account-from-a-non-samsung-android-device"></a>Bir Samsung Android aygıttan Hello iş hesabı ekleme
+### <a name="adding-hello-work-account-through-hello-app-home-screen"></a>Merhaba uygulama giriş ekranı aracılığıyla Hello iş hesabı ekleme
+1. Merhaba giriş ekranında hello uygulamasının hello son kullanıcı lisans sözleşmesi (EULA) kabul edin.
+2. Merhaba hesabı etkinleştirme ekranında hello bağlam menüsünde hello seçin ve sağ tıklatın **iş hesabı**.
+3. Merhaba hesapları ekranında tıklatın **hesabı Ekle**.
+4. Merhaba hesapları ekran'ı tıklatın, görürseniz **hesabı eklemek**. Bir iş hesabı zaten daha önce oluşturulan hello mevcut iş hesabı gösteren bir eşitleme ekran görürsünüz. Merhaba geri ok toohello giriş ekranı dokunarak hello iş hesabı tutabilirsiniz. Alternatif olarak, hello hesap tooremove seçebilir ve çalışma alanına katılma Merhaba ekranında yeni bir iş hesabı oluşturun, kuruluşunuz tarafından sağlanan hello UserID girin ve Katıl'ı tıklatın.
+5. toohello Azure Authenticator uygulamasını toosign kuruluş hesabınızı ve parolanızı girin ve tıklayın **oturum**.
+6. çok faktörlü kimlik doğrulaması (MFA) hakkında bilgi görüntüler hello sonraki ekranda için güvenlik eklenir ve isteğe bağlıdır. İşiniz veya okulunuz iş hesabı oluşturmak için ikinci faktör kimlik doğrulaması gerektiriyorsa, bu ekranı görürsünüz. Toofurther hesabınızı doğrulayın yönergeler sağlar.
+7. Tıklatın **Tamam** hello sonraki ekranda. Merhaba sertifika adı değiştirmeyin.
+   ", çalışma alanına katılma" Merhaba iletisi. Hello Azure authenticator uygulamasını cihaz tooyour işyeriniz toojoin deniyor.
+   Sonraki ekranında hello çalışma alanına katılmış iletide hello görmeniz gerekir.
 
 > [!NOTE]
 > Cihazınızda bir tek iş hesabı izin verilir.
 > 
 > 
 
-Azure Authenticator uygulamasını yükledikten sonra bir iş hesabı Android Hesap Yöneticisi'nden de oluşturabilirsiniz.
+Hello Azure Authenticator uygulamasını yükledikten sonra bir iş hesabı hello Android Hesap Yöneticisi ' de oluşturabilirsiniz.
 
-1. Gelen **ayarları** menüsünde hesaplarına gidin ve tıklayın **hesabı Ekle**.
-2. Bir iş hesabı eklemek için iş hesabı üzerinden uygulama giriş ekranı **, ekleme yordamı, 2-7 adımları izleyin.
+1. Merhaba gelen **ayarları** menüsünde tooAccounts gidin ve tıklayın **hesabı Ekle**.
+2. Hello yordamdaki ekleme hello iş hesabıyla hello uygulama giriş ekranı **, tooadd bir iş hesabı 2-7 adımları izleyin.
 
-### <a name="how-to-find-out-which-version-is-installed"></a>Hangi sürümünün yüklü bulma
-1. Azure Authenticator uygulamasını hangi sürümü bulabilirsiniz ve ilişkili hizmet sürümleri aygıtınızda yüklenir.
-2. Menü açılan, tıklatın **hakkında**.
-3. Hakkında ekranı aygıtınızda yüklü sürümleri ile uygulama ve hizmetleri görüntüler.
+### <a name="how-toofind-out-which-version-is-installed"></a>Hangi sürümü kullanıma toofind nasıl yüklenir
+1. Hello Azure Authenticator uygulamasını hangi sürümü bulabilirsiniz ve ilişkili hizmet sürümleri aygıtınızda yüklenir.
+2. Menüsü pop Hello tıklatın **hakkında**.
+3. Merhaba ekranında hakkında hello Hizmetleri hello uygulama ve cihazınıza yüklenen hello sürümlerini görüntüler.
 
-### <a name="sending-log-files-to-report-issues"></a>Sorunları bildirmek için gönderen günlük dosyaları
-1. Microsoft Azure Authenticator uygulaması ile bir olay rapor, bir olay numarası edinmek ve atanan olay numarası karşı günlük dosyaları gibi göndermek için Support yönergeleri izleyin:
-2. Menü açılan, tıklatın **günlüğü**.
-3. Microsoft Support açık bir olay varsa, (Bu bir sonraki adım için gerekir) olay numarasını not edin. Zaten bir destek olayını oluşturmadıysanız ve Yardım ister misiniz yerindeki yönergeye izleyin [Microsoft Support](https://support.microsoft.com/en-us/contactus) yeni bir olayı açmak için.
-4. Günlük kaydı ekranında tıklatın **Şimdi Gönder**.
-5. Kullanmak istediğiniz e-posta sağlayıcısı seçin.
-6. Açık bir olay Microsoft Support zaten varsa, sorununuzu için günlük verileri göndermek nasıl öğrenmek için atanan destek mühendisine başvurun ve olayınız ile ilişkili sahip. Destek mühendisine e-posta adresi ve konu satırı bilgileri sağlayacaktır. Lütfen bir destek olayını zaten yoksa, yeni bir olayı açmak için Microsoft Support adresindeki yönergeleri izleyin.
-7. Düzen **için** satır ve **konu** Microsoft Support almış bilgilerle satır.
-8. Azure Authenticator uygulamasını gönderdiğiniz e-posta için günlük dosyasına ekler. Yaşadığınız sorunu açıklayan, (isteğe bağlı) alıcı listesini güncelleştirin ve e-posta gönderin.
+### <a name="sending-log-files-tooreport-issues"></a>Günlük dosyaları gönderme tooreport sorunları
+1. Microsoft Support tooreport bir olay hello Azure Authenticator uygulamasıyla üzerinde Hello yönergeleri izleyin, bir olay numarası edinmek ve günlük dosyalarını hello karşı olay numarası gibi atanan gönderin:
+2. Menüsü pop Hello tıklatın **günlüğü**.
+3. Microsoft Support açık bir olay varsa, (Bu bir sonraki adım için gerekir) hello olay numarasını not edin. Zaten bir destek olayını oluşturmadıysanız ve Yardım istediğiniz, en hello yönergeleri izleyin [Microsoft Support](https://support.microsoft.com/en-us/contactus) tooopen yeni bir olay.
+4. Merhaba günlük ekranında tıklatın **Şimdi Gönder**.
+5. Toouse istediğiniz hello e-posta sağlayıcısı seçin.
+6. Açık bir olay Microsoft Support zaten varsa, hello nasıl toosend hello verileri günlüğe ve onu, olay ile ilişkili olan tooyour sorunu toofind atanan destek mühendisine başvurun. Merhaba destek mühendisine hello e-posta adresi ve konu satırı bilgileri sağlayacaktır. Bir destek olayını zaten yoksa, lütfen Microsoft Support tooopen yeni bir olay sırasında hello yönergeleri izleyin.
+7. Merhaba Düzenle **için** satır ve **konu** Microsoft Support almış hello bilgilerle satır.
+8. Hello Azure Authenticator uygulamasını gönderdiğinizi hello günlük dosyası toohello e-posta ekler. Hello sorun yaşadığınız açıklamak, (isteğe bağlı) alıcı listesini güncelleştirin ve hello e-posta gönderin.
 
-### <a name="deleting-the-work-account-and-leaving-your-workplace"></a>İş hesabı siler ve çalışma
-Herhangi bir zamanda gibi oluşturulan iş hesabı kaldırabilirsiniz:
+### <a name="deleting-hello-work-account-and-leaving-your-workplace"></a>Merhaba iş hesabını siler ve çalışma
+Herhangi bir zamanda gibi oluşturulan hello iş hesabı kaldırabilirsiniz:
 
-**İş hesabı ayarları menüsünden silmek için**
+**toodelete hello iş hesabı hello ayarları menüsünden**
 
-1. Hesapları Yöneticisi'nden seçin **iş hesabı**.
-2. İş hesabı ekranında içinde **genel ayarları**seçin **hesap ayarlarını – bırakın iş yeri ağınıza**.
-3. Seçin **bırakın** üzerinde **çalışma alanına katılma** ekran.
-4. Tıklatın **Tamam** zaman "istediğinizden emin misiniz çalışma alanından ayrılmak olan" iletisi görüntülenir.
+1. Merhaba Hesapları Yöneticisi'nden seçin **iş hesabı**.
+2. Merhaba iş hesabı ekranında, içinde **genel ayarları**seçin **hesap ayarlarını – bırakın iş yeri ağınıza**.
+3. Seçin **bırakın** hello üzerinde **çalışma alanına katılma** ekran.
+4. Tıklatın **Tamam** hello iletisi "tooleave çalışma alanına istediğinizden emin misiniz" görüntülenir.
 5. Bu çalışma alanından silinmiş iş hesabınızı sağlar.
 
 > [!NOTE]
-> Bu seçenek bazı eski sürümleri Android çalışmayabilir bir iş hesabı silmek için hesap kaldırma seçeneği kullanmamanız önerilir.
+> Bu seçeneği olarak bir iş hesabı bazı eski sürümleri Android çalışmayabilir hello kaldırma hesabı seçeneği toodelete kullanmamanız önerilir.
 > 
 > 
 
-## <a name="uninstalling-the-app"></a>Uygulamayı kaldırma
-Bir Samsung Android cihazda aygıt yönetici ayrıcalıkları gibi kaldırmadan önce kaldırılmalıdır 
+## <a name="uninstalling-hello-app"></a>Merhaba uygulama kaldırma
+Bir Samsung Android cihazda kaldırılan gibi önceki toouninstalling hello aygıt yönetici ayrıcalıkları olması gerekir 
 
 1. Gelen **ayarları**altında **sistem**seçin **güvenlik**.
-2. D içinde**evice Yönetim**, tıklatın **cihaz yöneticileri**. Onay kutusunun yanına emin **Azure Authenticator** temizlenir.
+2. D içinde**evice Yönetim**, tıklatın **cihaz yöneticileri**. Merhaba onay kutusu sonraki çok olun**Azure Authenticator** temizlenir.
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Görürseniz **Keystore hata**, kilit yok olmasından kaynaklanabilir ekran kümesi oluşturan bir PIN ile. Bu sorunu çözmek için Azure Authenticator uygulamasını kaldırın, kilit ekranınızda PIN yapılandırmak ve uygulamayı yeniden yükleyin.
+Merhaba görürseniz **Keystore hata**, hello kilit yok olmasından kaynaklanabilir ekran kümesi oluşturan bir PIN ile. Bu soruna geçici bir çözüm toowork hello Azure Authenticator uygulamasını kaldırmak, kilit ekranınızda PIN yapılandırmak ve hello uygulamayı yeniden yükleyin.
 

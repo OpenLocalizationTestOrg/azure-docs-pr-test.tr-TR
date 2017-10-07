@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: SAP Business ByDesign Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve SAP Business ByDesign arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve SAP Business ByDesign arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,238 +14,238 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: ab76a0ac1ef954efd3c66e6f565514b889ed9444
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c14714fd27f8d7fc555f25c7be83fad2b0d7f333
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Öğretici: SAP Business ByDesign ile Azure Active Directory tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile SAP Business ByDesign tümleştirmek öğrenin.
+Bu öğreticide, nasıl toointegrate SAP öğrenin iş ByDesign Azure Active Directory'ye (Azure AD).
 
-SAP Business ByDesign Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+SAP Business ByDesign Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- SAP Business ByDesign erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için SAP Business ByDesign açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Erişim tooSAP iş ByDesign sahip Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına ile kullanıcılar tooautomatically get açan tooSAP iş ByDesign (çoklu oturum açma) etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-SAP Business ByDesign ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
+SAP Business ByDesign ile Azure AD tümleştirme tooconfigure, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Bir SAP Business ByDesign çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. SAP Business ByDesign Galeriden ekleme
+1. SAP Business ByDesign hello Galerisi'nden ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-sap-business-bydesign-from-the-gallery"></a>SAP Business ByDesign Galeriden ekleme
-Azure AD SAP Business ByDesign tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden SAP Business ByDesign eklemeniz gerekir.
+## <a name="adding-sap-business-bydesign-from-hello-gallery"></a>SAP Business ByDesign hello Galerisi'nden ekleme
+Azure AD'ye tooconfigure hello tümleştirme SAP Business ByDesign, tooadd SAP Business ByDesign hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
 
-**SAP Business ByDesign Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
+**SAP Business ByDesign hello galerisinden tooadd hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Azure Active Directory düğmesi][1]
+    ![Hello Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Merhaba kurumsal uygulamalar dikey penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Merhaba yeni uygulama düğmesi][3]
 
-4. Arama kutusuna **SAP Business ByDesign**seçin **SAP Business ByDesign** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Merhaba arama kutusuna yazın **SAP Business ByDesign**seçin **SAP Business ByDesign** sonuç panelinden ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
-    ![SAP Business ByDesign sonuçlar listesinde](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_addfromgallery.png)
+    ![SAP Business ByDesign hello sonuçları listesinde](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma SAP Business "Britta Simon" adlı bir test kullanıcı tabanlı ByDesign ile test etme.
 
-Tekli çalışmaya oturum için Azure AD SAP Business ByDesign karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının SAP Business ByDesign ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen SAP Business ByDesign içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve SAP Business ByDesign hello ilgili kullanıcı arasındaki bağlantıyı ilişki kurulan toobe gerekir.
 
-SAP Business ByDesign içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+SAP Business ByDesign içinde hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırma ve Azure AD çoklu oturum açma SAP Business ByDesign ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve SAP Business ByDesign ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[SAP Business ByDesign test kullanıcısı oluşturma](#create-an-sap-business-bydesign-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı SAP Business ByDesign sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[SAP Business ByDesign test kullanıcısı oluşturma](#create-an-sap-business-bydesign-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir SAP Business ByDesign içinde karşılık gelen.
+4. **[Hello Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma SAP Business ByDesign uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma SAP Business ByDesign uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma SAP Business ByDesign ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**SAP Business ByDesign ile Azure AD çoklu oturum açma tooconfigure hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **SAP Business ByDesign** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Hello hello üzerinde Azure portal'ın **SAP Business ByDesign** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_samlbase.png)
 
-3. Üzerinde **SAP Business ByDesign etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Merhaba üzerinde **SAP Business ByDesign etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![SAP Business ByDesign etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<servername>.sapbydesign.com`
+    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<servername>.sapbydesign.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<servername>.sapbydesign.com`
+    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<servername>.sapbydesign.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [SAP Business ByDesign istemci destek ekibi](https://www.sap.com/products/cloud-analytics.support.html) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [SAP Business ByDesign istemci destek ekibi](https://www.sap.com/products/cloud-analytics.support.html) tooget bu değerleri.
 
-4. Üzerinde **kullanıcı öznitelikleri** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı öznitelikleri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
 
     ![SAP Business ByDesign özniteliği bölümü](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_attribute.png)
     
-    a. İçinde **kullanıcı tanımlayıcısı** listesinde **ExtractMailPrefix()** işlevi.
+    a. İçinde **kullanıcı tanımlayıcısı** listesi, select hello **ExtractMailPrefix()** işlevi.
     
-    b. Gelen **posta** listesinde, uygulamanız için kullanmak istediğiniz kullanıcı özniteliği seçin. Örneğin, EmployeeID benzersiz kullanıcı tanımlayıcısı olarak kullanmak istediğiniz ve öznitelik değeri ExtensionAttribute2 depoladığınız, ardından user.extensionattribute2 seçin.     
+    b. Merhaba gelen **posta** listesi, uygulamanız için kullanmak istediğiniz toouse select hello kullanıcı özniteliği. Örneğin, toouse hello benzersiz kullanıcı tanımlayıcısı olarak EmployeeID istiyorsanız ve hello ExtensionAttribute2 hello öznitelik değeri depoladığınız ardından user.extensionattribute2 seçin.   
 
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+5. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_certificate.png) 
+    ![Merhaba sertifika indirme bağlantısı](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_certificate.png) 
 
 6. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_400.png)
 
-7. Üzerinde **SAP Business ByDesign yapılandırma** 'yi tıklatın **yapılandırma SAP Business ByDesign** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+7. Merhaba üzerinde **SAP Business ByDesign yapılandırma** 'yi tıklatın **yapılandırma SAP Business ByDesign** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
 
     ![SAP Business ByDesign yapılandırma](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_configure.png) 
 
-8. Uygulamanız için yapılandırılmış SSO almak için aşağıdaki adımları gerçekleştirin:
+8. tooget uygulamanız için yapılandırılmış SSO hello aşağıdaki adımları gerçekleştirin:
    
-    a. SAP Business ByDesign portalınızı yönetici haklarıyla oturum açma.
+    a. Yönetici haklarıyla tooyour SAP Business ByDesign Portal'da oturum açın.
    
-    b. Gidin **uygulama ve kullanıcı yönetimi görevinin** tıklatıp **kimlik sağlayıcısı** sekmesi.
+    b. Çok gidin**uygulama ve kullanıcı yönetimi görevinin** hello tıklatıp **kimlik sağlayıcısı** sekmesi.
    
-    c. Tıklatın **yeni kimlik sağlayıcısı** ve Azure portalından indirdiğiniz meta veri XML dosyası seçin. Meta verileri içe aktararak sistem otomatik olarak gerekli imza sertifikası ve şifreleme sertifikası karşıya yükleme.
+    c. Tıklatın **yeni kimlik sağlayıcısı** ve hello Azure portal ' indirmiş select hello meta veri XML dosyası. Merhaba meta verileri içe aktararak hello sistem otomatik olarak hello gerekli imza sertifikası ve şifreleme sertifikası karşıya yükleme.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
    
-    d. Eklenecek **onaylama tüketici hizmeti URL'si** SAML isteği seçin **onaylama tüketici hizmeti URL'si dahil**.
+    d. tooinclude hello **onaylama tüketici hizmeti URL'si** hello SAML isteği seçin **onaylama tüketici hizmeti URL'si dahil**.
    
     e. Tıklatın **çoklu oturum açmayı etkinleştirme**.
    
     f. Yaptığınız değişiklikleri kaydedin.
    
-    g. Tıklatın **My sistem** sekmesi.
+    g. Merhaba tıklatın **My sistem** sekmesi.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
    
-    h. Yapıştır **SAML çoklu oturum açma hizmet URL'si**, içine Azure portalından kopyalanan **Azure AD oturum açma URL'si** metin kutusu.
+    h. Yapıştır **SAML çoklu oturum açma hizmet URL'si**, hangi hello Azure portal ' Merhaba, kopyaladığınız **Azure AD oturum açma URL'si** metin kutusu.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_53.png)
    
-    ı. Kullanıcı kimliği ve parola veya SSO ile seçerek oturum açma arasında çalışan el ile seçip seçemeyeceğini belirtin **el ile kimlik sağlayıcısı seçimi**.
+    ı. Kullanıcı kimliği ve parola veya SSO ile seçerek oturum açma arasında Hello çalışan el ile seçip seçemeyeceğini belirtin **el ile kimlik sağlayıcısı seçimi**.
    
-    j. İçinde **SSO URL** bölümünde, çalışan oturum açmak için sistem tarafından kullanılması gereken URL'yi belirtin. 
-    URL gönderilen çalışan açılır listesi için aşağıdaki seçenekler arasından seçim yapabilirsiniz:
+    j. Merhaba, **SSO URL** bölümünde, hello çalışan toologon toohello sistem tarafından kullanılması gereken hello URL'sini belirtin. 
+    Hello URL gönderilen tooEmployee açılır listesinde, aşağıdaki seçenekleri şu hello arasında seçim yapabilirsiniz:
    
     **SSO olmayan URL'si**
    
-    Sistem, yalnızca normal sistem URL çalışana gönderir. Çalışan olamaz SSO kullanarak oturum açın ve parolayı kullanın veya gerekir bunun yerine sertifika.
+    Merhaba sistemi yalnızca hello normal sistem URL toohello çalışan gönderir. Hello çalışan olamaz SSO kullanarak oturum açın ve parolayı kullanın veya gerekir bunun yerine sertifika.
    
     **SSO URL'Sİ** 
    
-    Sistem yalnızca SSO URL çalışana gönderir. Çalışan SSO kullanarak oturum açabilir. Kimlik doğrulama isteği IDP yönlendirilir.
+    Merhaba sistemi yalnızca hello SSO URL toohello çalışan gönderir. Merhaba çalışan SSO kullanarak oturum açabilir. Kimlik doğrulama isteği IDP hello yönlendirilir.
    
     **Otomatik Seçim**
    
-    SSO etkin değilse, sistem çalışana normal sistem URL gönderir. SSO etkin değilse, sistem çalışan bir parolaya sahip olup olmadığını denetler. Bir parola kullanılabilir durumdaysa, SSO URL'si ve olmayan SSO URL'si çalışana gönderilir. Ancak, çalışan parolası yoksa, yalnızca SSO URL çalışana gönderilir.
+    SSO etkin değilse, hello sistem hello normal sistem URL toohello çalışan gönderir. SSO etkin değilse, hello sistem hello çalışan bir parolaya sahip olup olmadığını denetler. Bir parola kullanılabilir durumdaysa, SSO URL'si ve olmayan SSO URL'si toohello çalışan gönderilir. Bununla birlikte, Hello çalışan parolası yoksa, yalnızca hello SSO URL toohello çalışan gönderilir.
    
     k. Yaptığınız değişiklikleri kaydedin.
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+1. Merhaba hello sol bölmede Azure portal hello tıklatın **Azure Active Directory** düğmesi.
 
-    ![Azure Active Directory düğmesi](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_01.png)
+    ![Hello Azure Active Directory düğmesi](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" Merhaba "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. tooopen hello **kullanıcı** iletişim kutusu, tıklatın **Ekle** hello hello üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    ![Ekle düğmesi](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png)
+    ![Merhaba Ekle düğmesi](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png)
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+4. Merhaba, **kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
 
-    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png)
+    ![Merhaba kullanıcı iletişim kutusu](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png)
 
-    a. İçinde **adı** kutusuna **BrittaSimon**.
+    a. Merhaba, **adı** kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+    b. Merhaba, **kullanıcı adı** kutusuna, kullanıcının Britta Simon hello e-posta adresini yazın.
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+    c. Select hello **Göster parola** onay kutusunu işaretleyin ve ardından hello görüntülenen hello değerini aşağı yazma **parola** kutusu.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="create-an-sap-business-bydesign-test-user"></a>SAP Business ByDesign test kullanıcısı oluşturma
 
-Bu bölümde, SAP Business ByDesign Britta Simon adlı bir kullanıcı oluşturun. Lütfen çalışmak [SAP Business ByDesign istemci destek ekibi](https://www.sap.com/products/cloud-analytics.support.html) SAP Business ByDesign platform kullanıcıları eklemek için. 
+Bu bölümde, SAP Business ByDesign Britta Simon adlı bir kullanıcı oluşturun. Lütfen çalışmak [SAP Business ByDesign istemci destek ekibi](https://www.sap.com/products/cloud-analytics.support.html) tooadd hello kullanıcılar hello SAP Business ByDesign Platform. 
 
 > [!NOTE]
-> Lütfen NameID değeri SAP Business ByDesign platform kullanıcıadı alanıyla eşleşmelidir emin olun.
+> Lütfen NameID değeri hello SAP Business ByDesign platform hello kullanıcıadı alanıyla eşleşmelidir emin olun.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+### <a name="assign-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atayın
 
-Bu bölümde, SAP Business ByDesign erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, erişim tooSAP iş ByDesign vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Merhaba kullanıcı rolü atayın][200] 
 
-**SAP Business ByDesign Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooSAP iş ByDesign hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **SAP Business ByDesign**.
+2. Merhaba uygulamalar listesinde **SAP Business ByDesign**.
 
-    ![Uygulamalar listesinde SAP Business ByDesign bağlantı](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_app.png)  
+    ![Merhaba SAP Business ByDesign bağlantı hello uygulamalar listesinde](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_app.png)  
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantı][202]
+    ![Merhaba "Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Ekleme atama bölmesi][203]
+    ![Merhaba eklemek atama bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -253,13 +253,13 @@ Bu bölümde, SAP Business ByDesign erişim vererek, Azure çoklu oturum açma k
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli SAP Business ByDesign parçasında tıklattığınızda, otomatik olarak SAP Business ByDesign uygulamanıza açan.
+Merhaba SAP Business ByDesign hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour SAP Business ByDesign uygulama almanız gerekir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

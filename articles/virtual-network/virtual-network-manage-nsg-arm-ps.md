@@ -1,6 +1,6 @@
 ---
-title: "Ağ güvenlik grupları - Azure PowerShell yönetme | Microsoft Docs"
-description: "Ağ güvenlik grupları PowerShell kullanarak yönetmeyi öğrenin."
+title: "aaaManage ağ güvenlik grupları - Azure PowerShell | Microsoft Docs"
+description: "Nasıl toomanage ağ güvenlik grupları PowerShell'i kullanma hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca7f4926ca4edf9d20612aca74f6ae5f0ed847b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 930fe5e0827896ad67b24d84e41a5d3f898ba838
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-network-security-groups-using-powershell"></a>PowerShell kullanarak ağ güvenlik gruplarını yönet
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft önerir Resource Manager dağıtım modelini kullanarak yer almaktadır.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makalede, Microsoft hello Klasik dağıtım modeli yerine çoğu yeni dağıtımlar için önerir hello Resource Manager dağıtım modeli kullanılarak kapsar.
 >
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/11/2017
 Varolan Nsg'lerinizi görüntülemek için varolan bir NSG kuralları almak ve hangi kaynakların bir NSG için ilişkili olduğunu öğrenin.
 
 ### <a name="view-existing-nsgs"></a>Varolan Nsg'ler görüntüleyin
-Bir Abonelikteki tüm mevcut Nsg'ler görüntülemek için çalıştırın `Get-AzureRmNetworkSecurityGroup` cmdlet'i.
+tooview bir Abonelikteki tüm mevcut Nsg'ler çalıştırmak hello `Get-AzureRmNetworkSecurityGroup` cmdlet'i.
 
 Beklenen sonucu:
 
@@ -87,7 +87,7 @@ Beklenen sonucu:
     Subnets              : [...]
 
 
-Belirli bir kaynak grubunda Nsg'ler listesini görüntülemek için Çalıştır `Get-AzureRmNetworkSecurityGroup` cmdlet'i.
+tooview hello listesinde Nsg'ler hello çalıştırmak belirli bir kaynak grubunun, `Get-AzureRmNetworkSecurityGroup` cmdlet'i.
 
 Beklenen çıktı:
 
@@ -120,7 +120,7 @@ Beklenen çıktı:
     Subnets              : [...]
 
 ### <a name="list-all-rules-for-an-nsg"></a>Bir NSG için tüm kuralları listesinde
-Adlı bir NSG kurallarını görüntülemek için **NSG ön uç**, aşağıdaki komutu girin:
+adlı bir NSG tooview hello kuralları **NSG ön uç**, komutu aşağıdaki hello girin:
 
 ```powershell
 Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd | Select SecurityRules -ExpandProperty SecurityRules
@@ -157,17 +157,17 @@ Beklenen çıktı:
     Direction                : Inbound
 
 > [!NOTE]
-> Aynı zamanda `Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name "NSG-FrontEnd" | Select DefaultSecurityRules -ExpandProperty DefaultSecurityRules` varsayılan kurallar listelemek için **NSG ön uç** NSG.
+> Aynı zamanda `Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name "NSG-FrontEnd" | Select DefaultSecurityRules -ExpandProperty DefaultSecurityRules` toolist hello varsayılan hello kurallardan **NSG ön uç** NSG.
 > 
 
 ### <a name="view-nsgs-associations"></a>Nsg'ler ilişkilendirmelerini görüntülemek
-Hangi kaynakları görüntülemek için **NSG ön uç** NSG olan ilişkilendirmek, aşağıdaki komutu çalıştırın:
+tooview hangi kaynaklara hello **NSG ön uç** NSG olduğu aşağıdaki komutu ile çalışma hello:
 
 ```powershell
 Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
 ```
 
-Ara **NetworkInterfaces** ve **alt ağlar** aşağıda gösterildiği gibi özellikleri:
+Merhaba Ara **NetworkInterfaces** ve **alt ağlar** aşağıda gösterildiği gibi özellikleri:
 
     NetworkInterfaces    : []
     Subnets              : [
@@ -177,21 +177,21 @@ Ara **NetworkInterfaces** ve **alt ağlar** aşağıda gösterildiği gibi özel
                              }
                            ]
 
-Önceki örnekte, NSG herhangi ağ arabirimlerine (NIC'ler); ilişkili değil adlı bir alt ağ ile ilişkilendirilene **ön uç**.
+Merhaba önceki örnekte hello NSG ilişkili tooany ağ arabirimlerine (NIC'ler); değil adlı ilişkili tooa alt ağıdır **ön uç**.
 
 ## <a name="manage-rules"></a>Kuralları yönetme
-Varolan bir NSG kuralları ekleme, mevcut kuralları düzenlemek ve kuralları kaldırın.
+NSG varolan kuralları tooan eklemek, mevcut kuralları düzenlemek ve kuralları kaldırın.
 
 ### <a name="add-a-rule"></a>Kural ekleme
-İzin verme kuralı eklemek için **gelen** bağlantı noktası trafiği **443** için herhangi bir makineden **NSG ön uç** NSG, aşağıdaki adımları tamamlayın:
+izin verme kuralı tooadd **gelen** trafiği tooport **443** tüm makine toohello gelen **NSG ön uç** NSG, aşağıdaki adımları tam hello:
 
-1. Varolan NSG almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+1. NSG varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell   
     $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
     ```
 
-2. NSG'yi bir kural eklemek için aşağıdaki komutu çalıştırın:
+2. Komut tooadd aşağıdaki hello kural toohello NSG çalıştırın:
 
     ```powershell
     Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
@@ -207,12 +207,12 @@ Varolan bir NSG kuralları ekleme, mevcut kuralları düzenlemek ve kuralları k
     -DestinationPortRange 443
     ```
 
-3. NSG'yi yapılan değişiklikleri kaydetmek için aşağıdaki komutu çalıştırın:
+3. toosave hello değişiklik toohello NSG, hello aşağıdaki komutu çalıştırın:
 
     ```powershell
     Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-    Yalnızca güvenlik kuralları gösteren beklenen çıktı:
+    Güvenlik kuralları yalnızca hello gösteren beklenen çıktı:
    
         Name                 : NSG-FrontEnd
         ...
@@ -243,15 +243,15 @@ Varolan bir NSG kuralları ekleme, mevcut kuralları düzenlemek ve kuralları k
                                ]
 
 ### <a name="change-a-rule"></a>Bir kural değiştirme
-Öğesinden gelen trafiğe izin vermek için yukarıda oluşturduğunuz kural değiştirmek için **Internet** yalnızca, aşağıdaki adımları izleyin.
+tooallow oluşturulan toochange hello kural hello trafiğinden gelen **Internet** yalnızca hello adımları izleyin.
 
-1. Varolan NSG almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+1. NSG varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell 
     $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
     ```
 
-2. Yeni Kural ayarlarıyla aşağıdaki komutu çalıştırın:
+2. Merhaba yeni kural ayarları komutuyla aşağıdaki hello çalıştırın:
 
     ```powershell
     Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
@@ -267,13 +267,13 @@ Varolan bir NSG kuralları ekleme, mevcut kuralları düzenlemek ve kuralları k
     -DestinationPortRange 443
     ```
 
-3. NSG'yi yapılan değişiklikleri kaydetmek için aşağıdaki komutu çalıştırın:
+3. toosave hello değişiklik toohello NSG, hello aşağıdaki komutu çalıştırın:
 
     ```powershell
     Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-    Yalnızca güvenlik kuralları gösteren beklenen çıktı:
+    Güvenlik kuralları yalnızca hello gösteren beklenen çıktı:
    
         Name                 : NSG-FrontEnd
         ...
@@ -304,25 +304,25 @@ Varolan bir NSG kuralları ekleme, mevcut kuralları düzenlemek ve kuralları k
                                ]
 
 ### <a name="delete-a-rule"></a>Kural silme
-1. Varolan NSG almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+1. NSG varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell
     $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
     ```
 
-2. NSG kuralı kaldırmak için aşağıdaki komutu çalıştırın:
+2. Hello NSG tooremove hello kuralı çalıştırma hello aşağıdaki komutu:
 
     ```powershell
     Remove-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name https-rule
     ```
 
-3. Aşağıdaki komutu çalıştırarak NSG'yi, yaptığınız değişiklikleri kaydedin:
+3. Merhaba yapılan değişiklikler toohello NSG, komutu aşağıdaki hello çalıştırarak kaydedin:
 
     ```powershell
     Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-    Beklenen çıktı bildirimi yalnızca güvenlik kuralları gösteren **https kuralı** artık listelenir:
+    Güvenlik kuralları, bildirim hello yalnızca hello gösteren beklenen çıktı **https kuralı** artık listelenir:
    
         Name                 : NSG-FrontEnd
         ...
@@ -338,36 +338,36 @@ Varolan bir NSG kuralları ekleme, mevcut kuralları düzenlemek ve kuralları k
                                ]
 
 ## <a name="manage-associations"></a>İlişkileri yönetme
-Bir NSG'yi alt ağlara ve NIC ilişkilendirebilirsiniz. Bir NSG'yi ilişkili olduğu herhangi bir kaynaktan ilişkisini kaldırın.
+Bir NSG toosubnets ve NIC ilişkilendirebilirsiniz. Bir NSG'yi ilişkili olduğu herhangi bir kaynaktan ilişkisini kaldırın.
 
-### <a name="associate-an-nsg-to-a-nic"></a>Bir NSG'yi bir NIC ilişkilendirme
-İlişkilendirilecek **NSG ön uç** NSG'yi **TestNICWeb1** NIC, aşağıdaki adımları tamamlayın:
+### <a name="associate-an-nsg-tooa-nic"></a>Bir NSG tooa NIC ilişkilendirme
+tooassociate hello **NSG ön uç** NSG toohello **TestNICWeb1** NIC, aşağıdaki adımları tam hello:
 
-1. Varolan NSG almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+1. NSG varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell
     $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
     ```
 
-2. Mevcut NIC'in almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+2. NIC varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell
     $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
     ```
 
-3. Ayarlama **NetworkSecurityGroup** özelliği **NIC** değişken değerini **NSG** değişken, aşağıdaki komutu girerek:
+3. Set hello **NetworkSecurityGroup** hello özelliğinin **NIC** hello değişken toohello değerini **NSG** değişken, komut aşağıdaki hello girerek:
 
     ```powershell
     $nic.NetworkSecurityGroup = $nsg
     ```
 
-4. NIC'ye yapılan değişiklikleri kaydetmek için aşağıdaki komutu çalıştırın:
+4. toosave hello değişiklik toohello NIC, hello aşağıdaki komutu çalıştırın:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $nic
     ```
    
-    Çıktı yalnızca gösteren beklenen **NetworkSecurityGroup** özelliği:
+    Beklenen çıktı gösteren yalnızca hello **NetworkSecurityGroup** özelliği:
    
         NetworkSecurityGroup : {
                                  "SecurityRules": [],
@@ -378,58 +378,58 @@ Bir NSG'yi alt ağlara ve NIC ilişkilendirebilirsiniz. Bir NSG'yi ilişkili old
                                }
 
 ### <a name="dissociate-an-nsg-from-a-nic"></a>Bir NSG'yi bir NIC gelen ilişkilendirmesini Kaldır
-İlişkilendirmesini kaldırmak **NSG ön uç** NSG gelen **TestNICWeb1** NIC, aşağıdaki adımları tamamlayın:
+toodissociate hello **NSG ön uç** hello gelen NSG **TestNICWeb1** NIC, aşağıdaki adımları tam hello:
 
-1. Mevcut NIC'in almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+1. NIC varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell
     $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
     ```
 
-2. Ayarlama **NetworkSecurityGroup** özelliği **NIC** değişkenini **$null** aşağıdaki komutu çalıştırarak:
+2. Set hello **NetworkSecurityGroup** hello özelliğinin **NIC** değişkeni çok**$null** hello aşağıdaki komutu çalıştırarak:
 
     ```powershell
     $nic.NetworkSecurityGroup = $null
     ```
 
-3. NIC'ye yapılan değişiklikleri kaydetmek için aşağıdaki komutu çalıştırın:
+3. toosave hello değişiklik toohello NIC, hello aşağıdaki komutu çalıştırın:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $nic
     ```
    
-    Çıktı yalnızca gösteren beklenen **NetworkSecurityGroup** özelliği:
+    Beklenen çıktı gösteren yalnızca hello **NetworkSecurityGroup** özelliği:
    
         NetworkSecurityGroup : null
 
 ### <a name="dissociate-an-nsg-from-a-subnet"></a>Bir NSG'yi bir alt ağdan ilişkilendirmesini Kaldır
-İlişkilendirmesini kaldırmak **NSG ön uç** NSG gelen **ön uç** alt ağ, aşağıdaki adımları tamamlayın:
+toodissociate hello **NSG ön uç** hello gelen NSG **ön uç** alt ağ, aşağıdaki adımları tam hello:
 
-1. Mevcut VNet almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+1. VNet varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG -Name TestVNet
     ```
 
-2. Almak için aşağıdaki komutu çalıştırın **ön uç** alt ağı ve bir değişkende saklayın:
+2. Çalışma hello komutu tooretrieve hello aşağıdaki **ön uç** alt ağı ve bir değişkende saklayın:
 
     ```powershell
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
     ```
  
-3. Ayarlama **NetworkSecurityGroup** özelliği **alt** değişkenini **$null** aşağıdaki komutu girerek:
+3. Set hello **NetworkSecurityGroup** hello özelliğinin **alt** değişkeni çok**$null** komutu aşağıdaki hello girerek:
 
     ```powershell
     $subnet.NetworkSecurityGroup = $null
     ```
 
-4. Alt ağa yapılan değişiklikleri kaydetmek için aşağıdaki komutu çalıştırın:
+4. toosave hello değişiklik toohello alt ağ, hello aşağıdaki komutu çalıştırın:
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-    Beklenen çıktı yalnızca özelliklerini gösteren **ön uç** alt ağ. Bir özellik için hiç duyuru **NetworkSecurityGroup**:
+    Yalnızca hello özelliklerini hello gösteren beklenen çıktı **ön uç** alt ağ. Bir özellik için hiç duyuru **NetworkSecurityGroup**:
    
             ...
             Subnets           : [
@@ -451,40 +451,40 @@ Bir NSG'yi alt ağlara ve NIC ilişkilendirebilirsiniz. Bir NSG'yi ilişkili old
                                     ...
                                 ]
 
-### <a name="associate-an-nsg-to-a-subnet"></a>Bir NSG'yi bir alt ağ ilişkilendirme
-İlişkilendirilecek **NSG ön uç** NSG'yi **FronEnd** alt yeniden, aşağıdaki adımları tamamlayın:
+### <a name="associate-an-nsg-tooa-subnet"></a>Bir NSG tooa alt ağını ilişkilendirin
+tooassociate hello **NSG ön uç** NSG toohello **FronEnd** yeniden alt ağ, aşağıdaki adımları tam hello:
 
-1. Mevcut VNet almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+1. VNet varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName RG-NSG -Name TestVNet
     ```
 
-2. Almak için aşağıdaki komutu çalıştırın **ön uç** alt ağı ve bir değişkende saklayın:
+2. Çalışma hello komutu tooretrieve hello aşağıdaki **ön uç** alt ağı ve bir değişkende saklayın:
 
     ```powershell
     $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd
     ```
  
-3. Varolan NSG almak ve bir değişkeni depolamak için aşağıdaki komutu çalıştırın:
+3. NSG varolan komut tooretrieve hello aşağıdaki hello çalıştırın ve bir değişkende saklayın:
 
     ```powershell
     $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
     ```
 
-4. Ayarlama **NetworkSecurityGroup** özelliği **alt** değişkenini **$null** aşağıdaki komutu çalıştırarak:
+4. Set hello **NetworkSecurityGroup** hello özelliğinin **alt** değişkeni çok**$null** hello aşağıdaki komutu çalıştırarak:
 
     ```powershell
     $subnet.NetworkSecurityGroup = $nsg
     ```
 
-5. Alt ağa yapılan değişiklikleri kaydetmek için aşağıdaki komutu çalıştırın:
+5. toosave hello değişiklik toohello alt ağ, hello aşağıdaki komutu çalıştırın:
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-    Çıktı yalnızca gösteren beklenen **NetworkSecurityGroup** özelliği **ön uç** alt ağ:
+    Beklenen çıktı gösteren yalnızca hello **NetworkSecurityGroup** hello özelliğinin **ön uç** alt ağ:
    
         ...
         "NetworkSecurityGroup": {
@@ -497,19 +497,19 @@ Bir NSG'yi alt ağlara ve NIC ilişkilendirebilirsiniz. Bir NSG'yi ilişkili old
         ...
 
 ## <a name="delete-an-nsg"></a>Bir NSG'yi Sil
-Herhangi bir kaynağa ilişkili olmayan bir NSG'yi yalnızca silebilirsiniz. Bir NSG'yi silmek için aşağıdaki adımları izleyin.
+Tooany kaynak ilişkili olmayan bir NSG'yi yalnızca silebilirsiniz. bir NSG'yi toodelete hello adımları izleyin.
 
-1. Bir NSG'yi ilişkili tüm kaynakları denetlemek için çalıştırın `azure network nsg show` gösterildiği gibi [görünüm Nsg'ler ilişkilendirmeleri](#View-NSGs-associations).
-2. NSG herhangi NIC'ler ilişkiliyse çalıştırmak `azure network nic set` gösterildiği gibi [bir NSG'yi bir NIC gelen ilişkilendirmesini](#Dissociate-an-NSG-from-a-NIC) her NIC için 
-3. NSG herhangi bir alt ağ ile ilişkili ise, çalıştırın `azure network vnet subnet set` gösterildiği gibi [bir NSG bir alt ağdan ilişkilendirmesini](#Dissociate-an-NSG-from-a-subnet) her alt ağ için.
-4. NSG silmek için aşağıdaki komutu çalıştırın:
+1. Merhaba çalıştırmak tooan NSG, ilişkili toocheck hello kaynakları `azure network nsg show` gösterildiği gibi [görünüm Nsg'ler ilişkilendirmeleri](#View-NSGs-associations).
+2. Merhaba NSG ilişkili tooany NIC ise, hello çalıştırın `azure network nic set` gösterildiği gibi [bir NSG'yi bir NIC gelen ilişkilendirmesini](#Dissociate-an-NSG-from-a-NIC) her NIC için 
+3. Merhaba NSG ilişkili tooany alt ise, hello çalıştırın `azure network vnet subnet set` gösterildiği gibi [bir NSG bir alt ağdan ilişkilendirmesini](#Dissociate-an-NSG-from-a-subnet) her alt ağ için.
+4. toodelete hello NSG, hello aşağıdaki komutu çalıştırın:
 
     ```powershell
     Remove-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd -Force
     ```
    
    > [!NOTE]
-   > `-Force` Parametresi sağlar silmeyi onaylamak gerekmez.
+   > Merhaba `-Force` parametre sağlar tooconfirm hello silme gerekmez.
    > 
 
 ## <a name="next-steps"></a>Sonraki adımlar

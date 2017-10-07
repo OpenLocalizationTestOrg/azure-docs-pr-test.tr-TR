@@ -1,6 +1,6 @@
 ---
-title: "Pencere kapsayıcılarında Azure sanal makineleri | Microsoft Docs"
-description: "Sanal makineler, Docker açıklar ve Linux kapsayıcıları ve her Azure, gruplardaki kullanımı dahil olmak üzere her bir yaklaşım çalıştığı çok iyi her birinin avantajları ve senaryoları."
+title: "aaaContainers penceresi Azure sanal makineler üzerinde | Microsoft Docs"
+description: "Sanal makineler, Docker açıklar ve Linux kapsayıcıları ve her Azure, gruplardaki kullanımı dahil olmak üzere her hello avantajları ve senaryoları her iki yaklaşımın çalıştığı çok iyi."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: squillace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
-ms.openlocfilehash: 9d03e9a98aa990d6747a3e06c008f54ee18445cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7acf984e1bcafbb78728156c07533629b9d62149
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="virtual-machines-and-containers-in-azure"></a>Azure’daki sanal makineler ve kapsayıcılar
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: "Duraklatma, sürdürme, ölçeği T-SQL Azure SQL veri ambarı ile | Microsoft Docs"
-description: "Dwu ayarlayarak genişleme performans görevlere Transact-SQL (T-SQL). Yoğun olmayan saatlerde ölçeklendirme tarafından maliyet tasarrufu."
+title: "aaaPause, Sürdür, ölçeği T-SQL Azure SQL veri ambarı ile | Microsoft Docs"
+description: "Dwu ayarlayarak görevleri tooscale kullanıma performans transact-SQL (T-SQL). Yoğun olmayan saatlerde ölçeklendirme tarafından maliyet tasarrufu."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/30/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 9221d72ecf8ab2ba8b04e4bc97eeef7157817cca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 84c6868acb673221d8853319ac9a05bb98b2b7c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>Azure SQL Data warehouse'da (T-SQL) işlem güç yönetimi
 > [!div class="op_single_selector"]
@@ -33,11 +33,11 @@ ms.lasthandoff: 07/11/2017
 <a name="current-dwu-bk"></a>
 
 ## <a name="view-current-dwu-settings"></a>Geçerli DWU ayarlarını görüntüle
-Veritabanlarınızı geçerli DWU ayarlarını görüntülemek için:
+tooview hello geçerli DWU ayarlarına veritabanlarınız için:
 
 1. SQL Server Nesne Gezgini Visual Studio'da açın.
-2. Mantıksal SQL veritabanı sunucusu ile ilişkili ana veritabanına bağlanın.
-3. Sys.database_service_objectives dinamik yönetim görünümünden seçin. Örnek aşağıda verilmiştir: 
+2. Merhaba mantıksal SQL veritabanı sunucusu ile ilişkili toohello ana veritabanına bağlanın.
+3. Merhaba sys.database_service_objectives dinamik yönetim görünümünden seçin. Örnek aşağıda verilmiştir: 
 
 ```sql
 SELECT
@@ -56,10 +56,10 @@ JOIN
 ## <a name="scale-compute"></a>Bilgi işlem
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Dwu değiştirmek için:
+toochange hello Dwu:
 
-1. Mantıksal SQL veritabanı sunucunuzla ilişkili ana veritabanına bağlanın.
-2. Kullanım [ALTER DATABASE] [ ALTER DATABASE] TSQL deyimi. Aşağıdaki örnek, DW1000 için MySQLDW veritabanı için hizmet düzeyi hedefi ayarlar. 
+1. Mantıksal SQL veritabanı sunucunuzla ilişkili toohello ana veritabanına bağlanın.
+2. Kullanım hello [ALTER DATABASE] [ ALTER DATABASE] TSQL deyimi. Merhaba aşağıdaki örnek hello hizmet düzeyi hedefi tooDW1000 hello veritabanı MySQLDW için ayarlar. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -71,8 +71,8 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ## <a name="check-database-state-and-operation-progress"></a>Veritabanı durumunda ve işlem ilerleme durumunu denetleme
 
-1. Mantıksal SQL veritabanı sunucunuzla ilişkili ana veritabanına bağlanın.
-2. Veritabanı durumunu denetlemek için sorgu Gönder
+1. Mantıksal SQL veritabanı sunucunuzla ilişkili toohello ana veritabanına bağlanın.
+2. Sorgu toocheck veritabanı durumu Gönder
 
 ```sql
 SELECT *
@@ -80,7 +80,7 @@ FROM
 sys.databases
 ```
 
-3. İşlemin durumunu denetlemek için sorgu Gönder
+3. Sorgu toocheck işlemin durumunu Gönder
 
 ```sql
 SELECT *
@@ -92,7 +92,7 @@ AND
     major_resource_id = 'MySQLDW'
 ```
 
-Bu DMV SQL veri ambarı işlemi ve tamamlandı veya IN_PROGRESS olacaktır işlemin durumunu gibi çeşitli yönetim işlemlerini hakkında bilgi döndürür.
+Bu DMV SQL veri ambarı tamamlandı veya IN_PROGRESS olacaktır hello işlemi hello işlemi ve hello durumu gibi çeşitli yönetim işlemlerini hakkında bilgi döndürür.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Eclipse'te Azure dağıtımları için uzaktan erişimi etkinleştirme"
-description: "Eclipse için Azure Araç Seti kullanarak Azure dağıtımları için uzaktan erişimi etkinleştirmek öğrenin."
+title: "aaaEnabling eclipse'te Azure dağıtımları için uzaktan erişim"
+description: "Nasıl tooenable uzaktan erişim için Eclipse hello Azure Araç Seti kullanarak Azure dağıtımları için öğrenin."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,112 +14,112 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 654d511bd5a62341f87569317e97360c94a6f26c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00c2bf22c1f3ec792098f154f771c87506e87881
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enabling-remote-access-for-azure-deployments-in-eclipse"></a>Eclipse'te Azure dağıtımları için uzaktan erişimi etkinleştirme
-Dağıtımlarınızı gidermenize yardımcı olması için etkinleştirmek ve Uzaktan erişim, dağıtımınızı barındıran sanal makineye bağlanmak için kullanın. Uzak Masaüstü Protokolü (RDP) üzerinde uzak erişim işlevini kullanır. Azure'da yayımladınız veya bir Windows işletim sistemiyle Eclipse kullanıyorsanız, Azure'da yayımlamadan önce uzaktan erişim yapılandırabilirsiniz, uzaktan erişim dağıtımı için yapılandırabilirsiniz. Azure'daki dağıtımınızın sanal makineye bağlanmak için işletim sistemiyle uyumlu olan bir Uzak Masaüstü istemci gerektiğine dikkat edin.
+toohelp dağıtımlarınızı sorun giderme, etkinleştirmek ve Uzaktan erişim tooconnect toohello sanal makine dağıtımınızı barındırma kullanmak. Uzak Masaüstü Protokolü (RDP) hello üzerinde Hello uzak erişim işlevini kullanır. TooAzure yayımladığınız veya bir Windows işletim sistemiyle Eclipse kullanıyorsanız, tooAzure yayımlamadan önce uzaktan erişim yapılandırabilirsiniz, uzaktan erişim dağıtımı için yapılandırabilirsiniz. Azure'da sipariş tooconnect tooyour dağıtımın sanal makine işletim sisteminizdeki ile uyumlu bir Uzak Masaüstü İstemcisi gerektiğine dikkat edin.
 
-## <a name="how-to-enable-remote-access-before-you-deploy-to-azure"></a>Azure'a dağıtmadan önce uzaktan erişim etkinleştirme
+## <a name="how-tooenable-remote-access-before-you-deploy-tooazure"></a>Önce uzaktan erişim tooenable tooAzure nasıl dağıtma
 > [!NOTE]
-> Uygulamanızı Azure'a dağıtmadan önce uzaktan erişimi etkinleştirmek için Eclipse Windows üzerinde çalışıyor olması gerekir.
+> tooenable uygulama tooAzure dağıtmadan önce uzaktan erişim, Eclipse Windows üzerinde çalışan toobe gerekir.
 > 
 > 
 
-Aşağıdaki resimde gösterildiği **uzaktan erişim** uzaktan erişimi etkinleştirmek için kullanılan özellikleri iletişim kutusu.
+Merhaba aşağıdaki resimde gösterilmiştir hello **uzaktan erişim** tooenable uzaktan erişim özellikleri iletişim kutusu kullanılır.
 
 ![][ic719494]
 
-Görüntülenecek iki yolla **uzaktan erişim** Özellikleri iletişim kutusu:
+İki yolu toodisplay hello vardır **uzaktan erişim** Özellikleri iletişim kutusu:
 
-* Tıklatın **Gelişmiş** bağlamak **uzaktan erişim** bölümünü **Azure Yayımla** iletişim.
+* Merhaba tıklatın **Gelişmiş** hello bağlantıyı **uzaktan erişim** hello bölümünü **tooAzure yayımlama** iletişim.
 
-* Açık **özellikleri** Azure projenizin iletişim.
+* Açık hello **özellikleri** Azure projenizin iletişim.
 
-Yeni bir Azure dağıtım projesi oluşturduğunuzda, projeyi uzak varsayılan olarak etkin erişemeyecektir. Ancak, kolayca uzaktan erişim kullanıcı adı ve parola belirterek etkinleştirebilirsiniz **Azure Yayımla** iletişim. Uzaktan erişim parolası X.509 sertifikaları kullanılarak şifrelenir. Kullanmıyorsanız, kendi sertifikanızı sağlamak Eclipse için Azure eklentisi ile birlikte otomatik olarak imzalanan bir sertifika şifreleme kullanır. Bu otomatik olarak imzalanan sertifika bulunduğu **cert** hem bir ortak sertifika dosyası (SampleRemoteAccessPublic.cer) ve bir kişisel bilgi değişimi (PFX) sertifika dosyası (SampleRemoteAccessPrivate.pfx) olarak depolanan projenizin Azure klasör. İkinci sertifikanın özel anahtarı içerir ve bir varsayılan parolaya sahip **Parola1**. Bu parola ortak bilgi olduğundan, ancak varsayılan sertifikayı amacıyla, Üretim dağıtımı için değil yalnızca öğrenme için kullanılmalıdır. Böylece dışındaki amacıyla öğrenme için etkin uzaktan oturumlar, dağıtımları için istediğinizde tıklamanız **Gelişmiş** bağlamak **Azure Yayımla** iletişim kutusunu kullanarak kendi sertifikanızı belirtin. Bu Azure kullanıcı parolasının şifresini çözebilir şekilde Azure Yönetim Portalı içinde barındırılan hizmetinize Sertifika PFX sürümünü yüklemek gerekeceğini unutmayın.
+Yeni bir Azure dağıtım projesi oluşturduğunuzda, hello proje uzak varsayılan olarak etkin erişemeyecektir. Ancak, kolayca uzaktan erişim hello hello kullanıcı adı ve parola belirterek etkinleştirebilirsiniz **tooAzure yayımlama** iletişim. Merhaba uzaktan erişim parolası X.509 sertifikaları kullanılarak şifrelenir. Kullanmıyorsanız, kendi sertifikanızı sağlamak hello şifreleme hello Eclipse için Azure eklentisi ile birlikte otomatik olarak imzalanan bir sertifika kullanır. Bu otomatik olarak imzalanan sertifika hello olan **cert** Azure projenizin klasörü hem bir ortak sertifika dosyası (SampleRemoteAccessPublic.cer) olarak depolanır ve bir kişisel bilgi değişimi (PFX) olarak sertifika dosyası ( SampleRemoteAccessPrivate.pfx). Merhaba ikinci hello hello sertifikanın özel anahtarı içerir ve bir varsayılan parolaya sahip **Parola1**. Bu parola ortak bilgi olduğundan, ancak hello varsayılan sertifika yalnızca Üretim dağıtımı için değil, amaçları için öğrenme için kullanılmalıdır. Tooenabled Uzak Oturumlar, dağıtımları için istediğiniz zaman bu nedenle dışındaki amacıyla öğrenme için hello tıklamanız **Gelişmiş** hello bağlantıyı **tooAzure yayımlama** iletişim toospecify kendi Sertifika. Bu Azure hello kullanıcı parolasının şifresini çözebilir şekilde tooupload hello PFX hello sertifika tooyour barındırılan hizmet hello Azure Yönetim Portalı içinde sürümü gerekeceğini unutmayın.
 
-Öğretici geri kalanı ile uzaktan erişim devre dışı başlangıçta oluşturulmuş bir Azure dağıtım projesi için uzaktan erişimi etkinleştirmek nasıl gösterir. Bu öğreticinin amacı, yeni bir otomatik olarak imzalanan sertifika oluşturacağız ve kendi .pfx dosyasını tercih ettiğiniz bir parola gerekir. Ayrıca bir sertifika yetkilisi tarafından verilen bir sertifika kullanma seçeneğiniz vardır.
+Merhaba kalan hello öğreticinin nasıl tooenable uzaktan erişim uzak erişim devre dışı başlangıçta oluşturulmuş bir Azure dağıtım projesi için gösterir. Bu öğreticinin amacı, yeni bir otomatik olarak imzalanan sertifika oluşturacağız ve kendi .pfx dosyasını tercih ettiğiniz bir parola gerekir. Bir sertifika yetkilisi tarafından verilen bir sertifikayı kullanarak hello seçeneğiniz de vardır.
 
-## <a name="how-to-enable-remote-access-after-you-have-deployed-to-azure"></a>Azure'a dağıttıktan sonra uzaktan erişim etkinleştirme
-Azure'a dağıttıktan sonra uzaktan erişimi etkinleştirmek için aşağıdaki adımları kullanın:
+## <a name="how-tooenable-remote-access-after-you-have-deployed-tooazure"></a>Sonra uzaktan erişim tooenable tooAzure dağıtılan nasıl
+tooAzure, aşağıdaki adımları kullanın hello dağıttıktan sonra tooenable uzaktan erişim:
 
-1. Azure hesabınızı kullanarak Azure yönetim portalında oturum açın
+1. Hello Azure yönetim portalında, Azure hesabınızı kullanarak oturum açın
 
 2. Listenizde **bulut Hizmetleri**, dağıtılan bulut hizmetinizi seçin
 
-3. Bulut hizmeti web sayfasını tıklatın **yapılandırma** bağlantı
+3. Merhaba Hello bulut hizmeti web sayfasında, tıklatın **yapılandırma** bağlantı
 
-4. Yapılandırma sayfasında altta tıklatın **uzak** bağlantı
+4. Merhaba Hello alta hello yapılandırma sayfasında, tıklatın **uzak** bağlantı
 
-5. Açılan iletişim kutusu görüntülendiğinde:
+5. Merhaba açılan iletişim kutusu görüntülendiğinde:
    
-   * Uzaktan erişimi etkinleştirmek, için istediğiniz rolü belirtin
+   * Merhaba rol belirtin, istediğiniz tooenable uzaktan erişim
 
-   * Seçmek için tıklatın **Uzak Masaüstü'nü etkinleştirme** onay kutusu
+   * Tooselect hello tıklatın **Uzak Masaüstü'nü etkinleştirme** onay kutusu
    
-   * Bir kullanıcı adı ve Uzaktan erişim için kullanmak istediğiniz parolayı belirtin
+   * Bir kullanıcı adı ve Uzaktan erişim için toouse istediğiniz parolayı belirtin
    
-   * Kullanılacak sertifikayı seçin
+   * Merhaba sertifika toouse seçin
 
 6. **Tamam**’a tıklayın. 
 
-Yapılandırma değişikliği tamamlanması birkaç dakika sürebilir sürmekte olduğunu bildiren bir ileti görürsünüz. Yapılandırma değişikliği tamamlandıktan sonra adımları **uzaktan oturum açmak için** bu makalenin sonraki bölümlerinde bölümü.
+Yapılandırma değişikliği birkaç dakika toocomplete sürebilir sürmekte olduğunu bildiren bir ileti görürsünüz. Hello yapılandırma değişikliği tamamlandıktan sonra hello hello adımları **toolog içinde uzaktan** bu makalenin sonraki bölümlerinde bölümü.
 
-## <a name="how-to-enable-remote-access-in-your-package"></a>Uzaktan erişim paketinize etkinleştirme
+## <a name="how-tooenable-remote-access-in-your-package"></a>Tooenable uzaktan erişim nasıl paketinize
 1. Eclipse'nın Proje Gezgini bölmesinde içinde Azure projenize sağ tıklatın ve **özellikleri**.
 
-2. İçinde **özellikleri** iletişim kutusunda, genişletin **Azure** tıklatın ve sol bölmesinde **uzaktan erişim**.
+2. Merhaba, **özellikleri** iletişim kutusunda, genişletin **Azure** hello sol bölmedeki ve tıklatın **uzaktan erişim**.
 
-3. İçinde **uzaktan erişim** iletişim kutusunda, olun **bu oturum açma kimlik bilgileri ile Uzak Masaüstü bağlantıları kabul etmek üzere tüm rolleri etkinleştir** denetlenir.
+3. Merhaba, **uzaktan erişim** iletişim kutusunda, olun **tüm rolleri tooaccept Uzak Masaüstü bağlantıları bu oturum açma kimlik bilgileri ile etkinleştirmek** denetlenir.
 
-4. Uzak Masaüstü bağlantısı için bir kullanıcı adı belirtin.
+4. Merhaba Uzak Masaüstü bağlantısı için bir kullanıcı adı belirtin.
 
-5. Belirtin ve kullanıcının parolasını onaylayın. Uzak Masaüstü Bağlantısı yaptığınızda bu iletişim kutusunda ayarladığınız kullanıcı adı ve parola değerlerini kullanılır. (Bu PFX parolanızı ayrı bir paroladan olduğunu unutmayın.)
+5. Belirtin ve hello hello kullanıcının parolasını onaylayın. Uzak Masaüstü Bağlantısı yaptığınızda bu iletişim kutusunda ayarladığınız hello kullanıcı adı ve parola değerlerini kullanılır. (Bu PFX parolanızı ayrı bir paroladan olduğunu unutmayın.)
 
-6. Kullanıcı hesabı için sona erme tarihi belirtin.
+6. Merhaba kullanıcı hesabı için Hello sona erme tarihi belirtin.
 
-7. Tıklatın **yeni** yeni bir otomatik olarak imzalanan sertifika oluşturmak için. (Alternatif olarak, çalışma alanı veya dosya sistemi bir sertifika seçin **çalışma** veya **FileSystem** düğmeleri, sırasıyla ancak amacıyla Bu öğretici yeni bir sertifika oluşturacağız.)
+7. Tıklatın **yeni** toocreate yeni bir otomatik olarak imzalanan sertifika. (Alternatif olarak, çalışma alanı veya dosya sistemi hello aracılığıyla bir sertifika seçin **çalışma** veya **FileSystem** sırasıyla ancak biz oluşturacaksınız yeni bir Bu öğreticinin amaçları için düğmeler Sertifika.)
 
-   * İçinde **yeni sertifika** iletişim kutusunda, belirtin ve PFX dosyası için kullandığınız parolayı onaylayın.
+   * Merhaba, **yeni sertifika** iletişim kutusunda, belirtin ve onaylayın hello parola PFX dosyanız için kullanmanız.
 
-   * İçin sağlanan değer kabul **ad (CN)**, veya özel bir ad kullanın.
+   * İçin sağlanan hello değeri kabul **ad (CN)**, veya özel bir ad kullanın.
 
-   * .Cer formunda, yeni sertifikanın kaydedileceği yolu ve dosya adını belirtin. Bu adımı ve sonraki adım için kullanabileceğinizi **cert** klasörü Azure projeniz, ancak başka bir konum seçmek boş. Bu öğreticinin amaçları doğrultusunda kullanacağız **c:\mycert\mycert.cer**. (Oluşturma **c:\mycert** devam etmeden veya kullanmak isterseniz var olan bir klasörü önce klasör.)
+   * .Cer formunda, yeni sertifika hello kaydedileceği hello yolu ve dosya adını belirtin. Bu adım ve hello sonraki adım için hello kullanabilirsiniz **cert** Azure projeniz, ancak klasör boş toochoose olduğunuz başka bir konum. Bu öğreticinin amaçları doğrultusunda kullanacağız **c:\mycert\mycert.cer**. (Merhaba oluşturma **c:\mycert** klasörü önceki tooproceeding ya da kullanmak isterseniz varolan bir klasöre.)
 
-   * Yeni sertifikayı ve özel anahtarını, .pfx formunda kaydedileceği yolu ve dosya adını belirtin. Bu öğreticinin amaçları doğrultusunda kullanacağız **c:\mycert\mycert.pfx**. **Yeni sertifika** iletişim aşağıdakine benzer görünmelidir (kullanmadıysanız, klasör yollarını güncelleştirme **c:\mycert**):
+   * Merhaba yeni bir sertifika ve özel anahtarını, .pfx formunda kaydedileceği hello yolu ve dosya adını belirtin. Bu öğreticinin amaçları doğrultusunda kullanacağız **c:\mycert\mycert.pfx**. **Yeni sertifika** iletişim benzer toohello aşağıdaki görünmelidir (kullanmadıysanız, hello klasör yollarını Güncelleştir **c:\mycert**):
      
       ![][ic712275]
 
-   * Tıklatın **Tamam** kapatmak için **yeni sertifika** iletişim.
+   * Tıklatın **Tamam** tooclose hello **yeni sertifika** iletişim.
 
-8. **Uzaktan erişim** iletişim aşağıdakine benzer görünmelidir:</p>
+8. **Uzaktan erişim** iletişim toohello aşağıdaki benzer görünmelidir:</p>
    
    ![][ic719495]
 
-9. Tıklatın **Tamam** kapatmak için **uzaktan erişim** iletişim.
+9. Tıklatın **Tamam** tooclose hello **uzaktan erişim** iletişim.
 
-Uygulamanızın, bulut dağıtımı için ayarlanmış yapı ile yeniden oluşturun.
+Uygulamanızı yeniden, hello ile dağıtım toocloud için kümesi oluşturun.
 
-## <a name="to-log-in-remotely"></a>Uzaktan oturum açmak için
-Rol örneği hazır olduğunda, uzaktan uygulamanızı barındıran sanal makineye oturum açabilir.
+## <a name="toolog-in-remotely"></a>içinde toolog uzaktan
+Rol örneği hazır olduktan sonra toohello sanal makineyi uygulamanızı barındıran uzaktan oturum açabilir.
 
-* Windows ve seçtiğiniz Eclipse kullanıyorsanız **başlangıç Uzak Masaüstü'nü dağıtma** seçeneği dağıtımınızı başladığında Azure, dağıtım sırasında ile bir Uzak Masaüstü Bağlantısı oturum açma ekranı sunulur. Kullanıcı adı ve parola istendiğinde, uzak kullanıcı için belirtilen değerleri girin ve oturum açamaz.
+* Windows ve, seçili hello Eclipse kullanıyorsanız **başlangıç Uzak Masaüstü'nü dağıtma** seçeneği dağıtımınızı başladığında, dağıtım tooAzure sırasında ile bir Uzak Masaüstü Bağlantısı oturum açma ekranı sunulur. Merhaba kullanıcı adı ve parola istendiğinde, hello uzak kullanıcı için belirtilen başlangıç değerleri girin ve de mümkün toolog olacaktır.
 
-* Uzaktan oturum açmak için başka bir yolunu <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Azure Yönetim Portalı</a>:
+* İçinde başka bir şekilde toolog hello uzaktan olan <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Azure Yönetim Portalı</a>:
   
-  * İçinde **bulut Hizmetleri** görüntüleme Azure Yönetim Portalı'nın, bulut hizmeti,'ı tıklatın **örnekleri**, belirli bir örneğe tıklayın ve ardından **Bağlan** düğmesi. **Bağlan** düğmesi, komut çubuğunda aşağıdaki gibi görünür:
+  * Merhaba içinde **bulut Hizmetleri** hello Azure Yönetim Portalı görünümünü bulut hizmetiniz tıklatın, **örnekleri**, belirli bir örneğe tıklayın ve hello ardından **Bağlan**düğmesi. Merhaba **Bağlan** düğmesi görünür hello aşağıdaki hello komut çubuğunda olarak:
     
       ![][ic659273]
 
-  * ' I tıklattıktan sonra **Bağlan** istenir bir RDP dosyasını açmak için düğmesi,. Dosyasını açın ve yönergeleri izleyin. (, De bu dosyayı yerel bilgisayarınıza kaydedin ve ardından, sanal makinenize uzaktan oturum açmak önce Yönetim Portalı'na gitmesini gerek kalmadan çift tıklayarak dosyayı çalıştırın.)
+  * Başlangıç'ı tıklattıktan sonra **Bağlan** düğmesi, istendiğinde tooopen bir RDP dosyası olacaktır. Merhaba dosyasını açın ve hello istemleri izleyin. (Ayrıca bu dosya tooyour yerel bilgisayara kaydedin ve ardından hello dosyasını çift tıklatarak tooremote günlük tooyour içinde çalıştırmak toofirst gerek olmadan sanal makine hello yönetim portalına gidin.)
 
-  * Kullanıcı adı ve parola istendiğinde, uzak kullanıcı için belirtilen değerleri girin ve oturum açamaz.
+  * Merhaba kullanıcı adı ve parola istendiğinde, hello uzak kullanıcı için belirtilen başlangıç değerleri girin ve de mümkün toolog olacaktır.
 
 > [!NOTE]
-> Bir Windows olmayan işletim sisteminde varsa, işletim sistemiyle uyumlu bir Uzak Masaüstü İstemcisi'ni kullanın ve indirdiğiniz RDP dosyasındaki ayarları ile istemci yapılandırma adımlarını izleyin gerekir.
+> Bir Windows olmayan işletim sisteminde varsa, toouse işletim sistemiyle uyumlu olan bir Uzak Masaüstü istemci gerekir ve istemci indirdiğiniz hello RDP dosyasındaki hello ayarları ile Merhaba adımları tooconfigure izleyin.
 > 
 > 
 
@@ -128,9 +128,9 @@ Rol örneği hazır olduğunda, uzaktan uygulamanızı barındıran sanal makine
 
 [Eclipse'te Azure Merhaba Dünya uygulaması oluşturma][Creating a Hello World Application for Azure in Eclipse]
 
-[Eclipse için Azure araç setini yükleme][Installing the Azure Toolkit for Eclipse] 
+[Yükleme hello Eclipse için Azure Araç Seti][Installing hello Azure Toolkit for Eclipse] 
 
-Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliştirici Merkezi][Azure Java Developer Center].
+Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Java Geliştirici Merkezi][Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -138,7 +138,7 @@ Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliş
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

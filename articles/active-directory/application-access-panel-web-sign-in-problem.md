@@ -1,6 +1,6 @@
 ---
-title: "Erişim paneli Web sitesine oturum açma sorunu | Microsoft Docs"
-description: "Erişim paneli kullanmak için kaydolun çalışılırken karşılaşabileceğiniz sorunları gidermek için yönergeler"
+title: "Web sitesi toohello erişim paneli imzalama aaaProblem | Microsoft Docs"
+description: "Erişim paneli toouse toosign çalışırken karşılaşabileceğiniz Kılavuzu tootroubleshoot sorunlar hello"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 28d91237adf745e591b02322de7881c8122827ac
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1037f7c5fbaa9425760ad5739b383c716d5fc3a3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="problem-signing-in-to-the-access-panel-website"></a>Erişim paneli Web sitesine oturum açma sorunu
+# <a name="problem-signing-in-toohello-access-panel-website"></a>Toohello erişim paneli Web sitesinde oturum açarken bir sorunla
 
-Erişim paneli, Azure AD Yöneticisi erişim verildi görünümü ve başlatma bulut tabanlı uygulamalar Azure Active Directory (Azure AD) bir iş veya Okul hesabı olan bir kullanıcının sağlayan bir web tabanlı portal olmaktır. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Erişim paneli Azure Portalı'ndan ayrıdır ve kullanıcıların bir Azure aboneliğine sahip olmasını gerektirmez.
+Merhaba erişim paneli, hangi etkinleştirir bir iş veya Okul sahip bir kullanıcı hesabı Azure Active Directory (Azure AD) tooview ve başlatma bulut tabanlı uygulamalarda o hello Azure AD yönetici web tabanlı bir portal erişim verildi ' dir. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve hello erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Merhaba erişim paneli hello Azure portal ' ayrıdır ve kullanıcıların toohave bir Azure aboneliği gerektirmez.
 
-Azure AD'de bir iş veya Okul hesabı varsa kullanıcıların erişim panelinde oturum açabilirsiniz.
+Kullanıcılar, Azure AD'de bir iş veya Okul hesabı varsa toohello erişim paneli oturum açabilir.
 
 -   Kullanıcıların doğrudan Azure AD tarafından doğrulanabilir.
 
@@ -32,33 +32,33 @@ Azure AD'de bir iş veya Okul hesabı varsa kullanıcıların erişim panelinde 
 
 -   Kullanıcıların Windows Server Active Directory tarafından doğrulanabilir.
 
-Bir kullanıcı Azure veya Office 365 için bir abonelik varsa ve Azure portal ya da bir Office 365 uygulaması kullanarak, erişim paneli sorunsuz bir şekilde gerek kalmadan yeniden oturum açmak için kullandığınız mümkün olacaktır. Kimliği doğrulanmamış kullanıcılar kendi hesabı için Azure AD'de kullanıcı adı ve parola kullanarak oturum açın istenir. Kuruluşun Federasyon yapılandırdıysa, kullanıcı adı yazmaya yeterli olur.
+Bir kullanıcı Azure veya Office 365 için bir abonelik varsa ve hello Azure portal ya da bir Office 365 uygulaması kullanarak, mümkün toouse olacak toosign içinde yeniden gerek kalmadan erişim paneli sorunsuz bir şekilde hello. Kimliği doğrulanmamış kullanıcıların kendi hesabı için Azure AD içinde hello kullanıcı adı ve parola kullanarak, istendiğinde toosign olması. Merhaba kuruluş Federasyon yapılandırdıysa, hello kullanıcı adı yazmaya yeterli olur.
 
-## <a name="general-issues-to-check-first"></a>İlk denetlemek için genel sorunlar 
+## <a name="general-issues-toocheck-first"></a>Genel toocheck ilk sorunları 
 
--   Emin olun kullanıcı olduğundan oturum açma için **URL'yi düzeltin**: <https://myapps.microsoft.com>
+-   Merhaba kullanıcı toohello içinde imzalama emin olun **URL'yi düzeltin**: <https://myapps.microsoft.com>
 
--   Kullanıcının tarayıcısının URL ekledi emin olun, **Güvenilen siteler**
+-   Merhaba kullanıcının tarayıcısının hello URL tooits eklenmiş emin **Güvenilen siteler**
 
--   Kullanıcının hesabı olduğundan emin olun **etkin** için oturum açmalar.
+-   Merhaba kullanıcının hesabı olduğundan emin olun **etkin** için oturum açmalar.
 
--   Kullanıcının hesabı olduğundan emin olun **kilitli değil.**
+-   Merhaba kullanıcının hesabı olduğundan emin olun **kilitli değil.**
 
--   Kullanıcının emin olun **parola süresi değil veya unutulursa.**
+-   Emin hello kullanıcının olun **parola süresi değil veya unutulursa.**
 
 -   Emin olun **çok faktörlü kimlik doğrulaması** kullanıcı erişimini engellemediğinden.
 
 -   Emin olun bir **koşullu erişim ilkesi** veya **kimlik koruması** İlkesi kullanıcı erişimini engellemediğinden.
 
--   Olduğundan emin olun kullanıcının **kimlik doğrulaması kişi bilgilerini** yürütülebilmesi çok faktörlü kimlik doğrulaması veya koşullu erişim ilkeleri izin güncel değil.
+-   Olduğundan emin olun kullanıcının **kimlik doğrulaması kişi bilgilerini** zorlanan toodate tooallow çok faktörlü kimlik doğrulaması veya koşullu erişim ilkeleri toobe olduğu.
 
--   Tarayıcınızın tanımlama bilgilerini temizleyip ve yeniden oturum açmaya de deneyin emin olun.
+-   Tarayıcınızın tanımlama bilgilerini temizleyip ve toosign olarak yeniden deneniyor yapma emin tooalso deneyin.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Erişim paneli toplantı tarayıcı gereksinimleri
+## <a name="meeting-browser-requirements-for-hello-access-panel"></a>Merhaba erişim paneli toplantı tarayıcı gereksinimleri
 
-Erişim paneli JavaScript destekleyen bir tarayıcı gerektirir ve CSS etkinleştirdi. Parola tabanlı çoklu oturum açma (SSO) erişimi Masası'nda kullanmak için erişim paneli uzantısı kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
+JavaScript destekleyen bir tarayıcı Hello erişim paneli gerektirir ve CSS etkinleştirdi. toouse parola tabanlı çoklu oturum açma (SSO) hello erişim paneli, hello erişim paneli uzantısı içinde hello kullanıcının tarayıcısında yüklenmesi gerekir. Bir kullanıcı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinde bu uzantıyı otomatik olarak yüklenir.
 
-Parola tabanlı, SSO için son kullanıcının tarayıcılar olabilir:
+Parola tabanlı, SSO için hello son kullanıcının tarayıcılar olabilir:
 
 -   Internet Explorer 8, 9, 10, 11--Windows 7 veya üzeri
 
@@ -69,9 +69,9 @@ Parola tabanlı, SSO için son kullanıcının tarayıcılar olabilir:
 -   Firefox 26,0 veya daha sonra--Windows XP SP2 veya sonraki ve Mac OS X 10,6 veya üzeri
 
 
-## <a name="problems-with-the-users-account"></a>Kullanıcı hesabının sorunları
+## <a name="problems-with-hello-users-account"></a>Merhaba kullanıcının hesabı sorunları
 
-Kullanıcı hesabında bir sorun nedeniyle erişim Paneli'ne erişim engellenebilir. Aşağıdaki sorun giderme ve kullanıcıların ve hesap ayarları ile sorunları bazı yöntemler şunlardır:
+Erişim paneli hello kullanıcının hesabı tooa sorun nedeniyle engellenmiş toohello erişin. Aşağıdaki sorun giderme ve kullanıcıların ve hesap ayarları ile sorunları bazı yöntemler şunlardır:
 
 -   [Bir kullanıcı hesabı Azure Active Directory içinde olup olmadığını kontrol edin](#check-if-a-user-account-exists-in-azure-active-directory)
 
@@ -93,188 +93,188 @@ Kullanıcı hesabında bir sorun nedeniyle erişim Paneli'ne erişim engellenebi
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Bir kullanıcı hesabı Azure Active Directory içinde olup olmadığını kontrol edin
 
-Bir kullanıcı hesabının mevcut olup olmadığını denetlemek için aşağıdaki adımları izleyin:
+bir kullanıcı hesabı varsa, toocheck hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
+6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
 
-7.  Beklediğiniz ve hiçbir veri eksik gibi göründüğünü emin olmak için kullanıcı nesnesinin özelliklerini denetleyin.
+7.  Merhaba kullanıcı nesnesi toobe beklediğiniz ve hiçbir veri eksik gibi göründüğünü emin Hello özelliklerini denetleyin.
 
 ### <a name="check-a-users-account-status"></a>Bir kullanıcının hesap durumunu denetle
 
-Bir kullanıcı hesabı durumunu denetlemek için aşağıdaki adımları izleyin:
+toocheck bir kullanıcıya ait hesap durumu, hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
+6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
 
 7.  tıklatın **profil**.
 
-8.  Altında **ayarları** emin **blok oturum** ayarlanır **Hayır**.
+8.  Altında **ayarları** emin **blok oturum** çok ayarlanır**Hayır**.
 
 ### <a name="reset-a-users-password"></a>Bir kullanıcının parolasını sıfırlama
 
-Bir kullanıcının parolasını sıfırlamak için aşağıdaki adımları izleyin:
+tooreset bir kullanıcının parolasını, aşağıdaki hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
+6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
 
-7.  tıklatın **parola sıfırlama** kullanıcı dikey pencerenin üstündeki düğmesi.
+7.  Merhaba tıklatın **parola sıfırlama** hello kullanıcı dikey penceresinde hello üstündeki düğmesi.
 
-8.  tıklatın **parola sıfırlama** düğmesini **parola sıfırlama** görünür dikey.
+8.  Merhaba tıklatın **parola sıfırlama** hello düğmesinde **parola sıfırlama** görünür dikey.
 
-9.  Kopya **geçici parola** veya **yeni bir parola girin** kullanıcı için.
+9.  Kopya hello **geçici parola** veya **yeni bir parola girin** hello kullanıcı için.
 
-10. Bu yeni parolayı kullanıcıya iletişim, Azure Active Directory'ye sonraki oturum açma sırasında bu parolayı değiştirmeniz gerekiyor.
+10. Bu yeni parola toohello kullanıcı iletişim, bu parolayı sırasında bir sonraki oturum tooAzure Active Directory gerekli toochange olabilir.
 
 ### <a name="enable-self-service-password-reset"></a>Self Servis parola sıfırlama etkinleştirme
 
-Self Servis parola sıfırlamayı etkinleştirmek için dağıtım adımları izleyin:
+tooenable Self Servis parola sıfırlama, hello dağıtım adımları izleyin:
 
--   [Azure Active Directory parolalarını sıfırlamalarına olanak tanıma](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Azure Active Directory parolalarını kullanıcılar tooreset etkinleştir](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
--   [Sıfırlama veya Active Directory şirket içi parolalarını değiştirmek kullanıcıları etkinleştir](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [Kullanıcıların tooreset etkinleştirmek veya Active Directory şirket içi parolalarını değiştirme](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetle
 
-Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetlemek için aşağıdaki adımları izleyin:
+toocheck kullanıcı çok faktörlü kimlik doğrulama durumu, aşağıdaki hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  tıklatın **çok faktörlü kimlik doğrulaması** dikey pencerenin üstündeki düğmesi.
+6.  Merhaba tıklatın **çok faktörlü kimlik doğrulaması** hello dikey penceresinde hello üstündeki düğmesi.
 
-7.  Bir kez **multi-Factor Authentication Yönetim Portalı** yüklendiğinde emin olduğunuz üzerinde **kullanıcılar** sekmesi.
+7.  Bir kez hello **multi-Factor Authentication Yönetim Portalı** yüklendiğinde hello üzerinde olduğundan olun **kullanıcılar** sekmesi.
 
-8.  Kullanıcı, arama, filtreleme veya sıralama kullanıcı listesinde bulun.
+8.  Merhaba kullanıcı arama, filtreleme veya sıralama hello kullanıcı listesinde bulun.
 
-9.  Kullanıcı kullanıcılar listesinden seçin ve **etkinleştirmek**, **devre dışı**, veya **zorla** istediğiniz gibi çok faktörlü kimlik doğrulaması.
+9.  Kullanıcıların hello listesinden seçim hello kullanıcı ve **etkinleştirmek**, **devre dışı**, veya **zorla** istediğiniz gibi çok faktörlü kimlik doğrulaması.
 
    >[!NOTE]
-   >Bir kullanıcı ise bir **zorlanmış** durumunda, ayarlayın bunları **devre dışı** geçici olarak kendi hesaba geri izin vermek için. Daha sonra geri oldukları sonra durumlarına değiştirebilirsiniz **etkin** yeniden sonraki oturum açma sırasında kişi bilgileri yeniden kaydetmek için bunları gerektirecek şekilde. Alternatif olarak, içindeki adımları takip edebilirsiniz [bir kullanıcının kimlik doğrulaması ile ilgili kişi bilgileri](#check-a-users-authentication-contact-info) doğrulamak veya onlar için bu veri kümesi için.
+   >Bir kullanıcı ise bir **zorlanmış** durumunda, ayarladığınız bunları çok**devre dışı** geçici olarak toolet bunları kendi hesaba geri. Bunlar geri olduktan sonra daha sonra durumlarına çok değiştirebilirsiniz**etkin** yeniden toorequire bunları toore kayıt sırasında bir sonraki kişi bilgileri oturum açın. Alternatif olarak, hello hello adımları takip edebilirsiniz [bir kullanıcının kimlik doğrulaması ile ilgili kişi bilgileri](#check-a-users-authentication-contact-info) tooverify ya da bunlar için bu veri kümesi.
    >
    >
 
 ### <a name="check-a-users-authentication-contact-info"></a>Bir kullanıcının kimlik doğrulaması ile ilgili kişi bilgileri
 
-Çok faktörlü kimlik doğrulaması, koşullu erişim, kimlik koruması ve parola sıfırlama için kullanılan kullanıcı kimlik doğrulaması kişi bilgilerini denetlemek için aşağıdaki adımları izleyin:
+bir kullanıcının kimlik doğrulamasını başvurun çok faktörlü kimlik doğrulaması, koşullu erişim, kimlik koruması ve parola sıfırlamak için kullanılan bilgileri toocheck hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
+6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
 
 7.  tıklatın **profil**.
 
-8.  Ekranı aşağı kaydırarak **kimlik doğrulaması kişi bilgilerini**.
+8.  Çok ilerleyin**kimlik doğrulaması kişi bilgilerini**.
 
-9.  **Gözden geçirme** veri, güncelleştirme ve kullanıcı için gerektiği şekilde kaydedildi.
+9.  **Gözden geçirme** hello veri, hello kullanıcı ve güncelleştirme için gerektiği şekilde kaydedildi.
 
 ### <a name="check-a-users-group-memberships"></a>Bir kullanıcı grup üyeliklerini denetleyin
 
-Bir kullanıcı grup üyeliklerini denetlemek için aşağıdaki adımları izleyin:
+toocheck bir kullanıcıya ait grup üyeliklerini, hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
+6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
 
-7.  tıklatın **grupları** olduğu kullanıcı grupları görmek için bir üyesidir.
+7.  tıklatın **grupları** hello kullanıcı grupları toosee bir üyesidir.
 
 ### <a name="check-a-users-assigned-licenses"></a>Bir kullanıcının atanan lisansları denetleme
 
-Bir kullanıcının atanan lisansları denetlemek için aşağıdaki adımları izleyin:
+toocheck bir kullanıcıya ait atanmış lisansların, aşağıdaki hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
+6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
 
-7.  tıklatın **lisansları** , şu anda kullanıcı lisansları görmek üzere atanır.
+7.  tıklatın **lisansları** toosee lisansları hello kullanıcı şu anda atanmış.
 
 ### <a name="assign-a-user-a-license"></a>Bir kullanıcı bir lisans atama 
 
-Bir kullanıcıya bir lisans atamak için aşağıdaki adımları izleyin:
+tooassign lisans tooa kullanıcı hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
+6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
 
-7.  tıklatın **lisansları** , şu anda kullanıcı lisansları görmek üzere atanır.
+7.  tıklatın **lisansları** toosee lisansları hello kullanıcı şu anda atanmış.
 
-8.  tıklatın **atamak** düğmesi.
+8.  Merhaba tıklatın **atamak** düğmesi.
 
-9.  Seçin **bir veya daha fazla ürün** mevcut ürünler listesinden.
+9.  Seçin **bir veya daha fazla ürün** mevcut ürünler hello listesinden.
 
-10. **İsteğe bağlı** tıklatın **atama seçenekleri** ürünleri granularly atanacak öğe. Tıklatın **Tamam** ne zaman bu tamamlandı.
+10. **İsteğe bağlı** hello tıklatın **atama seçenekleri** öğesi toogranularly ürünleri atayın. Tıklatın **Tamam** ne zaman bu tamamlandı.
 
-11. Tıklatın **atamak** bu lisans bu kullanıcıya atamak için düğmesi.
+11. Merhaba tıklatın **atamak** tooassign bu lisansları toothis kullanıcı düğmesi.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Bu sorun giderme adımları sorunu çözmezse
+## <a name="if-these-troubleshooting-steps-do-not-resolve-hello-issue"></a>Bu sorun giderme adımları hello sorunu çözmezse
 
-bir destek bileti aşağıdaki bilgilerle varsa açın:
+bir destek bileti varsa aşağıdaki bilgilerle hello ile açın:
 
 -   Bağıntı hata kimliği
 
@@ -289,4 +289,4 @@ bir destek bileti aşağıdaki bilgilerle varsa açın:
 -   Fiddler izlemeleri
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](active-directory-application-proxy-sso-using-kcd.md)
+[Uygulama proxy'si ile çoklu oturum açma tooyour uygulamaları sağlayın](active-directory-application-proxy-sso-using-kcd.md)

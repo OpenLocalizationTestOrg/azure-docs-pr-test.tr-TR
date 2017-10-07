@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama | Microsoft Belgeleri"
-description: "Klasik portalda Azure AD Uygulama Ara Sunucusu ile şirket içi uygulamaları bulutta yayımlayın."
+title: Azure AD uygulama proxy'si aaaPublish uygulamalarla | Microsoft Docs
+description: "Azure AD uygulama proxy'si ile şirket içi uygulamalar toohello bulut hello Klasik Portalı'nda yayımlayın."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,84 +15,84 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7926998314c65521ae48aebcceb33cb0c67e0b87
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-proxy-publish-azure-portal.md)
-> * [Klasik Azure portalı](active-directory-application-proxy-publish.md)
+> * [Klasik Azure Portalı](active-directory-application-proxy-publish.md)
 
-Azure AD Uygulama Proxy’si internet üzerinden erişilecek şirket içi uygulamalar yayımlayarak uzak çalışanları desteklemenize yardımcı olur. Bu noktaya kadar [Klasik Azure portalında Uygulama Proxy'si etkinleştirmiş olmanız](active-directory-application-proxy-enable.md) gerekir. Bu makalede, yerel ağınızda çalışan uygulamaları yayımlamaya ve ağınızın dışından güvenli uzaktan erişim sağlamaya ilişkin adımlar bulunur. Bu makaleyi tamamladıktan sonra uygulamayı kişiselleştirilmiş bilgiler veya güvenlik gereksinimleri ile yapılandırmaya hazır olursunuz.
+Azure AD uygulama proxy'si hello erişilen şirket içi uygulamalar toobe yayımlayarak uzaktan çalışanlar destek yardımcı olan Internet. Bu noktası tarafından zaten [hello Klasik Azure portalında uygulama Proxy etkin](active-directory-application-proxy-enable.md). Bu makalede, yerel ağınızda çalışan hello adımları toopublish uygulamalar açıklanmaktadır ve ağınızın dışından güvenli uzaktan erişim'sağlayın. Bu makalede tamamladıktan sonra hazır tooconfigure Merhaba uygulaması kişiselleştirilmiş bilgileri veya güvenlik gereksinimlerine sahip olacaktır.
 
 > [!NOTE]
-> Uygulama Ara Sunucusu özelliğini, yalnızca Azure Active Directory'nin Premium veya Basic sürümüne yükseltmeniz halinde kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md). Uygulama Proxy’sini kullanmak isterseniz [Azure portalında uygulama yayımlayabilirsiniz](application-proxy-publish-azure-portal.md).
+> Uygulama proxy'si yalnızca toohello Premium veya Basic sürümüne Azure Active Directory yükselttiyseniz kullanılabilir olan bir özelliktir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md). Uygulama proxy'si toouse isterseniz [uygulamaları yayımlama hello Azure portal](application-proxy-publish-azure-portal.md).
 
-## <a name="publish-an-app-using-the-wizard"></a>Sihirbazı kullanarak uygulama yayımlama
-1. [Klasik Azure portalında](https://manage.windowsazure.com/) yönetici olarak oturum açın.
-2. Active Directory'ye gidip Uygulama Ara Sunucusunu etkinleştirdiğiniz dizini seçin.
+## <a name="publish-an-app-using-hello-wizard"></a>Başlangıç Sihirbazı'nı kullanarak uygulama yayımlama
+1. Merhaba içinde bir yönetici olarak oturum açın [Klasik Azure portalı](https://manage.windowsazure.com/).
+2. TooActive dizinine gidin ve uygulama proxy'si etkinleştirdiğiniz hello dizini seçin.
    
     ![Active Directory - simge](./media/active-directory-application-proxy-publish/ad_icon.png)
-3. **Applications (Uygulamalar)** sekmesine tıklayın ve ardından ekranın altındaki **Add (Ekle)** düğmesine tıklayın.
+3. Merhaba tıklatın **uygulamaları** sekmesini ve sonra hello **Ekle** hello ekranın hello düğmesini
    
     ![Uygulama ekleme](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
 4. **Publish an application that will be accessible from outside your network (Ağınızın dışından erişilebilecek olan bir uygulamayı yayımlama)** seçeneğini belirleyin.
    
     ![Ağınızın dışından erişilebilecek olan bir uygulamayı yayımlama](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
-5. Uygulamanız ile ilgili şu bilgileri sağlayın:
+5. Uygulamanız hakkında bilgi aşağıdaki hello sağlar:
    
-   * **Name (Ad)**: Uygulamanız için kolay ad. Bu ad, dizininizde benzersiz olmalıdır.
-   * **Internal URL (İç URL)**: Uygulama Ara Sunucusu Bağlayıcısının özel ağınızdan uygulamaya erişmek için kullandığı adres. Arka uç sunucusundaki belirli bir yolun yayımlanmasını sağlayabilirsiniz. Sunucunun geri kalanı yayımlanmaz. Bu şekilde aynı sunucuda farklı siteleri yayımlayabilir; her biri için farklı bir ad ve erişim kuralları belirleyebilirsiniz.
+   * **Ad**: Merhaba, uygulamanız için kolay ad. Bu ad, dizininizde benzersiz olmalıdır.
+   * **İç URL**: uygulama ara sunucusu Bağlayıcısı hello hello adresini özel ağınızdan tooaccess Merhaba uygulaması kullanır. Merhaba rest hello sunucusunun yayımdan olsa hello arka uç sunucu toopublish üzerinde belirli bir yol sağlayabilir. Bu şekilde, farklı sitelerde yayımlayabilirsiniz üzerinde hello aynı sunucu ve her biri kendi ad ve erişim kuralları verin.
      
      > [!TIP]
-     > Bir yol yayımlarsanız uygulamanıza ilişkin tüm gerekli görüntüleri, betikleri ve stil sayfalarını içerdiğinden emin olun. Örneğin, uygulamanız https://yourapp/app üzerindeyse ve https://yourapp/media üzerindeki görüntüleri kullanıyorsa yolu https://yourapp/ olarak yayımlamanız gerekir.
+     > Bir yol yayımlarsanız, tüm hello gerekli görüntüleri, komut dosyalarını ve stil sayfaları, uygulamanız için dahil olduğundan emin olun. Uygulamanızı https://yourapp/app ise ve https://yourapp/media bulunan görüntüleri kullanır, örneğin, daha sonra https://yourapp/ hello yolu olarak yayımlamanız gerekir.
      > 
      > 
-   * **Ön Kimlik Doğrulama Yöntemi**: Uygulama Proxy’nizin uygulamanıza erişim izni vermeden önce kullanıcıları doğrulama yöntemi. Açılan menüdeki seçeneklerden birini belirleyin.
+   * **Ön kimlik doğrulama yöntemi**: nasıl uygulama proxy'si erişim tooyour uygulama vermeden önce kullanıcıların doğrular. Merhaba açılan menüsünden hello seçeneklerden birini seçin.
      
-     * Azure Active Directory: Uygulama Proxy’si, kullanıcıları Azure AD'de oturum açmaya yönlendirir. Burada, kullanıcıların dizin ve uygulama izinlerine yönelik kimlik doğrulaması gerçekleştirilir.
-     * Geçiş: Kullanıcıların uygulamaya erişmek için kimliklerini doğrulaması gerekmez.
+     * Azure Active Directory: Uygulama proxy'si kullanıcılar toosign izinlerini hello dizin ve uygulama için kimlik doğrulaması Azure AD ile yeniden yönlendirir.
+     * Geçiş: Kullanıcıların tooauthenticate tooaccess hello uygulama yok.
      
      ![Uygulama özellikleri](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)  
-6. Sihirbazı tamamlamak için ekranın altındaki onay işaretine tıklayın. Uygulama artık Azure AD içinde tanımlıdır.
+6. toofinish hello Sihirbazı'nı hello Merhaba ekranında hello altındaki onay işaretine tıklayın. Merhaba uygulama artık Azure AD içinde tanımlıdır.
 
-## <a name="assign-users-and-groups-to-the-application"></a>Uygulamaya kullanıcı ve grup atama
-Kullanıcılarınızın yayımlanan uygulamanıza erişmeleri için onları ayrı ayrı veya gruplar halinde atamanız gerekir. (Kendinize de erişim atamayı unutmayın.) Atadığınız her kullanıcının Azure Basic veya sonraki sürüm için lisansı olmalıdır. Lisansları ayrı ayrı veya gruplara atayabilirsiniz. Daha fazla bilgi için bkz. [Uygulamaya kullanıcı atama](active-directory-applications-guiding-developers-assigning-users.md). 
+## <a name="assign-users-and-groups-toohello-application"></a>Kullanıcılar ve gruplar toohello uygulama atama
+Kullanıcılarınız için kullanıcılarınızın yayımlanan uygulamanıza tooaccess sipariş, tooassign ihtiyacınız bunları ayrı ayrı veya gruplar. (Tooassign unutmayın çok kendiniz erişim.) Atadığınız her kullanıcının Azure Basic veya sonraki sürüm için lisansı olmalıdır. Tek tek lisansları atayabilirsiniz veya toogroups. Daha fazla bilgi için bkz: [tooan uygulama kullanıcıları atama](active-directory-applications-guiding-developers-assigning-users.md). 
 
-Ön kimlik doğrulama gerektiren uygulamalar için kullanıcı atama işlemi, uygulamayı kullanma izni verir. Ön kimlik doğrulama gerektirmeyen uygulamalar için kullanıcı atama, kullanıcının uygulamaya erişim panelinden erişebileceği anlamına gelir.
+Ön kimlik doğrulaması gerektiren uygulamalar için bir kullanıcı atama izni toouse Merhaba uygulaması verir. Gerektirmeyen uygulamalar için ön kimlik doğrulaması, bir kullanıcı atamak hello kullanıcı Merhaba uygulaması hello erişim paneli erişebilirsiniz anlamına gelir.
 
-1. Uygulama Ekleme sihirbazını tamamladıktan sonra uygulamanıza ilişkin Hızlı Başlangıç sayfasını görürsünüz. Uygulamaya kimlerin erişebildiğini yönetmek için **Kullanıcılar ve gruplar**'ı seçin.
+1. Sonlandırma hello uygulama ekleme sihirbazını sonra hızlı başlangıç sayfasında uygulamanız için hello bakın. erişim toohello uygulamanın toomanage seçin **kullanıcılar ve gruplar**.
    
     ![Uygulama Ara Sunucusu hızlı başlangıç kullanıcı atama - ekran görüntüsü](./media/active-directory-application-proxy-publish/aad_appproxy_usersgroups.png)
-2. Dizininizde belirli grupları arayın veya tüm kullanıcılarınızı gösterin. Sonuçları görüntülemek için onay işaretine tıklayın.
+2. Dizininizde belirli grupları arayın veya tüm kullanıcılarınızı gösterin. toodisplay hello arama sonuçları, hello onay işaretine tıklayın.
    
       ![Grup veya kullanıcı arama - ekran görüntüsü](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
-3. Bu uygulamaya atamak istediğiniz tüm kullanıcıları ve grupları seçip **Ata**'ya tıklayın. Bu eylemi onaylamanız istenir.
+3. Her kullanıcı veya tooassign toothis uygulama istediğiniz grubu seçin **atamak**. Siz bu eylemi tooconfirm istedi.
 
 > [!NOTE]
-> Tümleşik Windows Kimlik Doğrulaması Uygulamaları için yalnızca şirket içi Active Directory'nizden eşitlenen kullanıcıları ve grupları atayabilirsiniz. Microsoft hesabı ile oturum açan kullanıcılar ve konuklar, Azure Active Directory Uygulama Ara Sunucusu ile yayımlanan uygulamalar için atanamaz. Kullanıcılarınızın yayımladığınız uygulama ile aynı etki alanının parçası olan kimlik bilgileriyle oturum açtıklarından emin olun.
+> Tümleşik Windows Kimlik Doğrulaması Uygulamaları için yalnızca şirket içi Active Directory'nizden eşitlenen kullanıcıları ve grupları atayabilirsiniz. Microsoft hesabı ile oturum açan kullanıcılar ve konuklar, Azure Active Directory Uygulama Ara Sunucusu ile yayımlanan uygulamalar için atanamaz. Merhaba parçası olan kimlik bilgilerinizle oturum açın, kullanıcılarınızın emin yayımlama hello uygulama aynı etki alanında.
 > 
 > 
 
 ## <a name="test-your-published-application"></a>Yayımlanan uygulamanızı test etme
-Uygulamanızı yayımladıktan sonra, yayımladığınız URL'ye giderek uygulamayı sınayabilirsiniz. Uygulamaya erişebildiğinizden, doğru şekilde işlediğinden ve her şeyin beklendiği gibi çalıştığından emin olun. Sorun varsa veya bir hata iletisi alırsanız [sorun giderme kılavuzunu](active-directory-application-proxy-troubleshoot.md) deneyin.
+Uygulamanızı yayımladıktan sonra yayımladığınız toohello URL giderek teslim test edebilirsiniz. Uygulamaya erişebildiğinizden, doğru şekilde işlediğinden ve her şeyin beklendiği gibi çalıştığından emin olun. Sorun varsa veya bir hata iletisi alıyorum hello deneyin [sorun giderme kılavuzu](active-directory-application-proxy-troubleshoot.md).
 
 ## <a name="configure-your-application"></a>Uygulamanızı yapılandırma
-Yapılandırma sayfasında, yayımlanan uygulamaları değiştirebilir veya gelişmiş seçenekler belirleyebilirsiniz. Bu sayfada, ad değiştirerek veya bir logoyu karşıya yükleyerek uygulamanızı özelleştirebilirsiniz. Ayrıca, ön kimlik doğrulama yöntemi veya çok faktörlü kimlik doğrulaması gibi erişim kurallarını yönetebilirsiniz.
+Yayımlanan uygulamaları değiştirebilir veya Gelişmiş Seçenekler hello Yapılandır sayfasında ayarlayın. Bu sayfada hello adının değiştirilmesi veya bir logoyu karşıya uygulamanızı özelleştirebilirsiniz. Ayrıca, ön kimlik doğrulama yöntemi veya çok faktörlü kimlik doğrulaması hello gibi erişim kurallarını yönetebilirsiniz.
 
 ![Gelişmiş yapılandırma](./media/active-directory-application-proxy-publish/aad_appproxy_configure.png)
 
-Uygulamalar, Azure Active Directory Uygulama Ara Sunucusu kullanılarak yayımladıktan sonra Azure AD'de Uygulamalar listesinde görünür ve onları burada yönetebilirsiniz.
+Azure Active Directory Uygulama proxy'si, kullanarak uygulamaları yayımladıktan sonra Azure AD'de hello uygulamalar listesinde göründükleri ve onları burada yönetebilirsiniz.
 
-Uygulamaları yayımladıktan sonra Uygulama Proxy hizmetlerini devre dışı bırakırsanız uygulamalara artık özel ağınızın dışından erişemezsiniz. Kullanıcılarınız uygulamalara normalde olduğu gibi şirket içinden erişmeye devam edebilir.
+Uygulamaları yayımladıktan sonra uygulama ara sunucusu hizmetlerini devre dışı bırakırsanız, hello uygulamalar artık özel ağınızın dışında erişilebilir değildir. Kullanıcılarınızın hala erişim hello uygulamaları şirket içi her zamanki gibi kullanabilirsiniz.
 
-Bir uygulamayı görüntülemek ve erişilebilir durumda olduğundan emin olmak için uygulamanın adına çift tıklayın. Uygulama Ara Sunucusu hizmeti devre dışı bırakılır ve uygulama kullanılamazsa ekranın üstünde bir uyarı iletisi görünür.
+tooview bir uygulama ve marka emin olan erişilebilir, Merhaba uygulaması hello adına çift tıklayın. Merhaba uygulama proxy'si hizmeti devre dışı bırakılır ve hello uygulama kullanılabilir değilse, bir uyarı iletisi Merhaba ekranında hello üstünde görünür.
 
-Bir uygulamayı silmek için listeden bir uygulama seçin ve ardından **Sil**'e tıklayın.
+bir uygulama, toodelete hello listesinde bir uygulama seçin ve ardından **silmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Kendi etki alanı adınızı kullanarak uygulama yayımlama](active-directory-application-proxy-custom-domains.md)
@@ -100,5 +100,5 @@ Bir uygulamayı silmek için listeden bir uygulama seçin ve ardından **Sil**'e
 * [Koşullu erişimi etkinleştirme](active-directory-application-proxy-conditional-access.md)
 * [Talepleri kullanan uygulamalarla çalışma](active-directory-application-proxy-claims-aware-apps.md)
 
-En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/) göz atın
+Merhaba en son haberler ve güncelleştirmeler için hello denetleyin [uygulama ara sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/)
 

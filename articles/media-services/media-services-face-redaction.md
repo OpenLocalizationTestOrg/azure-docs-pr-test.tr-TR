@@ -1,6 +1,6 @@
 ---
-title: "Azure medya Analizi ile yüzeyleri Redaksiyon | Microsoft Docs"
-description: "Bu konuda, Azure medya Analizi ile yüzeyleri Redaksiyon gösterilmiştir."
+title: "Azure medya Analizi ile aaaRedact yüzeyleri | Microsoft Docs"
+description: "Bu konuda, nasıl Azure medya Analizi ile tooredact bakarken gösterilir."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;
-ms.openlocfilehash: 747f3ae1a7484515083c590942de3da22568cd39
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1f5688a8c6374151c526a9c702b904d8c3e46164
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure medya Analizi ile yüzeyleri Redaksiyon
 ## <a name="overview"></a>Genel Bakış
-**Azure Media Redactor** olan bir [Azure medya analizi](media-services-analytics-overview.md) medya işlemcisi (MP) ölçeklenebilir yüz Redaksiyon bulutta sunar. Yüz Redaksiyon seçili kişiler yüzeyleri ölçeklendirilmelidir için videonuzu değiştirmenizi sağlar. Genel güvenlik ve haber medya senaryolarda yüz Redaksiyon hizmeti kullanmak isteyebilirsiniz. Birden çok yüzeyleri içeren çekimi birkaç dakika el ile Redaksiyon saat sürebilir, ancak bu hizmet ile birkaç basit adımla yüz Redaksiyon işlem gerektirir. Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
+**Azure Media Redactor** olan bir [Azure medya analizi](media-services-analytics-overview.md) medya işlemcisi (MP) ölçeklenebilir yüz Redaksiyon hello bulutta sunar. Yüz Redaksiyon sipariş tooblur yüzeyleri seçilen kişilerin, video, toomodify sağlar. Toouse hello yüz Redaksiyon hizmeti ortak güvenliği ve haber medya senaryolarda isteyebilirsiniz. Saat tooredact el ile birden çok yüzeyleri içeren çekimi birkaç dakika sürebilir, ancak bu hizmet hello yüz ile birkaç basit adımla Redaksiyon işlem gerektirir. Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 
-Bu konu hakkında ayrıntılar verir **Azure medya Redactor** ve Media Services SDK'sı ile .NET için nasıl kullanılacağını gösterir.
+Bu konu hakkında ayrıntılar verir **Azure medya Redactor** ve gösterir nasıl toouse .NET için Media Services SDK'sı ile.
 
-**Azure medya Redactor** MP şu anda önizlemede. Tüm ortak Azure bölgeleri yanı sıra ABD devlet kurumları ve Çin veri merkezleri kullanılabilir. Bu önizleme şu anda ücretsizdir. 
+Merhaba **Azure medya Redactor** MP şu anda önizlemede. Tüm ortak Azure bölgeleri yanı sıra ABD devlet kurumları ve Çin veri merkezleri kullanılabilir. Bu önizleme şu anda ücretsizdir. 
 
 ## <a name="face-redaction-modes"></a>Yüz Redaksiyon modları
-Böylece aynı tek diğer açıları bulanık yüz Redaksiyon her çerçevesinde video yüz algılama ve her iki yüz nesne, zaman içindeki iletir ve geriye doğru izleme çalışır. Otomatik Redaksiyon çok karmaşık bir işlemdir ve mu değil her zaman ürettiği % 100'ünü bu nedenle medya analizi için istenen çıkış sağlar, çeşitli şekillerde son çıkışı değiştirilecek.
+Böylece Hello aynı tek diğer açıları bulanık her çerçevesinde video yüz algılama ve hello yüz izleme tarafından yüz Redaksiyon works her ikisi de iletir ve geriye doğru zaman içindeki nesne. Merhaba otomatik Redaksiyon işlemi çok karmaşık olduğu ve her zaman % 100'istenen çıkış, bu nedenle medya analizi, çeşitli şekillerde toomodify hello son çıktı sağlar üretmez.
 
-Tamamen otomatik modu ek olarak, seçim/Kaldır-selection kimlikleri listesini aracılığıyla bulunan yazıtipleri, sağlayan iki geçişi iş akışı yok. Ayrıca, çerçeve ayarlamalar MP rasgele yapmak için bir meta veri dosyası JSON biçiminde kullanır. Bu iş akışı bölündüğünü **Çözümle** ve **Redact** modları. Her iki görevi bir işe çalıştıran tek bir geçiş iki modda birleştirebilirsiniz. Bu mod adlı **birleştirilmiş**.
+Toplama tooa tamamen otomatik modda hello Seçimi/Kaldır-selection kimlikleri listesini aracılığıyla bulunan yazıtipleri, sağlayan iki geçişi iş akışı yok. Ayrıca, toomake çerçeve ayarlamalar hello MP rastgele JSON biçiminde bir meta veri dosyası kullanır. Bu iş akışı bölündüğünü **Çözümle** ve **Redact** modları. Her iki görevi bir işe çalıştıran tek bir geçiş iki modda hello birleştirebilirsiniz. Bu mod adlı **birleştirilmiş**.
 
 ### <a name="combined-mode"></a>Birleşik modu
 Bu Redaksiyonu yapılmış bir mp4 otomatik olarak giriş herhangi bir el ile oluşturur.
@@ -49,14 +49,14 @@ Bu Redaksiyonu yapılmış bir mp4 otomatik olarak giriş herhangi bir el ile ol
 [Bu videoyu izleyin](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Mod Çözümle
-**Analiz** geçişi iki geçişi iş akışının video girdi alır ve yüz konumların bir JSON dosyası oluşturur ve her birinin jpg görüntüleri yüz algılandı.
+Merhaba **analiz** geçişi hello iki geçişi iş akışının bir video girdi alır ve yüz konumların bir JSON dosyası oluşturur ve her jpg görüntüleri yüz algılandı.
 
 | Aşama | Dosya adı | Notlar |
 | --- | --- | --- |
 | Giriş varlık |foo.bar |Video WMV, MPV veya MP4 biçimindeki |
 | Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'modu': 'çözümleyin'}} |
-| Çıkış varlık |foo_annotations.JSON |Ek açıklama verileri JSON biçiminde yüz konumu. Bu sınırlayıcı kutular Bulanıklaştırma değiştirmek için kullanıcı tarafından düzenlenebilir. Aşağıdaki örneğe bakın. |
-| Çıkış varlık |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Yüz burada yüz labelId sayıyı belirtir, her kırpılmış jpg algılandı |
+| Çıkış varlık |foo_annotations.JSON |Ek açıklama verileri JSON biçiminde yüz konumu. Bu, hello kullanıcı toomodify hello sınırlayıcı kutular Bulanıklaştırma tarafından düzenlenebilir. Aşağıdaki örneğe bakın. |
+| Çıkış varlık |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Yüz burada hello numarası hello labelId hello yazıtipinin gösterir, her kırpılmış jpg algılandı |
 
 #### <a name="output-example"></a>Çıkış örneği:
 
@@ -108,22 +108,22 @@ Bu Redaksiyonu yapılmış bir mp4 otomatik olarak giriş herhangi bir el ile ol
     … truncated
 
 ### <a name="redact-mode"></a>Mod Redaksiyon
-İkinci geçişi iş akışının çok sayıda tek bir varlığa birleştirilmelidir girişleri alır.
+Merhaba ikinci geçişi hello iş akışının çok sayıda tek bir varlığa birleştirilmelidir girişleri alır.
 
-Bu ölçeklendirilmelidir kimlikleri, özgün video ve ek açıklamalar JSON listesini içerir. Bu mod, video giriş Bulanıklaştırma uygulamak için ek açıklamalar kullanır.
+Bu kimlikleri tooblur, hello özgün video ve hello ek açıklamaları JSON listesini içerir. Bu mod hello ek açıklamaları tooapply hello giriş video Bulanıklaştırma kullanır.
 
-Çözümle geçişi çıktısını özgün video içermez. Video Redact modu görev için giriş varlık içine yüklenebilir ve birincil dosya olarak seçili gerekiyor.
+Merhaba hello Çözümle geçişi çıktısını hello özgün video içermez. Merhaba video hello giriş varlık hello Redact modu görev için içine yüklenir ve hello birincil dosya olarak seçili toobe gerekir.
 
 | Aşama | Dosya adı | Notlar |
 | --- | --- | --- |
 | Giriş varlık |foo.bar |Video WMV, MPV veya MP4 biçimindeki. Aynı 1. adım olduğu gibi video. |
 | Giriş varlık |foo_annotations.JSON |meta veri dosyasından birinci aşaması, isteğe bağlı değişiklik yapılması açısından ek açıklamaları. |
-| Giriş varlık |foo_IDList.txt (isteğe bağlı) |İsteğe bağlı yeni bir satırla ayrılmış yüz Redaksiyon kimliklerinin listesi. Boş bırakılırsa, bu tüm yüzeyleri bulanıklaştırır. |
+| Giriş varlık |foo_IDList.txt (isteğe bağlı) |İsteğe bağlı yeni bir satırla ayrılmış yüz kimlikleri tooredact listesi. Boş bırakılırsa, bu tüm yüzeyleri bulanıklaştırır. |
 | Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'modu': 'Redaksiyon'}} |
 | Çıkış varlık |foo_redacted.mp4 |Ek açıklamalar uygulanan Bulanıklaştırma ile video dayalı |
 
 #### <a name="example-output"></a>Örnek çıktı
-Seçili bir Kimliğine sahip bir IDList çıkışı budur.
+Seçili bir Kimliğine sahip bir IDList hello çıktısını budur.
 
 [Bu videoyu izleyin](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
@@ -135,9 +135,9 @@ Seçili bir Kimliğine sahip bir IDList çıkışı budur.
 
 ## <a name="blur-types"></a>Türleri ölçeklendirilmelidir
 
-İçinde **birleştirilmiş** veya **Redact** modu, seçim yapabileceğiniz JSON giriş yapılandırma 5 farklı Bulanıklaştırma modu vardır: **düşük**, **Med**, **Yüksek**, **hata ayıklama**, ve **siyah**. Varsayılan olarak **Med** kullanılır.
+Merhaba, **birleştirilmiş** veya **Redact** modu, seçim yapabileceğiniz hello JSON giriş yapılandırılması yoluyla 5 farklı Bulanıklaştırma modu vardır: **düşük**, **Med**, **Yüksek**, **hata ayıklama**, ve **siyah**. Varsayılan olarak **Med** kullanılır.
 
-Bulanıklaştırma türlerinin örnekleri bulabilirsiniz.
+Merhaba örnekleri türleri aşağıdaki ölçeklendirilmelidir bulabilirsiniz.
 
 ### <a name="example-json"></a>Örnek JSON:
 
@@ -163,25 +163,25 @@ Bulanıklaştırma türlerinin örnekleri bulabilirsiniz.
 
 ![Siyah](./media/media-services-face-redaction/blur5.png)
 
-## <a name="elements-of-the-output-json-file"></a>Çıkış JSON dosyasının öğeleri
+## <a name="elements-of-hello-output-json-file"></a>Merhaba çıkış JSON dosyasının öğeleri
 
-İzleme özelliği en fazla 64 İnsan yüzeyleri video çerçevede algılayabilir ve yüksek düzeyde hassasiyet yüz konumu algılama Redaksiyon MP sağlar. Yan yüz sırasında ve küçük yazıtipleri (küçük veya eşittir 24 x 24 piksel) zor, en iyi sonuçlar tamamen çıplak yüzeyleri belirtin.
+Merhaba Redaksiyon MP Yüksek duyarlılık yüz konumu algılama ve video çerçevesinde too64 İnsan Yüz Yukarı algılayabilir izleme sağlar. Tamamen çıplak yüzeyleri yan yüz ve küçük yazıtipleri hello en iyi sonuçlar sağlayın (değerinden büyük veya eşit too24x24 piksel) zor olan.
 
 [!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
 ## <a name="net-sample-code"></a>.NET örnek kod
 
-Aşağıdaki program gösterir nasıl yapılır:
+Merhaba aşağıdaki program gösterir nasıl yapılır:
 
-1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
-2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı yüz Redaksiyon görevle ilgili bir iş oluşturun. 
+1. Bir varlık oluşturun ve hello varlığa bir medya dosyasını yükleyin.
+2. Json hazır aşağıdaki hello içeren bir yapılandırma dosyasına dayalı yüz Redaksiyon görevle ilgili bir iş oluşturun. 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
-3. Çıkış JSON dosyalarını indirin. 
+3. Merhaba çıkış JSON dosyalarını indirin. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
+Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Örnek
 
@@ -197,7 +197,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -213,17 +213,17 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            // Run the FaceRedaction job.
+            // Run hello FaceRedaction job.
             var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4",
                         @"C:\supportFiles\FaceRedaction\config.json");
 
-            // Download the job output asset.
+            // Download hello job output asset.
             DownloadAsset(asset, @"C:\supportFiles\FaceRedaction\Output");
         }
 
         static IAsset RunFaceRedactionJob(string inputMediaFilePath, string configurationFile)
         {
-            // Create an asset and upload the input media file to storage.
+            // Create an asset and upload hello input media file toostorage.
             IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
             "My Face Redaction Input Asset",
             AssetCreationOptions.None);
@@ -231,38 +231,38 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
             // Declare a new job.
             IJob job = _context.Jobs.Create("My Face Redaction Job");
 
-            // Get a reference to Azure Media Redactor.
+            // Get a reference tooAzure Media Redactor.
             string MediaProcessorName = "Azure Media Redactor";
 
             var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-            // Read configuration from the specified file.
+            // Read configuration from hello specified file.
             string configuration = File.ReadAllText(configurationFile);
 
-            // Create a task with the encoding details, using a string preset.
+            // Create a task with hello encoding details, using a string preset.
             ITask task = job.Tasks.AddNew("My Face Redaction Task",
             processor,
             configuration,
             TaskOptions.None);
 
-            // Specify the input asset.
+            // Specify hello input asset.
             task.InputAssets.Add(asset);
 
-            // Add an output asset to contain the results of the job.
+            // Add an output asset toocontain hello results of hello job.
             task.OutputAssets.AddNew("My Face Redaction Output Asset", AssetCreationOptions.None);
 
-            // Use the following event handler to check job progress.  
+            // Use hello following event handler toocheck job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-            // Launch the job.
+            // Launch hello job.
             job.Submit();
 
-            // Check job execution and wait for job to finish.
+            // Check job execution and wait for job toofinish.
             Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
             progressJobTask.Wait();
 
-            // If job state is Error, the event handling
+            // If job state is Error, hello event handling
             // method for job progress should log errors.  Here we check
             // for error state and exit if needed.
             if (job.State == JobState.Error)

@@ -1,6 +1,6 @@
 ---
-title: "Azure AD uygulama proxy'si ile uygulamaları için çoklu oturum açma | Microsoft Docs"
-description: "Tek oturum açma için yayımlanan şirket içi uygulamalarınızı Azure portalında Azure AD uygulama proxy'si ile açın."
+title: "oturum açma aaaSingle tooapps Azure AD uygulama proxy'si ile | Microsoft Docs"
+description: "Yayımlanan şirket içi uygulamalarınızı hello Azure portalında Azure AD uygulama proxy'si için çoklu oturum açmayı etkinleştirin."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,45 +15,45 @@ ms.date: 07/20/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 9ddc0c1bd5f2cbb24f6761cfd041b820ee6464b8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5ff288d36163b74215677d9e34c93c985ac33d54
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Çoklu oturum açma için uygulama proxy'si ile vaulting parola
 
-Azure Active Directory Uygulama proxy'si uzak çalışanlar güvenli bir şekilde bunları çok erişebilmesi için şirket içi uygulamaları yayımlama üretkenlik geliştirmenize yardımcı olur. Azure portalında, aynı zamanda çoklu oturum açma (SSO) bu uygulamalara ayarlayabilirsiniz. Kullanıcılarınız yalnızca Azure AD ile kimlik doğrulaması yapmanız ve yeniden oturum açmak zorunda kalmadan, Kurumsal uygulama erişebilir.
+Azure Active Directory Uygulama proxy'si uzak çalışanlar güvenli bir şekilde bunları çok erişebilmesi için şirket içi uygulamaları yayımlama üretkenlik geliştirmenize yardımcı olur. Hello Azure portalı, çoklu oturum açma (SSO) toothese uygulamaları de ayarlayabilirsiniz. Kullanıcılarınızın Azure AD ile tooauthenticate yeterlidir ve toosign yeniden vermeden kuruluş uygulamanız erişebilir.
 
-Uygulama proxy'si destekleyen birkaç [tek oturum açma modları](application-proxy-sso-overview.md). Parola tabanlı oturum açma kimlik doğrulaması için bir kullanıcı adı/parola bileşimi kullanan uygulamalar için tasarlanmıştır. Uygulamanız için parola tabanlı oturum açma yapılandırdığınızda şirket içi uygulamaya bir kez oturum açmak, kullanıcılarınızın sahip. Bundan sonra Azure Active Directory oturum açma bilgileri depolar ve kullanıcılarınızın, uzaktan erişim otomatik olarak uygulamaya sağlar. 
+Uygulama proxy'si destekleyen birkaç [tek oturum açma modları](application-proxy-sso-overview.md). Parola tabanlı oturum açma kimlik doğrulaması için bir kullanıcı adı/parola bileşimi kullanan uygulamalar için tasarlanmıştır. Uygulamanız için parola tabanlı oturum açma yapılandırdığınızda, kullanıcılarınızın bir kez toohello şirket içi uygulama toosign sahip. Bundan sonra Azure Active Directory hello oturum açma bilgileri depolar ve kullanıcılarınızın, uzaktan erişim otomatik olarak toohello uygulama sağlar. 
 
-Zaten varsa yayımlanan ve uygulama proxy'si ile uygulamanızı test. Aksi takdirde, adımları [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md) tekrar buraya gelin. 
+Zaten varsa yayımlanan ve uygulama proxy'si ile uygulamanızı test. Aksi takdirde, başlangıç adımları [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md) tekrar buraya gelin. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Uygulamanız için vaulting parola ayarlama
 
-1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) yönetici olarak.
 2. Seçin **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları**.
-3. Listeden SSO'su ayarlamak istediğiniz uygulamayı seçin.  
+3. Merhaba listeden hello uygulama SSO tooset yedeklemek istediğinizi seçin.  
 4. Seçin **çoklu oturum açma**.
 
    ![Çoklu oturum açma seçin](./media/application-proxy-sso-azure-portal/select-sso.png)
 
-5. SSO modu için **parola tabanlı oturum açma**.
-6. Oturum açma URL'sini, burada kullanıcılar kullanıcı adı ve şirket ağı dışından uygulamanıza oturum açmak için parola girin, sayfa için URL'yi girin. Bu uygulama proxy'si aracılığıyla uygulama yayımlandığında oluşturduğunuz dış URL olabilir. 
+5. Merhaba SSO modunu seçin **parola tabanlı oturum açma**.
+6. Merhaba URL'Sİ'ın oturum açma, burada kullanıcılar kendi kullanıcı adı ve parola toosign tooyour uygulama hello şirket ağı dışında girin, başlangıç sayfası için hello URL'sini girin. Bu hello uygulama proxy'si aracılığıyla hello uygulama yayımlandığında oluşturduğunuz dış URL olabilir. 
 
    ![Parola tabanlı oturum açma seçin ve URL'nizi girin](./media/application-proxy-sso-azure-portal/password-sso.png)
 
 7. **Kaydet**’i seçin.
 
-<!-- Need to repro?
-7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
+<!-- Need toorepro?
+7. hello page should tell you that a sign-in form was successfully detected at hello provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow hello instructions toopoint out where hello sign-in credentials go. 
 -->
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
 
-Uygulamanız için uzaktan erişim için yapılandırılmış dış URL'ye gidin. Bu uygulama (veya erişimle ayarladığınız test hesabının kimlik bilgilerini) için kimlik bilgilerinizle oturum. Başarıyla oturum açtıktan sonra uygulamayı bırakın ve kimlik bilgilerinizi tekrar girmeden döndürülmesini yapabiliyor olmanız gerekir. 
+Uzaktan erişim tooyour uygulama için yapılandırılan tooexternal URL'ye gidin. Bu uygulama için kimlik bilgileri (veya hello hesabının kimlik bilgilerini erişimle ayarladığınız bir test) oturum açın. Başarıyla oturum açtıktan sonra mümkün tooleave hello uygulama ve kimlik bilgilerinizi tekrar girmeden geri dönün. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Diğer yollarını uygulamak için okuma [uygulama proxy'si ile çoklu oturum açma](application-proxy-sso-overview.md)
+- Diğer yolları tooimplement hakkında okuyun [uygulama proxy'si ile çoklu oturum açma](application-proxy-sso-overview.md)
 - Hakkında bilgi edinin [uygulamaları Azure AD uygulama proxy'si ile uzaktan erişim için güvenlik konuları](application-proxy-security-considerations.md)

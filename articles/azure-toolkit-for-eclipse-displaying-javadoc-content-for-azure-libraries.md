@@ -1,6 +1,6 @@
 ---
-title: "Java için Azure kitaplıkları paketine Eclipse'te Javadoc içerik görüntüleme"
-description: "Eclipse'te Azure kitaplıkları Javadoc içeriği görüntülemek nasıl."
+title: "Merhaba Java için Azure kitaplıkları paketi için Eclipse Javadoc içeriği aaaDisplaying"
+description: "Nasıl toodisplay hello Javadoc içerik eclipse'te hello Azure kitaplıkları."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,39 +14,39 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: b44deb773b2159cba1d5d957455409f10fc49334
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8070023a24dc07eca8df906db5b8b662ceed6ccc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="displaying-javadoc-content-in-eclipse-for-the-azure-libraries-package-for-java"></a>Java için Azure kitaplıkları paketine Eclipse'te Javadoc içerik görüntüleme
-Javadoc içerik Java için Azure kitaplıkları için Java için Azure kitaplıkları Javadoc içeriği ilişkilendirerek Eclipse ortamınızda görüntülenebilir. Aşağıdaki adımlar bu işlevselliğinin Eclipse içinde nasıl kullanılacağını gösterir.
+# <a name="displaying-javadoc-content-in-eclipse-for-hello-azure-libraries-package-for-java"></a>Merhaba Java için Azure kitaplıkları paketi için Eclipse'te Javadoc içerik görüntüleme
+Merhaba Javadoc içerik hello Java için Azure kitaplıkları için Eclipse ortamınızda hello Javadoc içerik toohello Java için Azure kitaplıkları ilişkilendirerek görüntülenebilir. Merhaba aşağıdaki adımlarda size yol gösterecektir toouse Eclipse içinde bu işlev.
 
-Bu yordam, Java için Azure kitaplığı yapı yolunuzu eklemiş varsayar.
+Bu yordam, Java tooyour derleme yolu için hello Azure kitaplığı eklemiş varsayar.
 
-## <a name="to-display-javadoc-content-in-eclipse-for-the-azure-libraries-for-java"></a>Java için Azure kitaplıkları için Eclipse'te Javadoc içeriği görüntülemek için
-* Eclipse'nın Proje Gezgini içinde içinde **başvurulan kitaplıkları** bölüm projenizi bağlam menüsü için Azure kitaplığı Java JAR için açın. Örneğin, **microsoft-windowsazure-API-0.1.0.jar** (sürüm numarası olabilir farklı, yüklediğiniz hangi sürümünün bağımlı).
+## <a name="toodisplay-javadoc-content-in-eclipse-for-hello-azure-libraries-for-java"></a>toodisplay eclipse'te Javadoc içerik hello Java için Azure kitaplıkları için
+* Merhaba de Eclipse'nın Proje Gezgini'nde içinde **başvurulan kitaplıkları** projenizin bölümü, açık hello bağlam menüsü hello JAR Java için Azure kitaplığı. Örneğin, **microsoft-windowsazure-API-0.1.0.jar** (Merhaba sürüm numarası farklı, yüklediğiniz hangi sürümünün bağımlı olabilir).
 
 * **Özellikler**'e tıklayın.
 
-* İçinde **özellikleri** iletişim kutusunda, sol bölmedeki tıklatın **Javadoc konumu**. **Javadoc konumu** iletişim kutusu gösterilir.
+* Merhaba içinde **özellikleri** hello sol bölmesinde, iletişim tıklatın **Javadoc konumu**. Merhaba **Javadoc konumu** iletişim kutusu gösterilir.
 
 * Belirleyebileceğiniz bir **Javadoc URL**, veya bir **Javadoc arşivde**.
 
-   * Belirtmeyi seçerseniz bir **Javadoc URL**, URL'ler gibi kullandığınız **http://dl.windowsazure.com/javadoc** veya **http://dl.windowsazure.com/storage/javadoc**.
+   * Toospecify seçerseniz bir **Javadoc URL**, hello URL'ler gibi kullandığınız **http://dl.windowsazure.com/javadoc** veya **http://dl.windowsazure.com/storage/javadoc**.
 
-   * Kullanmayı seçerseniz **Javadoc arşivde**, dış bir dosya veya bir çalışma dosyası belirtebilirsiniz.
+   * Toouse seçerseniz **Javadoc arşivde**, dış bir dosya veya bir çalışma dosyası belirtebilirsiniz.
 
-   Seçiminizi yapın ve Gözat/gerektiğinde doğrulayın. Aşağıdaki örnek Java için Azure kitaplıkları karşılık gelen Javadoc adlı bir klasöre yerel olarak indirdiği JAR ilişkilendirir **c:\MyAzureJARs**.
+   Seçiminizi yapın ve Gözat/gerektiğinde doğrulayın. Merhaba aşağıdaki örnek hello Java için Azure kitaplıkları karşılık gelen Javadoc boyunca JAR indirilen yerel olarak adlı tooa klasör hello ile ilişkilendirir **c:\MyAzureJARs**.
 
    ![][ic553487]
 
-* *İsteğe bağlı adım*: tıklatın **doğrulamak**. Javadoc JAR olası sorunlar burada gösterilemedi.
+* *İsteğe bağlı adım*: tıklatın **doğrulamak**. Olası sorunlar hello Javadoc JAR burada gösterilemedi.
 
 * **Tamam** düğmesine tıklayın.
 
-Kitaplıkla ilişkilendirilmiş sonra Eclipse IDE içinde Javadoc içeriği görüntülemelidir. Örneğin, varsa `blob` türü tanımlı `CloudBlockBlob` kodunuzu içinde yazarken görüntülenen Javadoc içeriğine bir örnek verilmiştir `blob.acquireLease` kod:
+Merhaba Kitaplıkla ilişkilendirilmiş sonra hello Javadoc içerik Eclipse IDE içinde görüntülemelidir. Örneğin, varsa `blob` türü tanımlı `CloudBlockBlob` yazarken görüntülenen Javadoc içeriğine bir örnek kodunuzu içinde hello aşağıdadır `blob.acquireLease` kod:
 
 ![][ic553488]
 
@@ -55,16 +55,16 @@ Kitaplıkla ilişkilendirilmiş sonra Eclipse IDE içinde Javadoc içeriği gör
 
 [Eclipse'te Azure Merhaba Dünya uygulaması oluşturma][Creating a Hello World Application for Azure in Eclipse]
 
-[Eclipse için Azure araç setini yükleme][Installing the Azure Toolkit for Eclipse] 
+[Yükleme hello Eclipse için Azure Araç Seti][Installing hello Azure Toolkit for Eclipse] 
 
-Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliştirici Merkezi][Azure Java Developer Center].
+Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Java Geliştirici Merkezi][Azure Java Developer Center].
 
 <!-- URL List -->
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

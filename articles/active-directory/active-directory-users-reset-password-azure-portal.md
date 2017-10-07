@@ -1,6 +1,6 @@
 ---
-title: "Parola sıfırlama Azure Active Directory'de | Microsoft Docs"
-description: "Azure Active Directory'de bir kullanıcı parolasını sıfırlama açıklanmaktadır"
+title: "Azure Active Directory'de sıfırlama aaaPassword | Microsoft Docs"
+description: "Nasıl tooreset hello Azure Active Directory'de bir kullanıcı için parolayı açıklar"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,36 +16,36 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e7c38c7f0d40a310dd0b6bd0e866d2d55115550
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f4bb201803ffc50bcc937a309ae4f0d613da2ae4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Azure Active Directory'de bir kullanıcı parolasını sıfırlama
+# <a name="reset-hello-password-for-a-user-in-azure-active-directory"></a>Hello Azure Active Directory'de bir kullanıcı parolasını sıfırlama
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-users-reset-password-azure-portal.md)
 > * [Klasik Azure Portalı](active-directory-create-users-reset-password.md)
 >
 >
 
-## <a name="how-to-reset-the-password-for-a-user"></a>Bir kullanıcının parolasını sıfırlama
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
+## <a name="how-tooreset-hello-password-for-a-user"></a>Bir kullanıcının parolasını tooreset hello nasıl
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) hello dizin için genel yönetici olan bir hesapla.
+2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** hello metin kutusuna ve ardından **Enter**.
 
    ![Açılış kullanıcı yönetimi](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
-3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **kullanıcılar**.
+3. Merhaba üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **kullanıcılar**.
 
-   ![Kullanıcılar dikey penceresini açma](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
-4. **Kullanıcılar ve gruplar - Kullanıcılar** dikey penceresinde, listeden bir kullanıcı seçin.
-5. Seçili kullanıcının dikey penceresinde **Genel Bakış**’ı seçin ve ardından komut çubuğunda **Parolayı sıfırla**’yı seçin.
+   ![Açılış hello kullanıcılar dikey penceresi](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+4. Merhaba üzerinde **kullanıcılar ve gruplar - kullanıcıların** dikey penceresinde, kullanıcı hello listeden seçin.
+5. Merhaba dikey penceresinde hello seçilen kullanıcı, seçin **genel bakış**ve hello komut çubuğunda, ardından **parola sıfırlama**.
 
-    ![Sıfırlama parolası komutu seçme](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
-6. Üzerinde **parola sıfırlama** dikey penceresinde, select **parola sıfırlama**.
+    ![Parola komutunu sıfırlama Hello seçme](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
+6. Merhaba üzerinde **parola sıfırlama** dikey penceresinde, select **parola sıfırlama**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Kullanıcı ekleme](active-directory-users-create-azure-portal.md)
-* [Bir kullanıcı, Azure AD'de rol atama](active-directory-users-assign-role-azure-portal.md)
+* [Azure AD'de kullanıcı tooa rol atama](active-directory-users-assign-role-azure-portal.md)
 * [Kullanıcının iş bilgilerini değiştirme](active-directory-users-work-info-azure-portal.md)
 * [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 * [Azure AD'de kullanıcı silme](active-directory-users-delete-user-azure-portal.md)

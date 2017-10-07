@@ -1,6 +1,6 @@
 ---
-title: "Azure AD uygulama proxy'si özel etki alanlarında | Microsoft Docs"
-description: "Uygulama için URL'yi, kullanıcılarınıza eriştiği bakılmaksızın aynı böylece Azure AD uygulama proxy'si özel etki alanlarında yönetin."
+title: "Azure AD uygulama proxy'si aaaCustom alanlarında | Microsoft Docs"
+description: "Azure AD uygulama proxy'si özel etki alanlarında olan hello uygulama için bu hello URL'yi hello şekilde aynı kullanıcılarınız, nerede erişim bağımsız olarak yönetin."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,76 +15,76 @@ ms.date: 08/01/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7a433c411976077210a2435c3c087991c7430755
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si özel etki alanları ile çalışma
 
-Azure Active Directory Uygulama proxy'si aracılığıyla uygulama yayımladığınızda, kullanıcılarınız uzaktan çalışırken gitmek için bir dış URL oluşturun. Varsayılan etki alanını bu URL'yi alır *yourtenant.msappproxy.net*. Gider ve Kiracı adlı bir uygulama yayımladıysanız dış URL'yi https://expenses-contoso.msappproxy.net olacaktır sonra Örneğin, Contoso adlı. Kendi etki alanı adınızı kullanmak istiyorsanız, uygulamanız için özel bir etki alanı yapılandırın. 
+Azure Active Directory Uygulama proxy'si aracılığıyla uygulama yayımladığınızda, uzaktan çalışıyorsanız, kullanıcıların toogo toowhen için bir dış URL oluşturun. Bu URL'yi hello varsayılan etki alanı alır *yourtenant.msappproxy.net*. Örneğin, yayımladıysanız, bir uygulama giderleri adlı ve Kiracı Contoso adlı ardından hello dış URL https://expenses-contoso.msappproxy.net olacaktır. Kendi etki alanı adınızı toouse istiyorsanız, uygulamanız için özel bir etki alanı yapılandırın. 
 
-Mümkün olduğunda, uygulamalarınız için özel etki alanları ayarlamanızı öneririz. Özel etki alanlarını avantajlarından bazıları şunlardır:
+Mümkün olduğunda, uygulamalarınız için özel etki alanları ayarlamanızı öneririz. Özel etki alanlarını hello avantajlarından bazıları şunlardır:
 
-- İçinde veya ağınızın dışındaki çalıştıkları olup olmadığını, kullanıcılarınızın uygulamaya aynı URL'ye sahip alabilirsiniz.
-- Tüm uygulamalar aynı iç ve dış URL'ler varsa, başka bir işaret eden bir uygulama bağlantılar, kurumsal ağ dışından bile çalışmaya devam. 
-- Marka bilgilerinizi denetlemek ve istediğiniz URL'leri oluşturun. 
+- Kullanıcılarınızın toohello uygulamayla alabilirsiniz içinde veya ağınızın dışındaki çalıştıkları olup olmadığını aynı URL'ye hello.
+- Tüm uygulamalarınızın sahip Merhaba, aynı iç ve dış URL'ler tooanother işaret eden bir uygulama bağlantıları toowork hello kurumsal ağ dışından bile devam edin. 
+- Marka bilgilerinizi denetlemek ve istediğiniz hello URL'leri oluşturun. 
 
 
 ## <a name="configure-a-custom-domain"></a>Özel bir etki alanı yapılandırma
 
 ### <a name="prerequisites"></a>Ön koşullar
 
-Özel bir etki alanı yapılandırmadan önce hazırlanan aşağıdaki gereksinimlere sahip olduğundan emin olun: 
-- A [Azure Active Directory'ye eklenen etki alanını doğruladıysanız](active-directory-domains-add-azure-portal.md).
-- Bir PFX dosyası biçiminde etki alanı için özel bir sertifika. 
+Özel bir etki alanı yapılandırmadan önce hello hazırlanmış gereksinimlerine sahip olduğunuzdan emin olun: 
+- A [doğrulanmış etki alanı eklenen tooAzure Active Directory](active-directory-domains-add-azure-portal.md).
+- Bir PFX dosyası hello biçiminde hello etki alanı için özel bir sertifika. 
 - Bir şirket içi uygulama [uygulaması Proxy üzerinden yayımlanan](application-proxy-publish-azure-portal.md).
 
 ### <a name="configure-your-custom-domain"></a>Özel etki alanınızı yapılandırın
 
-Bu üç gereksinimleri hazır olduğunda, özel etki alanı oluşturmak için aşağıdaki adımları izleyin:
+Bu üç gereksinimleri hazır olduğunda, bu adımları tooset özel etki alanınızı ayarlama izleyin:
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Gidin **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları** ve yönetmek istediğiniz uygulamayı seçin.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Çok gidin**Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları** ve hello uygulamayı seçin toomanage istiyor.
 3. Seçin **uygulama proxy'si**. 
-4. Dış URL alanında açılır listeden özel etki alanınızı seçmek için kullanın. Listede etki alanınızı görmüyorsanız, ardından bunu henüz doğrulanmış kurmadı. 
+4. Merhaba dış URL alanına hello açılır liste tooselect özel etki alanınızı kullanacak. Merhaba liste etki alanınızda görmüyorsanız, ardından bunu henüz doğrulanmış kurmadı. 
 5. Seçin **Kaydet**
-5. **Sertifika** hale devre dışı bırakıldı alan etkin. Bu alanı seçin. 
+5. Merhaba **sertifika** hale devre dışı bırakıldı alan etkin. Bu alanı seçin. 
 
-   ![Bir sertifikayı karşıya yüklemek için tıklayın](./media/active-directory-application-proxy-custom-domains/certificate.png)
+   ![Bir sertifika tooupload tıklatın](./media/active-directory-application-proxy-custom-domains/certificate.png)
 
-   Bu etki alanı için bir sertifika Karşıya zaten sertifika alanındaki sertifika bilgilerini görüntüler. 
+   Bu etki alanı için bir sertifika Karşıya zaten hello sertifika alanı hello sertifika bilgilerini görüntüler. 
 
-6. PFX sertifikasını karşıya yükleyin ve sertifikanın parolasını girin. 
-7. Seçin **kaydetmek** yaptığınız değişiklikleri kaydetmek için. 
-8. Ekleme bir [DNS kaydı](../dns/dns-operations-recordsets-portal.md) yeni dış URL msappproxy.net etki alanına yeniden yönlendirir. 
+6. Hello PFX sertifikasını karşıya yükleme ve hello sertifikanın hello parola girin. 
+7. Seçin **kaydetmek** toosave değişikliklerinizi. 
+8. Ekleme bir [DNS kaydı](../dns/dns-operations-recordsets-portal.md) yeniden yönlendirmeleri yeni dış URL toohello msappproxy.net etki hello. 
 
 >[!TIP] 
->Özel etki alanı başına bir sertifika karşıya yeterlidir. Bir sertifika karşıya yükledikten sonra yeni bir uygulama yayımlama ve DNS kaydı dışında ek yapılandırma gerekmez, özel etki alanı seçebilirsiniz. 
+>Özel etki alanı başına tooupload bir sertifika yeterlidir. Bir sertifika karşıya yükledikten sonra yeni bir uygulama yayımlama ve hello DNS kaydı dışında toodo ek yapılandırmaya sahip olmayan hello özel etki alanı seçebilirsiniz. 
 
 ## <a name="manage-certificates"></a>Sertifikaları yönetme
 
 ### <a name="certificate-format"></a>Sertifika biçimi
-Sertifika imza yöntemleri sınırlaması yoktur. Tüm Eliptik Eğri Şifrelemesi (ECC), konu alternatif adı (SAN) ve diğer ortak sertifika türleri desteklenir. 
+Merhaba sertifika imza yöntemleri sınırlaması yoktur. Tüm Eliptik Eğri Şifrelemesi (ECC), konu alternatif adı (SAN) ve diğer ortak sertifika türleri desteklenir. 
 
-İstenen dış URL'yi joker eşleştiği sürece bir joker sertifikası kullanabilirsiniz. 
+İstenen hello dış URL Hello joker eşleştiği sürece bir joker sertifikası kullanabilirsiniz. 
 
-Otomatik olarak imzalanan sertifikalar, de kullanabilirsiniz. Özel sertifika yetkilisi kullanıyorsanız, sertifika için CDP (sertifika iptal noktası dağıtım noktası) ortak olmalıdır.
+Otomatik olarak imzalanan sertifikalar, de kullanabilirsiniz. Özel sertifika yetkilisi kullanıyorsanız, hello CDP (sertifika iptal noktası dağıtım noktası) hello sertifikası için ortak olmalıdır.
 
-### <a name="changing-the-domain"></a>Etki alanını değiştirme
-Tüm doğrulanmış etki alanları, uygulamanız için dış URL'yi açılır listesinde görünür. Etki alanını değiştirmek için yalnızca bu alan uygulama için güncelleştirin. İstediğiniz etki alanının listede yoksa [doğrulanmış bir etki alanına eklemek](active-directory-domains-add-azure-portal.md). İlişkili bir sertifikanız henüz, sertifika eklemek için 5-7 adımları bir etki alanı seçerseniz. Ardından, yeni dış URL'yi yeniden yönlendirmek için DNS kaydı güncelleştirdiğinizden emin olun. 
+### <a name="changing-hello-domain"></a>Merhaba etki alanını değiştirme
+Tüm doğrulanmış etki hello dış URL aşağı açılan listesinde, uygulamanız için görünür. toochange hello etki alanı, hello uygulama için alan yalnızca güncelleştirme. Merhaba etki hello listede yoksa [doğrulanmış bir etki alanına eklemek](active-directory-domains-add-azure-portal.md). İlişkili bir sertifika henüz sahip olmayan bir etki alanı seçin, adım 5-7 tooadd hello sertifika izleyin. Ardından, hello DNS kaydı tooredirect hello yeni dış URL'den güncelleştirdiğinizden emin olun. 
 
 ### <a name="certificate-management"></a>Sertifika yönetimi
-Bir dış ana bilgisayarda uygulamaları paylaşmak sürece birden çok uygulama için aynı sertifikayı kullanabilirsiniz. 
+Bir dış konak hello uygulamaları paylaşmak sürece birden çok uygulama için aynı sertifika hello kullanabilirsiniz. 
 
-Bir sertifikanın süresi dolduğunda, portal üzerinden başka bir sertifikayı karşıya yüklemek için bildiren bir uyarı alın. Sertifika iptal edilirse, kullanıcılarınızın uygulama erişirken bir güvenlik uyarısı görebilirsiniz. Biz için sertifikalar iptal denetimlerini yerine getirmiyor.  Belirli bir uygulamada bir sertifikayı güncelleştirmek için uygulamaya gidin ve yeni sertifikayı karşıya yüklemek için yayımlanan uygulamalar özel etki alanlarını yapılandırma için 5-7 adımları izleyin. Eski sertifikayı diğer uygulamalar tarafından kullanılmadığından, otomatik olarak silinir. 
+Bir sertifikanın süresi dolduğunda tooupload bildiren bir uyarı elde hello portalı üzerinden başka bir sertifika. Merhaba sertifika iptal edilirse, kullanıcılarınızın Merhaba uygulaması erişirken bir güvenlik uyarısı görebilirsiniz. Biz için sertifikalar iptal denetimlerini yerine getirmiyor.  belirli bir uygulamada tooupdate hello sertifika toohello uygulama gidin ve yayımlanmış uygulamalar tooupload yeni bir sertifika özel etki alanlarını yapılandırma için 5-7 adımları izleyin. Merhaba eski sertifika diğer uygulamalar tarafından kullanılmadığından, otomatik olarak silinir. 
 
-Şu anda sertifikalar ilgili uygulamalar bağlamında yönetmeniz gereken tüm sertifika yönetimi tek tek uygulama sayfaları olduğundan. 
+Şu anda hello ilgili uygulamalar Merhaba içeriğine toomanage sertifikaları gereksinim duyduğunuz tüm sertifika yönetimi tek tek uygulama sayfaları olduğundan. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Çoklu oturum açmayı etkinleştir](active-directory-application-proxy-sso-using-kcd.md) yayımlanan uygulamalarınızı Azure AD kimlik doğrulamasına sahip.
-* [Koşullu erişimi etkinleştirme](active-directory-application-proxy-conditional-access.md) , yayımlanan uygulamalar için.
-* [Azure AD ile özel etki alanı adınızı ekleme](active-directory-domains-add-azure-portal.md)
+* [Çoklu oturum açmayı etkinleştir](active-directory-application-proxy-sso-using-kcd.md) tooyour yayımlanan uygulamaları Azure AD kimlik doğrulaması ile.
+* [Koşullu erişimi etkinleştirme](active-directory-application-proxy-conditional-access.md) tooyour yayımlanan uygulamalar.
+* [Özel etki alanı adı tooAzure AD ekleyin](active-directory-domains-add-azure-portal.md)
 
 

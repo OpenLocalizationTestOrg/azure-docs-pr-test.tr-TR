@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory hizmet sınırları ve kısıtlamaları"
-description: "Kullanım kısıtlamaları ve diğer Azure Active Directory Hizmeti için hizmet sınırları"
+title: "aaaAzure Active Directory hizmet sınırları ve kısıtlamaları"
+description: "Kullanım kısıtlamaları ve diğer hizmet sınırları hello Azure Active Directory Hizmeti için"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: aaddev
-ms.openlocfilehash: 100cfb213917854b0bfbaccdd46ea625d721c59c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3971cb40ed53d6e0c11f124f334d1dc6a2cdf769
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD hizmet sınırları ve kısıtlamaları
-Bu makale, kullanım kısıtlamaları ve diğer Azure Active Directory (Azure AD) hizmeti için hizmet sınırları içerir. Microsoft Azure hizmet sınırları tam kümesi için arıyorsanız bkz [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
+Bu makale hello kullanım kısıtlamaları ve diğer hizmet sınırları hello Azure Active Directory (Azure AD) hizmeti için içerir. Merhaba tam kümesi Microsoft Azure hizmet sınırları için arıyorsanız bkz [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
 
 [!INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 

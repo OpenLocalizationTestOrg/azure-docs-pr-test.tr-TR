@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory koşullu erişim Teknik Başvurusu | Microsoft Docs"
-description: "Koşullu erişim denetimi ile Azure Active Directory kullanıcı doğrulanırken ve uygulamaya erişimine izin vermeden önce çekme belirli koşullar denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni."
+title: "aaaAzure Active Directory koşullu erişim Teknik Başvurusu | Microsoft Docs"
+description: "Koşullu erişim denetimi ile Azure Active Directory hello belirli koşullar hello kullanıcı kimlik doğrulaması ve erişim toohello uygulama izin vermeden önce çekme denetler. Bu koşullar sağlandığında hello kullanıcı kimlik doğrulaması ve erişim toohello uygulama izin verilir."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ca16a5399f94fd1ab267e0798cade3fd83f75b13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ee201405d1d17f130607a95bf455b60cd222dd0c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory koşullu erişim Teknik Başvurusu
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/29/2017
 Koşullu erişim kuralları, çeşitli Azure AD uygulama türleri arasında desteklenir. Bu liste aşağıdakileri içerir:
 
 
-* Azure uygulama ara sunucusu ile kaydedilmiş uygulamaları
+* Azure uygulama proxy'si Hello ile kaydedilmiş uygulamaları
 * Azure RemoteApp
 * İş ve Azure AD ile kayıtlı çok kiracılı uygulamalara geliştirilmiş kolu
 * Dynamics CRM
-* Azure AD uygulama galerisinde Federasyon uygulamalardan
+* Hello Azure AD uygulama galerisinde Federasyon uygulamalardan
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint (OneDrive iş içerir) çevrimiçi
 * Microsoft Power BI 
-* Azure AD uygulama galerisinde'ndan parola SSO uygulamalar
+* Parola SSO uygulamalardan hello Azure AD uygulama Galerisi
 * Visual Studio Team Services
 * Microsoft Teams
 
@@ -49,43 +49,43 @@ Koşullu erişim kuralları, çeşitli Azure AD uygulama türleri arasında dest
 
 
 ## <a name="enable-access-rules"></a>Erişim kurallarını etkinleştirin
-Her kural etkinleştirilebilir veya devre dışı bir uygulama tabanları başına. Kuralları olduğunda **ON** bunlar etkinleştirilecek ve uygulamaya erişen kullanıcılar için uygulanmaz. Olduklarında **OFF** kullanılmayacak ve kullanıcıların oturum açma deneyimini etkilemez.
+Her kural etkinleştirilebilir veya devre dışı bir uygulama tabanları başına. Kuralları olduğunda **ON** bunlar etkinleştirilecek ve hello uygulamaya erişen kullanıcılar için uygulanmaz. Olduklarında **OFF** değil kullanılır ve etkisi hello kullanıcı deneyimi imzalar.
 
-## <a name="applying-rules-to-specific-users"></a>Belirli kullanıcılara uygulama kuralları
-Kurallar, belirli ayarlayarak güvenlik grubunu temel alan kullanıcı kümeleri için uygulanabilir **uygulamak için**. **Uygulanacak** ayarlanabilir **tüm kullanıcılar** veya **grupları**. Ayarlandığında **tüm kullanıcılar** kuralları uygulamaya erişimi olan herhangi bir kullanıcı için geçerli olacaktır. **Grupları** seçeneği, belirli güvenlik ve dağıtım grupları seçilmesine izin verir kuralları yalnızca zorunlu bu gruplara.
+## <a name="applying-rules-toospecific-users"></a>Kuralları toospecific kullanıcıların uygulama
+Kuralları ayarlayarak güvenlik grubunu temel alan kullanıcı uygulanan toospecific kümeleri olabilir **uygulamak için**. **Uygulanacak** çok ayarlanabilir**tüm kullanıcılar** veya **grupları**. Ayarlandığında çok**tüm kullanıcılar** hello kuralları tooany kullanıcı erişimi toohello uygulamayla geçerlidir. Merhaba **grupları** seçeneği sağlayan belirli güvenlik ve dağıtım grupları toobe seçili, kuralları yalnızca zorunlu bu gruplara.
 
-Bir kural dağıtırken, önce onu bir pilot gruplarının üyeleri olan kullanıcılar sınırlı kümesi uygulamak için yaygın bir sorundur. Tamamlandıktan sonra kural uygulanabilir **tüm kullanıcılar**. Bu kuralı kuruluştaki tüm kullanıcılar için zorlanacak neden olur.
+Bir kural dağıtırken yaygındır toofirst, pilot gruplarının üyeleri olan kullanıcılar, sınırlı sayıda uygulayın. Tam hello kural çok uygulanabilir sonra**tüm kullanıcılar**. Bu toobe hello kuruluşunuzdaki tüm kullanıcılar için zorlanan hello kural neden olur.
 
-Select ayrıca muaf tutulan gruplar İlkesi kullanarak **dışında** seçeneği. Dahil edilen grubunda göründükleri olsa bile bu grupların tüm üyelerinin muaf.
+Select ayrıca muaf tutulan gruplar hello kullanarak ilkesinden **dışında** seçeneği. Dahil edilen grubunda göründükleri olsa bile bu grupların tüm üyelerinin muaf.
 
 ## <a name="at-work-networks"></a>"İşyerindeki" ağları
-Bir "işyerindeki" ağı kullanmayı koşullu erişim kuralları, Azure AD içinde yapılandırılmış güvenilen IP adres aralıklarını Bel veya AD FS'den "içinde corpnet" talep kullanın. Söz konusu kurallar aşağıda belirtilmiştir:
+Bir "işyerindeki" ağı kullanmayı koşullu erişim kuralları, Azure AD içinde yapılandırılmış güvenilen IP adres aralıklarını Bel veya hello "içinde corpnet" AD FS talep kullanımını. Söz konusu kurallar aşağıda belirtilmiştir:
 
 * Çalışma zaman değil, çok faktörlü kimlik doğrulaması gerektirir
 * İş olduğunda değil, erişimi engelle
 
 Belirtmeyi seçeneklerini "işyerindeki" ağları
 
-1. Güvenilen IP adres aralıklarını yapılandırma [çok faktörlü kimlik doğrulaması yapılandırma sayfası](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Koşullu erişim ilkesini yapılandırılmış aralıkları her kimlik doğrulama isteği ve belirteç verme kuralları değerlendirmek için kullanır. 
-2. İç kullanımını yapılandır corpnet talep, bu seçenek, AD FS kullanarak Federasyon dizinleri ile kullanılabilir. İç hakkında daha fazla bilgi edinmek için corpnet talep bkz [Tusted IP'leri](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+1. Hello güvenilen IP adres aralıklarını yapılandırma [çok faktörlü kimlik doğrulaması yapılandırma sayfası](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Koşullu erişim ilkesini her kimlik doğrulama isteği ve belirteç verme tooevaluate kurallarında yapılandırılmış hello aralıklarını kullanır. 
+2. Corpnet talep içinde hello kullanımını yapılandırmak, bu seçenek, AD FS kullanarak Federasyon dizinleri ile kullanılabilir. corpnet talepleri içinde hello hakkında daha fazla toolearn bkz [Tusted IP'leri](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 
 
 ## <a name="rules-based-on-application-sensitivity"></a>Uygulama duyarlılığına göre kuralları
-Kuralları diğer hizmetlere erişimi etkilemeden korunması yüksek değerli hizmetleri izin vererek uygulama başına yapılandırılır. Koşullu erişim kuralları yapılandırılabilir **yapılandırma** uygulama sekmesinde. 
+Kuralları, erişim tooother Hizmetleri etkilemeden güvenli hello yüksek değerli hizmetleri toobe izin vererek uygulama başına yapılandırılır. Koşullu erişim kuralları hello üzerinde yapılandırılabilir **yapılandırma** hello uygulama sekmesinde. 
 
 Şu anda sunulan kuralları:
 
 * **Çok faktörlü kimlik doğrulaması gerektirir**
   
-  * Bu ilkenin uygulandığı tüm kullanıcılar en az bir kez çok faktörlü kimlik doğrulaması kimlik doğrulaması için gerekli olacaktır.
+  * Bu ilke uygulanan toowill olan tüm kullanıcıların en az bir kez çok faktörlü kimlik doğrulaması aracılığıyla gerekli tooauthenticate olabilir.
 * **Çalışma zaman değil, çok faktörlü kimlik doğrulaması gerektirir**
   
-  * Bu ilke uygulandığında, tüm kullanıcılar İş dışı uzak bir konumdan hizmet erişirseniz en az bir kez çok faktörlü kimlik doğrulaması gerçekleştirmiş gerekli olacaktır. Bunlar bir işten uzak bir konuma taşırsanız, çok faktörlü kimlik doğrulama hizmeti erişirken gerçekleştirmek için gerekir.
+  * Bu ilkenin geçerli olduğu iş dışı uzak bir konumdan hello hizmet eriştiklerinde ise tüm kullanıcıların bu gerçekleştirilen gerekli toohave çok faktörlü kimlik doğrulaması en az bir kez olacaktır. Bir iş tooremote konumundan taşırsanız, bunlar gerekli tooperform çok faktörlü kimlik doğrulama hello hizmet erişirken olacaktır.
 * **İş olduğunda değil, erişimi engelle** 
   
-  * Kullanıcılar uzak bir konuma işten taşıdığınızda, bunlar için "iş olduğunda değil, erişimi engelle" ilkesi uygulanırsa engellenir.  Bunlar erişimi olduğunda bir iş konumda yeniden izin verilir.
+  * Kullanıcılar iş tooa uzak bir konumdan taşıdığınızda, bunlar hello "iş olduğunda değil, erişimi engelle" ilke uygulanan toothem ise engellenir.  Bunlar erişimi olduğunda bir iş konumda yeniden izin verilir.
 
 ## <a name="related-topics"></a>İlgili konular
-* [Azure Active Directory'ye bağlı Office 365 ve diğer uygulamalar için erişim güvenliğini sağlama](active-directory-conditional-access.md)
+* [Active Directory tooAzure bağlı erişim tooOffice 365 ve diğer uygulamaların güvenliğini sağlama](active-directory-conditional-access.md)
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Eclipse için Azure araç setini kullanarak bir Docker kapsayıcısı yayımlama | Microsoft Docs"
-description: "Eclipse için Azure araç setini kullanarak bir web uygulaması için Microsoft Azure Docker kapsayıcısı yayımlamak öğrenin."
+title: "aaaPublish kullanarak bir Docker kapsayıcısı hello Eclipse için Azure Araç Seti | Microsoft Docs"
+description: "Bilgi nasıl toopublish bir web uygulaması tooMicrosoft kullanarak bir Docker kapsayıcısı olarak Azure hello Eclipse için Azure Araç Seti."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,160 +14,160 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 746bb0a073396b84fa8592adda6748a2a5692ee8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 53ec3a7f7a171691024e03622fd48d6f1e257b50
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-a-web-app-as-a-docker-container-by-using-the-azure-toolkit-for-eclipse"></a>Eclipse için Azure araç setini kullanarak bir web uygulaması Docker kapsayıcısı Yayımla
+# <a name="publish-a-web-app-as-a-docker-container-by-using-hello-azure-toolkit-for-eclipse"></a>Eclipse için hello Azure Araç Seti kullanarak bir web uygulaması Docker kapsayıcısı Yayımla
 
-Docker, web uygulamalarını dağıtmak için yaygın olarak kullanılan bir yöntem kapsayıcılardır. Docker kapsayıcıları kullanarak, geliştiricilerin kendi tüm proje dosyalarını ve tek bir paket için bir sunucu dağıtımı için bağımlılıkları birleştirebilir. Eclipse için Azure araç seti, ekleyerek Java geliştiriciler için bu işlemi basitleştirir *Docker kapsayıcısı olarak Yayımla* Microsoft Azure dağıtım özellikleri. Bu makalede, Azure, uygulamalarınızı Docker kapsayıcı olarak yayımlamak için gereken adımları açıklanmaktadır.
+Docker, web uygulamalarını dağıtmak için yaygın olarak kullanılan bir yöntem kapsayıcılardır. Docker kapsayıcıları kullanarak, geliştiricilerin kendi tüm proje dosyalarını ve dağıtım tooa sunucusu için tek bir paket bağımlılıkları birleştirebilir. Merhaba Eclipse için Azure Araç Seti basitleştirir bu işlem için Java geliştiricilerinin ekleyerek *Docker kapsayıcısı olarak Yayımla* dağıtım tooMicrosoft Azure özellikleri. Bu makalede hello adımları gerekli toopublish Docker kapsayıcılar olarak uygulamaları tooAzure anlatılmaktadır.
 
 > [!NOTE]
-> Docker hakkında daha fazla bilgi edinilebilir [Docker Web sitesi].
+> Docker hakkında daha fazla bilgi hello üzerinde kullanılabilir [Docker Web sitesi].
 >
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-## <a name="publish-your-web-app-to-azure-by-using-a-docker-container"></a>Docker kapsayıcısı kullanarak Azure için web uygulamanızı yayınlama
+## <a name="publish-your-web-app-tooazure-by-using-a-docker-container"></a>Web uygulaması tooAzure Docker kapsayıcısı kullanarak yayımlama
 
 1. Web uygulaması projenizin Eclipse'te açın.
 
-2. Başlatmak için **Docker kapsayıcısı olarak Yayımla** Sihirbazı, aşağıdakilerden birini yapın:
+2. toostart hello **Docker kapsayıcısı olarak Yayımla** Sihirbazı'nı hello aşağıdakilerden birini yapın:
 
-   * İçinde **Gezgini** görüntülemek, projenize sağ tıklayın, **Azure**ve ardından **Docker kapsayıcısı olarak Yayımla**.
+   * Merhaba, **Gezgini** görüntülemek, projenize sağ tıklayın, **Azure**ve ardından **Docker kapsayıcısı olarak Yayımla**.
 
       ![Gezgin Görünümü Docker kapsayıcısı komut olarak Yayımla][PUB01]
 
-   * Eclipse araç çubuğunda tıklatın **Yayımla** düğmesine tıklayın ve ardından **Docker kapsayıcısı olarak Yayımla**.
+   * Merhaba Hello Eclipse araç çubuğunda tıklatın **Yayımla** düğmesine tıklayın ve ardından **Docker kapsayıcısı olarak Yayımla**.
 
       ![Eclipse araç Docker kapsayıcısı komut olarak Yayımla][PUB02]
       
-    **Azure'da dağıtmak Docker kapsayıcısı** Sihirbazı açılır.
+    Merhaba **azure'da dağıtmak Docker kapsayıcısı** Sihirbazı açılır.
 
-    ![Azure Sihirbazı dağıtmak Docker kapsayıcısı][PUB03]
+    ![Merhaba dağıtma Docker kapsayıcısı Azure Sihirbazı][PUB03]
 
-3. İçinde **bir görüntü adı yazın, yapı'nın yolu seçin ve kullanılacak bir Docker ana denetleyin** penceresinde aşağıdakileri yapın:
+3. Merhaba, **bir görüntü adı yazın, hello yapı'nın yolu seçin ve kullanılan Docker ana toobe denetleyin** penceresinde, aşağıdaki hello:
 
-    a. İçinde **Docker görüntü adı** kutusuna, Docker ana bilgisayar için benzersiz bir ad girin. (Sihirbaz otomatik olarak bir ad oluşturur, ancak bunu değiştirebilirsiniz.)
+    a. Merhaba, **Docker görüntü adı** kutusuna, Docker ana bilgisayar için benzersiz bir ad girin. (Merhaba Sihirbazı otomatik olarak bir ad oluşturur, ancak bunu değiştirebilirsiniz.)
 
-    b. **Ana** alanı önceden oluşturmuş olduğunuz tüm Docker ana bilgisayarlarını görüntüler. Aşağıdakilerden birini yapın:
+    b. Merhaba **ana** alanı önceden oluşturmuş olduğunuz tüm Docker ana bilgisayarlarını görüntüler. Merhaba aşağıdakilerden birini yapın:
 
-    * Varolan bir Docker ana bilgisayara varsa, web uygulamanızı dağıtabilirsiniz.
-    * Yeni bir Docker ana bilgisayar oluşturmak için tıklatın **Ekle**.  
+    * Varolan bir Docker ana bilgisayara varsa, web uygulaması tooit dağıtabilirsiniz.
+    * Yeni bir Docker ana bilgisayar toocreate tıklatın **Ekle**.  
       
-    **Oluşturma Docker ana** iletişim kutusu açılır.
+    Merhaba **oluşturma Docker ana** iletişim kutusu açılır.
 
     ![Docker kapsayıcısı üzerinde Azure Sihirbazı'nı dağıtma][PUB04a]
 
-4. İçinde **yeni sanal makine yapılandırma** penceresinde, Docker ana bilgisayarınız için aşağıdaki seçenekleri belirtin. (Sihirbaz için seçenekler çoğunu otomatik olarak oluşturur, ancak herhangi birini değiştirebilirsiniz.)
+4. Merhaba, **hello yeni sanal makine yapılandırma** penceresinde, aşağıdaki seçenekleri, Docker ana bilgisayar için şu hello belirtin. (Merhaba seçenekler çoğunu hello Sihirbazı otomatik olarak oluşturur, ancak herhangi birini değiştirebilirsiniz.)
 
-   a. **Ad**: Docker ana bilgisayar için benzersiz bir ad girin. (Bu, daha önce belirttiğiniz Docker görüntü adı ile aynı değildir.)
+   a. **Ad**: Merhaba Docker ana bilgisayar için benzersiz bir ad girin. (Bu, hello almak için değil, daha önce belirtilen Docker görüntü adı hello aynı olur.)
 
-   b. **Abonelik**: ana bilgisayarınız için kullandığınız Azure aboneliğini girin.
+   b. **Abonelik**: hello ana bilgisayarınız için kullandığınız Azure aboneliğini girin.
 
-   c. **Bölge**: ana bilgisayarınız bulunduğu coğrafi bölge girin.
+   c. **Bölge**: ana bilgisayarınız bulunduğu hello coğrafi girin.
 
-   d. Üzerinde **ana bilgisayar işletim sistemi ve boyutu** sekmesi:
-     * **Ana bilgisayar işletim sistemi**: ana bilgisayarınız içeren sanal makine için işletim sistemi girin.
-     * **Boyutu**: ana bilgisayarınız için sanal makine boyutu girin.
+   d. Merhaba üzerinde **ana bilgisayar işletim sistemi ve boyutu** sekmesi:
+     * **Ana bilgisayar işletim sistemi**: hello işletim sistemi hello sanal makine için ana bilgisayarınız içeren girin.
+     * **Boyutu**: ana bilgisayarınız için hello sanal makine boyutu girin.
 
-   e. Üzerinde **kaynak grubu** sekmesi:
+   e. Merhaba üzerinde **kaynak grubu** sekmesi:
      * **Yeni kaynak grubu**: ana bilgisayarınız için yeni bir kaynak grubu oluşturun.
      * **Varolan bir kaynak grubu**: Azure hesabınızdan varolan bir kaynak grubu girin.
 
-   f. Üzerinde **ağ** sekmesi:
+   f. Merhaba üzerinde **ağ** sekmesi:
      * **Yeni sanal ağ**: ana bilgisayarınız için yeni bir sanal ağ oluşturun.
      * **Varolan bir sanal ağı**: varolan bir sanal ağı Azure hesabınızı girin.
 
-   g. Üzerinde **depolama** sekmesi:
+   g. Merhaba üzerinde **depolama** sekmesi:
      * **Yeni depolama hesabı**: ana bilgisayarınız için yeni bir depolama hesabı oluşturun.
      * **Varolan bir depolama hesabı**: Azure hesabınızdan mevcut bir depolama hesabını girin.
 
 5. **İleri**’ye tıklayın.
 
-6. İçinde **günlük kimlik bilgilerini yapılandırın ve bağlantı noktası ayarları** penceresinde, aşağıdaki seçeneklerden birini belirleyin:
+6. Merhaba, **günlük kimlik bilgilerini yapılandırın ve bağlantı noktası ayarları** penceresinde, aşağıdaki seçenekleri şu hello birini seçin:
 
     * **Azure anahtar Kasası'kimlik bilgileri içe**: önceden kaydedilen bir Azure aboneliğinizde depolanan kimlik bilgileri kümesi belirtir.
 
       >[!NOTE]
-      >Bir hesabın veya hizmet sorumlusu ile oluşturulan bir Azure anahtar kasası başka bir hesap veya abonelik paylaşan hizmet sorumlusu tarafından otomatik olarak erişilebilir değil. Başka bir hesap veya hizmet asıl anahtar kasası kullanmaya izin vermek için hesabı veya hizmet sorumlusu eklemek için Azure Portalı'nı kullanmanız gerekir.
+      >Bir hesabın veya hizmet sorumlusu ile oluşturulan bir Azure anahtar kasası başka bir hesap veya hello abonelik paylaşan hizmet sorumlusu tarafından otomatik olarak erişilebilir değil. tooallow başka bir hesap veya hizmet asıl toouse anahtar kasası Merhaba, hello Azure portal tooadd hello hesabı ya da hizmet sorumlusu kullanmanız gerekir.
 
-    * **Yeni oturum açma kimlik bilgileri**: yeni bir oturum açma kimlik bilgileri kümesi oluşturur. Bu seçeneği seçerseniz, aşağıdakileri yapın:
+    * **Yeni oturum açma kimlik bilgileri**: yeni bir oturum açma kimlik bilgileri kümesi oluşturur. Bu seçeneği seçerseniz, aşağıdaki hello:
     
-      * Üzerinde **VM kimlik** sekmesinde, aşağıdaki seçenekler, Docker ana bilgisayar sanal makinesi oturum açma kimlik bilgilerini seçin:
+      * Merhaba üzerinde **VM kimlik** sekmesinde, hello sanal makinesi oturum açma kimlik bilgileri, Docker ana bilgisayarın seçenekleri hello aşağıdakilerden birini seçin:
 
-          * **Kullanıcı adı**: kullanıcı için sanal makine oturum açma kimlik bilgilerinizi girin.
-          * **Parola** ve **Onayla**: parola için sanal makine oturum açma kimlik bilgilerinizi girin.
-          * **SSH**: Docker ana bilgisayarınız Güvenli Kabuk (SSH) ayarlarını girin. Aşağıdaki seçenekler arasından seçim yapabilirsiniz:
+          * **Kullanıcı adı**: hello kullanıcı için sanal makine oturum açma kimlik bilgilerinizi girin.
+          * **Parola** ve **Onayla**: hello parola için sanal makine oturum açma kimlik bilgilerinizi girin.
+          * **SSH**: Docker ana bilgisayarınız hello güvenli Kabuk (SSH) ayarlarını girin. Seçenekler aşağıdaki hello seçebilirsiniz:
             * **Hiçbiri**: sanal makineniz SSH bağlantılara izin vermez belirtir.
-            * **Otomatik oluşturma**: SSH yoluyla bağlanmak için gerekli ayarları otomatik olarak oluşturur.
-            * **Dizine alma**: önceden kaydedilmiş SSH ayarları kümesini içeren bir dizini belirtir. Dizin, aşağıdaki iki dosyada içermelidir:
-                * *id_rsa*: bir kullanıcı için RSA kimliğini içerir.
-                * *id_rsa.pub*: kimlik doğrulaması için kullanılan RSA ortak anahtarı içerir.
+            * **Otomatik oluşturma**: hello SSH yoluyla bağlanmak için gerekli ayarları otomatik olarak oluşturur.
+            * **Dizine alma**: önceden kaydedilmiş SSH ayarları kümesini içeren bir dizini belirtir. Merhaba dizin, aşağıdaki iki dosyaları hello içermelidir:
+                * *id_rsa*: bir kullanıcı için hello RSA kimliğini içerir.
+                * *id_rsa.pub*: kimlik doğrulaması için kullanılan hello RSA ortak anahtarı içerir.
         
         ![Docker konak oluştur][PUB05]
 
-      * Üzerinde **Docker arka plan programı kimlik** sekmesinde, aşağıdaki seçenekleri belirtin:
+      * Merhaba üzerinde **Docker arka plan programı kimlik** sekmesinde, aşağıdaki seçenekleri şu hello belirtin:
 
-          * **Docker arka plan programı bağlantı noktası**: Docker ana bilgisayarınız için benzersiz TCP bağlantı noktasını girin.
-          * **TLS güvenlik**: Docker ana bilgisayarınız için Aktarım Katmanı Güvenliği ayarlarını girin. Aşağıdaki seçenekler arasından seçim yapabilirsiniz:
+          * **Docker arka plan programı bağlantı noktası**: Docker ana bilgisayarınız için hello benzersiz TCP bağlantı noktası girin.
+          * **TLS güvenlik**: Docker ana bilgisayarınız hello Aktarım Katmanı Güvenliği ayarlarını girin. Seçenekler aşağıdaki hello seçebilirsiniz:
             * **Hiçbiri**: sanal makineniz TLS bağlantılara izin vermez belirtir.
-            * **Otomatik oluşturma**: TLS bağlanmak için gerekli ayarları otomatik olarak oluşturur.
-            * **Dizine alma**: önceden kaydedilmiş TLS ayarları kümesini içeren bir dizini belirtir. Daha açık belirtmek gerekirse dizin aşağıdaki altı dosyaları içermelidir:
-                * *CA.pem* ve *ca key.pem*: TLS sertifika yetkilisi sertifika ve ortak anahtarı içerir.
-                * *CERT.pem* ve *key.pem*: istemci sertifikası ve TLS kimlik doğrulaması için kullanılan ortak anahtar içerir.
-                * *Server.pem* ve *server key.pem*: ana bilgisayar için sunucu sertifikası ve ortak anahtar içerir.
+            * **Otomatik oluşturma**: hello TLS bağlanmak için gerekli ayarları otomatik olarak oluşturur.
+            * **Dizine alma**: önceden kaydedilmiş TLS ayarları kümesini içeren bir dizini belirtir. Daha açık belirtmek gerekirse hello dizini aşağıdaki altı dosyaları hello içermelidir:
+                * *CA.pem* ve *ca key.pem*: hello sertifika ve ortak anahtar hello TLS sertifika yetkilisi için içerir.
+                * *CERT.pem* ve *key.pem*: hello istemci sertifikası ve TLS kimlik doğrulaması için kullanılan ortak anahtar içerir.
+                * *Server.pem* ve *server key.pem*: hello sunucu sertifikası ve hello ana bilgisayarı için ortak anahtar içerir.
 
         ![Docker konak oluştur][PUB06]
 
-7. Yukarıdaki bilgilerin tümünü girdikten sonra tıklatın **son**.
+7. Tüm önceki bilgilere hello girdikten sonra tıklatın **son**.
 
-8. İçinde **dağıtmak Docker kapsayıcısı Azure üzerinde** Sihirbazı'nı tıklatın **sonraki**.
+8. Merhaba, **dağıtmak Docker kapsayıcısı Azure üzerinde** Sihirbazı'nı tıklatın **sonraki**.
 
-   ![Azure Sihirbazı dağıtmak Docker kapsayıcısı][PUB07]
+   ![Merhaba dağıtma Docker kapsayıcısı Azure Sihirbazı][PUB07]
 
-9. İçinde **oluşturulacak Docker kapsayıcısı yapılandırma** penceresinde aşağıdakileri yapın:
+9. Merhaba, **oluşturulan hello Docker kapsayıcısı toobe yapılandırma** penceresinde, aşağıdaki hello:
 
-   a. İçinde **Docker kapsayıcısı adı** kutusuna, Docker kapsayıcısı için benzersiz bir ad girin.
+   a. Merhaba, **Docker kapsayıcısı adı** kutusuna, Docker kapsayıcısı için benzersiz bir ad girin.
 
-   b. Aşağıdaki Docker görüntülerden birini seçin:
+   b. Docker görüntüleri aşağıdaki hello birini seçin:
      * **Önceden tanımlanmış Docker görüntü**: Azure önceden var olan bir Docker görüntüsünden belirtir.
 
        >[!NOTE]
-       >Bu kutu Docker görüntülerinde listesi, Azure Araç Seti için yapılandırılmış birden fazla görüntülerinin oluşur, yapı otomatik olarak dağıtılır böylece düzeltme eki.
+       >Bu kutu Docker görüntülerinde Hello listesi, birkaç görüntülerini oluşur Azure Araç Seti açıldı, hello toopatch yapılandırılmış, yapı otomatik olarak dağıtılır.
 
      * **Özel Dockerfile**: yerel bilgisayarınızdan önceden kaydedilmiş bir Dockerfile belirtir.
 
        >[!NOTE]
-       >Bu, kendi Dockerfile dağıtmak isteyen geliştiriciler için daha gelişmiş bir özelliktir. Ancak, kendi Dockerfile doğru bir şekilde yapıldığından emin olmak için bu seçeneği kullanın geliştiriciler kadar olur. Dockerfile sorunları varsa dağıtım başarısız olabilir şekilde Azure Araç Seti özel bir Dockerfile içeriği doğrulamaz. Ayrıca, bir web uygulaması yapı içerecek şekilde özel Dockerfile Azure Araç Seti bekliyor ve bir HTTP bağlantısı açmayı dener. Geliştiriciler farklı türde bir yapı yayımlarsanız, bunlar dağıtım sonrası zararsız hatalar alabilirsiniz.
+       >Bu, kendi Dockerfile toodeploy isteyen geliştiriciler için daha gelişmiş bir özelliktir. Ancak, kendi Dockerfile doğru bir şekilde yapıldığından bu seçeneği tooensure kullanan toodevelopers değildir. Merhaba Dockerfile sorunları varsa hello dağıtım başarısız olabilir şekilde hello Azure Araç Seti özel bir Dockerfile hello içeriği doğrulamaz. Ayrıca, hello Azure Araç Seti hello özel Dockerfile toocontain bir web uygulaması yapı bekler ve tooopen bir HTTP bağlantısı deneyecek. Geliştiriciler farklı türde bir yapı yayımlarsanız, bunlar dağıtım sonrası zararsız hatalar alabilirsiniz.
 
-   c. **Bağlantı noktası ayarları**: Docker kapsayıcısı için benzersiz TCP bağlantı noktası bağlama girin.
+   c. **Bağlantı noktası ayarları**: hello benzersiz TCP bağlantı noktası için bağlama, Docker kapsayıcısı girin.
 
-     ![Pencere oluşturulması için Docker kapsayıcısı Yapılandır][PUB08]
+     ![Merhaba yapılandırma hello Docker kapsayıcısı oluşturulan toobe penceresi][PUB08]
 
-10. Önceki tüm adımları tamamladıktan sonra tıklatın **son**.
+10. Tüm adımları önceki hello tamamladıktan sonra tıklatın **son**.
 
-Azure Araç Seti Azure Docker kapsayıcısı içinde web uygulamanızı dağıtmaya başlar. 
+Hello Azure araç seti, web uygulama tooAzure Docker kapsayıcısı içinde dağıtmaya başlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Java IDE Azure araç takımları hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Java IDE hello Azure araç takımları hakkında daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
 * [Eclipse için Azure Araç Seti]
-  * [Eclipse için Azure Araç Seti yenilikleri]
-  * [Eclipse için Azure Araç Setini Yükleme]
-  * [Eclipse için Azure Araç Seti için oturum açma yönergeleri]
+  * [Merhaba Eclipse için Azure Araç Seti yenilikleri]
+  * [Yükleme hello Eclipse için Azure Araç Seti]
+  * [Oturum açma hello Eclipse için Azure Araç Seti için yönergeler]
   * [Eclipse'te Azure Hello World web uygulaması oluşturma]
 * [IntelliJ için Azure Araç Seti]
-  * [Intellij için Azure Araç Seti yenilikleri]
-  * [IntelliJ için Azure Araç Setini Yükleme]
-  * [Oturum açma Azure Araç Seti için Intellij için yönergeler]
+  * [Merhaba Intellij için Azure Araç Seti yenilikleri]
+  * [Yükleme hello Intellij için Azure Araç Seti]
+  * [Oturum açma hello Azure Araç Seti için Intellij için yönergeler]
   * [Intellij Azure'da Hello World web uygulaması oluşturun]
 
 Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliştirici Merkezi] ve [Visual Studio Team Services için Java Araçları].
 
-Resmi Docker için ek kaynaklar için bkz: [Docker Web sitesi].
+Merhaba resmi Docker için ek kaynaklar için bkz: [Docker Web sitesi].
 
 <!-- URL List -->
 
@@ -175,12 +175,12 @@ Resmi Docker için ek kaynaklar için bkz: [Docker Web sitesi].
 [IntelliJ için Azure Araç Seti]: ./azure-toolkit-for-intellij.md
 [Eclipse'te Azure Hello World web uygulaması oluşturma]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Intellij Azure'da Hello World web uygulaması oluşturun]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Eclipse için Azure Araç Setini Yükleme]: ./azure-toolkit-for-eclipse-installation.md
-[IntelliJ için Azure Araç Setini Yükleme]: ./azure-toolkit-for-intellij-installation.md
-[Eclipse için Azure Araç Seti için oturum açma yönergeleri]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Oturum açma Azure Araç Seti için Intellij için yönergeler]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Eclipse için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-eclipse-whats-new.md
-[Intellij için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-intellij-whats-new.md
+[Yükleme hello Eclipse için Azure Araç Seti]: ./azure-toolkit-for-eclipse-installation.md
+[Yükleme hello Intellij için Azure Araç Seti]: ./azure-toolkit-for-intellij-installation.md
+[Oturum açma hello Eclipse için Azure Araç Seti için yönergeler]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Oturum açma hello Azure Araç Seti için Intellij için yönergeler]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Merhaba Eclipse için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-eclipse-whats-new.md
+[Merhaba Intellij için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Geliştirici Merkezi]: https://azure.microsoft.com/develop/java/
 [Visual Studio Team Services için Java Araçları]: https://java.visualstudio.com/

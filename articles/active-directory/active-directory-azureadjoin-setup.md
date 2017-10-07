@@ -1,5 +1,5 @@
 ---
-title: "Kullanıcılarınız için Azure AD'ye Katılımı ayarlama | Microsoft Belgeleri"
+title: "Kullanıcılarınız için Azure AD'ye katılımı ayarlama aaaSetting | Microsoft Docs"
 description: "Yöneticilerin, şirket içi dizin ve cihaz kaydı için Azure AD Katılımını nasıl ayarlayacakları açıklanmaktadır."
 services: active-directory
 documentationcenter: 
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: c37adc2654f7e931fdda22627e4a6ece2789fd86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 60a5aeb11292cb6057ab1065c3ab77e5981d0cdb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="setting-up-azure-ad-join-in-your-organization"></a>Kuruluşunuzda Azure AD'ye Katılımı ayarlama
-Azure Active Directory Katılımını (Azure AD Katılımı) ayarlamadan önce kullanıcıların şirket içi dizinini buluta eşitlemeniz veya Azure AD'de yönetilen hesaplar oluşturmanız gerekir.
+Azure Active Directory katılımını (Azure AD katılımı) ayarlamadan önce tooeither eşitleme gereksinim yukarı şirket içi dizininize kullanıcılar toohello Bulut veya el ile Azure AD'de yönetilen hesapları oluşturun.
 
-Şirket içi kullanıcılarınızı Azure AD'ye eşitlemeye ilişkin ayrıntılı yönergeler için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
+Şirket içi kullanıcıların tooAzure AD eşitlemeye için ayrıntılı yönergeler [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
 
-Azure AD'de el ile kullanıcı oluşturmak ve yönetmek için bkz. [Azure AD'de kullanıcı yönetimi](https://msdn.microsoft.com/library/azure/hh967609.aspx).
+toomanually oluşturmak ve kullanıcıların Azure AD'de yönetmek, çok bakın[Azure AD'de kullanıcı yönetimi](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## <a name="set-up-device-registration"></a>Cihaz kaydı oluşturma
-1. Azure portalında yönetici olarak oturum açın.
-2. Sol bölmede **Active Directory**'yi seçin.
-3. **Directory (Dizin)** sekmesinde dizininizi seçin.
-4. **Configure (Yapılandır)** sekmesini seçin.
-5. **Devices (Cihazlar)** bölümüne gidin.
-6. **Devices (Cihazlar)** sekmesinde şunları ayarlayın:  
-   * **MAXIMUM NUMBER OF DEVICES PER USER (KULLANICI BAŞINA MAKSİMUM CİHAZ SAYISI)**: Kullanıcıların Azure AD'de sahip olabileceği maksimum cihaz sayısını belirleyin.  Bu kotayı dolduran bir kullanıcı, var olan cihazlarının bir veya birden fazlasını kaldırmadan yeni cihaz ekleyemez.
-   * **REQUIRE MULTI-FACTOR AUTH TO JOIN DEVICES (CİHAZLARIN KATILIMI İÇİN MULTI-FACTOR AUTHENTICATION'I GEREKLİ KIL)**: Kullanıcıların cihazlarını Azure AD'ye eklemeleri için ikinci bir kimlik doğrulama faktörü sağlamalarının gerekip gerekmediğini belirleyin. Azure Multi-Factor Authentication hakkında daha fazla bilgi edinmek için bkz. [Bulutta Azure Multi-Factor Authentication ile çalışmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
-   * **USERS MAY AZURE AD JOIN DEVICES (KULLANICILAR AZURE AD'YE CİHAZ KATABİLİR)**: Cihazlarını Azure AD'ye ekleme izni olan kullanıcıları ve grupları seçin.
-   * **ADDITIONAL ADMINISTRATORS ON AZURE AD JOINED DEVICES (AZURE AD'YE KATILAN CİHAZLAR İÇİN EK YÖNETİCİLER)**: Azure AD Premium veya Enterprise Mobility Suite (EMS) ile hangi kullanıcılara cihaz için yerel yönetici haklarının verileceğini belirleyebilirsiniz. Varsayılan olarak genel yöneticilere ve cihaz sahiplerine yerel yönetici hakları verilir.
+1. Toohello üzerinde Azure portal yönetici olarak oturum açın.
+2. Merhaba soldaki bölmede bulunan seçin **Active Directory**.
+3. Merhaba üzerinde **Directory** sekmesinde, dizininizi seçin.
+4. Select hello **yapılandırma** sekmesi.
+5. Toohello Git **aygıtları** bölümü.
+6. Merhaba üzerinde **aygıtları** sekmesinde, hello aşağıdakileri ayarlayın:  
+   * **En büyük sayı, CİHAZLARI kullanıcı başına**: hello en fazla bir kullanıcı Azure AD'de sahip cihaz sayısını seçin.  Bir kullanıcı bu kota ulaşırsa, bir veya daha fazla var olan cihazlarının kaldırılana kadar bunlar mümkün tooadd ek cihazlar olmaz.
+   * **İSTE MULTİ-FACTOR AUTH tooJOIN AYGITLARI**: kullanıcılar gerekli tooprovide olup ayarlamak ikinci bir kimlik doğrulama faktörü toojoin kendi cihaz tooAzure AD. Azure çok faktörlü kimlik doğrulaması hakkında daha fazla bilgi için bkz: [hello bulutta Azure multi Factor Authentication ile çalışmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+   * **USERS MAY AZURE AD birleştirme AYGITLARI**: hello kullanıcılar ve toojoin aygıtları tooAzure AD izin verilen grubu seçin.
+   * **Ek Yöneticiler ON AZURE AD alanına KATILAN CİHAZLAR**: Azure AD Premium veya Enterprise Mobility Suite (EMS) hello ile hangi kullanıcılara yerel yönetici hakları verilen seçebilirsiniz toohello aygıt. Varsayılan olarak genel yöneticilere ve cihaz sahiplerine yerel yönetici hakları verilir.
 
 <center>![Cihaz kaydı ayarlama](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 
-Kullanıcılarınız için Azure AD'ye Katılımı ayarladığınızda kurumsal veya kişisel cihazları üzerinden Azure AD'ye bağlanabilirler.
+Kullanıcılarınız için Azure AD'ye katılımı ayarladıktan sonra tooAzure AD aracılığıyla kendi Kurumsal veya kişisel aygıtlar bağlanabilir.
 
-Kullanıcılarınızın Azure AD Katılımını ayarlamalarını sağlamak üzere şu üç senaryoyu kullanabilirsiniz:
+Tooenable kullanıcılar tooset Azure AD'ye katılımı kullanabileceğiniz hello üç senaryolar şunlardır:
 
-* Kullanıcılar, şirketlerine ait cihazları doğrudan Azure AD'ye ekler.
-* Kullanıcılar, şirketlerine ait bir cihazı şirket içi Active Directory'deki etki alanına ekler ve ardından cihazı Azure AD'ye genişletir.
-* Kullanıcılar, kişisel bir cihazdan Windows'a iş veya okul hesabı ekler.
+* Kullanıcıların katılma şirkete ait bir cihazı doğrudan tooAzure AD.
+* Kullanıcıları etki alanına katılma bir şirketin aygıt toohello şirket içi Active Directory ve hello aygıt tooAzure AD genişletir.
+* Kullanıcıların iş veya Okul tooWindows kişisel bir cihazda hesapları
 
 ## <a name="additional-information"></a>Ek bilgiler
-* [Kurumlar için Windows 10: Cihazları iş için kullanmanın yolları](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Azure Active Directory Join ile bulut işlevlerini Windows 10 cihazlarına genişletme](active-directory-azureadjoin-user-upgrade.md)
+* [Merhaba kuruluş için Windows 10: yolları toouse cihazlar iş için](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Bulut özellikleri tooWindows 10 cihazların Azure Active Directory katılım aracılığıyla genişletme](active-directory-azureadjoin-user-upgrade.md)
 * [Azure AD Katılımı kullanım senaryoları hakkında bilgi edinin](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Windows 10 deneyiminden faydalanmak için etki alanına katılan cihazları Azure AD'ye bağlama](active-directory-azureadjoin-devices-group-policy.md)
+* [Etki alanına katılmış aygıtlar tooAzure Windows 10 deneyimleri için AD Bağlan](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD'ye Katılım ayarlama](active-directory-azureadjoin-setup.md)
 

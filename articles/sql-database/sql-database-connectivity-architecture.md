@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı bağlantısı mimarisi | Microsoft Docs"
-description: "Bu belgede Azure SQLDB bağlantı mimarisinden Azure içinde veya gelen açıklanmaktadır Azure dışında."
+title: "aaaAzure SQL veritabanı bağlantısı mimarisi | Microsoft Docs"
+description: "Bu belge hello Azure SQLDB bağlantı mimarisinden Azure içinde veya gelen açıklar Azure dışında."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,51 +15,51 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 8a1dd89c9e82483184ceb5d767190a5a5044265d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 917df6d88a16f1b841b617fb2a53025b4d14d034
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantısı mimarisi 
 
-Bu makalede, Azure SQL veritabanı bağlantısı mimarisini açıklar ve nasıl doğrudan trafiğe örneğinizi Azure SQL veritabanı için farklı bileşenleri işlev açıklanmaktadır. İçinden Azure bağlanan istemciler ve istemcilerin Azure dışında bağlantı ile Azure veritabanı ağ trafiğini yönlendirmek için bu Azure SQL veritabanı bağlantısı bileşenleri işlevi. Bu makalede ayrıca bağlantı nasıl gerçekleştiğini değiştirmek için kod örnekleri ve varsayılan bağlantı ayarlarını değiştirmek için ilgili dikkat edilecek noktalar sağlar. Varsa herhangi bir sorunuz bu makaleyi okuduktan sonra Dhruv adresindeki temasa dmalik@microsoft.com. 
+Bu makalede hello Azure SQL veritabanı bağlantısı mimarisini açıklar ve nasıl hello farklı bileşenleri toodirect trafiği tooyour Azure SQL veritabanı örneğini işlev açıklanmaktadır. Bu Azure SQL veritabanı bağlantısı bileşenlerinin toodirect ağ trafiği toohello Azure veritabanı içinden Azure bağlanan istemciler ve Azure dışında bağlantı istemcileri ile işlev. Bu makalede ayrıca bağlantı nasıl gerçekleştiğini kod örnekleri toochange sağlar ve hello konuları ilgili toochanging hello varsayılan bağlantı ayarları. Varsa herhangi bir sorunuz bu makaleyi okuduktan sonra Dhruv adresindeki temasa dmalik@microsoft.com. 
 
 ## <a name="connectivity-architecture"></a>Bağlantı mimarisi
 
-Aşağıdaki diyagramda Azure SQL veritabanı bağlantısı mimarisinin üst düzey bir genel bakış sağlar. 
+Aşağıdaki diyagramda hello hello Azure SQL veritabanı bağlantısı mimarisinin üst düzey bir genel bakış sağlar. 
 
 ![mimarisine genel bakış](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
 
-Aşağıdaki adımlar, Azure SQL veritabanı yazılım yük dengeleyici (SLB) ve Azure SQL veritabanı ağ geçidi ile bir Azure SQL veritabanı için bir bağlantının nasıl kurulacağını açıklar.
+Merhaba aşağıdakileri nasıl bir bağlantı hello Azure SQL veritabanı yazılım yük dengeleyici (SLB) ve hello Azure SQL veritabanı ağ geçidi ile kurulan tooan Azure SQL veritabanı olduğunu açıklayın.
 
-- İstemcileri Azure içinde veya Azure dışında bir ortak IP adresi vardır ve 1433 bağlantı noktasını dinler SLB bağlayın.
-- SLB Azure SQL veritabanı ağ trafiğini yönlendirir.
-- Ağ geçidi doğru proxy Ara trafiğini yönlendirir.
-- Proxy Ara trafiği uygun Azure SQL veritabanına yönlendirir.
+- İstemcileri Azure içinde veya Azure dışında toohello bir ortak IP adresi vardır ve 1433 bağlantı noktasını dinler SLB bağlayın.
+- Merhaba SLB trafiği toohello Azure SQL veritabanı ağ geçidi yönlendirir.
+- Merhaba ağ geçidi hello trafiği toohello doğru proxy Ara yönlendirir.
+- Merhaba proxy Ara hello trafiği toohello uygun Azure SQL veritabanı yönlendirir.
 
 > [!IMPORTANT]
-> Bu bileşenlerin her birini koruma hizmeti (DDoS) ağ ve uygulama katmanı yerleşik reddi dağıtılmış.
+> Bu bileşenlerin her birini engelleme (DDoS) hizmeti koruma hello ağ ve hello uygulama katmanı yerleşik dağıtılmış.
 >
 
 ## <a name="connectivity-from-within-azure"></a>Azure içinde bağlantısı
 
-Azure içinde içinden bağlanan bağlantılarınızı bir bağlantı ilkesi varsa **yeniden yönlendirme** varsayılan olarak. Bir ilke **yeniden yönlendirme** TCP oturumu Azure SQL veritabanı için istemci oturum kurulduktan sonra bağlantıları sonra yönlendirildiği olduğunu proxy ara yazılımı için bir hedef sanal IP değişiklik olanlardan Azure ile anlamına gelir SQL veritabanı ağ geçidi, proxy ara yazılım. Bundan sonra tüm sonraki paketlere Azure SQL veritabanı ağ geçidi atlayarak doğrudan proxy ara yazılımı üzerinden, akış. Aşağıdaki diyagramda bu trafik akışı gösterilmektedir.
+Azure içinde içinden bağlanan bağlantılarınızı bir bağlantı ilkesi varsa **yeniden yönlendirme** varsayılan olarak. Bir ilke **yeniden yönlendirme** kurulan toohello Azure SQL veritabanı hello TCP oturumu tamamlandıktan sonra bağlantılar, hello istemci oturumu anlamına gelir sonra toohello proxy Ara yazılımla bir değişiklik toohello hedef sanal IP yeniden yönlendirildi hello Azure SQL veritabanı ağ geçidi toothat hello proxy ara yazılım,. Bundan sonra tüm sonraki paketlere hello Azure SQL veritabanı ağ geçidi atlayarak doğrudan hello proxy ara yazılımı üzerinden, akış. Aşağıdaki diyagramda hello Bu trafik akışı gösterilmektedir.
 
 ![mimarisine genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Azure dışında bağlantısı
 
-Dış Azure'dan bağlanıyorsanız, bir bağlantı İlkesi bağlantınız **Proxy** varsayılan olarak. Bir ilke **Proxy** Azure SQL veritabanı ağ geçidi TCP oturumun ve tüm sonraki paketlere akış yoluyla ağ geçidi anlamına gelir. Aşağıdaki diyagramda bu trafik akışı gösterilmektedir.
+Dış Azure'dan bağlanıyorsanız, bir bağlantı İlkesi bağlantınız **Proxy** varsayılan olarak. Bir ilke **Proxy** hello TCP oturumu yoluyla hello Azure SQL veritabanı ağ geçidi kuruldu ve tüm sonraki paketlere aracılığıyla akış anlamına gelir. ağ geçidi hello. Aşağıdaki diyagramda hello Bu trafik akışı gösterilmektedir.
 
 ![mimarisine genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL veritabanı ağ geçidi IP adresi
 
-Şirket içi kaynaklardan bir Azure SQL veritabanına bağlanmak için Azure SQL veritabanı ağ geçidi Azure bölgeniz için giden ağ trafiğine izin vermeniz gerekiyor. Bağlantılarınızı yoluyla ağ geçidi şirket içi kaynaklardan bağlanırken varsayılandır Proxy modunda bağlanırken yalnızca gidin.
+Şirket içi kaynaklardan tooconnect tooan Azure SQL database, Azure bölgeniz için tooallow giden ağ trafiğini toohello Azure SQL veritabanı ağ geçidi gerekir. Bağlantılarınızı hello ağ geçidi şirket kaynaklarına bağlanırken hello varsayılandır Proxy modunda bağlanırken yalnızca gidin.
 
-Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için birincil ve ikincil IP'leri listeler. Bazı bölgelerde, iki IP adresi vardır. Bu bölgelerde, birincil IP adresi ağ geçidi geçerli IP adresini ve ikinci IP adresi bir yük devretme IP adresidir. Yük devretme adresi için size hizmet kullanılabilirliği yüksek tutmak için sunucu taşıma adresidir. Bu bölgeler için her iki IP adreslerine giden izin öneririz. İkinci IP adresi, Microsoft tarafından sahip olunan ve bağlantıları kabul etmek üzere Azure SQL veritabanı tarafından etkinleştirilene kadar hizmetlerin üzerinde dinlemez.
+Aşağıdaki tabloda hello hello Azure SQL veritabanı ağ geçidinin tüm veri bölgeleri için birincil ve ikincil IP'leri hello. Bazı bölgelerde, iki IP adresi vardır. Bu bölgelerde hello birincil IP adresi hello ağ geçidinin hello geçerli IP adresini ve hello ikinci IP adresi bir yük devretme IP adresidir. Başlangıç adresi toowhich, sunucu tookeep hello hizmet kullanılabilirliği yüksek taşıma Hello yük devretme adresidir. Bu bölgeler için giden tooboth hello IP adreslerinin izin öneririz. Merhaba ikinci IP adresi, Microsoft tarafından sahip olunan ve Azure SQL veritabanı tooaccept bağlantılar tarafından etkinleştirilene kadar hizmetlerin üzerinde dinlemez.
 
 | Bölge Adı | Birincil IP adresi | İkincil IP adresi |
 | --- | --- |--- |
@@ -95,18 +95,18 @@ Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri içi
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL veritabanı bağlantı ilkesini değiştirme
 
-Bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı ilkesini değiştirmek için kullanın [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+toochange hello kullan hello bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı İlkesi [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
 
-- Bağlantı ilkeniz ayarlanmışsa **Proxy**, tüm Azure SQL veritabanı ağ geçidi üzerinden paket akışı ağ. Bu ayar, yalnızca Azure SQL veritabanı ağ geçidi IP giden izin vermeniz gerekir. Ayarı kullanarak **Proxy** ayarı'den daha fazla gecikme sahip **yeniden yönlendirme**. 
-- Bağlantı ilkeniz ayarlıyorsanız **yeniden yönlendirme**, tüm paketler akışına doğrudan ara proxy ağ. Bu ayar için birden çok IP giden izin vermeniz gerekir. 
+- Bağlantı ilkeniz çok ayarlarsanız**Proxy**, tüm paketlerin akışı hello Azure SQL veritabanı ağ geçidi aracılığıyla ağ. Bu ayar için tooallow giden tooonly hello Azure SQL veritabanı ağ geçidi IP gerekir. Ayarı kullanarak **Proxy** ayarı'den daha fazla gecikme sahip **yeniden yönlendirme**. 
+- Bağlantı ilkeniz ayarlıyorsanız **yeniden yönlendirme**, tüm ağ paketlerinin doğrudan toohello ara proxy akış. Bu ayar için tooallow giden toomultiple IP'leri gerekir. 
 
-## <a name="script-to-change-connection-settings"></a>Bağlantı ayarlarını değiştirmek için komut dosyası
+## <a name="script-toochange-connection-settings"></a>Komut dosyası toochange bağlantı ayarları
 
 > [!IMPORTANT]
-> Bu komut dosyası gerektirir [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+> Bu komut dosyası hello gerektirir [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
 >
 
-Aşağıdaki PowerShell betiğini nasıl bir bağlantı İlkesi değiştirileceğini gösterir.
+PowerShell Betiği aşağıdaki hello nasıl toochange hello bağlantı İlkesi gösterir.
 
 ```powershell
 import-module azureRm
@@ -130,10 +130,10 @@ $authHeader = @{
 'Authorization'=$result.CreateAuthorizationHeader()
 }
 
-#getting the current connection property
+#getting hello current connection property
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
 
-#setting the property to ‘Proxy’
+#setting hello property too‘Proxy’
 $connectionType=”Proxy” <#Redirect / Default are other options#>
 $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 
@@ -142,6 +142,6 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı ilkesini değiştirme hakkında daha fazla bilgi için bkz: [oluşturma veya güncelleştirme sunucusu bağlantısı REST API kullanarak İlkesi](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- Nasıl toochange hello Azure SQL veritabanı bağlantı ilkesi için bir Azure SQL veritabanı sunucusu hakkında daha fazla bilgi için bkz: [hello REST API'si oluşturma veya güncelleştirme sunucusu bağlantısı İlkesi kullanarak](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - ADO.NET 4.5 veya sonraki bir sürümünü kullanan istemciler için Azure SQL veritabanı bağlantı davranışı hakkında bilgi için bkz: [ADO.NET 4.5 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Genel uygulama geliştirme genel bakış bilgileri için bkz: [SQL veritabanı uygulaması geliştirmeye genel bakış](sql-database-develop-overview.md).

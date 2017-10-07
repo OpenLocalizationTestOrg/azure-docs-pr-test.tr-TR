@@ -1,6 +1,6 @@
 ---
-title: "Ağ güvenlik grupları - PowerShell sorunlarını giderme | Microsoft Docs"
-description: "Ağ güvenlik grupları Azure PowerShell kullanarak Azure Resource Manager dağıtım modelinde sorun giderme öğrenin."
+title: "aaaTroubleshoot ağ güvenlik grupları - PowerShell | Microsoft Docs"
+description: "Azure PowerShell kullanarak nasıl tootroubleshoot ağ güvenlik grupları'hello Azure Resource Manager dağıtımında model öğrenin."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 5edaf7197576ac1c0bd1fc6bed21fd65ed135106
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 95fd60fa72cf6d17fa990e3c3eb7d980878f7c15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Ağ güvenlik grupları Azure PowerShell kullanarak sorun giderme
 > [!div class="op_single_selector"]
@@ -28,35 +28,35 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Ağ güvenlik grupları (Nsg'ler), sanal makine (VM) üzerinde yapılandırılmış ve VM bağlantı sorunları yaşıyorsanız, bu makalede daha fazla gidermek Nsg'ler tanılama özelliklerine genel bakış sağlar.
+Ağ güvenlik grupları (Nsg'ler), sanal makine (VM) üzerinde yapılandırılmış ve VM bağlantı sorunları yaşıyorsanız, bu makalede Nsg'ler toohelp daha fazla sorun giderme için tanılama özelliklerine genel bakış sağlar.
 
-Nsg'ler sanal makineleri (VM'ler) ve akan trafik türlerini denetlemenize sağlar. Nsg'ler alt ağlara bir Azure sanal ağı (VNet), ağ arabirimleri (NIC) ya da her ikisini de uygulanabilir. Bir NIC uygulanan etkili bir NIC'ye uygulanan Nsg'ler mevcut kurallar ve bağlı olduğu alt ağ bir toplama kurallardır. Bu Nsg'ler arasında kuralları bazen birbiriyle çelişen ve bir sanal makinenin ağ bağlantısını etkileyebilir.  
+Nsg'ler toocontrol hello trafik türlerini ve sanal makineleri (VM'ler) dışındaki akan sağlar. Nsg'ler uygulanan toosubnets bir Azure sanal ağı (VNet), ağ arabirimleri (NIC) veya her ikisi de olabilir. bir toplama bağlı hello uygulanan Nsg'ler tooa NIC ve hello alt ağda bulunan hello kuralların Hello uygulanacak etkili kurallar tooa NIC var. Bu Nsg'ler arasında kuralları bazen birbiriyle çelişen ve bir sanal makinenin ağ bağlantısını etkileyebilir.  
 
-VM Nıc'lerde uygulanan olarak, tüm etkin güvenlik kuralları Nsg'lerinizi görüntüleyebilirsiniz. Bu makalede, bu kurallar Azure Resource Manager dağıtım modelinde kullanarak VM bağlantı sorunlarını gidermek gösterilmiştir. VNet ve NSG kavramlarına alışık değilseniz, okuma [sanal ağ](virtual-networks-overview.md) ve [ağ güvenlik grupları](virtual-networks-nsg.md) genel bakış makaleleri.
+VM Nıc'lerde uygulanan olarak Nsg'lerinizi tüm hello etkin güvenlik kuralları görüntüleyebilirsiniz. Bu makalede Azure Resource Manager dağıtım modeli bu kuralları kullanmak tootroubleshoot VM bağlantı sorunları nasıl hello gösterilmektedir. VNet ve NSG kavramlarına alışık değilseniz, hello okuma [sanal ağ](virtual-networks-overview.md) ve [ağ güvenlik grupları](virtual-networks-nsg.md) genel bakış makaleleri.
 
-## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>VM trafik akışı sorun giderme için etkili güvenlik kurallarını kullanma
-Aşağıdaki senaryoda, ortak bir bağlantı sorunu örneğidir:
+## <a name="using-effective-security-rules-tootroubleshoot-vm-traffic-flow"></a>Etkin güvenlik kuralları tootroubleshoot VM trafik akışı kullanma
+izleyen hello senaryo, ortak bir bağlantı sorunu örneğidir:
 
-Adlı bir VM'den *VM1* adlı bir alt ağın parçası olan *Subnet1* adlı bir sanal ağ içindeki *WestUS VNet1*. 3389 numaralı TCP bağlantı noktası üzerinden RDP kullanarak VM bağlanma denemesi başarısız olur. Nsg'ler, her iki NIC üzerinde uygulanır *VM1 nıc1* ve alt ağ *Subnet1*. TCP bağlantı noktası 3389 trafiği ağ arabirimiyle ilişkilendirilmiş NSG izin verilen *VM1 nıc1*, kullanıcının VM1 ping TCP bağlantı noktası ancak 3389 başarısız olur.
+Adlı bir VM'den *VM1* adlı bir alt ağın parçası olan *Subnet1* adlı bir sanal ağ içindeki *WestUS VNet1*. Bir deneme tooconnect toohello 3389 numaralı TCP bağlantı noktası üzerinden RDP kullanarak VM başarısız olur. Nsg'ler NIC hem hello uygulanan *VM1 nıc1* ve alt ağ hello *Subnet1*. Trafik tooTCP 3389 numaralı bağlantı noktasını hello hello ağ arabirimiyle ilişkilendirilmiş NSG izin verilen *VM1 nıc1*, TCP ping ancak tooVM1'ın bağlantı noktası 3389 başarısız olur.
 
-Bu örnek 3389 numaralı TCP bağlantı noktasını kullanır, ancak herhangi bir bağlantı noktası gelen ve giden bağlantı hataları belirlemek için aşağıdaki adımları kullanılabilir.
+Bu örnek 3389 numaralı TCP bağlantı noktasını kullanır, ancak adımları hello kullanılan toodetermine herhangi bir bağlantı noktası gelen ve giden bağlantı hataları olabilir.
 
 ## <a name="detailed-troubleshooting-steps"></a>Ayrıntılı sorun giderme adımları
-Nsg'leri bir VM için sorun giderme için aşağıdaki adımları tamamlayın:
+Bir VM için adımları tootroubleshoot Nsg'ler aşağıdaki hello tamamlayın:
 
-1. Bir Azure PowerShell oturumu ve Azure oturum açma başlatın. Azure PowerShell ile bilmiyorsanız okuma [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale.
-2. Adlı bir NIC uygulanan tüm NSG kuralları döndürmek için aşağıdaki komutu girin *VM1 nıc1* kaynak grubunda *RG1*:
+1. Bir Azure PowerShell oturumu ve oturum açma tooAzure başlatın. Azure PowerShell ile bilmiyorsanız hello okuma [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) makalesi.
+2. Tooreturn tüm NSG kuralları uygulanan tooa adlı NIC komutu aşağıdaki hello girin *VM1 nıc1* hello kaynak grubunda *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
    
    > [!TIP]
-   > Bir NIC adını bilmiyorsanız, bir kaynak grubundaki tüm NIC'ler adları almak için aşağıdaki komutu girin: 
+   > Bir NIC hello adını bilmiyorsanız, bir kaynak grubundaki tüm NIC'ler komut tooretrieve hello adlarını aşağıdaki hello girin: 
    > 
    > `Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name`
    > 
    > 
    
-    Aşağıdaki metni için döndürülen etkili kuralları çıkış örneğidir *VM1 nıc1* NIC:
+    Merhaba aşağıdaki metni Merhaba döndürülen hello etkili kuralları çıkış örneğidir *VM1 nıc1* NIC:
    
         NetworkSecurityGroup   : {
                                    "Id": "/subscriptions/[Subscription ID]/resourceGroups/RG1/providers/Microsoft.Network/networkSecurityGroups/VM1-NIC1-NSG"
@@ -155,46 +155,46 @@ Nsg'leri bir VM için sorun giderme için aşağıdaki adımları tamamlayın:
                                 },...
                                 ]
    
-    Çıktı aşağıdaki bilgileri unutmayın:
+    Aşağıdaki bilgilerle hello çıktısında hello dikkat edin:
    
-   * Var olan iki **NetworkSecurityGroup** bölümler: bir alt ağ ile ilişkili biridir (*Subnet1*) ve bir NIC ile ilişkili olduğu (*VM1 nıc1*). Bu örnekte, her bir NSG uygulanmıştır.
-   * **İlişkilendirme** kaynak (alt ağ veya NIC) belirli bir NSG ile ilişkili olduğunu gösterir. NSG kaynağı hemen bu komutu çalıştırmadan önce taşınmış ve ilişkilendirmesi ise, komut çıktısında yansıtacak şekilde değiştirmek için birkaç saniye beklemeniz gerekebilir. 
-   * İle başlayan kuralı adları *defaultSecurityRules*: olduğunda bir NSG oluşturulur, birkaç varsayılan güvenlik kuralları içinde oluşturulur. Varsayılan kurallar kaldırılamaz, ancak daha yüksek öncelik kuralları ile geçersiz kılınabilir.
-     Okuma [NSG genel bakış](virtual-networks-nsg.md#default-rules) makale güvenlik kuralları varsayılan NSG hakkında daha fazla bilgi edinin.
-   * **ExpandedAddressPrefix** NSG varsayılan etiketleri için adres önekleri genişletir. Etiketler, birden çok adres öneklerini temsil eder. Etiketlerin genişletme denetleyicisinden belirli adres öneklerini VM bağlantı sorunlarını giderirken faydalı olabilir. Örneğin, VNET eşlemesi ile VIRTUAL_NETWORK etiketine eşlenmiş VNet ön önceki çıktısında göstermek için genişletir.
+   * Var olan iki **NetworkSecurityGroup** bölümler: bir alt ağ ile ilişkili biridir (*Subnet1*) ve bir NIC ile ilişkili olduğu (*VM1 nıc1*). Bu örnekte, bir NSG uygulanan tooeach olmuştur.
+   * **İlişkilendirme** hello kaynak (alt ağ veya NIC) belirli bir NSG ile ilişkili olduğunu gösterir. Merhaba NSG kaynağı hemen bu komutu çalıştırmadan önce taşınmış ve ilişkilendirmesi ise, birkaç saniye toowait hello değişiklik tooreflect hello komut çıktısında için gerekebilir. 
+   * Merhaba ile başlayan kuralı adları *defaultSecurityRules*: olduğunda bir NSG oluşturulur, birkaç varsayılan güvenlik kuralları içinde oluşturulur. Varsayılan kurallar kaldırılamaz, ancak daha yüksek öncelik kuralları ile geçersiz kılınabilir.
+     Okuma hello [NSG genel bakış](virtual-networks-nsg.md#default-rules) NSG hakkında daha fazla makale toolearn varsayılan güvenlik kuralları.
+   * **ExpandedAddressPrefix** hello adres öneklerini NSG varsayılan etiketleri için genişletir. Etiketler, birden çok adres öneklerini temsil eder. Merhaba etiketleri genişlemesi denetleyicisinden belirli adres öneklerini VM bağlantı sorunlarını giderirken faydalı olabilir. Örneğin, VNET eşlemesi ile VIRTUAL_NETWORK etiketine tooshow genişletir VNet ön hello önceki çıktısında eşlenen.
      
      > [!NOTE]
-     > Bir NSG'yi bir alt ağ, bir NIC veya her ikisi ile ilişkili ise, komut yalnızca gösterir etkili kuralları. Bir VM uygulanan farklı Nsg'ler ile birden çok NIC olabilir. Sorunlarını giderirken, her bir NIC komutunu çalıştırın
+     > bir NSG'yi bir alt ağ, bir NIC veya her ikisi ile ilişkili ise, komut yalnızca gösterir etkili kuralları hello. Bir VM uygulanan farklı Nsg'ler ile birden çok NIC olabilir. Sorunlarını giderirken, her bir NIC hello komutunu çalıştırın
      > 
      > 
-3. Daha fazla sayıda NSG kuralları filtreleme kolaylaştırmak için daha fazla sorun giderme için aşağıdaki komutları girin: 
+3. NSG kuralları, fazla sayıda filtreleme tooease başka komutlar tootroubleshoot aşağıdaki hello girin: 
    
         $NSGs = Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
         $NSGs.EffectiveSecurityRules | Sort-Object Direction, Access, Priority | Out-GridView
    
-    RDP trafiğine (TCP bağlantı noktası 3389) için bir filtre aşağıdaki resimde gösterildiği gibi kılavuz görünümüne uygulanır:
+    RDP trafiğine (TCP bağlantı noktası 3389) için bir filtre hello resim aşağıdaki gösterildiği gibi toohello Izgara Görünümü uygulanır:
    
     ![Kuralları listesi](./media/virtual-network-nsg-troubleshoot-powershell/rules.png)
-4. Izgara görünümünde görebileceğiniz gibi vardır her ikisi de izin ver ve Reddet kurallarının için RDP. 2. adım çıktısını gösterir *DenyRDP* alt ağa uygulanan nsg'deki kuralıdır. Gelen kuralları için alt ağa uygulanan Nsg'ler önce işlenir. Bir eşleşme bulunursa, bir ağ arabirimine uygulanan NSG işlenmez. Bu durumda, *DenyRDP* alt ağdan kural, VM için RDP engeller (**VM1**).
+4. Merhaba ızgara görünümünde görebileceğiniz gibi vardır her ikisi de izin ver ve Reddet kurallarının için RDP. Merhaba 2. adım çıktısını gösterir, hello *DenyRDP* hello NSG uygulanır toohello alt kuralıdır. Gelen kuralları için uygulanan Nsg'ler toohello alt önce işlenir. Bir eşleşme bulunamazsa hello NSG uygulanır toohello ağ arabirimi işlenmedi. Bu durumda, hello *DenyRDP* kural hello alt ağından gelen RDP toohello VM engeller (**VM1**).
    
    > [!NOTE]
-   > Bir VM ekli birden çok NIC olabilir. Her farklı bir alt ağa bağlı olabilir. Önceki adımları komutlar bir NIC karşı çalışır olduğundan, bağlantı hatası yaşıyoruz NIC belirttiğinizden emin olun önemlidir. Emin değilseniz VM'ye bağlı her NIC karşı komutları her zaman çalıştırabilirsiniz.
+   > Bir VM birden çok NIC ekli tooit olabilir. Her bağlı tooa farklı alt olabilir. Merhaba komutlar hello önceki adımlarda karşı bir NIC çalıştırılır, belirttiğiniz tooensure hello hello bağlantı hatası yaşıyoruz NIC önemlidir. Emin değilseniz, her bağlı NIC toohello VM karşı her zaman hello komutları çalıştırabilirsiniz.
    > 
    > 
-5. VM1 halinde RDP için değiştirme *Reddet RDP (3389)* kuralı *izin RDP(3389)* içinde **Subnet1 NSG** NSG. TCP bağlantı noktası 3389 VM için RDP bağlantısı açarak veya PsPing aracını kullanarak açık olduğundan emin olun. Okuyarak PsPing hakkında daha fazla bilgiyi [PsPing indirme sayfası](https://technet.microsoft.com/sysinternals/psping.aspx)
+5. VM1, değişiklik hello içine tooRDP *Reddet RDP (3389)* çok kural*izin RDP(3389)* hello içinde **Subnet1 NSG** NSG. TCP bağlantı noktası 3389 RDP bağlantı toohello VM açma veya hello PsPing aracını kullanarak açık olduğundan emin olun. Okuma hello tarafından PsPing hakkında daha fazla bilgiyi [PsPing indirme sayfası](https://technet.microsoft.com/sysinternals/psping.aspx)
    
-    Aşağıdaki komut çıktısı bilgileri kullanarak bir NSG kuralları kaldırın ve yapabilirsiniz:
+    Komutu aşağıdaki hello hello çıktısını hello bilgileri kullanarak bir NSG kuralları kaldırın ve yapabilirsiniz:
    
         Get-Help *-AzureRmNetworkSecurityRuleConfig
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-Bağlantı sorunlarını giderme yaparken aşağıdaki noktaları dikkate alın:
+Bağlantı sorunları giderirken noktaları aşağıdaki hello göz önünde bulundurun:
 
-* Varsayılan NSG kuralları internet'ten gelen erişimi engellemek ve yalnızca VNet izin gelen trafiği. Internet'ten gelen erişim gerektiğinde izin vermek için açıkça kuralları eklenmesi gerekir.
-* Bir sanal makinenin ağ bağlantısı başarısız olmasına neden olan hiçbir NSG güvenlik kuralları varsa, sorunu nedeniyle olabilir:
-  * Sanal makinenin işletim sistemi içinde çalışan güvenlik duvarı yazılımı
-  * Sanal gereçler veya şirket içi trafiği için yapılandırılmış yollar. Internet trafiği, şirket içi zorlamalı tünel aracılığıyla yönlendirilebilir. VM Internet'ten bir RDP/SSH bağlantısı nasıl şirket içi ağ donanımı bu trafiği işler bağlı olarak bu ayar ile çalışmayabilir. Okuma [sorun giderme yolları](virtual-network-routes-troubleshoot-powershell.md) makale içeri ve dışarı VM trafik akışını engelleyen rota sorunları tanılamak öğrenin. 
-* Varsayılan olarak sanal ağlar, eşlenen, VIRTUAL_NETWORK etiketine önekler için eşlenmiş Vnet'lerde dahil etmek için otomatik olarak genişletilir. Bu önekleri görüntüleyebilirsiniz **ExpandedAddressPrefix** VNet eşleme bağlantısı ilgili sorunları gidermek için liste. 
-* Etkin güvenlik kuralları yalnızca VM NIC ve veya alt ağ ilişkilendirilmiş bir NSG olup olmadığını gösterilir. 
-* Alt ağ ve NIC ile ilişkili hiçbir Nsg'ler vardır veya VM'nize atanan genel bir IP adresi varsa, tüm bağlantı noktalarına gelen ve giden erişimi açık olacaktır. VM bir ortak IP adresi varsa, NIC veya alt ağ Nsg'ler uygulanması önerilir.  
+* Varsayılan NSG kuralları hello'ten gelen erişim engeller Internet ve yalnızca izin VNet gelen trafiği. Kuralları açıkça eklenmesi tooallow gelen gerektiği gibi Internet'ten erişim.
+* Bir sanal makinenin ağ bağlantısı toofail neden hiçbir NSG güvenlik kuralları varsa, hello sorun nedeniyle olabilir:
+  * Merhaba VM'ın işletim sistemi içinde çalışan güvenlik duvarı yazılımı
+  * Sanal gereçler veya şirket içi trafiği için yapılandırılmış yollar. Internet trafiğini yeniden yönlendirilen tooon içi zorlamalı tünel aracılığıyla olabilir. Merhaba Internet tooyour VM bir RDP/SSH bağlantısı nasıl hello şirket içi ağ donanımı bu trafiği işler bağlı olarak bu ayar ile çalışmayabilir. Okuma hello [sorun giderme yolları](virtual-network-routes-troubleshoot-powershell.md) makale toolearn içinde ve dışında trafik akışını engelleyen toodiagnose rota sorunları hello nasıl VM hello. 
+* Varsayılan olarak sanal ağlar, eşlenen durumdaysa hello VIRTUAL_NETWORK etiketine tooinclude önekleri eşlenmiş Vnet'ler için otomatik olarak genişletin. Bu önekleri hello görüntüleyebilirsiniz **ExpandedAddressPrefix** listesi olan bağlantı eşliği sorunları ilgili tooVNet tootroubleshoot. 
+* Etkin güvenlik kuralları, bir NSG hello VM'in NIC ve veya alt ağ ilişkili olup yalnızca gösterilir. 
+* Merhaba NIC ile ilişkili hiçbir Nsg'ler vardır veya alt ağ ve tooyour VM atanan genel bir IP adresi varsa, tüm bağlantı noktalarına gelen ve giden erişimi açık olacaktır. Merhaba VM genel bir IP adresi varsa, Nsg'ler toohello NIC veya alt ağ uygulama önemle tavsiye edilir.  
 

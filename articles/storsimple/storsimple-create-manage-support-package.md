@@ -1,6 +1,6 @@
 ---
-title: "Bir StorSimple destek paketi oluştur | Microsoft Docs"
-description: "Oluşturma, şifresini ve StorSimple cihazınız için bir destek paketi düzenleme öğrenin."
+title: aaaCreate StorSimple destek paketi | Microsoft Docs
+description: "Nasıl toocreate, şifresini ve StorSimple cihazınız için bir destek paketini Düzenle öğrenin."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 209aeee50e823fd2ca96ababd1d0cf3ea9cdad53
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>Oluşturma ve StorSimple destek paketi yönetme
 ## <a name="overview"></a>Genel Bakış
-Bir StorSimple destek paketi Microsoft Support StorSimple cihaz sorunları gidermenize yardımcı olacak tüm ilgili günlükleri toplayan bir kullanımı kolay mekanizmasıdır. Toplanan günlükleri şifrelenmiş ve sıkıştırılmış.
+Bir StorSimple destek paketi StorSimple cihaz sorunları gidermeye tüm ilgili günlükleri tooassist Microsoft Support toplayan bir kullanımı kolay mekanizmasıdır. Merhaba toplanan günlükleri şifrelenmiş sıkıştırılmış ve.
 
-Bu öğretici oluşturmak ve Destek Paketi yönetmek için adım adım yönergeler içerir.
+Bu öğretici, adım adım yönergeler toocreate içerir ve hello destek paketi yönetin.
 
-## <a name="create-and-upload-a-support-package-in-the-azure-classic-portal"></a>Oluşturma ve Azure Klasik portalında bir destek paketi yükleme
-Oluşturma ve Destek paketi Microsoft Support sitesini karşıya yükleme **Bakım** Klasik Azure portalı hizmetinde sayfası.
+## <a name="create-and-upload-a-support-package-in-hello-azure-classic-portal"></a>Oluşturma ve hello Klasik Azure portalında bir destek paketi yükleme
+Oluşturma ve bir destek paketi toohello Microsoft Support sitesini hello aracılığıyla karşıya **Bakım** hello Klasik Azure portalı hello hizmetinde sayfası.
 
 > [!NOTE]
-> Karşıya yükleme desteği geçiş gerektirir. Destek mühendisinize Bu size bir e-postayla sağlamalıdır.
+> Merhaba karşıya yükleme desteği geçiş gerektirir. Destek mühendisinize e-posta iletisinde bu tooyou sağlamalıdır.
 > 
 > 
 
-Şifrelenmiş ve sıkıştırılmış Destek Paketi (.cab dosyası) oluşturulur ve Destek siteye yüklenir. Destek mühendisine bu paket sorun giderme desteği sitesinden sonra alabilirsiniz.
+Şifrelenmiş ve sıkıştırılmış Destek Paketi (.cab dosyası) oluşturulur ve karşıya yüklenen toohello destek sitesidir. Merhaba destek mühendisine hello destek sitesinden hello sorunu gidermek için bu paketi sonra alabilir.
 
-Bir destek paketi oluşturmak için Klasik portalında aşağıdaki adımları gerçekleştirin.
+Merhaba Klasik portal toocreate destek paketi adımlarını izleyerek hello gerçekleştirin.
 
-#### <a name="to-create-a-support-package-in-the-azure-classic-portal"></a>Klasik Azure portalında bir destek paketi oluşturmak için
+#### <a name="toocreate-a-support-package-in-hello-azure-classic-portal"></a>toocreate hello Klasik Azure portalında bir destek paketi
 1. Seçin **aygıtları** > **Bakım**.
-2. İçinde **destek paketi** bölümünde, select **oluşturma ve karşıya yükleme destek paketi**.
-3. İçinde **oluşturma ve karşıya yükleme destek paketi** iletişim kutusunda, aşağıdakileri yapın:
+2. Merhaba, **destek paketi** bölümünde, select **oluşturma ve karşıya yükleme destek paketi**.
+3. Merhaba, **oluşturma ve karşıya yükleme destek paketi** iletişim kutusunda, aşağıdaki hello:
    
     ![Destek Paketi Oluştur](./media/storsimple-create-manage-support-package/IC740923.png)
    
-   * İçinde **destek geçiş** metin kutusuna, geçiş anahtarını girin. Microsoft destek mühendisinize bu geçiş, e-posta göndermesi gerekir.
-   * Onay sağlamak için bu onay kutusunu işaretleyin destek paketi Microsoft Support sitesini otomatik olarak yüklenecek.
-   * Onay simgesine tıklayarak ![Onay simgesi](./media/storsimple-create-manage-support-package/IC740895.png).
+   * Merhaba, **destek geçiş** metin kutusuna, hello geçiş anahtarı girin. Microsoft destek mühendisinize bu geçiş tooyou e-posta göndermesi gerekir.
+   * Merhaba onay kutusunu tooprovide izin tooautomatically karşıya yükleme hello destek paketi toohello Microsoft Support sitesini seçin.
+   * Merhaba onay simgesine tıklayın ![Onay simgesi](./media/storsimple-create-manage-support-package/IC740895.png).
 
 ## <a name="manually-create-a-support-package"></a>El ile bir destek paketi oluştur
-Bazı durumlarda, StorSimple için Windows PowerShell aracılığıyla destek paketi el ile oluşturmanız gerekir. Örneğin:
+Bazı durumlarda, gerekir toomanually StorSimple için Windows PowerShell üzerinden hello destek paketi oluşturun. Örneğin:
 
-* Microsoft Support paylaşımı önce günlük dosyalarınızı hassas bilgileri kaldırmak gerekiyorsa.
-* Bağlantı sorunları nedeniyle paketi karşıya zorluk yaşıyorsanız.
+* Tooremove hassas bilgileri, günlüğünden gerekirse Microsoft Support önceki toosharing dosyaları.
+* Merhaba paket tooconnectivity sorunları nedeniyle karşıya zorluk yaşıyorsanız.
 
-E-posta Microsoft Support el ile oluşturulan destek paketinizi paylaşabilirsiniz. StorSimple için Windows PowerShell içinde bir destek paketi oluşturmak için aşağıdaki adımları gerçekleştirin.
+E-posta Microsoft Support el ile oluşturulan destek paketinizi paylaşabilirsiniz. StorSimple için Windows PowerShell desteği paketinde adımları toocreate aşağıdaki hello gerçekleştirin.
 
-#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell içinde bir destek paketi oluşturmak için
-1. StorSimple Cihazınızı bağlamak için kullanılan uzak bilgisayarda yönetici olarak bir Windows PowerShell oturumu başlatmak için aşağıdaki komutu girin:
+#### <a name="toocreate-a-support-package-in-windows-powershell-for-storsimple"></a>toocreate StorSimple için Windows PowerShell desteği paketinde
+1. toostart tooconnect tooyour StorSimple cihazı kullandığı hello uzak bilgisayarda yönetici olarak Windows PowerShell oturumu bir hello aşağıdaki komutu girin:
    
     `Start PowerShell`
-2. Windows PowerShell oturumunda Cihazınızı SSAdmin Konsola bağlan:
+2. Merhaba Windows PowerShell oturumunda toohello Cihazınızı SSAdmin konsoluna Bağlan:
    
-   * Komut isteminde girin:
+   * Merhaba komut isteminde girin:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   * Açılan iletişim kutusunda, cihaz Yöneticisi parolasını girin. Varsayılan paroladır:
+   * Açılan hello iletişim kutusunda, cihaz Yönetici parolanızı girin. Merhaba varsayılan paroladır:
      
       `Password1`
      
       ![PowerShell kimlik bilgisi iletişim kutusu](./media/storsimple-create-manage-support-package/IC740962.png)
    * **Tamam**’ı seçin.
-   * Komut isteminde girin:
+   * Merhaba komut isteminde girin:
      
       `Enter-PSSession $MS`
-3. Açılan oturumda uygun komutunu girin.
+3. Açılır hello oturumunda hello uygun komutu girin.
    
    * Parola korumalı ağ paylaşımları için girin:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
      
-       (Destek Paketi şifrelendiğinden) bir ağ paylaşılan klasörüne ve bir şifreleme parolası yoluna bir parola istenir. Bir destek paketi sonra belirtilen klasörde oluşturulur.
-   * Parola korumalı olmayan paylaşımlar için ihtiyacınız olmayan `-Credential` parametresi. Aşağıdakileri girin:
+       (Merhaba destek paketi şifrelendiğinden) bir parola, bir yol toohello ağ paylaşılan klasörüne ve bir şifreleme parolası istenir. Bir destek paketi sonra hello belirtilen klasörde oluşturulur.
+   * Parola korumalı olmayan paylaşımlar için hello gerekmez `-Credential` parametresi. Merhaba aşağıdakileri girin:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
      
-       Destek paketini hem denetleyicileri belirtilen ağ paylaşılan klasöründe oluşturulur. Bu sorun giderme için Microsoft Support gönderilebilecek bir şifrelenmiş ve sıkıştırılmış dosyasıdır. Daha fazla bilgi için bkz: [Microsoft Destek birimine başvurun](storsimple-contact-microsoft-support.md).
+       Merhaba destek paketi hem denetleyicileri hello belirtilen ağ paylaşılan klasöründe oluşturulur. Bu sorun giderme için tooMicrosoft destek gönderilebilecek bir şifrelenmiş ve sıkıştırılmış dosyasıdır. Daha fazla bilgi için bkz: [Microsoft Destek birimine başvurun](storsimple-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Dışarı aktarma HcsSupportPackage cmdlet parametreleri
-Dışarı aktarma HcsSupportPackage cmdlet'iyle şu parametreleri kullanabilirsiniz.
+### <a name="hello-export-hcssupportpackage-cmdlet-parameters"></a>Merhaba verme HcsSupportPackage cmdlet parametreleri
+Şu parametreler hello verme HcsSupportPackage cmdlet ile Merhaba kullanabilirsiniz.
 
 | Parametre | Gerekli/isteğe bağlı | Açıklama |
 | --- | --- | --- |
-| `-Path` |Gerekli |Destek paketini yerleştirildiği ağ paylaşılan klasörün konumunu belirtmek için kullanın. |
-| `-EncryptionPassphrase` |Gerekli |Destek Paketi şifrelemek yardımcı olmak için bir parola sağlamak için kullanın. |
-| `-Credential` |İsteğe bağlı |Ağ paylaşılan klasörüne erişim kimlik bilgileri sağlamak için kullanın. |
-| `-Force` |İsteğe bağlı |Şifreleme parolası onayı adımı atlamak için kullanın. |
-| `-PackageTag` |İsteğe bağlı |Bir dizini altında belirtmek için kullanın *yolu* destek paketi yerleştirildiği içinde. Varsayılan değer [aygıt adı]-[geçerli tarih ve time:yyyy-MM-dd-HH-mm-ss]. |
-| `-Scope` |İsteğe bağlı |Olarak belirttiğiniz **küme** hem denetleyicileri için bir destek paketi oluşturmak için (varsayılan). Geçerli denetleyici için yalnızca bir paketi oluşturmak istiyorsanız, belirtin **denetleyicisi**. |
+| `-Path` |Gerekli |Merhaba ağ paylaşılan klasörüne hangi hello destek paketi yerleştirilir tooprovide hello konumu kullanın. |
+| `-EncryptionPassphrase` |Gerekli |Kullanım tooprovide parola toohelp hello destek paketi şifreleyin. |
+| `-Credential` |İsteğe bağlı |Toosupply erişim kimlik bilgileri hello ağ paylaşılan klasör için kullanın. |
+| `-Force` |İsteğe bağlı |Tooskip hello şifreleme parolası onayı adımını kullanın. |
+| `-PackageTag` |İsteğe bağlı |Bir dizini altında toospecify kullanmak *yol* hangi hello destek paketi yerleştirilir. Merhaba varsayılandır [aygıt adı]-[geçerli tarih ve time:yyyy-MM-dd-HH-mm-ss]. |
+| `-Scope` |İsteğe bağlı |Olarak belirttiğiniz **küme** (varsayılan) toocreate hem denetleyicileri için bir destek paketi. Yalnızca hello geçerli denetleyici için bir paket toocreate istiyorsanız belirtin **denetleyicisi**. |
 
 ## <a name="edit-a-support-package"></a>Destek paketini Düzenle
-Bir destek paketi oluşturduktan sonra hassas bilgileri kaldırmak için paketi düzenleyin gerekebilir. Bu, birim adları, cihaz IP adresleri ve günlük dosyalarını yedekleme adlarından içerebilir.
+Bir destek paketi oluşturduktan sonra tooedit hello paket tooremove hassas bilgileri gerekebilir. Bu, birim adları, cihaz IP adresleri ve hello günlük dosyalarındaki yedek adları içerebilir.
 
 > [!IMPORTANT]
-> Yalnızca StorSimple için Windows PowerShell aracılığıyla oluşturulan bir destek paketi düzenleyebilirsiniz. StorSimple Yöneticisi hizmetiyle Azure Klasik portalında oluşturulan bir paket düzenleyemezsiniz.
+> Yalnızca StorSimple için Windows PowerShell aracılığıyla oluşturulan bir destek paketi düzenleyebilirsiniz. Merhaba StorSimple Yöneticisi hizmetiyle Klasik Azure portalında oluşturulan bir paket düzenleyemezsiniz.
 > 
 > 
 
-Microsoft Support sitesinde karşıya yüklemeden önce bir destek paketi düzenlemek, ilk destek paketi şifresini, dosyaları düzenleyin ve yeniden şifrelemek için. Aşağıdaki adımları gerçekleştirin.
+tooedit hello Microsoft Support sitesini üzerinde karşıya yüklemeden önce bir destek paketi ilk hello destek paketi şifresini, hello dosyaları düzenleyin ve yeniden şifrelemek. Merhaba aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell desteği paketinde düzenlemek için
-1. Açıklandığı gibi daha önce bir destek paketi oluştur [StorSimple için Windows PowerShell içinde bir destek paketi oluşturmak için](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Komut dosyasını karşıdan](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) istemciniz yerel olarak.
-3. Windows PowerShell modülünü içeri aktarın. Komut dosyası karşıdan yerel klasörün yolunu belirtin. Modülü içeri aktarmak için şunu girin:
+#### <a name="tooedit-a-support-package-in-windows-powershell-for-storsimple"></a>tooedit StorSimple için Windows PowerShell desteği paketinde
+1. Açıklandığı gibi daha önce bir destek paketi oluştur [toocreate StorSimple için Windows PowerShell desteği paketinde](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+2. [Karşıdan yükleme Hello komut](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) istemciniz yerel olarak.
+3. Merhaba Windows PowerShell modülünü içeri aktarın. Merhaba yolu toohello yerel klasör hello betiği indirildi belirtin. tooimport hello modülü girin:
    
-    `Import-module <Path to the folder that contains the Windows PowerShell script>`
-4. Tüm dosyalar *.aes* sıkıştırılmış ve şifrelenmiş dosyalar. Sıkıştırmasını açın ve dosyaların şifresini çözmek için şunu girin:
+    `Import-module <Path toohello folder that contains hello Windows PowerShell script>`
+4. Tüm hello dosyalar *.aes* sıkıştırılmış ve şifrelenmiş dosyalar. toodecompress ve şifre çözme dosyaları girin:
    
-    `Open-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Open-HcsSupportPackage <Path toohello folder that contains support package files>`
    
-    Gerçek dosya uzantıları için tüm dosyalar artık görüntülendiğini unutmayın.
+    Hello gerçek dosya uzantıları için tüm hello dosyaları şimdi görüntülenen unutmayın.
    
     ![Destek paketini Düzenle](./media/storsimple-create-manage-support-package/IC750706.png)
-5. Şifreleme parolası istendiğinde, destek paketi oluştururken kullandığınız parolayı girin.
+5. Merhaba şifreleme parolası istendiğinde hello destek paketi oluştururken kullandığınız hello parola girin.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
-        Supply values for the following parameters:EncryptionPassphrase: ****
-6. Günlük dosyalarını içeren klasöre gidin. Günlük dosyalarının şimdi sıkıştırması açılmış ve şifresi çünkü bunlar özgün dosya uzantılarını sahip olur. Birim adları ve cihaz IP adresleri gibi herhangi bir müşteriye özgü bilgileri kaldırmak için bu dosyalarda değişiklik ve dosyaları kaydedebilir.
-7. Gzip ile sıkıştırmak ve AES 256 ile şifrelemek için dosyaları kapatın. Bu hız ve Destek paketi bir ağ üzerinden aktarılması güvenliği içindir. Sıkıştır ve dosyaları şifrelemek için aşağıdakileri girin:
+        Supply values for hello following parameters:EncryptionPassphrase: ****
+6. Merhaba günlük dosyalarını içeren toohello klasörüne göz atın. Merhaba günlük dosyalarının şimdi sıkıştırması açılmış ve şifresi çünkü bunlar özgün dosya uzantılarını sahip olur. Bu dosyaları tooremove birim adları ve cihaz IP adresleri gibi herhangi bir müşteriye özgü bilgisi değiştirin ve hello dosyalarını kaydedin.
+7. Kapat hello dosyaları toocompress gzip ile bunları ve AES 256 ile şifreleyebilirsiniz. Bu hız ve hello destek paketi bir ağ üzerinden aktarılması güvenliği içindir. toocompress ve dosyaları şifrelemek, hello aşağıdakileri girin:
    
-    `Close-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Close-HcsSupportPackage <Path toohello folder that contains support package files>`
    
     ![Destek paketini Düzenle](./media/storsimple-create-manage-support-package/IC750707.png)
-8. İstendiğinde, bir şifreleme parolası değiştirilmiş destek paketi için belirtin.
+8. İstendiğinde, bir şifreleme parolası hello değiştirilmiş destek paketi için belirtin.
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
-9. Microsoft istendiğinde Support paylaşmanızı sağlayan yeni parolayı not yazın.
+        Supply values for hello following parameters:EncryptionPassphrase: ****
+9. Microsoft istendiğinde Support paylaşmanızı sağlayan hello yeni parolayı not ettiğinizden.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Örnek: parola korumalı bir paylaşılan bir destek paketi dosyalarını düzenleme
-Aşağıdaki örnek, şifre çözme, düzenleme ve Destek paketi yeniden şifrele gösterilmektedir.
+Aşağıdaki örneğine hello nasıl toodecrypt, düzenlemek ve bir destek paketi yeniden şifrele gösterir.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
@@ -149,7 +149,7 @@ Aşağıdaki örnek, şifre çözme, düzenleme ve Destek paketi yeniden şifrel
 
         cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+        Supply values for hello following parameters:
 
         EncryptionPassphrase: ****
 
@@ -157,13 +157,13 @@ Aşağıdaki örnek, şifre çözme, düzenleme ve Destek paketi yeniden şifrel
 
         cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+        Supply values for hello following parameters:
 
         EncryptionPassphrase: ****
 
         PS C:\WINDOWS\system32>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi nasıl [aygıt dağıtımınızı gidermek için destek paketler ve cihaz günlükleri kullanan](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
-* Bilgi edinmek için nasıl [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md).
+* Nasıl çok öğrenin[kullanma desteği paketler ve cihaz oturum tootroubleshoot aygıt dağıtımınızı](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Nasıl çok öğrenin[kullanım StorSimple Cihazınızı StorSimple Yöneticisi hizmet tooadminister hello](storsimple-manager-service-administration.md).
 

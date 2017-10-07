@@ -1,5 +1,5 @@
 ---
-title: "HTTP üzerinden - Azure Logic Apps ile herhangi bir uç nokta iletişim | Microsoft Docs"
+title: "HTTP - Azure Logic Apps üzerinden herhangi bir uç nokta ile aaaCommunicate | Microsoft Docs"
 description: "İletişim kurabilir logic apps ile herhangi bir uç nokta HTTP üzerinden oluşturun."
 services: logic-apps
 author: jeffhollan
@@ -15,39 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9793601839437a2b880bdb81e15881270cacc963
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-http-action"></a>HTTP eylem ile çalışmaya başlama
+# <a name="get-started-with-hello-http-action"></a>HTTP eylemi Hello ile çalışmaya başlama
 
-HTTP eylem ile kuruluşunuz için iş akışları genişletmek ve herhangi bir uç nokta için HTTP üzerinden iletişim kurar.
+Merhaba HTTP eylemi, kuruluşunuz için iş akışları genişletmek ve tooany uç noktası, HTTP iletişim kurar.
 
 Şunları yapabilirsiniz:
 
 * Yönettiğiniz bir Web sitesi azaldığında (tetikleyici) etkinleştirme uygulama iş akışları mantığı oluşturun.
-* Herhangi bir uç nokta, iş akışlarınızı diğer Hizmetleri içine genişletmek için HTTP üzerinden iletişim kurar.
+* Tooany uç nokta, iş akışlarınızı diğer Hizmetleri içine HTTP tooextend iletişim kurar.
 
-HTTP eylemi bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+bir mantıksal uygulama Hello HTTP eylem kullanmaya tooget bkz [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="use-the-http-trigger"></a>HTTP tetikleyicisini kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
+## <a name="use-hello-http-trigger"></a>Merhaba HTTP tetikleyicisi kullanın
+Bir tetikleyici bir mantıksal uygulama tanımlı kullanılan toostart hello iş akışı olabilecek bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
 
-Burada, örnek dizisi mantığı Uygulama Tasarımcısı'nda HTTP tetikleyicisi ayarlama konusunda verilmiştir.
+Burada, nasıl tooset hello HTTP yukarı tetiklemek hello mantığı Uygulama Tasarımcısı bir örnek sırası verilmiştir.
 
-1. HTTP tetikleyicisini mantıksal uygulamanızı ekleyin.
-2. Sorgulamak istediğiniz HTTP uç noktası parametrelerini doldurun.
-3. Ne sıklıkta yoklanacağını üzerinde yinelenme aralığını değiştirin.
+1. Merhaba HTTP tetikleyicisini mantıksal uygulamanızı ekleyin.
+2. Toopoll istediğiniz hello HTTP uç noktası için hello parametrelerini doldurun.
+3. Ne sıklıkta yoklanacağını üzerinde hello yinelenme aralığını değiştirin.
 
-   Mantıksal uygulama artık her denetimi sırasında döndürülen herhangi bir içerik ile ateşlenir.
+   Merhaba mantıksal uygulama artık her denetimi sırasında döndürülen herhangi bir içerik ile ateşlenir.
 
    ![HTTP tetikleyicisi](./media/connectors-native-http/using-trigger.png)
 
-### <a name="how-the-http-trigger-works"></a>HTTP tetikleyicisini nasıl çalışır?
+### <a name="how-hello-http-trigger-works"></a>Merhaba HTTP tetikleyicisini nasıl çalışır?
 
-HTTP tetikleyicisini HTTP uç noktası için bir çağrı yinelenen bir aralıkta gönderir. Varsayılan olarak, 300'den düşük olduğu herhangi bir HTTP yanıt kodu çalıştırmak bir mantıksal uygulama neden olur. Mantıksal uygulama yangın olup olmadığını belirlemek için kod görünümünde mantıksal uygulama düzenleyebilir ve HTTP çağrısından sonra değerlendiren bir koşul ekleyin. Döndürülen durum kodu değerinden büyük veya eşit olduğunda tetiklenen bir HTTP tetikleyicisi bir örneği burada verilmiştir `400`.
+Merhaba HTTP tetikleyicisini çağrısı tooHTTP uç yinelenen bir aralıkta gönderir. Varsayılan olarak, 300'den düşük olduğu herhangi bir HTTP yanıt kodu mantığı uygulama toorun neden olur. toospecify hello mantıksal uygulama yangın olup olmadığını hello mantıksal uygulama kod görünümünde düzenleyin ve sonra hello HTTP çağrısıyla değerlendiren bir koşul ekleyin. Merhaba çok eşit veya daha fazla durum kodu döndürdüğünde tetiklenen bir HTTP tetikleyicisi bir örneği burada verilmiştir`400`.
 
 ```javascript
 "Http":
@@ -72,57 +72,57 @@ HTTP tetikleyicisini HTTP uç noktası için bir çağrı yinelenen bir aralıkt
 }
 ```
 
-HTTP trigger parametreleri ilgili tam ayrıntılar bulunur [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+Merhaba HTTP trigger parametreleri ilgili tam ayrıntılar bulunur [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
 
-## <a name="use-the-http-action"></a>HTTP eylemi kullanın
+## <a name="use-hello-http-action"></a>Merhaba HTTP eylemi kullanın
 
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. 
+Bir eylem, bir mantıksal uygulama tanımlı hello iş akışı tarafından gerçekleştirilen bir işlemdir. 
 [Eylemler hakkında daha fazla bilgi](connectors-overview.md).
 
 1. Seçin **yeni adım** > **Eylem Ekle**.
-3. Eylem arama kutusuna yazın **http** HTTP eylemler listesi.
+3. Merhaba eylem arama kutusuna yazın **http** toolist hello HTTP eylemler.
    
-    ![HTTP eylemi seçin](./media/connectors-native-http/using-action-1.png)
+    ![Merhaba HTTP eylemi seçin](./media/connectors-native-http/using-action-1.png)
 
-4. HTTP çağrısı için gerekli parametreleri ekleyin.
+4. Merhaba HTTP çağrısı için gerekli parametreleri ekleyin.
    
-    ![HTTP eylemi tamamlamak](./media/connectors-native-http/using-action-2.png)
+    ![Tam hello HTTP eylemi](./media/connectors-native-http/using-action-2.png)
 
-5. Tasarımcı araç çubuğunda tıklatın **kaydetmek**. Mantıksal uygulamanızı kaydedildi ve aynı anda (etkin) yayımlandı.
+5. Merhaba designer araç çubuğundan, **kaydetmek**. Mantıksal uygulamanızı kaydedilir ve hello (etkin) yayımlanan aynı anda.
 
 ## <a name="http-trigger"></a>HTTP tetikleyicisi
-Aşağıda, bu bağlayıcıyı destekler tetikleyici için Ayrıntılar verilmiştir. HTTP Bağlayıcısı bir tetikleyici vardır.
+Burada, bu bağlayıcıyı destekler hello tetikleyici hello ayrıntılarını bulunmaktadır. bir tetikleyici Hello HTTP bağlayıcısı vardır.
 
 | Tetikleyici | Açıklama |
 | --- | --- |
-| HTTP |Bir HTTP çağrı yapar ve yanıt içeriği döndürür. |
+| HTTP |Bir HTTP çağrı yapar ve hello yanıt içeriği döndürür. |
 
 ## <a name="http-action"></a>HTTP eylemi
-Aşağıda, bu bağlayıcıyı destekler eylemi için Ayrıntılar verilmiştir. HTTP Bağlayıcısı olası eylem vardır.
+Aşağıda, bu bağlayıcıyı destekler hello eylemin hello Ayrıntılar verilmiştir. bir olası eylemin Hello HTTP bağlayıcısı vardır.
 
 | Eylem | Açıklama |
 | --- | --- |
-| HTTP |Bir HTTP çağrı yapar ve yanıt içeriği döndürür. |
+| HTTP |Bir HTTP çağrı yapar ve hello yanıt içeriği döndürür. |
 
 ## <a name="http-details"></a>HTTP ayrıntıları
-Aşağıdaki tablolar, eylem ve eylem kullanımıyla ilişkili karşılık gelen çıkış ayrıntıları için gerekli ve isteğe bağlı giriş alanlarının açıklamaktadır.
+Merhaba aşağıdaki tablolar hello gerekli ve isteğe bağlı giriş alanları hello eylem ve hello eylemini kullanarak ile ilişkili hello karşılık gelen çıkış ayrıntıları için açıklamaktadır.
 
 #### <a name="http-request"></a>HTTP isteği
-HTTP giden isteğinde eylemi için girdi alanlarının verilmiştir.
+Merhaba, HTTP giden isteğinde hello eylemi için girdi alanlarının verilmiştir.
 A * gerekli bir alan olduğu anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Yöntemi * |Yöntemi |Kullanılacak HTTP fiili |
-| URI * |URI |HTTP isteği için URI |
-| Üstbilgileri |Üstbilgileri |HTTP üstbilgisi eklemek için bir JSON nesnesi |
-| Gövde |Gövde |HTTP istek gövdesi |
-| Kimlik Doğrulaması |Kimlik doğrulaması |İçinde ayrıntıları [kimlik doğrulaması](#authentication) bölümü |
+| Yöntemi * |Yöntemi |Merhaba HTTP fiili toouse |
+| URI * |URI |Merhaba URI hello HTTP isteği için |
+| Üstbilgileri |Üstbilgileri |HTTP üstbilgileri tooinclude JSON nesnesinin |
+| Gövde |Gövde |Merhaba HTTP istek gövdesi |
+| Kimlik Doğrulaması |Kimlik doğrulaması |Merhaba ayrıntılarında [kimlik doğrulaması](#authentication) bölümü |
 
 <br>
 
 #### <a name="output-details"></a>Çıkış Ayrıntıları
-HTTP yanıtı için çıkış ayrıntıları verilmiştir.
+Merhaba, hello HTTP yanıtının çıkış ayrıntıları verilmiştir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
@@ -131,7 +131,7 @@ HTTP yanıtı için çıkış ayrıntıları verilmiştir.
 | Durum kodu |Int |HTTP durum kodu |
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
-Logic Apps özelliği, farklı türlerde HTTP uç noktaları karşı kimlik doğrulama kullanmanıza olanak sağlar. Bu kimlik doğrulaması ile kullanabileceğiniz **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, ve  **[HTTP Web kancası](connectors-native-webhook.md)**  bağlayıcılar. Aşağıdaki kimlik doğrulama türlerini yapılandırılabilir:
+Merhaba Logic Apps özelliği toouse farklı tür HTTP uç noktaları karşı kimlik doğrulaması sağlar. Bu kimlik doğrulama ile Merhaba kullanabilirsiniz **HTTP**, ** [HTTP + Swagger](connectors-native-http-swagger.md)**, ve ** [HTTP Web kancası](connectors-native-webhook.md) ** bağlayıcılar. şu kimlik doğrulama türlerini hello yapılandırılabilir:
 
 * [Temel kimlik doğrulaması](#basic-authentication)
 * [İstemci sertifikası kimlik doğrulaması](#client-certificate-authentication)
@@ -139,17 +139,17 @@ Logic Apps özelliği, farklı türlerde HTTP uç noktaları karşı kimlik doğ
 
 #### <a name="basic-authentication"></a>Temel kimlik doğrulaması
 
-Aşağıdaki kimlik doğrulama nesnesini temel kimlik doğrulaması için gereklidir.
+kimlik doğrulaması nesne aşağıdaki hello temel kimlik doğrulaması için gereklidir.
 A * gerekli bir alan olduğu anlamına gelir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
 | Türü * |type |Kimlik doğrulama türünü (olmalıdır `Basic` temel kimlik doğrulaması için) |
-| Kullanıcı adı * |kullanıcı adı |Kimlik doğrulaması için kullanıcı adı |
-| Parola * |password |Kimlik doğrulaması için parola |
+| Kullanıcı adı * |kullanıcı adı |Kullanıcı adı tooauthenticate |
+| Parola * |password |Parola tooauthenticate |
 
 > [!TIP]
-> Kullanım tanımından geri alınamaz bir parola kullanmak istiyorsanız bir `securestring` parametre ve `@parameters()`  
+> Toouse hello tanımından geri alınamaz bir parola istiyorsanız kullanın bir `securestring` parametre ve hello `@parameters()`  
 >  [iş akışı tanımı işlevi](http://aka.ms/logicappdocs).
 
 Örneğin:
@@ -164,16 +164,16 @@ A * gerekli bir alan olduğu anlamına gelir.
 
 #### <a name="client-certificate-authentication"></a>İstemci sertifikası kimlik doğrulaması
 
-Aşağıdaki kimlik doğrulama nesnesi için istemci sertifikası kimlik doğrulaması gereklidir. A * gerekli bir alan olduğu anlamına gelir.
+Merhaba aşağıdaki kimlik doğrulama nesnesi için istemci sertifikası kimlik doğrulaması gereklidir. A * gerekli bir alan olduğu anlamına gelir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Türü * |type |Kimlik doğrulaması türü (olmalıdır `ClientCertificate` SSL istemci sertifikaları için) |
-| PFX * |PFX |Kişisel bilgi değişimi (PFX) dosyası Base64 ile kodlanmış içeriği |
-| Parola * |password |PFX dosyası erişim için parola |
+| Türü * |type |Merhaba kimlik doğrulama türünü (olmalıdır `ClientCertificate` SSL istemci sertifikaları için) |
+| PFX * |PFX |Merhaba Base64 ile kodlanmış içeriğini hello kişisel bilgi değişimi (PFX) dosyası |
+| Parola * |password |PFX dosyası Hello parola tooaccess hello |
 
 > [!TIP]
-> Mantıksal uygulama kaydetme sonra tanımında okunamaz bir parametre kullanmak üzere kullanabileceğiniz bir `securestring` parametre ve `@parameters()`  
+> kullanabileceğiniz toouse hello mantıksal uygulama kaydetme sonra hello tanımında okunamaz bir parametre, bir `securestring` parametre ve hello `@parameters()`  
 >  [iş akışı tanımı işlevi](http://aka.ms/logicappdocs).
 
 Örneğin:
@@ -187,18 +187,18 @@ Aşağıdaki kimlik doğrulama nesnesi için istemci sertifikası kimlik doğrul
 ```
 
 #### <a name="azure-ad-oauth-authentication"></a>Azure AD OAuth kimlik doğrulaması
-Aşağıdaki kimlik doğrulama nesnesini Azure AD OAuth kimlik doğrulaması için gereklidir. A * gerekli bir alan olduğu anlamına gelir.
+kimlik doğrulaması nesne aşağıdaki hello Azure AD OAuth kimlik doğrulaması için gereklidir. A * gerekli bir alan olduğu anlamına gelir.
 
 | Özellik adı | Veri türü | Açıklama |
 | --- | --- | --- |
-| Türü * |type |Kimlik doğrulaması türü (olmalıdır `ActiveDirectoryOAuth` Azure AD OAuth için) |
-| Kiracı * |Kiracı |Azure AD kiracısı için Kiracı tanımlayıcı |
-| Hedef kitle * |Hedef kitle |Kaynak Yetkilendirme kullanmak istiyor. Örneğin, `https://management.core.windows.net/` |
-| İstemci kimliği * |istemci kimliği |Azure AD uygulaması için istemci tanımlayıcısı |
-| Gizli * |Gizli |Belirteç isteme istemci gizli anahtarı |
+| Türü * |type |Merhaba kimlik doğrulama türünü (olmalıdır `ActiveDirectoryOAuth` Azure AD OAuth için) |
+| Kiracı * |Kiracı |hello Azure AD Kiracı için Hello Kiracı tanımlayıcı |
+| Hedef kitle * |Hedef kitle |Merhaba kaynak yetkilendirme toouse isteme. Örneğin, `https://management.core.windows.net/` |
+| İstemci kimliği * |istemci kimliği |Merhaba Azure AD uygulaması için istemci tanımlayıcı hello |
+| Gizli * |Gizli |Merhaba belirteç isteme hello istemci Hello gizliliği |
 
 > [!TIP]
-> Kullanabileceğiniz bir `securestring` parametre ve `@parameters()` [iş akışı tanımı işlevi](http://aka.ms/logicappdocs) kaydettikten sonra tanımında okunamaz bir parametre kullanmak için.
+> Kullanabileceğiniz bir `securestring` parametre ve hello `@parameters()` [iş akışı tanımı işlevi](http://aka.ms/logicappdocs) toouse kaydettikten sonra hello tanımında okunamaz bir parametre.
 > 
 > 
 
@@ -215,5 +215,5 @@ Aşağıdaki kimlik doğrulama nesnesini Azure AD OAuth kimlik doğrulaması iç
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Logic Apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
+Şimdi, hello platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md). Keşfedebilirsiniz bakarak Logic Apps içinde kullanılabilir diğer bağlayıcıları hello bizim [API'leri listesi](apis-list.md).
 

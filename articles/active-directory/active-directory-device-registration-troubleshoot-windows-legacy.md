@@ -1,6 +1,6 @@
 ---
-title: "Windows alt düzey istemciler için katılmış bilgisayarları Azure AD etki alanının otomatik kayıt sorunlarını giderme | Microsoft Docs"
-description: "Azure AD etki alanının otomatik kayıt sorunlarını giderme bilgisayarları Windows alt düzey istemciler için katıldı."
+title: "aaaTroubleshooting hello otomatik kaydı Azure AD etki alanına katılmış bilgisayarları Windows alt düzey istemciler için | Microsoft Docs"
+description: "Sorun giderme Hello otomatik kaydı Azure AD etki alanı bilgisayarları Windows alt düzey istemciler için katıldı."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a7c8ef4c59c53c21258f0c61963d8f994a3946ba
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 84fe666576f13de09d1eaa5692517d45a4dbeebe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad-for-windows-down-level-clients"></a>Otomatik kaydı etki alanının sorun giderme bilgisayarlar, alt düzey istemciler için Windows Azure AD alanına katılmış 
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-tooazure-ad-for-windows-down-level-clients"></a>Windows alt düzey istemciler için alanına katılmış bilgisayarları tooAzure AD otomatik kaydı etki alanının sorun giderme 
 
-Bu konuda, yalnızca aşağıdaki istemciler için geçerlidir: 
+Bu konuda geçerli yalnızca toohello istemcileri aşağıdaki gibidir: 
 
 - Windows 7 
 - Windows 8.1 
@@ -31,38 +31,38 @@ Bu konuda, yalnızca aşağıdaki istemciler için geçerlidir:
 - Windows Server 2012 R2 
  
 
-Windows 10 veya Windows Server 2016 için bkz: [etki alanının otomatik kaydı sorun giderme alanına katılmış bilgisayarları Azure AD ile – Windows 10 ve Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md).
+Windows 10 veya Windows Server 2016 için bkz: [alanına katılmış bilgisayarları tooAzure AD – Windows 10 ve Windows Server 2016 etki alanının otomatik kaydı sorun giderme](active-directory-device-registration-troubleshoot-windows.md).
 
-Bu konu, etki alanına katılmış aygıtlar otomatik kaydı nda olarak açıklanan yapılandırmış olduğunuz varsayılır, [Azure Active Directory ile etki alanına katılmış Windows cihazlarının otomatik kaydını yapılandırma](active-directory-device-registration-get-started.md).
+Bu konu, etki alanına katılmış aygıtlar otomatik kaydı nda olarak açıklanan yapılandırmış olduğunuz varsayılır, [nasıl tooconfigure otomatik kayıt Windows etki alanına katılmış cihazları Azure Active Directory ile](active-directory-device-registration-get-started.md).
  
-Bu konu, sorun giderme ile ilgili olası sorunları gidermek nasıl yönergelerini sağlar.  
-Başarılı sonuç için dikkat edilecek bazı noktalar: 
+Bu konu, nasıl tooresolve olası sorunlar konusunda yönergeler sorun giderme konusunda sağlar.  
+Bazı şeyleri toonote başarılı sonuç için: 
 
-- Bu istemciler üzerinde Azure AD kaydını kullanıcı/cihaz değil. Örnek: jdoe ve jharnett bu cihazda oturum açarsanız kullanıcı bilgisi sekmesinde bu kullanıcılardan her biri için ayrı bir kayıt (DeviceID) oluşturulur.  
+- Bu istemciler üzerinde Azure AD kaydını kullanıcı/cihaz değil. Örnek: jdoe ve jharnett toothis aygıtta oturum açarsanız, hello kullanıcı bilgisi sekmesinde bu kullanıcılardan her biri için ayrı bir kayıt (DeviceID) oluşturulur.  
 
-- Kayıt kutunun dışında bu istemciler, oturum açma veya kilit ve kilidini denemek için yapılandırılır ve bu Görev Zamanlayıcı görevi kullanılarak tetiklenir 5 dakikalık gecikme olabilir. 
+- Kayıt hello kutusu dışında bu istemciler, oturum açma veya kilit ve kilidini yapılandırılmış tootry değil ve bu Görev Zamanlayıcı görevi kullanılarak tetiklenir 5 dakikalık gecikme olabilir. 
 
-- Bir yeniden yükleyin ve işletim sistemi veya bir el ile kaydı yeniden kaydettirin üzerinde Azure AD yeni bir kayıt oluşturabilir ve Azure portalında kullanıcı bilgileri sekmesi altında birden çok giriş neden olur. 
+- Bir yeniden yükleyin hello işletim sistemi veya el ile kaydı ve yeniden kaydolun üzerinde Azure AD yeni bir kayıt oluşturabilir ve birden çok giriş hello içinde hello kullanıcı bilgileri sekmesi altında Azure portal neden olur. 
 
 
-## <a name="step-1-retrieve-the-registration-status"></a>1. adım: kayıt durumunu alma 
+## <a name="step-1-retrieve-hello-registration-status"></a>1. adım: hello kayıt durumunu alma 
 
-**Kayıt durumunu doğrulamak için:**  
+**tooverify hello kayıt durumu:**  
 
-1. Komut istemini yönetici olarak açın 
+1. Bir yönetici olarak açın hello komut istemi 
 
 2. Türü`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
-Bu komut, birleşim durumu hakkında daha fazla ayrıntı sağlayan bir iletişim kutusu görüntüler.
+Bu komut hello birleşim durumu hakkında daha fazla ayrıntı sağlayan bir iletişim kutusu görüntüler.
 
 ![Windows için çalışma alanına katılma](./media/active-directory-device-registration-troubleshoot-windows-legacy/01.png)
 
 
-## <a name="step-2-evaluate-the-registration-status"></a>2. adım: kayıt durumunu değerlendirme 
+## <a name="step-2-evaluate-hello-registration-status"></a>2. adım: hello kayıt durumunu değerlendirme 
 
-Birleşim başarılı olmadıysa iletişim kutusu oluştu sorun hakkında ayrıntılar sağlar.
+Merhaba birleştirme başarılı olmadıysa hello iletişim kutusu oluştu hello sorun hakkında ayrıntılar sağlar.
 
-**En yaygın sorunları şunlardır:**
+**Merhaba en sık karşılaşılan sorunları şunlardır:**
 
 - Yanlış yapılandırılmış AD FS veya Azure AD
 
@@ -76,26 +76,26 @@ Birleşim başarılı olmadıysa iletişim kutusu oluştu sorun hakkında ayrın
 
     ![Windows için çalışma alanına katılma](./media/active-directory-device-registration-troubleshoot-windows-legacy/04.png)
 
-- Hizmeti yanıt vermiyor 
+- Merhaba hizmeti yanıt vermiyor 
 
     ![Windows için çalışma alanına katılma](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-Olay günlüğünde altında durum bilgisi bulabilirsiniz **uygulamaları ve Hizmetleri Log\Microsoft-çalışma alanına katılma**.
+Merhaba olay günlüğünde altında hello durum bilgisi bulabilirsiniz **uygulamaları ve Hizmetleri Log\Microsoft-çalışma alanına katılma**.
   
-**Başarısız bir kayıt için en yaygın nedenler şunlardır:** 
+**başarısız bir kayıt için Hello en yaygın nedenler şunlardır:** 
 
-- Bilgisayarınız bir şirket içi bağlantısı olmadan VPN'yi veya kuruluşunuzun iç ağ üzerinde değil AD etki alanı denetleyicisi.
+- Bilgisayarınız üzerinde değil hello kuruluşunuzun iç ağ ya da bir VPN bağlantısı tooan olmadan şirket içi AD etki alanı denetleyicisi.
 
-- Bilgisayarınıza yerel bilgisayar hesabı ile oturum. 
+- Yerel bilgisayar hesabı olan tooyour bilgisayarında günlüğe kaydedilir. 
 
 - Hizmet yapılandırma sorunları: 
 
-  - Federasyon sunucusunu desteklemek üzere yapılandırılmış **WIAORMULTIAUTHN**. 
+  - Merhaba Federasyon sunucusu yapılandırılmış toosupport bırakıldı **WIAORMULTIAUTHN**. 
 
-  - Bilgisayar için ait olduğu AD ormanında Azure AD'de doğrulanmış etki alanı adınızı işaret eden bir hizmet bağlantı noktası nesne yok.
+  - Merhaba bilgisayar için ait olduğu hello AD ormanındaki Azure AD'de tooyour doğrulanmış etki alanı adına işaret eden bir hizmet bağlantı noktası nesne yok.
 
-  - Bir kullanıcı cihaz sınırına ulaştı. Azure Active Directory cihaz kaydı ile çalışmaya başlama bakın.
+  - Bir kullanıcı aygıtları hello sınırına ulaştı. Azure Active Directory cihaz kaydı ile çalışmaya başlama bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi için bkz: [otomatik cihaz kaydı SSS](active-directory-device-registration-faq.md) 
+Daha fazla bilgi için bkz: Merhaba [otomatik cihaz kaydı SSS](active-directory-device-registration-faq.md) 

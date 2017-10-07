@@ -1,6 +1,6 @@
 ---
-title: "Azure portalında Service Fabric kümesi oluştur | Microsoft Docs"
-description: "Bu makalede, Azure anahtar kasası ve Azure portal kullanarak azure'da güvenli bir Service Fabric kümesi ayarlayın açıklar."
+title: "aaaCreate Service Fabric kümesi hello Azure portalı | Microsoft Docs"
+description: "Bu makalede, Azure kullanarak güvenli bir Service Fabric kümesi tooset nasıl hello Azure portalı ve Azure anahtar kasası açıklanmaktadır."
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 7dda9520ce3d93bf0e86bd2481ad06c268d087c7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 045f71b491260e741ce7a54a75c440e1b33059a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portal kullanarak Azure'da bir Service Fabric kümesi oluştur
+# <a name="create-a-service-fabric-cluster-in-azure-using-hello-azure-portal"></a>Azure'da hello Azure portal kullanarak bir Service Fabric kümesi oluştur
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
-Azure portal kullanarak azure'da güvenli bir Service Fabric kümesi ayarlama adımlarını anlatan bir adım adım kılavuz budur. Bu kılavuz aşağıdaki adımlarda size yol gösterir:
+Hello Azure portal kullanarak azure'da güvenli bir Service Fabric kümesi ayarlama hello adımlarını anlatan bir adım adım kılavuz budur. Bu kılavuz, aşağıdaki adımları hello açıklanmaktadır:
 
-* Küme güvenlik anahtarını yönetmek için anahtar kasasını ayarlayın.
-* Azure portalı üzerinden güvenli bir küme oluşturma.
+* Anahtar kasası toomanage anahtarlarını küme güvenlik ayarlayın.
+* Güvenli bir küme Azure'da hello Azure portal oluşturun.
 * Yöneticiler sertifikaları kullanarak kimlik doğrulaması.
 
 > [!NOTE]
@@ -38,14 +38,14 @@ Azure portal kullanarak azure'da güvenli bir Service Fabric kümesi ayarlama ad
 > 
 > 
 
-Güvenli bir küme dağıtma, yükseltme ve uygulamaları, hizmetleri ve içerdikleri veriler silme içeren yönetim işlemleri için yetkisiz erişimi engelleyen bir kümedir. Güvenli olmayan bir küme herkes herhangi bir zamanda bağlanmak ve böylelikle yönetim işlemleri bir kümedir. Güvenli olmayan bir küme oluşturmak mümkün olsa da, olan **güvenli bir küme oluşturmak için tavsiye**. Güvenli olmayan bir küme **daha sonra korunamıyor** -yeni bir küme oluşturulması gerekir.
+Güvenli bir küme dağıtma, yükseltme ve uygulamaları, hizmetleri ve içerdikleri hello veri silme içeren yetkisiz erişim toomanagement işlemleri engelleyen bir kümedir. Güvenli olmayan bir küme herkes tooat dilediğiniz zaman bağlanmak ve böylelikle yönetim işlemlerini gerçekleştirmek bir kümedir. Olası toocreate güvenli olmayan bir küme olmasına rağmen olan **güvenli küme toocreate tavsiye**. Güvenli olmayan bir küme **daha sonra korunamıyor** -yeni bir küme oluşturulması gerekir.
 
-Kümeleri Linux kümeleri veya Windows kümeleri olup kavramları güvenli kümeleri oluşturmak için aynıdır. Güvenli Linux kümeleri oluşturmak için daha fazla bilgi ve yardımcı komut dosyaları için lütfen bkz. [Linux'ta güvenli küme oluşturma](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Sağlanan yardımcı komut dosyası tarafından alınan parametreleri doğrudan portalda bölümde açıklandığı gibi girilebilir [Azure portalında bir küme oluşturmak](#create-cluster-portal).
+Merhaba kavramları olan hello güvenli küme hello kümeleri Linux kümeleri veya Windows kümeleri oluşturmak için aynı. Güvenli Linux kümeleri oluşturmak için daha fazla bilgi ve yardımcı komut dosyaları için lütfen bkz. [Linux'ta güvenli küme oluşturma](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Merhaba hello Yardımcısı betiği tarafından sağlanan elde parametreleri hello Portalı'na doğrudan hello bölümde açıklandığı gibi girilebilir [hello Azure portal bir küme oluşturmak](#create-cluster-portal).
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
-Bu kılavuzu kullanır [Azure PowerShell][azure-powershell]. Yeni bir PowerShell oturumu başlatılırken Azure hesabınızda oturum açın ve Azure komutları çalıştırmadan önce aboneliğinizi seçin.
+## <a name="log-in-tooazure"></a>İçinde tooAzure oturum
+Bu kılavuzu kullanır [Azure PowerShell][azure-powershell]. Yeni bir PowerShell oturumu başlatılırken tooyour içinde Azure hesabınızı ve oturum Azure komutları çalıştırmadan önce aboneliğinizi seçin.
 
-Azure hesabınızda oturum açın:
+Tooyour azure hesabında oturum:
 
 ```powershell
 Login-AzureRmAccount
@@ -59,21 +59,21 @@ Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ## <a name="set-up-key-vault"></a>Anahtar Kasası ayarlama
-Kılavuzun bu bölümü Service Fabric uygulamaları ve Azure Service Fabric kümesi için bir anahtar kasası oluşturmada size yol gösterir. Anahtar kasası üzerinde tam bir kılavuz için bkz: [anahtar kasası kullanmaya başlama Kılavuzu][key-vault-get-started].
+Başlangıç Kılavuzu'nun bu bölümü Service Fabric uygulamaları ve Azure Service Fabric kümesi için bir anahtar kasası oluşturmada size yol gösterir. Anahtar kasası üzerinde tam bir kılavuz için bkz: Merhaba [anahtar kasası kullanmaya başlama Kılavuzu][key-vault-get-started].
 
-Service Fabric X.509 sertifikaları bir küme güvenliğini sağlamak için kullanır. Azure anahtar kasası, Azure Service Fabric kümeleri sertifikalarını yönetmek için kullanılır. Bir küme Azure'da dağıtıldığında, Azure kaynak sağlayıcısı Service Fabric kümeleri oluşturmak için sorumlu sertifikaları anahtar Kasası'nı çeker ve VM'ler kümede yükler.
+Service Fabric X.509 sertifikaları toosecure bir küme kullanır. Azure anahtar kasası Azure Service Fabric kümeleri için kullanılan toomanage sertifikaları olur. Bir küme Azure'da dağıtıldığında hello Azure kaynak sağlayıcısı Service Fabric kümeleri oluşturmak için sorumlu sertifikaları anahtar Kasası'nı çeker ve VM'ler hello kümede yükler.
 
-Aşağıdaki diyagramda, anahtar kasası, Service Fabric kümesi ve küme oluşturduğunda, anahtar kasasında depolanan sertifika kullanan Azure kaynak sağlayıcısı arasındaki ilişki gösterilmektedir:
+Merhaba Aşağıdaki diyagramda hello anahtar kasası, Service Fabric kümesi ve küme oluşturduğunda, anahtar kasasında depolanan sertifika kullanan hello Azure kaynak sağlayıcısı arasındaki ilişki gösterilmektedir:
 
 ![Sertifika Yükleme][cluster-security-cert-installation]
 
 ### <a name="create-a-resource-group"></a>Kaynak Grubu oluşturma
-İlk adım, özellikle anahtar kasası için yeni bir kaynak grubu oluşturmaktır. Anahtarları ve gizli anahtarları kaybetmeden işlem ve depolama kaynak grupları - gibi Service Fabric kümesi sahip olan kaynak grubunu - kaldırabilmeniz anahtar kasası, kendi kaynak grubuna koyma önerilir. Anahtar kasası sahip bir kaynak grubu tarafından kullanıldığı kümesi ile aynı bölgede olması gerekir.
+Merhaba ilk adımı toocreate özellikle anahtar kasası için yeni bir kaynak grubu oluşturur. İşlem ve depolama kaynak grupları - gibi Service Fabric kümesi olan hello kaynak grubuna - kaldırabilmeniz anahtar kasası, kendi kaynak grubuna koyma anahtarları ve gizli anahtarları kaybetmeden önerilir. Anahtar kasası olan hello kaynak grubuna hello olmalıdır tarafından kullanıldığı hello küme aynı bölgede.
 
 ```powershell
 
     PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
-    WARNING: The output object type of this cmdlet will be modified in a future release.
+    WARNING: hello output object type of this cmdlet will be modified in a future release.
 
     ResourceGroupName : mycluster-keyvault
     Location          : westus
@@ -84,7 +84,7 @@ Aşağıdaki diyagramda, anahtar kasası, Service Fabric kümesi ve küme oluşt
 ```
 
 ### <a name="create-key-vault"></a>Anahtar kasası oluşturma
-Bir anahtar kasası yeni kaynak grubu oluşturun. Anahtar kasası **dağıtımı için etkinleştirilmelidir** sertifikaları elde ve küme düğümlerine yüklemek Service Fabric kaynak sağlayıcısı izin vermek için:
+Bir anahtar kasası hello yeni kaynak grubu oluşturun. Merhaba anahtar kasası **dağıtımı için etkinleştirilmelidir** tooallow Service Fabric kaynak sağlayıcısı tooget sertifikaları dışarı hello ve küme düğümlerine yükleyin:
 
 ```powershell
 
@@ -106,8 +106,8 @@ Bir anahtar kasası yeni kaynak grubu oluşturun. Anahtar kasası **dağıtımı
                                        Object ID                :    <guid>
                                        Application ID           :
                                        Display Name             :    
-                                       Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
-                                       Permissions to Secrets   :    all
+                                       Permissions tooKeys      :    get, create, delete, list, update, import, backup, restore
+                                       Permissions tooSecrets   :    all
 
 
     Tags                             :
@@ -124,62 +124,62 @@ Var olan bir anahtar kasası varsa Azure CLI kullanarak dağıtım için etkinle
 ```
 
 
-## <a name="add-certificates-to-key-vault"></a>Anahtar Kasası'na sertifikaları Ekle
-Sertifikalar, Service Fabric’te bir küme ile uygulamalarının çeşitli yönlerini güvenli hale getirmek üzere kimlik doğrulaması ve şifreleme sağlamak için kullanılır. Service Fabric sertifikaların nasıl kullanıldığını daha fazla bilgi için bkz: [Service Fabric kümesi güvenlik senaryoları][service-fabric-cluster-security].
+## <a name="add-certificates-tookey-vault"></a>Sertifikaları tooKey kasası ekleme
+Sertifikaları Service Fabric tooprovide kimlik doğrulama ve şifreleme toosecure içinde kullanılan bir küme ve kendi uygulamalarına çeşitli yönlerini. Service Fabric sertifikaların nasıl kullanıldığını daha fazla bilgi için bkz: [Service Fabric kümesi güvenlik senaryoları][service-fabric-cluster-security].
 
 ### <a name="cluster-and-server-certificate-required"></a>Küme ve sunucu sertifikası (gerekli)
-Bu sertifika, bir küme güvenli ve yetkisiz erişimi önlemek için gereklidir. Birkaç yolla küme güvenlik sağlar:
+Bu sertifika, gerekli toosecure bir kümedir ve yetkisiz erişim tooit engelleyebilirsiniz. Birkaç yolla küme güvenlik sağlar:
 
-* **Küme kimlik doğrulaması:** düğümü düğümü iletişimin küme Federasyon kimlik doğrulamasını yapar. Yalnızca bu sertifikayla kimliğini kanıtlamak düğümleri kümeye katılmasını sağlayabilir.
-* **Sunucu kimlik doğrulaması:** management istemcisi, gerçek kümeye Konuşmayı bilir böylece bir yönetim istemcisi küme yönetim Uç noktalara kimliğini doğrular. Bu sertifika de SSL HTTPS yönetim API'si ve Service Fabric Explorer için HTTPS üzerinden sağlar.
+* **Küme kimlik doğrulaması:** düğümü düğümü iletişimin küme Federasyon kimlik doğrulamasını yapar. Yalnızca bu sertifikayla kimliğini kanıtlamak düğümleri hello kümeye katılabilir.
+* **Sunucu kimlik doğrulaması:** hello management istemcisi, toohello gerçek küme Konuşmayı bilir böylece hello küme yönetim uç noktaları tooa yönetim istemci kimliğini doğrular. Bu sertifika de SSL hello HTTPS yönetim API'si ve Service Fabric Explorer için HTTPS üzerinden sağlar.
 
-Bu amaca hizmet eder için sertifikanın aşağıdaki gereksinimleri karşılamalıdır:
+tooserve bu amacıyla, hello sertifika hello aşağıdaki gereksinimleri karşılamalıdır:
 
-* Sertifika bir özel anahtar içermelidir.
-* Sertifikanın bir kişisel bilgi değişimi (.pfx) dosyasına dışarı aktarılabilir olarak, anahtar değişimi için oluşturulmuş olması gerekir.
-* Sertifikanın konu adı, Service Fabric kümesi erişmek için kullanılan etki alanı eşleşmesi gerekir. Bu, kümenin HTTPS yönetim uç noktaları ve Service Fabric Explorer için SSL sağlamak için gereklidir. İçin bir sertifika yetkilisinden (CA) bir SSL sertifikası elde edemiyor `.cloudapp.azure.com` etki alanı. Kümeniz için özel etki alanı adı satın alır. CA'dan bir sertifika istediğinde sertifikanın konu adı, kümeniz için kullanılan özel etki alanı adı eşleşmelidir.
+* Merhaba sertifika özel anahtar içermelidir.
+* anahtar değişimi için dışarı aktarılabilir tooa kişisel bilgi değişimi (.pfx) dosyasını Hello sertifika oluşturulması gerekir.
+* Merhaba sertifikanın konu adı hello kullanılan etki alanı tooaccess hello Service Fabric kümesi eşleşmelidir. Merhaba kümenin HTTPS yönetim uç noktaları ve Service Fabric Explorer için gerekli tooprovide SSL budur. Hello için bir sertifika yetkilisinden (CA) bir SSL sertifikası elde edemiyor `.cloudapp.azure.com` etki alanı. Kümeniz için özel etki alanı adı satın alır. İstediğinde bir CA hello sertifikanın konu adındaki bir sertifika, kümeniz için kullanılan hello özel etki alanı adı eşleşmelidir.
 
 ### <a name="client-authentication-certificates"></a>İstemci kimlik doğrulama sertifikaları
 Ek istemci sertifikalarını Yöneticiler küme yönetim görevleri için kimlik doğrulaması. Service Fabric sahip iki erişim düzeyleri: **yönetici** ve **salt okunur kullanıcı**. En azından, yönetici erişimi için tek bir sertifika kullanılması gerekir. Ek kullanıcı düzeyinde erişim için ayrı bir sertifika sağlanmalıdır. Erişim rolleri hakkında daha fazla bilgi için bkz: [Service Fabric istemciler için rol tabanlı erişim denetimi][service-fabric-cluster-security-roles].
 
-Anahtar kasası ile Service Fabric çalışma istemci kimlik doğrulama sertifikaları yüklemeniz gerekmez. Bu sertifikalar, yalnızca yetkili kullanıcılar için küme yönetimi için sağlanması gerekir. 
+Service Fabric ile tooupload istemci kimlik doğrulama sertifikaları tooKey kasa toowork gerekmez. Bu sertifikalar yalnızca yetkili toousers küme yönetimi için sağlanan toobe gerekir. 
 
 > [!NOTE]
-> Azure Active Directory, küme yönetimi işlemleri için istemcilerin kimliğini doğrulamak için önerilen yoldur. Azure Active Directory'yi kullanmak için size gereken [Azure Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak][create-cluster-arm].
+> Azure Active Directory hello yolu tooauthenticate istemciler için küme yönetimi işlemleri önerilen ' dir. Azure Active Directory toouse, şunları yapmalısınız [Azure Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak][create-cluster-arm].
 > 
 > 
 
 ### <a name="application-certificates-optional"></a>Uygulama sertifikaları (isteğe bağlı)
-Ek sertifikaların herhangi bir sayıda uygulama güvenlik amacıyla bir kümede yüklenebilir. Kümenizi oluşturmadan önce düğümlerine gibi yüklenmesi için bir sertifika gerektiren uygulama güvenlik senaryoları göz önünde bulundurun:
+Ek sertifikaların herhangi bir sayıda uygulama güvenlik amacıyla bir kümede yüklenebilir. Kümenizi oluşturmadan önce hello düğümlerinde gibi yüklü bir sertifika toobe gerektiren hello güvenlik senaryolarını göz önünde bulundurun:
 
 * Şifreleme ve şifre çözme uygulama yapılandırma değerleri
 * Çoğaltma sırasında düğümler arasında veri şifreleme 
 
-Uygulama sertifikaları Azure Portalı aracılığıyla bir küme oluştururken yapılandırılamaz. Küme Kurulum sırasında uygulama sertifikaları yapılandırmak için şunları yapmalısınız [Azure Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak][create-cluster-arm]. Oluşturulduktan sonra uygulama sertifikaları kümeye ekleyebilirsiniz.
+Uygulama sertifikaları hello Azure portal aracılığıyla bir küme oluştururken yapılandırılamaz. Küme kurulumu zaman tooconfigure uygulama sertifikalar, şunları yapmalısınız [Azure Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak][create-cluster-arm]. Oluşturulduktan sonra uygulama sertifikaları toohello küme de ekleyebilirsiniz.
 
 ### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Azure kaynak sağlayıcısı kullanmak için sertifikaları biçimlendirme
-Özel anahtar dosyaları (.pfx) eklenir ve doğrudan anahtar kasası kullanılır. Ancak, Azure kaynak sağlayıcısı anahtarlarının base-64 olarak .pfx içeren özel bir JSON biçiminde depolanmasını gerektirir kodlanmış dize ve özel anahtar parolası. Bu gereksinimleri karşılamak için anahtarları bir JSON dizesinde yerleştirilir ve gerekir olarak depolanan *gizli* anahtar Kasası'nda.
+Özel anahtar dosyaları (.pfx) eklenir ve doğrudan anahtar kasası kullanılır. Ancak, bir base-64 kodlanmış dize ve hello özel anahtar parolası olarak hello .pfx içeren özel bir JSON biçiminde depolanan anahtarları toobe hello Azure kaynak sağlayıcısı gerektirir. Bu gereksinimler, anahtarları bir JSON dizesinde yerleştirilir ve olarak depolanan tooaccommodate *gizli* anahtar Kasası'nda.
 
-Bu işlemi kolaylaştırmak için bir PowerShell modülüdür [github'da][service-fabric-rp-helpers]. Modülü kullanmak için aşağıdaki adımları izleyin:
+Bu işlem daha kolay toomake PowerShell modülüdür [github'da][service-fabric-rp-helpers]. Bu adımları toouse hello modülü izleyin:
 
-1. Depodaki tüm içeriğini bir yerel dizine indirin. 
-2. PowerShell penceresinde modülünü içeri aktarın:
+1. Merhaba depodaki tüm içeriğini Hello bir yerel dizine indirin. 
+2. PowerShell penceresinde Hello modülünü içeri aktarın:
 
 ```powershell
   PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
 
-`Invoke-AddCertToKeyVault` Bu PowerShell modülünü komutu otomatik olarak bir sertifika özel anahtarı bir JSON dizeye biçimlendirir ve anahtar Kasası'na yükler. Küme sertifikası ve herhangi bir ek uygulama sertifika anahtar Kasası'na eklemek için kullanın. Kümenizdeki yüklemek istediğiniz ek sertifika için bu adımı yineleyin.
+Merhaba `Invoke-AddCertToKeyVault` bu PowerShell modülünü komutu otomatik olarak bir sertifika özel anahtarı bir JSON dizeye biçimlendirir ve tooKey kasası yükler. Tooadd hello küme sertifika ve tüm ek uygulama sertifikaları tooKey kasası kullanın. Kümenizdeki tooinstall istediğiniz ek sertifika için bu adımı yineleyin.
 
 ```powershell
 PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
-    Switching context to SubscriptionId <guid>
+    Switching context tooSubscriptionId <guid>
     Ensuring ResourceGroup mycluster-keyvault in West US
-    WARNING: The output object type of this cmdlet will be modified in a future release.
+    WARNING: hello output object type of this cmdlet will be modified in a future release.
     Using existing valut myvault in West US
     Reading pfx file from C:\path\to\key.pfx
-    Writing secret to myvault in vault myvault
+    Writing secret toomyvault in vault myvault
 
 
 Name  : CertificateThumbprint
@@ -193,7 +193,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 ```
 
-Bu düğümü kimlik doğrulaması, yönetim uç noktası güvenlik ve kimlik doğrulaması için sertifikaları yükler bir Service Fabric kümesi Resource Manager şablonu ve X.509 sertifikalarını kullanan ek uygulama güvenliği özellikleri yapılandırmak için tüm anahtar kasası önkoşullar bulunmaktadır. Bu noktada, Azure'da şimdi aşağıdaki Kurulumu olması gerekir:
+Bunlar düğümü kimlik doğrulaması, yönetim uç noktası güvenlik ve kimlik doğrulama ve tüm ek uygulama güvenliği için sertifikaları yükler bir Service Fabric kümesi Resource Manager şablonu yapılandırmak için tüm hello anahtar kasası önkoşulları X.509 sertifikaları kullanan özellikler. Bu noktada, Azure kurulumunda aşağıdaki hello şimdi olmalıdır:
 
 * Anahtar kasası kaynak grubu
   * Anahtar Kasası
@@ -201,62 +201,62 @@ Bu düğümü kimlik doğrulaması, yönetim uç noktası güvenlik ve kimlik do
 
 < /a "oluşturma-küme-portal" ></a>
 
-## <a name="create-cluster-in-the-azure-portal"></a>Azure portalında küme oluşturma
-### <a name="search-for-the-service-fabric-cluster-resource"></a>Service Fabric küme kaynağı için arama
-![Service Fabric kümesi şablonu Azure portalında arayın.][SearchforServiceFabricClusterTemplate]
+## <a name="create-cluster-in-hello-azure-portal"></a>Hello Azure portal kümesi oluşturma
+### <a name="search-for-hello-service-fabric-cluster-resource"></a>Service Fabric küme kaynağı Hello için arama
+![Service Fabric kümesi hello Azure portal şablona arayın.][SearchforServiceFabricClusterTemplate]
 
-1. [Azure portalında][azure-portal] oturum açın.
-2. Tıklatın **yeni** yeni bir kaynak şablonu eklemek için. Service Fabric kümesi şablon için arama **Market** altında **her şeyi**.
-3. Seçin **Service Fabric kümesi** listeden.
-4. Gidin **Service Fabric kümesi** dikey penceresinde tıklatın **oluşturma**,
-5. **Oluşturma Service Fabric kümesi** dikey penceresinde aşağıdaki dört adım vardır.
+1. İçinde toohello oturum [Azure portal][azure-portal].
+2. Tıklatın **yeni** tooadd yeni bir kaynak şablonu. Arama hello hello Service Fabric kümesi şablonunun **Market** altında **her şeyi**.
+3. Seçin **Service Fabric kümesi** hello listeden.
+4. Toohello gidin **Service Fabric kümesi** dikey penceresinde tıklatın **oluşturma**,
+5. Merhaba **oluşturma Service Fabric kümesi** dikey penceresinde hello aşağıdaki dört adımları vardır.
 
 #### <a name="1-basics"></a>1. Temel Bilgiler
 ![Yeni bir kaynak grubu oluşturma ekran görüntüsü.][CreateRG]
 
-Temel bilgiler dikey penceresinde, kümeniz için temel ayrıntıları sağlamanız gerekir.
+Merhaba temel bilgileri dikey penceresinde, kümeniz için tooprovide hello temel ayrıntıları gerekir.
 
-1. Kümenizin adını girin.
-2. Girin bir **kullanıcı adı** ve **parola** VM'ler için Uzak Masaüstü için.
-3. Seçtiğinizden emin olun **abonelik** özellikle birden çok aboneliğiniz varsa, dağıtılacak şekilde kümenizi istiyor.
-4. Oluşturma bir **yeni kaynak grubu**. Özellikle, dağıtımınız için değişiklik veya kümenizi sildiğinizden çalışırken bunları daha sonra bulma yardımcı olduğundan küme aynı adı vermek en iyisidir.
+1. Merhaba, kümenin adını girin.
+2. Girin bir **kullanıcı adı** ve **parola** hello VM'ler için Uzak Masaüstü.
+3. Tooselect hello emin olun **abonelik** özellikle birden çok aboneliğiniz varsa, dağıtılmış, küme toobe istiyor.
+4. Oluşturma bir **yeni kaynak grubu**. Bunu hello hello küme adıyla aynı özellikle toomake değişiklikleri tooyour dağıtım çalıştığınız veya kümenizi sildiğinizden bunları daha sonra bulma yardımcı olan bu yana en iyi toogive olur.
    
    > [!NOTE]
-   > Varolan bir kaynak grubu kullanacak şekilde karar verebilirsiniz rağmen yeni bir kaynak grubu oluşturmak için iyi bir uygulamadır. Bu, ihtiyacınız olmayan kümeleri silmek kolaylaştırır.
+   > Varolan bir kaynak grubu toouse karar verebilirsiniz rağmen iyi bir uygulama toocreate yeni bir kaynak grubu var. Bu işlem, ihtiyacınız olmayan kolay toodelete kümeleri kolaylaştırır.
    > 
    > 
-5. Seçin **bölge** küme oluşturmak istediğiniz. Anahtar kasası bulunduğu aynı bölgede kullanmanız gerekir.
+5. Select hello **bölge** toocreate hello küme istiyor. Anahtarınızı kasa aynı bölgede yer hello kullanmanız gerekir.
 
 #### <a name="2-cluster-configuration"></a>2. Küme yapılandırması
 ![Düğüm türü oluşturma][CreateNodeType]
 
-Küme düğümlerinizi yapılandırın. Düğüm türleri, VM boyutlarını, VM'lerin sayısını ve bunların özelliklerini tanımlar. Kümenizi birden fazla düğüm türüne sahip olabilir ancak bu düğüm tipi Service Fabric Sistem Hizmetleri yerleştirildiği olarak birincil düğüm türü (portalda tanımladığınız ilk bir) en az beş VM'ler olması gerekir. Yapılandırmayın **yerleşim özellikleri** çünkü "nodetypename"adlı bir varsayılan yerleştirme özelliği otomatik olarak eklenir.
+Küme düğümlerinizi yapılandırın. Düğüm türleri hello VM boyutları, VM'ler hello sayısını ve bunların özelliklerini tanımlar. Kümenizi birden fazla olabilir düğüm türü, ancak hello birincil düğüm türü (Merhaba hello portalında tanımlayan birinci) olması gerekir en az beş VM'ler, bu Service Fabric Sistem Hizmetleri yerleştirildiği hello düğüm türü olduğu gibi. Yapılandırmayın **yerleşim özellikleri** çünkü "nodetypename"adlı bir varsayılan yerleştirme özelliği otomatik olarak eklenir.
 
 > [!NOTE]
-> Yaygın bir senaryo birden çok düğüm türü için bir ön uç hizmeti ve arka uç hizmeti içeren bir uygulamadır. Ön uç hizmeti bağlantı noktalarını açık daha küçük sanal makineleri (örneğin, D2 VM boyutları) Internet'e yerleştirmek istediğiniz, ancak Internet'e yönelik bağlantı noktalarının açık olan (ile VM boyutları D4, D6, D15 vb. gibi) daha büyük VM'ler arka uç hizmetine yerleştirmek istediğiniz.
+> Yaygın bir senaryo birden çok düğüm türü için bir ön uç hizmeti ve arka uç hizmeti içeren bir uygulamadır. Tooput hello ön uç hizmeti bağlantı noktalarını açık toohello Internet küçük sanal makineleri (örneğin, D2 VM boyutları) üzerinde istediğiniz, ancak isterseniz tooput hello arka uç hizmetine (ile VM boyutları D4, D6, D15 vb. gibi) daha büyük sanal makineleri üzerinde hiçbir İnternete bağlantı açık.
 > 
 > 
 
-1. Düğüm türünüz (1-12 karakter yalnızca harfler ve sayılar içeren) için bir ad seçin.
-2. En düşük **boyutu** VM'lerin birincil düğüm türü tarafından yönetilir **dayanıklılık** katmanı küme için seçin. Bronz dayanıklılık katmanı için varsayılandır. Dayanıklılık hakkında daha fazla bilgi için bkz: [Service Fabric kümesi güvenilirlik ve dayanıklılık seçme][service-fabric-cluster-capacity].
-3. VM boyutu ve fiyatlandırma katmanı seçin. D-serisi VM'ler SSD sürücülerine sahip ve durum bilgisi olan uygulamalar için tavsiye edilir. Kısmi çekirdeğe sahip tüm VM SKU kullanın veya değil 7 GB kullanılabilir disk kapasiteleri daha az sahip. 
-4. En düşük **numarası** VM'lerin birincil düğüm türü tarafından yönetilir **güvenilirlik** seçtiğiniz katmanı. Güvenilirlik katmanı için Gümüş varsayılandır. Güvenilirliği hakkında daha fazla bilgi için bkz: [Service Fabric kümesi güvenilirlik ve dayanıklılık seçme][service-fabric-cluster-capacity].
-5. Düğüm türü için VM sayısını seçin. Yukarı veya aşağı düğüm türü VM'ler sayısında daha sonra ölçeklendirebilirsiniz, ancak birincil düğüm türünde en düşük seçmiş olduğunuz güvenilirlik düzeyi tarafından yönetilir. Diğer düğüm türleri, en az 1 VM olabilir.
-6. Özel uç noktaları yapılandırın. Bu alan, Azure yük dengeleyici, uygulamalarınız için genel internet üzerinden kullanıma sunmak istediğiniz bağlantı noktalarının virgülle ayrılmış bir listesi girmenizi sağlar. Örneğin, bir web uygulaması kümenize dağıtmayı planlıyorsanız, "80" bağlantı noktası 80, kümesine trafiğe izin verecek şekilde olmadığını buraya girin. Uç noktalar hakkında daha fazla bilgi için bkz: [uygulamaları ile iletişim][service-fabric-connect-and-communicate-with-services]
-7. Küme yapılandırma **tanılama**. Varsayılan olarak, sorunları gidermenize yardımcı olacak kümenizde tanılama etkinleştirilir. Tanılama değişiklik devre dışı bırakmak istiyorsanız **durum** geç **devre dışı**. Tanılama kapatma olan **değil** önerilir.
-8. Kümesi istediğiniz doku yükseltme modu seçin. Seçin **otomatik**, sistemin otomatik olarak en son sürümünü seçin ve kümenizi yükseltmek denemek istiyorsanız. Modu ayarlamak **el ile**, desteklenen bir sürüm seçmek istiyorsanız.
+1. Düğüm türünüz (1 too12 karakterler yalnızca harfler ve sayılar içeren) için bir ad seçin.
+2. Hello minimum **boyutu** VM'lerin hello birincil düğüm türü hello tarafından yönetilir **dayanıklılık** katmanı hello küme için seçin. Merhaba hello dayanıklılık katmanı için Bronz varsayılandır. Dayanıklılık hakkında daha fazla bilgi için bkz: [nasıl toochoose hello Service Fabric kümesi güvenilirlik ve dayanıklılık][service-fabric-cluster-capacity].
+3. Merhaba VM boyutu ve fiyatlandırma katmanı seçin. D-serisi VM'ler SSD sürücülerine sahip ve durum bilgisi olan uygulamalar için tavsiye edilir. Kısmi çekirdeğe sahip tüm VM SKU kullanın veya değil 7 GB kullanılabilir disk kapasiteleri daha az sahip. 
+4. Merhaba minimum **numarası** VM'lerin hello birincil düğüm türü hello tarafından yönetilir **güvenilirlik** seçtiğiniz katmanı. Merhaba hello güvenilirlik katmanı için Gümüş varsayılandır. Güvenilirliği hakkında daha fazla bilgi için bkz: [nasıl toochoose hello Service Fabric kümesi güvenilirlik ve dayanıklılık][service-fabric-cluster-capacity].
+5. Merhaba hello düğüm türü için VM sayısını seçin. Yukarı veya aşağı hello sayısında VM'ler düğüm türü daha sonra ölçeklendirebilirsiniz ancak hello birincil düğüm türüne hello minimum seçmiş olduğunuz hello güvenilirlik düzeyi tarafından yönetilir. Diğer düğüm türleri, en az 1 VM olabilir.
+6. Özel uç noktaları yapılandırın. Bu alan tooenter tooexpose hello Azure yük dengeleyici toohello aracılığıyla istediğiniz bağlantı noktalarının virgülle ayrılmış bir liste sağlar, uygulamalarınız için genel Internet. Bir web uygulaması tooyour küme toodeploy düşünüyorsanız, örneğin, "80" Buraya girdiğiniz bağlantı noktası 80, kümesine tooallow trafiğine. Uç noktalar hakkında daha fazla bilgi için bkz: [uygulamaları ile iletişim][service-fabric-connect-and-communicate-with-services]
+7. Küme yapılandırma **tanılama**. Varsayılan olarak, tanılama sorunlarını giderme ile küme tooassist üzerinde etkindir. Toodisable tanılama hello değiştirmek istiyorsanız **durum** çok geçiş**devre dışı**. Tanılama kapatma olan **değil** önerilir.
+8. Hello doku yükseltme kümesi istediğiniz modu seçin. Seçin **otomatik**, hello sistem tooautomatically çekme hello en son sürüme yedeklemek istiyorsanız ve küme tooit tooupgrade deneyin. Başlangıç modu çok ayarlamak**el ile**toochoose desteklenen bir sürüm istiyorsanız.
 
 > [!NOTE]
-> Service Fabric desteklenen sürümlerini çalıştıran kümeler destekliyoruz. Seçerek **el ile** modu yapmakta üzerinde sorumluluk kümenizi desteklenen bir sürüme yükseltmek için. Doku hakkında daha fazla ayrıntı modu bakın yükseltmek için [service fabric Küme yükseltme belge.][service-fabric-cluster-upgrade]
+> Service Fabric desteklenen sürümlerini çalıştıran kümeler destekliyoruz. Merhaba seçerek **el ile** modu yapmakta hello sorumluluk tooupgrade üzerinde Küme desteklenen tooa sürümü. Merhaba hello doku yükseltme modu hakkında daha fazla ayrıntı görmek için [service fabric Küme yükseltme belge.][service-fabric-cluster-upgrade]
 > 
 > 
 
 #### <a name="3-security"></a>3. Güvenlik
 ![Azure Portal'da güvenlik yapılandırmalarını ekran görüntüsü.][SecurityConfigs]
 
-Son adım, bilgi daha önce oluşturduğunuz sertifika ve anahtar kasası kullanarak küme güvenliğini sağlamak için sertifika bilgilerini sağlamaktır.
+Merhaba son adım hello anahtar kasası ve bilgileri daha önce oluşturduğunuz sertifika kullanarak tooprovide sertifika bilgileri toosecure hello kümedir.
 
-* Karşıya yükleme alanından elde edilen çıkış birincil sertifikası alanları doldurmak **küme sertifika** anahtar kasası kullanmaya `Invoke-AddCertToKeyVault` PowerShell komutu.
+* Merhaba karşıya elde hello çıktıyla Hello birincil sertifikası alanları doldurmak **küme sertifika** tooKey kasası kullanılarak hello `Invoke-AddCertToKeyVault` PowerShell komutu.
 
 ```powershell
 Name  : CertificateThumbprint
@@ -269,36 +269,36 @@ Name  : CertificateURL
 Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
 ```
 
-* Denetleme **Gelişmiş ayarları Yapılandır** için istemci sertifikaları girmek için kutusunu **yönetici istemci** ve **salt okunur istemci**. Bu alanlarda yönetici istemci sertifikanızın parmak izi ve salt okunur kullanıcının istemci sertifikanızın parmak izi varsa girin. Yöneticiler kümeye bağlanmaya çalıştığında, yalnızca bir sertifika parmak izi değerleri eşleşen bir parmak izi ile varsa erişim buraya girilen verilir.  
+* Merhaba denetleyin **Gelişmiş ayarları Yapılandır** tooenter istemci sertifikalarını kutusunda **yönetici istemci** ve **salt okunur istemci**. Bu alanlarda yönetici istemci sertifikanızın parmak izi hello ve salt okunur kullanıcının istemci sertifikanızın hello parmak izi varsa girin. Yöneticiler tooconnect toohello küme denediğinizde, yalnızca hello parmak izi değerleri eşleşen bir parmak izine sahip bir sertifika varsa erişim buraya girilen verilir.  
 
 #### <a name="4-summary"></a>4. Özet
-!["Dağıtma Service Fabric kümesi" görüntüleme başlangıç panosunun ekran görüntüsü ][Notifications]
+!["Dağıtma Service Fabric kümesi" görüntüleme hello başlangıç panosunun ekran görüntüsü ][Notifications]
 
-Küme oluşturma işlemini tamamlamak için tıklatın **Özet** sağladığınız yapılandırmaları bakın veya kümeniz dağıtmak için kullanılan Azure Resource Manager şablonunu indirebilir. Zorunlu ayarları girdikten sonra **Tamam** düğmesi yeşil olur ve küme oluşturma işlemi tıklatarak başlatabilirsiniz.
+toocomplete hello küme oluşturma, tıklatın **Özet** sağlamış ya da indirme toosee hello yapılandırmaları Merhaba, kümenizi toodeploy kullanılan Azure Resource Manager şablonu. Merhaba zorunlu ayarları girdikten sonra hello **Tamam** düğmesi yeşil olur ve tıklayarak hello küme oluşturma işlemi başlatabilirsiniz.
 
-Oluşturma işleminin ilerleme durumunu bildirimler bölümünden görebilirsiniz. (Ekranınızın sağ üst köşesindeki durum çubuğunun yanında bulunan "Zil" simgesine tıklayın.) Tıkladıysanız **başlangıç panosuna Sabitle** göreceğiniz küme oluştururken **Service Fabric kümesi dağıtma** sabitlenmiş **Başlat** Panosu.
+Merhaba oluşturma ilerlemesi hello Bildirimlerde görebilirsiniz. (Hello durum çubuğu, ekranınızın sağ üst hello en yakın hello "zil" simgesine tıklayın.) Tıkladıysanız **PIN tooStartboard** göreceğiniz hello küme oluştururken **Service Fabric kümesi dağıtma** toohello sabitlenmiş **Başlat** Panosu.
 
 ### <a name="view-your-cluster-status"></a>Küme durumunu görüntüleme
-![Küme ayrıntıları panosunda ekran görüntüsü.][ClusterDashboard]
+![Küme ayrıntıları hello panosunda ekran görüntüsü.][ClusterDashboard]
 
-Kümenizi oluşturduktan sonra kümenizi portalında inceleyebilirsiniz:
+Kümenizi oluşturduktan sonra kümenizi hello portalında inceleyebilirsiniz:
 
-1. Git **Gözat** tıklatıp **Service Fabric kümeleri**.
+1. Çok Git**Gözat** tıklatıp **Service Fabric kümeleri**.
 2. Kümenizi bulun ve tıklatın.
-3. Kümenin genel uç noktası ve bir Service Fabric Explorer bağlantısıyla birlikte kümenizin ayrıntılarını panoda görebilirsiniz.
+3. Şimdi kümenizi hello kümenin ortak uç noktası ve bağlantı tooService Fabric Explorer dahil olmak üzere hello panosundaki hello ayrıntılarını görebilirsiniz.
 
-**Düğümü İzleyici** kümenin Pano dikey bölümde sağlıklı ve iyi VM'lerin sayısını gösterir. Kümenin durumu hakkında daha fazla ayrıntı bulabilirsiniz [Service Fabric sistem durumu modeli giriş][service-fabric-health-introduction].
+Merhaba **düğümü İzleyici** hello kümenin Pano dikey bölümde sağlıklı ve iyi olan VM'ler hello sayısını belirtir. Hello kümenin durumu hakkında daha fazla ayrıntı bulabilirsiniz [Service Fabric sistem durumu modeli giriş][service-fabric-health-introduction].
 
 > [!NOTE]
-> Service Fabric kümeleri belirli sayıda düğümleri yukarı kullanılabilirliği sürdürmek ve "çekirdek Bakımı olarak" başvurulan durumunu - korumak için her zaman olması gerekir. Therfore, değil genellikle ilk yapmadığınız sürece kümedeki tüm makineleri kapatmaya güvenli bir [tam yedekleme, durumu][service-fabric-reliable-services-backup-restore].
+> Service Fabric kümeleri durumunu - "çekirdek Bakımı" başvurulan tooas korumak ve belirli bir sayıda düğüm toobe her zaman toomaintain kullanılabilirliği gerektirir. Therfore, değil genellikle hello kümedeki tüm makineler aşağı güvenli tooshut ilk yapmadığınız sürece bir [tam yedekleme, durumu][service-fabric-reliable-services-backup-restore].
 > 
 > 
 
-## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Bir sanal makine ölçek kümesi örneği veya bir küme düğümü için uzaktan bağlanma
-Her küme sonuçlarınızın ayarı alınırken bir sanal makine ölçek kümesi içinde belirttiğiniz NodeTypes. Bkz: [uzaktan bağlanmak için bir sanal makine ölçek kümesi örnek] [ remote-connect-to-a-vm-scale-set] Ayrıntılar için.
+## <a name="remote-connect-tooa-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Uzaktan bağlantı tooa sanal makine ölçek kümesi örneği veya bir küme düğümü
+Her hello NodeTypes, küme sonuçlarınızda ayarı alınırken bir sanal makine ölçek kümesi belirtin. Bkz: [uzaktan bağlanma tooa sanal makine ölçek kümesi örnek] [ remote-connect-to-a-vm-scale-set] Ayrıntılar için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu noktada, yönetim kimlik doğrulaması için sertifikaları kullanarak güvenli bir küme var. Ardından, [kümenize bağlanmak](service-fabric-connect-to-secure-cluster.md) ve öğrenin nasıl [uygulama parolaları yönetme](service-fabric-application-secret-management.md).  Ayrıca, öğrenin [Service Fabric destek seçenekleri](service-fabric-support.md).
+Bu noktada, yönetim kimlik doğrulaması için sertifikaları kullanarak güvenli bir küme var. Ardından, [tooyour kümesine bağlanın](service-fabric-connect-to-secure-cluster.md) ve nasıl çok öğrenin[uygulama parolaları yönetme](service-fabric-application-secret-management.md).  Ayrıca, öğrenin [Service Fabric destek seçenekleri](service-fabric-support.md).
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

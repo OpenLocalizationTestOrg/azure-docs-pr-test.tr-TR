@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde verilen talepler özelleştiriliyor | Microsoft Docs"
-description: "Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde verilen talepler özelleştirmeyi öğrenin"
+title: "Azure Active Directory'de önceden tümleştirilen uygulamalar için hello SAML belirtecinde verilen aaaCustomizing talepler | Microsoft Docs"
+description: "Nasıl toocustomize hello talep hello Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde verilen bilgi edinin"
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,66 +15,66 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a376318929472403e799f02fdd3fbddc91d0a70c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde verilen talepler özelleştiriliyor
-Bugün Azure Active Directory önceden tümleştirilmiş binlerce uygulamasına Azure AD uygulama üzerinde çoklu oturum açma SAML 2.0 protokolü kullanılarak özelliğini destekleyen 360 dahil olmak üzere Galerisi'nde destekler. SAML kullanarak Azure AD üzerinden bir uygulama için kullanıcı kimliği doğruladığında, Azure AD bir belirteç (aracılığıyla bir HTTP POST) uygulamaya gönderir. Ve daha sonra uygulama doğrular ve bir kullanıcı adı ve parola istemek yerine kullanıcı oturum belirteci kullanır. Bu SAML belirteçleri "talep" olarak bilinen kullanıcı hakkında bilgi içerir.
+# <a name="customizing-claims-issued-in-hello-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Hello Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde verilen talepler özelleştiriliyor
+Azure Active Directory önceden tümleştirilmiş binlerce uygulamasına hello Azure AD uygulama galerisinde üzerinde çoklu oturum açma desteği 360 dahil olmak üzere, bugün destekler hello SAML 2.0 protokolü kullanarak. Kullanıcının SAML kullanarak Azure AD üzerinden tooan uygulama doğruladığında, Azure AD belirteci toohello uygulamayı (aracılığıyla bir HTTP POST) gönderir. Ve daha sonra Merhaba uygulaması doğrular ve bir kullanıcı adı ve parola istemek yerine hello belirteci toolog hello kullanıcı kullanır. Bu SAML belirteçleri "talep" olarak bilinen hello kullanıcı hakkında bilgi içerir.
 
-İçinde kimlik-seslendir, "talep" bir kimlik sağlayıcısı bildiren bir kullanıcı bu kullanıcı için sorun belirteci içinde hakkındaki bilgilerdir. İçinde [SAML belirteci](http://en.wikipedia.org/wiki/SAML_2.0), bu veri genellikle SAML özniteliği deyiminde içeriyor. Kullanıcının benzersiz kimliği genellikle SAML ad tanımlayıcısı da bilinen konu gösterilir.
+İçinde kimlik-seslendir, "talep" bir kimlik sağlayıcısı bildiren bir kullanıcı bu kullanıcı için sorun hello belirteci içinde hakkında bilgi. İçinde [SAML belirteci](http://en.wikipedia.org/wiki/SAML_2.0), bu veri genellikle hello SAML özniteliği deyimi içeriyor. Merhaba kullanıcının benzersiz Kimliğini genellikle SAML konu adı tanımlayıcı olarak da bilinen hello gösterilir.
 
-Varsayılan olarak, Azure Active Directory uygulamanıza bir NameIdentifier taleple Azure AD'de kullanıcının kullanıcı adını (AKA kullanıcı asıl adı) değerini içeren bir SAML belirteci verir. Bu değer, kullanıcıyı benzersiz şekilde tanımlayabilir. SAML belirteci, kullanıcının e-posta adresi, ilk ad ve Soyadı içeren ek talepleri de içerir.
+Varsayılan olarak, Azure Active Directory NameIdentifier talep, Azure AD'de hello kullanıcının kullanıcı adı (AKA kullanıcı asıl adı) değerini içeren bir SAML belirteci tooyour uygulaması verir. Bu değer hello kullanıcı benzersiz şekilde tanımlayabilir. Merhaba SAML belirteci hello kullanıcının e-posta adresi, ilk ad ve Soyadı içeren ek talepleri de içerir.
 
-Görüntülemek veya uygulama için SAML belirtecinde verilen talepler düzenlemek için Azure Portal'da uygulamayı açın. Ardından **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** onay kutusu **kullanıcı öznitelikleri** uygulama bölümü.
+tooview veya düzenleme hello talep hello SAML belirteci toohello uygulama açık hello Azure portalında verdi. Merhaba seçin **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** hello onay kutusu **kullanıcı öznitelikleri** hello uygulama bölümü.
 
 ![Kullanıcı öznitelikleri bölümü][1]
 
-Neden SAML belirtecinde verilen talepler düzenlemek için gerekebilecek iki olası nedeni vardır:
-* Uygulama, bir talep URI'ler farklı kümesi gerektiren veya talep değerleri için yazılmış.
-* Uygulama Azure Active Directory'de depolanan kullanıcı adı (AKA kullanıcı asıl adı) dışında bir şey olması NameIdentifier talep gerektiren bir şekilde dağıtıldı.
+Merhaba SAML belirtecinde verilen tooedit hello talepler neden gerekebilecek iki olası nedeni vardır:
+* Merhaba uygulaması farklı bir talep URI'ler ayarlayın veya talep değerleri toorequire yazıldı.
+* Merhaba uygulaması, Azure Active Directory'de depolanan bir şey hello kullanıcı adı (AKA kullanıcı asıl adı) dışında hello NameIdentifier talep toobe gerektiren bir şekilde dağıtıldı.
 
-Varsayılan talep değerleri düzenleyebilirsiniz. SAML belirteci öznitelikleri tabloda talep satırı seçin. Bu açılır **öznitelik Düzenle** bölüm ve daha sonra talep adını, değeri ve taleple ilişkili ad alanı düzenleyebilirsiniz.
+Merhaba varsayılan talep değerleri düzenleyebilirsiniz. Merhaba talep satır hello SAML belirteci öznitelikleri tablosunda seçin. Merhaba açılır **öznitelik Düzenle** bölüm ve daha sonra talep adını, değeri ve hello taleple ilişkili ad alanı düzenleyebilirsiniz.
 
 ![Kullanıcı özniteliği Düzenle][2]
 
-Talepleri (dışında NameIdentifier) tıklayarak açar bağlam menüsünü kullanarak da kaldırabilirsiniz **...**  simgesi.  Yeni talepleri kullanarak da ekleyebilirsiniz **Ekle özniteliği** düğmesi.
+Merhaba üzerinde tıklayarak açar hello bağlam menüsünü kullanarak talep (dışında NameIdentifier) da kaldırabilirsiniz **...**  simgesi.  Yeni talepleri hello kullanarak da ekleyebilirsiniz **Ekle özniteliği** düğmesi.
 
 ![Kullanıcı özniteliği Düzenle][3]
 
-## <a name="editing-the-nameidentifier-claim"></a>NameIdentifier talep düzenleme
-Uygulama süredir olduğu sorunu çözmek için farklı bir kullanıcı adı kullanılarak dağıtılan, tıklayın **kullanıcı tanımlayıcısı** içinde açılan **kullanıcı öznitelikleri** bölümü. Bu eylem bir iletişim kutusu birkaç farklı seçeneklerle sağlar:
+## <a name="editing-hello-nameidentifier-claim"></a>Merhaba NameIdentifier talep düzenleme
+Burada Merhaba uygulaması dağıtılan toosolve hello sorunu farklı bir kullanıcı adı kullanarak hello üzerinde tıklatın **kullanıcı tanımlayıcısı** hello açılan **kullanıcı öznitelikleri** bölümü. Bu eylem bir iletişim kutusu birkaç farklı seçeneklerle sağlar:
 
 ![Kullanıcı özniteliği Düzenle][4]
 
-Aşağı açılır menüsünde, seçin **user.mail** kullanıcının e-posta adresi dizininde NameIdentifier talep ayarlamak için. Ya da seçin **user.onpremisessamaccountname** kullanıcıya ayarlamak için kullanıcının içi AD'den Azure AD'ye eşitlenen SAM hesap adı.
+Hello açılır, seçin **user.mail** tooset hello NameIdentifier talep hello dizinindeki toobe hello kullanıcının e-posta adresi. Ya da seçin **user.onpremisessamaccountname** tooset toohello kullanıcının SAM hesap adı'ndan eşitlenen şirket içi Azure AD.
 
-Özel de kullanabilirsiniz **ExtractMailPrefix()** e-posta adresi, SAM hesap adı veya kullanıcı asıl adı etki alanı soneki kaldırmak için işlevi. Bu yalnızca ilk bölümü aracılığıyla geçirilen kullanıcı adının ayıklar (örneğin, "joe_smith" yerine joe_smith@contoso.com).
+Merhaba özel de kullanabilirsiniz **ExtractMailPrefix()** işlevi tooremove hello etki alanı soneki hello e-posta adresi, SAM hesap adı ya da hello kullanıcı asıl adı. Merhaba ilk bölümü hello kullanıcı adı yalnızca aracılığıyla geçirilen bu ayıklar (örneğin, "joe_smith" yerine joe_smith@contoso.com).
 
 ![Kullanıcı özniteliği Düzenle][5]
 
-Şimdi de ekledik **join()** kullanıcı tanımlayıcısı değeri ile doğrulanan etki alanına katılmak için işlevi. join() işlevinde seçtiğinizde **kullanıcı tanımlayıcısı** önce e-posta adresi veya kullanıcı asıl adı olarak gibi kullanıcı tanımlayıcısı seçin ve ardından ikinci açılan doğrulanmış etki alanınızı seçin. Doğrulanmış etki alanı ile e-posta adresi seçin ve ardından Azure AD ilk değer joe_smith gelen kullanıcı adı ayıklar varsa joe_smith@contoso.com ve contoso.onmicrosoft.com ile ekler. Aşağıdaki örneğe bakın:
+Şimdi de hello ekledik **join()** işlevi toojoin hello hello kullanıcı tanımlayıcısı değeri ile etki alanı doğrulandı. hello hello join() işlevi seçtiğinizde, **kullanıcı tanımlayıcısı** ilk select e-posta adresi veya kullanıcı asıl adı olarak gibi kullanıcı tanımlayıcısı hello ve doğrulanmış etki alanınız hello ikinci açılan listesinde seçin. Hello doğrulanmış etki alanıyla hello e-posta adresi seçin ve ardından Azure AD hello ilk değer joe_smith gelen hello kullanıcıadı ayıklar varsa joe_smith@contoso.com ve contoso.onmicrosoft.com ile ekler. Aşağıdaki örnek hello bakın:
 
 ![Kullanıcı özniteliği Düzenle][6]
 
 ## <a name="adding-claims"></a>Talep ekleme
-Bir talep eklerken (URI düzeni SAML spec göre izlemek için kesinlikle gerekmez) öznitelik adı belirtebilirsiniz. Değerini dizinde saklanan tüm kullanıcı özniteliklerini ayarlayın.
+Bir talep eklerken (hangi kesinlikle toofollow URI düzeni hello SAML spec göredir gerek yoktur) hello öznitelik adı belirtebilirsiniz. Merhaba dizininde depolanan hello değeri tooany kullanıcı özniteliğini ayarlayın.
 
 ![Kullanıcı öznitelik Ekle][7]
 
-Örneğin, bir talep (örneğin, satış) olarak kuruluşlarındaki kullanıcının ait olduğu bölüm göndermeniz gerekir. Uygulama tarafından beklendiği gibi talep adını girin ve ardından **user.department** değeri olarak.
+Örneğin, toosend gereken kullanıcı hello hello departmanı, kuruluşları bir talep (örneğin, satış) olarak tooin ait. Merhaba uygulama tarafından beklendiği gibi Hello talep adını girin ve ardından **user.department** hello değeri olarak.
 
 > [!NOTE]
-> Belirli bir kullanıcının seçili öznitelik için depolanan hiçbir değer varsa, daha sonra bu talep belirteçte çıkarılan değil.
+> Belirli bir kullanıcının seçili öznitelik için depolanan hiçbir değer varsa, daha sonra bu talep hello belirteçte çıkarılan değil.
 
 > [!TIP]
-> **User.onpremisesecurityidentifier** ve **user.onpremisesamaccountname** kullanıcı verilerini eşitleme Active Directory kullanarak şirket içi, yalnızca desteklenen [Azure AD Aracı bağlanmak](../active-directory-aadconnect.md).
+> Merhaba **user.onpremisesecurityidentifier** ve **user.onpremisesamaccountname** kullanıcı verilerini hello kullanarak Active Directory içi eşitleme, yalnızca desteklenen [Azure AD Connect aracını](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Kısıtlı talepleri
 
-SAML bazı kısıtlı talep vardır. Bu talep eklerseniz, Azure AD bu talepler göndermez. Kısıtlanmış SAML talep kümesi şunlardır:
+SAML bazı kısıtlı talep vardır. Bu talep eklerseniz, Azure AD bu talepler göndermez. Aşağıda verilmiştir hello SAML kısıtlanmış talep kümesi:
 
     | Talep türü (URI) |
     | ------------------- |
@@ -127,7 +127,7 @@ SAML bazı kısıtlı talep vardır. Bu talep eklerseniz, Azure AD bu talepler g
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
-* [Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma](../active-directory-saas-custom-apps.md)
+* [Hello Azure Active Directory Uygulama galerisinde olmayan tek oturum açma tooapplications yapılandırma](../active-directory-saas-custom-apps.md)
 * [Sorun giderme SAML tabanlı çoklu oturum açma](active-directory-saml-debugging.md)
 
 <!--Image references-->

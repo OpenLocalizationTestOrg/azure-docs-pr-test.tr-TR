@@ -1,6 +1,6 @@
 ---
-title: "Azure’da sanal ağlar ve Windows sanal makineleri | Microsoft Belgeleri"
-description: "Azure’da Windows sanal makineleri oluşturmaya ilişkin temel bilgiler bağlamında ağ hakkında bilgi edinin."
+title: "aaaVirtual ağlar ve azure'da Windows sanal makineler | Microsoft Docs"
+description: "Azure'da Windows sanal makineler oluşturma temelleri toohello ilgili olarak ağ hakkında bilgi edinin."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -15,166 +15,166 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: ad43daa8778d7b6046983cedceeef024ddc521e0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e28a4782f9f6c69f6101e45dbb560ccd694a1e07
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="virtual-networks-and-windows-virtual-machines-in-azure"></a>Azure’da sanal ağlar ve Windows sanal makineleri 
 
-Azure sanal makinesi (VM) oluştururken bir [sanal ağ](../../virtual-network/virtual-networks-overview.md) (VNet) oluşturmanız ya da mevcut bir VNet’i kullanmanız gerekir. Sanal ağda VM’lerinize nasıl erişilmesini istediğinize de karar vermeniz gerekir. [Kaynakları oluşturmadan önce planlama yapmak](../../virtual-network/virtual-network-vnet-plan-design-arm.md) ve [ağ kaynaklarının sınırlarını](../../azure-subscription-service-limits.md#networking-limits) anladığınızdan emin olmak önemlidir.
+Azure sanal makinesi (VM) oluştururken bir [sanal ağ](../../virtual-network/virtual-networks-overview.md) (VNet) oluşturmanız ya da mevcut bir VNet’i kullanmanız gerekir. Ayrıca Vm'lerinizi hello VNet üzerinde erişilen hedeflenen toobe şeklini toodecide gerekir. Çok önemlidir[kaynaklar oluşturmadan önce plan](../../virtual-network/virtual-network-vnet-plan-design-arm.md) ve hello anladığınızdan emin olun [kaynakları ağ sınırları](../../azure-subscription-service-limits.md#networking-limits).
 
-Aşağıdaki şekilde VM’ler web sunucuları ve veritabanı sunucuları olarak temsil edilmektedir. Her VM kümesi, sanal ağdaki farklı alt ağlara atanmıştır.
+Aşağıdaki şekilde hello VM'ler web sunucusu ve veritabanı sunucusu temsil edilir. VM'ler her kümesi hello VNet tooseparate alt ağların atanır.
 
 ![Azure sanal ağı](./media/network-overview/vnetoverview.png)
 
-Dilerseniz VM oluşturmadan önce bir VNet oluşturabilir, dilerseniz de VNet’i VM oluşturduğunuz sırada oluşturabilirsiniz. Kendiniz bir VNet oluşturmalısınız veya VM oluşturduğunuz sırada sizin için bir VNet oluşturulur.
+Bir sanal ağ, bir VM oluşturun veya bir VM oluşturulurken hello VNet oluşturabilirsiniz önce ya da oluşturabilirsiniz. Kendiniz bir VNet oluşturmalısınız veya VM oluşturduğunuz sırada sizin için bir VNet oluşturulur.
 
-Bir VM ile iletişimi desteklemek için şu kaynakları oluşturursunuz:
+Bir VM ile bu kaynakları toosupport iletişimi oluşturun:
 
 - Ağ arabirimleri
 - IP adresleri
 - Sanal ağ ve alt ağlar
 
-Bu temel kaynaklara ek olarak şu isteğe bağlı kaynakları da göz önünde bulundurmalısınız:
+Ayrıca toothose temel kaynakları, aynı zamanda bu isteğe bağlı kaynakları dikkate almanız gerekenler:
 
 - Ağ güvenlik grupları
 - Yük dengeleyiciler 
 
 ## <a name="network-interfaces"></a>Ağ arabirimleri
 
-[Ağ arabirimi (NIC)](../../virtual-network/virtual-network-network-interface.md), bir VM ile bir sanal ağ (VNet) arasındaki çift yönlü bağlantıdır. Bir VM en az bir NIC içermelidir, ancak oluşturduğunuz VM’nin boyutuna bağlı olarak birden fazla NIC içerebilir. [Azure’da sanal makine boyutları](sizes.md) konusundan her VM boyutunun kaç NIC desteklediğini öğrenebilirsiniz. 
+A [ağ arabirimi (NIC)](../../virtual-network/virtual-network-network-interface.md) bir VM sanal ağ (VNet) arasındaki hello bağlantısı olduğundan. Bir VM en az bir NIC olmalıdır, ancak birden çok hello hello oluşturduğunuz VM boyutuna bağlı olarak sağlayabilirsiniz. [Azure’da sanal makine boyutları](sizes.md) konusundan her VM boyutunun kaç NIC desteklediğini öğrenebilirsiniz. 
 
-Birden fazla NIC içeren bir VM oluşturursanız VM’yi en az iki NIC ile oluşturmanız gerekir.  VM oluşturulduktan sonra VM boyutu tarafından desteklenen sayıya kadar ek NIC ekleyebilirsiniz, ancak tek NIC ile oluşturulmuş bir VM’ye, VM boyutunun kaç NIC desteklediğinden bağımsız olarak, ek NIC ekleyemezsiniz. 
+Toocreate birden çok NIC ile VM istiyorsanız, en az iki hello VM oluşturmanız gerekir.  Oluşturulduktan sonra ek NIC'lerin hello VM boyutu tarafından desteklenen toohello numarasını ekleyebilirsiniz, ancak ek NIC tooa yalnızca biri ile oluşturulan VM eklenemiyor, bağımsız olarak kaç NIC hello VM boyutunu destekler. 
 
-VM bir kullanılabilirlik kümesine eklenmişse, kullanılabilirlik kümesindeki VM’lerin tamamı bir veya birden çok NIC içermelidir. Birden çok NIC içeren VM’lerin aynı sayıda NIC içermesi gerekmez, ancak hepsinin en az iki tane NIC’si olmalıdır.
+Merhaba VM tooan kullanılabilirlik kümesi eklenirse, tüm VM'ler hello kullanılabilirlik kümesi içinde bir veya birden çok NIC olması gerekir. Birden çok NIC olmayan olan VM'ler gerekli toohave hello aynı sayıda NIC, ancak bunlar en az iki sahip olmalıdır.
 
-Bir VM’ye bağlı her NIC’nin VM ile aynı konum ve abonelikte bulunması gerekir. Her NIC’nin NIC ile aynı Azure konumunda ve aboneliğinde bulunan bir VNet’e bağlanması gerekir. Bir NIC oluşturulduktan sonra NIC’nin bağlı olduğu alt ağ değiştirebilir, ancak bağlı olduğu VNet’i değiştiremezsiniz.  Bir VM’ye bağlı her NIC’ye VM silinene kadar değişmeyen bir MAC adresi atanır.
+VM bulunmalıdır her bağlı NIC tooa hello aynı konumu ve abonelik VM hello gibi. Her NIC'nin bağlı tooa hello aynı mevcut VNet olmalıdır Azure konumu ve NIC hello gibi abonelik Bir NIC oluşturulduktan sonra bağlı hello alt değiştirebilirsiniz, ancak hello bağlı VNet değiştiremezsiniz.  Her NIC'nin VM hello VM silinene kadar değişmeyen bir MAC adresi atanır tooa bağlı.
 
-Bu tabloda bir ağ arabirimi oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
+Bu tabloda toocreate bir ağ arabirimi kullanabileceğiniz hello yöntemler listelenmiştir.
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| Azure portalına | Azure portalında bir VM oluşturduğunuzda, sizin için otomatik olarak bir ağ arabirimi oluşturulur (ayrı olarak oluşturduğunuz bir NIC’yi kullanamazsınız). Portal yalnızca tek NIC’li bir VM oluşturur. Birden fazla NIC içeren bir VM oluşturmak istiyorsanız VM’yi farklı bir yöntemle oluşturmanız gerekir. |
-| [Azure PowerShell](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Daha önce oluşturduğunuz genel IP adresinin tanımlayıcısını sağlamak için [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) komutunu **-PublicIpAddressId** parametresiyle birlikte kullanın. |
-| [Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Daha önce oluşturduğunuz genel IP adresinin tanımlayıcısını sağlamak için [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) komutunu **--public-ip-address** parametresi ile birlikte kullanın. |
+| Azure portalına | Bir VM hello Azure portal oluşturduğunuzda, bir ağ arabirimi (ayrı olarak oluşturduğunuz bir NIC kullanamazsınız) sizin için otomatik olarak oluşturulur. tek bir NIC ile VM Hello portal oluşturur Birden çok NIC ile VM toocreate isterseniz, farklı bir yöntemle oluşturmanız gerekir. |
+| [Azure PowerShell](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Kullanım [yeni AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) hello ile **- PublicIpAddressId** daha önce oluşturduğunuz hello ortak IP adresinin parametresi tooprovide hello tanımlayıcı. |
+| [Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | tooprovide hello tanımlayıcı hello ortak IP adresi, önceden oluşturulmuş kullanım [az ağ NIC oluşturma](https://docs.microsoft.com/cli/azure/network/nic#create) hello ile **--ortak IP adresi** parametresi. |
 | [Şablon](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) | Bir şablon kullanarak ağ arabirimi dağıtmak için [Genel IP Adresli bir Sanal Ağda Ağ Arabirimi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) konusunu bir kılavuz olarak kullanın. |
 
 ## <a name="ip-addresses"></a>IP adresleri 
 
-Azure’daki bir NIC’ye şu tür [IP adresleri](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) atayabilirsiniz:
+Bu tür atayabilirsiniz [IP adreslerini](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) tooa azure'da NIC:
 
-- **Genel IP adresleri**: İnternet’le ve bir VNet’e bağlı olmayan diğer Azure kaynaklarıyla gelen ve giden (ağ adresi çevirisi (NAT) olmadan) iletişimleri gerçekleştirmek için kullanılır. Bir NIC’ye genel IP adresi atanıp atanmayacağı isteğe bağlıdır. Genel IP adreslerinin nominal bir ücreti vardır ve abonelik başına kullanılabilecek en fazla sayı sınırlaması vardır.
-- **Özel IP adresleri**: Bir VNet, şirket içi ağınız ve İnternet (NAT ile) içerisinde iletişim için kullanılır. VM’ye en az bir özel IP adresi atamalısınız. Azure’da NAT ile ilgili bilgi edinmek için [Azure’da giden bağlantıları anlama](../../load-balancer/load-balancer-outbound-connections.md) konusunu okuyun.
+- **Genel IP adresleri** -toocommunicate gelen ve giden (olmadan ağ adresi çevirisi (NAT)) kullanılan ile Merhaba Internet ve diğer Azure kaynaklarına tooa VNet bağlı değil. Bir ortak IP adresi tooa atama NIC isteğe bağlıdır. Genel IP adreslerinin nominal bir ücreti vardır ve abonelik başına kullanılabilecek en fazla sayı sınırlaması vardır.
+- **Özel IP adresleri** - VNet, şirket içi ağınız ve hello Internet (NAT ile) iletişim için kullanılır. En az bir özel IP adresi tooa VM atamanız gerekir. NAT, azure'da hakkında daha fazla toolearn okuma [azure'da giden bağlantılar anlama](../../load-balancer/load-balancer-outbound-connections.md).
 
-VM’lere veya internet’e yönelik yük dengeleyicilere genel IP adresleri atayabilirsiniz. VM’lere ve iç yük dengeleyicilere özel IP adresleri atayabilirsiniz. VM’ye IP adresleri atamak için bir ağ arabirimi kullanılır.
+Ortak IP adresleri tooVMs veya internet'e yönelik Yük Dengeleyici atayabilirsiniz. Özel IP adresleri tooVMs ve iç yük dengeleyicileri atayabilirsiniz. IP adreslerini tooa bir ağ arabirimi kullanarak VM atayın.
 
-Bir kaynağa IP adresi ayırmak için iki yöntem vardır: Dinamik veya statik. Varsayılan ayırma yöntemi, bir IP adresinin oluşturulduğu sırada ayrılmadığı yöntem olan dinamik yöntemdir. Bunun yerine, IP adresi bir VM oluşturduğunuzda bir VM’yi durdurduğunuzda ayrılır. VM’yi durdurduğunuzda veya sildiğinizde IP adresi serbest kalır. 
+Tooa kaynak - dinamik veya statik bir IP adresi ayrıldığı iki yöntem vardır. oluşturulduğunda bir IP adresi ayrılmamış burada hello varsayılan ayırma yöntemi dinamik. Bunun yerine, bir VM oluşturun veya durmuş bir VM'yi başlattığınızda başlangıç IP adresi ayrılır. Başlangıç IP adresi, durdurmak veya hello VM sildiğinizde yayımlanır. 
 
-VM’nin IP adresinin aynı kalmasını sağlamak için ayırma yöntemini açıkça statik olarak ayarlayabilirsiniz. Bu durumda, anında bir IP adresi atanır. Adres, yalnızca VM’yi sildiğinizde veya ayırma yöntemini dinamik olarak değiştirdiğinizde serbest kalır.
+VM kalır hello için tooensure başlangıç IP adresi aynı Merhaba, hello ayırma yöntemi açık olarak ayarlanıp toostatic. Bu durumda, anında bir IP adresi atanır. Yalnızca hello VM silme veya kendi ayırma yöntemi toodynamic değiştirdiğinizde yayımlanır.
     
-Bu tabloda bir IP adresi oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
+Bu tabloda toocreate bir IP adresi kullanabileceğiniz hello yöntemler listelenmiştir.
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| [Azure portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Varsayılan olarak, genel IP adresleri dinamiktir ve VM durdurulduğunda ya da silindiğinde VM ile ilişkili adres değişebilir. VM’nin her zaman aynı genel IP adresini kullanmasını sağlamak için statik bir genel IP adresi oluşturun. Varsayılan olarak, bir VM oluşturulurken NIC’ye portal tarafından dinamik özel IP adresi atanır. VM oluşturulduktan sonra bu adresi statik olarak değiştirebilirsiniz.|
-| [Azure PowerShell](../../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) komutunu **-AllocationMethod** parametresi Dinamik veya Statik olacak şekilde kullanırsınız. |
-| [Azure CLI](../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) komutunu **--allocation-method** parametresi Dinamik veya Statik olacak şekilde kullanırsınız. |
+| [Azure portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Varsayılan olarak, dinamik genel IP adresleri ve hello VM durduruldu veya silindiğinde hello ilişkili adresi toothem değişebilir. VM her zaman hello tooguarantee kullanan Merhaba aynı genel IP adresi, bir statik genel IP adresi oluşturun. Varsayılan olarak, bir VM oluştururken, bir dinamik özel IP adresi tooa NIC hello portal atar. Bu toostatic hello VM oluşturulduktan sonra değiştirebilirsiniz.|
+| [Azure PowerShell](../../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Kullandığınız [yeni AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) hello ile **- AllocationMethod** parametre dinamik veya statik olarak. |
+| [Azure CLI](../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Kullandığınız [az ağ genel IP oluşturun](https://docs.microsoft.com/cli/azure/network/public-ip#create) hello ile **--ayırma yöntemi** parametre dinamik veya statik olarak. |
 | [Şablon](../../virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Bir şablon kullanarak genel IP adresi dağıtmak için [Genel IP Adresli bir Sanal Ağda Ağ Arabirimi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) konusunu bir kılavuz olarak kullanın. |
 
-Genel bir IP adresi oluşturduktan sonra bu adresi bir NIC’ye atayarak bir VM ile ilişkilendirebilirsiniz.
+Bir ortak IP adresi oluşturduktan sonra bir VM ile tooa NIC atayarak ilişkilendirebilir
 
 ## <a name="virtual-network-and-subnets"></a>Sanal ağ ve alt ağlar
 
-Alt ağ, sanal ağ içindeki bir IP adresleri aralığıdır. Bir sanal ağı organizasyon ve güvenlik için birden çok alt ağa bölebilirsiniz. Bir VM’deki her NIC, bir VNet’teki bir alt ağa bağlanır. Bir VNet içindeki alt ağlara (aynı veya farklı) bağlı NIC’ler, ek bir yapılandırma gerektirmeden birbirleriyle iletişim kurabilir.
+Bir IP adresi aralığı hello VNet içindeki bir alt ağıdır. Bir sanal ağı organizasyon ve güvenlik için birden çok alt ağa bölebilirsiniz. Her NIC'nin bir VM'de bağlı tooone alt bir VNet içinde değil. NIC bağlı toosubnets (aynı veya farklı) bir sanal ağ içindeki ek bir yapılandırma gerektirmeden birbirleriyle iletişim kurabilir.
 
-Bir VNet ayarlarken kullanılabilir adres alanları ve alt ağlar da dahil olmak üzere ağın topolojisini siz belirtirsiniz. VNet diğer VNet’lere veya şirket içi ağlara bağlanacaksa birbiriyle çakışmayan adres aralıkları seçmeniz gerekir. IP adresleri özeldir ve bu ağlara İnternet’ten erişilemez (yalnızca 10.0.0.0/8, 172.16.0.0/12 veya 192.168.0.0/16 gibi yönlendirilemeyen IP adresleri için geçerli). Azure artık tüm adres aralıklarını yalnızca VNet içerisinden, birbirine bağlı VNet’lerden ve şirket içi konumunuzdan erişilebilen özel VNet IP adresi alanının bir parçası olarak görür. 
+Bir VNet ayarladığınızda, hello kullanılabilir adres alanları ve alt ağlar da dahil olmak üzere, hello topolojisini belirtin. Merhaba VNet bağlı toobe tooother sanal ağlar veya şirket içi ağlar ise, çakışmadığından adres aralıklarını seçmeniz gerekir. Merhaba IP adresleri özel olan ve hello yalnızca hello routeable olmayan IP adreslerini 10.0.0.0/8, 172.16.0.0/12 veya 192.168.0.0/16 gibi true Internet erişilemiyor. Şimdi, Azure herhangi bir adres aralığı hello VNet, birbirine bağlı sanal ağlar içinde ve şirket içi konumunuz içinde yalnızca erişilebilen hello özel sanal ağ IP adresi alanı bir parçası olarak değerlendirir. 
 
-İç ağlardan başka birinin sorumlu olduğu bir kurumda çalışıyorsanız adres alanınızı seçmeden önce bu kişiyle konuşmalısınız. Herhangi bir çakışma olmadığından emin olun ve sorumlu kişinin aynı IP adresi aralığını kullanmaya çalışmaması için bu kişiye hangi alanı kullanmak istediğinizi bildirin. 
+Başka birinin hello iç ağlar için sorumlu olduğu bir kuruluştaki çalışıyorsanız, adres alanınızı seçmeden önce toothat kişi konuşun. Bir çakışma olduğundan emin olun ve toouse istediğiniz hello boşluk bildirmek deneyin olmayan şekilde toouse hello aynı IP adresi aralığı. 
 
-Varsayılan olarak alt ağlar arasında herhangi bir güvenlik sınırı olmadığından, bu alt ağların her birindeki VM’ler birbiriyle iletişim kurabilir. Bununla birlikte, alt ağların ve VM’lerin birbirleri arasındaki trafik akışını denetlemenize imkan sağlayan Ağ Güvenlik Grupları (NSG) ayarlayabilirsiniz. 
+Varsayılan olarak, bu alt ağın her biri Vm'lerde tooone iletişim kurabilirsiniz alt ağlar arasında hiçbir güvenlik sınırı olduğundan başka bir. Ancak, toocontrol hello trafik akışı tooand alt ağlar gelen ve vm'lerden tooand izin veren ağ güvenlik grupları (Nsg'ler) ayarlayabilirsiniz. 
 
-Bu tabloda, bir VNet ve alt ağlar oluşturmak için kullanabileceğiniz yöntemler listelenmiştir. 
+Bu tabloda toocreate VNet ve alt ağları kullanabileceğiniz hello yöntemler listelenmiştir.   
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| [Azure Portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md) | Bir VM oluştururken VNet oluşturma işlemini Azure’a bırakırsanız, ad VNet’i ve **-vnet**’i içeren kaynak grubunun adının bir birleşimi olur. Adres alanı 10.0.0.0/24, gerekli alt ağ adı **default** ve alt ağ adres aralığı 10.0.0.0/24’tür. |
-| [Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md) | Bir alt ağ ve VNet oluşturmak için [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) ve [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) komutlarını kullanırsınız. Ayrıca, mevcut bir VNet’e alt ağ eklemek için [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) komutunu da kullanabilirsiniz. |
-| [Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md) | Alt ağ ve VNet aynı anda oluşturulur. [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) komutuna alt ağın adını içeren bir **--subnet-name** parametresi sağlayın. |
-| [Şablon](../../virtual-network/virtual-networks-create-vnet-arm-template-click.md) | VNet ve alt ağlar oluşturmanın en kolay yolu, [İki Alt Ağlı Sanal Ağ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) gibi mevcut bir şablonu indirerek kendi gereksinimlerinize göre değiştirmektir. |
+| [Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md) | Azure VM oluşturduğunuzda, bir VNet oluşturma izin vermek istiyorsanız, hello adı bir hello VNet içeren hello kaynak grubu adı birleşimidir ve **- vnet**. Merhaba adres alanı 10.0.0.0/24, hello gereken alt ağ adı **varsayılan**, ve hello alt ağ adresi aralığı 10.0.0.0/24. |
+| [Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md) | Kullandığınız [yeni AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) ve [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) toocreate bir alt ağ ve sanal ağ bir. De kullanabilirsiniz [Ekle AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) tooadd bir alt ağ tooan mevcut VNet. |
+| [Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md) | Hello alt hello VNet hello aynı oluşturulduğunu ve saat. Sağlayan bir **--alt ağ adı** parametresi çok[az ağ vnet oluşturma](https://docs.microsoft.com/cli/azure/network/vnet#create) hello alt ağ adı ile. |
+| [Şablon](../../virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Merhaba en kolay yolu toocreate VNet ve alt ağıdır toodownload var olan bir şablonu gibi [iki alt ağ ile sanal ağ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)ve gereksinimlerinize göre değiştirin. |
 
 ## <a name="network-security-groups"></a>Ağ güvenlik grupları
 
-[Ağ güvenlik grubu (NSG)](../../virtual-network/virtual-networks-nsg.md), alt ağlara, NIC’lere veya her ikisine yönelik ağ trafiğine izin veren veya trafiği reddeden Erişim Denetimi Listesi (ACL) kurallarının bir listesini içerir. NSG’ler alt ağlarla veya bir alt ağa bağlı tekil NIC’lerle örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM’ler için geçerli olur. Ayrıca, tekil bir NIC’ye yönelik trafik, bir NSG’nin doğrudan bu NIC ile ilişkilendirilmesi yoluyla sınırlanabilir.
+A [ağ güvenlik grubu (NSG)](../../virtual-network/virtual-networks-nsg.md) izin veren veya ağ trafiğini toosubnets, NIC ya da her ikisini de reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. Nsg'ler alt ağları veya tek tek NIC bağlı tooa alt ağ ile ilişkili olabilir. Bir NSG'yi bir alt ağ ile ilişkili olduğunda hello ACL kuralları bu alt ağdaki tooall hello VM'ler uygulayın. Ayrıca, tek tek NIC, bir NSG ilişkilendirerek kısıtlanabilir tooan trafiği doğrudan tooa NIC
 
-NSG'ler iki kural kümesi içerir: gelen ve giden. Bir kurala ait öncelik her küme içinde benzersiz olmalıdır. Her kuralın protokol, kaynak ve hedef bağlantı noktası aralıkları, adres ön ekleri, trafik yönü, öncelik ve erişim türü özellikleri vardır. 
+NSG'ler iki kural kümesi içerir: gelen ve giden. bir kural için Hello öncelik her küme içinde benzersiz olmalıdır. Her kuralın protokol, kaynak ve hedef bağlantı noktası aralıkları, adres ön ekleri, trafik yönü, öncelik ve erişim türü özellikleri vardır. 
 
-Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler. 
+Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Merhaba varsayılan kurallar silinemez ancak hello en düşük öncelik atandığı için oluşturduğunuz hello kurallarıyla kılınabilir. 
 
-Bir NSG'yi bir NIC ile ilişkilendirdiğinizde, NSG'deki ağ erişim kuralları yalnızca bu NIC'ye uygulanır. Çok NIC’li bir VM’de bir NSG tek bir NIC’ye uygulandığı zaman diğer NIC’lere giden trafik etkilenmez. Farklı NSG’leri bir NIC ile (veya dağıtım modeline bağlı olarak VM ile) ve NIC’nin veya VM’nin bağlı olduğu ağ ile ilişkilendirebilirsiniz. Trafiğin yönüne bağlı olarak öncelik verilir.
+Bir NSG tooa NIC ile ilişkilendirdiğinizde, hello ağ erişim kuralları hello NSG içinde uygulanan yalnızca toothat NIC olan Bir NSG'yi uygulanan tooa ise tek NIC multi-NIC VM bu trafiği toohello diğer NIC'ler etkilemez. Farklı Nsg'leri tooa NIC (veya hello dağıtım modeline bağlı olarak VM) ilişkilendirin ve NIC'nin veya VM'nin bağlı olduğu alt ağ hello. Öncelik trafiği hello yönünü verilir.
 
-VM’leriniz ve VNet’inizle ilgili plan yaptığınız sırada NSG’lerinizi de mutlaka [planlayın](../../virtual-network/virtual-networks-nsg.md#planning).
+Mutlaka çok[planı](../../virtual-network/virtual-networks-nsg.md#planning) VM'ler ve sanal ağ planlarken Nsg'lerinizi.
 
-Bu tabloda bir ağ güvenlik grubu oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
+Bu tabloda toocreate bir ağ güvenlik grubu kullanabileceğiniz hello yöntemler listelenmiştir.
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| [Azure portal](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Azure portalında bir VM oluşturduğunuzda otomatik olarak bir NSG oluşturulur ve portalın oluşturduğu NIC ile ilişkilendirilir. NSG’nin adı, VM’nin adı ile **-nsg**’nin birleşiminde oluşur. Bu NSG, önceliği 1000 olan, hizmeti RDP olarak, protokolü TCP olarak, bağlantı noktası 3389 olarak ve eylemi İzin ver olarak ayarlanmış bir gelen kural içerir. VM’ye yönelik başka bir gelen trafiğe izin vermek istiyorsanız NSG’ye ek kurallar eklemeniz gerekir. |
-| [Azure PowerShell](../../virtual-network/virtual-networks-create-nsg-arm-ps.md) | [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) komutunu kullanın ve gerekli kural bilgilerini sağlayın. NSG’yi oluşturmak için [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) komutunu kullanın. NSG’yi alt ağa yönelik olarak yapılandırmak için [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) komutunu kullanın. NSG’yi VNet’e eklemek için [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) komutunu kullanın. |
-| [Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md) | NSG’yi ilk olarak oluşturmak için [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) komutunu kullanın. NSG’ye kural eklemek için [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) komutunu kullanın. NSG’yi alt ağa eklemek için [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) komutunu kullanın. |
+| [Azure portal](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Bir VM hello Azure portal oluşturduğunuzda, bir NSG otomatik olarak oluşturulur ve ilişkili toohello NIC hello portal oluşturur. Merhaba NSG Hello adını hello VM hello adını birleşimidir ve **- nsg**. Bu NSG bir gelen kuralı içeren bir önceliği 1000, hizmet kümesi tooRDP, hello Protokolü kümesi tooTCP, bağlantı noktası too3389 ayarlamak ve eylem tooAllow ayarlayın. Tüm diğer gelen trafiği toohello VM tooallow istiyorsanız, ek kurallar toohello NSG eklemeniz gerekir. |
+| [Azure PowerShell](../../virtual-network/virtual-networks-create-nsg-arm-ps.md) | Kullanım [yeni AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) ve gerekli hello kural bilgileri sağlayın. Kullanım [yeni AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) toocreate hello NSG. Kullanım [kümesi AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) hello alt ağı için NSG tooconfigure hello. Kullanım [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) tooadd hello NSG toohello VNet. |
+| [Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md) | Kullanım [az ağ nsg oluşturma](https://docs.microsoft.com/cli/azure/network/nsg#create) tooinitially hello NSG oluşturun. Kullanım [az ağ nsg kuralını](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) tooadd toohello NSG kuralları. Kullanım [az ağ sanal ağ alt ağı güncelleştirme](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) tooadd hello NSG toohello alt ağ. |
 | [Şablon](../../virtual-network/virtual-networks-create-nsg-arm-template.md) | Bir şablon kullanarak ağ güvenlik grubu dağıtmak için [Ağ Güvenlik Grubu Oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) konusunu kılavuz olarak kullanın. |
 
 ## <a name="load-balancers"></a>Yük dengeleyiciler
 
-[Azure Load Balancer](../../load-balancer/load-balancer-overview.md), uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ performansı sağlar. Bir yük dengeleyici, VM’lere yönelik [gelen İnternet trafiğini dengeleme](../../load-balancer/load-balancer-internet-overview.md) veya [bir VNet’teki VM’ler arasında trafiği dengeleme](../../load-balancer/load-balancer-internal-overview.md) rolünü üstlenecek şekilde yapılandırılabilir. Ayrıca, bir yük dengeleyici şirket içi bilgisayarlar ile şirketler arası VM’ler arasındaki trafiği dengeleme ya da dış trafiği belirli bir VM’ye yönlendirme rollerini üstlenebilir.
+[Azure yük dengeleyici](../../load-balancer/load-balancer-overview.md) tooyour uygulamaları yüksek kullanılabilirlik ve ağ performansı sunar. Bir yük dengeleyici çok yapılandırılabilir[gelen Internet trafiği dengelemek](../../load-balancer/load-balancer-internet-overview.md) tooVMs veya [bir VNet içindeki VM'ler arasındaki trafiği dengelemek](../../load-balancer/load-balancer-internal-overview.md). Bir yük dengeleyici ayrıca şirket içi bilgisayarları ve VM'ler arasındaki trafiği bir şirket içi ağ ya da dış trafiği tooa dengeleyebilirsiniz belirli VM.
 
-Yük dengeleyici, genel IP adresi ile yük dengeleyicideki bağlantı noktası arasında ve özel IP adresi ile VM’nin bağlantı noktası arasında gelen ve giden trafiği eşler.
+Merhaba yük dengeleyici eşlemeleri gelen ve giden trafiği arasında ortak IP adresi ve bağlantı noktası hello yük dengeleyici ve hello özel IP adresi ve bağlantı noktası hello VM hello.
 
 Bir yük dengeleyici oluştururken şu yapılandırma öğelerini de dikkate almanız gerekir:
 
-- **Ön uç IP yapılandırması**: Bir yük dengeleyici, sanal IP’ler (VIP) olarak da bilinen bir veya daha fazla ön uç IP adresi içerebilir. Bu IP adresleri trafik için bir giriş işlevi görür.
-- **Arka uç adres havuzu**: Yükün dağıtıldığı NIC ile ilişkili IP adresleri.
-- **NAT kuralları**: Gelen trafik akışının ön uç IP’sinden geçip arka uç IP’sine nasıl dağıtılacağını tanımlar.
-- **Yük dengeleyici kuralları**: Belirli bir ön uç IP’si ve bağlantı noktası birleşimini bir dizi arka uç IP adresi ve bağlantı noktası bileşimiyle eşler. Tek bir yük dengeleyici birden çok dengeleme kuralına sahip olabilir. Her kural, bir ön uç IP’si ile bağlantı noktasının ve arka uç IP’si ile VM’lerle ilişkilendirilmiş bağlantı noktasının birleşiminden oluşur.
-- **[Araştırmalar](../../load-balancer/load-balancer-custom-probe-overview.md)**: VM’lerin durumunu izler. Bir araştırma yanıt veremediğinde, yük dengeleyici sağlıksız VM’ye yeni bağlantı göndermeyi durdurur. Mevcut bağlantılar bu durumdan etkilenmez ve yeni bağlantılar sağlıklı VM’lere gönderilir.
+- **Ön uç IP yapılandırması**: Bir yük dengeleyici, sanal IP’ler (VIP) olarak da bilinen bir veya daha fazla ön uç IP adresi içerebilir. Bu IP adreslerine hello trafiği için giriş işlevini görür.
+- **Arka uç adres havuzu** – hello NIC toowhich yük ile ilişkili IP adreslerinin dağıtılır.
+- **NAT kuralları** -nasıl gelen trafiği tanımlar hello ön uç IP ve dağıtılmış toohello arka uç IP aracılığıyla akar.
+- **Yük Dengeleyici kuralları** -verilen ön uç IP ve bağlantı noktası bileşimi tooa kümesi arka uç IP adresleri ve bağlantı noktası bileşimi eşler. Tek bir yük dengeleyici birden çok dengeleme kuralına sahip olabilir. Her kural, bir ön uç IP’si ile bağlantı noktasının ve arka uç IP’si ile VM’lerle ilişkilendirilmiş bağlantı noktasının birleşiminden oluşur.
+- **[Yoklamaları](../../load-balancer/load-balancer-custom-probe-overview.md)**  -izleyiciler hello VM'ler durumunu. Bir araştırma toorespond başarısız olduğunda, hello yük dengeleyici durdurur yeni bağlantıları toohello gönderme sağlıksız VM. Merhaba varolan bağlantılar etkilenmez ve yeni bağlantılar toohealthy VM'ler gönderilir.
 
-Bu tabloda İnternet’e yönelik bir yük dengeleyici oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
+Bu tabloda hello yöntemleri toocreate bir internet'e yönelik Yük Dengeleyici kullanabilirsiniz.
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| Azure portalına | Şu anda Azure portalını kullanarak İnternet’e yönelik bir yük dengeleyici oluşturamazsınız. |
-| [Azure PowerShell](../../load-balancer/load-balancer-get-started-internet-arm-ps.md) | Daha önce oluşturduğunuz genel IP adresinin tanımlayıcısını sağlamak için [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) komutunu **-PublicIpAddress** parametresiyle birlikte kullanın. Arka uç adres havuzunun yapılandırmasını oluşturmak için [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) komutunu kullanın. Oluşturduğunuz ön uç IP yapılandırmasıyla ilişkili gelen NAT kuralları oluşturmak için [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) komutunu kullanın. İhtiyacınız olan araştırmaları oluşturmak için [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) komutunu kullanın. Yük dengeleyici yapılandırmasını oluşturmak için [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) komutunu kullanın. Yük dengeleyiciyi oluşturmak için [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) komutunu kullanın.|
-| [Azure CLI](../../load-balancer/load-balancer-get-started-internet-arm-cli.md) | İlk yük dengeleyici yapılandırmasını oluşturmak için [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) komutunu kullanın. Daha önce oluşturduğunuz genel IP adresini eklemek için [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) komutunu kullanın. Arka uç adres havuzunun yapılandırmasını eklemek için [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) komutunu kullanın. NAT kuralları eklemek için [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) komutunu kullanın. Yük dengeleyici kurallarını eklemek için [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) komutunu kullanın. Araştırmaları eklemek için [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) komutunu kullanın. |
-| [Şablon](../../load-balancer/load-balancer-get-started-internet-arm-template.md) | Bir şablon kullanarak yük dengeleyici dağıtmak için [Bir Yük Dengeleyici’de 2 VM ve LB’de NAT kuralları yapılandırma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules) konusunu kılavuz olarak kullanın. |
+| Azure portalına | Hello Azure portal kullanarak bir internet'e yönelik Yük Dengeleyici şu anda oluşturulamıyor. |
+| [Azure PowerShell](../../load-balancer/load-balancer-get-started-internet-arm-ps.md) | tooprovide hello tanımlayıcı hello ortak IP adresi, önceden oluşturulmuş kullanım [yeni AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) hello ile **- Publicıpaddress** parametresi. Kullanım [yeni AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) toocreate hello yapılandırmasını hello arka uç adres havuzu. Kullanım [yeni AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) toocreate gelen NAT kuralları, oluşturduğunuz hello ön uç IP yapılandırması ile ilişkilendirilmiş. Kullanım [yeni AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) toocreate hello araştırmaları, gerekir. Kullanım [yeni AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) toocreate hello yük dengeleyici yapılandırması. Kullanım [yeni AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) toocreate hello yük dengeleyici.|
+| [Azure CLI](../../load-balancer/load-balancer-get-started-internet-arm-cli.md) | Kullanım [az ağ lb oluşturma](https://docs.microsoft.com/cli/azure/network/lb#create) toocreate hello ilk yük dengeleyici yapılandırması. Kullanım [az ağ lb ön uç-IP oluşturmak](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) daha önce oluşturduğunuz tooadd hello genel IP adresi. Kullanım [az ağ lb adres havuzu oluşturma](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) hello arka uç adres havuzu tooadd hello yapılandırması. Kullanım [az ağ lb gelen nat-kuralı oluşturma](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) tooadd NAT kuralları. Kullanım [az ağ lb kuralını](https://docs.microsoft.com/cli/azure/network/lb/rule#create) tooadd hello yük dengeleyici kuralları. Kullanım [az ağ lb araştırma oluşturmak](https://docs.microsoft.com/cli/azure/network/lb/probe#create) tooadd hello araştırmaları. |
+| [Şablon](../../load-balancer/load-balancer-get-started-internet-arm-template.md) | Kullanım [bir yük dengeleyici içinde 2 VM ve NAT kurallarını LB hello üzerinde yapılandırma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules) bir şablonu kullanarak bir yük dengeleyici dağıtmak için bir kılavuz olarak. |
     
-Bu tabloda bir iç yük dengeleyici oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
+Bu tabloda hello yöntemleri toocreate bir iç yük dengeleyici kullanabilirsiniz.
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| Azure portalına | Şu anda Azure portalını kullanarak bir iç yük dengeleyici oluşturamazsınız. |
-| [Azure PowerShell](../../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Ağ alt ağında özel bir IP adresi sağlamak için [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) komutunu **-PrivateIpAddress** parametresiyle birlikte kullanın. Arka uç adres havuzunun yapılandırmasını oluşturmak için [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) komutunu kullanın. Oluşturduğunuz ön uç IP yapılandırmasıyla ilişkili gelen NAT kuralları oluşturmak için [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) komutunu kullanın. İhtiyacınız olan araştırmaları oluşturmak için [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) komutunu kullanın. Yük dengeleyici yapılandırmasını oluşturmak için [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) komutunu kullanın. Yük dengeleyiciyi oluşturmak için [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) komutunu kullanın.|
-| [Azure CLI](../../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | İlk yük dengeleyici yapılandırmasını oluşturmak için [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) komutunu kullanın. Özel IP adresini tanımlamak için [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) komutunu **--private-ip-address** parametresiyle birlikte kullanın. Arka uç adres havuzunun yapılandırmasını eklemek için [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) komutunu kullanın. NAT kuralları eklemek için [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) komutunu kullanın. Yük dengeleyici kurallarını eklemek için [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) komutunu kullanın. Araştırmaları eklemek için [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) komutunu kullanın.|
-| [Şablon](../../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Bir şablon kullanarak yük dengeleyici dağıtmak için [Bir Yük Dengeleyici’de 2 VM ve LB’de NAT kuralları yapılandırma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) konusunu kılavuz olarak kullanın. |
+| Azure portalına | Hello Azure portal kullanarak bir iç yük dengeleyici şu anda oluşturulamıyor. |
+| [Azure PowerShell](../../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | özel bir IP adresi hello ağ alt ağındaki, kullanım tooprovide [yeni AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) hello ile **- PrivateIpAddress** parametresi. Kullanım [yeni AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) toocreate hello yapılandırmasını hello arka uç adres havuzu. Kullanım [yeni AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) toocreate gelen NAT kuralları, oluşturduğunuz hello ön uç IP yapılandırması ile ilişkilendirilmiş. Kullanım [yeni AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) toocreate hello araştırmaları, gerekir. Kullanım [yeni AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) toocreate hello yük dengeleyici yapılandırması. Kullanım [yeni AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) toocreate hello yük dengeleyici.|
+| [Azure CLI](../../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Kullanım hello [az ağ lb oluşturmak](https://docs.microsoft.com/cli/azure/network/lb#create) komut toocreate hello ilk yük dengeleyici yapılandırması. toodefine hello özel IP adresi, kullanım [az ağ lb ön uç-IP oluşturma](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) hello ile **--özel IP adresi** parametresi. Kullanım [az ağ lb adres havuzu oluşturma](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) hello arka uç adres havuzu tooadd hello yapılandırması. Kullanım [az ağ lb gelen nat-kuralı oluşturma](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) tooadd NAT kuralları. Kullanım [az ağ lb kuralını](https://docs.microsoft.com/cli/azure/network/lb/rule#create) tooadd hello yük dengeleyici kuralları. Kullanım [az ağ lb araştırma oluşturmak](https://docs.microsoft.com/cli/azure/network/lb/probe#create) tooadd hello araştırmaları.|
+| [Şablon](../../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Kullanım [bir yük dengeleyici içinde 2 VM ve NAT kurallarını LB hello üzerinde yapılandırma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) bir şablonu kullanarak bir yük dengeleyici dağıtmak için bir kılavuz olarak. |
 
 ## <a name="vms"></a>VM'ler
 
-VM’ler aynı sanal ağda oluşturulabilir ve özel IP adreslerini kullanarak birbirine bağlanabilir. VM’ler, farklı alt ağlarda olsalar bile bir ağ geçidi yapılandırma ya da genel IP adresleri yapılandırma gerekstirmeden birbirine bağlanabilir. VM’leri bir VNet’e eklemek için VNet’i oluşturursunuz ve her VM’yi oluşturduğunuz sırada VNet’e ve alt ağa atarsınız. VM’ler ağ ayarlarını dağıtım veya başlatma sırasında alır.  
+Sanal makineleri oluşturulabilir hello aynı sanal ağ ve bunlar tooeach diğer bağlanabilir özel IP adresleri. Bunlar hello gerek tooconfigure olmadan farklı alt ağlarda bir ağ geçidi veya genel IP adresleri bile kullanıyorsanız bağlanabilir. tooput bir VNet içine VM'ler, hello VNet oluşturmak ve her bir VM oluştururken, onu toohello VNet ve alt ağ atayın. VM’ler ağ ayarlarını dağıtım veya başlatma sırasında alır.  
 
-VM’ler dağıtıldığı sırada VM’lere bir IP adresi atanır. Bir VNet veya alt ağa birden çok VM dağıtırsanız, bunlara başlatıldıkları sırada IP adresleri atanır. Bir VM ile ilişkili iç IP adresi dinamik bir IP adresidir (DIP). Bir VM’ye statik bir DIP ayırabilirsiniz. Statik bir DIP ayırmanız durumunda, yanlışlıkla başka bir VM’nin statik DIP’sini kullanmaktan kaçınmak için belirli bir alt ağı kullanmayı göz önünde bulundurun.  
+VM’ler dağıtıldığı sırada VM’lere bir IP adresi atanır. Bir VNet veya alt ağa birden çok VM dağıtırsanız, bunlara başlatıldıkları sırada IP adresleri atanır. Dinamik bir IP adresi (DIP) bir VM ile ilişkili hello iç IP adresidir. Statik DIP tooa VM ayırabilirsiniz. Statik DIP tahsis yanlışlıkla başka bir VM için bir statik DIP yeniden belirli alt tooavoid kullanmayı düşünmelisiniz.  
 
-Bir VM oluşturur ve daha sonra bu VM’yi bir VNet’e geçirmek isterseniz bu işlem basit bir yapılandırma değişikliği değildir. VM’yi yeniden VNet’e dağıtmanız gerekir. Yeniden dağıtmanın en kolay yolu VM’ye bağlı diskleri silmeden VM’yi silmek ve özgün diskleri kullanarak VM’yi VNet’te yeniden oluşturmaktır. 
+Bir VM oluşturun ve daha sonra toomigrate istiyorsanız, bir sanal ağ içinde bir basit yapılandırma değişikliği değil. Merhaba VM hello VNet uygulamasına dağıtmanız gerekir. Hello en kolay yolu tooredeploy toodelete hello VM, ancak hiçbir diskleri tooit bağlı; yeniden oluşturmanız hello VM kullanarak hello hello VNet özgün diskleri 
 
-Bu tabloda, bir VNet’te VM oluşturmak için kullanabileceğiniz yöntemler listelenmiştir.
+Bu tabloda toocreate bir VM sanal ağ içinde kullanabileceğiniz hello yöntemler listelenmiştir.
 
 | Yöntem | Açıklama |
 | ------ | ----------- |
-| [Azure portal](../virtual-machines-windows-hero-tutorial.md) | Daha önce bahsedilen varsayılan ayarlarını kullanarak tek NIC’li bir VM oluşturur. Birden çok NIC içeren bir VM oluşturmak için farklı bir yöntem kullanmalısınız. |
-| [Azure PowerShell](../virtual-machines-windows-ps-create.md) | Daha önce oluşturduğunuz NIC’nin VM yapılandırmasına eklenmesi için [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) komutunun kullanılmasını gerektirir. |
+| [Azure portal](../virtual-machines-windows-hero-tutorial.md) | Daha önce kullandığı hello varsayılan ağ ayarların toocreate tek bir NIC ile VM belirtilen birden çok NIC ile VM toocreate, farklı bir yöntem kullanmanız gerekir. |
+| [Azure PowerShell](../virtual-machines-windows-ps-create.md) | Merhaba kullanımını içerir [Ekle AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) tooadd hello toohello VM yapılandırması daha önce oluşturduğunuz NIC. |
 | [Şablon](ps-template.md) | Bir şablon kullanarak VM dağıtmak için [Çok basit Windows VM dağıtımı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) konusunu kılavuz olarak kullanın. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Kullanıcı tanımlı yollar ve IP iletimi](../../virtual-network/virtual-networks-udr-overview.md) yapılandırma hakkında bilgi edinin. 
-- [VNet’ten VNet’e bağlantılar](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) yapılandırma hakkında bilgi edinin.
-- [Yollarla ilgili sorunları giderme](../../virtual-network/virtual-network-routes-troubleshoot-portal.md) hakkında bilgi edinin.
+- Bilgi nasıl tooconfigure [kullanıcı tanımlı yollar ve IP iletimini](../../virtual-network/virtual-networks-udr-overview.md). 
+- Bilgi nasıl tooconfigure [VNet tooVNet bağlantıları](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+- Nasıl çok öğrenin[sorun giderme yolları](../../virtual-network/virtual-network-routes-troubleshoot-portal.md).
