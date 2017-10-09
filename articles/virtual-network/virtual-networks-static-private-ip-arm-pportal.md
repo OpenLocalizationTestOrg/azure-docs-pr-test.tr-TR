@@ -1,6 +1,6 @@
 ---
-title: "Özel IP adresleri VM'ler - Azure portal için yapılandırma | Microsoft Docs"
-description: "Azure Portalı'nı kullanarak sanal makineleri için özel IP adresleri yapılandırmayı öğrenin."
+title: "aaaConfigure özel IP adresleri VM'ler - Azure portalı | Microsoft Docs"
+description: "Tooconfigure özel IP adresleri kullanarak sanal makineleri için Azure portalını nasıl hello öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 474161303cdf8cb98e16ffd7cef6b74debdbc49a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir sanal makine için özel IP adreslerini yapılandırın
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-hello-azure-portal"></a>Hello Azure portal kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
 > [!div class="op_single_selector"]
 > * [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
@@ -37,31 +37,31 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. Ayrıca [Klasik dağıtım modelinde statik özel IP adresi yönetmek](virtual-networks-static-private-ip-classic-pportal.md).
+Bu makalede, hello Resource Manager dağıtım modeli yer almaktadır. Ayrıca [hello Klasik dağıtım modelinde statik özel IP adresi yönetmek](virtual-networks-static-private-ip-classic-pportal.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Aşağıdaki örnek adımları zaten oluşturulmuş basit bir ortam bekler. Bu belgede gösterildiği adımları çalıştırmak istiyorsanız, önce açıklanan test ortamı oluşturmak [vnet oluşturma](virtual-networks-create-vnet-arm-pportal.md).
+Merhaba örnek adımları zaten oluşturulmuş basit bir ortam bekler. Bu belgede gösterildiği toorun hello adımları istiyorsanız, ilk derleme açıklandığı hello test ortamı [vnet oluşturma](virtual-networks-create-vnet-arm-pportal.md).
 
-## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Özel statik IP adresleri test etmek için bir VM oluşturma
-Azure portalı kullanarak bir VM Resource Manager dağıtım modunda oluşturulması sırasında özel bir statik IP adresi ayarlanamıyor. VM önce oluşturmanız gerekir, statik olarak kendi özel IP tehn ayarlayın.
+## <a name="how-toocreate-a-vm-for-testing-static-private-ip-addresses"></a>Nasıl toocreate statik özel IP test etmek için bir VM adresleri
+Hello Azure portal kullanarak bir VM hello Resource Manager dağıtım modunda hello oluşturulması sırasında özel bir statik IP adresi ayarlanamıyor. Merhaba VM önce oluşturmanız gerekir, kendi özel IP toobe tehn statik olarak ayarlayın.
 
-Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet*, aşağıdaki adımları izleyin.
+toocreate adlı bir VM'den *DNS01* hello içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet*, hello adımları izleyin.
 
-1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınıza giriş yapın.
-2. Tıklatın **yeni** > **işlem** > **Windows Server 2012 R2 Datacenter**, dikkat **dağıtımmodeliseçin** listesinde zaten gösterir **Resource Manager**ve ardından **oluşturma**, aşağıdaki şekilde görüldüğü gibi.
+1. Tarayıcıdan toohttp://portal.azure.com gidin ve gerekiyorsa Azure hesabınıza.
+2. Tıklatın **yeni** > **işlem** > **Windows Server 2012 R2 Datacenter**, o hello fark **dağıtımmodeliseçin** listesinde zaten gösterir **Resource Manager**ve ardından **oluşturma**hello aşağıdaki çizimde görüldüğü gibi.
    
     ![Azure Portalı'nda VM oluşturma](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
-3. İçinde **Temelleri** dikey penceresinde oluşturulacak VM adını girin (*DNS01* bizim senaryoda), yerel yönetici hesabı ve parolası, aşağıdaki şekilde görüldüğü gibi.
+3. Merhaba, **Temelleri** dikey penceresinde hello VM toobe oluşturulan hello adını girin (*DNS01* bizim senaryoda), yerel yönetici hesabı ve parolası, hello aşağıdaki çizimde görüldüğü gibi hello.
    
     ![Temel Bilgiler dikey penceresi](./media/virtual-networks-static-ip-arm-pportal/figure02.png)
-4. Emin olun **konumu** seçili *Orta ABD*, ardından **Varolanı seç** altında **kaynak grubu**, ardından**Kaynak grubu** yeniden, ardından *TestRG*ve ardından **Tamam**.
+4. Hello emin olun **konumu** seçili *Orta ABD*, ardından **Varolanı seç** altında **kaynak grubu**, ardından**Kaynak grubu** yeniden, ardından *TestRG*ve ardından **Tamam**.
    
     ![Temel Bilgiler dikey penceresi](./media/virtual-networks-static-ip-arm-pportal/figure03.png)
-5. İçinde **bir boyutu seçin** dikey penceresinde, select **A1 standart**ve ardından **seçin**.
+5. Merhaba, **bir boyutu seçin** dikey penceresinde, select **A1 standart**ve ardından **seçin**.
    
     ![Bir boyut dikey penceresi seçin](./media/virtual-networks-static-ip-arm-pportal/figure04.png)    
-6. İçinde **ayarları** dikey penceresinde, aşağıdaki özellikleri ayarlanmadığından emin olun değerleriyle ayarlanır ve ardından **Tamam**.
+6. İçinde **ayarları** dikey penceresinde, aşağıdaki özelliklere yapma emin hello ayarlanır aşağıdaki hello değerleri ile ayarlanır ve ardından **Tamam**.
    
     -**Depolama hesabı**: *vnetstorage*
    
@@ -69,40 +69,40 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
    * **Alt ağ**: *ön uç*
      
      ![Bir boyut dikey penceresi seçin](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     
-7. İçinde **Özet** dikey penceresinde tıklatın **Tamam**. Panonuzda görüntülenen döşemenin aşağıdaki dikkat edin.
+7. Merhaba, **Özet** dikey penceresinde tıklatın **Tamam**. Panonuzda görüntülenen bildirim hello döşeme aşağıdaki.
    
     ![Azure Portalı'nda VM oluşturma](./media/virtual-networks-static-ip-arm-pportal/figure06.png)
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Bir VM için özel statik IP adresi bilgilerini alma
-Yukarıdaki adımları ile oluşturulan sanal makine için statik özel IP adresi bilgilerini görüntülemek için aşağıdaki adımları yürütün.
+## <a name="how-tooretrieve-static-private-ip-address-information-for-a-vm"></a>Nasıl tooretrieve statik özel IP adresi, bir VM için bilgi
+VM yukarıdaki hello adımları ile oluşturulan tooview hello statik özel IP adresi bilgileri hello hello adımları yürütün.
 
-1. Azure Azure Portalı'ndan tıklatın **TÜMÜNE Gözat** > **sanal makineleri** > **DNS01** > **tüm ayarlar**   >  **Ağ arabirimleri** ve listelenen yalnızca ağ arabirimi'ı tıklatın.
+1. Hello Azure Azure Portalı'ndan tıklatın **TÜMÜNE Gözat** > **sanal makineleri** > **DNS01** > **tüm ayarları** > **ağ arabirimleri** ve listelenen hello yalnızca ağ arabirimi'ı tıklatın.
    
     ![VM döşeme dağıtma](./media/virtual-networks-static-ip-arm-pportal/figure07.png)
-2. İçinde **ağ arabirimi** dikey penceresinde tıklatın **tüm ayarları** > **IP adreslerini** ve fark **atama** ve  **IP adresi** değerleri.
+2. Merhaba, **ağ arabirimi** dikey penceresinde tıklatın **tüm ayarları** > **IP adreslerini** ve bildirim hello **atama** ve **IP adresi** değerleri.
    
     ![VM döşeme dağıtma](./media/virtual-networks-static-ip-arm-pportal/figure08.png)
 
-## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Mevcut bir VM'yi özel bir statik IP adresi ekleme
-Yukarıdaki adımları kullanılarak oluşturulan VM için özel bir statik IP adresi eklemek için aşağıdaki adımları izleyin:
+## <a name="how-tooadd-a-static-private-ip-address-tooan-existing-vm"></a>Nasıl tooadd statik özel IP adresi VM varolan tooan
+tooadd bir statik özel IP adresi toohello hello yukarıdaki adımları kullanarak oluşturulan VM hello adımları izleyin:
 
-1. Gelen **IP adreslerini** , yukarıda gösterilen dikey tıklayın **statik** altında **atama**.
+1. Merhaba gelen **IP adreslerini** , yukarıda gösterilen dikey tıklayın **statik** altında **atama**.
 2. Tür *192.168.1.101* için **IP adresi**ve ardından **kaydetmek**.
    
     ![Azure Portalı'nda VM oluşturma](./media/virtual-networks-static-ip-arm-pportal/figure09.png)
 
 > [!NOTE]
-> ' I tıklattıktan sonra IF **kaydetmek** atama hala ayarlanır fark **dinamik**, yazdığınız IP adresi zaten kullanımda olduğunu gösterir. Farklı bir IP adresi deneyin.
+> ' I tıklattıktan sonra IF **kaydetmek** hello atama hala çok ayarlandığına dikkat edin**dinamik**, yazdığınız başlangıç IP adresi zaten kullanımda olduğunu gösterir. Farklı bir IP adresi deneyin.
 > 
 > 
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Özel bir statik IP adresi bir VM'den kaldırma
-Özel statik IP adresi yukarıda oluşturduğunuz sanal makineden kaldırmak için aşağıdaki adımı tamamlayın:
+## <a name="how-tooremove-a-static-private-ip-address-from-a-vm"></a>Nasıl tooremove bir statik özel IP adresi bir sanal makineden
+tooremove hello statik özel IP adresinden yukarıda, VM oluşturduğunuz hello adım aşağıdaki hello tamamlayın:
 
-Gelen **IP adreslerini** , yukarıda gösterilen dikey tıklayın **dinamik** altında **atama**ve ardından **kaydetmek**.
+Merhaba gelen **IP adreslerini** , yukarıda gösterilen dikey tıklayın **dinamik** altında **atama**ve ardından **kaydetmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [ayrılmış genel IP](virtual-networks-reserved-public-ip.md) adresleri.
 * Hakkında bilgi edinin [örnek düzeyinde ortak IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresleri.
-* Başvurun [ayrılmış IP REST API'leri](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Merhaba başvurun [ayrılmış IP REST API'leri](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

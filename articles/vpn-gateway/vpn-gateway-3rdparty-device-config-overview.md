@@ -1,6 +1,6 @@
 ---
-title: "Azure VPN ağ geçitleri için bağlanmak için 3 taraf VPN cihazını yapılandırma hakkında | Microsoft Docs"
-description: "Bu makale Azure VPN ağ geçitleri için bağlamak için 3 taraf VPN cihaz yapılandırmalarını genel bir bakış sağlar."
+title: "aaaAbout 3 taraf VPN cihazı yapılandırma tooconnect tooAzure VPN ağ geçitleri | Microsoft Docs"
+description: "Bu makalede tooAzure VPN ağ geçitlerini bağlama için 3 taraf VPN cihaz yapılandırmalarını genel bir bakış sağlar."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 72dab85bb882b05d72cef26bef70437695b70416
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3bb4fc94bc625386c2d0a02e1dcbdeb38ee0665e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-3rd-party-vpn-device-configurations"></a>3 taraf VPN cihaz yapılandırmalarını genel bakış
-Bu makale Azure VPN ağ geçitleri için bağlamak için şirket içi VPN cihaz yapılandırmalarını genel bir bakış sağlar. Örnek Azure sanal ağ ve VPN ağ geçidi, şirket içi VPN aygıtları aynı parametrelere sahip bağlanmak için kullanılacak.
+Bu makalede, şirket içi VPN cihaz yapılandırmalarını tooAzure VPN ağ geçitlerini bağlama için genel bir bakış sağlar. Merhaba örnek Azure sanal ağı ve kullanılan tooconnect toodifferent şirket içi VPN aygıtları hello ile aynı parametre olması VPN ağ geçidi Kurulum olacaktır.
 
 ## <a name="device-requirements"></a>Cihaz gereksinimleri
-Azure VPN ağ geçidi S2S VPN tünelleri için standart IPSec/IKE protokolü paketlerini kullanın. Başvurmak [VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md) Azure VPN ağ geçitleri için varsayılan şifreleme algoritmaları ve ayrıntılı IPSec/IKE protokol parametreleri için. Bölümünde açıklandığı gibi isteğe bağlı olarak şifreleme algoritmaları ve anahtar gücü belirli bir bağlantı için tam birleşimini belirtebilirsiniz [şifreleme gereksinimleri hakkında](vpn-gateway-about-compliance-crypto.md).
+Azure VPN ağ geçidi S2S VPN tünelleri için standart IPSec/IKE protokolü paketlerini kullanın. Çok başvuran[VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md) Merhaba IPSec/IKE protokolü parametreleri ve Azure VPN ağ geçitleri için varsayılan şifreleme algoritmalarının ayrıntılı. Bölümünde açıklandığı gibi hello tam birleşimini şifreleme algoritmaları ve anahtar gücü belirli bir bağlantı için isteğe bağlı olarak belirtebilirsiniz [şifreleme gereksinimleri hakkında](vpn-gateway-about-compliance-crypto.md).
 
 ## <a name ="singletunnel"></a>Tek VPN tüneli
-Bir Azure VPN ağ geçidi ve şirket içi VPN cihazınız arasındaki tek S2S VPN tüneli, birinci topoloji oluşur. İsteğe bağlı olarak VPN tüneli üzerinden BGP yapılandırabilirsiniz.
+bir Azure VPN ağ geçidi ve şirket içi VPN cihazınız arasındaki tek S2S VPN tüneli Hello ilk topoloji oluşur. BGP hello VPN tüneli üzerinden isteğe bağlı olarak yapılandırabilirsiniz.
 
 ![tek tünel](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Başvurmak [siteden siteye bağlantı yapılandırma](vpn-gateway-howto-site-to-site-resource-manager-portal.md) ayrıntılı, adım adım yönergeler için. Aşağıdaki bölümlerde parametreleri listelenmekte ve başlamanıza yardımcı olmak için bir PowerShell komut dosyası sağlar.
+Çok başvuran[siteden siteye bağlantı yapılandırma](vpn-gateway-howto-site-to-site-resource-manager-portal.md) ayrıntılı, adım adım yönergeler için. Merhaba aşağıdaki bölümlerde hello parametreleri listelenmekte ve kullanmaya başlama örnek PowerShell komut dosyası toohelp sağlayın.
 
 ### <a name="network-and-vpn-gateway-information"></a>Ağ ve VPN ağ geçidi bilgileri
-Bu bölümde yukarıdaki örnekler için parametreleri listeler.
+Bu bölümde yukarıdaki hello örnekler için hello parametreleri listeler.
 
 | **Parametre**                | **Değer**                    |
 | ---                          | ---                          |
@@ -51,7 +51,7 @@ Bu bölümde yukarıdaki örnekler için parametreleri listeler.
 * (*) Yalnızca BGP için isteğe bağlı parametreleri
 
 ### <a name="sample-powershell-script"></a>Örnek PowerShell komut dosyası
-[PowerShell kullanarak S2S VPN bağlantısı oluşturma](vpn-gateway-create-site-to-site-rm-powershell.md) ayrıntılı yönergeler içerir. Bu bölüm başlamanıza yardımcı olmak için bir örnek komut dosyası sağlar.
+[PowerShell kullanarak S2S VPN bağlantısı oluşturma](vpn-gateway-create-site-to-site-rm-powershell.md) hello ayrıntılı yönergeler. Bu bölüm, başlattığınız bir örnek komut dosyası tooget sağlar.
 
 ```powershell
 # Declare your variables
@@ -82,7 +82,7 @@ $LNGIP5        = "Your_VPN_Device_IP"
 $LNGASN5       = 65050
 $BGPPeerIP5    = "10.52.255.254"
 
-# Connect to your subscription and create a new resource group
+# Connect tooyour subscription and create a new resource group
 
 Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
@@ -108,7 +108,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 
 New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix51,$LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 
-# Create the S2S VPN connection
+# Create hello S2S VPN connection
 
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
@@ -117,16 +117,16 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ```
 
 ### <a name ="policybased"></a>[İsteğe bağlı] "UsePolicyBasedTrafficSelectors" özel IPSec/IKE ilkesiyle kullanın
-VPN cihazlarınızı "any herhangi" trafiğini Seçici (rota tabanlı/VTI-tabanlı yapılandırması) desteklemez, özel bir IPSec/IKE İlkesi oluşturup "UsePolicyBasedTrafficSelectors" seçeneği açıklandığı şekilde yapılandırmak gerekir [bu makalede](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+VPN cihazlarınızı "any herhangi" trafiğini Seçici (rota tabanlı/VTI-tabanlı yapılandırması) desteklemez varsa toocreate özel bir IPSec/IKE ilke ihtiyacınız ve "UsePolicyBasedTrafficSelectors" seçeneği açıklandığı gibi yapılandırın [bu makalede ](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 > [!IMPORTANT]
-> Bağlantı "UsePolicyBasedTrafficSelectors" seçeneğini etkinleştirmek için bir IPSec/IKE İlkesi oluşturmanız gerekir.
+> Toocreate sipariş tooenable "UsePolicyBasedTrafficSelectors" seçeneği hello bağlantı IPSec/IKE ilkesinde gerekir.
 
-Aşağıdaki örnek komut dosyası için aşağıdaki algoritmaları ve parametrelerine sahip bir IPSec/IKE ilkesi oluşturur:
+Merhaba örnek komut dosyası aşağıdaki hello ile IPSec/IKE ilkesi oluşturur algoritmaları ve parametreleri aşağıdaki:
 * Ikev2: AES256, SHA384 DHGroup24
 * IPSec: AES256, SHA1, PFS24, SA ömrü 7200 saniye & 20480000KB (20GB)
 
-Ardından, ilke uygulanır ve "UesPolicyBasedTrafficSelectors" bağlantısı sağlar.
+Merhaba ilke uygulanır ve "UesPolicyBasedTrafficSelectors" Merhaba bağlantıda sağlar.
 
 ```powershell
 $ipsecpolicy5 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA1 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 20480000
@@ -138,20 +138,20 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ```
 
 ### <a name ="bgp"></a>[İsteğe bağlı] BGP S2S VPN bağlantısı kullan
-BGP bağlantısı isteğe bağlı olarak kullanabilirsiniz. Bkz: [VPN ağ geçidi için BGP](vpn-gateway-bgp-resource-manager-ps.md). İki farklar vardır:
+BGP hello bağlantıda isteğe bağlı olarak kullanabilirsiniz. Bkz: [VPN ağ geçidi için BGP](vpn-gateway-bgp-resource-manager-ps.md). İki farklar vardır:
 
-Şirket içi adres öneklerini şirket içi BGP eş IP adresini bir tek ana bilgisayar adresi olabilir:
+Merhaba şirket içi adres öneklerini, tek bir ana bilgisayara adresi, hello şirket içi BGP eş IP adresi olabilir:
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 ```
 
-Ayarlamanız gerekir "-EnableBGP" bağlantı oluştururken $True için:
+Ayarlamanız gerekir "-EnableBGP" $ çok True hello bağlantı oluştururken:
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Etkin-etkin şirket içi ve dışı ile Sanal Ağdan Sanal Ağa bağlantıları yapılandırma adımları için bkz. [Şirket İçi ve Dışı ile Sanal Ağdan Sanal Ağa Bağlantılar için Etkin-Etkin VPN Gateways Yapılandırma](vpn-gateway-activeactive-rm-powershell.md).
+Bkz: [yapılandırma etkin-etkin VPN ağ geçitleri için şirket içi ve VNet-VNet bağlantıları](vpn-gateway-activeactive-rm-powershell.md) adımları tooconfigure etkin-etkin şirket içi ve VNet-VNet bağlantıları için.
 

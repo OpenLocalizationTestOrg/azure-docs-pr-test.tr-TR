@@ -1,5 +1,5 @@
 ---
-title: "Azure VPN Gateways ile BGP'ye genel bakış | Microsoft Docs"
+title: Azure VPN Gateways ile BGP'ye aaaOverview | Microsoft Docs
 description: "Bu makale Azure VPN Gateways ile BGP’ye genel bakış sağlar."
 services: vpn-gateway
 documentationcenter: na
@@ -15,38 +15,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 60d8dd45ecbd4a075721c25acadb21d4e2fd5448
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ced3f77ecd791c84fb72b96447e839be3bf94846
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Azure VPN Gateways ile BGP’ye genel bakış
 Bu makale Azure VPN Gateways içindeki BGP (Sınır Ağ Geçidi Protokolü) desteğine genel bakış sağlar.
 
-BGP iki veya daha fazla ağ arasında yönlendirme ve ulaşılabilirlik bilgilerini takas etmek üzere İnternet’te yaygın olarak kullanılan standart yönlendirme protokolüdür. BGP, Azure Virtual Networks bağlamında kullanıldığında her iki ağ geçidini ön eklerin ilgili ağ geçitlerinden veya yönlendiricilerden geçmeye yönelik kullanılabilirliği ve ulaşılabilirliği konusunda bilgilendiren “yolları” değiştirmek amacıyla, Azure VPN Gateways’i ve BGP eşlikleri veya komşuları olarak adlandırılan şirket içi VPN cihazlarınızı etkinleştirir. BGP ayrıca bir BGP ağ geçidinin öğrendiği yolları bir BGP eşliğinden diğer tüm BGP eşliklerine yayarak birden fazla ağ arasında geçiş yönlendirmesi sağlayabilir. 
+BGP hello Internet tooexchange Yönlendirme ve ulaşılabilirlik bilgilerini iki veya daha fazla ağ arasında yaygın olarak kullanılan hello standart yönlendirme protokolüdür. Ne zaman hello Azure sanal ağlar bağlamında kullanıldığında, BGP hello Azure VPN ağ geçitleri ve BGP eşleri olarak adlandırılan, şirket içi VPN cihazlarınızı etkinleştirir veya Komşuları olarak tooexchange "yolları", her iki ağ geçidini hello kullanılabilirliği ve ulaşılabilirliği olanlar için size bildirir Merhaba ağ geçitlerinden veya yönlendiricilerden söz konusu aracılığıyla toogo ekler. BGP, bir BGP eş tooall bir BGP ağ geçidinin öğrendiği yolları yayarak birden fazla ağ arasında geçiş yönlendirme de etkinleştirebilir diğer BGP eşleri. 
 
 ## <a name="why-use-bgp"></a>BGP neden kullanılır?
-BGP, Azure Yol Tabanlı VPN ağ geçitleri ile birlikte kullanabileceğiniz isteğe bağlı bir özelliktir. Özelliği etkinleştirmeden önce şirket içi VPN cihazlarınızın da BGP’yi desteklediğinden emin olmanız gerekir. Azure VPN ağ geçitlerini ve şirket içi VPN cihazlarınızı BGP olmadan kullanmaya devam edebilirsiniz. BGP ile ağlarınız ve Azure arasında statik yollar kullanmaya (BGP olmadan) *karşılık* BGP ile dinamik yönlendirme kullanmanın eşdeğeridir.
+BGP, Azure Yol Tabanlı VPN ağ geçitleri ile birlikte kullanabileceğiniz isteğe bağlı bir özelliktir. Merhaba özelliği etkinleştirmeden önce şirket içi VPN cihazlarınızı BGP desteklediğinden emin olmalısınız. Toouse Azure VPN ağ geçitleri ve şirket içi VPN cihazlarınızı BGP olmadan devam edebilirsiniz. Statik yollar (BGP olmadan) kullanarak eşdeğer hello olan *karşılaştırması* dinamik BGP ile ağlarınız ve Azure arasında yönlendirme kullanarak.
 
 BGP’nin çeşitli avantajları ve yeni özellikleri vardır:
 
 ### <a name="support-automatic-and-flexible-prefix-updates"></a>Otomatik ve esnek ön ek güncelleştirmelerini destekler
-BGP ile yalnızca belirli bir BGP eşliğine IPSec S2S VPN tüneli üzerinden en küçük ön eki bildirmeniz gerekir. Şirket içi VPN cihazınızın BGP eşliği IP adresinin ana bilgisayar ön eki (/32) kadar küçük olabilir. Azure Virtual Network’un erişmesine izin vermek üzere hangi şirket içi ağ ön eklerinin Azure’a tanıtılacağını denetleyebilirsiniz.
+BGP ile yalnızca hello IPSec S2S VPN tüneli üzerinden toodeclare minimum önek tooa belirli BGP eşi gerekir. Ana bilgisayar önek olarak küçük olabilir (/ 32) hello şirket içi VPN cihazınızın BGP eş IP adresini. Hangi ağ önekleri, Azure Virtual Network tooaccess tooadvertise tooAzure tooallow istediğiniz şirket içi kontrol edebilirsiniz.
 
-Ayrıca, büyük özel bir IP adres alanı (örneğin, 10.0.0.0/8) gibi VNet adres ön bazıları içerebilir büyük ön ekler tanıtabilirsiniz. Ön ekler VNet ön herhangi biri ile aynı olamaz olsa unutmayın. VNet ön eklerinizle aynı olan yollar reddedilir.
+Ayrıca, büyük özel bir IP adres alanı (örneğin, 10.0.0.0/8) gibi VNet adres ön bazıları içerebilir büyük ön ekler tanıtabilirsiniz. Hello öneklerini VNet ön herhangi biri ile aynı olamaz olsa unutmayın. Bu yollar aynı tooyour VNet ön reddedilir.
 
 ### <a name="support-multiple-tunnels-between-a-vnet-and-an-on-premises-site-with-automatic-failover-based-on-bgp"></a>Bir VNet ile şirket içi site arasında BGP’yi temel alan otomatik yük devretme ile birden fazla tüneli destekler
-Azure VNet ile şirket içi VPN cihazlarınız arasında aynı konumda birden fazla bağlantı kurabilirsiniz. Bu özellik aktif-aktif bir yapılandırmadaki iki ağ arasında birden fazla tünel (yol) sağlar. Tünellerden birinin bağlantısı kesilirse karşılık gelen yollar BGP aracılığıyla geri çekilir ve trafik kalan tünellere otomatik olarak geçer.
+Birden fazla Azure VNet ile şirket içi VPN cihazlarınızı arasında hello bağlantı kurabilir aynı konumu. Bu özellik, bir aktif-aktif yapılandırma hello iki ağ arasında birden fazla tünel (yol) sağlar. Merhaba tüneller birini bağlantısı kesilmişse hello karşılık gelen yollar BGP aracılığıyla geri çekilir ve hello trafiği toohello kalan tünellere otomatik olarak geçer.
 
-Aşağıdaki diyagramda yüksek oranda kullanılabilen bu kurulumun basit bir örneği gösterilmiştir:
+Aşağıdaki diyagramda hello bu yüksek oranda kullanılabilir kurulumun basit bir örneği gösterilmektedir:
 
 ![Birden fazla etkin yol](./media/vpn-gateway-bgp-overview/multiple-active-tunnels.png)
 
 ### <a name="support-transit-routing-between-your-on-premises-networks-and-multiple-azure-vnets"></a>Şirket içi ağlarınız ile birden fazla Azure VNet arasında geçiş yönlendirme desteği
-BGP, doğrudan veya dolaylı olarak bağlı olmasına bakılmaksızın birden fazla ağ geçidinin farklı ağlardaki ön ekleri öğrenmesini ve yaymasını sağlar. Bu özellik şirket içi siteleriniz arasında veya birden fazla Azure Sanal Ağında Azure VPN ağ geçitleri ile geçiş yönlendirmesi sağlayabilir.
+BGP birden çok ağ geçitleri toolearn sağlar ve doğrudan veya dolaylı olarak bağlı olmasına bakılmaksızın farklı ağlardaki ön ekleri yayar. Bu özellik şirket içi siteleriniz arasında veya birden fazla Azure Sanal Ağında Azure VPN ağ geçitleri ile geçiş yönlendirmesi sağlayabilir.
 
-Aşağıdaki diyagramda Microsoft Networks içindeki Azure VPN ağ geçitleri üzerinden iki şirket içi ağ arasındaki trafiği geçebilen birden fazla yola sahip çoklu atlamalı bir topolojinin örneği gösterilmektedir:
+Merhaba Aşağıdaki diyagramda hello hello Microsoft Networks içindeki Azure VPN ağ geçitleri üzerinden iki şirket içi ağlar arasındaki trafiği geçebilen birden fazla yol ile çoklu atlamalı bir topolojinin örneği gösterilmektedir:
 
 ![Çoklu atlamalı geçiş](./media/vpn-gateway-bgp-overview/full-mesh-transit.png)
 
@@ -54,5 +54,5 @@ Aşağıdaki diyagramda Microsoft Networks içindeki Azure VPN ağ geçitleri ü
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-BGP’yi şirketler arası ve VNet’ten VNet’te bağlantılar için yapılandırma adımları için bkz. [Azure VPN ağ geçitlerinde BGP kullanmaya başlama](vpn-gateway-bgp-resource-manager-ps.md).
+Bkz: [Azure VPN ağ geçitlerinde BGP ile çalışmaya başlama](vpn-gateway-bgp-resource-manager-ps.md) şirketler arası ve VNet-VNet bağlantıları için adımları tooconfigure BGP için.
 

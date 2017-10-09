@@ -1,6 +1,6 @@
 ---
-title: "Bir sanal ağ yapılandırma dosyasında DNS ayarlarını belirtme | Microsoft Docs"
-description: "Klasik dağıtım modelinde bir sanal ağ yapılandırma dosyası kullanarak bir sanal ağ içinde DNS sunucusu ayarlarını değiştirme"
+title: "DNS ayarları bir sanal ağ yapılandırma dosyasındaki aaaSpecifying | Microsoft Docs"
+description: "Merhaba Klasik dağıtım modelinde nasıl dosya toochange DNS sunucu ayarları bir sanal ağ yapılandırması'nı kullanarak bir sanal ağdaki"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d53a658773e1c930b5a28a701db0be9edd26565e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Bir sanal ağ yapılandırma dosyasında DNS ayarlarını belirtme
-Bir ağ yapılandırma dosyası, etki alanı adı sistemi (DNS) ayarlarını belirlemek için kullanabileceğiniz iki öğe vardır: **DnsServers** ve **DnsServerRef**. IP adreslerini belirterek DNS sunucularının bir listesini ekleyin ve başvuru adlarına **DnsServers** öğesi. Daha sonra kullanabileceğiniz bir **DnsServerRef** öğesi hangi DNS sunucusu girdileri DnsServers öğeden, sanal ağ içindeki farklı ağ siteleri için kullanılan belirtin.
+Bir ağ yapılandırma dosyası toospecify etki alanı adı sistemi (DNS) ayarlarını kullanabileceğiniz iki öğe vardır: **DnsServers** ve **DnsServerRef**. IP adreslerini belirterek DNS sunucularının bir listesini ekleyin ve başvuru adları toohello **DnsServers** öğesi. Daha sonra kullanabileceğiniz bir **DnsServerRef** öğesi toospecify hangi DNS sunucusu girdileri hello DnsServers öğeden, sanal ağ içindeki farklı ağ siteleri için kullanılır.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Bu makale, klasik dağıtım modelini kapsamaktadır.
+Bu makalede, hello Klasik dağıtım modeli yer almaktadır.
 
-Ağ yapılandırma dosyası, aşağıdaki öğeleri içerebilir. Her öğe başlığı öğesi değer ayarları hakkında ek bilgi sağlayan bir sayfasında bağlantılıdır.
+Merhaba ağ yapılandırma dosyası öğeleri aşağıdaki hello içerebilir. her öğenin Hello başlık değer ayarları hello öğesi hakkında ek bilgi sağlayan bağlantılı tooa sayfasıdır.
 
 > [!IMPORTANT]
-> Ağ yapılandırma dosyası yapılandırma hakkında daha fazla bilgi için bkz: [bir ağ yapılandırma dosyası kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md). Ağ yapılandırma dosyasında yer alan her öğe hakkında daha fazla bilgi için bkz: [Azure sanal ağ yapılandırma şeması](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+> Nasıl tooconfigure hello ağ yapılandırma dosyası hakkında daha fazla bilgi için bkz: [bir ağ yapılandırma dosyası kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md). Merhaba ağ yapılandırma dosyasında yer alan her öğe hakkında daha fazla bilgi için bkz: [Azure sanal ağ yapılandırma şeması](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 > 
 > 
 
@@ -46,7 +46,7 @@ Ağ yapılandırma dosyası, aşağıdaki öğeleri içerebilir. Her öğe başl
     </Dns>
 
 > [!WARNING]
-> **Adı** özniteliğini **DnsServer** öğe yalnızca başvuru olarak kullanılır **DnsServerRef** öğesi. DNS sunucusu için konak adı göstermiyor. Her **DnsServer** öznitelik değeri benzersiz olmalıdır tüm Microsoft Azure aboneliği
+> Merhaba **adı** hello özniteliğinde **DnsServer** öğe Merhaba yalnızca başvuru olarak kullanılır **DnsServerRef** öğesi. Merhaba hello DNS sunucusu için konak adı göstermiyor. Her **DnsServer** öznitelik değeri benzersiz olmalıdır hello tüm Microsoft Azure aboneliği arasında
 > 
 > 
 
@@ -59,12 +59,12 @@ Ağ yapılandırma dosyası, aşağıdaki öğeleri içerebilir. Her öğe başl
     </DnsServersRef>
 
 > [!NOTE]
-> Sanal ağ site öğesi için bu ayarı belirtmek için daha önce DNS öğesinde tanımlanması gerekir. DnsServerRef *adı* sanal ağ siteleri öğesi DnsServer için DNS öğesinde belirtilen bir ad değeri başvurmalıdır. *adı*.
+> İçinde hello sanal ağ site öğesi için bu ayarı toospecify sipariş, daha önce hello DNS öğesinde tanımlanmalıdır. Merhaba DnsServerRef *adı* hello sanal ağ siteleri için DnsServer hello DNS öğesinde belirtilen tooa adı değeri öğesi başvurmalıdır *adı*.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Anlamak [Azure Virtual Network yapılandırma şeması](http://go.microsoft.com/fwlink/?LinkId=248093).
-* Anlamak [Azure hizmet yapılandırma şeması](https://msdn.microsoft.com/library/windowsazure/ee758710).
+* Merhaba anlamak [Azure sanal ağ yapılandırma şeması](http://go.microsoft.com/fwlink/?LinkId=248093).
+* Merhaba anlamak [Azure hizmet yapılandırma şeması](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Ağ yapılandırma dosyalarını kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md).
 

@@ -1,6 +1,6 @@
 ---
 title: "Oluştur ve noktası Site için sertifikalar verme: MakeCert: Azure | Microsoft Docs"
-description: "Bu makale, otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve MakeCert kullanarak istemci sertifikalarını oluşturmak için adımlar içerir."
+description: "MakeCert kullanarak istemci sertifikalarını oluşturmak ve hello ortak anahtarını dışarı aktarmak veya bu makalede adımları toocreate otomatik olarak imzalanan sertifikayı içerir."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 4c51edac3b1cdafae8f9543bd0e3133b6a050f73
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0b795ccf74f1f97fbd3de8a0dc339f9cb0b48183
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Oluştur ve noktadan siteye bağlantıları MakeCert kullanarak için sertifikaları verme
 
-Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan sertifika oluşturmak ve MakeCert kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Kök sertifikalarını yüklemek nasıl gibi noktadan siteye yapılandırma adımlarını arıyorsanız ' yapılandırma noktası siteye ' makaleleri birini aşağıdaki listeden seçin:
+Noktadan siteye bağlantılar, sertifikalar tooauthenticate kullanır. Bu makalede MakeCert kullanarak istemci sertifikalarını oluşturmak ve nasıl toocreate otomatik olarak imzalanan bir kök sertifika gösterir. Nasıl tooupload kök sertifikaları, aşağıdaki hello hello ' yapılandırma noktası siteye ' makalelerinden birini seçin listeler gibi noktadan siteye yapılandırma adımları için istiyorsanız:
 
 > [!div class="op_single_selector"]
 > * [Otomatik olarak imzalanan sertifikalar - PowerShell oluşturma](vpn-gateway-certificates-point-to-site.md)
@@ -34,52 +34,52 @@ Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullan�
 > 
 > 
 
-Kullanmanızı öneririz sırada [Windows 10 PowerShell adımları](vpn-gateway-certificates-point-to-site.md) isteğe bağlı bir yöntem olarak bu MakeCert yönergeleri sunuyoruz sertifikalarınızı oluşturmak için. Her iki yöntemi kullanarak oluşturduğunuz sertifika yüklenebilir [herhangi bir desteklenen istemci işletim sistemi](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). Ancak, MakeCert aşağıdaki sınırlamalara sahiptir:
+Merhaba kullanmanızı öneririz sırada [Windows 10 PowerShell adımları](vpn-gateway-certificates-point-to-site.md) toocreate, sertifikalarınızı bu MakeCert yönergeleri isteğe bağlı bir yöntem olarak sağlıyoruz. Her iki yöntemi kullanarak oluşturduğunuz hello sertifikaları yüklenebilir [herhangi bir desteklenen istemci işletim sistemi](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). Bununla birlikte, MakeCert sınırlaması aşağıdaki hello vardır:
 
-* MakeCert kullanım dışıdır. Başka bir deyişle, bu aracı herhangi bir noktada kaldırılamadı. MakeCert artık kullanılabilir olduğunda zaten MakeCert kullanılarak oluşturulan herhangi bir sertifika etkilenmeyecek. MakeCert yalnızca değil doğrulama mekanizması olarak sertifikalarını oluşturmak için kullanılır.
+* MakeCert kullanım dışıdır. Başka bir deyişle, bu aracı herhangi bir noktada kaldırılamadı. MakeCert artık kullanılabilir olduğunda zaten MakeCert kullanılarak oluşturulan herhangi bir sertifika etkilenmeyecek. MakeCert yalnızca kullanılan toogenerate hello sertifikaları doğrulama mekanizması olarak değil.
 
 ## <a name="rootcert"></a>Otomatik olarak imzalanan sertifika oluştur
 
-Aşağıdaki adımlar MakeCert kullanarak otomatik olarak imzalanan bir sertifika oluşturmak nasıl gösterir. Bu adımları dağıtım modeli özel değildir. Bunlar, Resource Manager ve klasik için geçerli olur.
+Aşağıdaki adımları hello nasıl toocreate otomatik olarak imzalanan bir sertifika MakeCert kullanarak gösterir. Bu adımları dağıtım modeli özel değildir. Bunlar, Resource Manager ve klasik için geçerli olur.
 
 1. İndirme ve yükleme [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Yükleme tamamlandıktan sonra bu yol altındaki makecert.exe yardımcı programını genellikle bulabilirsiniz: ' C:\Program Files (x86) \Windows Kits\10\bin\<arch >'. Ancak başka bir konuma yüklendiğini mümkündür. Yönetici olarak bir komut istemi açın ve MakeCert yardımcı programı konumuna gidin. Aşağıdaki örnekte, doğru konumunu ayarlama kullanabilirsiniz:
+2. Yükleme tamamlandıktan sonra bu yol altındaki hello makecert.exe yardımcı programını genellikle bulabilirsiniz: ' C:\Program Files (x86) \Windows Kits\10\bin\<arch >'. Rağmen yüklü tooanother konumu olduğunu mümkündür. Yönetici olarak bir komut istemi açın ve hello MakeCert yardımcı programı toohello konumuna gidin. Aşağıdaki örnek, hello uygun konumu ayarlama hello kullanabilirsiniz:
 
   ```cmd
   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
   ```
-3. Oluşturun ve bilgisayarınızdaki kişisel sertifika deposunda bir sertifika yükleyin. Aşağıdaki örnek, karşılık gelen oluşturur *.cer* Azure'a P2S yapılandırırken karşıya dosya. 'P2SRootCert' ve 'P2SRootCert.cer' sertifika için kullanmak istediğiniz adla değiştirin. Sertifika, 'sertifikalarda - geçerli User\Personal\Certificates' bulunur.
+3. Oluşturun ve bilgisayarınızda hello kişisel sertifika deposunda bir sertifika yükleyin. Merhaba aşağıdaki örnek karşılık gelen oluşturur *.cer* P2S yapılandırırken tooAzure karşıya dosya. 'P2SRootCert' ve 'P2SRootCert.cer' hello sertifikası toouse istediğiniz hello adla değiştirin. Merhaba sertifika 'Sertifikalarınızı içinde - geçerli User\Personal\Certificates' bulunur.
 
   ```cmd
   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
   ```
 
-## <a name="cer"></a>Ortak anahtarı (.cer) aktarın
+## <a name="cer"></a>Dışarı aktarma hello ortak anahtarı (.cer)
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-Exported.cer dosyasını Azure'a yüklenmelidir. Yönergeler için bkz: [noktadan siteye bağlantı yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Bir ek güvenilen kök sertifika eklemek için bkz: [Bu bölümde](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) makalenin.
+Merhaba exported.cer dosyası karşıya yüklenen tooAzure olması gerekir. Yönergeler için bkz: [noktadan siteye bağlantı yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). tooadd ek güvenilen kök sertifika bkz [Bu bölümde](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) hello makalenin.
 
-### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>Kendinden imzalı bir sertifika ve (isteğe bağlı) depolamak için özel anahtarı dışarı aktar
+### <a name="export-hello-self-signed-certificate-and-private-key-toostore-it-optional"></a>Merhaba otomatik olarak imzalanan sertifika ve özel anahtar toostore vermek, (isteğe bağlı)
 
-Otomatik olarak imzalanan kök sertifikasını dışarı aktarma ve güvenli bir şekilde depolamak isteyebilirsiniz. Varsa olmadan, yapabilir daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci sertifikalarını oluşturmak veya başka bir .cer dosyasına dışarı aktarma. Bir .pfx otomatik olarak imzalanan kök sertifikasını dışarı aktarmak için kök sertifikasını seçin ve açıklandığı gibi aynı adımları kullanın [bir istemci sertifikası verme](#clientexport).
+Tooexport hello otomatik olarak imzalanan kök sertifikası ve güvenli bir şekilde depolamak isteyebilirsiniz. Varsa olmadan, yapabilir daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci sertifikalarını oluşturmak veya başka bir .cer dosyasına dışarı aktarma. tooexport hello .pfx, select hello kök sertifikası ve kullanım aynı adımları açıklandığı gibi hello olarak kök sertifikayı otomatik olarak imzalanan [bir istemci sertifikası verme](#clientexport).
 
 ## <a name="create-and-install-client-certificates"></a>Oluşturun ve istemci sertifikalarını yükleyin
 
-Doğrudan istemci bilgisayarda otomatik olarak imzalanan sertifika yüklemeyin. Bir istemci sertifikasını otomatik olarak imzalanan sertifika oluşturmak gerekir. Sonra dışarı aktarın ve istemci bilgisayara istemci sertifikası yükleyin. Aşağıdaki adımlar dağıtım modeli özel değildir. Bunlar, Resource Manager ve klasik için geçerli olur.
+Doğrudan hello istemci bilgisayarda otomatik olarak imzalanan sertifika hello yüklemeyin. Toogenerate hello otomatik olarak imzalanan sertifika bir istemci sertifikası gerekir. Sonra dışarı aktarma ve hello istemci sertifikası toohello istemci bilgisayara yükleyin. Aşağıdaki adımları hello dağıtım modeli özel değildir. Bunlar, Resource Manager ve klasik için geçerli olur.
 
 ### <a name="clientcert"></a>İstemci sertifikası oluşturma
 
-Noktadan Siteye bağlantı kullanarak bir sanal ağa bağlanan her istemci bilgisayarda bir istemci sertifikası yüklü olmalıdır. Ardından dışa otomatik olarak imzalanan kök sertifikasından bir istemci sertifikasını oluşturmak ve istemci sertifikasını yükleyin. İstemci sertifikası yüklü değilse, kimlik doğrulaması başarısız olur. 
+Tooa bağlanan her istemci bilgisayar noktadan siteye kullanarak VNet yüklü bir istemci sertifikası olması gerekir. Ardından dışa hello otomatik olarak imzalanan kök sertifikasından bir istemci sertifikasını oluşturmak ve hello istemci sertifikası yükleyin. Merhaba istemci sertifikası yüklü değilse, kimlik doğrulaması başarısız olur. 
 
-Aşağıdaki adımlarda, otomatik olarak imzalanan kök sertifikasından bir istemci sertifikası oluşturma aracılığıyla yol. Birden çok istemci sertifikaları aynı kök sertifikası oluşturabilir. Aşağıdaki adımları kullanarak istemci sertifikalarını oluşturmak, istemci sertifikasının, sertifikayı oluşturmak için kullanılan bilgisayarda otomatik olarak yüklenir. Bir istemci sertifikası başka bir istemci bilgisayara yüklemek istiyorsanız, sertifikayı dışa aktarabilirsiniz.
+Merhaba aşağıdaki adımlar, otomatik olarak imzalanan kök sertifikasından bir istemci sertifikası oluşturma aracılığıyla yol. Merhaba birden çok istemci sertifikaları verebilir aynı kök sertifikaya. Merhaba adımları kullanarak istemci sertifikalarını oluşturmak, hello istemci sertifikasını otomatik olarak hello bilgisayarda toogenerate hello sertifika kullanılan yüklenir. Tooinstall başka bir istemci bilgisayarında bir istemci sertifikası istiyorsanız hello sertifika verebilirsiniz.
  
-1. Otomatik olarak imzalanan sertifika oluşturmak için kullanılan aynı bilgisayarda yönetici olarak bir komut istemi açın.
-2. Değiştirme ve bir istemci sertifikasını oluşturmak için örnek çalıştırın.
-  * Değişiklik *"P2SRootCert"* istemci sertifikası oluşturma otomatik olarak imzalanan kök adı. Ne olursa olsun kök sertifikanın adı kullandığınızdan emin olun ' CN =' değer olan otomatik olarak imzalanan kök oluşturduğunuzda belirttiğiniz.
-  * Değişiklik *P2SChildCert* olması için bir istemci sertifikası oluşturmak için istediğiniz adı.
+1. Merhaba üzerinde toocreate hello kullanılan aynı bilgisayara otomatik olarak imzalanan sertifikası, yönetici olarak bir komut istemi açın.
+2. Değiştirme ve bir istemci sertifikası hello örnek toogenerate çalıştırın.
+  * Değişiklik *"P2SRootCert"* hello istemci sertifika oluşturma hello otomatik olarak imzalanan kök toohello adı. Ne olursa olsun hello olduğu hello kök sertifikasının hello adı kullandığınızdan emin olun ' CN =' değer olan hello otomatik olarak imzalanan kök oluşturduğunuzda belirttiğiniz.
+  * Değişiklik *P2SChildCert* toogenerate bir istemci sertifikası toobe istediğiniz toohello adı.
 
-  Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, kişisel sertifika deposunda kök sertifikasının P2SRootCert oluşturulan P2SChildcert adlı bir istemci sertifikası sonucudur.
+  Değişiklik yapmadan aşağıdaki örneğine hello çalıştırırsanız Merhaba, kişisel sertifika deposunda kök sertifikasının P2SRootCert oluşturulan P2SChildcert adlı bir istemci sertifikası sonucudur.
 
   ```cmd
   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
@@ -97,5 +97,5 @@ Aşağıdaki adımlarda, otomatik olarak imzalanan kök sertifikasından bir ist
 
 Noktası Site yapılandırmanızı ile devam edin. 
 
-* İçin **Resource Manager** dağıtım modeli adımları bkz [bir sanal ağa noktadan siteye bağlantı yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
-* İçin **Klasik** dağıtım modeli adımları bkz [bir sanal ağ (Klasik) bir noktadan siteye VPN bağlantısı yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+* İçin **Resource Manager** dağıtım modeli adımları bkz [bir noktadan siteye bağlantı tooa VNet yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* İçin **Klasik** dağıtım modeli adımları bkz [bir noktadan siteye VPN bağlantısı tooa VNet (Klasik) yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).

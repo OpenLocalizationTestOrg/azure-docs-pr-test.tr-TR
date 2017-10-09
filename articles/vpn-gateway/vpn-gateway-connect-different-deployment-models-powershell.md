@@ -1,6 +1,6 @@
 ---
-title: "Klasik sanal ağlar Azure Resource Manager sanal ağlara bağlanma: PowerShell | Microsoft Docs"
-description: "Klasik sanal ağlar ve Resource Manager VPN ağ geçidi ve PowerShell kullanarak sanal ağlar arasında bir VPN bağlantısı oluşturma hakkında bilgi edinin"
+title: "Klasik sanal ağlar tooAzure Resource Manager sanal ağlara bağlanma: PowerShell | Microsoft Docs"
+description: "Bilgi nasıl toocreate Klasik sanal ağlar ve Resource Manager VPN ağ geçidi ve PowerShell kullanarak sanal ağlar arasında bir VPN bağlantısı"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-ms.openlocfilehash: 842a32e5304977af92706cdda464286983122247
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b1cf6ae4becf1829fa99961c5dd09a422fcc1fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell kullanarak farklı dağıtım modellerindeki sanal ağları birbirine bağlama
 
 
 
-Bu makalede Resource Manager birbirleri ile iletişim kurmak için ayrı bir dağıtım modellerindeki kaynaklara izin vermek için sanal ağlar için Klasik sanal ağlara bağlanma gösterilmektedir. Bu makaledeki adımları PowerShell kullanın, ancak makaleyi bu listeden seçerek Azure Portalı'nı kullanarak bu yapılandırmayı de oluşturabilirsiniz.
+Bu makale size nasıl tooconnect Klasik sanal ağlar tooResource Yöneticisi sanal ağlar tooallow hello hello ayrı dağıtım modelleri toocommunicate birbirleriyle bulunan kaynakları gösterir. Hello adımları bu makalede PowerShell kullanın ancak bu listeden hello makale seçerek hello Azure portal kullanarak bu yapılandırmayı da oluşturabilirsiniz.
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -33,23 +33,23 @@ Bu makalede Resource Manager birbirleri ile iletişim kurmak için ayrı bir da�
 > 
 > 
 
-Bir Resource Manager Vnet'i klasik bir VNet bağlama, bir şirket içi site konumuna bir sanal ağa bağlanma benzer. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır. Farklı Aboneliklerde ve farklı bölgelerdeki sanal ağlar arasında bir bağlantı oluşturabilirsiniz. Dinamik ya da rota tabanlı ağ geçidi ile yapılandırılmamış olduğu sürece şirket içi ağlara bağlantılar zaten sanal ağlar da bağlanabilirsiniz. Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin sonunda yer alan [Sanal ağlar arası bağlantılar hakkında SSS](#faq) bölümünü inceleyin. 
+Resource Manager Vnet'i klasik bir VNet tooa bağlanma benzer tooconnecting bir VNet tooan şirket içi site konumu değil. Her iki bağlantı türü bir VPN ağ geçidi tooprovide IPSec/IKE kullanarak güvenli bir tünel kullanın. Farklı Aboneliklerde ve farklı bölgelerdeki sanal ağlar arasında bir bağlantı oluşturabilirsiniz. Dinamik ya da rota tabanlı ile yapılandırıldığını hello ağ geçidi olduğu sürece bağlantıları tooon içi ağlar, zaten sanal ağlar da bağlanabilirsiniz. VNet-VNet bağlantıları hakkında daha fazla bilgi için bkz: Merhaba [VNet-VNet ile ilgili SSS](#faq) hello bu makalenin sonunda. 
 
-Sanal ağlar aynı bölgede varsa, bunun yerine bunları VNet eşlemesi kullanmanın bağlayarak göz önünde bulundurun isteyebilirsiniz. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md). 
+Sanal ağlar hello varsa aynı bölgede isteyebilir tooinstead VNet eşlemesi kullanarak bunları bağlanma göz önünde bulundurun. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md). 
 
 ## <a name="before-beginning"></a>Başlamadan önce
 
-Aşağıdaki adımlar, her sanal ağ için dinamik veya rota tabanlı ağ geçidi yapılandırmak ve ağ geçitleri arasında bir VPN bağlantısı oluşturmak gerekli ayarları size yol. Bu yapılandırma, statik veya ilke tabanlı ağ geçitleri desteklemez.
+Merhaba aşağıdaki adımları hello ayarları gerekli tooconfigure, dinamik ya da rota tabanlı ağ geçidi her sanal ağ için yol ve hello ağ geçitleri arasında bir VPN bağlantısı oluşturun. Bu yapılandırma, statik veya ilke tabanlı ağ geçitleri desteklemez.
 
 ### <a name="prerequisites"></a>Ön koşullar
 
 * Her iki Vnet'in zaten oluşturulmuş.
-* Sanal ağlar için adres aralıklarını değil birbirleri ile üst üste veya ağ geçitleri bağlı olabilir diğer bağlantılar için aralıklardan herhangi biriyle çakışıyor.
-* En son PowerShell cmdlet'leri yüklediniz. Bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) daha fazla bilgi için. Hizmet Yönetimi (SM) ve Kaynak Yöneticisi (RM) cmdlet'leri yüklediğinizden emin olun. 
+* hello ağ geçitleri bağlı olabilir diğer bağlantılar için hello aralıklardan herhangi biriyle başlangıç adresi aralığı sanal ağlar değil birbirleri ile üst üste veya üst üste hello için.
+* Merhaba son PowerShell cmdlet'leri yüklediniz. Bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) daha fazla bilgi için. Merhaba Hizmet Yönetimi (SM) ve Kaynak Yöneticisi (RM) cmdlet'leri hello yüklediğinizden emin olun. 
 
 ### <a name="exampleref"></a>Örnek ayarlar
 
-Bu değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bunlara bakabilirsiniz.
+Bu değerleri toocreate bir test ortamı kullanın veya toothem başvurun toobetter anlamak bu makaledeki hello örnekler.
 
 **Klasik VNet ayarları**
 
@@ -74,22 +74,22 @@ Yerel ağ geçidi ClassicVNetLocal = <br>
 Sanal ağ geçidi adı RMGateway = <br>
 Ağ geçidi IP adresleme yapılandırmasını gwipconfig =
 
-## <a name="createsmgw"></a>1. Bölüm - Klasik VNet yapılandırın
+## <a name="createsmgw"></a>1. bölüm - yapılandırma Klasik VNet hello
 ### <a name="part-1---download-your-network-configuration-file"></a>Bölüm 1 - ağ yapılandırma dosyası indirme
-1. PowerShell konsolunda yükseltilmiş haklara sahip Azure hesabınızda oturum açın. Aşağıdaki cmdlet'i Azure hesabınız için oturum açma kimlik bilgilerini ister. Oturum açtıktan sonra, Azure PowerShell'de kullanabilmeniz için hesap ayarlarınızı indirir. Bu yapılandırmanın parçası tamamlamak için SM PowerShell cmdlet'lerini kullanın.
+1. İçinde tooyour yükseltilmiş haklara sahip Azure hesabı hello PowerShell konsolunda oturum açın. Merhaba aşağıdaki cmdlet'i, hello oturum açma kimlik bilgilerini Azure hesabınız için ister. Kullanılabilir tooAzure PowerShell; böylece oturum açtıktan sonra hesap ayarlarınızı indirir. Merhaba SM PowerShell cmdlet'leri toocomplete hello yapılandırmasının bu bölümü kullanın.
 
   ```powershell
   Add-AzureAccount
   ```
-2. Azure ağı yapılandırma dosyanızda aşağıdaki komutu çalıştırarak dışa aktarın. Farklı bir konum gerekirse dışa aktarılacak dosya konumunu değiştirebilirsiniz.
+2. Azure ağı yapılandırma dosyanızı hello aşağıdaki komutu çalıştırarak dışa aktarın. Merhaba dosya tooexport tooa farklı konumu gerekirse hello konumunu değiştirebilirsiniz.
 
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-3. İndirilen düzenlemek için .xml dosyasını açın. Ağ yapılandırma dosyası örneği için bkz: [ağ yapılandırma şeması](https://msdn.microsoft.com/library/jj157100.aspx).
+3. Açık hello .xml dosyası tooedit indirilen bu. Merhaba hello ağ yapılandırma dosyası örneği için bkz: [ağ yapılandırma şeması](https://msdn.microsoft.com/library/jj157100.aspx).
 
-### <a name="part-2--verify-the-gateway-subnet"></a>Bölüm 2 - ağ geçidi alt ağını doğrulayın
-İçinde **VirtualNetworkSites** öğesi değil zaten oluşturulmuş bir Vnet'inizi için bir ağ geçidi alt ağı ekleyin. Ağ yapılandırma dosyası ile çalışırken, ağ geçidi alt ağı "GatewaySubnet" adlı gerekir veya Azure algılar ve bir ağ geçidi alt ağı kullanın.
+### <a name="part-2--verify-hello-gateway-subnet"></a>Bölüm 2 - hello ağ geçidi alt ağını doğrulayın
+Merhaba, **VirtualNetworkSites** öğesi değil zaten oluşturulmuş bir ağ geçidi alt ağı tooyour VNet ekleyin. Merhaba ağ yapılandırma dosyası ile çalışırken, "GatewaySubnet" Merhaba ağ geçidi alt ağı adlı gerekir veya Azure algılar ve bir ağ geçidi alt ağı kullanın.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -111,8 +111,8 @@ Ağ geçidi IP adresleme yapılandırmasını gwipconfig =
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### <a name="part-3---add-the-local-network-site"></a>Bölüm 3 - yerel ağ sitesi ekleme
-Eklediğiniz yerel ağ sitesine bağlanmak istediğiniz RM VNet temsil eder. Ekleme bir **LocalNetworkSites** zaten yoksa, dosyaya öğesi. Bu noktada biz henüz Resource Manager Vnet'i için ağ geçidi oluşturmadınız çünkü yapılandırmasında VPNGatewayAddress herhangi bir geçerli ortak IP adresi olabilir. Biz ağ geçidini oluşturduktan sonra Biz bu yer tutucu IP adresi RM ağ geçidine atanmış doğru ortak IP adresi ile değiştirin.
+### <a name="part-3---add-hello-local-network-site"></a>Bölüm 3 - hello yerel ağ sitesi ekleme
+eklediğiniz hello yerel ağ sitesine hello tooconnect istediğiniz RM VNet toowhich temsil eder. Ekleme bir **LocalNetworkSites** zaten yoksa öğe toohello dosyası. Bu noktada hello ağ geçidi hello Resource Manager Vnet'i için oluşturduğumuz henüz yapmadıysanız için hello yapılandırmasında hello VPNGatewayAddress herhangi bir geçerli ortak IP adresi olabilir. Biz hello ağ geçidi oluşturduktan sonra Biz bu yer tutucu IP adresi toohello RM ağ geçidi atanmış hello doğru ortak IP adresiyle değiştirin.
 
     <LocalNetworkSites>
       <LocalNetworkSite name="RMVNetLocal">
@@ -123,8 +123,8 @@ Eklediğiniz yerel ağ sitesine bağlanmak istediğiniz RM VNet temsil eder. Ekl
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### <a name="part-4---associate-the-vnet-with-the-local-network-site"></a>Bölüm 4 - VNet yerel ağ sitesi ile ilişkilendirme
-Bu bölümde, Vnet'e bağlanmak istediğiniz yerel ağ sitesi belirtin. Bu durumda, daha önce başvurulan Resource Manager Vnet'i olur. Eşleşen adları emin olun. Bu adım, bir ağ geçidi oluşturmaz. Ağ geçidi bağlanacağı yerel ağ belirtir.
+### <a name="part-4---associate-hello-vnet-with-hello-local-network-site"></a>Bölüm 4 - hello yerel ağ sitesi ile ilişkilendirme hello VNet
+Bu bölümde, tooconnect istediğiniz hello yerel ağ sitesine belirttiğimiz Vnet'e hello. Bu durumda, hello daha önce başvurulan Resource Manager Vnet'i olur. Eşleşen emin hello adlar kolaylaştırır. Bu adım, bir ağ geçidi oluşturmaz. Ağ geçidi hello hello yerel ağ bağlanacağı belirtir.
 
         <Gateway>
           <ConnectionsToLocalNetwork>
@@ -134,36 +134,36 @@ Bu bölümde, Vnet'e bağlanmak istediğiniz yerel ağ sitesi belirtin. Bu durum
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### <a name="part-5---save-the-file-and-upload"></a>Bölüm 5 - karşıya yükleme ve dosyayı Kaydet
-Dosyayı kaydedin ve ardından aşağıdaki komutu çalıştırarak Azure'a alın. Ortamınız için gerektiği gibi dosya yolu değiştirdiğinizden emin olun.
+### <a name="part-5---save-hello-file-and-upload"></a>5 Kısım - hello dosyasını kaydedin ve karşıya yükleme
+Merhaba dosyasını kaydedin ve ardından hello aşağıdaki komutu çalıştırarak tooAzure alma. Ortamınız için gerektiği gibi hello dosya yolu değiştirdiğinizden emin olun.
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 ```
 
-İçeri aktarma başarılı olduğunu gösteren benzer bir sonuç görürsünüz.
+Merhaba içeri aktarma başarılı olduğunu gösteren benzer bir sonuç görürsünüz.
 
         OperationDescription        OperationId                      OperationStatus                                                
         --------------------        -----------                      ---------------                                                
         Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### <a name="part-6---create-the-gateway"></a>Bölüm 6 - ağ geçidi oluşturma
+### <a name="part-6---create-hello-gateway"></a>Bölüm 6 - hello ağ geçidi oluşturma
 
-Bu örneği çalıştırmadan önce görmek için Azure bekliyor tam adları için indirdiğiniz ağ yapılandırma dosyasına bakın. Ağ yapılandırma dosyası, Klasik sanal ağlar için değerleri içerir. Bazen adları Klasik sanal ağlar için dağıtım modelleri farklılıkları nedeniyle Azure portalında Klasik VNet ayarlarını oluştururken, ağ yapılandırma dosyasında değiştirilir. Örneğin, Klasik VNet 'Klasik VNet' adlı ve 'ClassicRG' adlı bir kaynak grubunda oluşturulan oluşturmak için Azure Portalı'nı kullandıysanız, ağ yapılandırma dosyasında yer alan adı 'Grup ClassicRG Klasik VNet' dönüştürülür. Boşluk içeren bir sanal ağ adı belirtirken, değeri tırnak işaretleri kullanın.
+Bu örneği çalıştırmadan önce toohello başvurmak bu Azure hello tam adları için yüklediğiniz ağ yapılandırma dosyası toosee bekliyor. Hello ağ yapılandırma dosyası, Klasik sanal ağlar için hello değerler içeriyor. Bazen hello adları Klasik sanal ağlar hello ağ yapılandırma dosyasında Klasik VNet ayarlarında oluştururken değişmesi için Azure portal hello dağıtım modellerini toohello farklılıkları nedeniyle hello. Örneğin, hello Klasik VNet 'Klasik VNet' adlı ve 'ClassicRG' adlı bir kaynak grubunda oluşturduğunuz Azure portal toocreate kullandıysanız, dönüştürülmüş too'Group ClassicRG Klasik VNet hello ağ yapılandırma dosyasında yer alan hello adı. '. Boşluk içeren bir VNet Hello adı belirtirken, hello değeri tırnak işaretleri kullanın.
 
 
-Dinamik yönlendirme ağ geçidi oluşturmak için aşağıdaki örneği kullanın:
+Aşağıdaki örnek toocreate dinamik yönlendirme ağ geçidi hello kullan:
 
 ```powershell
 New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 ```
 
-Kullanarak ağ geçidi durumunu kontrol edebilirsiniz **Get-AzureVNetGateway** cmdlet'i.
+Hello kullanarak hello hello ağ geçidi durumunu kontrol edebilirsiniz **Get-AzureVNetGateway** cmdlet'i.
 
-## <a name="creatermgw"></a>Bölüm 2: RM VNet ağ geçidini yapılandırma
-RM VNet için VPN ağ geçidi oluşturmak için aşağıdaki yönergeleri izleyin. Klasik sanal ağınızın ağ geçidi için genel IP adresi aldıktan sonra kadar adımları başlatmayın. 
+## <a name="creatermgw"></a>2. Bölüm: Merhaba RM VNet ağ geçidini yapılandırma
+toocreate hello RM VNet için VPN ağ geçidi hello yönergeleri izleyin. Merhaba Klasik sanal ağınızın ağ geçidi için genel IP adresi hello aldıktan sonra hello adımları kadar başlatmayın. 
 
-1. PowerShell konsolundaki Azure hesabınızda oturum açın. Aşağıdaki cmdlet'i Azure hesabınız için oturum açma kimlik bilgilerini ister. Oturum açtıktan sonra Azure PowerShell kullanılabilir olacak şekilde, hesap ayarlarınızı karşıdan yüklenir.
+1. İçinde tooyour Azure hesabı hello PowerShell konsolunda oturum açın. Merhaba aşağıdaki cmdlet'i, hello oturum açma kimlik bilgilerini Azure hesabınız için ister. Kullanılabilir tooAzure PowerShell; böylece oturum açtıktan sonra hesap ayarlarınızı indirilir.
 
   ```powershell
   Login-AzureRmAccount
@@ -175,23 +175,23 @@ RM VNet için VPN ağ geçidi oluşturmak için aşağıdaki yönergeleri izleyi
   Get-AzureRmSubscription
   ```
    
-  Kullanmak istediğiniz aboneliği belirtin.
+  Merhaba abonelik toouse istediğinizi belirtin.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```
-2. Bir yerel ağ geçidi oluşturun. Sanal bir ağda, yerel ağ geçidi genellikle şirket içi konumunuz anlamına gelir. Bu durumda, yerel ağ geçidi Klasik ağınızı anlamına gelir. Olarak Azure başvurduğu ve ayrıca adres alanı ön ekini belirtin bir ad verin. Azure, belirttiğiniz IP adresi ön ekini kullanarak hangi trafiğin şirket içi konumunuza gönderileceğini belirler. Burada yer alan bilgiler, daha sonra ağ geçidi oluşturmadan önce ayarlamanız gerekip gerekmediğine değerleri değiştirin ve örnek yeniden çalıştırın.
+2. Bir yerel ağ geçidi oluşturun. Bir sanal ağ hello yerel ağ geçidi genellikle tooyour içi konumunuz anlamına gelir. Bu durumda, hello yerel ağ geçidi tooyour Klasik VNet anlamına gelir. Olarak Azure tooit başvurun ve ayrıca hello adres alanı ön ekini belirtin bir ad verin. Azure başlangıç IP adresi ön eki hangi trafik toosend tooyour içi konumu tooidentify belirttiğiniz kullanır. Tooadjust hello buradaki bilgiler daha sonra ağ geçidiniz, oluşturmadan önce gerekirse hello değerleri ve çalışma hello örnek yeniden değiştirebilirsiniz.
    
-   **-Name** yerel ağ geçidine başvurmak için atamak istediğiniz addır.<br>
-   **-AddressPrefix** Klasik ağınız için adres alanıdır.<br>
-   **-Gatewayıpaddress** Klasik sanal ağınızın ağ geçidinin genel IP adresidir. Aşağıdaki örnek doğru IP adresini gösterecek şekilde değiştirdiğinizden emin olun.<br>
+   **-Ad** tooassign toorefer toohello yerel ağ geçidi istediğiniz hello adıdır.<br>
+   **-AddressPrefix** hello Klasik VNet adres alanı değil.<br>
+   **-Gatewayıpaddress** hello hello Klasik sanal ağınızın ağ geçidinin genel IP adresidir. Tooreflect hello doğru IP adresi toochange hello aşağıdaki örnek emin olun.<br>
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
   -Location "West US" -AddressPrefix "10.0.0.0/24" `
   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
   ```
-3. Resource Manager Vnet'i için sanal ağ geçidine ayrılacak genel IP adresi isteyin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, sanal ağ geçidi olarak dinamik olarak ayrılır. Ancak bu, IP adresinin değiştiği anlamına gelmez. Yalnızca bir kez sanal ağ geçidi IP adresi değişiklikleri olduğunda ağ geçidi silinip yeniden. Yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında ağ geçidi değiştirmez.
+3. Bir ortak IP adresi toobe ayrılmış toohello sanal ağ geçidi hello Resource Manager Vnet'i için istek. Başlangıç IP adresi toouse istediğiniz belirtemezsiniz. Başlangıç IP adresi toohello sanal ağ geçidi dinamik olarak ayrılır. Ancak, bu başlangıç IP adresi değişiklikleri gelmez. ağ geçidi Hello sanal ağ geçidi IP adresi değişiklikleri hello zaman hello yalnızca zaman silindiğinde ve yeniden. Yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında hello ağ geçidi değiştirmez.
 
   Bu adımda, biz de bir sonraki adımda kullanılan bir değişken ayarlayın.
 
@@ -201,27 +201,27 @@ RM VNet için VPN ağ geçidi oluşturmak için aşağıdaki yönergeleri izleyi
   -AllocationMethod Dynamic
   ```
 
-4. Sanal ağınızın ağ geçidi alt ağı olduğunu doğrulayın. Hiçbir ağ geçidi alt ağı varsa ekleyin. Ağ geçidi alt ağı adlandırılan emin olun *GatewaySubnet*.
-5. Aşağıdaki komutu çalıştırarak ağ geçidi için kullanılan alt ağ alın. Bu adımda, biz de sonraki adımda kullanılması için bir değişken ayarlayın.
+4. Sanal ağınızın ağ geçidi alt ağı olduğunu doğrulayın. Hiçbir ağ geçidi alt ağı varsa ekleyin. Merhaba ağ geçidi alt ağı adlandırılan emin olun *GatewaySubnet*.
+5. Merhaba aşağıdaki komutu çalıştırarak Hello ağ geçidi için kullanılan hello alt alın. Bu adımda, biz de hello sonraki adımda kullanılan bir değişken toobe ayarlayın.
    
-   **-Name** Resource Manager Vnet'i adıdır.<br>
-   **-ResourceGroupName** VNet ilişkili olduğu kaynak grubu. Ağ geçidi alt ağı için bu sanal ağ zaten mevcut olmalıdır ve adlandırılmalıdır *GatewaySubnet* düzgün çalışması için.<br>
+   **-Name** Resource Manager Vnet'i hello adıdır.<br>
+   **-ResourceGroupName** hello kaynak grubudur VNet ile ilişkili o hello. Merhaba ağ geçidi alt ağı için bu sanal ağ zaten mevcut olmalıdır ve adlandırılmalıdır *GatewaySubnet* toowork düzgün.<br>
 
   ```powershell
   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
   -VirtualNetwork (Get-AzureRmVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
   ``` 
 
-6. Ağ geçidi IP adresleme yapılandırmasını oluşturun. Ağ geçidi yapılandırması, kullanılacak alt ağı ve genel IP adresini tanımlar. Ağ geçidi yapılandırmanızı oluşturmak için aşağıdaki örneği kullanın.
+6. Merhaba ağ geçidi IP adresleme yapılandırmasını oluşturun. Merhaba ağ geçidi yapılandırmasını hello alt ağı ve hello ortak IP adresi toouse tanımlar. Aşağıdaki örnek toocreate hello ağ geçidi yapılandırmanızı kullanın.
 
-  Bu adımda, **- SubnetId** ve **- PublicIpAddressId** parametreleri gerekir bayraklarıdır ID özelliği alt ağ ve IP adresi nesneleri, sırasıyla. Basit bir dize kullanamazsınız. Adımda, bir ortak IP ve adım alt almak için istemek için bu değişkenleri ayarlayın.
+  Bu adımda, hello **- SubnetId** ve **- PublicIpAddressId** parametreleri gerekir bayraklarıdır hello ID özelliği hello alt ağ ve IP adresi nesneleri, sırasıyla. Basit bir dize kullanamazsınız. Bu değişkenler hello adım toorequest bir ortak IP ayarlanır ve adım tooretrieve hello alt hello.
 
   ```powershell
   $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
   -Name gwipconfig -SubnetId $subnet.id `
   -PublicIpAddressId $ipaddress.id
   ```
-7. Aşağıdaki komutu çalıştırarak Resource Manager sanal ağ geçidi oluşturun. `-VpnType` Olmalıdır *RouteBased*. 45 dakika veya daha fazla ağ geçidinin oluşturulması alabilir.
+7. Merhaba aşağıdaki komutu çalıştırarak Hello Resource Manager sanal ağ geçidi oluşturun. Merhaba `-VpnType` olmalıdır *RouteBased*. 45 dakika veya daha fazla hello ağ geçidi toocreate alabilir.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
@@ -229,51 +229,51 @@ RM VNet için VPN ağ geçidi oluşturmak için aşağıdaki yönergeleri izleyi
   -IpConfigurations $gwipconfig `
   -EnableBgp $false -VpnType RouteBased
   ```
-8. VPN ağ geçidi oluşturulduktan sonra genel IP adresini kopyalayın. Klasik VNet yerel ağ ayarlarını yapılandırırken kullanın. Genel IP adresi almak için aşağıdaki cmdlet'i kullanabilirsiniz. Genel IP adresi, dönüş olarak listelenen *IPADDRESS*.
+8. Merhaba VPN ağ geçidi oluşturulduktan sonra hello genel IP adresi kopyalayın. Klasik sanal ağınızı hello yerel ağ ayarlarını yapılandırırken kullanın. Cmdlet tooretrieve hello genel IP adresi aşağıdaki hello kullanabilirsiniz. Merhaba genel IP adresi hello dönüş olarak listelenen *IPADDRESS*.
 
   ```powershell
   Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
-## <a name="section-3-modify-the-classic-vnet-local-site-settings"></a>Bölüm 3: Klasik VNet yerel site ayarlarını değiştirme
+## <a name="section-3-modify-hello-classic-vnet-local-site-settings"></a>3. Bölüm: Merhaba Klasik VNet yerel site ayarlarını değiştirme
 
-Bu bölümde, Klasik VNet ile birlikte çalışır. Resource Manager Vnet'i ağ geçidine bağlanmak için kullanılan yerel site ayarlarını belirtmek için kullanılan yer tutucu IP adresini değiştirin. 
+Bu bölümde, hello ile iş Klasik VNet. Kullanılan tooconnect toohello Resource Manager Vnet'i ağ geçidi olacaktır hello yerel site ayarlarını belirtmek için kullanılan hello yer tutucu IP adresini değiştirin. 
 
-1. Ağ yapılandırma dosyasını dışarı aktarın.
+1. Merhaba ağ yapılandırma dosyasını dışarı aktarın.
 
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-2. Bir metin düzenleyicisi kullanarak, değer VPNGatewayAddress için değiştirin. Resource Manager ağ geçidi genel IP adresiyle yer tutucu IP adresini değiştirin ve değişiklikleri kaydedin.
+2. Bir metin düzenleyicisi kullanarak VPNGatewayAddress için başlangıç değerini değiştirin. Hello ortak IP adresini hello Resource Manager ağ geçidi ile Merhaba yer tutucu IP adresini değiştirin ve ardından hello değişiklikleri kaydedin.
 
   ```
   <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
   ```
-3. Değiştirilen ağ yapılandırma dosyasını Azure'a içeri aktarın.
+3. İçeri aktarma hello ağ yapılandırma dosyası tooAzure değiştirdi.
 
   ```powershell
   Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
   ```
 
-## <a name="connect"></a>4. Bölüm: ağ geçitleri arasında bağlantı oluşturma
-Ağ geçitleri arasında bir bağlantı oluşturmak için PowerShell gerekir. PowerShell cmdlet'leri Klasik sürümü kullanmak için Azure hesabınız eklemeniz gerekebilir. Bunu yapmak için kullanın **Add-AzureAccount**.
+## <a name="connect"></a>4. Bölüm: Merhaba ağ geçitleri arasında bağlantı oluşturma
+Merhaba ağ geçitleri arasında bir bağlantı oluşturmak için PowerShell gerekir. Azure hesabı toouse hello Klasik sürümünüz hello PowerShell cmdlet'leri tooadd gerekebilir. Bu nedenle, toodo kullanmak **Add-AzureAccount**.
 
-1. PowerShell konsolunda paylaşılan anahtarınız ayarlayın. Cmdlet'leri çalıştırmadan önce görmek için Azure bekliyor tam adları için indirdiğiniz ağ yapılandırma dosyasına bakın. Boşluk içeren bir sanal ağ adı belirtirken, değeri tek tırnak işareti kullanın.<br><br>Aşağıdaki örnekte, **- vnetname adlı** Klasik VNet adıdır ve **- LocalNetworkSiteName** yerel ağ sitesi için belirtilen ad. **- SharedKey** oluşturmak ve belirten bir değer. Örnekte 'abc123' kullandık ancak oluşturabilir ve daha karmaşık bir şey kullanın. Burada belirttiğiniz değer bağlantınızı oluştururken sonraki adımda belirttiğiniz değerle aynı değere olmalıdır önemli şeydir. Dönüş göstermelidir **durumu: başarılı**.
+1. Merhaba PowerShell konsolunda paylaşılan anahtarınız ayarlayın. Toohello başvurmak Hello cmdlet'leri çalıştırmadan önce bu Azure hello tam adları için yüklediğiniz ağ yapılandırma dosyası toosee bekliyor. Boşluk içeren bir VNet Hello adı belirtirken, hello değeri tek tırnak işareti kullanın.<br><br>Aşağıdaki örnekte, **- vnetname adlı** hello hello adıdır Klasik VNet ve **- LocalNetworkSiteName** hello yerel ağ sitesi için belirtilen hello adı. Merhaba **- SharedKey** oluşturmak ve belirten bir değer. Merhaba örnekte 'abc123' kullandık ancak oluşturabilir ve daha karmaşık bir şey kullanın. Burada belirttiğiniz başlangıç değeri şeydir önemli Hello hello aynı bağlantınızı oluştururken hello sonraki adımda belirttiğiniz değeri olmalıdır. Hello dönüş Göster **durumu: başarılı**.
 
   ```powershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `
   -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
   ```
-2. Aşağıdaki komutları çalıştırarak VPN bağlantısı oluşturun:
+2. Merhaba aşağıdaki komutları çalıştırarak Hello VPN bağlantısı oluşturun:
    
-  Değişkenleri ayarlayın.
+  Merhaba değişkenleri ayarlayın.
 
   ```powershell
   $vnet01gateway = Get-AzureRMLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
   $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
   ```
    
-  Bağlantıyı oluşturun. Dikkat **- ConnectionType** IPSec, Vnet2Vnet değil.
+  Merhaba bağlantı oluşturun. Bu hello fark **- ConnectionType** IPSec, Vnet2Vnet değil.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
@@ -284,7 +284,7 @@ Ağ geçitleri arasında bir bağlantı oluşturmak için PowerShell gerekir. Po
 
 ## <a name="section-5-verify-your-connections"></a>Bölüm 5: bağlantılarınızı doğrulayın
 
-### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>Resource Manager Vnet'i Klasik VNet arasında bağlantı doğrulamak için
+### <a name="tooverify-hello-connection-from-your-classic-vnet-tooyour-resource-manager-vnet"></a>Klasik VNet tooyour Resource Manager Vnet'i tooverify hello bağlantısından
 
 #### <a name="powershell"></a>PowerShell
 
@@ -295,7 +295,7 @@ Ağ geçitleri arasında bir bağlantı oluşturmak için PowerShell gerekir. Po
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 
-### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Resource Manager Vnet'i bağlantısından Klasik vnet doğrulamak için
+### <a name="tooverify-hello-connection-from-your-resource-manager-vnet-tooyour-classic-vnet"></a>Resource Manager Vnet'i tooyour tooverify hello bağlantısından Klasik VNet
 
 #### <a name="powershell"></a>PowerShell
 

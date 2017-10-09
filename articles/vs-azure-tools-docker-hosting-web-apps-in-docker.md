@@ -1,6 +1,6 @@
 ---
-title: "Bir ASP.NET Core Linux Docker kapsayıcısı uzak bir Docker konağına dağıtın | Microsoft Docs"
-description: "Bir Azure Docker ana Linux VM'de çalışan bir Docker kapsayıcısı ASP.NET Core web uygulama dağıtmak için Docker için Visual Studio Araçları kullanmayı öğrenin"
+title: "bir ASP.NET Core Linux Docker kapsayıcısı tooa uzak Docker ana aaaDeploy | Microsoft Docs"
+description: "Bir Azure Docker ana Linux VM üzerinde çalışan uygulama tooa Docker kapsayıcısı Docker toodeploy ASP.NET Core için Visual Studio Araçları toouse nasıl web öğrenin"
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 27b0c6420628c73220200bc071b47a4cd89fff58
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Bir ASP.NET kapsayıcısı uzak bir Docker konağına dağıtın
+# <a name="deploy-an-aspnet-container-tooa-remote-docker-host"></a>Bir ASP.NET kapsayıcı tooa uzak Docker ana dağıtma
 ## <a name="overview"></a>Genel Bakış
-Docker ana uygulamalar ve hizmetler için kullanabileceğiniz bir sanal makineye, bazı şekillerde benzer bir basit kapsayıcı alt yapısıdır.
-Bu öğretici, kullanarak kılavuzluk [Docker için Visual Studio Araçları](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) Docker konağına PowerShell kullanarak Azure üzerinde ASP.NET Core uygulama dağıtmak için uzantı.
+Docker olan bazı yolları tooa sanal hangi yapabilecekleriniz makinede, benzer bir basit kapsayıcı altyapısı toohost uygulamaları ve Hizmetleri kullanın.
+Bu öğretici, hello kullanarak kılavuzluk [Docker için Visual Studio Araçları](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) uzantısı toodeploy Azure PowerShell kullanarak bir ASP.NET Core uygulama tooa Docker konağında.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Aşağıdakiler bu öğreticiyi tamamlamak için gereklidir:
+Merhaba aşağıdaki gerekli toocomplete bu öğreticidir:
 
-* Bir Azure Docker ana VM açıklandığı gibi oluşturmak [docker makine Azure ile kullanma](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* En son sürümünü yüklemek [Visual Studio](https://www.visualstudio.com/downloads/)
-* Karşıdan [Microsoft ASP.NET Core 1.0 SDK'sı](https://go.microsoft.com/fwlink/?LinkID=809122)
+* Bir Azure Docker ana VM açıklandığı gibi oluşturmak [nasıl toouse docker-makine Azure ile](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Merhaba en son sürümünü yüklemek [Visual Studio](https://www.visualstudio.com/downloads/)
+* Merhaba karşıdan [Microsoft ASP.NET Core 1.0 SDK'sı](https://go.microsoft.com/fwlink/?LinkID=809122)
 * Yükleme [Windows için Docker](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. Bir ASP.NET Core web uygulaması oluşturma
-Aşağıdaki adımlar Bu öğreticide kullanılan temel bir ASP.NET Core uygulama oluşturmada size yol.
+Merhaba aşağıdaki adımlar, bu öğreticide kullanılan temel bir ASP.NET Core uygulama oluşturmada size yol.
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
 ## <a name="2-add-docker-support"></a>2. Docker desteği ekleme
 [!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## <a name="3-use-the-dockertaskps1-powershell-script"></a>3. DockerTask.ps1 PowerShell komut dosyası kullan
-1. Projenizi kök dizininin bir PowerShell komut istemini açın. 
+## <a name="3-use-hello-dockertaskps1-powershell-script"></a>3. Merhaba DockerTask.ps1 PowerShell Betiği kullanın
+1. Bir PowerShell komut istemi toohello kök dizin projenizin açın. 
    
    ```
    PS C:\Src\WebApplication1>
    ```
-2. Uzak doğrulama konak çalışıyor. Durumunu görmelisiniz çalışan = 
+2. Doğrulama hello uzak ana bilgisayarda çalışır. Durumunu görmelisiniz çalışan = 
    
    ```
    docker-machine ls
@@ -55,7 +55,7 @@ Aşağıdaki adımlar Bu öğreticide kullanılan temel bir ASP.NET Core uygulam
    MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
    ```
    
-3. Uygulamasını kullanarak yapı yapı parametresi
+3. Yapı hello uygulamasını kullanarak hello - yapı parametresi
    
    ```
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
@@ -66,7 +66,7 @@ Aşağıdaki adımlar Bu öğreticide kullanılan temel bir ASP.NET Core uygulam
    > ```  
    > 
    > 
-4. Uygulama Çalıştırma kullanarak Çalıştır parametresi
+4. Merhaba uygulama çalıştırma hello kullanarak - Çalıştır parametresi
    
    ```
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
@@ -78,7 +78,7 @@ Aşağıdaki adımlar Bu öğreticide kullanılan temel bir ASP.NET Core uygulam
    > 
    > 
    
-   Docker işlemi tamamlandıktan sonra aşağıdakine benzer sonuçlar görmeniz gerekir:
+   Docker işlemi tamamlandıktan sonra benzer toohello aşağıdaki sonuçları görmeniz gerekir:
    
    ![Uygulamanızı görüntülemek][3]
 

@@ -1,6 +1,6 @@
 ---
-title: "Ağ güvenlik grupları - Azure Resource Manager şablonu oluşturma | Microsoft Docs"
-description: "Bir Azure Resource Manager şablonu kullanarak ağ güvenlik grupları oluşturup öğrenin."
+title: "Azure Resource Manager şablonu aaaCreate ağ güvenlik grupları - | Microsoft Docs"
+description: "Bilgi nasıl toocreate ve ağ güvenlik grupları bir Azure Resource Manager şablonunu kullanarak dağıtın."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3750168284fea7b41c8c0f908b0d31a9da5e38ce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Ağ güvenlik grupları bir Azure Resource Manager şablonu kullanarak oluşturma
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. Ayrıca [Klasik dağıtım modelinde Nsg'leri oluşturma](virtual-networks-create-nsg-classic-ps.md).
+Bu makalede, hello Resource Manager dağıtım modeli yer almaktadır. Ayrıca [hello Klasik dağıtım modelinde Nsg'leri oluşturma](virtual-networks-create-nsg-classic-ps.md).
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
 ## <a name="nsg-resources-in-a-template-file"></a>Bir şablon dosyası NSG kaynakları
-Görüntüleyin ve indirme [örnek şablonu](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
+Görüntüleme ve hello karşıdan yükleme [örnek şablonu](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
 
-Aşağıdaki bölüm, senaryoyu temel ön uç NSG tanımını gösterir.
+Merhaba aşağıdaki bölümde gösterilmektedir hello hello tanımını hello senaryoyu temel ön uç NSG.
 
 ```json
 "apiVersion": "2015-06-15",
@@ -80,7 +80,7 @@ Aşağıdaki bölüm, senaryoyu temel ön uç NSG tanımını gösterir.
   ]
 }
 ```
-Ön uç alt ağı için NSG ilişkilendirmek için şablonda alt ağı tanımını değiştirin ve başvuru kimliği için NSG sahip.
+tooassociate hello NSG toohello ön uç alt toochange hello alt ağı tanımını hello şablonda ve kullanım hello başvuru kimliği hello NSG için sahip.
 
 ```json
 "subnets": [
@@ -95,16 +95,16 @@ Aşağıdaki bölüm, senaryoyu temel ön uç NSG tanımını gösterir.
   }, 
 ```
 
-Aynı arka uç NSG ve şablondaki arka uç alt ağ için gerçekleştirilen dikkat edin.
+Aynı hello arka uç NSG ve hello arka uç alt ağ için hello şablonunda gerçekleştirilen hello dikkat edin.
 
-## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>Tıklayarak dağıtma kullanarak ARM şablonu dağıtma
-Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için kullanılan varsayılan değerleri içeren parametre dosyası kullanılmaktadır. Tıklayarak dağıtma kullanarak bu şablonu dağıtmak için [bu bağlantıya](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG) gidin, **Azure’a dağıt**’a tıklayın, gerekirse varsayılan parametreleri değiştirin ve portaldaki talimatları uygulayın.
+## <a name="deploy-hello-arm-template-by-using-click-toodeploy"></a>Kullanarak Hello ARM şablonu dağıtma toodeploy tıklatın
+Merhaba örnek şablonunda kullanılabilir hello genel depo yukarıda açıklanan hello varsayılan kullanılan değerler toogenerate hello senaryosu içeren bir parametre dosyası kullanır. toodeploy tıklatın toodeploy, bu şablonu kullanarak izleyin [bu bağlantıyı](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), tıklatın **tooAzure dağıtmak**hello varsayılan parametre değerlerini gerekiyorsa değiştirin ve hello hello Portalı'ndaki yönergeleri izleyin.
 
-## <a name="deploy-the-arm-template-by-using-powershell"></a>PowerShell kullanarak ARM şablonu dağıtma
-PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki adımları izleyin.
+## <a name="deploy-hello-arm-template-by-using-powershell"></a>PowerShell kullanarak Hello ARM şablonu dağıtma
+PowerShell kullanarak yüklediğiniz toodeploy hello ARM şablonunu hello adımları izleyin.
 
-1. Azure PowerShell'i hiç kullanmadıysanız,'ndaki yönergeleri izleyin [nasıl yükleme ve yapılandırma Azure PowerShell](/powershell/azure/overview) yüklemek ve yapılandırmak için.
-2. Çalıştırma  **`New-AzureRmResourceGroup`**  şablonu kullanarak bir kaynak grubu oluşturmak için cmdlet'i.
+1. Azure PowerShell'i hiç kullanmadıysanız, hello hello yönergeleri izleyin [nasıl tooInstall ve yapılandırma Azure PowerShell](/powershell/azure/overview) tooinstall ve yapılandırın.
+2. Merhaba çalıştırmak  **`New-AzureRmResourceGroup`**  kullanarak bir kaynak grubu cmdlet toocreate hello şablonu.
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location uswest `
@@ -148,21 +148,21 @@ PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdak
    
         ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
-## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Azure CLI kullanarak ARM şablonu dağıtma
-Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları izleyin.
+## <a name="deploy-hello-arm-template-by-using-hello-azure-cli"></a>Hello Azure CLI kullanarak Hello ARM şablonu dağıtma
+toodeploy hello ARM Şablonu'hello Azure CLI kullanarak hello adımları izleyin.
 
-1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../cli-install-nodejs.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
-2. Resource Manager moduna geçmek için **`azure config mode`** komutunu aşağıda gösterildiği gibi çalıştırın.
+1. Azure CLI hiç kullanmadıysanız bkz [hello Azure CLI yükleyip](../cli-install-nodejs.md) ve sonra Azure hesabınızı ve aboneliğinizi toohello noktaya hello talimatlarını izleyin.
+2. Merhaba çalıştırmak  **`azure config mode`**  aşağıda gösterildiği gibi komut tooswitch tooResource Yöneticisi modu.
 
     ```azurecli
     azure config mode arm
     ```
 
-    Komut için beklenen çıktı verilmiştir:
+    Merhaba, hello komut için beklenen hello çıktı aşağıdadır:
 
         info:    New mode is arm
 
-3. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni VNet’i dağıtmak için **`azure group deployment create`** cmdlet’ini çalıştırın. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
+3. Merhaba çalıştırmak  **`azure group deployment create`**  cmdlet toodeploy hello hello şablonu ve parametre kullanarak yeni Vnet'i, yukarıda indirdiğiniz ve değiştirdiğiniz dosyaları. Merhaba çıktıdan sonra gösterilen hello listede kullanılan hello parametreler açıklanmaktadır.
 
     ```azurecli
     azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
@@ -185,8 +185,8 @@ Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları izley
         data:    
         info:    group create command OK
    
-   * **-n (veya --name)**. Oluşturulacak kaynak grubunun adı.
-   * **-l (veya --location)**. Kaynak grubunun oluşturulacağı azure bölgesi.
-   * **-f (veya --şablon-dosyası)**. ARM şablon dosyanızın yolu.
-   * **-e (veya--parametreler-dosyası)**. ARM parametreleri dosyanızın yolu.
+   * **-n (veya --name)**. Merhaba kaynak grubu toobe oluşturulan adı.
+   * **-l (veya --location)**. Merhaba kaynak grubunun oluşturulacağı azure bölgesi.
+   * **-f (veya --şablon-dosyası)**. Yol tooyour ARM şablon dosyası.
+   * **-e (veya--parametreler-dosyası)**. Yol tooyour ARM parametreleri dosya.
 

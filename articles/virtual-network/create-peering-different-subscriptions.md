@@ -1,6 +1,6 @@
 ---
-title: "-Resource Manager - eşliği farklı Aboneliklerde Azure sanal ağı oluşturun | Microsoft Docs"
-description: "Farklı Azure aboneliklerinde mevcut Resource Manager aracılığıyla oluşturulan sanal ağlar arasında eşleme sanal ağ oluşturmayı öğrenin."
+title: "aaaCreate bir Azure sanal ağ - Resource Manager - eşliği farklı Aboneliklerde | Microsoft Docs"
+description: "Toocreate sanal ağlar arasında eşlemeyi bir sanal ağ kaynak farklı Azure aboneliklerinde bulunmayan Yöneticisi aracılığıyla nasıl oluşturulacağını öğrenin."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
-ms.openlocfilehash: 84bbf90257f038fb5f3e964b7b35419acd77fc6d
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: c7983a86031e061c1155144e5c493ee9578fa583
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşlemesi - oluşturma, farklı Aboneliklerde Kaynak Yöneticisi'ni 
 
-Bu öğreticide, Resource Manager aracılığıyla oluşturulan sanal ağlar arasında eşleme sanal ağ oluşturmayı öğrenin. Sanal ağlar farklı Aboneliklerde mevcut. Kaynaklar aynı sanal ağda gibi davranarak birbirleri ile aynı bant genişliği ve gecikme süresi ile iletişim kurmak için farklı sanal ağlar iki sanal ağlar etkinleştirir kaynaklarında eşleme. Daha fazla bilgi edinmek [sanal ağ eşlemesi](virtual-network-peering-overview.md). 
+Bu öğreticide, bir sanal ağ Resource Manager aracılığıyla oluşturulan sanal ağlar arasında eşleme toocreate öğrenin. Merhaba sanal ağlar farklı Aboneliklerde mevcut. Farklı sanal ağlar toocommunicate birbirleri ile olan eşleme iki sanal ağlar etkinleştirir kaynakları, aynı bant genişliği ve gecikme hello kaynakları hello gibi davranarak hello aynı sanal ağ. Daha fazla bilgi edinmek [sanal ağ eşlemesi](virtual-network-peering-overview.md). 
 
-Sanal ağlar aynı ya da farklı olup, abonelikleri ve hangi bağlı olarak farklı bir sanal ağ eşlemesi oluşturmak için aşağıdaki adımları [Azure dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlar üzerinden oluşturulur. Aşağıdaki tabloda senaryodan tıklayarak diğer senaryolarda eşliği bir sanal ağ oluşturmayı öğrenin:
+Merhaba adımları toocreate bir sanal ağ eşlemesi hello sanal ağlar aynı ya da farklı Merhaba, abonelikleri ve hangi yere bağlı olarak farklı [Azure dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) hello sanal ağlar oluşturulur aracılığıyla. Nasıl toocreate sanal bir ağ diğer senaryolarda aşağıdaki tablonun hello hello senaryodan tıklayarak eşliği öğrenin:
 
 |Azure dağıtım modeli  | Azure aboneliği  |
 |--------- |---------|
@@ -33,17 +33,17 @@ Sanal ağlar aynı ya da farklı olup, abonelikleri ve hangi bağlı olarak fark
 |[Bir kaynak yöneticisi, bir Klasik](create-peering-different-deployment-models.md) |Aynı|
 |[Bir kaynak yöneticisi, bir Klasik](create-peering-different-deployment-models-subscriptions.md) |Farklı|
 
-Klasik dağıtım modeli aracılığıyla dağıtılan iki sanal ağ arasında bir sanal ağ eşlemesi oluşturulamıyor. Bir sanal ağ eşlemesi yalnızca aynı Azure bölgesinde mevcut iki sanal ağ arasında oluşturulabilir. Farklı Aboneliklerde bulunan sanal ağlar arasında eşleme sanal bir ağ oluştururken, abonelikler her ikisi de aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Azure Active Directory kiracısı zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Her ikisi de oluşturulmuş Klasik dağıtım modeli aracılığıyla veya farklı Azure bölgelerinde mevcut ya da farklı Azure Active Directory kiracıları için ilişkili Aboneliklerde mevcut sanal ağlara bağlanmak gerekiyorsa, Azure kullanabilirsiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlara bağlanma. 
+Bir sanal ağ eşlemesi hello Klasik dağıtım modeli aracılığıyla dağıtılan iki sanal ağ arasında oluşturulamıyor. Bir sanal ağ eşlemesi yalnızca aynı hello mevcut iki sanal ağ arasında oluşturulabilir Azure bölgesi. Farklı Aboneliklerde abonelikleri hem de olmalıdır hello mevcut sanal ağlar arasında eşleme sanal ağ oluşturma toohello ilişkilendirilmiş zaman aynı Azure Active Directory Kiracı. Azure Active Directory kiracısı zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Tooconnect sanal gerekiyorsa her ikisi de oluşturulmuş hello Klasik dağıtım modeli aracılığıyla veya farklı Azure bölgelerinde yok ya da Aboneliklerde mevcut ağları ilişkili toodifferent Azure Active Directory kiracıları, bir Azure kullanabileceğiniz[VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tooconnect hello sanal ağlar. 
 
-Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#cli) (CLI) veya Azure [PowerShell](#powershell) bir sanal ağ eşlemesi oluşturmak için. Doğrudan seçeceğiniz araç kullanarak bir sanal ağ eşlemesi oluşturma adımlarını gitmek için önceki aracı bağlantılardan herhangi birine tıklayın.
+Merhaba kullanabilirsiniz [Azure portal](#portal), Azure hello [komut satırı arabirimi](#cli) (CLI) veya Azure [PowerShell](#powershell) toocreate bir sanal ağ eşlemesi. Seçeceğiniz araç kullanarak bir sanal ağ eşlemesi oluşturmak için toohello adımları doğrudan hello önceki aracı bağlantılar toogo birini tıklatın.
 
 ## <a name="portal"></a>Eşlemesi - oluşturmak Azure portalı
 
-Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, portal dışında günlüğü için adımları atlayın ve sanal ağlar için başka bir kullanıcı izinlerini atamak için adımları atlayın.
+Bu öğretici, her abonelik için farklı hesaplar kullanır. İzinleri tooboth aboneliklere sahip bir hesap kullanıyorsanız, aynı tüm adımlar için hesap, oturum hello portal dışında hello adımları atlayın ve başka bir kullanıcı izinleri toohello sanal ağlar atama hello adımları atlayın hello kullanabilirsiniz.
 
-1. Oturum [Azure portal](https://portal.azure.com) UserA olarak. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. Bkz: [izinleri](#permissions) Ayrıntılar için bu makalenin.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) UserA olarak. Merhaba hesabı ile oturum, bir sanal ağ eşlemesi hello gerekli izinleri toocreate olması gerekir. Merhaba bkz [izinleri](#permissions) Ayrıntılar için bu makalenin.
 2. Tıklatın **+ yeni**, tıklatın **ağ**, ardından **sanal ağ**.
-3. İçinde **sanal ağ oluştur** dikey penceresinde girin veya aşağıdaki ayarları için değerleri seçin ve ardından **oluşturma**:
+3. Merhaba, **sanal ağ oluştur** dikey penceresinde girin veya hello ayarları aşağıdaki değerleri seçin ve ardından **oluşturma**:
     - **Ad**: *myVnetA*
     - **Adres alanı**: *10.0.0.0/16*
     - **Alt ağ adı**: *varsayılan*
@@ -51,15 +51,15 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
     - **Abonelik**: A. abonelik seçin
     - **Kaynak grubu**: seçin **Yeni Oluştur** ve girin *myResourceGroupA*
     - **Konum**: *Doğu ABD*
-4. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetA*. Tıklatın **myVnetA** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnetA** sanal ağ.
-5. İçinde **myVnetA** görünür, dikey tıklayın **erişim denetimi (IAM)** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden.
-6. İçinde **myVnetA - erişim denetimi (IAM)** görünür, dikey tıklayın **+ Ekle**.
-7. İçinde **izinleri eklemek** görünen seçin dikey **ağ Katılımcısı** içinde **rol** kutusu.
-8. İçinde **seçin** kutusuna bir UserB seçin veya aramak için Kullanıcıb'in e-posta adresini yazın. Gösterilen kullanıcılar için eşlemeyi ayarlama ayarladığınız sanal ağ aynı Azure Active Directory kiracısındaki listesidir.
+4. Merhaba, **arama kaynakları** kutusunu hello portalının türü hello üstünde *myVnetA*. Tıklatın **myVnetA** hello arama sonuçlarında görüntülendiğinde. Merhaba bir dikey penceresi görünür **myVnetA** sanal ağ.
+5. Merhaba, **myVnetA** görünür, dikey tıklayın **erişim denetimi (IAM)** listesinden hello dikey yan hello dikey pencerenin sol hello seçenekleri.
+6. Merhaba, **myVnetA - erişim denetimi (IAM)** görünür, dikey tıklayın **+ Ekle**.
+7. Merhaba, **izinleri ekleyin** görünen seçin dikey **ağ Katılımcısı** hello içinde **rol** kutusu.
+8. Merhaba, **seçin** kutusunda, bir UserB seçin veya Kullanıcıb'in e-posta adresi toosearch yazın. Merhaba gösterilen kullanıcıların hello listesidir aynı Azure Active Directory Kiracı hello sanal ağ olarak ayarladığınız için hello eşliği ayarlama.
 9. **Kaydet** düğmesine tıklayın.
-10. İçinde **myVnetA - erişim denetimi (IAM)** dikey penceresinde tıklatın **özellikleri** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
-11. UserA olarak portal dışında oturum sonra UserB oturum açın.
-12. 2-3 girmek veya 3. adımda aşağıdaki değerleri seçerek, adımları tamamlayın:
+10. Merhaba, **myVnetA - erişim denetimi (IAM)** dikey penceresinde tıklatın **özellikleri** listesinden hello dikey yan hello dikey pencerenin sol hello seçenekleri. Kopya hello **kaynak kimliği**, bir sonraki adımda kullanılır. Merhaba kaynak kimliği olan aşağıdaki örneğine benzer toohello: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+11. UserA olarak hello portal dışında oturum sonra UserB oturum açın.
+12. 2-3 girmek veya adım 3'te değerleri aşağıdaki hello seçerek, adımları tamamlayın:
 
     - **Ad**: *myVnetB*
     - **Adres alanı**: *10.1.0.0/16*
@@ -69,43 +69,43 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
     - **Kaynak grubu**: seçin **Yeni Oluştur** ve girin *myResourceGroupB*
     - **Konum**: *Doğu ABD*
 
-13. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetB*. Tıklatın **myVnetB** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnetB** sanal ağ.
-14. İçinde **myVnetB** görünür, dikey tıklayın **özellikleri** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
-15. Tıklatın **erişim denetimi (IAM)** içinde **myVnetB** dikey ve ardından tam adımlar 5-10 girme myVnetB için **Kullanıcıa** 8. adımda.
-16. Portal UserB olarak dışında oturum ve UserA oturum açın.
-17. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetA*. Tıklatın **myVnetA** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnet** sanal ağ.
+13. Merhaba, **arama kaynakları** kutusunu hello portalının türü hello üstünde *myVnetB*. Tıklatın **myVnetB** hello arama sonuçlarında görüntülendiğinde. Merhaba bir dikey penceresi görünür **myVnetB** sanal ağ.
+14. Merhaba, **myVnetB** görünür, dikey tıklayın **özellikleri** listesinden hello dikey yan hello dikey pencerenin sol hello seçenekleri. Kopya hello **kaynak kimliği**, bir sonraki adımda kullanılır. Merhaba kaynak kimliği olan aşağıdaki örneğine benzer toohello: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+15. Tıklatın **erişim denetimi (IAM)** hello içinde **myVnetB** dikey ve ardından tam adımlar 5-10 girme myVnetB için **Kullanıcıa** 8. adımda.
+16. Dışında hello portalı UserB olarak oturum açın ve UserA oturum açın.
+17. Merhaba, **arama kaynakları** kutusunu hello portalının türü hello üstünde *myVnetA*. Tıklatın **myVnetA** hello arama sonuçlarında görüntülendiğinde. Merhaba bir dikey penceresi görünür **myVnet** sanal ağ.
 18. Tıklatın **myVnetA**.
-19. İçinde **myVnetA** görünür, dikey tıklayın **eşlemeler** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden.
-20. İçinde **myVnetA - eşlemeler** görünen dikey tıklayın **+ Ekle**
-21. İçinde **Ekle eşliği** görünür, dikey girin veya aşağıdaki seçenekleri belirleyin ve ardından **Tamam**:
+19. Merhaba, **myVnetA** görünür, dikey tıklayın **eşlemeler** listesinden hello dikey yan hello dikey pencerenin sol hello seçenekleri.
+20. Merhaba, **myVnetA - eşlemeler** görünen dikey tıklayın **+ Ekle**
+21. Merhaba, **Ekle eşliği** görünür, dikey girin veya aşağıdaki seçenekleri şu hello seçip'ı tıklatın **Tamam**:
      - **Ad**: *myVnetAToMyVnetB*
      - **Sanal ağ dağıtım modeli**: seçin **Resource Manager**.
      - **Kaynak Kimliğimi biliyorum**: Bu onay kutusunu işaretleyin.
-     - **Kaynak Kimliği**: 14. adımdan kaynak kimliği girin.
+     - **Kaynak Kimliği**: 14. adımdan hello kaynak Kimliğini girin.
      - **Sanal ağ erişimine izin ver:** emin **etkin** seçilir.
-    Diğer bir ayarları, bu öğreticide kullanılır. Tüm eşleme ayarları hakkında bilgi için okuma [sanal ağ eşlemeleri yönetme](virtual-network-manage-peering.md#create-a-peering).
-22. ' I tıklattıktan sonra **Tamam** önceki adımda **Ekle eşliği** dikey penceresi kapanır ve gördüğünüz **myVnetA - eşlemeler** dikey penceresini yeniden. Birkaç saniye sonra oluşturduğunuz eşliği dikey penceresinde görüntülenir. **Başlatılan** içinde listelenen **EŞLİĞİ durumu** sütunu için **myVnetAToMyVnetB** sizin eşlemeyi oluşturuldu. MyVnetB myVnetA eşlenen, ancak şimdi myVnetA myVnetB eş gerekir. Eşlemeyi birbirleri ile iletişim kurmak üzere sanal ağ kaynaklarında etkinleştirmek için her iki yönde oluşturulmalıdır.
-23. UserA olarak portal dışında oturum ve UserB oturum açın.
-24. Yeniden myVnetB için 17 21 adımları tamamlayın. Eşlemeyi 21. adımda ad *myVnetBToMyVnetA*seçin *myVnetA* için **sanal ağ**ve 10 adımda kimliği girin **kaynak kimliği** kutusu.
-25. ' I tıklattıktan sonra birkaç saniye **Tamam** myVnetB için eşlemesi oluşturmak için **myVnetBToMyVnetA** , yeni oluşturduğunuz eşliği ile listelendiğini **bağlı** içinde **EŞLİĞİ durum** sütun.
-26. Portal UserB olarak dışında oturum ve UserA oturum açın.
-27. Adımları 17-19 yeniden tamamlayın. **EŞLİĞİ durumu** için **myVnetAToVNetB** eşliği olan şimdi de **bağlı**. Gördükten sonra Eşleme başarıyla kurulduktan **bağlı** içinde **EŞLİĞİ durum** sütun eşlemesi içindeki iki sanal ağlar için. Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini birbirleri ile iletişim kuramıyor. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, sanal ağlarda bulunan kaynaklar sanal ağlar arasında adlarını çözmek mümkün değildir. Bir eşlemesindeki sanal ağlar arasında adları çözümlemek dilerseniz kendi DNS sunucusu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
-28. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan olsa, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlanabilirliği doğrulamak için bağlanın.
-29. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynaklarını silmek için adımları tamamlamanız [silmek kaynakları](#delete-portal) bu makalenin.
+    Diğer bir ayarları, bu öğreticide kullanılır. Tüm eşleme ayarları hakkında toolearn okuma [sanal ağ eşlemeleri yönetme](virtual-network-manage-peering.md#create-a-peering).
+22. ' I tıklattıktan sonra **Tamam** hello önceki adımda hello **Ekle eşliği** dikey penceresi kapanır ve hello gördüğünüz **myVnetA - eşlemeler** dikey penceresini yeniden. Birkaç saniye sonra oluşturduğunuz eşliği hello hello dikey penceresinde görüntülenir. **Başlatılan** hello listelenen **EŞLİĞİ durumu** hello için sütun **myVnetAToMyVnetB** sizin eşlemeyi oluşturuldu. MyVnetA toomyVnetB eşlenen, ancak şimdi myVnetB toomyVnetA eş gerekir. Merhaba eşliği her iki yönde de hello sanal ağlar toocommunicate tooenable kaynaklarında birbirleri ile oluşturulması gerekir.
+23. UserA olarak hello portal dışında oturum ve UserB oturum açın.
+24. Yeniden myVnetB için 17 21 adımları tamamlayın. Merhaba eşliği 21. adımda ad *myVnetBToMyVnetA*seçin *myVnetA* için **sanal ağ**ve hello 10 adımda hello kimliği girin **kaynak kimliği** kutusu.
+25. ' I tıklattıktan sonra birkaç saniye **Tamam** toocreate hello myVnetB için hello eşliği **myVnetBToMyVnetA** , yeni oluşturduğunuz eşliği ile listelendiğini **bağlı** hello içinde **Eşleme durumu** sütun.
+26. Dışında hello portalı UserB olarak oturum açın ve UserA oturum açın.
+27. Adımları 17-19 yeniden tamamlayın. Merhaba **EŞLİĞİ durumu** hello için **myVnetAToVNetB** eşliği olan şimdi de **bağlı**. Merhaba eşliği başarıyla kuruldu gördükten sonra **bağlı** hello içinde **EŞLİĞİ durum** hello eşlemesindeki her iki sanal ağlar için sütun. Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini aracılığıyla birbirleriyle mümkün toocommunicate sunulmuştur. Varsayılan Azure ad çözümlemesi için sanal ağlar hello kullanıyorsanız hello hello sanal ağlarda değil mümkün tooresolve adları hello sanal ağlar arasında kaynaklardır. Bir eşlemesindeki sanal ağlar arasında tooresolve adlarının istiyorsanız, DNS sunucunuzun oluşturmanız gerekir. Bilgi nasıl yukarı tooset [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+28. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan de, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makine toohello diğer toovalidate bağlantı bağlanın.
+29. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz toodelete hello kaynakları, tam hello adımları hello [silmek kaynakları](#delete-portal) bu makalenin.
 
 ## <a name="cli"></a>Eşlemesi - oluşturmak Azure CLI
 
-Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük Azure dışında için adımları atlayın ve rol atamalarını kullanıcı oluşturma komut satırlarını kaldırın. Değiştir UserA@azure.com ve UserB@azure.com tüm UserA ve userb adlı için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler.
+Bu öğretici, her abonelik için farklı hesaplar kullanır. İzinleri tooboth aboneliklere sahip bir hesap kullanıyorsanız, aynı tüm adımlar için hesap, oturum Azure dışında hello adımları atlayın ve kullanıcı rol atamalarını oluşturmak hello satırlarını komut kaldırmak hello kullanabilirsiniz. Değiştir UserA@azure.com ve UserB@azure.com UserA ve userb adlı için kullanmakta olduğunuz hello kullanıcı adları kodlarla aşağıdaki hello tümünde.
 
-Aşağıdaki komut dosyası:
+komut dosyası izleyen hello:
 
-- Azure CLI Sürüm 2.0.4 gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Bir Bash kabuğunda çalışır. Windows istemcisi üzerinde Azure CLI betikleri çalıştırma seçenekleri için bkz [Windows Azure CLI çalıştıran](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- Hello Azure CLI Sürüm 2.0.4 gerektirir veya sonraki bir sürümü. çalıştırma toofind hello sürüm `az --version`. Tooupgrade gerekirse bkz [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Bir Bash kabuğunda çalışır. Windows istemcisi üzerinde Azure CLI betikleri çalıştırma seçenekleri için bkz [Windows hello Azure CLI çalıştıran](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
-CLI ve bağımlılıklarını yüklemek yerine, Azure bulut Kabuğu'nu kullanabilirsiniz. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Tıklatın **deneyin** Azure hesabınızla oturum bir bulut Kabuk çağıran aşağıdaki komut düğmesi. 
+Merhaba CLI ve bağımlılıklarını yüklemek yerine, hello Azure bulut Kabuk kullanabilirsiniz. Hello Azure bulut Kabuğu doğrudan hello Azure portal'içinde çalıştırabilirsiniz boş bir Bash kabuğunda ' dir. Azure CLI yüklenmiş ve toouse hesabınız ile yapılandırılan hello sahiptir. Merhaba tıklatın **deneyin** tooyour içinde Azure hesap ile oturum bir bulut Kabuk çağıran aşağıdaki hello komut düğmesi. 
 
-1. CLI oturumu açın ve Azure'a Kullanıcıa kullanarak olarak oturum açma `azure login` komutu. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. Bkz: [izinleri](#permissions) Ayrıntılar için bu makalenin.
-2. Aşağıdaki komut dosyası, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın, yerine `<SubscriptionA-Id>` kimliği, SubscriptionA ile sonra değiştirilmiş betiği kopyalayın, CLI oturum ve tuşuna yapıştırın `Enter`. Aboneliğinizi kimliği bilmiyorsanız, 'az hesabı Göster' komutunu girin. Değeri **kimliği** çıktıda, abonelik kimliği olan
+1. CLI oturumu açın ve içinde tooAzure hello kullanarak UserA oturum `azure login` komutu. Merhaba hesabı ile oturum, bir sanal ağ eşlemesi hello gerekli izinleri toocreate olması gerekir. Merhaba bkz [izinleri](#permissions) Ayrıntılar için bu makalenin.
+2. Kopyalama komut dosyası tooa metin düzenleyicisi Bilgisayarınızda aşağıdaki Merhaba, yerine `<SubscriptionA-Id>` hello kimliği, SubscriptionA kopyalama hello betik sonra değiştirilmiş., CLI oturum ve tuşuna yapıştırın `Enter`. Aboneliğinizi kimliği bilmiyorsanız, hello 'az hesabı Göster' komutu girin. Merhaba değeri **kimliği** hello çıktı, abonelik kimliği değil.
 
     ```azurecli-interactive
     # Create a resource group.
@@ -120,27 +120,27 @@ CLI ve bağımlılıklarını yüklemek yerine, Azure bulut Kabuğu'nu kullanabi
       --location eastus \
       --address-prefix 10.0.0.0/16
 
-    # Assign UserB permissions to virtual network A.
+    # Assign UserB permissions toovirtual network A.
     az role assignment create \
       --assignee UserB@azure.com \
       --role "Network Contributor" \
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
     
-     Kullanıcıb izni atamanın zorunlu değildir. Kullanıcıların kendi sanal ağlarını için eşleme isteklerini ayrı ayrı Yükselt olsa bile istekler eşleştiği sürece eşleme kurulabilir. Yerel sanal ağda ağ Katılımcısı olarak myVNetB ayrıcalıklı bir kullanıcısı ekleme Kurulum yapılacağı kolaylaştırır.
-3. Azure oturumunu Kullanıcıa kullanarak olarak oturum `az logout` komut sonra Azure UserB olarak oturum açın. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. Bkz: [izinleri](#permissions) Ayrıntılar için bu makalenin.
-4. MyVnetB oluşturun. Komut dosyası içeriğini 2. adımda, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<SubscriptionA-Id>` SubscriptionB kimliği. Değişiklik 10.0.0.0/16 10.1.0.0/16, tüm B için değişiklik ve tüm Bs değiştirilmiş betik A. Kopyalanacak yapıştırın, içinde CLI oturum ve tuşuna `Enter`. 
-5. Dışında Azure UserB olarak oturum açın ve Azure UserA olarak oturum açın.
-6. MyVnetA myVnetB için eşliği bir sanal ağ oluşturun. Aşağıdaki komut dosyası içeriği, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<SubscriptionB-Id>` SubscriptionB kimliği. Betik yürütmek için değiştirilmiş betiği kopyalayın, CLI oturumunuza yapıştırın ve Enter tuşuna basın.
+     Merhaba iznini atama UserB için zorunlu değildir. Kullanıcıların kendi sanal ağlarını için eşleme isteklerini ayrı ayrı Yükselt olsa bile hello eşleşme istekleri sürece eşleme kurulabilir. Merhaba yerel sanal ağ içinde ağ Katılımcısı olarak myVNetB ayrıcalıklı bir kullanıcısı ekleme daha kolay toodo hello kurulumu kolaylaştırır.
+3. Azure oturumunu hello kullanarak UserA oturum `az logout` komut sonra tooAzure UserB olarak oturum. Merhaba hesabı ile oturum, bir sanal ağ eşlemesi hello gerekli izinleri toocreate olması gerekir. Merhaba bkz [izinleri](#permissions) Ayrıntılar için bu makalenin.
+4. MyVnetB oluşturun. Adım 2 tooa metin düzenleyicide, bilgisayarınızdaki Hello komut dosyası içeriğini kopyalayın. Değiştir `<SubscriptionA-Id>` hello kimliği, SubscriptionB ile. 10.0.0.0/16 too10.1.0.0/16, tooB tüm değiştikçe ve tüm Bs tooA değiştirin. Değiştirilen hello betiği kopyalayın, tooyour CLI oturum ve tuşuna yapıştırın `Enter`. 
+5. UserB olarak Azure dışında ve tooAzure UserA olarak oturum.
+6. MyVnetA toomyVnetB eşliği bir sanal ağ oluşturun. Komut dosyası içeriği tooa metin düzenleyici, Bilgisayarınızda aşağıdaki hello kopyalayın. Değiştir `<SubscriptionB-Id>` hello kimliği, SubscriptionB ile. tooexecute hello komut dosyası, değişiklik hello betiği kopyalayın, CLI oturumunuza yapıştırın ve Enter tuşuna basın.
  
     ```azurecli-interactive
-        # Get the id for myVnetA.
+        # Get hello id for myVnetA.
         vnetAId=$(az network vnet show \
           --resource-group myResourceGroupA \
           --name myVnetA \
           --query id --out tsv)
     
-        # Peer myVNetA to myVNetB.
+        # Peer myVNetA toomyVNetB.
         az network vnet peering create \
           --name myVnetAToMyVnetB \
           --resource-group myResourceGroupA \
@@ -149,7 +149,7 @@ CLI ve bağımlılıklarını yüklemek yerine, Azure bulut Kabuğu'nu kullanabi
           --allow-vnet-access
     ```
 
-7. MyVnetA eşleme durumunu görüntüleyin.
+7. Merhaba myVnetA eşleme durumunu görüntüleyin.
 
     ```azurecli-interactive
     az network vnet peering list \
@@ -158,28 +158,28 @@ CLI ve bağımlılıklarını yüklemek yerine, Azure bulut Kabuğu'nu kullanabi
       --output table
     ```
 
-    Durumu **başlatılan**. Dönüşür **bağlı** myVnetA için myVnetB eşliği oluşturduktan sonra.
+    Merhaba durumu **başlatılan**. Çok değiştirir**bağlı** myVnetB hello eşleme toomyVnetA oluşturduktan sonra.
 
-8. Azure'dan Kullanıcıa çıkışı oturum ve Azure UserB olarak oturum açın.
-9. MyVnetB myVnetA için eşleme oluşturun. Komut dosyası içeriğini 6. adımda, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<SubscriptionB-Id>` SubscriptionA ve B ve a bilgisayarına tüm Bs ilişkin tüm değişiklik için kimliği Değişiklikleri yaptıktan sonra değiştirilmiş betiği kopyalayın, CLI oturum ve tuşuna yapıştırma `Enter`.
-10. MyVnetB eşleme durumunu görüntüleyin. Komut dosyası içeriğini 7. adımda, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değişiklik A için kaynak grubu ve sanal ağ adları, B betiği kopyalayın, CLI oturumunuz için değiştirilmiş betik yapıştırın ve tuşuna `Enter`. Eşleme durumu **bağlı**. MyVnetA eşleme durumu değişiklikleri **bağlı** myVnetB myVnetA için eşliği oluşturduktan sonra. Kullanıcıa oturum geri Azure ve eksiksiz yeniden myVnetA eşleme durumunu doğrulamak için 7. adımda. 
+8. Azure'dan Kullanıcıa çıkışı ve tooAzure UserB olarak oturum.
+9. Merhaba myVnetB toomyVnetA eşlemesi oluşturun. Adım 6 tooa metin düzenleyicide, bilgisayarınızdaki Hello komut dosyası içeriğini kopyalayın. Değiştir `<SubscriptionB-Id>` SubscriptionA ve tooB ve tüm Bs tooA olarak tüm değişiklik için hello kimliği. Merhaba değişiklikleri yaptıktan sonra kopyalama hello betik değiştiren, CLI oturum ve tuşuna yapıştırma `Enter`.
+10. Merhaba myVnetB eşleme durumunu görüntüleyin. Adım 7 tooa metin düzenleyicide, bilgisayarınızdaki Hello komut dosyası içeriğini kopyalayın. TooB hello kaynak grubu ve sanal ağ adları değiştirme, kopyalama hello komut dosyası, tooyour CLI oturumunda değiştiren hello betiğini yapıştırın ve tuşuna basın `Enter`. Merhaba eşleme durumunda **bağlı**. eşleme durumunu myVnetA değişiklikleri çok hello**bağlı** myVnetB toomyVnetA hello eşliği oluşturduktan sonra. Kullanıcıa geri tooAzure ve tam adım 7 tekrar tooverify hello eşleme durumunu myVnetA oturum. 
 
     > [!NOTE]
-    > Eşleme duruma gelene kadar eşlemeyi kurulmaz **bağlı** her iki sanal ağlar için.
+    > Merhaba eşliği değil kurulduğunda hello eşleme duruma gelene kadar **bağlı** her iki sanal ağlar için.
 
-11. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan olsa, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlanabilirliği doğrulamak için bağlanın.
-12. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynaklarını silmek için adımları tamamlamanız [silmek kaynakları](#delete-cli) bu makalede.
+11. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan de, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makine toohello diğer toovalidate bağlantı bağlanın.
+12. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz toodelete hello kaynakları, tam hello adımları [silmek kaynakları](#delete-cli) bu makalede.
 
-Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini birbirleri ile iletişim kuramıyor. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, sanal ağlarda bulunan kaynaklar sanal ağlar arasında adlarını çözmek mümkün değildir. Bir eşlemesindeki sanal ağlar arasında adları çözümlemek dilerseniz kendi DNS sunucusu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini aracılığıyla birbirleriyle mümkün toocommunicate sunulmuştur. Varsayılan Azure ad çözümlemesi için sanal ağlar hello kullanıyorsanız hello hello sanal ağlarda değil mümkün tooresolve adları hello sanal ağlar arasında kaynaklardır. Bir eşlemesindeki sanal ağlar arasında tooresolve adlarının istiyorsanız, DNS sunucunuzun oluşturmanız gerekir. Bilgi nasıl yukarı tooset [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
  
 ## <a name="powershell"></a>Eşlemesi - oluşturmak PowerShell
 
-Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük Azure dışında için adımları atlayın ve rol atamalarını kullanıcı oluşturma komut satırlarını kaldırın. Değiştir UserA@azure.com ve UserB@azure.com tüm UserA ve userb adlı için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler.
+Bu öğretici, her abonelik için farklı hesaplar kullanır. İzinleri tooboth aboneliklere sahip bir hesap kullanıyorsanız, aynı tüm adımlar için hesap, oturum Azure dışında hello adımları atlayın ve kullanıcı rol atamalarını oluşturmak hello satırlarını komut kaldırmak hello kullanabilirsiniz. Değiştir UserA@azure.com ve UserB@azure.com UserA ve userb adlı için kullanmakta olduğunuz hello kullanıcı adları kodlarla aşağıdaki hello tümünde.
 
-1. PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modülünün en son sürümünü yükleyin. Azure PowerShell'i kullanmaya yeni başladıysanız [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) sayfasını inceleyin.
+1. Merhaba PowerShell Hello en son sürümünü yüklemek [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modülü. Yeni tooAzure PowerShell değilseniz, bkz [Azure PowerShell genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Bir PowerShell oturumu başlatın.
-3. PowerShell'de, Azure'da UserA girerek oturum açma `login-azurermaccount` komutu. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. Bkz: [izinleri](#permissions) Ayrıntılar için bu makalenin.
-4. Bir kaynak grubu ve sanal ağ A. kopyalama bir metin düzenleyicisi için aşağıdaki betiği bilgisayarınıza oluşturun. Değiştir `<SubscriptionA-Id>` SubscriptionA kimliği. Aboneliğinizi kimliği bilmiyorsanız, girin `Get-AzureRmSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıkış, abonelik kimliği. Betik yürütmek için değiştirilmiş betiği kopyalayın, PowerShell yapıştırın ve ardından basın `Enter`.
+3. PowerShell'de hello girerek içinde tooAzure UserA oturum `login-azurermaccount` komutu. Merhaba hesabı ile oturum, bir sanal ağ eşlemesi hello gerekli izinleri toocreate olması gerekir. Merhaba bkz [izinleri](#permissions) Ayrıntılar için bu makalenin.
+4. A. kopyalama hello betik tooa metnini izleyen bir kaynak grubu ve sanal ağ Düzenleyicisi bilgisayarınıza oluşturun. Değiştir `<SubscriptionA-Id>` hello kimliği, SubscriptionA ile. Merhaba, abonelik kimliği bilmiyorsanız, girin `Get-AzureRmSubscription` komutu tooview onu. Merhaba değeri **kimliği** hello çıkış abonelik kimliğinizi döndürülür tooexecute hello komut dosyası, kopyalama hello değiştiren komut dosyası, içinde tooPowerShell yapıştırın ve tuşuna `Enter`.
 
     ```powershell
     # Create a resource group.
@@ -194,21 +194,21 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
       -AddressPrefix '10.0.0.0/16' `
       -Location eastus
 
-    # Assign UserB permissions to myVnetA.
+    # Assign UserB permissions toomyVnetA.
     New-AzureRmRoleAssignment `
       -SignInName UserB@azure.com `
       -RoleDefinitionName "Network Contributor" `
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
 
-    Kullanıcıb izni atamanın zorunlu değildir. Kullanıcıların kendi sanal ağlarını için eşleme isteklerini ayrı ayrı Yükselt olsa bile istekler eşleştiği sürece eşleme kurulabilir. Yerel sanal ağ içinde bir kullanıcı olarak ayrıcalıklı kullanıcısı olan bir sanal ağ ekleyerek Kurulum yapılacağı kolaylaştırır.
-5. Azure'dan Kullanıcıa çıkışı ve UserB oturum. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. Bkz: [izinleri](#permissions) Ayrıntılar için bu makalenin.
-6. Komut dosyası içeriğini 4. adımda, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<SubscriptionA-Id>` B. değişiklik 10.0.0.0/16 10.1.0.0/16 için abonelik kimliği. Tüm B ve tüm Bs konusunda A'ya değiştirme Betik yürütmek için değiştirilmiş betiği kopyalayın, PowerShell içinde yapıştırın ve ardından basın `Enter`.
+    Merhaba iznini atama UserB için zorunlu değildir. Kullanıcıların kendi sanal ağlarını için eşleme isteklerini ayrı ayrı Yükselt olsa bile hello eşleşme istekleri sürece eşleme kurulabilir. Merhaba ayrıcalıklı bir kullanıcısı ekleme diğer sanal ağ hello yerel sanal ağ içinde bir kullanıcı olarak daha kolay toodo hello kurulumu kolaylaştırır.
+5. Azure'dan Kullanıcıa çıkışı ve UserB oturum. Merhaba hesabı ile oturum, bir sanal ağ eşlemesi hello gerekli izinleri toocreate olması gerekir. Merhaba bkz [izinleri](#permissions) Ayrıntılar için bu makalenin.
+6. Adım 4 tooa metin düzenleyicide, bilgisayarınızdaki Hello komut dosyası içeriğini kopyalayın. Değiştir `<SubscriptionA-Id>` abonelik B. değişiklik 10.0.0.0/16 too10.1.0.0/16 için hello kimliği. Tüm tooB ve tüm Bs tooA değiştirin. tooexecute hello komut dosyası, kopyalama hello değiştiren komut dosyası, PowerShell içinde yapıştırın ve ardından basın `Enter`.
 7. Azure'dan UserB çıkışı ve UserA oturum.
-8. MyVnetA myVnetB için eşleme oluşturun. Aşağıdaki komut dosyası, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<SubscriptionB-Id>` B. abonelik kimliği Betik yürütmek için değiştirilmiş betiği kopyalayın, PowerShell yapıştırın ve ardından basın `Enter`.
+8. Merhaba myVnetA toomyVnetB eşlemesi oluşturun. Komut dosyası tooa metin düzenleyicisi Bilgisayarınızda aşağıdaki hello kopyalayın. Değiştir `<SubscriptionB-Id>` abonelik B. tooexecute hello betik hello kimliği, kopyalama değiştiren hello komut dosyası, içinde tooPowerShell yapıştırın ve tuşuna basın `Enter`.
  
     ```powershell
-    # Peer myVnetA to myVnetB.
+    # Peer myVnetA toomyVnetB.
     $vNetA=Get-AzureRmVirtualNetwork -Name myVnetA -ResourceGroupName myResourceGroupA
     Add-AzureRmVirtualNetworkPeering `
       -Name 'myVnetAToMyVnetB' `
@@ -216,7 +216,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
       -RemoteVirtualNetworkId "/subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/virtualNetworks/myVnetB"
     ```
 
-9. MyVnetA eşleme durumunu görüntüleyin.
+9. Merhaba myVnetA eşleme durumunu görüntüleyin.
 
     ```powershell
     Get-AzureRmVirtualNetworkPeering `
@@ -225,52 +225,52 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
       | Format-Table VirtualNetworkName, PeeringState
     ```
 
-    Durumu **başlatılan**. Dönüşür **bağlı** myVnetA için myVnetB eşlemeyi kurman sonra.
+    Merhaba durumu **başlatılan**. Çok değiştirir**bağlı** hello eşleme toomyVnetA myVnetB gelen kurulum sonra.
 
 10. Azure'dan Kullanıcıa çıkışı ve UserB oturum.
-11. MyVnetB myVnetA için eşleme oluşturun. Komut dosyası içeriğini 8. adımda, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<SubscriptionB-Id>` abonelik A ve tüm bir kullanıcının B ve tüm B'nin A. için değişiklik kimliği Betik yürütmek için değiştirilmiş betiği kopyalayın, PowerShell yapıştırın ve ardından basın `Enter`.
-12. MyVnetB eşleme durumunu görüntüleyin. Komut dosyası içeriğini 9. adımda, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Kaynak grubu ve sanal ağ adları için B A Değiştir. Betik yürütmek için PowerShell içinde değiştirilen betiğini yapıştırın ve tuşuna `Enter`. Durumu **bağlı**. Eşleme durumunu **myVnetA** değişikliklerini **bağlı** gelen eşliği oluşturduktan sonra **myVnetB** için **myVnetA**. Kullanıcıa oturum geri Azure ve eksiksiz yeniden myVnetA eşleme durumunu doğrulamak için 9. adım. 
+11. Merhaba myVnetB toomyVnetA eşlemesi oluşturun. Adım 8 tooa metin düzenleyicide, bilgisayarınızdaki Hello komut dosyası içeriğini kopyalayın. Değiştir `<SubscriptionB-Id>` tüm abonelik A ve değişiklik hello kimlikli A'ın tooB ve tüm B'nin tooA. tooexecute hello komut dosyası, kopyalama hello değiştiren komut dosyası, içinde tooPowerShell yapıştırın ve tuşuna `Enter`.
+12. Merhaba myVnetB eşleme durumunu görüntüleyin. Adım 9 tooa metin düzenleyicide, bilgisayarınızdaki Hello komut dosyası içeriğini kopyalayın. Merhaba kaynak grubu ve sanal ağ adları tooB değiştirin. tooexecute hello komut dosyası, PowerShell içinde değiştirilen hello betiğini yapıştırın ve tuşuna basın `Enter`. Merhaba durumu **bağlı**. eşleme durumunu hello **myVnetA** çok değiştirir**bağlı** gelen hello eşliği oluşturduktan sonra **myVnetB** çok**myVnetA**. Kullanıcıa geri tooAzure ve 9. adım tam tekrar tooverify hello eşleme durumunu myVnetA oturum. 
 
     > [!NOTE]
-    > Eşleme duruma gelene kadar eşlemeyi kurulmaz **bağlı** her iki sanal ağlar için.
+    > Merhaba eşliği değil kurulduğunda hello eşleme duruma gelene kadar **bağlı** her iki sanal ağlar için.
 
-    Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini birbirleri ile iletişim kuramıyor. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, sanal ağlarda bulunan kaynaklar sanal ağlar arasında adlarını çözmek mümkün değildir. Bir eşlemesindeki sanal ağlar arasında adları çözümlemek dilerseniz kendi DNS sunucusu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+    Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini aracılığıyla birbirleriyle mümkün toocommunicate sunulmuştur. Varsayılan Azure ad çözümlemesi için sanal ağlar hello kullanıyorsanız hello hello sanal ağlarda değil mümkün tooresolve adları hello sanal ağlar arasında kaynaklardır. Bir eşlemesindeki sanal ağlar arasında tooresolve adlarının istiyorsanız, DNS sunucunuzun oluşturmanız gerekir. Bilgi nasıl yukarı tooset [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
-13. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan olsa, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlanabilirliği doğrulamak için bağlanın.
-14. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynaklarını silmek için adımları tamamlamanız [silmek kaynakları](#delete-powershell) bu makalede.
+13. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan de, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makine toohello diğer toovalidate bağlantı bağlanın.
+14. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz toodelete hello kaynakları, tam hello adımları [silmek kaynakları](#delete-powershell) bu makalede.
 
 ## <a name="permissions"></a>İzinleri
 
-Bir sanal ağ eşlemesi oluşturmak için kullandığınız hesaplarının gerekli rol veya izinleri olması gerekir. Örneğin, adlı iki sanal ağ eşlemesi **myVnetA** ve **myVnetB**, aşağıdaki en düşük rolü veya her sanal ağ izinlerini hesabınızı atanması gerekir:
+bir sanal ağ eşlemesi toocreate kullandığınız hello hesaplarının hello gerekli rol veya izinleri olması gerekir. Örneğin, adlı iki sanal ağ eşlemesi **myVnetA** ve **myVnetB**, hesabınızı en az bir rol veya her sanal ağ izinlerini aşağıdaki hello atanması gerekir:
     
 |Sanal ağ|Rol|İzinler|
 |---|---|---|
 |myVnetA|[Ağ Katılımcısı](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 |myVnetB|[Ağ Katılımcısı](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 
-Daha fazla bilgi edinmek [yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ve belirli izinler atama [özel roller](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (yalnızca Resource Manager).
+Daha fazla bilgi edinmek [yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ve özel izinleri çok atama[özel roller](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (yalnızca Resource Manager).
 
 ## <a name="delete"></a>Kaynakları silin
-Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide oluşturduğunuz kaynakları silmek isteyebilirsiniz. Bir kaynak grubunun silinmesi, kaynak grubunda bulunan tüm kaynakları siler.
+Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz hello öğreticide oluşturulan toodelete hello kaynakları isteyebilirsiniz. Bir kaynak grubunu silme hello kaynak grubunda bulunan tüm kaynakları siler.
 
 ### <a name="delete-portal"></a>Azure portalı
 
-1. Azure portalında UserA oturum açın.
-2. Portal arama kutusuna **myResourceGroupA**. Arama sonuçlarında tıklatın **myResourceGroupA**.
-3. Üzerinde **myResourceGroupA** dikey penceresinde tıklatın **silmek** simgesi.
-4. İçinde silmeyi onaylamak için **türü kaynak grubu adı** kutusuna **myResourceGroupA**ve ardından **silmek**.
-5. UserA olarak portal dışında oturum ve UserB oturum açın.
+1. Toohello Azure portalında UserA oturum açın.
+2. Merhaba portal arama kutusuna **myResourceGroupA**. Merhaba arama sonuçlarında tıklatın **myResourceGroupA**.
+3. Merhaba üzerinde **myResourceGroupA** dikey penceresinde hello tıklatın **silmek** simgesi.
+4. Merhaba de tooconfirm hello silinmesine **türü hello kaynak grubu adı** kutusuna **myResourceGroupA**ve ardından **silmek**.
+5. UserA olarak hello portal dışında oturum ve UserB oturum açın.
 6. MyResourceGroupB için 2-4 arası adımları tamamlayın.
 
 ### <a name="delete-cli"></a>Azure CLI
 
-1. Azure UserA olarak oturum açın ve aşağıdaki komutu yürütün:
+1. TooAzure UserA olarak oturum ve hello aşağıdaki komutu yürütün:
 
     ```azurecli-interactive
     az group delete --name myResourceGroupA --yes
     ```
 2. UserA olarak Azure dışında oturum ve UserB oturum açın.
-3. Aşağıdaki komutu yürütün:
+3. Merhaba aşağıdaki komutu yürütün:
 
     ```azurecli-interactive
     az group delete --name myResourceGroupB --yes
@@ -278,14 +278,14 @@ Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide 
 
 ### <a name="delete-powershell"></a>PowerShell
 
-1. Azure UserA olarak oturum açın ve aşağıdaki komutu yürütün:
+1. TooAzure UserA olarak oturum ve hello aşağıdaki komutu yürütün:
 
     ```powershell
     Remove-AzureRmResourceGroup -Name myResourceGroupA -force
     ```
 
 2. UserA olarak Azure dışında oturum ve UserB oturum açın.
-3. Aşağıdaki komutu yürütün:
+3. Merhaba aşağıdaki komutu yürütün:
 
     ```powershell
     Remove-AzureRmResourceGroup -Name myResourceGroupB -force
@@ -295,4 +295,4 @@ Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide 
 
 - Baştan sona ile önemli öğrenmeniz [sanal ağ eşleme kısıtlamaları ve davranışları](virtual-network-manage-peering.md#requirements-and-constraints) için üretim eşleme sanal ağ oluşturmadan önce kullanın.
 - Tüm hakkında bilgi edinin [sanal ağ eşleme ayarları](virtual-network-manage-peering.md#create-a-peering).
-- Bilgi edinmek için nasıl [bir hub oluşturmak ve ağ topolojisine bağlı bileşen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) sanal ağ eşlemesi ile.
+- Nasıl çok öğrenin[bir hub oluşturmak ve ağ topolojisine bağlı bileşen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) sanal ağ eşlemesi ile.

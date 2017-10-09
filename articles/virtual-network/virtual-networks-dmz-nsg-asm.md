@@ -1,5 +1,5 @@
 ---
-title: "Azure DMZ örnek – yapı Nsg'ler ile basit DMZ | Microsoft Docs"
+title: "aaaAzure DMZ örnek – yapı Nsg'ler ile basit DMZ | Microsoft Docs"
 description: "Bir çevre ağ güvenlik grupları (NSG) ile derleme"
 services: virtual-network
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 32a40a8dc7539c4c7293988e6c36e5e32ef11045
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Örnek 1 – Nsg'ler ile klasik PowerShell kullanarak basit bir DMZ derleme
-[Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]
+[Dönüş toohello güvenlik sınırı en iyi uygulamalar sayfası][HOME]
 
 > [!div class="op_single_selector"]
 > * [Resource Manager Şablonu](virtual-networks-dmz-nsg.md)
@@ -29,61 +29,61 @@ ms.lasthandoff: 07/11/2017
 > 
 >
 
-Bu örnekte basit DMZ dört Windows sunucuları ve ağ güvenlik grupları oluşturulur. Bu örnek, her bir adımın daha derin bir anlayış sağlamak için ilgili PowerShell komutların her birini açıklar. Ayrıca bir ayrıntılı sağlamak için bir trafik senaryosu bölümü olan adım adım çevre savunma katmanlar arasında nasıl trafiği devam eder. Son olarak, içindeki başvuruların sınamak ve çeşitli senaryolarıyla denemeler için bu ortamı oluşturmak için yönerge ve tam bir kod bölümüdür. 
+Bu örnekte basit DMZ dört Windows sunucuları ve ağ güvenlik grupları oluşturulur. Bu örnek hello ilgili PowerShell komutları tooprovide her adımın daha derin bir anlayış açıklar. Ayrıca vardır bir trafik senaryo bölüm tooprovide ayrıntılı bir adım adım derinlemesine savunma hello katmanları üzerinden trafik geçer nasıl DMZ hello. Son olarak, hello references bölümünde hello tam kod ve yönerge toobuild bu ortam tootest çeşitli senaryoları ile deneme ise. 
 
 ![NSG ile giriş DMZ][1]
 
 ## <a name="environment-description"></a>Ortam açıklaması
-Bu örnekte, bir abonelik aşağıdaki kaynaklar içeriyor:
+Bu örnekte, abonelik kaynakları aşağıdaki hello içerir:
 
 * İki bulut hizmetlerini: "FrontEnd001" ve "BackEnd001"
 * Sanal ağ, "CorpNetwork" iki alt ağı; "Ön uç" ve "Arka uç"
-* Her iki alt ağa uygulanan ağ güvenlik grubu
+* Uygulanan tooboth alt ağıdır bir ağ güvenlik grubu
 * Uygulama web sunucusu ("IIS01") temsil eden bir Windows sunucusu
 * Uygulama arka uç sunucuları ("AppVM01", "AppVM02") temsil eden iki windows sunucuları
 * Bir DNS sunucusu ("DNS01") temsil eden bir Windows sunucusu
 
-References bölümünde bu örnekte açıklanan ortamı çoğunu derlemeler bir PowerShell komut dosyası yok. VM'ler ve sanal ağlar, derleme örnek komut dosyası tarafından yapılır rağmen değil açıklanmıştır bu belgede ayrıntılı. 
+Merhaba references bölümünde bu örnekte açıklanan hello ortamı çoğunu derlemeler bir PowerShell komut dosyası yok. Yapı hello VM'ler ve sanal ağlar, bu belgede ayrıntılı hello örnek komut dosyası tarafından yapılır rağmen açıklanmamaktadır. 
 
-Ortamı oluşturmak için;
+toobuild hello ortam;
 
-1. References bölümünde bulunan ağ yapılandırma xml dosyasını kaydedin (adlar, konum ve IP adresleri verilen senaryo eşleşecek şekilde güncelleştirilir)
-2. Kullanıcı değişkenleri (Abonelikleri, hizmet adlarını, vb. karşı) çalıştırılacak komut dosyasıdır ortamıyla eşleşecek şekilde güncelleştirin
-3. PowerShell komut dosyası yürütme
+1. (Adları, konum ve IP adreslerini toomatch verilen hello senaryo güncelleştirilmiş) hello başvurular bölümüne dahil hello ağ yapılandırma xml dosyasını kaydedin
+2. Güncelleştirme hello kullanıcı değişkenleri hello betik toomatch hello ortamı hello komut olan toobe Çalıştır (Abonelikleri, hizmet adlarını vb. karşı.)
+3. PowerShell'de Hello komut dosyası yürütme
 
 >[!Note]
->PowerShell Betiği miktarlara bölge ağ yapılandırması xml dosyasında miktarlara bölge ile eşleşmelidir.
+>Merhaba PowerShell Betiği miktarlara hello bölge hello ağ yapılandırması xml dosyasında miktarlara hello bölge ile eşleşmelidir.
 >
 >
 
-Komut dosyasını başarıyla ek çalıştırır sonra isteğe bağlı adımlar izlenebilir, web sunucusu ve uygulama sunucusu bu DMZ yapılandırma ile test izin vermek için basit bir web uygulaması ile ayarlamak için iki komut dosyası başvuruları bölümünde bulunur.
+Merhaba komut dosyasını başarıyla ek çalıştırır sonra isteğe bağlı adımlar izlenebilir, hello references bölümünde hello web sunucusu ve uygulama sunucusu bu DMZ yapılandırma ile test basit bir web uygulaması tooallow ile iki komut dosyaları tooset.
 
-Aşağıdaki bölümlerde ağ güvenlik grupları ve bunların Bu örnek için PowerShell Betiği anahtar satırları arasında adım adım ilerlemenizi sağlayarak işlevleri ayrıntılı bir açıklama belirtin.
+Hello aşağıdaki bölümlerde ağ güvenlik grupları ve bunların Bu örnek için anahtar hello PowerShell Betiği satırları arasında adım adım ilerlemenizi sağlayarak işlevleri ayrıntılı bir açıklama belirtin.
 
 ## <a name="network-security-groups-nsg"></a>Ağ Güvenlik Grupları (NSG)
 Bu örnekte, bir NSG grubu yerleşik ve altı kurallarıyla yüklendi. 
 
 > [!TIP]
-> Genel olarak bakıldığında, belirli "İzin ver" kurallarınızı önce oluşturmanız gerekir ve daha genel "Deny" kuralları en son. Kurallar öncelik atanmış belirtir ilk değerlendirilir. Trafiği belirli bir kuralın uygulanacağı bulunduktan sonra başka hiçbir kural değerlendirilir. NSG kuralları her (alt ağ perspektifinden) gelen veya giden yönde uygulayabilirsiniz.
+> Genel olarak bakıldığında, belirli "İzin ver" kurallarınızı ilk oluşturun ve daha genel "Deny" kuralları son hello gerekir. öncelik atanmış hello hangi kuralları ilk olarak değerlendirilir belirler. Trafik tooapply tooa belirli kural bulunduktan sonra başka hiçbir kural değerlendirilir. NSG kuralları hello ikisinde uygulayabileceğiniz gelen veya giden yön (Merhaba alt hello açısından).
 > 
 > 
 
-Bildirimli olarak, aşağıdaki kural gelen trafik için oluşturulmakta:
+Bildirimli olarak, kurallar aşağıdaki hello gelen trafik için oluşturulmakta:
 
 1. İç DNS trafiğinin (bağlantı noktası 53) izin verilir
-2. Her VM için RDP trafiğinin (3389 numaralı bağlantı noktası) Internet'ten izin verilir
-3. Web sunucusu (IIS01) için HTTP trafiğine (bağlantı noktası 80) Internet'ten izin verilir
-4. Tüm trafiği (tüm bağlantı noktaları) IIS01 AppVM1 izin verilir
-5. Tüm trafiği (tüm bağlantı noktaları) Internet'ten tüm VNet (her iki alt ağ) reddedildi
-6. Tüm trafiği (tüm bağlantı noktaları) ön uç alt ağından arka uç alt ağa reddedildi
+2. Merhaba Internet tooany VM gelen RDP trafiğine (3389 numaralı bağlantı noktası) izin verilir
+3. Itanium tabanlı sistemler için HTTP trafiğine (bağlantı noktası 80) hello Internet tooweb sunucusundan (IIS01) izin verilir
+4. IIS01 tooAppVM1 tüm trafiği (tüm bağlantı noktaları) izin verilir
+5. Merhaba Internet toohello tüm trafiği (tüm bağlantı noktaları) tüm sanal ağ (her iki alt ağ) reddedildi
+6. Merhaba ön uç alt toohello arka uç alt ağından gelen tüm trafiği (tüm bağlantı noktaları) reddedildi
 
-Bu kurallar ile bağlı her alt ağ için bir HTTP isteği hem kuralları 3, web sunucusu Internet'ten gelen ise (izin ver) ve 5 (uygulamak reddetme), ancak 3 kuralı, yalnızca geçerli olur ve kural 5 oyuna değil gelen daha yüksek öncelikli olduğundan. Bu nedenle web sunucusuna HTTP isteği izin verilir. Bu aynı trafiği DNS01 sunucunun erişmeye, kural 5 (Reddet) uygulamak için ilk olacaktır ve trafiği sunucuya geçirmeniz izin verilmiyor. Kural 6 (Reddet) arka uç alt ağına (dışında izin verilen trafiği kurallarında 1 ve 4) Konuşmayı gelen ön uç alt ağ blokları, bu kural kümesine durumda arka uç ağ saldırgan ön uç web uygulamasında arka uç "korumalı" ağa (yalnızca AppVM01 sunucuda kullanıma sunulan kaynakları) erişimi sınırlı bir saldırganın güvenlik ihlalleri korur.
+Bu kurallar ilişkili tooeach alt ağ ile bir HTTP isteği hello Internet toohello web sunucusundan gelen ise her ikisi de kuralları 3 (izin verin) ve 5 (uygulamak reddetme), ancak 3 kuralı, yalnızca geçerli olur ve kural 5 oyuna değil gelen daha yüksek öncelikli olduğundan. Bu nedenle hello HTTP isteği toohello web sunucusu izin. Bu aynı trafiği tooreach hello DNS01 sunucusunu denemeden ise hello ilk tooapply ve hello trafiği toopass toohello sunucu verilmez kural 5 (Reddet) olabilir. Kural 6 (Reddet) toohello arka uç alt (dışında izin verilen trafiği kurallarında 1 ve 4) Konuşmayı gelen hello ön uç alt ağ blokları, hello saldırganın bir saldırganın güvenlik ihlalleri hello web uygulamasına hello ön uç misiniz durumunda bu kural kümesine hello arka uç ağ korur. arka uç "Korumalı ağ (yalnızca tooresources hello AppVM01 sunucu üzerinde gösterilen)" erişim toohello sınırlı.
 
-İnternet giden trafiğe izin veren varsayılan bir giden kuralı yok. Bu örnekte, biz giden trafiğe izin vermek ve herhangi bir giden kuralı değiştirme değil. Her iki yönde trafik kilitlemek için kullanıcı tanımlı yönlendirme gereklidir ve "Örnek 3" üzerinde incelediniz [güvenlik sınırı en iyi yöntemler sayfası][HOME].
+Toohello giden trafiğe izin veren varsayılan giden kural Internet. Bu örnekte, biz giden trafiğe izin vermek ve herhangi bir giden kuralı değiştirme değil. Her iki yönde trafik aşağı toolock, kullanıcı tanımlanan yönlendirme gereklidir ve "Örnek 3" Merhaba üzerinde incelediniz [güvenlik sınırı en iyi yöntemler sayfası][HOME].
 
-Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işareti aşağıdaki liste başlayarak herhangi bir öğeye (örneğin: $NSGName) kullanıcı tanımlı bir değişken başvurusu bölümünde bu belgenin betikten):
+Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işareti listesi başlayarak aşağıdaki hello herhangi bir öğeye (örneğin: $NSGName) kullanıcı tanımlı değişken hello başvuru bölümünde, bu belgenin hello betikten):
 
-1. İlk ağ güvenlik grubu kuralları tutmak için yerleşik gerekir:
+1. İlk ağ güvenlik grubu toohold hello kuralları oluşturulmalıdır:
 
     ```PowerShell
     New-AzureNetworkSecurityGroup -Name $NSGName `
@@ -91,10 +91,10 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
         -Label "Security group for $VNetName subnets in $DeploymentLocation"
     ```
 
-2. Bu örnekte ilk kural DNS sunucusu arka uç alt ağdaki tüm iç ağ arasında DNS trafiğine izin verir. Kural bazı önemli parametreleri içerir:
+2. Bu örnekte Hello ilk kural hello arka uç alt ağdaki tüm İç ağlara toohello DNS sunucusu arasında DNS trafiğine izin verir. Merhaba kuralı bazı önemli parametreler sahiptir:
    
-   * "Tür" trafik akışı hangi yönde bu kural etkinleşir belirtir. Perspektifinden (bağlı olarak bu NSG burada bağlı) alt ağ ya da sanal makinenin yönü olur. Bu nedenle türüdür "Giriş" ve trafik alt girerek, kural geçerli olur ve alt ağdan çıkan trafiğe etkilenmemiştir bu kural tarafından varsa.
-   * "Öncelik" bir trafik akışı değerlendirileceğini sırasını belirler. Düşük sayı öncelik o kadar yüksektir. Belirli bir trafik akışı için bir kural uygulandığı zaman başka hiçbir kural işlenir. Bu nedenle bir kural öncelik 1 ile trafiğine izin verir ve trafiği, öncelik 2 olan bir kural reddeder ve her iki kural trafiğe uygulanır durumunda trafik akışı için izin verilir (Kural 1 yüksek önceliğe sahip olduğundan etkisi sürdü ve başka hiçbir kural uygulanan).
+   * "Tür" trafik akışı hangi yönde bu kural etkinleşir belirtir. Merhaba yönünü (bağlı olarak bu NSG burada bağlı) hello açısından hello alt ağı veya sanal makine değil. Bu nedenle türüdür "Giriş" ve trafiği hello alt girerek, hello kuralın ve hello alt ağdan çıkan trafiğe etkilenmemiştir bu kural tarafından durumunda.
+   * "Öncelik" Merhaba sırasını trafik akışı değerlendirileceğini belirler. Merhaba alt hello sayı hello yüksek hello önceliği. Tooa belirli bir trafik akışı bir kural uygulandığı zaman başka hiçbir kural işlenir. Bu nedenle öncelik 1 olan bir kural trafiğine izin verir ve trafiği, öncelik 2 olan bir kural reddeder ve tootraffic hem kuralları uygula durumunda hello trafiği tooflow izin (Kural 1 yüksek önceliğe sahip olduğundan etkisi sürdü ve başka hiçbir kural uygulanan).
    * Bu kural tarafından etkilenen trafiği engellendi veya izin verilen "Eylem" belirtir.
 
     ```PowerShell    
@@ -107,11 +107,11 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
         -Protocol *
     ```
 
-3. Bu kural RDP bağlantı noktasına bağlı alt ağ üzerinde herhangi bir sunucuda internet'ten akış RDP trafiğine izin verir. Bu kural adres öneklerini iki özel tür kullanır; "Vırtual_network" ve "INTERNET." Bu etiketler adres öneklerinin daha büyük bir kategori adres için kolay bir yoludur.
+3. Bu kural, alt ağ RDP trafiğine tooflow hello herhangi bir sunucuda hello Internet toohello RDP bağlantı noktasından bağlı sağlar. Bu kural adres öneklerini iki özel tür kullanır; "Vırtual_network" ve "INTERNET." Bu etiketler kolay bir yolu tooaddress adres öneklerini daha büyük bir kategoride var.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
-         Set-AzureNetworkSecurityRule -Name "Enable RDP to $VNetName VNet" `
+         Set-AzureNetworkSecurityRule -Name "Enable RDP too$VNetName VNet" `
          -Type Inbound -Priority 110 -Action Allow `
          -SourceAddressPrefix INTERNET -SourcePortRange '*' `
          -DestinationAddressPrefix VIRTUAL_NETWORK `
@@ -119,11 +119,11 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
          -Protocol *
     ```
 
-4. Bu kural, web sunucusu isabet gelen internet trafiğine izin verir. Bu kural, yönlendirme davranışını değiştirmez. Kuralın yalnızca geçirmek için IIS01 giden trafiğe izin verir. Bu nedenle Internet trafiği bu kural izin ve daha fazla kural işlemeyi durdur hedef olarak web sunucusunun sahip. (Öncelikle kuralında 140 diğer tüm gelen Internet trafiğini engellendi). Yalnızca HTTP trafiğini işlemek, yalnızca hedef bağlantı noktası 80 izin vermek için bu kural daha fazla kısıtlanmasını.
+4. Bu kural gelen Internet trafiği toohit hello web sunucusu sağlar. Bu kural hello yönlendirme davranışını değiştirmez. Merhaba kural yalnızca IIS01 toopass giden trafiğe izin verir. Bu nedenle hello Internet trafiği bu kural izin ve daha fazla kural işlemeyi durdur hedef olarak hello web sunucusunun sahip. (Öncelikle hello kuralında 140 diğer tüm gelen Internet trafiğini engellendi). Yalnızca HTTP trafiğini işlemek, bu kural başka olabilir kısıtlı tooonly hedef bağlantı noktası 80 izin verin.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
-         Set-AzureNetworkSecurityRule -Name "Enable Internet to $VMName[0]" `
+         Set-AzureNetworkSecurityRule -Name "Enable Internet too$VMName[0]" `
          -Type Inbound -Priority 120 -Action Allow `
          -SourceAddressPrefix Internet -SourcePortRange '*' `
          -DestinationAddressPrefix $VMIP[0] `
@@ -131,11 +131,11 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
          -Protocol *
     ```
 
-5. Bu kural AppVM01 sunucuya daha yeni bir kural bloklarını arka uç trafiği diğer ön uç IIS01 sunucudan geçmesine trafiğine izin verir. Bu kural, bağlantı noktasının eklenmesi gereken biliniyorsa geliştirmek için. IIS sunucusu yalnızca SQL Server'da AppVM01 basarsa, örneğin, hedef bağlantı noktası aralığı değiştirildiği "*" (tüm) böylece web uygulaması hiç tehlikeye AppVM01 üzerinde daha küçük bir gelen saldırı yüzeyini sağlar 1433 (SQL bağlantı noktası) için.
+5. Bu kural hello IIS01 sunucusundan trafiği toopass toohello AppVM01 sunucu izin verir; bir sonraki kural diğer tüm ön uç tooBackend trafiği engeller. Bu kural, başlangıç bağlantı noktası biliniyorsa eklenmelidir tooimprove. Merhaba IIS sunucusu yalnızca SQL Server'da AppVM01 basarsa, örneğin, hello hedef bağlantı noktası aralığı değiştirildiği "*" (tüm) too1433 (Merhaba SQL bağlantı noktası) böylece Merhaba web uygulaması hiç tehlikeye AppVM01 üzerinde daha küçük bir gelen saldırı yüzeyini sağlar.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Enable $VMName[1] to $VMName[2]" `
+        Set-AzureNetworkSecurityRule -Name "Enable $VMName[1] too$VMName[2]" `
         -Type Inbound -Priority 130 -Action Allow `
         -SourceAddressPrefix $VMIP[1] -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[2] `
@@ -143,23 +143,23 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
         -Protocol *
     ```
 
-6. Bu kural, ağ üzerindeki herhangi bir sunucuya internet'ten trafiği engeller. Öncelikle 110 ve 120 kurallarıyla etkisi yalnızca gelen Internet trafiği güvenlik duvarı ve RDP bağlantı noktalarını sunucularda ve blokları şey izin vermektir. Bu kural, tüm beklenmeyen akışlar engellemek için bir "yedek" kuralıdır.
+6. Bu kural hello Internet tooany sunucularından hello ağ üzerindeki trafiği engeller. Hello kurallarıyla öncelikli 110 ve 120 hello etkisi tooallow yalnızca gelen Internet trafiği toohello güvenlik duvarı ve sunucularda RDP bağlantı noktalarını ve şey engeller. Bu kural, "Ayrıcalık tanımayın" kural tooblock tüm beklenmeyen akışlar ' dir.
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule `
-        -Name "Isolate the $VNetName VNet from the Internet" `
+        -Name "Isolate hello $VNetName VNet from hello Internet" `
         -Type Inbound -Priority 140 -Action Deny `
         -SourceAddressPrefix INTERNET -SourcePortRange '*' `
         -DestinationAddressPrefix VIRTUAL_NETWORK `
         -DestinationPortRange '*' `
         -Protocol *
     ```
-7. Son bir kural arka uç alt ağına ön uç alt ağından trafiği engeller. Bu kural yalnızca bir gelen kuralı olduğundan, geriye doğru trafiğinin (Başlangıç ön uç için arka uç) izin verilir.
+7. Merhaba son kural hello ön uç alt toohello arka uç alt ağından trafiği engeller. Bu kural yalnızca bir gelen kuralı olduğundan, geriye doğru trafiğinin (Merhaba arka uç toohello ön uç) izin verilir.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule `
-        -Name "Isolate the $FESubnet subnet from the $BESubnet subnet" `
+        -Name "Isolate hello $FESubnet subnet from hello $BESubnet subnet" `
         -Type Inbound -Priority 150 -Action Deny `
         -SourceAddressPrefix $FEPrefix -SourcePortRange '*' `
         -DestinationAddressPrefix $BEPrefix `
@@ -168,112 +168,112 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
     ```
 
 ## <a name="traffic-scenarios"></a>Trafik senaryoları
-#### <a name="allowed-internet-to-web-server"></a>(*İzin verilen*) web sunucusu Internet'e
+#### <a name="allowed-internet-tooweb-server"></a>(*İzin verilen*) Internet tooweb sunucusu
 1. Bir Internet kullanıcı FrontEnd001.CloudApp.Net (Internet'e yönelik bulut hizmeti) istekler bir HTTP sayfası
-2. Bulut hizmeti geçişleri trafiğini açık uç noktasını IIS01 doğru bağlantı noktası 80 üzerinden (web sunucusu)
+2. Bulut hizmeti geçişleri trafiğini açık uç noktasını IIS01 doğru bağlantı noktası 80 üzerinden (Merhaba web sunucusu)
 3. Ön uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
-   2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-   3. NSG kural 3 (IIS01 Internet'e) için geçerli, izin verilen, Dur kural işlenirken trafiğidir
-4. İç IP adresi web sunucusunun IIS01 (10.0.1.5) trafiği isabetler
-5. IIS01 web trafiği için dinleme, bu isteği alır ve isteği işlemeye başlıyor
-6. IIS01 SQL Server AppVM01 hakkında bilgi için sorar
+   1. NSG kural 1 (DNS) uygulanmaz, taşıma toonext kuralı
+   2. NSG kuralı 2 (RDP) uygulanmaz, taşıma toonext kuralı
+   3. NSG kural 3 (Internet tooIIS01) geçerli, izin verilen, Dur kural işlenirken trafiğidir
+4. İç IP adresi hello web sunucusunun IIS01 (10.0.1.5) trafiği isabetler
+5. IIS01 web trafiği için dinleme, bu isteği alır ve hello isteği işlemeye başlıyor
+6. IIS01 hello SQL Server AppVM01 hakkında bilgi için sorar
 7. Ön uç alt ağda hiçbir giden kuralları olduğundan, trafiğe izin verilir
-8. Arka uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
-   2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-   3. NSG kural 3 (Internet güvenlik duvarı için) değil, uygulamak için sonraki kural taşıma
-   4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak, trafiğine izin verilir, kural işleme Durdur
-9. AppVM01 SQL sorgusu alır ve yanıtlar
-10. Arka uç alt ağda hiçbir giden kuralları olduğundan, yanıt izin verilir
+8. Merhaba arka uç alt gelen kuralı işleme başlar:
+   1. NSG kural 1 (DNS) uygulanmaz, taşıma toonext kuralı
+   2. NSG kuralı 2 (RDP) uygulanmaz, taşıma toonext kuralı
+   3. NSG kuralı 3 (Internet tooFirewall) değil, uygulama toonext kuralı Taşı
+   4. NSG kuralı 4 (IIS01 tooAppVM01) geçerli, izin verilen, Dur kural işlenirken trafiğidir
+9. AppVM01 hello SQL sorgusu alır ve yanıtlar
+10. Merhaba arka uç alt ağda hiçbir giden kuralları olduğundan hello yanıt izin verilir
 11. Ön uç alt gelen kuralı işleme başlar:
-    1. Gelen için geçerli NSG kural yok NSG hiçbiri uygulama kuralları için ön uç alt ağa, arka uç alt ağından gelen trafik
-    2. Alt ağlar arasında trafiğe izin varsayılan sistem kuralı, trafiğine izin bu trafiği olanak tanır.
-12. IIS sunucusu SQL yanıtı alır ve HTTP yanıtı tamamlar ve istek sahibine gönderir
-13. Hiçbir giden kuralları olduğundan ön uç alt ağda yanıt izin verilir ve internet kullanıcı istenen web sayfasının alır.
+    1. Merhaba NSG kuralları hiçbiri geçerli şekilde hello arka uç alt toohello ön uç alt ağından tooInbound trafiği uygulayan NSG kural yok
+    2. Merhaba trafiğe izin şekilde hello varsayılan sistem kuralı alt ağlar arasında trafiğe izin vermek bu trafiği olanak tanır.
+12. Merhaba IIS sunucusu hello SQL yanıtı alır ve hello HTTP yanıtı tamamlar ve toohello istek gönderir
+13. Hello ön uç alt ağda hiçbir giden kuralları olduğundan hello yanıt izin verilir ve hello Internet kullanıcı hello web sayfasının alır.
 
-#### <a name="allowed-rdp-to-backend"></a>(*İzin verilen*) arka uç için RDP
-1. Sunucu Yöneticisi internet üzerindeki AppVM01 xxxxx rastgele atanan bağlantı noktası numarası (atanan bağlantı noktası, Azure portal veya PowerShell aracılığıyla bulunabilir) AppVM01 için RDP olduğu BackEnd001.CloudApp.Net:xxxxx üzerinde RDP oturumu istekleri
+#### <a name="allowed-rdp-toobackend"></a>(*İzin verilen*) RDP toobackend
+1. Sunucu Yöneticisi internet üzerindeki istekleri xxxxx RDP tooAppVM01 hello rastgele atanan bağlantı noktası numarası olduğu BackEnd001.CloudApp.Net:xxxxx üzerinde RDP oturumu tooAppVM01 (Merhaba atanan bağlantı noktası bulunabilir hello Azure portal veya PowerShell aracılığıyla)
 2. Arka uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
+   1. NSG kural 1 (DNS) uygulanmaz, taşıma toonext kuralı
    2. NSG kuralı 2 (RDP) uygulamak için izin verilen, Dur kural işlenirken trafiğidir
 3. Hiçbir giden kuralları, varsayılan kuralları uygula ve dönüş trafiğine izin verilir
 4. RDP oturumu etkin
-5. Kullanıcı adı ve parola AppVM01 isteyen
+5. AppVM01 hello kullanıcı adı ve parola isteyen
 
 #### <a name="allowed-web-server-dns-look-up-on-dns-server"></a>(*İzin verilen*) Web sunucusu DNS araması DNS sunucusunda
-1. Sunucu, IIS01, www.data.gov bir veri akışı gereksinimlerini ancak adresini çözümlemek için gereksinimlerini web.
-2. Ağ yapılandırma için VNet listeleri DNS01 (arka uç alt ağda 10.0.2.4) birincil DNS sunucusu olarak IIS01 DNS isteği için DNS01 gönderir
+1. Sunucu, IIS01, gereksinimlerini www.data.gov bir veri akışı web ancak tooresolve adresi hello.
+2. Merhaba ağ yapılandırma hello VNet listeleri DNS01 (10.0.2.4 hello arka uç alt ağdaki) hello birincil DNS sunucusu olarak, IIS01 hello DNS isteği tooDNS01 gönderir
 3. Ön uç alt ağdaki hiçbir giden kuralları, trafiğe izin verilir
 4. Arka uç alt gelen kuralı işleme başlar:
    * NSG kural 1 (DNS) uygulamak için izin verilen, Dur kural işlenirken trafiğidir
-5. DNS sunucusu isteği alır
-6. DNS sunucusu önbelleğe adresi yoksa ve bir kök DNS sunucusu internet'te sorar
+5. DNS sunucusu hello isteği alır
+6. DNS sunucusu önbelleğe hello adresi yoksa ve bir kök DNS sunucusu üzerinde hello ister Internet
 7. Hiçbir giden kuralları arka uç alt ağdaki trafiğe izin verilir
-8. Bu oturumda dahili olarak başlatıldı beri Internet DNS sunucusu yanıt, yanıt izin verilir
-9. DNS sunucusu yanıtı önbelleğe alır ve geri IIS01 ilk isteğine yanıt verir
+8. Bu oturumda dahili olarak başlatıldı beri Internet DNS sunucusu yanıt, hello yanıt izin verilir
+9. DNS sunucusu hello yanıtı önbelleğe alır ve toohello ilk isteği geri tooIIS01 yanıt verir
 10. Hiçbir giden kuralları arka uç alt ağdaki trafiğe izin verilir
 11. Ön uç alt gelen kuralı işleme başlar:
-    1. Gelen için geçerli NSG kural yok NSG hiçbiri uygulama kuralları için ön uç alt ağa, arka uç alt ağından gelen trafik
-    2. Trafiğe izin için alt ağlar arasında trafiğe izin varsayılan sistem kuralı bu trafiği olanak tanır
-12. IIS01 DNS01 yanıtı alır
+    1. Merhaba NSG kuralları hiçbiri geçerli şekilde hello arka uç alt toohello ön uç alt ağından tooInbound trafiği uygulayan NSG kural yok
+    2. Merhaba trafiğe izin şekilde hello varsayılan sistem kuralı alt ağlar arasında trafiğe izin vermek bu trafiği olanak tanır
+12. IIS01 hello yanıt DNS01 alır.
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*İzin verilen*) Web sunucusu erişimini dosyasını AppVM01 üzerinde
 1. Bir dosyanın AppVM01 IIS01 sorar
 2. Ön uç alt ağdaki hiçbir giden kuralları, trafiğe izin verilir
-3. Arka uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
-   2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-   3. NSG kural 3 (IIS01 Internet'e) değil, uygulamak için sonraki kural taşıma
-   4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak, trafiğine izin verilir, kural işleme Durdur
-4. AppVM01 isteği alır ve (erişim yetkisi varsayılarak) dosyası ile yanıt verir
-5. Arka uç alt ağda hiçbir giden kuralları olduğundan, yanıt izin verilir
+3. Merhaba arka uç alt gelen kuralı işleme başlar:
+   1. NSG kural 1 (DNS) uygulanmaz, taşıma toonext kuralı
+   2. NSG kuralı 2 (RDP) uygulanmaz, taşıma toonext kuralı
+   3. NSG kuralı 3 (Internet tooIIS01) değil, uygulama toonext kuralı Taşı
+   4. NSG kuralı 4 (IIS01 tooAppVM01) geçerli, izin verilen, Dur kural işlenirken trafiğidir
+4. AppVM01 hello isteğini alır ve (erişim yetkisi varsayılarak) dosyası ile yanıt verir
+5. Merhaba arka uç alt ağda hiçbir giden kuralları olduğundan hello yanıt izin verilir
 6. Ön uç alt gelen kuralı işleme başlar:
-   1. Gelen için geçerli NSG kural yok NSG hiçbiri uygulama kuralları için ön uç alt ağa, arka uç alt ağından gelen trafik
-   2. Alt ağlar arasında trafiğe izin varsayılan sistem kuralı, trafiğine izin bu trafiği olanak tanır.
-7. IIS sunucu dosya alır
+   1. Merhaba NSG kuralları hiçbiri geçerli şekilde hello arka uç alt toohello ön uç alt ağından tooInbound trafiği uygulayan NSG kural yok
+   2. Merhaba trafiğe izin şekilde hello varsayılan sistem kuralı alt ağlar arasında trafiğe izin vermek bu trafiği olanak tanır.
+7. Merhaba IIS sunucu hello dosya alır
 
-#### <a name="denied-web-to-backend-server"></a>(*Reddedildi*) arka uç sunucusuna Web
-1. Bir Internet kullanıcı BackEnd001.CloudApp.Net hizmeti aracılığıyla AppVM01 bir dosyaya erişmeyi dener
-2. Dosya Paylaşımı için açık uç nokta yok olduğundan, bu trafiği bulut hizmeti geçirmek değil'yı ve tarafından sunucuya ulaşmak olmayacaktır
-3. Uç noktaları için herhangi bir nedenle açıksa, NSG kural 5 (sanal ağa Internet) bu trafiği engeller
+#### <a name="denied-web-toobackend-server"></a>(*Reddedildi*) Web toobackend sunucusu
+1. Bir Internet kullanıcı tooaccess AppVM01 bir dosyada hello BackEnd001.CloudApp.Net hizmeti ile çalışır
+2. Dosya Paylaşımı için açık uç nokta yok olduğundan, bu trafiği hello bulut hizmeti geçirmek değil'yı ve hello sunucusuna ulaşabilir olmayacaktır
+3. NSG kural 5 (Internet tooVNet) Hello uç noktaları için herhangi bir nedenle açıksa, bu trafiği engeller
 
 #### <a name="denied-web-dns-look-up-on-dns-server"></a>(*Reddedildi*) DNS sunucusunda Web DNS araması
-1. Bir iç DNS kaydında DNS01 BackEnd001.CloudApp.Net hizmeti aracılığıyla aramak bir internet kullanıcı çalışır
-2. DNS için açık uç nokta yok olduğundan, bu trafiği bulut hizmeti geçirmek değil'yı ve tarafından sunucuya ulaşmak olmayacaktır
-3. Uç noktaları için herhangi bir nedenle açıksa, NSG kural 5 (sanal ağa Internet) bu trafiği engeller (Not: Bu kural 1 (DNS), iki nedenden dolayı geçerli değil, ilk kaynak adresi Internet, bu kural yalnızca kaynağı olarak yerel vnet'e uygulanır, hiçbir zaman trafiği reddetmeye böylece de bu kural bir izin verme kuralı)
+1. Bir Internet kullanıcı çalıştığında toolook DNS01 hello BackEnd001.CloudApp.Net hizmeti aracılığıyla bir iç DNS kaydını ayarlama
+2. DNS için açık uç nokta yok olduğundan, bu trafiği hello bulut hizmeti geçirmek değil'yı ve hello sunucusuna ulaşabilir olmayacaktır
+3. NSG kural 5 (Internet tooVNet) Hello uç noktaları için herhangi bir nedenle açıksa, bu trafiği engeller (Not: Bu kural 1 (DNS), iki nedenden dolayı geçerli değil, ilk hello kaynak adresi Internet Merhaba, toohello yalnızca bu kuralın uygulanacağı hello olarak yerel VNet kaynak, aynı zamanda Bu kural bir izin verme kuralı olduğundan, hiçbir zaman trafiği reddetmeye)
 
-#### <a name="denied-web-to-sql-access-through-firewall"></a>(*Reddedildi*) Web güvenlik duvarı üzerinden SQL erişimi
+#### <a name="denied-web-toosql-access-through-firewall"></a>(*Reddedildi*) Web güvenlik duvarı aracılığıyla tooSQL erişimi
 1. Bir Internet kullanıcının SQL verileri FrontEnd001.CloudApp.Net (Internet'e yönelik bulut hizmeti) ' ister.
-2. SQL için açık uç nokta yok olduğundan bu trafiği bulut hizmeti geçip geçmeyeceğini değil ve güvenlik duvarı ulaşmak olmayacaktır
-3. Uç noktaları için herhangi bir nedenle açıksa, ön uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
-   2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-   3. NSG kural 3 (IIS01 Internet'e) için geçerli, izin verilen, Dur kural işlenirken trafiğidir
-4. Trafik isabetler IIS01 iç IP adresi (10.0.1.5)
-5. IIS01 1433 numaralı bağlantı noktasını, dolayısıyla isteğine yanıt olarak dinlemede değil
+2. SQL için açık uç nokta yok olduğundan, bu trafiği hello bulut hizmeti geçirmek değil'yı ve hello güvenlik duvarı ulaşmak olmayacaktır
+3. Uç noktaları için herhangi bir nedenle açıksa, hello ön uç alt gelen kuralı işleme başlar:
+   1. NSG kural 1 (DNS) uygulanmaz, taşıma toonext kuralı
+   2. NSG kuralı 2 (RDP) uygulanmaz, taşıma toonext kuralı
+   3. NSG kural 3 (Internet tooIIS01) geçerli, izin verilen, Dur kural işlenirken trafiğidir
+4. İç IP adresi hello IIS01 (10.0.1.5) trafiği isabetler
+5. Bağlantı noktası 1433, bu nedenle hiçbir yanıt toohello isteği IIS01 dinleme değil
 
 ## <a name="conclusion"></a>Sonuç
-Bu örnek, arka uç alt ağından gelen trafiği yalıtma, nispeten basit ve düz ileriye doğru bir yoludur.
+Bu örnek hello arka uç alt ağından gelen trafiği yalıtma, görece basit ve basit bir yoludur.
 
 Daha fazla örnekler ve ağ güvenlik sınırları genel bir bakış bulunabilir [burada][HOME].
 
 ## <a name="references"></a>Başvurular
 ### <a name="main-script-and-network-config"></a>Ana komut dosyası ve ağ yapılandırma
-Tam komut dosyasını bir PowerShell komut dosyası kaydedin. Ağ Yapılandırma "NetworkConf1.xml." adlı bir dosyaya kaydet
-Kullanıcı tanımlı değişkenleri gerektiği gibi değiştirin ve betiği çalıştırın.
+Merhaba tam komut dosyası bir PowerShell komut dosyası kaydedin. Merhaba ağ yapılandırma "NetworkConf1.xml." adlı bir dosyaya kaydet
+Merhaba kullanıcı tanımlı değişkenleri gerekli ve çalışma hello komut dosyası olarak değiştirin.
 
-#### <a name="full-script"></a>Tam komut dosyası
-Bu komut dosyası, kullanıcı tanımlı değişkenlere bağlı olur;
+#### <a name="full-script"></a>Tam betik
+Kullanıcı tanımlı hello değişkenleri esas alarak bu betiği olur;
 
-1. Bir Azure aboneliğine Bağlanma
+1. Tooan Azure aboneliğine bağlanma
 2. Depolama hesabı oluşturma
-3. VNet ve ağ yapılandırma dosyasında tanımlanan iki alt ağ oluşturma
+3. VNet ve hello ağ yapılandırma dosyasında tanımlanan iki alt ağ oluşturma
 4. Dört windows server Vm'lerinin oluşturma
 5. NSG dahil olmak üzere yapılandırın:
    * Bir NSG oluşturma
    * Kuralları ile doldurma
-   * NSG için uygun alt ağları bağlama
+   * Merhaba NSG toohello uygun alt ağları bağlama
 
 Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çalıştırılmalıdır.
 
@@ -292,20 +292,20 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
    - A default storage account for VM disks
    - Two new cloud services
    - Two Subnets (FrontEnd and BackEnd subnets)
-   - One server on the FrontEnd Subnet
-   - Three Servers on the BackEnd Subnet
-   - Network Security Groups to allow/deny traffic patterns as declared
+   - One server on hello FrontEnd Subnet
+   - Three Servers on hello BackEnd Subnet
+   - Network Security Groups tooallow/deny traffic patterns as declared
 
-  Before running script, ensure the network configuration file is created in
-  the directory referenced by $NetworkConfigFile variable (or update the
-  variable to reflect the path and file name of the config file being used).
+  Before running script, ensure hello network configuration file is created in
+  hello directory referenced by $NetworkConfigFile variable (or update the
+  variable tooreflect hello path and file name of hello config file being used).
 
  .Notes
   Security requirements are different for each use case and can be addressed in a
   myriad of ways. Please be sure that any sensitive data or applications are behind
-  the appropriate layer(s) of protection. This script serves as an example of some
-  of the techniques that can be used, but should not be used for all scenarios. You
-  are responsible to assess your security needs and the appropriate protections
+  hello appropriate layer(s) of protection. This script serves as an example of some
+  of hello techniques that can be used, but should not be used for all scenarios. You
+  are responsible tooassess your security needs and hello appropriate protections
   needed, and then effectively implement those protections.
 
   FrontEnd Service (FrontEnd subnet 10.0.1.0/24)
@@ -319,7 +319,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
 #>
 
 # Fixed Variables
-    $LocalAdminPwd = Read-Host -Prompt "Enter Local Admin Password to be used for all VMs"
+    $LocalAdminPwd = Read-Host -Prompt "Enter Local Admin Password toobe used for all VMs"
     $VMName = @()
     $ServiceName = @()
     $VMFamily = @()
@@ -329,8 +329,8 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
     $VMIP = @()
 
 # User-Defined Global Variables
-  # These should be changes to reflect your subscription and services
-  # Invalid options will fail in the validation section
+  # These should be changes tooreflect your subscription and services
+  # Invalid options will fail in hello validation section
 
   # Subscription Access Details
     $subID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -359,17 +359,17 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
     $NSGName = "MyVNetSG"
 
 # User-Defined VM Specific Configuration
-    # Note: To ensure proper NSG Rule creation later in this script:
-    #       - The Web Server must be VM 0
-    #       - The AppVM1 Server must be VM 1
-    #       - The DNS server must be VM 3
+    # Note: tooensure proper NSG Rule creation later in this script:
+    #       - hello Web Server must be VM 0
+    #       - hello AppVM1 Server must be VM 1
+    #       - hello DNS server must be VM 3
     #
-    #       Otherwise the NSG rules in the last section of this
-    #       script will need to be changed to match the modified
-    #       VM array numbers ($i) so the NSG Rule IP addresses
-    #       are aligned to the associated VM IP addresses.
+    #       Otherwise hello NSG rules in hello last section of this
+    #       script will need toobe changed toomatch hello modified
+    #       VM array numbers ($i) so hello NSG Rule IP addresses
+    #       are aligned toohello associated VM IP addresses.
 
-    # VM 0 - The Web Server
+    # VM 0 - hello Web Server
       $VMName += "IIS01"
       $ServiceName += $FrontEndService
       $VMFamily += "Windows"
@@ -378,7 +378,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
       $SubnetName += $FESubnet
       $VMIP += "10.0.1.5"
 
-    # VM 1 - The First Application Server
+    # VM 1 - hello First Application Server
       $VMName += "AppVM01"
       $ServiceName += $BackEndService
       $VMFamily += "Windows"
@@ -387,7 +387,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
       $SubnetName += $BESubnet
       $VMIP += "10.0.2.5"
 
-    # VM 2 - The Second Application Server
+    # VM 2 - hello Second Application Server
       $VMName += "AppVM02"
       $ServiceName += $BackEndService
       $VMFamily += "Windows"
@@ -396,7 +396,7 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
       $SubnetName += $BESubnet
       $VMIP += "10.0.2.6"
 
-    # VM 3 - The DNS Server
+    # VM 3 - hello DNS Server
       $VMName += "DNS01"
       $ServiceName += $BackEndService
       $VMFamily += "Windows"
@@ -422,8 +422,8 @@ Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çal�
     Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
           New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
 
-  # Update Subscription Pointer to New Storage Account
-    Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
+  # Update Subscription Pointer tooNew Storage Account
+    Write-Host "Updating Subscription Pointer tooNew Storage Account" -ForegroundColor Cyan 
     Set-AzureSubscription –SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
 
 # Validation
@@ -434,28 +434,28 @@ If (-Not (Get-AzureLocation | Where {$_.DisplayName -eq $DeploymentLocation})) {
      $FatalError = $true}
 
 If (Test-AzureName -Service -Name $FrontEndService) { 
-    Write-Host "The FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
+    Write-Host "hello FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
     $FatalError = $true}
-Else { Write-Host "The FrontEndService service name is valid for use." -ForegroundColor Green}
+Else { Write-Host "hello FrontEndService service name is valid for use." -ForegroundColor Green}
 
 If (Test-AzureName -Service -Name $BackEndService) { 
-    Write-Host "The BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
+    Write-Host "hello BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
     $FatalError = $true}
-Else { Write-Host "The BackEndService service name is valid for use." -ForegroundColor Green}
+Else { Write-Host "hello BackEndService service name is valid for use." -ForegroundColor Green}
 
 If (-Not (Test-Path $NetworkConfigFile)) { 
-    Write-Host 'The network config file was not found, please update the $NetworkConfigFile variable to point to the network config xml file.' -ForegroundColor Yellow
+    Write-Host 'hello network config file was not found, please update hello $NetworkConfigFile variable toopoint toohello network config xml file.' -ForegroundColor Yellow
     $FatalError = $true}
-Else { Write-Host "The network configuration file was found" -ForegroundColor Green
+Else { Write-Host "hello network configuration file was found" -ForegroundColor Green
         If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-            Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
+            Write-Host 'hello deployment location was not found in hello network config file, please check hello network config file tooensure hello $DeploymentLocation variable is correct and hello network config file matches.' -ForegroundColor Yellow
             $FatalError = $true}
-        Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
+        Else { Write-Host "hello deployment location was found in hello network config file." -ForegroundColor Green}}
 
 If ($FatalError) {
-    Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
+    Write-Host "A fatal error has occurred, please see hello above messages for more information." -ForegroundColor Red
     Return}
-Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
+Else { Write-Host "Validation passed, now building hello environment." -ForegroundColor Green}
 
 # Create VNET
     Write-Host "Creating VNET" -ForegroundColor Cyan 
@@ -484,63 +484,63 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
     Get-AzureVM -ServiceName $ServiceName[0] -Name $VMName[0] | Add-AzureEndpoint -Name HTTP -Protocol tcp -LocalPort 80 -PublicPort 80 | Update-AzureVM
 
 # Configure NSG
-    Write-Host "Configuring the Network Security Group (NSG)" -ForegroundColor Cyan
+    Write-Host "Configuring hello Network Security Group (NSG)" -ForegroundColor Cyan
 
-  # Build the NSG
-    Write-Host "Building the NSG" -ForegroundColor Cyan
+  # Build hello NSG
+    Write-Host "Building hello NSG" -ForegroundColor Cyan
     New-AzureNetworkSecurityGroup -Name $NSGName -Location $DeploymentLocation -Label "Security group for $VNetName subnets in $DeploymentLocation"
 
   # Add NSG Rules
-    Write-Host "Writing rules into the NSG" -ForegroundColor Cyan
+    Write-Host "Writing rules into hello NSG" -ForegroundColor Cyan
     Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[3] -DestinationPortRange '53' `
         -Protocol *
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable RDP to $VNetName VNet" -Type Inbound -Priority 110 -Action Allow `
+    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable RDP too$VNetName VNet" -Type Inbound -Priority 110 -Action Allow `
         -SourceAddressPrefix INTERNET -SourcePortRange '*' `
         -DestinationAddressPrefix VIRTUAL_NETWORK -DestinationPortRange '3389' `
         -Protocol *
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internet to $($VMName[0])" -Type Inbound -Priority 120 -Action Allow `
+    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable Internet too$($VMName[0])" -Type Inbound -Priority 120 -Action Allow `
         -SourceAddressPrefix Internet -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[0] -DestinationPortRange '*' `
         -Protocol *
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable $($VMName[0]) to $($VMName[1])" -Type Inbound -Priority 130 -Action Allow `
+    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Enable $($VMName[0]) too$($VMName[1])" -Type Inbound -Priority 130 -Action Allow `
         -SourceAddressPrefix $VMIP[0] -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[1] -DestinationPortRange '*' `
         -Protocol *
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet from the Internet" -Type Inbound -Priority 140 -Action Deny `
+    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Isolate hello $VNetName VNet from hello Internet" -Type Inbound -Priority 140 -Action Deny `
         -SourceAddressPrefix INTERNET -SourcePortRange '*' `
         -DestinationAddressPrefix VIRTUAL_NETWORK -DestinationPortRange '*' `
         -Protocol *
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Isolate the $FESubnet subnet from the $BESubnet subnet" -Type Inbound -Priority 150 -Action Deny `
+    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Isolate hello $FESubnet subnet from hello $BESubnet subnet" -Type Inbound -Priority 150 -Action Deny `
         -SourceAddressPrefix $FEPrefix -SourcePortRange '*' `
         -DestinationAddressPrefix $BEPrefix -DestinationPortRange '*' `
         -Protocol *
 
-    # Assign the NSG to the Subnets
-        Write-Host "Binding the NSG to both subnets" -ForegroundColor Cyan
+    # Assign hello NSG toohello Subnets
+        Write-Host "Binding hello NSG tooboth subnets" -ForegroundColor Cyan
         Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $FESubnet -VirtualNetworkName $VNetName
         Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
 # Optional Post-script Manual Configuration
-  # Install Test Web App (Run Post-Build Script on the IIS Server)
-  # Install Backend resource (Run Post-Build Script on the AppVM01)
+  # Install Test Web App (Run Post-Build Script on hello IIS Server)
+  # Install Backend resource (Run Post-Build Script on hello AppVM01)
   Write-Host
   Write-Host "Build Complete!" -ForegroundColor Green
   Write-Host
   Write-Host "Optional Post-script Manual Configuration Steps" -ForegroundColor Gray
-  Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
-  Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
+  Write-Host " - Install Test Web App (Run Post-Build Script on hello IIS Server)" -ForegroundColor Gray
+  Write-Host " - Install Backend resource (Run Post-Build Script on hello AppVM01)" -ForegroundColor Gray
   Write-Host
 ```
 
 #### <a name="network-config-file"></a>Ağ yapılandırma dosyası
-Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı önceki komut $NetworkConfigFile değişkeninde bu dosyaya ekleyin.
+Güncelleştirilmiş konumla bu xml dosyasını kaydedin ve komut dosyası önceki hello hello bağlantı toothis dosya toohello $NetworkConfigFile değişkeni ekleyin.
 
 ```XML
 <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -575,12 +575,12 @@ Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı ön
 ```
 
 #### <a name="sample-application-scripts"></a>Örnek uygulama komut dosyaları
-Bu ve diğer çevre örnekleri için örnek bir uygulama yüklemek isterseniz, bir aşağıdaki bağlantıda sağlanmış: [örnek uygulama betiği][SampleApp]
+Bu ve diğer çevre örnekleri için örnek bir uygulama tooinstall istiyorsanız, bir bağlantı aşağıdaki hello sağlanmış: [örnek uygulama betiği][SampleApp]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Güncelleştirme ve XML dosyasını kaydedin
-* Ortamı oluşturmak için PowerShell betiğini çalıştırın
-* Örnek uygulamayı yükle
+* Merhaba PowerShell komut dosyası toobuild hello ortamı çalıştırın
+* Merhaba örnek uygulaması yükleme
 * Bu DMZ aracılığıyla farklı trafik akışları test etme
 
 <!--Image References-->

@@ -1,6 +1,6 @@
 ---
-title: "Azure Windows VM için sistemin yeniden başlatılması anlama | Microsoft Docs"
-description: "Windows VM yeniden başlatılmasına neden olabilir olayları listeler"
+title: "aaaUnderstand Azure Windows VM için sistemin yeniden başlatılması | Microsoft Docs"
+description: "Merhaba Windows VM tooreboot neden olabilir hello olayları listeler"
 services: virtual-machines-windows
 documentationcenter: 
 author: genlin
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: genli
-ms.openlocfilehash: da8c1bf3d283e7514e1ab13fd31d7d581771ea4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b37b110e242570adda775da90bb106a1a924191e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM için sistemin yeniden başlatılması anlama
 

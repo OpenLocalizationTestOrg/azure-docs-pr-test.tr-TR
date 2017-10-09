@@ -80,15 +80,15 @@
 #### [Hızlandırılmış ağ ile bir VM oluşturma](virtual-network-create-vm-accelerated-networking.md)
 
 ### Bağlantı senaryoları
-#### [Sanal ağdan (VNet) Sanal ağa](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [Sanal ağdan (Resource Manager) Sanal ağa (Klasik)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [Sanal ağdan şirket içi ağa (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-#### [Sanal ağdan şirket içi ağa (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [Sanal ağ (VNet) tooVNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [VNet (Resource Manager) tooa VNet (Klasik)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [VNet tooon içi ağ (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [VNet tooon içi ağ (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Yüksek oranda kullanılabilir karma ağ mimarisi](../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### Güvenlik senaryoları
 #### [Sanal gereçlerle ağ güvenliği sağlama](virtual-network-scenario-udr-gw-nva.md)
-#### [Azure ve İnternet arasında DMZ](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+#### [Azure ile Merhaba Internet arasında DMZ](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [Bulut hizmeti ve ağ güvenliği](../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [NSG’ler ile basit DMZ](virtual-networks-dmz-nsg-asm.md)
 ##### [Güvenlik duvarı ve NSG’ler ile DMZ](virtual-networks-dmz-nsg-fw-asm.md)
@@ -118,7 +118,7 @@
 #### [Eşlemeler](virtual-network-manage-peering.md)
 #### Klasik
 ##### [Ağ yapılandırması dosyası](virtual-networks-using-network-configuration-file.md)
-##### [Bir benzeşim grubundan bölgeye geçiş](virtual-networks-migrate-to-regional-vnet.md)
+##### [Bir benzeşim grubu tooa bölgesinden geçirme](virtual-networks-migrate-to-regional-vnet.md)
 ### Ağ güvenlik grupları
 #### [Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -128,7 +128,7 @@
 #### [NIC’leri oluşturma, değiştirme veya silme](virtual-network-network-interface.md)
 #### [IP adreslerini ekleme, değiştirme veya kaldırma](virtual-network-network-interface-addresses.md)
 ### Sanal makineler
-#### [VM’yi farklı bir alt ağa taşıma](virtual-networks-move-vm-role-to-subnet.md)
+#### [VM tooa farklı bir alt taşıma](virtual-networks-move-vm-role-to-subnet.md)
 ### [Genel IP adresleri](virtual-network-public-ip-address.md)
 
 ## Sorun giderme
@@ -140,7 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Aktarım hızı testi](virtual-network-bandwidth-testing.md)
 ### [Sanal ağlar silinemiyor](virtual-network-troubleshoot-cannot-delete-vnet.md)
-### [VM’den VM’ye bağlantı sorunları](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [VM tooVM bağlantısı sorunları](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

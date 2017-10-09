@@ -1,5 +1,5 @@
 ---
-title: "Göz atma ve Sunucu Gezgini ile depolama kaynaklarını yönetme | Microsoft Docs"
+title: "aaaBrowsing ve Sunucu Gezgini ile depolama kaynaklarını yönetme | Microsoft Docs"
 description: "Göz atma ve Sunucu Gezgini ile depolama kaynaklarını yönetme"
 services: visual-studio-online
 documentationcenter: na
@@ -14,143 +14,143 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 43ab501c69c0c1e3271dbfcf08e5342a3507ab82
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f5b456b812f2ad8103c50538d532a57397bcccbb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>Göz atma ve Sunucu Gezgini ile depolama kaynaklarını yönetme
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Microsoft Visual Studio için Azure araçlarını yüklediyseniz, depolama hesapları blob, kuyruk ve tablo verileri için Azure görüntüleyebilirsiniz. Sunucu Gezgininde Azure Storage yerel depolama öykünücüsü hesabınızı ve diğer Azure storage hesaplarınızı verileri gösterir.
+Hello Azure Araçları için Microsoft Visual Studio yüklediyseniz, depolama hesapları blob, kuyruk ve tablo verileri için Azure görüntüleyebilirsiniz. Sunucu Gezgininde Hello Azure Depolama düğümü yerel depolama öykünücüsü hesabınızı ve diğer Azure storage hesaplarınızı verileri gösterir.
 
-Sunucu Gezgini Visual Studio'nun menü çubuğunda, görüntülemeyi **Görünüm**, **Sunucu Gezgini**. Depolama düğümü her Azure aboneliği veya bağlı olduğunuz sertifikanın altında mevcut tüm depolama hesaplarını gösterir. Depolama hesabınız görünmüyorsa, bu yönergeleri izleyerek ekleyebileceğiniz [bu konunun devamındaki](#add-storage-accounts-by-using-server-explorer).
+Merhaba menü çubuğunda, Visual Studio'da Sunucu Gezgini tooview seçin **Görünüm**, **Sunucu Gezgini**. Merhaba depolama düğüm tüm her Azure aboneliği veya bağlı olduğunuz sertifikanın altında mevcut hello depolama hesaplarını gösterir. Depolama hesabınız görünmüyorsa, bunu hello yönergeleri izleyerek ekleyebilirsiniz [bu konunun devamındaki](#add-storage-accounts-by-using-server-explorer).
 
-Azure SDK 2.7 başlayarak, yeni Cloud Explorer görüntülemek ve Azure kaynaklarınızı yönetmek için de kullanabilirsiniz. Bkz: [bulut Gezgini ile Azure kaynaklarını yönetme](vs-azure-tools-resources-managing-with-cloud-explorer.md) daha fazla bilgi için.
+Azure SDK 2.7 başlayarak, ayrıca hello yeni Cloud Explorer tooview kullanın ve Azure kaynaklarınızı yönetmek. Bkz: [bulut Gezgini ile Azure kaynaklarını yönetme](vs-azure-tools-resources-managing-with-cloud-explorer.md) daha fazla bilgi için.
 
 ## <a name="view-and-manage-storage-resources-in-visual-studio"></a>Visual Studio'da depolama kaynakları görüntülemek ve yönetmek
-Sunucu Gezgini otomatik olarak depolama öykünücüsü hesabınızda BLOB, kuyruklar ve tablolar listesini gösterir. Depolama öykünücüsü hesabı Depolama düğümü altındaki Server Explorer'da listelenir **geliştirme** düğümü.
+Sunucu Gezgini otomatik olarak depolama öykünücüsü hesabınızda BLOB, kuyruklar ve tablolar listesini gösterir. Merhaba depolama öykünücüsü hesabı hello olarak hello Depolama düğümü altındaki Server Explorer'da listelendiğini **geliştirme** düğümü.
 
-Depolama öykünücüsü hesabın kaynakları görmek için genişletme **geliştirme** düğümü. ' Nı depolama öykünücüsünü başlatılmış kurmadı varsa **geliştirme** düğümü, onu otomatik olarak başlatılacak. Bu işlem birkaç saniye alabilir. Depolama öykünücüsü başlatılırken diğer Visual Studio alanlarında çalışmaya devam edebilirsiniz.
+toosee hello depolama öykünücüsü hesabın kaynaklarını genişletmek hello **geliştirme** düğümü. Merhaba genişlettiğinizde hello depolama öykünücüsü başlatılmış kurmadı varsa **geliştirme** düğümü, onu otomatik olarak başlatılacak. Bu işlem birkaç saniye alabilir. Merhaba depolama öykünücüsü başlatılırken, diğer Visual Studio alanlarında toowork devam edebilirsiniz.
 
-Bir depolama hesabında kaynakları görüntülemek için Sunucu Gezgini depolama hesabının düğümünü genişletin. Aşağıdaki alt düğümleri görüntülenir:
+bir depolama hesabı tooview kaynaklarında Sunucu Gezgininde hello depolama hesabının düğümünü genişletin. Aşağıdaki alt düğümleri hello görüntülenir:
 
 * Bloblar
 * Kuyruklar
 * Tablolar
 
 ## <a name="work-with-blob-resources"></a>BLOB kaynakların ile çalışma
-BLOB'lar düğümü kapsayıcıları seçilen depolama hesabı için bir listesini görüntüler. BLOB kapsayıcıları blob dosyaları içerir ve bu BLOB'lar klasörler ve alt klasörler halinde düzenleyebilirsiniz. Bkz: [Blob Storage kullanma konusunda](storage/blobs/storage-dotnet-how-to-use-blobs.md) daha fazla bilgi için.
+Hello BLOB'lar düğümü kapsayıcıları seçili hello depolama hesabı için bir listesini görüntüler. BLOB kapsayıcıları blob dosyaları içerir ve bu BLOB'lar klasörler ve alt klasörler halinde düzenleyebilirsiniz. Bkz: [nasıl toouse Blob depolama alanından .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md) daha fazla bilgi için.
 
-### <a name="to-create-a-blob-container"></a>Bir blob kapsayıcısını oluşturmak için
-1. Kısayol menüsünü açın **BLOB'lar** düğümünü ve ardından **Blob kapsayıcısı oluşturmak**.
-2. İçinde **Blob kapsayıcısı oluşturmak** iletişim kutusunda, yeni kapsayıcının adını girin.  
-3. Tuşuna **ENTER** klavyenizi veya, tıklayın veya dokunun blob kapsayıcısında kaydetmek için ad alanı dışında.
+### <a name="toocreate-a-blob-container"></a>toocreate blob kapsayıcısı
+1. Hello için açık hello kısayol menüsü **BLOB'lar** düğümünü ve ardından **Blob kapsayıcısı oluşturmak**.
+2. Merhaba, **Blob kapsayıcısı oluşturmak** iletişim kutusunda, hello yeni kapsayıcı hello adını girin.  
+3. Tuşuna **ENTER** klavyenizi veya, tıklayın veya dokunun hello ad alanı toosave hello blob kapsayıcısı dışında.
    
    > [!NOTE]
-   > Blob kapsayıcı adı bir sayı (0-9) veya küçük harf (a-z) ile başlamalıdır.
+   > Merhaba blob kapsayıcı adı bir sayı (0-9) veya küçük harf (a-z) ile başlamalıdır.
    > 
    > 
 
-### <a name="to-delete-a-blob-container"></a>Bir blob kapsayıcısını silmek için
-* Kaldırın ve ardından istediğiniz blob kapsayıcısı için kısayol menüsünü açın **silmek**.
+### <a name="toodelete-a-blob-container"></a>toodelete blob kapsayıcısı
+* Tooremove istediğiniz ve ardından hello blob kapsayıcısı için açık hello kısayol menüsü **silmek**.
 
-### <a name="to-display-a-list-of-the-items-contained-in-a-blob-container"></a>Bir blob kapsayıcısında bulunan öğeleri listesini görüntülemek için
-* Listeden bir blob kapsayıcı adı için kısayol menüsünü açın ve ardından **açık**.
+### <a name="toodisplay-a-list-of-hello-items-contained-in-a-blob-container"></a>bir blob kapsayıcısında bulunan hello öğeleri listesini toodisplay
+* Merhaba listesinde bir blob kapsayıcı adı için hello kısayol menüsünü açın ve ardından **açık**.
   
-    Bir blob kapsayıcı içeriğini görüntülediğinizde, blob kapsayıcı görünüm olarak bilinen bir sekmede görüntülenir.
+    Bir blob kapsayıcısını Merhaba içeriğine görüntülediğinizde hello blob kapsayıcı görünüm olarak bilinen bir sekmede görüntülenir.
   
     ![VST_SE_BlobDesigner](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC749016.png)
   
-    Blob kapsayıcı görünümü sağ üst köşesindeki düğmeleri kullanarak BLOB'ları üzerinde aşağıdaki işlemleri gerçekleştirebilirsiniz:
+    BLOB'ları üzerinde işlemler hello sağ üst köşesinde hello blob kapsayıcı görünümü hello düğmelerini kullanarak aşağıdaki hello gerçekleştirebilirsiniz:
   
   * Bir filtre değeri girin ve uygulayın
-  * BLOB'ları kapsayıcıda listesini yeniler
+  * Merhaba kapsayıcıdaki blobları Hello listesini yeniler
   * Dosyayı karşıya yükleme
   * Blob silme
     
     > [!NOTE]
-    > Bir blob kapsayıcısından bir dosya silindiğinde, temel alınan dosya silinmez; Bunu yalnızca blob kapsayıcısından kaldırır.
+    > Bir blob kapsayıcısından bir dosya silindiğinde hello temel alınan dosya silinmez; Bunu yalnızca hello blob kapsayıcısından kaldırır.
     > 
     > 
   * Bir blob açın
-  * Bir blob yerel bilgisayara kaydedin
+  * Bir blob toohello yerel bilgisayara kaydedin
 
-### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>Bir klasörü veya alt klasör bir blob kapsayıcısında oluşturmak için
-1. Blob kapsayıcısı Cloud Explorer'da seçin. Kapsayıcı penceresinde seçin **karşıya Blob** düğmesi.
+### <a name="toocreate-a-folder-or-subfolder-in-a-blob-container"></a>toocreate bir klasörü veya alt klasör bir blob kapsayıcısında
+1. Cloud Explorer'da Hello blob kapsayıcısı seçin. Merhaba kapsayıcı penceresinde hello seçin **karşıya Blob** düğmesi.
    
     ![Blob klasörüne bir dosya karşıya yükleme](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
-2. İçinde **yeni dosyasını karşıya yükle** iletişim kutusunda, seçin **Gözat** karşıya yüklemek istediğiniz dosyayı belirtmek için düğmesine tıklayın ve ardından bir klasör adı girin **(isteğe bağlı) klasör** kutusu.
+2. Merhaba, **yeni dosyasını karşıya yükle** iletişim kutusunda, hello seçin **Gözat** tooupload istediğiniz ve bir klasör adı hello enter toospecify hello dosya düğmesi **(isteğe bağlı) klasör** kutusu .
    
-    Aynı yordamı izleyerek kapsayıcı klasörlerde alt klasörler ekleyebilirsiniz. Bir klasör adı belirtmezseniz, dosyanın en üst düzeye blob kapsayıcısının yüklenecek. Belirtilen klasöre kapsayıcısında dosya görünür.
+    Alt klasörleri izleyerek kapsayıcı klasörlerde hello aynı ekleyebilirsiniz yordamı. Bir klasör adı belirtmezseniz, hello dosyası olacaktır toohello üst düzey hello blob kapsayıcısının karşıya yüklendi. Merhaba dosya hello belirtilen hello kapsayıcı klasöründe görünür.
    
-    ![Klasör bir blob kapsayıcıya eklendi](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
-3. Klasörü çift tıklatın veya klasörün içeriğini görmek için ENTER tuşuna basın. Kapsayıcının klasöründe olduğunuzda seçerek kapsayıcısının kök geri gidebilirsiniz **açık üst dizin** (yukarı ok) düğmesi.
+    ![Klasör tooa blob kapsayıcısı eklendi](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
+3. Merhaba klasörünü çift tıklatın veya ENTER toosee hello hello klasörünün içeriğini tuşuna basın. Merhaba kapsayıcının klasöründe olduğunuzda hello seçerek geri toohello kök hello kapsayıcısının gidebilirsiniz **açık üst dizin** (yukarı ok) düğmesi.
 
-### <a name="to-delete-a-container-folder"></a>Bir kapsayıcı klasörü silmek için
-* Klasördeki dosyaların tümünü Sil
+### <a name="toodelete-a-container-folder"></a>toodelete kapsayıcı klasörü
+* Tüm hello klasöründeki hello dosyaları sil
   
   > [!NOTE]
-  > Blob kapsayıcıları klasörlerde sanal klasörler olduğundan, boş bir klasöre oluşturamaz veya dosya içeriğini silmek için bir klasör silebilirsiniz. Klasörünü silmek için bir klasörün tüm içeriğini silmeniz gerekir.
+  > Blob kapsayıcıları klasörlerde sanal klasörler olduğundan, boş bir klasöre oluşturamaz veya klasör toodelete dosya içeriğini silin. Toodelete hello klasörün tüm içeriğini bir klasör toodelete hello var.
   > 
   > 
 
-### <a name="to-filter-blobs-in-a-container"></a>BLOB'ları bir kapsayıcıda filtre uygulamak için
-Ortak bir önek belirterek görüntülenen BLOB'ları filtreleyebilirsiniz.
+### <a name="toofilter-blobs-in-a-container"></a>toofilter BLOB'ları bir kapsayıcıda
+Ortak bir önek belirterek görüntülenen hello BLOB'ları filtreleyebilirsiniz.
 
-Önek girerseniz, örneğin, `hello` filtre metin kutusuna ve ardından **yürütme** (**!**) 'hello' ile başlayan BLOB'lar düğmesi görünür.
+Merhaba ön eki girin, örneğin, `hello` hello filtre metni kutusuna ve ardından hello seçin **yürütme** (**!**) 'hello' ile başlayan BLOB'lar düğmesi görünür.
 
 ![VST_SE_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
 > [!NOTE]
-> Filtre alanına duyarlıdır ve joker karakterlerle filtreleme desteklemiyor. BLOB'ları yalnızca önek göre filtre uygulanabilir. Sanal bir hiyerarşideki BLOB'lar düzenlemek için bir sınırlayıcı kullanıyorsanız öneki bir sınırlayıcı içerebilir. Örneğin, HelloFabric ön ekini temel filtreleme / Bu dize ile başlayan tüm BLOB'lar döndürür.
+> Merhaba Filtre alanını duyarlıdır ve joker karakterlerle filtreleme desteklemiyor. BLOB'ları yalnızca önek göre filtre uygulanabilir. sanal bir hiyerarşide bir sınırlayıcı tooorganize BLOB'ları kullanıyorsanız hello önek bir sınırlayıcı içerebilir. Örneğin, filtre önek HelloFabric hello / Bu dize ile başlayan tüm BLOB'lar döndürür.
 > 
 > 
 
-### <a name="to-download-blob-data"></a>BLOB verilerini yüklemek için
-* İçinde **Cloud Explorer**, bir veya daha fazla BLOB'lar için kısayol menüsünü açın ve ardından **açmak**, veya blob adı seçin ve ardından **açmak** düğmesini veya blob adına çift tıklayın.
+### <a name="toodownload-blob-data"></a>toodownload blob verileri
+* İçinde **Cloud Explorer**, bir veya daha fazla BLOB hello kısayol menüsünü açın ve ardından **açmak**, veya hello blob adı seçin ve ardından hello **açmak** düğmesini tıklatın veya çift Merhaba blob adı.
   
-    Bir blob Yükleme ilerlemesini görünür **Azure etkinlik günlüğü** penceresi.
+    bir blob Yükleme ilerlemesini Hello görünür hello **Azure etkinlik günlüğü** penceresi.
   
-    Bu dosya türü için varsayılan düzenleyicisinde blob açar. İşletim sistemi dosya türü tanısa, dosyayı yerel olarak yüklenmiş bir uygulamada açar; Aksi takdirde, blob dosya türü için uygun bir uygulama seçin istenir. Bir blob yüklediğinizde oluşturduğunuz yerel dosya salt okunur olarak işaretlendi.
+    Bu dosya türü için hello varsayılan Düzenleyicisi'nde Hello blob açar. Merhaba işletim sistemi hello dosya türü tanısa hello dosyayı yerel olarak yüklenmiş bir uygulamada açar; Aksi takdirde istenir toochoose hello BLOB hello dosya türü için uygun bir uygulama. bir blob yüklediğinizde oluşturduğunuz hello yerel dosya salt okunur olarak işaretlendi.
   
-    BLOB verilerini yerel olarak önbelleğe ve blob'un son değişiklik zamanını Blob hizmetinde karşılaştırılarak. Son yüklemenizden sonra blob güncelleştirilmişse, yeniden yüklenir; Aksi takdirde, blob yerel diskten yüklenir. Varsayılan olarak, bir blob geçici bir dizine yüklenir. Belirli bir dizine BLOB indirmek için seçilen blob adları için kısayol menüsünü açın ve seçin **Kaydet**. Bu şekilde bir blob kaydettiğinizde, blob Dosya açılmadı ve yerel dosya okuma-yazma özniteliklerle oluşturulur.
+    BLOB verilerini yerel olarak önbelleğe ve hello karşı blob'un son değişiklik zamanını hello Blob hizmeti olarak işaretli. Son yüklemenizden sonra hello blob güncelleştirilmişse, yeniden yüklenir; Aksi takdirde hello blob hello yerel diskten yüklenir. Varsayılan olarak, bir blob indirilen tooa geçici dizin ' dir. toodownload BLOB'lar tooa belirli dizin, seçili hello için açık hello kısayol menüsü blob adları ve seçin **Kaydet**. Bu şekilde bir blob kaydettiğinizde, hello blob Dosya açılmadı ve hello yerel dosya okuma-yazma özniteliklerle oluşturulur.
 
-### <a name="to-upload-blobs"></a>BLOB karşıya yüklemek için
-* Seçin **karşıya Blob** düğmesini kapsayıcı blob kapsayıcı görünümünde görüntülemek için açık olduğunda.
+### <a name="tooupload-blobs"></a>tooupload BLOB'ları
+* Merhaba seçin **karşıya Blob** düğmesini hello kapsayıcı hello blob kapsayıcı görünümünde görüntülemek için açık olduğunda.
   
-    Karşıya yüklemek için bir veya daha fazla seçebilir ve tüm dosya türlerini karşıya yükleyebilirsiniz. **Azure etkinlik günlüğü** karşıya yükleme ilerlemesini gösterir. Blob verilerle çalışma hakkında daha fazla bilgi için bkz: [.NET ile Azure Blob Depolama hizmetinin kullanmayı](http://go.microsoft.com/fwlink/p/?LinkId=267911).
+    Daha fazla dosya tooupload ve herhangi bir türde dosyaları karşıya yükleyebilir ya da birini seçebilirsiniz. Merhaba **Azure etkinlik günlüğü** hello hello karşıya yükleme ilerlemesini gösterir. Hakkında daha fazla bilgi için blob verileriyle toowork bkz [nasıl toouse hello Azure Blob Depolama hizmetinin .NET içinde](http://go.microsoft.com/fwlink/p/?LinkId=267911).
 
-### <a name="to-view-logs-transferred-to-blobs"></a>BLOB'larını transfer günlükleri görüntülemek için
-* Azure Tanılama verileri Azure uygulamanızı günlüğe kaydetmek için kullandığınız ve depolama hesabınıza günlükleri aktarılmış, Azure tarafından Bu günlükler için oluşturulan kapsayıcıları görürsünüz. Özellikle Azure dağıtıldıktan varsa Server Explorer'da bu günlükleri görüntüleme, uygulamanızın sorunları tanımlamak için kolay bir yoludur. Azure Tanılama hakkında daha fazla bilgi için bkz: [kullanarak Azure tanılama tarafından günlüğü verilerini toplamak](https://msdn.microsoft.com/library/azure/gg433048.aspx).
+### <a name="tooview-logs-transferred-tooblobs"></a>tooblobs tooview günlükleri aktarılan
+* Azure uygulamanızı Azure tanılama toolog veri kullanıyorsanız ve günlükleri tooyour depolama hesabı aktarılan Bu günlükler için Azure tarafından oluşturulan kapsayıcıları görürsünüz. Özellikle dağıtılan tooAzure yüklediyse Server Explorer'da bu günlükleri görüntüleme, uygulamanızın bir kolay bir yolu tooidentify sorunları var. Azure Tanılama hakkında daha fazla bilgi için bkz: [kullanarak Azure tanılama tarafından günlüğü verilerini toplamak](https://msdn.microsoft.com/library/azure/gg433048.aspx).
 
-### <a name="to-get-the-url-for-a-blob"></a>URL için bir blob almak için
-* Blob'un kısayol menüsünü açın ve ardından **kopya URL**.
+### <a name="tooget-hello-url-for-a-blob"></a>bir blob tooget hello URL'si
+* Merhaba blob'un kısayol menüsünü açın ve ardından **kopya URL**.
 
-### <a name="to-edit-a-blob"></a>Bir blob düzenlemek için
-* Blob seçin ve ardından **açık Blob** düğmesi.
+### <a name="tooedit-a-blob"></a>tooedit blob
+* Merhaba blob seçin ve ardından hello **açık Blob** düğmesi.
   
-    Dosyanın geçici bir konuma indirilir ve yerel bilgisayarda açılır. Değişiklikleri yaptıktan sonra blob yeniden yüklemeniz gerekir.
+    Merhaba dosyası indirilen tooa geçici konuma ve hello yerel bilgisayarda açılır. Değişiklikleri yaptıktan sonra hello blob yeniden yüklemeniz gerekir.
 
 ## <a name="work-with-queue-resources"></a>Queue kaynaklarına ile çalışma
-Depolama Hizmetleri sorguları bir Azure depolama hesabında barındırılır ve bulut hizmeti rolleri bir ileti mekanizması geçirme tarafından birbirleriyle ve diğer hizmetleri ile iletişim kurmak izin vermek için kullanabilirsiniz. Sıranın program aracılığıyla bir bulut hizmeti aracılığıyla ve dış istemcilere web hizmeti üzerinden erişebilirsiniz. Sıranın Visual Studio'da doğrudan Sunucu Gezgini kullanarak da erişebilirsiniz.
+Depolama Hizmetleri kuyruklar, bir Azure depolama hesabında barındırılır ve tooallow kullanabilirsiniz, bulut hizmeti rolleri toocommunicate birbirleriyle ve diğer hizmetlerle bir ileti mekanizması geçirme tarafından. Merhaba sıra program aracılığıyla bir bulut hizmeti aracılığıyla ve dış istemcilere web hizmeti üzerinden erişebilirsiniz. Hello sıra Visual Studio'da doğrudan Sunucu Gezgini kullanarak da erişebilirsiniz.
 
-Kuyrukları kullanan bir bulut hizmet geliştirirken sıraları oluşturmak ve bunlarla etkileşimli olarak geliştirmek ve kodunuzu test ederken çalışmak için Visual Studio kullanmak isteyebilirsiniz.
+Kuyrukları kullanan bir bulut hizmet geliştirirken, toouse Visual Studio toocreate sıraları istediğiniz ve bunlarla etkileşimli olarak geliştirmek ve kodunuzu test ederken çalışmak.
 
-Sunucu Gezgini'nde, bir depolama hesabında sıralarını görüntüleyin, oluşturun ve sırayı silmek, kendi iletilerini görüntülemek için bir sırayı açmak ve iletileri kuyruğa Ekle. Bir kuyruk görüntüleme için açtığınızda, tek bir ileti görüntüleyebilir ve sol üst köşede düğmelerini kullanarak sıra üzerinde aşağıdaki eylemleri gerçekleştirebilirsiniz:
+Sunucu Gezgini'nde, bir depolama hesabında hello sıralarını görüntüleyin, oluşturun ve sırayı silmek, sıra tooview iletileri açın ve iletileri tooa sırası ekleyin. Görüntülemek için bir sıra açtığınızda hello tek bir ileti görüntüleyebilir ve hello sol üst köşede hello düğmelerini kullanarak hello sırası eylemleri aşağıdaki hello gerçekleştirebilirsiniz:
 
-* Kuyruk görünümü yenileyin
-* Kuyruğa bir ileti Ekle
-* En üstteki ileti dequeue
-* Tüm sıranın temizleyin
+* Merhaba sırasının Hello görünümü yenileyin
+* Bir ileti toohello sırası Ekle
+* Merhaba en üstteki ileti dequeue
+* Clear hello tüm sırası
 
-Aşağıdaki görüntü iki ileti içeren bir kuyruk gösterir.
+Görüntü aşağıdaki hello iki ileti içeren bir kuyruk gösterir.
 
 ![Bir kuyruğu görüntüleme](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Kuyruklar Hizmetleri depolama hakkında daha fazla bilgi için bkz: [nasıl yapılır: kuyruk depolama hizmeti kullanmak](http://go.microsoft.com/fwlink/?LinkID=264702). Kuyruklar depolama hizmetleri için web hizmeti hakkında bilgi için bkz [kuyruk hizmeti kavramları](http://go.microsoft.com/fwlink/?LinkId=264788). Visual Studio kullanarak bir depolama hizmetleri sıraya ileti gönderme hakkında daha fazla bilgi için bkz: [depolama hizmetleri kuyruğuna iletiler gönderme](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+Kuyruklar Hizmetleri depolama hakkında daha fazla bilgi için bkz: [nasıl yapılır: kullanım hello kuyruk depolama hizmeti](http://go.microsoft.com/fwlink/?LinkID=264702). Kuyruklar depolama hizmetleri için hello web hizmeti hakkında bilgi için bkz [kuyruk hizmeti kavramları](http://go.microsoft.com/fwlink/?LinkId=264788). Visual Studio kullanarak toosend iletileri tooa depolama kuyruğu nasıl hizmetleri hakkında daha fazla bilgi için bkz: [iletiler gönderme tooa depolama hizmetleri kuyruğu](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
 > Depolama Hizmetleri sıraları service bus sıralarından farklıdır. Hizmet veri yolu kuyrukları, konu başlıkları ve abonelikleri service bus kuyruklarını hakkında daha fazla bilgi için bkz.
@@ -158,118 +158,118 @@ Kuyruklar Hizmetleri depolama hakkında daha fazla bilgi için bkz: [nasıl yap�
 > 
 
 ## <a name="work-with-table-resources"></a>Tablo kaynakları ile çalışma
-Azure Table Storage hizmeti büyük miktarlarda yapısal veriyi depolar. Bu hizmet, Azure bulutunun içinden ve dışından gelen kimliği doğrulanmış çağrıları kabul eden bir NoSQL olmayan veri deposudur. Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir.
+Hello Azure Table depolama hizmeti büyük miktarlarda yapılandırılmış veri depolar. Merhaba içinden ve dışından hello Azure bulut gelen çağrıları kabul eden bir NoSQL veri deposu kimlik doğrulaması hizmetidir. Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir.
 
-### <a name="to-create-a-table"></a>Bir tablo oluşturmak için
-1. Cloud Explorer'da seçin **tabloları** düğümü depolama hesabı ve ardından **Create Table**.
-2. İçinde **Create Table** iletişim kutusunda, tablo için bir ad girin.
+### <a name="toocreate-a-table"></a>toocreate bir tablo
+1. Cloud Explorer'da hello seçin **tabloları** düğümü hello depolama hesabı ve ardından **Create Table**.
+2. Merhaba, **Create Table** iletişim kutusunda, hello tablo için bir ad girin.
 
-### <a name="to-view-table-data"></a>Tablo verileri görüntülemek için
-1. Cloud Explorer'da açın **Azure** düğümünü ve ardından açın **depolama** düğümü.
-2. İlginizi çekiyor mu ve açın depolama hesabı düğümünü açın **tabloları** depolama hesabı için tabloların bir listesini görmek için düğüm.
-3. Bir tablo için kısayol menüsünü açın ve ardından **görünüm tablosu**.
+### <a name="tooview-table-data"></a>tooview tablo verileri
+1. Cloud Explorer'da hello açmak **Azure** düğümünü ve ardından açık hello **depolama** düğümü.
+2. İlgilendiğiniz ve hello açmak açık hello depolama hesabı düğümünü **tabloları** düğümü toosee tabloların hello depolama hesabı için bir listesi.
+3. Bir tablo için hello kısayol menüsünü açın ve ardından **görünüm tablosu**.
    
     ![Çözüm Gezgini'nde bir Azure tablosu](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
-Tablo, varlıkları (satırlarda gösterilen) ve (sütunlarda gösterilir) özellikleri tarafından düzenlenir. Örneğin, aşağıda listelenen varlıkları gösterilmiştir **Tablo Tasarımcısı**:
+Merhaba tablo, varlıkları (satırlarda gösterilen) ve (sütunlarda gösterilir) özellikleri tarafından düzenlenir. Örneğin, aşağıdaki çizimde hello hello listelenen varlıkları gösterir **Tablo Tasarımcısı**:
 
-### <a name="to-edit-table-data"></a>Tablo verisi düzenlemek için
-1. İçinde **Tablo Tasarımcısı**, bir varlığın (tek satır) ya da bir özellik (tek bir hücre) için kısayol menüsünü açın ve ardından **Düzenle**.
+### <a name="tooedit-table-data"></a>tooedit tablo verileri
+1. Merhaba, **Tablo Tasarımcısı**, bir varlığın (tek satır) ya da bir özellik (tek bir hücre) hello kısayol menüsünü açın ve ardından **Düzenle**.
    
     ![Ekleme veya Tablo varlığı düzenleme](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
    
-    Tek bir tabloyu varlıklarda özellikleri (sütunları) aynı kümesine sahip gerekli değildir. Tablo veri görüntüleme ve düzenleme aşağıdaki kısıtlamaları göz önünde bulundurun.
+    Varlıkları tek bir tablodaki gerekli toohave hello aynı özellikleri (sütunları) kümesi değil. Görüntüleme ve tablo verileri düzenleme kısıtlamaları aşağıdaki göz hello unutmayın.
    
    * Görüntüleyemez veya ikili verileri düzenleme (tür byte[]), ancak saklayabilir, bir tablodaki.
-   * Düzenleyemezsiniz **PartitionKey** veya **RowKey** Azure tablo depolaması bu işlemi desteklemediğinden, değerleri.
+   * Merhaba düzenleyemezsiniz **PartitionKey** veya **RowKey** Azure tablo depolaması bu işlemi desteklemediğinden, değerleri.
    * Zaman damgası adlı bir özellik oluşturulamıyor, Azure depolama hizmetleri, bu ada sahip bir özelliğini kullanın.
-   * Bir tarih saat değeri girerseniz, bilgisayarınızın bölge ve dil ayarları uygun biçimde izlemeniz gereken (örneğin, GG/AA/YYYY SS: dd: [AM | PM] ABD için İngilizce).
+   * Bir tarih saat değeri girerseniz, uygun toohello bölge ve dil ayarları bilgisayarınızın biçimde izlemeniz gereken (örneğin, GG/AA/YYYY SS: dd: [AM | PM] ABD için İngilizce).
 
-### <a name="to-add-entities"></a>Varlıkları eklemek için
-1. İçinde **Tablo Tasarımcısı**, seçin **varlık Ekle** düğmesi.
+### <a name="tooadd-entities"></a>tooadd varlıklar
+1. Merhaba, **Tablo Tasarımcısı**, hello seçin **varlık Ekle** düğmesi.
    
     ![Varlık ekleme](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
-2. İçinde **varlık Ekle** iletişim kutusunda, değerlerini girin **PartitionKey** ve **RowKey** özellikleri.
+2. Merhaba, **varlık Ekle** iletişim kutusunda, hello hello değerlerini girin **PartitionKey** ve **RowKey** özellikleri.
    
     ![Varlık Ekle iletişim kutusu](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655335.png)
    
-    Varlık silin ve yeniden ekleyin sürece iletişim kutusunu kapattıktan sonra bunları değiştirilemiyor çünkü dikkatle değerleri girin.
+    Merhaba varlık silin ve yeniden ekleyin sürece hello iletişim kutusunu kapattıktan sonra bunları değiştirilemiyor çünkü dikkatle hello değerleri girin.
 
-### <a name="to-filter-entities"></a>Varlıkları filtre uygulamak için
-Sorgu Oluşturucusu'nu kullanırsanız, bir tabloda görünen varlıkları kümesinin özelleştirebilirsiniz.
+### <a name="toofilter-entities"></a>toofilter varlıklar
+Merhaba Sorgu Oluşturucusu kullanıyorsanız, bir tabloda görünen varlıkları hello kümesinin özelleştirebilirsiniz.
 
-1. Sorgu Oluşturucusu'nu açmak için bir tablo görüntülemek için açın.
-2. Tablo görünümünün araç çubuğunda Sorgu Oluşturucusu düğmesini seçin.
+1. tooopen hello Sorgu Oluşturucusu, görüntülemek için bir tablo açın.
+2. Merhaba Tablo görünümünün araç çubuğunda Hello Sorgu Oluşturucusu düğmesini seçin.
    
-    **Sorgu Oluşturucusu** iletişim kutusu görüntülenir. Aşağıdaki çizimde oluşturulmakta olan bir sorgu Sorgu Oluşturucu'da gösterir.
+    Merhaba **Sorgu Oluşturucusu** iletişim kutusu görüntülenir. Merhaba aşağıdaki şekilde oluşturulmakta olan bir sorgu hello Sorgu Oluşturucusu'nda gösterilmektedir.
    
     ![Sorgu Oluşturucusu](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
-3. Bitirdiğinizde, sorgu oluşturma iletişim kutusunu kapatın. Sorgu sonuç metin biçiminde bir metin kutusuna bir WCF Veri Hizmetleri filtre olarak görünür.
-4. Sorguyu çalıştırmak için yeşil üçgenle simgesini seçin.
+3. Bitirdiğinizde hello sorgu oluşturma, hello iletişim kutusunu kapatın. hello sorgu Hello elde edilen metin biçiminde bir metin kutusunda WCF Veri Hizmetleri filtre olarak görünür.
+4. toorun hello sorgu, hello yeşil üçgenle simgesini seçin.
    
-    Görünür varlık verilerini de filtre uygulayabilirsiniz **Tablo Tasarımcısı** , doğrudan filtre alanına bir WCF Veri Hizmetleri filtre dizesi girin. Bu tür bir dize bir SQL WHERE yan tümcesine benzer, ancak sunucuya bir HTTP isteği olarak gönderilir. Filtre dizeleri oluşturma hakkında daha fazla bilgi için bkz: [oluşturma filtre dizeleri Tablo Tasarımcısı için](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+    Hello görünür varlık verilerini de filtre uygulayabilirsiniz **Tablo Tasarımcısı** , doğrudan hello filtre alanına bir WCF Veri Hizmetleri filtre dizesi girin. Bu tür bir dize benzer tooa SQL WHERE yan tümcesi ancak toohello sunucu bir HTTP isteği gönderilir. Nasıl tooconstruct filtre dizeleri hakkında daha fazla bilgi için bkz: [oluşturma filtre dizeleri hello Tablo Tasarımcısı için](https://msdn.microsoft.com/library/azure/ff683669.aspx).
    
-    Aşağıdaki çizimde bir geçerli filtre dizesi örneği gösterilmektedir:
+    Merhaba aşağıdaki resimde bir geçerli filtre dizesi örneği gösterilmektedir:
    
     ![VST_SE_TableFilter](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655337.png)
 
 ### <a name="refresh-storage-data"></a>Depolama veri yenileme
-Sunucu Gezgini bağlandığı veya bir depolama hesabından verileri alır, bu işlemin tamamlanması için bir dakika sürebilir. Bağlanamıyorsanız, işlemi zaman aşımına olabilir. Veriler alınır, ancak Visual Studio'nun diğer bölümlerinde çalışmaya devam edebilirsiniz. Çok uzun sürüyorsa işlemi iptal etmeyi seçmediğiniz **Yenilemeyi Durdur** Sunucu Gezgini araç çubuğunda.
+Sunucu Gezgini bir depolama hesabından tooor verileri bağlandığında, işlem hello işlemi toocomplete tooa dakika sürebilir. Bağlanamıyorsanız, hello işlemi zaman aşımına olabilir. Veriler alınır, ancak Visual Studio'nun diğer bölümlerinde toowork devam edebilirsiniz. çok uzun sürüyorsa toocancel hello işlemi seçin hello **Yenilemeyi Durdur** hello Sunucu Gezgini araç çubuğunda.
 
-#### <a name="to-refresh-blob-container-data"></a>BLOB kapsayıcı verileri yenilemek için
-* Seçin **BLOB'lar** düğümün altında **depolama** ve **yenileme** Sunucu Gezgini araç çubuğunda.
-* Görüntülenen BLOB'lar listesini yenilemek için tercih **yürütme** düğmesi.
+#### <a name="toorefresh-blob-container-data"></a>toorefresh blob kapsayıcı verileri
+* Select hello **BLOB'lar** düğümün altında **depolama** ve hello seçin **yenileme** hello Sunucu Gezgini araç çubuğunda.
+* toorefresh hello görüntülenir, BLOB'ları listesi seçin hello **yürütme** düğmesi.
 
-#### <a name="to-refresh-table-data"></a>Tablo verileri yenilemek için
-* Seçin **tabloları** düğümün altında **depolama** ve **yenileme** düğmesi.
-* Görüntülenen varlıklar listesini yenilemek için **Tablo Tasarımcısı**, seçin **yürütme** düğmesini **Tablo Tasarımcısı**.
+#### <a name="toorefresh-table-data"></a>toorefresh tablo verileri
+* Select hello **tabloları** düğümün altında **depolama** ve hello seçin **yenileme** düğmesi.
+* toorefresh hello hello görüntülenen varlıkların listesi **Tablo Tasarımcısı**, hello seçin **yürütme** hello düğmesinde **Tablo Tasarımcısı**.
 
-#### <a name="to-refresh-queue-data"></a>Sıra verileri yenilemek için
-* Seçin **sıraları** düğümünü ve ardından **yenileme** düğmesi.
+#### <a name="toorefresh-queue-data"></a>toorefresh sırası verileri
+* Select hello **sıraları** düğümü ve hello seçin **yenileme** düğmesi.
 
-#### <a name="to-refresh-all-items-in-a-storage-account"></a>Bir depolama hesabındaki tüm öğeleri yenilemek için
-* Hesap adı seçin ve ardından **yenileme** Sunucu Gezgini için araç çubuğunda.
+#### <a name="toorefresh-all-items-in-a-storage-account"></a>bir depolama hesabında toorefresh tüm öğeler
+* Merhaba hesap adı seçin ve ardından hello **yenileme** için Sunucu Gezgini hello araç çubuğundan düğme.
 
 ### <a name="add-storage-accounts-by-using-server-explorer"></a>Sunucu Gezgini kullanarak depolama hesapları ekleme
-Sunucu Gezgini kullanarak depolama hesapları eklemek için iki yolu vardır. Azure aboneliğinizde yeni bir depolama hesabı oluşturabilir veya varolan bir depolama hesabı ekleyebilirsiniz.
+İki yolu vardır tooadd depolama hesapları Sunucu Gezgini kullanarak. Azure aboneliğinizde yeni bir depolama hesabı oluşturabilir veya varolan bir depolama hesabı ekleyebilirsiniz.
 
-#### <a name="to-create-a-new-storage-account-by-using-server-explorer"></a>Sunucu Gezgini kullanarak yeni bir depolama hesabı oluşturmak için
-1. Sunucu Gezgini'nde, Depolama düğümü için kısayol menüsünü açın ve ardından depolama hesabı oluştur seçin.
+#### <a name="toocreate-a-new-storage-account-by-using-server-explorer"></a>toocreate Sunucu Gezgini kullanarak yeni bir depolama hesabı
+1. Sunucu Gezgininde hello Depolama düğümü için hello kısayol menüsünü açın ve ardından depolama hesabı oluştur seçin.
    
     ![Yeni bir Azure depolama hesabı oluşturma](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
-2. Yeni depolama hesabı için aşağıdaki bilgileri girin veya seçin **depolama hesabı oluştur** iletişim kutusu.
+2. Bilgi hello hello yeni depolama hesabı için aşağıdaki hello girin veya seçin **depolama hesabı oluştur** iletişim kutusu.
    
-   * Depolama hesabı eklemek istediğiniz Azure aboneliği.
-   * Yeni depolama hesabı için kullanmak istediğiniz adı.
-   * Bölge veya benzeşim grubunda (örneğin, Batı ABD veya Doğu Asya).
-   * Coğrafi olarak yedekli gibi depolama hesabı için kullanmak istediğiniz çoğaltma türü.
+   * hello Azure aboneliği toowhich tooadd hello depolama hesabı istiyor.
+   * Merhaba yeni depolama hesabı için toouse istediğiniz hello adı.
+   * Merhaba bölge veya benzeşim grubunda (örneğin, Batı ABD veya Doğu Asya).
+   * Merhaba türü çoğaltmasını coğrafi olarak yedekli gibi hello depolama hesabı için toouse istiyor.
 3. **Oluştur**’u seçin.
    
-    Yeni depolama hesabı görünür **depolama** Çözüm Gezgini'nde listesi.
+    Merhaba yeni depolama hesabı görünür hello **depolama** Çözüm Gezgini'nde listesi.
 
-#### <a name="to-attach-an-existing-storage-account-by-using-server-explorer"></a>Sunucu Gezgini kullanarak mevcut bir depolama hesabını eklemek için
-1. Sunucu Gezgini'nde, Azure Depolama düğümü için kısayol menüsünü açın ve ardından **harici depolama ekleme**.
+#### <a name="tooattach-an-existing-storage-account-by-using-server-explorer"></a>tooattach Sunucu Gezgini kullanarak var olan bir depolama hesabı
+1. Sunucu Gezgininde hello Azure Depolama düğümü için hello kısayol menüsünü açın ve ardından **harici depolama ekleme**.
    
     ![Varolan bir depolama hesabı ekleme](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766039.png)
-2. Yeni depolama hesabı için aşağıdaki bilgileri girin veya seçin **depolama hesabı oluştur** iletişim kutusu.
+2. Bilgi hello hello yeni depolama hesabı için aşağıdaki hello girin veya seçin **depolama hesabı oluştur** iletişim kutusu.
    
-   * Eklemek istediğiniz varolan depolama hesabı adı. Bir ad girin veya listeden seçin.
-   * Seçilen depolama hesabı anahtarı. Bir depolama hesabı seçtiğinizde bu değer genellikle sizin için sağlanır. Depolama hesap anahtarını anımsa için Visual Studio istiyorsanız anımsa hesap anahtar kutusunu seçin.
-   * Depolama hesabı, örneğin HTTP, HTTPS veya özel bir uç nokta bağlanmak için kullanılacak protokolü. Bkz: [yapılandırmak bağlantı dizeleri nasıl](https://msdn.microsoft.com/library/azure/ee758697.aspx) özel uç noktaları hakkında daha fazla bilgi.
+   * Merhaba hello tooattach istediğiniz var olan depolama hesabının adıdır. Bir ad girin veya hello listeden seçin.
+   * başlangıç anahtarı hello için depolama hesabı seçili. Bir depolama hesabı seçtiğinizde bu değer genellikle sizin için sağlanır. Visual Studio tooremember hello depolama hesabı anahtarı istiyorsanız hello anımsa hesap anahtar kutusunu seçin.
+   * Merhaba Protokolü toouse tooconnect toohello depolama hesabı, örneğin HTTP, HTTPS veya özel bir uç noktası. Bkz: [tooConfigure bağlantı dizeleri nasıl](https://msdn.microsoft.com/library/azure/ee758697.aspx) özel uç noktaları hakkında daha fazla bilgi.
 
-### <a name="to-view-the-secondary-endpoints"></a>İkincil uç noktaları görüntülemek için
-* Kullanarak bir depolama hesabı oluşturduysanız **okuma erişimli coğrafi olarak yedekli** çoğaltma seçeneği, ikincil uç noktalarını görüntüleyebilirsiniz. Hesap adı için kısayol menüsünü açın ve ardından **özellikleri**.
+### <a name="tooview-hello-secondary-endpoints"></a>tooview hello ikincil uç noktaları
+* Hello kullanarak bir depolama hesabı oluşturduysanız **okuma erişimli coğrafi olarak yedekli** çoğaltma seçeneği, ikincil uç noktalarını görüntüleyebilirsiniz. Merhaba hesap adı hello kısayol menüsünü açın ve ardından **özellikleri**.
   
     ![Depolama ikincil uç noktaları](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
 
-### <a name="to-remove-a-storage-account-from-server-explorer"></a>Server Explorer'dan bir depolama hesabını kaldırmak için
-* Sunucu Gezgini'nde, hesap adı için kısayol menüsünü açın ve ardından **silmek**. Bir depolama hesabı silerseniz, bu hesap için kaydedilen tüm anahtar bilgileri de kaldırılır.
+### <a name="tooremove-a-storage-account-from-server-explorer"></a>tooremove Sunucu Gezgini'nden bir depolama hesabı
+* Sunucu Gezgininde hello hesap adı hello kısayol menüsünü açın ve ardından **silmek**. Bir depolama hesabı silerseniz, bu hesap için kaydedilen tüm anahtar bilgileri de kaldırılır.
   
   > [!NOTE]
-  > Server Explorer'dan bir depolama hesabı silerseniz, depolama hesabınız veya onu içeren herhangi bir veri etkilemez; Server Explorer'dan yalnızca başvuru kaldırır. Bir depolama hesabı kalıcı olarak silmek için kullanın [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885).
+  > Server Explorer'dan bir depolama hesabı silerseniz, depolama hesabınız veya onu içeren herhangi bir veri etkilemez; Server Explorer'dan hello başvuru yalnızca kaldırır. toopermanently bir depolama hesabını silmek, hello kullan [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885).
   > 
   > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure storage Hizmetleri kullanma hakkında daha fazla bilgi edinmek için [Azure depolama hizmetlerine erişilmesi](https://msdn.microsoft.com/library/azure/ee405490.aspx).
+toolearn hakkında daha fazla Azure storage hizmetleri kullanmak için bkz: [hello Azure depolama hizmetlerine erişilmesi](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 

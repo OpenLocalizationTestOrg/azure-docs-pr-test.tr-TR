@@ -1,5 +1,5 @@
 ---
-title: "Depolama Gezgini (Önizleme) ile çalışmaya başlama | Microsoft Docs"
+title: "aaaGet başlatılan Depolama Gezgini (Önizleme) | Microsoft Docs"
 description: "Depolama Gezgini (Önizleme) ile Azure Storage kaynaklarını yönetme"
 services: storage
 documentationcenter: na
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/17/2017
 ms.author: kraigb
-ms.openlocfilehash: 1794a86a4185d587cf184a1f61a5720e2ab65e92
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 57737b51baace92858eb07c7dbc3139bd7e041f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile çalışmaya başlama
 ## <a name="overview"></a>Genel Bakış
-Azure Depolama Gezgini (Önizleme) Windows, macOS ve Linux’ta Azure Depolama ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır. Bu makalede Azure Depolama hesaplarınızı bağlama ve yönetme ile ilgili çeşitli yöntemler öğrenirsiniz.
+Azure Depolama Gezgini (Önizleme), Windows, macOS ve Linux Azure Storage verilerle tooeasily çalışma sağlayan tek başına bir uygulamadır. Bu makalede, hello Azure storage hesaplarınızı yönetmeye tooand bağlanma çeşitli yollarını öğrenin.
 
 ![Microsoft Azure Depolama Gezgini (Önizleme)][15]
 
 ## <a name="prerequisites"></a>Ön koşullar
 * [Depolama Gezgini (Önizleme) indirip yükleme](http://www.storageexplorer.com)
 
-## <a name="connect-to-a-storage-account-or-service"></a>Bir depolama hesabı veya hizmetine bağlanmak
-Depolama Gezgini (Önizleme) depolama hesaplarına bağlamak için birçok yol sağlar. Örneğin, şunları yapabilirsiniz:
-* Azure aboneliğinizle ilişkili depolama hesaplarına bağlanın.
-* Diğer Azure aboneliklerinden paylaşılan depolama hesaplarına ve hizmetlere bağlanın.
-* Azure Depolama Öykünücüsü kullanarak yerel depolama alanınıza bağlanın ve yönetin. 
+## <a name="connect-tooa-storage-account-or-service"></a>Tooa depolama hesabı veya hizmetine bağlanmak
+Depolama Gezgini (Önizleme) tooconnect toostorage hesapları çeşitli yöntemler sağlar. Örneğin, şunları yapabilirsiniz:
+* Azure aboneliği ile ilişkili toostorage hesaplarını bağlayın.
+* Toostorage hesapları ve paylaşılan hizmetler diğer Azure aboneliklerinden bağlayın.
+* Connect tooand hello Azure Storage öykünücüsü kullanarak yerel depolama yönetin. 
 
 Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
-* [Bir Azure aboneliğine bağlanma](#connect-to-an-azure-subscription): Azure aboneliğinize ait depolama kaynaklarını yönetin.
-* [Yerel geliştirme deposu ile çalışma](#work-with-local-development-storage): Azure Depolama Öykünücüsü kullanarak yerel depolamayı yönetin.
-* [Dış depolama birimine ekleme](#attach-or-detach-an-external-storage-account): Depolama hesabının adını, anahtarını ve uç noktalarını kullanarak başka bir Azure aboneliğine ait olan veya ulusal Azure bulutlarında bulunan depolama kaynaklarını yönetin.
-* [SAS kullanarak depolama hesabı ekleme](#attach-storage-account-using-sas): Paylaşılan erişim imzası (SAS) kullanarak başka bir Azure aboneliğine ait olan depolama kaynaklarını yönetin.
-* [SAS kullanarak hizmet ekleme](#attach-service-using-sas): SAS kullanarak başka bir Azure aboneliğine ait belirli bir depolama hizmetini (blob kapsayıcısı, kuyruk veya tablo) yönetin.
+* [Tooan Azure aboneliğine bağlanma](#connect-to-an-azure-subscription): tooyour Azure aboneliğine ait depolama kaynaklarını yönetin.
+* [İş yerel geliştirme depolama ile](#work-with-local-development-storage): hello Azure Storage öykünücüsü kullanarak yerel depolama yönetin.
+* [Tooexternal depolama ekleme](#attach-or-detach-an-external-storage-account): tooanother Azure aboneliğine ait depolama kaynaklarını yönetmek veya hello depolama hesabının adını, anahtar ve uç noktaları kullanarak Azure Ulusal Bulutlar altında olan.
+* [Bir SAS kullanarak bir depolama hesabı ekleme](#attach-storage-account-using-sas): paylaşılan erişim imzası (SAS) kullanılarak tooanother Azure aboneliğine ait depolama kaynaklarını yönetin.
+* [Bir SAS kullanarak hizmet ekleme](#attach-service-using-sas): bir SAS kullanarak tooanother Azure aboneliğine ait belirli bir depolama hizmetini (blob kapsayıcısı, kuyruk veya tablo) yönetme.
 
-## <a name="connect-to-an-azure-subscription"></a>Bir Azure aboneliğine Bağlanma
+## <a name="connect-tooan-azure-subscription"></a>Tooan Azure aboneliğine bağlanma
 > [!NOTE]
 > Bir Azure hesabınız yoksa, [ücretsiz deneme için kaydolabilir](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 >
@@ -53,39 +53,39 @@ Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
     ![Azure hesap ayarları][0]
 
-2. Sol bölmede oturum açtığınız tüm Microsoft hesapları gösterilir. Başka bir hesaba bağlanmak için **Hesap ekle**’yi seçin ve en az bir etkin Azure aboneliği ile ilişkilendirilen bir Microsoft hesabı ile oturum açmak için yönergeleri izleyin.
+2. Merhaba sol bölmede oturum açtığınız tüm hello Microsoft hesapları görüntülenir. tooconnect tooanother hesabı, select **Hesap Ekle**, en az bir etkin Azure aboneliği ile ilişkili bir Microsoft hesabıyla hello yönergeleri toosign izleyin.
 
     >[!NOTE]
-    >Ulusal Azure (oturum açarak Azure Almanya, Azure Kamu ve Azure China gibi) bulutları ile bağlantı şu anda desteklenmemektedir. Ulusal Azure depolama hesaplarına nasıl bağlanacağınızı öğrenmek için “Harici bir depolama hesabı ekleme veya ayırma” bölümüne bakın.
+    >Toonational Azure (örneğin, Azure Almanya, Azure kamu ve oturum açma aracılığıyla Azure Çin) bağlanması şu anda desteklenmiyor. Merhaba bkz "ekleme veya harici bir depolama hesabı ayırma" bölümü için nasıl tooconnect toonational Azure depolama hesapları.
 
-3. Bir Microsoft hesabı ile başarıyla oturum açtıktan sonra sol bölme ilgili hesapla ilişkili Azure abonelikleriyle doldurulur. Birlikte çalışmak istediğiniz Azure aboneliklerini seçin ve ardından **Uygula**’yı seçin. (**Tüm abonelikler**’in seçilmesi listelenen Azure aboneliklerinin tamamının seçilmesini veya hiçbirinin seçilmemesini sağlar.)
+3. Sonra başarıyla ile hello bölmesini doldurulmuş bir Microsoft hesabı, sol hello bu hesapla ilişkili Azure abonelikleri oturum açın. Select hello toowork ile istediğiniz ve ardından Azure abonelikleri **Uygula**. (Seçme **tüm abonelikleri** değiştirir veya hello hiçbirinin seçerek listelenen Azure aboneliklerinin.)
 
     ![Azure aboneliklerini seçme][3]  
-    Sol bölmede seçili Azure abonelikleriyle ilişkili depolama hesapları gösterilir.
+    Hello sol bölmede seçili hello Azure abonelikleriyle ilişkilendirilen hello depolama hesapları gösterilir.
 
     ![Seçili Azure abonelikleri][4]
 
-## <a name="connect-to-an-azure-stack-subscription"></a>Bir Azure Stack aboneliğine bağlanma
+## <a name="connect-tooan-azure-stack-subscription"></a>Tooan Azure yığın abonelik'e bağlanma
 
-Azure Stack aboneliğine bağlanma hakkında bilgi için bkz. [Depolama Gezgini’ni Azure Stack aboneliğine bağlama](azure-stack/azure-stack-storage-connect-se.md).
+Bağlantı tooan Azure yığın aboneliği hakkında daha fazla bilgi için bkz: [bağlanmak Depolama Gezgini tooan Azure yığın abonelik](azure-stack/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Yerel geliştirme deposu ile çalışma
-Depolama Gezgini (Önizleme) ile Azure Depolama Öykünücüsü kullanarak yerel depolamaya karşı çalışabilirsiniz. Bu yaklaşım, (depolama hesabı Azure Depolama Öykünücüsü tarafından öykündüğü için) depolama hesabını Azure’a dağıtmadan hesaba karşı kod yazıp test edebilmenizi sağlar.
+Depolama Gezgini (Önizleme) ile hello Azure Storage öykünücüsü kullanarak yerel depolama karşı çalışabilirsiniz. Bu yaklaşım hello depolama hesabı hello Azure Storage öykünücüsü tarafından öykündüğü için mutlaka Azure üzerinde dağıtılan bir depolama hesabı gerek kalmadan karşı kodu ve test depolama yazmanızı sağlar.
 
 > [!NOTE]
-> Azure Storage Öykünücüsü şu anda yalnızca Windows için desteklenmektedir.
+> Hello Azure Storage öykünücüsü şu anda yalnızca Windows için desteklenmektedir.
 >
 >
 
-1. Depolama Gezgini (Önizleme) sol bölmesinde **(Yerel ve Bağlı)** > **Depolama Hesapları** > **(Geliştirme)** düğümünü genişletin.
+1. Merhaba sol depolama Gezgini'nin (Önizleme) hello bölmesinde **(yerel ve iliştirildiği)** > **depolama hesapları** > **(Geliştirme)** düğümü.
 
     ![Yerel geliştirme düğümü][21]
 
-2. Azure Depolama Öykünücüsünü henüz yüklemediyseniz, bir bilgi çubuğu ile yüklemeniz istenir. Bilgi çubuğu görüntülendiyse **En yeni sürümü indir**’i seçin ve öykünücüyü yükleyin.
+2. Hello Azure Storage öykünücüsünü henüz yüklü değilse, istendiğinde toodo olan bir bilgi çubuğu aracılığıyla bunu. Merhaba bilgi çubuğu görüntülendiyse seçin **indirme hello en son sürümünü**ve ardından hello öykünücüsü yükleyin.
 
     ![Azure Storage Öykünücüsünü İndirme istemi][22]
 
-3. Öykünücü yüklendikten sonra yerel bloblar, kuyruklar ve tablolar oluşturup bunlarla çalışabilirsiniz. Her depolama hesabı türü ile çalışma hakkında bilgi almak için aşağıdaki bağlantılardan birine bakın:
+3. Merhaba öykünücü yüklendikten sonra oluşturun ve yerel bloblar, kuyruklar ve tablolar ile çalışır. Her bir depolama hesabıyla toowork nasıl türü, toolearn hello aşağıdakilerden birini bakın:
 
     * [Azure blob depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
     * Azure dosya paylaşımı depolama kaynaklarını yönetme: *Çok yakında*
@@ -93,139 +93,139 @@ Depolama Gezgini (Önizleme) ile Azure Depolama Öykünücüsü kullanarak yerel
     * Azure Tablo Depolama kaynaklarını yönetme - *Çok yakında*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Harici bir depolama hesabı ekleme veya ayırma
-Depolama Gezgini (Önizleme) ile depolama hesaplarının kolayca paylaşılabilmesi için dış depolama hesaplarına ekleyebilirsiniz. Bu bölümde harici depolama hesaplarının nasıl ekleneceği (ve ayrılacağı) açıklanmaktadır.
+Depolama Gezgini (Önizleme) ile depolama hesapları kolaylıkla paylaşılabilir böylece tooexternal depolama hesapları ekleyebilirsiniz. Bu bölümde nasıl tooattach too(and detach from) harici depolama hesapları.
 
-### <a name="get-the-storage-account-credentials"></a>Depolama hesabının kimlik bilgilerini alma
-Harici bir depolama hesabını paylaşmak için ilgili hesabın sahibi ilk olarak hesabın kimlik bilgilerini (hesap adı ve anahtarı) almalıdır, ardından bu bilgileri ilgili (harici) hesabı eklemek isteyen kişiyle paylaşmalıdır. Depolama hesabı kimlik bilgilerini aşağıdaki adımları izleyerek Azure portalından alabilirsiniz:
+### <a name="get-hello-storage-account-credentials"></a>Merhaba depolama hesabı bilgilerini al
+tooshare harici bir depolama hesabı, hello hesabının sahibi söz konusu ilk hello hesabı için (hesap adı ve anahtar) hello kimlik bilgileri alın ve sonra bu bilgileri tooattach toothat (harici) hesabı isteyen hello kişiyle paylaşabilirsiniz gerekir. Merhaba aşağıdakileri yaparak hello depolama hesabının kimlik bilgilerini hello Azure portal aracılığıyla elde edebilirsiniz:
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
 
 2. **Gözat**’ı seçin.
 
 3. **Depolama Hesapları**’nı seçin.
 
-4. **Depolama Hesapları** dikey penceresinde istenen depolama hesabını seçin.
+4. Merhaba üzerinde **depolama hesapları** dikey penceresinde, select hello istenen depolama hesabı.
 
-5. Seçili depolama hesabının **Ayarlar** dikey penceresinde **Erişim anahtarları**’nı seçin.
+5. Merhaba üzerinde **ayarları** hello dikey penceresinde seçili depolama hesabı, seçin **erişim anahtarları**.
 
     ![Erişim Anahtarları seçeneği][5]
 
-6. **Erişim anahtarları** dikey penceresinde depolama hesabını eklerken kullanılacak **Depolama hesabı adı** ve **key1** değerlerini kopyalayın.
+6. Merhaba üzerinde **erişim anahtarları** dikey penceresinde, kopyalama hello **depolama hesabı adı** ve **key1** toohello depolama hesabı eklenirken kullanılacak değerler.
 
     ![Erişim tuşları][6]
 
-### <a name="attach-to-an-external-storage-account"></a>Harici bir depolama hesabı ekleme
-Bir dış depolama hesabına bağlanmak için hesabın adı ve anahtarı gereklidir. “Depolama hesabı kimlik bilgilerini alma” bölümünde bu değerlerin Azure portalından nasıl alınacağı açıklanmaktadır. Ancak, portalda hesap anahtarı **key1** olarak adlandırılır. Bu nedenle, Depolama Gezgini (Önizleme) bir hesap anahtarı istediğinde **key1** değerini girmeniz gerekir.
+### <a name="attach-tooan-external-storage-account"></a>Tooan harici depolama hesabı ekleme
+tooattach tooan harici depolama hesabı, hello hesabın adı ve anahtarı gerekir. Bu değerleri tooobtain hello Azure portalına nasıl Hello "Get hello depolama hesabı kimlik" bölümde açıklanmaktadır. Ancak, hello Portalı'nda hello hesap anahtarı olarak adlandırılır **key1**. Hesap anahtarı için Depolama Gezgini (Önizleme) ister burada şekilde hello girin **key1** değeri.
 
-1. Storage Explorer’da (Önizleme) **Azure Storage’a bağlan**’ı seçin.
+1. Depolama Gezgini (Önizleme), seçin **tooAzure depolama birimini bağlayın**.
 
-    ![Azure Storage’a bağlanma seçeneği][23]
+    ![TooAzure depolama seçeneği Bağlan][23]
 
-2. **Azure Depolama’ya Bağlan** iletişim kutusunda hesap anahtarını (Azure portalındaki **key1** değeri) belirtin ve ardından **İleri**’yi seçin.
+2. Merhaba, **tooAzure depolama bağlanmak** iletişim kutusunda, hello hesap anahtarı belirtin (Merhaba **key1** hello Azure portal değerinden) ve ardından **sonraki**.
 
     > [!NOTE]
-    > Depolama bağlantı dizesini, ulusal Azure bulutu üzerindeki bir depolama hesabından girebilirsiniz. Örneğin, Azure Almanya depolama hesaplarına bağlamak için aşağıdakine benzer bağlantı dizeleri girin: 
+    > Ulusal Azure üzerinde bir depolama hesabından hello depolama bağlantı dizesi girebilirsiniz. Örneğin, tooconnect tooAzure Almanya depolama hesapları, bağlantı dizeleri benzer toohello aşağıdakileri girin: 
     >
     >* DefaultEndpointsProtocol=https
     >* AccountName=cawatest03
     >* AccountKey=<storage_account_key>
     >* EndpointSuffix=core.cloudapi.de
     
-    >Bağlantı dizesini Azure portalından "Depolama hesabı kimlik bilgilerini alma" bölümünde açıklandığı gibi alabilirsiniz.
+    >Merhaba bağlantı dizesi hello Azure ' alabileceğiniz hello portal aynı şekilde açıklandığı gibi bölüm "Merhaba depolama hesabı bilgilerini al" Merhaba.
 
-    ![Azure depolamaya bağlan iletişim kutusu][24]
+    ![Bağlan tooAzure depolama iletişim kutusu][24]
 
-3. **Dış Depolama Ekle** iletişim kutusundaki **Hesap adı** kutusuna depolama hesabının adını girin, istediğiniz diğer ayarları belirtin ve ardından **İleri**’yi seçin.
+3. Merhaba, **harici depolama ekleme** iletişim kutusunda hello **hesap adı** kutusuna hello depolama hesabı adı girin, istediğiniz diğer ayarları belirtin ve ardından **sonraki**.
 
     ![Dış depolama ekle iletişim kutusu][8]
 
-4. **Bağlantı Özeti** iletişim kutusundaki bilgileri doğrulayın. Herhangi bir ayarı değiştirmek isterseniz **Geri**’yi seçin ve istenilen ayarları yeniden girin. 
+4. Merhaba, **bağlantı Özet** iletişim kutusunda, hello bilgilerini doğrulayın. Toochange herhangi bir şey istiyorsanız seçin **geri** ve istenen hello ayarlarını girin. 
 
 5. **Bağlan**’ı seçin.
 
-6. Başarıyla bağlandıktan sonra dış depolama hesabı, depolama hesabı adına **(External)** metni eklenmiş olarak görüntülenir.
+6. Başarıyla bağlandıktan sonra hello harici depolama hesabı ile görüntülenir **(harici)** toohello depolama hesabı adı eklenir.
 
-    ![Harici depolama hesabına bağlanma sonucu][9]
+    ![Sonuç tooan harici depolama hesabına bağlanma][9]
 
 ### <a name="detach-from-an-external-storage-account"></a>Harici bir depolama hesabı ayırma
-1. Ayırmak istediğiniz dış depolama hesabına sağ tıklayın ve **Ayır**’ı seçin.
+1. Toodetach istediğiniz ve ardından hello harici depolama hesabına sağ **ayırma**.
 
     ![Depolama alanından ayırma seçeneği][10]
 
-2. Onay iletisinde, dış depolama hesabından ayırmayı onaylamak üzere **Evet**’i seçin.
+2. Merhaba onay iletisinde seçin **Evet** tooconfirm hello ayrılmayı hello harici depolama hesabından.
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>SAS kullanarak depolama hesabı ekleme
-[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) bir Azure aboneliği yöneticisinin Azure aboneliği kimlik bilgilerini vermek zorunda kalmadan bir depolama hesabına geçici erişim izni vermesini sağlar.
+Bir [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) tooprovide Azure aboneliği kimlik gerek kalmadan geçici erişim tooa depolama hesabına vermek hello Yöneticisi bir Azure aboneliğinin olanak sağlar.
 
-Bu senaryoyu göstermek üzere; KullanıcıA’nın bir Azure aboneliği yöneticisi olduğunu düşünelim ve KullanıcıA KullanıcıB’nin belirli bir süre çeşitli izinlerle bir depolama hesabına erişmesine izin vermek istediğini varsayalım:
+tooillustrate bu senaryo, şimdi bu Kullanıcıa bir Azure aboneliği Yöneticisi deyin olduğu ve Kullanıcıa istediği tooallow UserB tooaccess sınırlı bir süre çeşitli izinlerle bir depolama hesabı:
 
-1. KullanıcıA belirli bir zaman dilimi ve istenilen izinlerle (depolama hesabı için bağlantı dizesinden oluşan) bir SAS oluşturuyor.
+1. Kullanıcıa (Merhaba bağlantı dizesi hello depolama hesabı için oluşan) bir SAS dönemi ve istenen hello izinlerle belirli bir süre oluşturur.
 
-2. KullanıcıA SAS’ı depolama hesabına erişmek isteyen kişiyle (bu örnekte KullanıcıB) paylaşıyor.  
+2. Kullanıcıa paylaşımları SAS erişim toohello depolama hesabı isteyen hello kişiyle (örneğimizde, UserB) hello.  
 
-3. KullanıcıB, sağlanan SAS’ı kullanarak KullanıcıA’ya ait hesabı eklemek için Depolama Gezgini’ni (Önizleme) kullanır.
+3. Kullanıcıb kullanarak tooUserA ait Depolama Gezgini (Önizleme) tooattach toohello hesabı kullanan hello sağlanan SAS.
 
-### <a name="get-an-sas-for-the-account-you-want-to-share"></a>Paylaşmak istediğiniz hesap için bir SAS alma
-1. Depolama Gezgini’nde (Önizleme) bağlam menüsünden paylaşmak istediğiniz depolama hesabına sağ tıklayın ve **Paylaşılan Erişim İmzası Al**’ı seçin.
+### <a name="get-an-sas-for-hello-account-you-want-tooshare"></a>Tooshare istediğiniz hello hesabı için bir SAS alma
+1. Depolama Gezgini (Önizleme), paylaşımı ve ardından istediğiniz hello depolama hesabını sağ tıklatın **paylaşılan erişim imzası Al**.
 
     ![SAS alma içerik menüsü seçeneği][13]
 
-2. **Paylaşılan Erişim İmzası** iletişim kutusunda hesap için istediğiniz zaman dilimi ve izinleri belirleyin, ardından **Oluştur**’u seçin.
+2. Merhaba, **paylaşılan erişim imzası** iletişim kutusunda, hello zaman dilimi ve hello hesap için istediğiniz ve ardından izinleri belirtin **oluşturma**.
 
     ![SAS alma iletişim kutusu][14]  
-    **Paylaşılan Erişim İmzası** iletişim kutusu açılır ve SAS gösterilir.
+    Merhaba **paylaşılan erişim imzası** iletişim kutusu açılır ve hello SAS görüntüler.
 
-3. **Bağlantı Dizesi**’nin yanındaki **Kopyala**’yı seçerek panoya kopyalayın ve **Kapat**’ı seçin.
+3. Sonraki toohello **bağlantı dizesi**seçin **kopya** toocopy, toohello Pano ve ardından **Kapat**.
 
-### <a name="attach-to-the-shared-account-by-using-the-sas"></a>SAS kullanarak paylaşılan hesaba ekleme
-1. Storage Explorer’da (Önizleme) **Azure Storage’a bağlan**’ı seçin.
+### <a name="attach-toohello-shared-account-by-using-hello-sas"></a>Merhaba SAS kullanarak paylaşılan toohello hesap ekleme
+1. Depolama Gezgini (Önizleme), seçin **tooAzure depolama birimini bağlayın**.
 
-    ![Azure Storage’a bağlanma seçeneği][23]
+    ![TooAzure depolama seçeneği Bağlan][23]
 
-2. **Azure Depolamaya Bağlan** iletişim kutusunda bağlantı dizesini belirtin ve ardından **İleri**’yi seçin.
+2. Merhaba, **tooAzure depolama bağlanmak** iletişim kutusu, hello bağlantı dizesini belirtin ve ardından **sonraki**.
 
-    ![Azure depolamaya bağlan iletişim kutusu][24]
+    ![Bağlan tooAzure depolama iletişim kutusu][24]
 
-3. **Bağlantı Özeti** iletişim kutusundaki bilgileri doğrulayın. Değişiklik yapmak için **Geri**’yi seçin ve istediğiniz ayarları girin. 
+3. Merhaba, **bağlantı Özet** iletişim kutusunda, hello bilgilerini doğrulayın. toomake değişiklikleri seçin **geri**ve ardından istediğiniz hello ayarlarını girin. 
 
 4. **Bağlan**’ı seçin.
 
-5. Eklendikten sonra, depolama hesabı sağladığınız hesap adının sonuna **(SAS)** metni eklenmiş olarak gösterilir.
+5. Bunu bağlandıktan sonra hello depolama hesabı ile görüntülenir **(SAS)** sağladığınız toohello hesap adı eklenir.
 
-    ![SAS kullanarak hesaba ekleme sonucu][17]
+    ![SAS kullanarak hesap ekli tooan sonucu][17]
 
 ## <a name="attach-a-service-by-using-an-sas"></a>SAS kullanarak hizmet ekleme
-“SAS kullanarak depolama hesabı ekleme” bölümünde Azure abonelik yöneticisinin depolama hesabı için bir SAS oluşturup paylaşarak nasıl geçici erişim izni verebileceği açıklanmaktadır. Benzer şekilde bir depolama hesabının içinde belirli bir hizmet için (blob kapsayıcısı, kuyruk veya tablo) bir SAS oluşturulabilir.  
+Merhaba "bir SAS kullanarak bir depolama hesabı ekleme" bölümde, nasıl Azure abonelik yöneticisinin geçici erişim tooa depolama hesabı oluşturma ve hello depolama hesabı için bir SAS paylaşarak erişim izni verebilir açıklanmaktadır. Benzer şekilde bir depolama hesabının içinde belirli bir hizmet için (blob kapsayıcısı, kuyruk veya tablo) bir SAS oluşturulabilir.  
 
-### <a name="generate-an-sas-for-the-service-that-you-want-to-share"></a>Paylaşmak istediğiniz hizmet için SAS oluşturma
-Bu bağlamda bir hizmet, bir blob kapsayıcısı, sıra veya tablo olabilir. Listelenen bir hizmet için SAS oluşturmak istiyorsanız bkz.:
+### <a name="generate-an-sas-for-hello-service-that-you-want-tooshare"></a>Tooshare istediğiniz hello hizmeti için bir SAS oluşturmak
+Bu bağlamda bir hizmet, bir blob kapsayıcısı, sıra veya tablo olabilir. toogenerate hello SAS listelenen hizmet için bkz:
 
-* [Blob kapsayıcısı için SAS alma](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Dosya paylaşımı için SAS alma: *Çok yakında*
-* Bir kuyruk için SAS alma: *Çok yakında*
-* Bir tablo için SAS alma: *Çok yakında*
+* [Blob kapsayıcısı için Hello SAS alma](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+* Bir dosya paylaşımı için Hello SAS alma: *çok yakında*
+* Bir kuyruk için SAS Hello alın: *çok yakında*
+* Bir tablo için SAS Hello alın: *çok yakında*
 
-### <a name="attach-to-the-shared-account-service-by-using-the-sas"></a>SAS kullanarak paylaşılan hesap hizmetine ekleme
-1. Storage Explorer’da (Önizleme) **Azure Storage’a bağlan**’ı seçin.
+### <a name="attach-toohello-shared-account-service-by-using-hello-sas"></a>SAS kullanarak hizmet hello paylaşılan toohello hesap ekleme
+1. Depolama Gezgini (Önizleme), seçin **tooAzure depolama birimini bağlayın**.
 
-    ![Azure Storage’a bağlanma seçeneği][23]
+    ![TooAzure depolama seçeneği Bağlan][23]
 
-2. **Azure Storage’a Bağlan** iletişim kutusunda SAS URI’sini belirtin ve ardından **İleri**’yi seçin.
+2. Merhaba, **tooAzure depolama bağlanmak** iletişim kutusu, hello SAS URI'sini belirtin ve ardından **sonraki**.
 
-    ![Azure depolamaya bağlan iletişim kutusu][24]
+    ![Bağlan tooAzure depolama iletişim kutusu][24]
 
-3. **Bağlantı Özeti** iletişim kutusundaki bilgileri doğrulayın. Değişiklik yapmak için **Geri**’yi seçin ve istediğiniz ayarları girin. 
+3. Merhaba, **bağlantı Özet** iletişim kutusunda, hello bilgilerini doğrulayın. toomake değişiklikleri seçin **geri**ve ardından istediğiniz hello ayarlarını girin. 
 
 4. **Bağlan**’ı seçin.
 
-5. Eklendikten sonra yeni eklenen hizmet **(Hizmet SAS’ı)** düğümü altında görüntülenecektir.
+5. Bunu bağlandıktan sonra hello yeni eklenen hizmet hello altında görüntülenen **(hizmet SAS)** düğümü.
 
-    ![SAS kullanarak paylaşılan hizmete ekleme sonucu][20]
+    ![Sonuç bir SAS kullanarak paylaşılan tooa hizmet ekleme][20]
 
 ## <a name="search-for-storage-accounts"></a>Depolama hesapları arama
-Depolama hesaplarından oluşan uzun bir listeniz varsa, sol bölmenin üzerindeki arama kutusunu kullanmak belirli bir depolama hesabını bulmak için hızlı bir yöntemdir.
+Depolama hesaplarının uzun bir listeniz varsa, hızlı şekilde toolocate belirli bir depolama hesabını toouse hello arama hello sol bölmenin hello üstünde kutusudur.
 
-Arama kutusuna yazarken sol bölmede o noktaya kadar girdiğiniz arama değeriyle eşleşen depolama hesapları görüntülenir. Örneğin, adında **tarcher** bulunan tüm depolama hesapları için yapılan bir arama aşağıdaki ekran görüntüsünde gösterilmektedir:
+Hello arama kutusuna yazarken hello bölmesini toothat noktası girmiş olduğunuz hello arama değeriyle eşleşen görüntüler hello depolama hesapları kalmadı. Örneğin, bir arama adı tüm depolama hesapları için içeren **tarcher** hello aşağıdaki ekran gösterilir:
 
 ![Depolama hesabı araması][11]
 
