@@ -1,6 +1,6 @@
 ---
-title: "SQL Server gelen ve veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak Azure VM'deki veya şirket içi SQL Server veritabanı için/gelen verileri taşıma hakkında bilgi edinin."
+title: SQL Server'dan aaaMove veri tooand | Microsoft Docs
+description: "Azure Data Factory kullanarak Azure VM'deki veya nasıl/SQL Server toomove verileri şirket içi yani veritabanı hakkında bilgi edinin."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,66 +14,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 9cd2077d897631457925cda5ef5e6df3c0c33177
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f0cccf56a670e62ec893d75052a81eb26d562050
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Azure Data Factory kullanarak verileri ve SQL Server şirket içi veya Iaas (Azure VM) üzerinde taşıma
-Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi SQL Server veritabanından/gelen verileri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi. 
+# <a name="move-data-tooand-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Azure Data Factory kullanarak veri tooand şirket içi SQL Server veya Iaas (Azure VM) üzerinde taşıma
+Bu makalede nasıl toouse hello kopya etkinliği Azure Data Factory toomove için/şirket içi SQL Server veritabanındaki verileri de açıklanmaktadır. Üzerinde hello derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalenin hello kopyalama etkinliği ile veri taşıma için genel bir bakış sunar. 
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
-Veri kopyalama **bir SQL Server veritabanından** aşağıdaki veri depolar:
+Veri kopyalama **bir SQL Server veritabanından** veri depolarına aşağıdaki toohello:
 
 [!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
 
-Aşağıdaki veri depolarına verileri kopyalayabilirsiniz **bir SQL Server veritabanına**:
+Veri depoları aşağıdaki hello verileri kopyalayabilirsiniz **tooa SQL Server veritabanı**:
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 ## <a name="supported-sql-server-versions"></a>Desteklenen SQL Server sürümleri
-Veri kopyalama/barındırılan örneği şirket içi veya Azure SQL kimlik doğrulaması ve Windows kimlik doğrulaması kullanarak Iaas aşağıdaki sürümleri için bu SQL Server bağlayıcı desteği: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008, SQL Server 2005
+Verileri kopyalama bu SQL Server bağlayıcı desteği / toohello aşağıdaki sürümler barındırılan örneği şirket içi veya Azure SQL kimlik doğrulaması ve Windows kimlik doğrulaması kullanarak Iaas: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008, SQL Server 2005
 
 ## <a name="enabling-connectivity"></a>Bağlantıyı etkinleştirme
-Kavramlar ve şirket içi barındırılan SQL Server ile veya (altyapı-bir hizmet olarak) Azure Iaas Vm'lerine bağlanmak için gerekli adımları aynıdır. Her iki durumda da, veri yönetimi ağ geçidi bağlantısı için kullanmanız gerekir.
+Merhaba kavramlar ve SQL Server barındırılan şirket içi veya Azure Iaas VM'ler (altyapı-bir hizmet olarak) bağlanmak için gereken adımlar şunlardır hello aynı. Her iki durumda da toouse veri yönetimi ağ geçidi bağlantısı için gereklidir.
 
-Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale veri yönetimi ağ geçidi ve ağ geçidi kurun ayarlama hakkında adım adım yönergeleri hakkında bilgi edinin. Bir ağ geçidi örneği SQL Server ile bağlanmak için bir önkoşul ayardır.
+Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale toolearn veri yönetimi ağ geçidi ve hello ağ geçidi kurun ayarlama hakkında adım adım yönergeleri hakkında. Bir ağ geçidi örneği SQL Server ile bağlanmak için bir önkoşul ayardır.
 
-Ağ geçidi aynı şirket içi makineye veya Bulut VM örneği üzerinde daha iyi performans için SQL sunucusu olarak yükleyebilirsiniz olsa da, bunları farklı makinelere yüklemeniz önerilir. Ağ geçidi ve SQL Server ayrı makinelerde sahip kaynak çekişmesini azaltır.
+Ağ geçidi yüklenirken hello üzerinde aynı makine veya Bulut VM örneği daha iyi performans için SQL Server hello gibi şirket içi, bunları farklı makinelere yüklemeniz önerilir. Merhaba ağ geçidi ve SQL Server ayrı makinelerde sahip kaynak çekişmesini azaltır.
 
 ## <a name="getting-started"></a>Başlarken
 Farklı araçlar/API'lerini kullanarak bir şirket içi SQL Server veritabanından/gelen verileri taşır kopyalama etkinliği ile işlem hattı oluşturun.
 
-Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
+Merhaba en kolay yolu toocreate bir ardışık düzen olduğu toouse hello **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) hello kopya veri Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+Aşağıdaki araçlar toocreate bir ardışık düzen hello de kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) adım adım yönergeler toocreate kopyalama etkinliği ile işlem hattı için. 
 
-Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin: 
+Merhaba araçları veya API'lerle de kullansanız adımları toocreate veri kaynağına veri dosyaları tooa havuz veri deposunu taşır ardışık aşağıdaki hello gerçekleştirin: 
 
 1. Oluşturma bir **veri fabrikası**. Veri Fabrikası bir veya daha fazla ardışık düzen içerebilir. 
-2. Oluşturma **bağlantılı Hizmetleri** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar. Örneğin, bir Azure blob depolama alanına bir SQL Server veritabanından veri kopyalıyorsanız, SQL Server veritabanı ve Azure depolama hesabı veri fabrikanıza bağlamak için iki bağlı hizmet oluşturun. SQL Server veritabanına özel bağlantılı hizmet özellikleri için bkz: [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü. 
-3. Oluşturma **veri kümeleri** kopyalama işlemi için girdi ve çıktı verilerini temsil etmek için. Son adımda bahsedilen örnekte giriş verilerini içeren, SQL Server veritabanında SQL tablosu belirtmek için bir veri kümesi oluşturun. Ve blob kapsayıcısında ve SQL Server veritabanından kopyalanan verileri tutan klasör belirtmek için başka bir veri kümesi oluşturun. SQL Server veritabanına özel veri kümesi özellikleri için bkz: [veri kümesi özellikleri](#dataset-properties) bölümü.
-4. Oluşturma bir **ardışık düzen** bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile. Daha önce bahsedilen örnekte SqlSource bir kaynak ve BlobSink havuzu olarak kopya etkinliği için kullanırsınız. SQL Server veritabanına Azure Blob depolama alanından kopyalıyorsanız benzer şekilde, BlobSource ve SqlSink kopyalama etkinliği kullanırsınız. SQL Server veritabanına belirli kopyalama etkinliği özellikleri için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties) bölümü. Bir veri deposu bir kaynak veya bir havuz nasıl kullanılacağı hakkında daha fazla bilgi için önceki bölümde, veri deposu için bağlantıya tıklayın. 
+2. Oluşturma **bağlantılı Hizmetleri** toolink girdi ve çıktı veri depoları tooyour veri fabrikası. Bir SQL Server veritabanı tooan Azure blob depolama veri kopyalama, örneğin, iki bağlı hizmet toolink SQL Server veritabanı ve Azure depolama hesabı tooyour veri fabrikası oluşturun. Belirli tooSQL Server veritabanına bağlı hizmet özellikler için bkz: [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü. 
+3. Oluşturma **veri kümeleri** giriş ve çıkış toorepresent hello için veri kopyalama işlemi. Merhaba son adımda bahsedilen hello örnekte, SQL Server veritabanınız hello giriş verileri içeren bir veri kümesi toospecify hello SQL tablo oluşturun. Başka bir veri kümesi toospecify hello blob kapsayıcı oluşturun ve hello verilerini tutan hello klasörü hello SQL Server veritabanı kopyalanır. Belirli tooSQL Server veritabanı veri kümesi özellikleri için bkz: [veri kümesi özellikleri](#dataset-properties) bölümü.
+4. Oluşturma bir **ardışık düzen** bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile. Daha önce bahsedilen hello örnekte SqlSource bir kaynak ve BlobSink havuzu olarak hello kopya etkinliği için kullanırsınız. Azure Blob Storage tooSQL sunucu veritabanı kopyalıyorsanız benzer şekilde, BlobSource ve SqlSink hello kopyalama etkinliği kullanırsınız. Belirli tooSQL sunucu veritabanı kopyalama etkinliği özellikler için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties) bölümü. Nasıl toouse bir veri deposu bir kaynak veya bir havuz olarak hakkında daha fazla bilgi için veri deposu hello önceki bölümdeki hello bağlantısına tıklayın. 
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, JSON biçimini kullanarak bu Data Factory varlıklarını tanımlayın.  / Şirket içi SQL Server veritabanından veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımlarıyla örnekleri için bkz: [JSON örnekler](#json-examples-for-copying-data-from-and-to-sql-server) bu makalenin. 
+Başlangıç Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve hello ardışık düzeni) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıklarını hello JSON biçimini kullanarak tanımlayın.  Bir şirket içi SQL Server veritabanı/kullanılan toocopy verileri olan Data Factory varlıkları için JSON tanımlarıyla örnekleri için bkz: [JSON örnekler](#json-examples-for-copying-data-from-and-to-sql-server) bu makalenin. 
 
-Aşağıdaki bölümler, SQL Server Data Factory varlıklarını belirli tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar: 
+Aşağıdaki bölümlerde hello kullanılan toodefine Data Factory varlıkları belirli tooSQL sunucu olan JSON özellikleri hakkında ayrıntılı bilgi sağlar: 
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
-Bağlı hizmet türü oluşturma **OnPremisesSqlServer** bir şirket içi SQL Server veritabanını data factory'ye bağlamak için. Aşağıdaki tabloda şirket içi SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Bağlı hizmet türü oluşturma **OnPremisesSqlServer** toolink bir şirket içi SQL Server veritabanı tooa data factory. Aşağıdaki tablonun hello JSON öğeleri belirli tooon şirket içi SQL Server bağlantılı hizmet açıklamasını sağlar.
 
-Aşağıdaki tabloda, SQL Server bağlantılı hizmete özgü JSON öğeleri açıklamasını sağlar.
+Aşağıdaki tablonun hello JSON öğeleri belirli tooSQL Server bağlantılı hizmeti için bir açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **OnPremisesSqlServer**. |Evet |
-| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak şirket içi SQL Server veritabanına bağlanmak için gereken connectionString bilgilerini belirtin. |Evet |
-| gatewayName |Data Factory hizmetinin şirket içi SQL Server veritabanına bağlanmak için kullanması gereken ağ geçidinin adı. |Evet |
+| type |Merhaba type özelliği ayarlanmalıdır: **OnPremisesSqlServer**. |Evet |
+| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak tooconnect toohello şirket içi SQL Server veritabanı gerekli connectionString bilgiler belirtin. |Evet |
+| gatewayName |Data Factory hizmetinin hello hello ağ geçidinin adı tooconnect toohello şirket içi SQL Server veritabanını kullanmanız gerekir. |Evet |
 | kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\kullanıcıadı**. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. |Hayır |
+| password |Merhaba username için belirtilen hello kullanıcı hesabı için parola belirtin. |Hayır |
 
-Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları aşağıdaki örnekte gösterildiği gibi bağlantı dizesini kullanın (**EncryptedCredential** özellik):  
+Hello kullanarak kimlik bilgilerini şifrelemek **yeni AzureRmDataFactoryEncryptValue** cmdlet'i ve bunları hello aşağıdaki örnekte gösterildiği gibi hello bağlantı dizesinde kullanabilirsiniz (**EncryptedCredential** özellik):  
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -97,7 +97,7 @@ Kimlik bilgilerini kullanarak şifreleyebilirsiniz **yeni AzureRmDataFactoryEncr
 ```
 **Windows kimlik doğrulaması kullanmak için JSON**
 
-Veri Yönetimi ağ geçidi, şirket içi SQL Server veritabanına bağlanmak için belirtilen kullanıcı hesabının kimliğine bürün. 
+Veri Yönetimi ağ geçidi kimliğine bürünmek hello belirtilen kullanıcı hesabı tooconnect toohello şirket içi SQL Server veritabanı. 
 
 ```json
 {
@@ -116,73 +116,73 @@ Veri Yönetimi ağ geçidi, şirket içi SQL Server veritabanına bağlanmak iç
 ```
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Bir veri türünde kullanılan örneklerinde **SqlServerTable** bir SQL Server veritabanındaki bir tablo temsil etmek için.  
+Bir veri türünde kullanılan Hello örneklerinde **SqlServerTable** toorepresent bir SQL Server veritabanındaki bir tablo.  
 
-Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (SQL Server, Azure blob, Azure tablo, vs.) için benzer.
+Merhaba bölümleri & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (SQL Server, Azure blob, Azure tablo, vs.) için benzer.
 
-TypeProperties bölümü dataset her tür için farklıdır ve verilerin veri deposunda konumu hakkında bilgi sağlar. **TypeProperties** veri kümesi için bir bölüm türü **SqlServerTable** aşağıdaki özelliklere sahiptir:
+Merhaba typeProperties bölümü veri kümesi her tür için farklıdır ve hello veri deposundaki hello veri hello konumu hakkında bilgi sağlar. Merhaba **typeProperties** hello veri kümesi için bir bölüm türü **SqlServerTable** hello aşağıdaki özelliklere sahiptir:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| tableName |Tablo veya Görünüm hizmeti bağlı SQL Server veritabanı örneğinde başvurduğu adı. |Evet |
+| tableName |Merhaba tablo veya Görünüm hizmeti bağlı hello SQL Server veritabanı örneğinde başvurduğu adı. |Evet |
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
-Bir SQL Server veritabanından veri taşıyorsanız, kaynak türü için kopyalama etkinliğinde ayarladığınız **SqlSource**. Bir SQL Server veritabanına veri taşıyorsanız, benzer şekilde, Havuz türü için kopyalama etkinliğinde ayarladığınız **SqlSink**. Bu bölümde SqlSource ve SqlSink tarafından desteklenen özellikler listesini sağlar.
+Bir SQL Server veritabanından veri taşıyorsanız, hello kaynak türü hello kopyalama etkinliği çok ayarladığınız**SqlSource**. Veri tooa SQL Server veritabanını taşıyorsanız, benzer şekilde, hello Havuz türü hello kopyalama etkinliği çok ayarladığınız**SqlSink**. Bu bölümde SqlSource ve SqlSink tarafından desteklenen özellikler listesini sağlar.
 
-Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
+Merhaba bölümleri & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
 
 > [!NOTE]
-> Kopyalama etkinliği yalnızca bir girdi alır ve tek bir çıktı üretir.
+> Merhaba kopyalama etkinliği yalnızca bir girdi alır ve tek bir çıktı üretir.
 
-Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü ile farklılık gösterir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
+Oysa hello typeProperties bölümünde hello etkinlik özellikleri her etkinlik türü ile farklılık gösterir. Kopya etkinliği için bunlar hello türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
 
 ### <a name="sqlsource"></a>SqlSource
-Kopyalama etkinliği kaynağında türü olduğunda **SqlSource**, aşağıdaki özellikler mevcuttur **typeProperties** bölümü:
+Kopyalama etkinliği kaynağında türü olduğunda **SqlSource**, aşağıdaki özelliklere hello kullanılabilir **typeProperties** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * from MyTable. Birden çok tablo girdi veri kümesi tarafından başvurulan veritabanından başvurabilir. Belirtilmezse, yürütülen SQL deyimi: MyTable arasından seçin. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablodan veri okuyan saklı yordamın adı. |Saklı yordam adı. Son SQL deyimi SELECT deyimi içinde saklı yordamı olması gerekir. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
+| sqlReaderQuery |Merhaba özel sorgu tooread verileri kullanın. |SQL sorgu dizesi. Örneğin: seçin * from MyTable. Birden çok tablo hello girdi veri kümesi tarafından başvurulan hello veritabanından başvurabilir. Belirtilmezse, yürütülen SQL deyimini hello: MyTable arasından seçin. |Hayır |
+| sqlReaderStoredProcedureName |Merhaba adını hello kaynak tablodan veri okuyan yordamı depolanır. |Saklı yordam hello adı. Merhaba son SQL deyimi SELECT deyimi hello saklı yordam içinde olmalıdır. |Hayır |
+| storedProcedureParameters |Saklı yordam hello için parametreler. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin hello adları ve büyük küçük harf kullanımını hello saklı yordam parametreleri eşleşmelidir. |Hayır |
 
-Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği veri almak için SQL Server veritabanı kaynağında bu sorguyu çalıştırır.
+Merhaba, **sqlReaderQuery** Merhaba SqlSource, hello kopyalama etkinliği çalıştıran bu sorguyu hello SQL Server veritabanı kaynak tooget hello verileri karşı belirtilir.
 
-Alternatif olarak, bir saklı yordam belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordam parametreleri alıyorsa).
+Alternatif olarak, bir saklı yordam hello belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (Merhaba saklı yordam parametreleri alır).
 
-SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapısı bölümünde tanımlanan sütunları SQL Server veritabanına karşı çalıştırmak için seçme sorgusu oluşturmak için kullanılır. Veri kümesi tanımı yapısına sahip değilse, tüm sütunları tablodan seçilir.
+SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz hello yapısı bölümünde tanımlanan hello sütunlar kullanılan toobuild seçme sorgusu toorun hello SQL Server veritabanına karşı'dır. Merhaba veri kümesi tanımı hello yapısına sahip değil, tüm sütunlar hello tablosundan seçilir.
 
 > [!NOTE]
-> Kullandığınızda **sqlReaderStoredProcedureName**, yine de için bir değer belirtmeniz gerekiyorsa **tableName** JSON veri kümesi bir özellik. Yine de bu tabloya karşı gerçekleştirilen başka doğrulama vardır.
+> Kullandığınızda, **sqlReaderStoredProcedureName**, hala toospecify bir değer hello için gereksinim duyduğunuz **tableName** JSON hello kümesindeki özelliği. Yine de bu tabloya karşı gerçekleştirilen başka doğrulama vardır.
 
 ### <a name="sqlsink"></a>SqlSink
-**SqlSink** aşağıdaki özellikleri destekler:
+**SqlSink** aşağıdaki özelliklere hello destekler:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
-| writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
-| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği sorgusunu belirtin. Daha fazla bilgi için bkz: [yinelenebilir kopyalama](#repeatable-copy) bölümü. |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. Daha fazla bilgi için bkz: [yinelenebilir kopyalama](#repeatable-copy) bölümü. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
-| sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Saklı yordam adı. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
-| sqlWriterTableType |Saklı yordam, kullanılacak tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
+| writeBatchTimeout |Zaman aşımına uğramadan önce hello toplu ekleme işlemi toocomplete bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
+| writeBatchSize |Merhaba arabellek boyutu writeBatchSize ulaştığında veri hello SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
+| sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini gibi kopyalama etkinliği tooexecute için sorgu belirtin. Daha fazla bilgi için bkz: [yinelenebilir kopyalama](#repeatable-copy) bölümü. |Sorgu bildirimi. |Hayır |
+| Sliceıdentifiercolumnname |Kopyalama etkinliği toofill sütun adı, ne zaman yeniden çalıştırılacağını belirli bir dilim verilerini kullanılan tooclean olduğu otomatik dilim tanımlayıcı ile belirtin. Daha fazla bilgi için bkz: [yinelenebilir kopyalama](#repeatable-copy) bölümü. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sqlWriterStoredProcedureName |Merhaba adını upserts (güncelleştirmeler/ekler) verileri hello hedef tabloya saklı yordamı. |Saklı yordam hello adı. |Hayır |
+| storedProcedureParameters |Saklı yordam hello için parametreler. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin hello adları ve büyük küçük harf kullanımını hello saklı yordam parametreleri eşleşmelidir. |Hayır |
+| sqlWriterTableType |Merhaba saklı yordamda kullanılan tablo türü adı toobe belirtin. Kopyalama etkinliği taşınan hello veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu sonra varolan verilerin kopyalanmasını hello verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
 
 
-## <a name="json-examples-for-copying-data-from-and-to-sql-server"></a>Gelen ve SQL Server veri kopyalamak için JSON örnekleri
-Aşağıdaki örnekleri kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Aşağıdaki örnekler ve SQL Server ve Azure Blob Storage veri kopyalamak nasıl gösterir. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden herhangi birine belirtildiği havuzlarını kaynakları [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopya etkinliği Azure Data Factory kullanarak.     
+## <a name="json-examples-for-copying-data-from-and-toosql-server"></a>Verileri ve tooSQL sunucu kopyalamak için JSON örnekleri
+Merhaba aşağıdaki örneklerde sağlayan örnek JSON tanımları toocreate bir ardışık düzen kullanarak kullanabilirsiniz [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekleri göster nasıl aşağıdaki hello toocopy veri tooand SQL Server ve Azure Blob Storage. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden belirtildiği hello havuzlarını, kaynakları tooany [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kullanarak Azure Data Factory kopyalama etkinliği hello.     
 
-## <a name="example-copy-data-from-sql-server-to-azure-blob"></a>Örnek: veri SQL Server'dan Azure Blob kopyalama
-Aşağıdaki örnek gösterilmektedir:
+## <a name="example-copy-data-from-sql-server-tooazure-blob"></a>Örnek: Verilerini SQL Server tooAzure Blob
+Merhaba, aşağıdaki örnek gösterilmektedir:
 
 1. Bağlı hizmet türü [OnPremisesSqlServer](#linked-service-properties).
 2. Bağlı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Bir giriş [dataset](data-factory-create-datasets.md) türü [SqlServerTable](#dataset-properties).
 4. Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. [Ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [SqlSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+5. Merhaba [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [SqlSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Örnek time series verilerini bir SQL Server tablosundan saatte bir Azure blob kopyalar. Bu örnekler kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
+Merhaba örnek time series verilerini bir SQL Server tablo tooan Azure blob saatte kopyalar. Bu örnekler kullanılan hello JSON özellikleri hello örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
-İlk adım olarak, veri yönetimi ağ geçidi ayarlayın. Yönergeler bulunan [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
+İlk adım olarak, hello veri yönetimi ağ geçidi ayarlayın. Merhaba yönergelerdir hello [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makalesi.
 
 **SQL Server bağlantılı hizmeti**
 ```json
@@ -212,9 +212,9 @@ Aşağıdaki örnek gösterilmektedir:
 ```
 **SQL Server girdi veri kümesi**
 
-Örnek SQL Server'da bir tablo "MyTable" oluşturulur ve zaman serisi veri için "timestampcolumn" adlı bir sütun içerdiği varsayar. Tek bir veri kümesini kullanarak aynı veritabanı içinde birden çok tablo üzerinde sorgulayabilir, ancak tek bir tablo için veri kümesi'nin tableName typeProperty kullanılmalıdır.
+Merhaba örnek SQL Server'da bir tablo "MyTable" oluşturulur ve zaman serisi veri için "timestampcolumn" adlı bir sütun içerdiği varsayar. Tek bir veri kümesi, ancak tek bir tabloyu kullanarak aynı veritabanı hello veri kümesi'nin tableName typeProperty için kullanılması gereken hello içinde birden çok tablo üzerinde sorgulayabilirsiniz.
 
-"Dış" ayarı: "true" bildirir Data Factory hizmetinin veri kümesi data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil.
+"Dış" ayarı: "true" bildirir Data Factory hizmetinin bu hello dataset dış toohello veri fabrikası olan ve hello veri fabrikasında bir etkinlik tarafından üretilen değil.
 
 ```json
 {
@@ -242,7 +242,7 @@ Aşağıdaki örnek gösterilmektedir:
 ```
 **Azure Blob dataset çıktı**
 
-Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob klasör yolu dinamik işlenmekte olan dilim başlangıç zamanı temel alınarak değerlendirilir. Klasör yolu yıl, ay, gün ve saat bölümleri başlangıç saatini kullanır.
+Veri saatte tooa yeni blob yazılır (sıklığı: saat, aralığı: 1). hello blob Hello klasör yolu dinamik işlenmekte olan hello dilimin hello başlangıç zamanı temel alınarak değerlendirilir. Merhaba klasör yolu hello başlangıç zamanı yıl, ay, gün ve saat bölümlerini kullanır.
 
 ```json
 {
@@ -301,7 +301,7 @@ Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob 
 ```
 **Kopyalama etkinliği ile kanalı**
 
-Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **SqlSource** ve **havuz** türü ayarlanmış **BlobSink**. SQL sorgusu için belirtilen **SqlReaderQuery** özelliği veri kopyalamak için son bir saat içindeki seçer.
+Merhaba ardışık düzen içeren bir kopyalama etkinliği, yapılandırılmış toouse bu girdi ve çıktı veri kümeleri ve zamanlanmış toorun her saatte birdir. JSON tanımını Hello ardışık düzeninde, hello **kaynak** türü olarak ayarlanmış çok**SqlSource** ve **havuz** türü olarak ayarlanmış çok**BlobSink**. Merhaba belirtilen hello SQL sorgusu **SqlReaderQuery** özelliği saat toocopy geçmiş hello hello veri seçer.
 
 ```json
 {  
@@ -349,22 +349,22 @@ Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapıland
    }
 }
 ```
-Bu örnekte, **sqlReaderQuery** SqlSource için belirtilir. Kopyalama etkinliği bu sorguyu veri almak için SQL Server veritabanı kaynağına karşı çalışır. Alternatif olarak, bir saklı yordam belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordam parametreleri alıyorsa). SqlReaderQuery girdi veri kümesi tarafından başvurulan veritabanına birden çok tablolarına başvuruda bulunabilir. Yalnızca veri kümesi'nin tableName typeProperty ayarlamak tabloya sınırlı değildir.
+Bu örnekte, **sqlReaderQuery** SqlSource hello için belirtilir. Merhaba kopyalama etkinliği bu sorguyu SQL Server veritabanı kaynak tooget hello verileri hello karşı çalışır. Alternatif olarak, bir saklı yordam hello belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (Merhaba saklı yordam parametreleri alır). Merhaba sqlReaderQuery hello girdi veri kümesi tarafından başvurulan hello veritabanı içinde birden çok tablo başvuruda bulunabilir. Bu veri kümesi'nin tableName typeProperty hello olarak ayarlanmış sınırlı tooonly hello tablosu değil.
 
-SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz yapısı bölümünde tanımlanan sütunları SQL Server veritabanına karşı çalıştırmak için seçme sorgusu oluşturmak için kullanılır. Veri kümesi tanımı yapısına sahip değilse, tüm sütunları tablodan seçilir.
+SqlReaderQuery veya sqlReaderStoredProcedureName belirtmezseniz hello yapısı bölümünde tanımlanan hello sütunlar kullanılan toobuild seçme sorgusu toorun hello SQL Server veritabanına karşı'dır. Merhaba veri kümesi tanımı hello yapısına sahip değil, tüm sütunlar hello tablosundan seçilir.
 
-Bkz: [Sql kaynağı](#sqlsource) bölüm ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) SqlSource ve BlobSink tarafından desteklenen özelliklerin listesi için.
+Hello bkz [Sql kaynağı](#sqlsource) bölüm ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) SqlSource ve BlobSink tarafından desteklenen özellikler hello listesi.
 
-## <a name="example-copy-data-from-azure-blob-to-sql-server"></a>Örnek: verileri Azure Blob'tan SQL sunucusuna kopyalayın
-Aşağıdaki örnek gösterilmektedir:
+## <a name="example-copy-data-from-azure-blob-toosql-server"></a>Örnek: Kopyalama verileri Azure Blob tooSQL sunucu
+Merhaba, aşağıdaki örnek gösterilmektedir:
 
-1. Türündeki bağlı hizmetin [OnPremisesSqlServer](#linked-service-properties).
-2. Türündeki bağlı hizmetin [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+1. Merhaba bağlantılı hizmet türü [OnPremisesSqlServer](#linked-service-properties).
+2. Merhaba bağlantılı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Bir giriş [dataset](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 4. Bir çıkış [dataset](data-factory-create-datasets.md) türü [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
-5. [Ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) ve [SqlSink](#sql-server-copy-activity-type-properties).
+5. Merhaba [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) ve [SqlSink](#sql-server-copy-activity-type-properties).
 
-Zaman serisi bir SQL Server verileri Azure blob örnek kopyaları saatte tablo. Bu örnekler kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
+Merhaba örnek time series verilerini her saat bir Azure blob tooa SQL Server tablosundan kopyalar. Bu örnekler kullanılan hello JSON özellikleri hello örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
 **SQL Server bağlantılı hizmeti**
 
@@ -395,7 +395,7 @@ Zaman serisi bir SQL Server verileri Azure blob örnek kopyaları saatte tablo. 
 ```
 **Azure Blob girdi veri kümesi**
 
-Veri toplanma yeni blob üzerinden saatte (sıklığı: saat, aralığı: 1). Blob klasör yolu ve dosya adı dinamik olarak değerlendirilir işleniyor dilim başlangıç zamanı temel alınarak. Klasör yolu yıl, ay ve gün kısmını başlangıç saati ve dosya adı başlangıç zamanı saat bölümünü kullanır. "dış": "true" ayarı, veri kümesi data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil Data Factory hizmetinin bildirir.
+Veri toplanma yeni blob üzerinden saatte (sıklığı: saat, aralığı: 1). Merhaba klasör yolu ve dosya adını hello blob dinamik olarak değerlendirilir işleniyor hello dilimin hello başlangıç zamanı temel alınarak. Merhaba klasör yolu yıl, ay ve gün kısmını hello başlangıç saati ve dosya adı hello başlangıç saati hello saat bölümünü kullanır. "dış": "true" ayarı bu hello dataset dış toohello veri fabrikası olan ve hello veri fabrikasında bir etkinlik tarafından üretilen değil hello Data Factory hizmetinin sizi bilgilendirir.
 
 ```json
 {
@@ -463,7 +463,7 @@ Veri toplanma yeni blob üzerinden saatte (sıklığı: saat, aralığı: 1). Bl
 ```
 **SQL Server çıktı veri kümesi**
 
-Örnek verileri SQL Server'da "MyTable" adlı bir tablo kopyalar. Blob CSV dosyasında içerecek şekilde beklediğiniz gibi tablo SQL Server ile aynı sayıda sütun oluşturun. Yeni satırlar tabloya saatte eklenir.
+Merhaba örnek SQL Server'da "MyTable" olarak adlandırılan veri tooa tablosuna kopyalar. SQL Server ile Merhaba tablosunu oluşturan hello Blob CSV dosyası toocontain beklediğiniz gibi hello aynı sayıda sütun. Yeni satırlar toohello tablo saatte eklenir.
 
 ```json
 {
@@ -483,7 +483,7 @@ Veri toplanma yeni blob üzerinden saatte (sıklığı: saat, aralığı: 1). Bl
 ```
 **Kopyalama etkinliği ile kanalı**
 
-Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **BlobSource** ve **havuz** türü ayarlanmış **SqlSink**.
+Merhaba ardışık düzen içeren bir kopyalama etkinliği, yapılandırılmış toouse bu girdi ve çıktı veri kümeleri ve zamanlanmış toorun her saatte birdir. JSON tanımını Hello ardışık düzeninde, hello **kaynak** türü olarak ayarlanmış çok**BlobSource** ve **havuz** türü olarak ayarlanmış çok**SqlSink**.
 
 ```json
 {  
@@ -533,32 +533,32 @@ Ardışık Düzen bu girdi ve çıktı veri kümeleri kullanmak üzere yapıland
 ```
 
 ## <a name="troubleshooting-connection-issues"></a>Bağlantı sorunlarını giderme
-1. Uzak bağlantıları kabul etmek için SQL Server'ınızı yapılandırın. Başlatma **SQL Server Management Studio**, sağ **server**, tıklatıp **özellikleri**. Seçin **bağlantıları** listesi ve onay **sunucusuna uzaktan bağlantılara izin**.
+1. SQL Server tooaccept uzak bağlantıları yapılandırın. Başlatma **SQL Server Management Studio**, sağ **server**, tıklatıp **özellikleri**. Seçin **bağlantıları** hello listesi ve onay **izin uzak bağlantıları toohello sunucu**.
 
     ![Uzak bağlantıları etkinleştir](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
-    Bkz: [uzaktan erişim sunucu yapılandırma seçeneğini yapılandırma](https://msdn.microsoft.com/library/ms191464.aspx) ayrıntılı adımlar için.
-2. Başlatma **SQL Server Configuration Manager**. Genişletme **SQL Server Ağ Yapılandırması** ve seçin, örneğin **MSSQLSERVER protokolleri**. Sağ bölmede protokolleri görmeniz gerekir. Sağ tıklayarak TCP/IP'yi etkinleştirin **TCP/IP'yi** tıklatıp **etkinleştirmek**.
+    Bkz: [hello uzaktan erişim sunucu yapılandırma seçeneğini yapılandırma](https://msdn.microsoft.com/library/ms191464.aspx) ayrıntılı adımlar için.
+2. Başlatma **SQL Server Configuration Manager**. Genişletme **SQL Server Ağ Yapılandırması** Merhaba istediğiniz ' nı seçip örnek **MSSQLSERVER protokolleri**. Protokolleri hello sağ bölmesinde görmeniz gerekir. Sağ tıklayarak TCP/IP'yi etkinleştirin **TCP/IP'yi** tıklatıp **etkinleştirmek**.
 
     ![TCP/IP'yi etkinleştirin](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
 
     Bkz: [etkinleştirmek veya devre dışı bir sunucu ağ protokolü](https://msdn.microsoft.com/library/ms191294.aspx) ayrıntı ve TCP/IP protokolünün etkinleştirilmesi alternatif yolu.
-3. Aynı pencerede çift **TCP/IP'yi** başlatmak için **TCP/IP özelliklerini** penceresi.
-4. Geçiş **IP adreslerini** sekmesi. Kaydırma görmek için **IPAll** bölümü. Aşağı Not ** TCP bağlantı noktası ** (varsayılan değer **1433**).
-5. Oluşturma bir **Windows Güvenlik Duvarı Kuralı** Bu bağlantı noktası üzerinden gelen trafiğe izin vermek için makinede.  
-6. **Bağlantıyı doğrulama**: tam olarak nitelenmiş adını kullanarak SQL Server'a bağlanmak için farklı bir makineden SQL Server Management Studio kullanın. Örneğin: "<machine>.<domain>. Corp.<company>.com, 1433. "
+3. Buna Merhaba aynı penceresi, çift **TCP/IP'yi** toolaunch **TCP/IP özelliklerini** penceresi.
+4. Geçiş toohello **IP adreslerini** sekmesi. Toosee aşağı **IPAll** bölümü. Merhaba Not ** TCP bağlantı noktası ** (varsayılan değer **1433**).
+5. Oluşturma bir **hello Windows Güvenlik Duvarı Kuralı** hello makine tooallow Bu bağlantı noktası üzerinden gelen trafiği üzerinde.  
+6. **Bağlantıyı doğrulama**: tooconnect toohello tam adını kullanarak SQL Server başka bir makineden SQL Server Management Studio kullanın. Örneğin: "<machine>.<domain>. Corp.<company>.com, 1433. "
 
    > [!IMPORTANT]
 
-   > Bkz: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) ayrıntılı bilgi için.
+   > Bkz: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile Merhaba bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) ayrıntılı bilgi için.
    >
    > Bkz: [ağ geçidi sorunlarını giderme](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) ilgili sorunlar bağlantı/ağ geçidi sorun giderme ipuçları için.
    >
    >
 
 
-## <a name="identity-columns-in-the-target-database"></a>Hedef veritabanında kimlik sütunu
-Bu bölümde kimlik sütunu içeren bir kaynak tablo verileri bir kimlik sütunu hedef tabloyla kopyalayan bir örnek sağlar.
+## <a name="identity-columns-in-hello-target-database"></a>Merhaba hedef veritabanında kimlik sütunu
+Bu bölümde bir kimlik sütunu sahip bir kimlik sütunu tooa hedef tablo içeren bir kaynak tablo verileri kopyalar bir örnek sağlar.
 
 **Kaynak tablosu:**
 
@@ -580,7 +580,7 @@ create table dbo.TargetTbl
 )
 ```
 
-Hedef tabloda bir kimlik sütunu olduğuna dikkat edin.
+Merhaba hedef tablosunun bir kimlik sütunu olan dikkat edin.
 
 **Kaynak veri kümesi JSON tanımı**
 
@@ -629,20 +629,20 @@ Hedef tabloda bir kimlik sütunu olduğuna dikkat edin.
 }
 ```
 
-Kaynak ve hedef tablosu farklı şema sahip dikkat edin (hedef kimliğine sahip başka bir sütuna sahip). Bu senaryoda, belirtmeniz gerekir. **yapısı** kimlik sütunu içermeyen hedef veri kümesi tanımında özelliği.
+Kaynak ve hedef tablosu farklı şema sahip dikkat edin (hedef kimliğine sahip başka bir sütuna sahip). Bu senaryoda, toospecify gerek **yapısı** hello kimlik sütunu içermeyen hello hedef veri kümesi tanımında özelliği.
 
 ## <a name="invoke-stored-procedure-from-sql-sink"></a>SQL havuz depolanan yordamı çağırma
 Bkz: [kopyalama etkinliği SQL havuz için saklı yordam çağırma](data-factory-invoke-stored-procedure-from-copy-activity.md) makale SQL havuz ardışık kopyalama etkinliğinde bir saklı yordam çağırma örneği.
 
 ## <a name="type-mapping-for-sql-server"></a>Tür eşlemesi için SQL server
-Bölümünde belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale, kopya etkinliği aşağıdaki 2 adımlı yaklaşımı türleriyle havuz için kaynak türünden otomatik tür dönüşümleri gerçekleştirir:
+Hello belirtildiği gibi [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale, hello kopyalama etkinliği gerçekleştiren kaynak türleri toosink türlerinden otomatik tür dönüşümleri 2 adımlı yaklaşımı izleyerek hello ile:
 
-1. Yerel kaynak türlerinden .NET türüne dönüştürün
-2. .NET türünden yerel havuz türüne dönüştürün
+1. Yerel kaynak türleri too.NET türünden Dönüştür
+2. .NET türü toonative havuz türünden Dönüştür
 
-& SQL Server'dan veri taşıma olduğunda, aşağıdaki eşlemelerini SQL türü .NET türü ve tersi yönde kullanılır.
+Çok & SQL Server'dan veri taşımayı hello olduğunda aşağıdaki eşlemelerini too.NET türü ve bunun tersi de kullanılır.
 
-ADO.NET için SQL Server veri türü eşlemesi aynı eşlemedir.
+Merhaba eşleme hello ADO.NET için SQL Server veri türü eşlemesi olarak aynıdır.
 
 | SQL Server veritabanı altyapısı türü | .NET framework türü |
 | --- | --- |
@@ -679,13 +679,13 @@ ADO.NET için SQL Server veri türü eşlemesi aynı eşlemedir.
 | varchar |Dize, Char] |
 | xml |XML |
 
-## <a name="mapping-source-to-sink-columns"></a>Sütunları havuz için eşleme kaynağı
-Kaynak veri kümesi sütunlarından havuz kümesinden sütunlara eşlemek için bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
+## <a name="mapping-source-toosink-columns"></a>Kaynak toosink sütunları eşleme
+Kaynak veri kümesi toocolumns havuz kümesinden toomap sütunlarından bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
 
 ## <a name="repeatable-copy"></a>Yinelenebilir kopyalama
-SQL Server veritabanına veri kopyalama, kopyalama etkinliği verileri varsayılan olarak havuz tabloya ekler. Bunun yerine bir UPSERT gerçekleştirmek için bkz: [Repeatable yazmak için SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) makalesi. 
+Veri tooSQL sunucu veritabanı kopyalama işlemi sırasında hello kopyalama etkinliği varsayılan olarak veri toohello havuz tablosuna ekler. Bunun yerine, tooperform bir UPSERT bkz [yinelenebilir yazma tooSqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) makalesi. 
 
-İlişkisel veri kopyalama verileri depoladığında, Yinelenebilirlik istenmeyen sonuçları önlemek için göz önünde bulundurun. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Bir hata oluştuğunda bir dilimi yeniden çalıştırmak için bir veri kümesi için yeniden deneme ilkesi de yapılandırabilirsiniz. Bir dilim iki yolla yeniden çalıştırıldığında, aynı veri dilimi çalıştırmak kaç kez geçtiğinden bağımsız okuduğunuzdan emin olmanız gerekir. Bkz: [ilişkisel kaynaktan okumak Repeatable](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+İlişkisel veri depoları veri kopyalama işlemi sırasında Yinelenebilirlik göz tooavoid tutmak istenmeyen sonuçları. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Bir hata oluştuğunda bir dilimi yeniden çalıştırmak için bir veri kümesi için yeniden deneme ilkesi de yapılandırabilirsiniz. Bir dilim iki yolla yeniden zaman, aynı veri hello emin toomake nasıl geçtiğinden bağımsız okuma gerekir dilim birçok kez çalıştırın. Bkz: [ilişkisel kaynaktan okumak Repeatable](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Performans ve ayarlama
-Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve onu en iyi duruma getirmek için çeşitli yollar etkisi performansını anahtar Etkenler hakkında bilgi edinmek için.
+Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) toolearn anahtarı hakkında Etkenler bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve çeşitli yolları toooptimize etkisi performansını da.

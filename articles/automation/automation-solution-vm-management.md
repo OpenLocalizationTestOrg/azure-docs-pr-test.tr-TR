@@ -1,6 +1,6 @@
 ---
-title: "VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] Çözümü | Microsoft Belgeleri"
-description: "VM Management çözümleri, Azure Resource Manager Sanal Makinelerinizi bir zamanlama dahilinde başlatıp durdurmanın yanı sıra Log Analytics aracılığıyla izler."
+title: "aaaStart/durdurma VM'ler yoğun olmayan saatlerde [Önizleme] çözüm sırasında | Microsoft Docs"
+description: "Hello VM yönetim çözümleri başlatır ve Azure Resource Manager sanal makinelerinizi bir zamanlamaya göre durdurur ve önceden günlük analizi izleyin."
 services: automation
 documentationCenter: 
 authors: mgoedtel
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: magoedte
-ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6cbe16dfb40bf13f29d9e58ca0bc8c5c7979879d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Otomasyon’da VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümü
 
-VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümü, Azure Resource Manager sanal makinelerinizi kullanıcının belirlediği bir zamanlamada başlatır ve durdurur. Ayrıca, OMS Log Analytics aracılığıyla, sanal makinelerinizi başlatan ve durduran Otomasyon işlerinin başarı durumu hakkında öngörüler sağlar.  
+yoğun olmayan saatlerde [Önizleme] çözüm sırasında Hello Başlat/Durdur VM'ler başlatır ve Azure Resource Manager sanal makinelerinizi kullanıcı tanımlı bir zamanlamaya göre durdurur ve başlatma ve sanal makinelerinizi OMS ile durdurma hello Otomasyon işlerin hello başarılı bir anlayış sağlar Günlük analizi.  
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-- Runbook'lar, [Azure Farklı Çalıştır hesabı](automation-offering-get-started.md#authentication-methods) ile çalışır.  Süresi dolabilecek ya da sık değişebilecek olan bir parola yerine sertifika doğrulaması kullandığından Farklı Çalıştır hesabı, tercih edilen kimlik doğrulama yöntemidir.  
+- Merhaba runbook'ları ile çalışırsınız bir [Azure farklı çalıştır hesabı](automation-offering-get-started.md#authentication-methods).  süresi dolacak veya sık sık değişen parola yerine sertifika kimlik doğrulaması kullandığından hello farklı çalıştır hesabı hello tercih edilen kimlik doğrulama yöntemidir.  
 
-- Bu çözüm yalnızca Otomasyon hesabının bulunduğu olarak aynı abonelikte bulunan sanal makineleri yönetebilirsiniz.  
+- Bu çözüm yalnızca hello olan VM'ler yönetebilir hello Otomasyon hesabı bulunduğu olarak aynı abonelik.  
 
-- Bu çözüm, yalnızca şu Azure bölgelerine dağıtılır: Avustralya Güneydoğu, Doğu ABD, Güneydoğu Asya ve Batı Avrupa.  VM zamanlamasını yöneten runbook'lar herhangi bir bölgedeki VM'leri hedefleyebilir.  
+- Bu çözüm yalnızca Azure bölgeleri - Güneydoğu Avustralya, Doğu ABD, Güneydoğu Asya ve Batı Avrupa aşağıdaki toohello dağıtır.  Merhaba VM zamanlamasını yönetmek hello runbook'lar herhangi bir bölgede VM'ler hedefleyebilirsiniz.  
 
-- VM runbook'larının başlatılması ve durdurulması tamamlandığında e-posta bildirimleri gönderilebilmesi için iş sınıfı bir Office 365 aboneliği gereklidir.  
+- Merhaba başlattığınızda ve VM runbook'lar tam Durdur toosend e-posta bildirimleri, bir Office 365 iş sınıfı aboneliği gereklidir.  
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 
-Bu çözüm, içe aktarılıp Otomasyon hesabınıza eklenecek olan aşağıdaki kaynakları içerir.
+Bu çözüm içeri aktarılacak ve tooyour Otomasyon hesabı eklenen kaynaklar aşağıdaki hello oluşur.
 
 ### <a name="runbooks"></a>Runbook'lar
 
 Runbook | Açıklama|
 --------|------------|
-CleanSolution-MS-Mgmt-VM | Bu runbook, çözümü aboneliğinizden silmeye karar verdiğinizde, çözümün içerdiği tüm kaynak ve zamanlamaları kaldırır.|  
+CleanSolution-MS-Mgmt-VM | Aboneliğinizden toodelete hello çözüm olduğunuzda bu runbook içerdiği tüm kaynaklar ve zamanlamaları kaldırır.|  
 SendMailO365-MS-Mgmt | Bu runbook, Office 365 Exchange aracılığıyla e-posta gönderir.|
-StartByResourceGroup-MS-Mgmt-VM | Bu runbook, belirli bir Azure kaynak grupları listesinde yer alan VM'leri (klasik ve ARM tabanlı VM'ler) başlatmak üzere tasarlanmıştır.
-StopByResourceGroup-MS-Mgmt-VM | Bu runbook, belirli bir Azure kaynak grupları listesinde yer alan VM'leri (klasik ve ARM tabanlı VM'ler) durdurmak üzere tasarlanmıştır.|
+StartByResourceGroup-MS-Mgmt-VM | Bu runbook hedeflenen toostart VM'ler. (her iki Klasik ve ARM tabanlı VM'ler) belirli bir Azure kaynak gruplarını listesinde yer alıyor.
+StopByResourceGroup-MS-Mgmt-VM | Bu runbook hedeflenen toostop VM'ler. (her iki Klasik ve ARM tabanlı VM'ler) belirli bir Azure kaynak gruplarını listesinde yer alıyor.|
 <br>
 
 ### <a name="variables"></a>Değişkenler
@@ -53,164 +53,164 @@ StopByResourceGroup-MS-Mgmt-VM | Bu runbook, belirli bir Azure kaynak grupları 
 Değişken | Açıklama|
 ---------|------------|
 **SendMailO365-MS-Mgmt** Runbook ||
-SendMailO365-IsSendEmail-MS-Mgmt | StartByResourceGroup-MS-Mgmt-VM ve StopByResourceGroup-MS-Mgmt-VM runbook'larının tamamlandıktan sonra bildirim e-postası gönderip gönderemeyeceklerini belirtir.  Etkinleştirmek için **True** ve e-posta uyarılarını devre dışı bırakmak için **False** seçeneğini belirleyin. Varsayılan ayar, **False** değeridir.| 
+SendMailO365-IsSendEmail-MS-Mgmt | StartByResourceGroup-MS-Mgmt-VM ve StopByResourceGroup-MS-Mgmt-VM runbook'larının tamamlandıktan sonra bildirim e-postası gönderip gönderemeyeceklerini belirtir.  Seçin **True** tooenable ve **False** toodisable e-posta uyarı. Varsayılan ayar, **False** değeridir.| 
 **StartByResourceGroup-MS-Mgmt-VM** Runbook ||
-StartByResourceGroup ExcludeList-MS-Mgmt-VM | Yönetim işleminden hariç tutulacak VM adlarını girin; adları, boşluk olmadan virgül (;) kullanarak ayırın. Değerleri büyük/küçük harfe duyarlıdır ve joker karakter (yıldız işareti) kullanımı desteklenir.|
-StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | E-posta ileti gövdesinin başına eklenebilecek metin.|
-StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | E-posta runbook’unu içeren Otomasyon Hesabı’nın adını belirtir.  **Bu değişkeni değiştirmeyin.**|
-StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | E-posta runbook’unun adını belirtir.  StartByResourceGroup-MS-Mgmt-VM ve StopByResourceGroup-MS-Mgmt-VM runbook'ları tarafından e-posta göndermek amacıyla kullanılır.  **Bu değişkeni değiştirmeyin.**|
-StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | E-posta runbook’unu içeren Kaynak grubunun adını belirtir.  **Bu değişkeni değiştirmeyin.**|
-StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | E-postanın konu satırı metnini belirtir.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | E-postanın alıcılarını belirtir.  Ayrı adları, boşluk olmadan virgül (;) kullanarak girin.|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Yönetim işleminden hariç tutulacak VM adlarını girin; adları, boşluk olmadan virgül (;) kullanarak ayırın. Değerleri büyük/küçük harfe duyarlıdır ve joker karakter (yıldız işareti) kullanımı desteklenir.  Varsayılan değer (yıldız işareti) aboneliğe tüm kaynak gruplarını dahil eder.|
-StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Çözüm tarafından yönetilecek VM’leri içeren aboneliği belirtir.  Bu abonelik, bu çözümün Otomasyon hesabının bulunduğu aboneliğin aynısı olmalıdır.|
+StartByResourceGroup ExcludeList-MS-Mgmt-VM | Yönetim işleminden hariç VM adları toobe girin; adları, boşluk olmadan virgül (;) kullanarak ayırın. Değerleri büyük/küçük harfe duyarlıdır ve joker karakter (yıldız işareti) kullanımı desteklenir.|
+StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Olabilir metin hello e-posta ileti gövdesi toohello başına eklenir.|
+StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Merhaba hello e-posta runbook içeren bir Otomasyon hesabı Hello adını belirtir.  **Bu değişkeni değiştirmeyin.**|
+StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Merhaba e-posta runbook Hello adını belirtir.  Bu hello StartByResourceGroup-MS-Mgmt-VM ve StopByResourceGroup-MS-Mgmt-VM runbook'lar toosend e-posta tarafından kullanılır.  **Bu değişkeni değiştirmeyin.**|
+StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Merhaba hello e-posta runbook içeren hello kaynak grubunun adını belirtir.  **Bu değişkeni değiştirmeyin.**|
+StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Merhaba konu satırı hello e-postanın Hello metnini belirtir.|  
+StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Merhaba alıcılara hello e-postanın belirtir.  Ayrı adları, boşluk olmadan virgül (;) kullanarak girin.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Yönetim işleminden hariç VM adları toobe girin; adları, boşluk olmadan virgül (;) kullanarak ayırın. Değerleri büyük/küçük harfe duyarlıdır ve joker karakter (yıldız işareti) kullanımı desteklenir.  Varsayılan değer (yıldız) tüm kaynak gruplarının hello abonelikte yer alır.|
+StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Bu çözümü tarafından yönetilen sanal makineleri toobe içeren hello abonelik belirtir.  Bu olmalıdır hello hello Automation hesabı, bu çözüme yönelik bulunduğu aynı abonelik.|
 **StopByResourceGroup-MS-Mgmt-VM** Runbook ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Yönetim işleminden hariç tutulacak VM adlarını girin; adları, boşluk olmadan virgül (;) kullanarak ayırın. Değerleri büyük/küçük harfe duyarlıdır ve joker karakter (yıldız işareti) kullanımı desteklenir.|
-StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | E-posta ileti gövdesinin başına eklenebilecek metin.|
-StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | E-posta runbook’unu içeren Otomasyon Hesabı’nın adını belirtir.  **Bu değişkeni değiştirmeyin.**|
-StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | E-posta runbook’unu içeren Kaynak grubunun adını belirtir.  **Bu değişkeni değiştirmeyin.**|
-StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | E-postanın konu satırı metnini belirtir.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | E-postanın alıcılarını belirtir.  Ayrı adları, boşluk olmadan virgül (;) kullanarak girin.|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Yönetim işleminden hariç tutulacak VM adlarını girin; adları, boşluk olmadan virgül (;) kullanarak ayırın. Değerleri büyük/küçük harfe duyarlıdır ve joker karakter (yıldız işareti) kullanımı desteklenir.  Varsayılan değer (yıldız işareti) aboneliğe tüm kaynak gruplarını dahil eder.|
-StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Çözüm tarafından yönetilecek VM’leri içeren aboneliği belirtir.  Bu abonelik, bu çözümün Otomasyon hesabının bulunduğu aboneliğin aynısı olmalıdır.|  
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Yönetim işleminden hariç VM adları toobe girin; adları, boşluk olmadan virgül (;) kullanarak ayırın. Değerleri büyük/küçük harfe duyarlıdır ve joker karakter (yıldız işareti) kullanımı desteklenir.|
+StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Olabilir metin hello e-posta ileti gövdesi toohello başına eklenir.|
+StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Merhaba hello e-posta runbook içeren bir Otomasyon hesabı Hello adını belirtir.  **Bu değişkeni değiştirmeyin.**|
+StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Merhaba hello e-posta runbook içeren hello kaynak grubunun adını belirtir.  **Bu değişkeni değiştirmeyin.**|
+StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Merhaba konu satırı hello e-postanın Hello metnini belirtir.|  
+StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Merhaba alıcılara hello e-postanın belirtir.  Ayrı adları, boşluk olmadan virgül (;) kullanarak girin.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Yönetim işleminden hariç VM adları toobe girin; adları, boşluk olmadan virgül (;) kullanarak ayırın. Değerleri büyük/küçük harfe duyarlıdır ve joker karakter (yıldız işareti) kullanımı desteklenir.  Varsayılan değer (yıldız) tüm kaynak gruplarının hello abonelikte yer alır.|
+StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Bu çözümü tarafından yönetilen sanal makineleri toobe içeren hello abonelik belirtir.  Bu olmalıdır hello hello Automation hesabı, bu çözüme yönelik bulunduğu aynı abonelik.|  
 <br>
 
 ### <a name="schedules"></a>Zamanlamalar
 
 Zamanlama | Açıklama|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | VM’lerin bu çözüm tarafından yönetilen başlatma işlemlerini yürüten StartByResourceGroup runbook’u için zamanlama belirleyin. Oluşturduğunuzda, UTC saat dilimine varsayılan olarak ayarlanır.|
-StopByResourceGroup-Schedule-MS-Mgmt | VM’lerin bu çözüm tarafından yönetilen durdurma işlemlerini yürüten StopByResourceGroup runbook’u için zamanlama belirleyin. Oluşturduğunuzda, UTC saat dilimine varsayılan olarak ayarlanır.|
+StartByResourceGroup-Schedule-MS-Mgmt | Bu çözümü tarafından yönetilen sanal makineleri hello başlatma gerçekleştirir StartByResourceGroup runbook için zamanlama. Oluşturduğunuzda, tooUTC saat dilimi varsayılan olarak ayarlanır.|
+StopByResourceGroup-Schedule-MS-Mgmt | Bu çözümü tarafından yönetilen sanal makineleri hello kapatma gerçekleştirir StopByResourceGroup runbook için zamanlama. Oluşturduğunuzda, tooUTC saat dilimi varsayılan olarak ayarlanır.|
 
 ### <a name="credentials"></a>Kimlik Bilgileri
 
 Kimlik Bilgisi | Açıklama|
 -----------|------------|
-O365Credential | E-posta göndermek için geçerli bir Office 365 kullanıcı hesabı belirtir.  Yalnızca, SendMailO365-IsSendEmail-MS-Mgmt değişkeni **True** olarak ayarlanırsa gereklidir.
+O365Credential | Bir geçerli Office 365 kullanıcı hesabı toosend e-posta belirtir.  Yalnızca değişken SendMailO365-IsSendEmail-MS-Mgmt çok ayarlarsanız gerekli**doğru**.
 
 ## <a name="configuration"></a>Yapılandırma
 
-VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümünü Otomasyonu hesabınızı ekleyip ardından çözümü özelleştirmek üzere değişkenlerini yapılandırmak için aşağıdaki adımları uygulayın.
+Yoğun olmayan saatlerde [Önizleme] çözüm tooyour Otomasyon hesabı sırasında adımları tooadd hello Başlat/Durdur VM'ler aşağıdaki hello yapın ve ardından hello değişkenleri toocustomize hello çözüm yapılandırın.
 
-1. Azure portalının ana ekranında **Market** kutucuğunu seçin.  Kutucuk ana ekranınızda sabitlenmiş değilse sol gezinti bölmesinden **Yeni**’yi seçin.  
-2. Market dikey penceresinde arama kutusuna **VM Başlat** yazın ve arama sonuçlarının arasından **VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme]** çözümünü seçin.  
-3. Seçili çözümün **VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme]** dikey penceresinde özet bilgileri gözden geçirin ve **Oluştur**’a tıklayın.  
-4. **Çözüm Ekle** dikey penceresi görünür ve çözümü Otomasyon aboneliğinize aktarmadan önce yapılandırmanız istenir.<br><br> ![VM Management Çözüm Ekleme dikey penceresi](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
-5.  **Çözüm Ekle** dikey penceresinde, **Çalışma alanı**’nı seçin. Burada, Otomasyon hesabının bulunduğu Azure aboneliğine bağlı olan bir OMS çalışma alanı seçmeniz ya da yeni bir OMS çalışma alanı oluşturmanız gerekir.  OMS çalışma alanınız yoksa **Yeni Çalışma Alanı Oluştur**’u seçip **OMS Çalışma Alanı** dikey penceresinde aşağıdakileri yapabilirsiniz: 
-   - Yeni **OMS Çalışma Alanı** için bir ad belirtin.
-   - Varsayılan seçili abonelik uygun değilse açılan listeden bağlanacak bir **Abonelik** seçin.
+1. Merhaba giriş-ekranından hello Azure portal'ın, hello seçin **Market** döşeme.  Merhaba kutucuğu artık sabitlenmiş tooyour giriş ekran, hello sol gezinti bölmesinden ise seçin **yeni**.  
+2. Merhaba Market dikey penceresinde yazın **VM Başlat** hello arama kutusuna ve ardından hello çözüm **Başlat/Durdur VM'ler yoğun olmayan saatlerde [Önizleme] sırasında** hello Arama sonuçlarından.  
+3. Merhaba, **Başlat/Durdur VM'ler yoğun olmayan saatlerde [Önizleme] sırasında** hello dikey penceresinde seçili çözüm, hello özet bilgileri gözden geçirin ve ardından **oluşturma**.  
+4. Merhaba **Çözüm Ekle** Otomasyon aboneliğinizi içeri aktarmadan önce istendiğinde tooconfigure hello çözüm nerede dikey penceresi görünür.<br><br> ![VM Management Çözüm Ekleme dikey penceresi](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+5.  Merhaba üzerinde **Çözüm Ekle** dikey penceresinde, select **çalışma** ve burada bağlantılı toohello Otomasyon hesabı hello aynı Azure aboneliği olan veya yeni bir OMS çalışma alanı oluşturma bir OMS çalışma alanını seçin.  Bir OMS çalışma alanı yoksa, seçebileceğiniz **yeni çalışma alanı oluştur** ve hello **OMS çalışma** dikey penceresinde hello aşağıdakileri gerçekleştirin: 
+   - Merhaba yeni bir ad belirtin **OMS çalışma**.
+   - Seçin bir **abonelik** hello varsayılan seçili uygun değilse toolink tooby hello aşağı açılan listeden seçerek..
    - **Kaynak Grubu** için, yeni bir kaynak grubu oluşturabilir veya mevcut bir kaynak grubunu seçebilirsiniz.  
-   - Bir **Konum** seçin.  Şu anda seçimde kullanılabilecek konumlar **Avustralya Güneydoğu**, **Doğu ABD**, **Güneydoğu Asya** ve **Batı Avrupa**’dır.
-   - Bir **Fiyatlandırma katmanı** seçin.  Çözüm iki katmanda sunulur: ücretsiz ve OMS ücretli katmanı.  Ücretsiz katmanında günlük toplanan veri miktarı, elde tutma süresi ve runbook işi çalışma zamanı dakika sayısına ilişkin sınırlar vardır.  OMS ücretli katmanında günlük toplanan veri miktarı için bir sınır yoktur.  
+   - Bir **Konum** seçin.  Geçerli seçim için sağlanan hello yalnızca konumlarının **Avustralya Güneydoğu**, **Doğu ABD**, **Güneydoğu Asya**, ve **Batı Avrupa**.
+   - Bir **Fiyatlandırma katmanı** seçin.  Merhaba çözüm iki katmanlarda sunulur: boşaltın ve OMS Ücretli katmanı.  Merhaba ücretsiz katmanı hello günlük tutma süresi ve runbook iş çalışma zamanı dakika toplanan veri miktarına bir sınırı vardır.  Merhaba OMS katmanı Ücretli bir sınır hello günlük toplanan veri miktarına sahip değil.  
 
         > [!NOTE]
-        > Ücretli katman tek başına bir seçenek olarak görüntülenir, ancak geçerli değildir.  Bu katmanı seçerek aboneliğinizde bu çözümü oluşturmaya çalışırsanız, işlem başarısız olur.  Bu çözüm resmi olarak yayımlandığında, bu sorun da ele alınacaktır.<br>Bu çözümü kullanırsanız, yalnızca otomasyon işi dakikaları ve günlük alımı kullanılır.  Çözüm, ortamınıza ek OMS düğümleri eklemez.  
+        > Merhaba katmanı Ücretli tek başına bir seçenek olarak görüntülendiği sırada geçerli değildir.  Seçip aboneliğinizde bu çözümün hello oluşturma işlemine devam edin, başarısız olur.  Bu çözüm resmi olarak yayımlandığında, bu sorun da ele alınacaktır.<br>Bu çözümü kullanırsanız, yalnızca otomasyon işi dakikaları ve günlük alımı kullanılır.  Merhaba çözüm ek OMS düğümleri tooyour ortam eklemez.  
 
-6. **OMS çalışma alanı** dikey penceresinde gerekli bilgileri girdikten sonra **Oluştur**’a tıklayın.  Bilgilerin doğrulanıp çalışma alanının oluşturulması sırasında işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.  **Çözüm Ekle** dikey penceresine döndürülürsünüz.  
-7. **Çözüm Ekle** dikey penceresinde **Otomasyon Hesabı**’nı seçin.  Yeni bir OMS çalışma alanı oluşturuyorsanız Azure aboneliğiniz, kaynak grubunuz ve bölgeniz dahil olmak üzere belirtilen yeni OMS çalışma alanı ile ilişkilendirilecek olan yeni bir Otomasyon hesabı da oluşturmanız gerekir.  **Otomasyon hesabı oluştur**’u seçerek, **Otomasyon hesabı ekle** dikey penceresinde aşağıdakileri girebilirsiniz: 
-  - **Ad** alanına Otomasyon hesabının adını girin.
+6. Merhaba üzerinde hello gerekli bilgileri girdikten sonra **OMS çalışma** dikey penceresinde tıklatın **oluşturma**.  Merhaba bilgi doğrulanır ve hello çalışma alanı oluşturulur, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde.  Toohello döndürülen **Çözüm Ekle** dikey.  
+7. Merhaba üzerinde **Çözüm Ekle** dikey penceresinde, select **Otomasyon hesabı**.  Yeni bir OMS çalışma alanı oluşturuyorsanız, gerekli olacak tooalso Azure abonelik, kaynak grubu ve bölge gibi daha önce belirtilen hello yeni OMS çalışma alanı ile ilişkili yeni bir Otomasyon hesabı oluşturun.  Seçebileceğiniz **Automation hesabı oluşturma** ve hello **eklemek Otomasyon hesabı** dikey penceresinde hello şunları sağlar: 
+  - Merhaba, **adı** alanında, hello hello Automation hesabı adını girin.
 
-    Tüm diğer seçenekler, seçili OMS çalışma alanına dayalı olarak otomatik doldurulur ve bu seçenekler değiştirilemez.  Bu çözüme dahil olan runbook'lar için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır.  **Tamam**’a tıkladığınızda yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur.  Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
+    Seçili hello OMS çalışma alanı temelli tüm diğer seçenekler otomatik olarak doldurulur ve bu seçenekleri değiştirilemez.  Bir Azure farklı çalıştır hesabı hello varsayılan kimlik doğrulama için bu çözümdeki hello runbook'ları yöntemidir.  Tıkladığınızda **Tamam**hello yapılandırma seçenekleri doğrulanır ve hello Otomasyon hesabı oluşturulur.  Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde. 
 
-    Aksi takdirde, mevcut bir Otomasyon Farklı Çalıştır hesabını seçebilirsiniz.  Seçtiğiniz hesap önceden başka bir OMS çalışma alanına bağlı olamaz, böyle olması durumunda dikey pencerede bunu belirten bir ileti görürsünüz.  Önceden bağlıysa, farklı bir Otomasyon Farklı Çalıştır hesabı seçmeniz veya yeni bir hesap oluşturmanız gerekir.<br><br> ![Otomasyon Hesabı Önceden OMS Çalışma Alanına Bağlı](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
+    Aksi takdirde, mevcut bir Otomasyon Farklı Çalıştır hesabını seçebilirsiniz.  Seçtiğiniz hello hesabı zaten bağlı tooanother OMS çalışma olamaz, aksi takdirde bir ileti hello dikey tooinform, sunulacak dikkat edin.  Zaten bağlıysa, tooselect farklı bir Automation farklı çalıştır hesabı gerekiyor veya yeni bir tane oluşturun.<br><br> ![Otomasyon hesabı zaten bağlı tooOMS çalışma](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
 
-8. Son olarak, **Çözüm Ekle** dikey penceresinde **Yapılandırma**’yı seçin. Böylece **Parametreler** dikey penceresi görüntülenir.  **Parametreler** dikey penceresinde aşağıdakileri yapmanız istenir:  
-   - Bu çözüm tarafından yönetilecek VM’leri içeren bir kaynak grubu adı olan **Hedef ResourceGroup Adları**’nı belirtin.  Her birini noktalı virgül ile ayırarak birden fazla ad girebilirsiniz (Değerler büyük küçük harfe duyarlıdır.)  Abonelikte yer alan tüm kaynak gruplarındaki sanal makineleri hedeflemek istiyorsanız, joker karakter kullanılması desteklenir.
-   - Hedef kaynak gruplarındaki VM’lerin başlatılmasına ve durdurulmasına ilişkin yinelenen bir tarih ve saat olan bir **Zamanlama** seçin.  Varsayılan olarak, zamanlama için UTC saat dilimi yapılandırılır ve başka bir bölge seçmeyi kullanılabilir değil.  Çözüm yapılandırdıktan sonra belirli saat diliminiz için zamanlama yapılandırmak istiyorsanız bkz [başlatma ve kapatma zamanlamasını değiştirme](#modifying-the-startup-and-shutdown-schedule) aşağıda.    
+8. Son olarak hello üzerinde **Çözüm Ekle** dikey penceresinde, select **yapılandırma** ve hello **parametreleri** dikey penceresi görünür.  Merhaba üzerinde **parametreleri** dikey penceresinde istenir:  
+   - Merhaba belirtin **hedef kaynak grubu adları**, bu çözümü tarafından yönetilen sanal makineleri toobe içeren bir kaynak grubu adı değil.  Her birini noktalı virgül ile ayırarak birden fazla ad girebilirsiniz (Değerler büyük küçük harfe duyarlıdır.)  Tootarget VM'ler hello Abonelikteki tüm kaynak gruplarında istiyorsanız bir joker karakter kullanılması desteklenir.
+   - Seçin bir **zamanlama** olduğu bir yinelenen tarih ve saat için başlatma ve durdurma hello VM'in hello kaynak gruplarını hedefleyin.  Varsayılan olarak, hello zamanlama yapılandırılmış toohello UTC saat dilimi ve farklı bir bölge seçmek kullanılabilir değil.  Merhaba çözüm yapılandırdıktan sonra tooconfigure hello zamanlama tooyour belirli saat dilimi istiyorsanız, bkz: [değiştirme hello başlatma ve kapatma zamanlama](#modifying-the-startup-and-shutdown-schedule) aşağıda.    
 
-10. Çözüm için gereken ilk ayarların yapılandırılmasını tamamlandığınızda **Oluştur**’u seçin.  Tüm ayarlar doğrulanır ve çözümün aboneliğinize dağıtılması denenir.  Bu işlemin tamamlanması birkaç saniye alabilir ve ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
+10. Merhaba çözümü için gerekli hello ilk ayarları yapılandırmayı tamamladıktan sonra seçin **oluşturma**.  Tüm ayarlar doğrulanacak ve ardından toodeploy hello çözüm aboneliğinizde dener.  Bu işlem birkaç sürebilir saniye toocomplete ve altında ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde. 
 
 ## <a name="collection-frequency"></a>Toplama sıklığı
 
-Otomasyon iş günlüğü ve iş akışı verileri her beş dakikada bir OMS deposuna alınır.  
+Otomasyon iş günlüğü ve iş akışı veri hello OMS depoya beş dakikada alınan.  
 
-## <a name="using-the-solution"></a>Çözümü kullanma
+## <a name="using-hello-solution"></a>Merhaba çözümünü kullanarak
 
-VM Management çözümünü OMS çalışma alanınıza eklediğinizde, OMS panonuza **StartStopVM Görünümü** kutucuğu eklenir.  Bu kutucuk, çözüme ait başlatılmış ve başarıyla tamamlanmış runbook işlerinin sayısını ve grafik temsilini görüntüler.<br><br> ![VM Management StartStopVM Görünümü Kutucuğu](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
+Merhaba VM yönetim çözümü, OMS çalışma hello eklediğinizde **StartStopVM Görünüm** döşeme tooyour OMS Pano eklenir.  Bu kutucuğu sayısı ve başlamış olması ve başarıyla tamamladınız hello runbook'lar işleri hello çözüm için grafik gösterimi görüntüler.<br><br> ![VM Management StartStopVM Görünümü Kutucuğu](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
-Otomasyon hesabınızda **Çözümler** kutucuğunu seçip **Çözümler** dikey penceresindeki listeden çözüme ait **Başlat-Durdur-VM[Çalışma Alanı]** seçeneğini belirleyerek çözüme erişebilir ve çözümü yönetebilirsiniz.<br><br> ![Otomasyon Çözümleri Listesi](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
+Otomasyon hesabınızda erişmek ve hello seçerek hello çözüm yönetmek **çözümleri** döşeme ve sonra hello **çözümleri** hello çözümü seçme dikey penceresinde **Start-Stop-VM [ Çalışma alanı]** hello listeden.<br><br> ![Otomasyon Çözümleri Listesi](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
-Çözümün seçilmesi, **Başlat-Durdur-VM[Çalışma Alanı]** çözüm dikey penceresini görüntüler. Bu pencerede, OMS çalışma alanınızda olduğu gibi çözüme ait başlatılmış ve başarıyla tamamlanmış runbook işlerinin sayısını ve grafik temsilini görüntüleyen **StartStopVM** kutucuğu benzeri önemli ayrıntıları gözden geçirebilirsiniz.<br><br> ![Otomasyon VM Çözümü Dikey Penceresi](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+Merhaba çözümü seçme hello görüntüler **Start-Stop-VM [çalışma]** gözden geçirebileceğiniz hello gibi önemli ayrıntıları çözüm dikey **StartStopVM** gibi OMS çalışma alanınızda döşeme hangi sayı ve başlamış olması ve başarıyla tamamladınız hello runbook'lar işleri hello çözüm için grafik gösterimi görüntüler.<br><br> ![Otomasyon VM Çözümü Dikey Penceresi](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
 
-Burada kendi OMS çalışma alanınızı açabilir ve iş kayıtlarıyla ilgili başka analizler alabilirsiniz.  **Tüm ayarlar**’a tıklamanız ve **Ayarlar** dikey penceresinde **Hızlı Başlangıç**’ı ve **Hızlı Başlangıç** dikey penceresinde **OMS Portalı**’nı seçmeniz yeterlidir.   Böylece, yeni bir sekme veya yeni tarayıcı oturumu açılacak ve Otomasyon hesabınız ile aboneliğinize ilişkin OMS çalışma alanınız sunulacaktır.  
+Buradan, OMS çalışma alanını açın ve başka hello iş kaydı analizler yapmak.  Tıklatmanız **tüm ayarları**ve hello **ayarları** dikey penceresinde, seçin **Hızlı Başlangıç** ve ardından hello **Hızlı Başlangıç** Dikeyseçin **OMS portalı**.   Böylece, yeni bir sekme veya yeni tarayıcı oturumu açılacak ve Otomasyon hesabınız ile aboneliğinize ilişkin OMS çalışma alanınız sunulacaktır.  
 
 
 ### <a name="configuring-e-mail-notifications"></a>E-posta bildirimlerini yapılandırma
 
-VM runbook'larının başlatılması ve durdurulması tamamlandığında e-posta bildirimlerini etkinleştirmek için, **O365Credential** kimlik bilgisini ve en azından aşağıdaki değişkenleri değiştirmeniz gerekir:
+tooenable e-posta bildirimleri hello zaman başlatmanızı ve durdurmanızı VM tam, toomodify hello gerekir **O365Credential** kimlik bilgisi ve en azından değişkenleri hello:
 
  - SendMailO365-IsSendEmail-MS-Mgmt
  - StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
  - StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 
-**O365Credential** kimlik bilgisini yapılandırmak için aşağıdaki adımları uygulayın:
+tooconfigure hello **O365Credential** kimlik bilgisi, hello aşağıdaki adımları gerçekleştirin:
 
-1. Otomasyon hesabınızda, pencerenin en üst kısmında **Tüm Ayarlar**’a tıklayın. 
-2. **Ayarlar** dikey penceresindeki **Otomasyon Kaynakları** bölümünün altında **Varlıklar**’ı seçin. 
-3. **Varlıklar** dikey penceresinde **Kimlik Bilgisi** kutucuğunu seçin ve **Kimlik Bilgisi** dikey penceresinde **O365Credential**’ı seçin.  
-4. Geçerli bir Office 365 kullanıcı adı ve parolası girip **Kaydet**’e tıklayarak yaptığınız değişiklikleri kaydedin.  
+1. Otomasyon hesabınızdan tıklatın **tüm ayarları** hello penceresinin hello üstünde. 
+2. Merhaba üzerinde **ayarları** dikey penceresinde hello bölümünde **Automation kaynaklarını**seçin **varlıklar**. 
+3. Merhaba üzerinde **varlıklar** dikey penceresinde, select hello **kimlik bilgisi** döşeme ve hello **kimlik bilgisi** dikey penceresinde, select hello **O365Credential**.  
+4. Geçerli Office 365 kullanıcı adı ve parola girin ve ardından **kaydetmek** toosave değişikliklerinizi.  
 
-Daha önce vurgulanan değişkenleri yapılandırmak için aşağıdaki adımları gerçekleştirin:
+daha önce vurgulanmış tooconfigure hello değişkenleri hello aşağıdaki adımları gerçekleştirin:
 
-1. Otomasyon hesabınızda, pencerenin en üst kısmında **Tüm Ayarlar**’a tıklayın. 
-2. **Ayarlar** dikey penceresindeki **Otomasyon Kaynakları** bölümünün altında **Varlıklar**’ı seçin. 
-3. **Varlıklar** dikey penceresinde **Değişkenler** kutucuğunu seçin ve **Değişkenler** dikey penceresinde yukarıda listelenen değişkenleri seçip yukarıdaki [değişken](##variables) bölümünde sağlanan tanımlar uyarınca bunların değerlerini değiştirin.  
-4. Değişkene yapılan değişiklikleri kaydetmek için **Kaydet**’e tıklayın.   
+1. Otomasyon hesabınızdan tıklatın **tüm ayarları** hello penceresinin hello üstünde. 
+2. Merhaba üzerinde **ayarları** dikey penceresinde hello bölümünde **Automation kaynaklarını**seçin **varlıklar**. 
+3. Merhaba üzerinde **varlıklar** dikey penceresinde, select hello **değişkenleri** döşeme ve hello **değişkenleri** dikey penceresinde, yukarıda listelenen hello değişken seçin ve hello aşağıdaki değerini değiştirin Bunu hello belirtilen açıklamasını [değişkeni](##variables) bölümüne.  
+4. Tıklatın **kaydetmek** toosave hello değişiklikleri toohello değişkeni.   
 
-### <a name="modifying-the-startup-and-shutdown-schedule"></a>Başlatma ve kapatma zamanlamasını değiştirme
+### <a name="modifying-hello-startup-and-shutdown-schedule"></a>Değiştirme hello başlatma ve kapatma zamanlama
 
-Bu çözümde başlatma ve kapatma zamanlamasının yönetimi için [Azure Otomasyonu’nda runbook zamanlama](automation-schedules.md) bölümünde açıklanan adımlar uygulanır.  Zamanlama yapılandırmasını değiştiremeyeceğinizi unutmayın.  Mevcut zamanlamayı devre dışı bırakmanız ve yeni bir zamanlama oluşturup bu zamanlama için geçerli olmasını istediğiniz **StartByResourceGroup-MS-Mgmt-VM** veya **StopByResourceGroup-MS-Mgmt-VM** runbook’una bağlamanız gerekir.   
+Bu çözümdeki yönetme hello başlatma ve kapatma zamanlama izleyen kısmında özetlendiği gibi aynı adımları hello [Azure Otomasyon runbook'u zamanlama](automation-schedules.md).  Unutmayın, hello zamanlama yapılandırmasını değiştiremezsiniz.  Toodisable gerekir mevcut zamanlamayı hello ve ardından yeni bir tane oluşturun ve toohello bağlantı **StartByResourceGroup-MS-Mgmt-VM** veya **StopByResourceGroup-MS-Mgmt-VM** hello istediğiniz runbook tooapply için zamanlayın.   
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
 
-Otomasyon, OMS deposunda iki tür kayıt oluşturur.
+Otomasyon kayıtları iki tür hello OMS deposunda oluşturur.
 
 ### <a name="job-logs"></a>İş günlükleri
 
 Özellik | Açıklama|
 ----------|----------|
-Çağıran |  İşlemi başlatandır.  Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
-Kategori | Veri türü sınıflandırması.  Otomasyon için değer JobLogs olacaktır.|
-CorrelationId | Runbook işinin Bağıntı Kimliği olan GUID.|
-JobId | Runbook işinin Kimliği olan GUID.|
-operationName | Azure’da gerçekleştirilen işlem türünü belirtir.  Otomasyon için değer İş olacaktır.|
-resourceId | Azure’daki kaynak türünü belirtir.  Otomasyon için değer, runbook ile ilişkilendirilmiş Otomasyon hesabı olacaktır.|
-ResourceGroup | Runbook işine ait kaynak grubunun adını belirtir.|
-ResourceProvider | Dağıtıp yönetebileceğiniz kaynakları sağlayan Azure hizmetini belirtir.  Otomasyon için değer, Azure Otomasyonu olacaktır.|
-ResourceType | Azure’daki kaynak türünü belirtir.  Otomasyon için değer, runbook ile ilişkilendirilmiş Otomasyon hesabı olacaktır.|
-resultType | Runbook işinin durumudur.  Olası değerler şunlardır:<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>- Başarılı oldu|
-resultDescription | Runbook iş sonucu durumunu açıklar.  Olası değerler şunlardır:<br>- İş başlatıldı<br>- İş Başarısız Oldu<br>- İş Tamamlandı|
-RunbookName | Runbook’un adını belirtir.|
-SourceSystem | Gönderilen verilere ilişkin kaynak sistemi belirtir.  Otomasyon için değer, :OpsManager olacaktır|
-StreamType | Olay türünü belirtir. Olası değerler şunlardır:<br>- Ayrıntılı<br>- Çıktı<br>- Hata<br>- Uyarı|
-SubscriptionId | İşin abonelik kimliğini belirtir.
-Zaman | Runbook işinin yürütüldüğü tarih ve saat.|
+Çağıran |  Kimin hello işlemini başlattı.  Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
+Kategori | Merhaba tür veri sınıflandırması.  Otomasyon için hello JobLogs değerdir.|
+CorrelationId | Merhaba hello runbook işi bağıntı kimliği olan GUID.|
+JobId | Merhaba hello runbook işi kimliği olan GUID.|
+operationName | Azure üzerinde gerçekleştirilen işlem Hello türünü belirtir.  Otomasyon için iş hello değer olacaktır.|
+resourceId | Azure'da Hello kaynak türünü belirtir.  Otomasyon için hello hello runbook'la ilişkili hello Otomasyon hesabı değerdir.|
+ResourceGroup | Merhaba runbook işi Hello kaynak grubu adını belirtir.|
+ResourceProvider | Merhaba dağıtmak ve yönetmek hello kaynakları sağlayan Azure hizmeti belirtir.  Otomasyon için hello Azure Otomasyonu değerdir.|
+ResourceType | Azure'da Hello kaynak türünü belirtir.  Otomasyon için hello hello runbook'la ilişkili hello Otomasyon hesabı değerdir.|
+resultType | Merhaba runbook işinin durumunu Hello.  Olası değerler şunlardır:<br>- Başlatıldı<br>- Durduruldu<br>- Askıya alındı<br>- Başarısız oldu<br>- Başarılı oldu|
+resultDescription | Merhaba runbook iş sonuç durumu açıklar.  Olası değerler şunlardır:<br>- İş başlatıldı<br>- İş Başarısız Oldu<br>- İş Tamamlandı|
+RunbookName | Merhaba runbook Hello adını belirtir.|
+SourceSystem | Merhaba kaynak sistem gönderilen hello veri için belirtir.  Otomasyon için hello değer olacaktır: OpsManager|
+StreamType | Olay Hello türünü belirtir. Olası değerler şunlardır:<br>- Ayrıntılı<br>- Çıktı<br>- Hata<br>- Uyarı|
+SubscriptionId | Merhaba iş Hello abonelik Kimliğini belirtir.
+Zaman | Tarih ve saat hello runbook işi zaman yürütülür.|
 
 
 ### <a name="job-streams"></a>İş akışları
 
 Özellik | Açıklama|
 ----------|----------|
-Çağıran |  İşlemi başlatandır.  Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
-Kategori | Veri türü sınıflandırması.  Otomasyon için değer JobStreams olacaktır.|
-JobId | Runbook işinin Kimliği olan GUID.|
-operationName | Azure’da gerçekleştirilen işlem türünü belirtir.  Otomasyon için değer İş olacaktır.|
-ResourceGroup | Runbook işine ait kaynak grubunun adını belirtir.|
-resourceId | Azure’daki kaynak kimliğini belirtir.  Otomasyon için değer, runbook ile ilişkilendirilmiş Otomasyon hesabı olacaktır.|
-ResourceProvider | Dağıtıp yönetebileceğiniz kaynakları sağlayan Azure hizmetini belirtir.  Otomasyon için değer, Azure Otomasyonu olacaktır.|
-ResourceType | Azure’daki kaynak türünü belirtir.  Otomasyon için değer, runbook ile ilişkilendirilmiş Otomasyon hesabı olacaktır.|
-resultType | Runbook işinin, olayın oluşturulduğu andaki sonucu.  Olası değerler şunlardır:<br>- Devam Ediyor|
-resultDescription | Runbook’un çıktı akışını içerir.|
-RunbookName | Runbook’un adı.|
-SourceSystem | Gönderilen verilere ilişkin kaynak sistemi belirtir.  Otomasyon için değer, OpsManager olacaktır|
-StreamType | İş akışı türü. Olası değerler şunlardır:<br>- İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı|
-Zaman | Runbook işinin yürütüldüğü tarih ve saat.|
+Çağıran |  Kimin hello işlemini başlattı.  Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir.|
+Kategori | Merhaba tür veri sınıflandırması.  Otomasyon için hello JobStreams değerdir.|
+JobId | Merhaba hello runbook işi kimliği olan GUID.|
+operationName | Azure üzerinde gerçekleştirilen işlem Hello türünü belirtir.  Otomasyon için iş hello değer olacaktır.|
+ResourceGroup | Merhaba runbook işi Hello kaynak grubu adını belirtir.|
+resourceId | Azure'da Hello kaynak kimliği belirtir.  Otomasyon için hello hello runbook'la ilişkili hello Otomasyon hesabı değerdir.|
+ResourceProvider | Merhaba dağıtmak ve yönetmek hello kaynakları sağlayan Azure hizmeti belirtir.  Otomasyon için hello Azure Otomasyonu değerdir.|
+ResourceType | Azure'da Hello kaynak türünü belirtir.  Otomasyon için hello hello runbook'la ilişkili hello Otomasyon hesabı değerdir.|
+resultType | Başlangıç saati hello olay hello runbook işi Hello sonucunu oluşturuldu.  Olası değerler şunlardır:<br>- Devam Ediyor|
+resultDescription | Merhaba runbook Hello çıkış akışından içerir.|
+RunbookName | Merhaba runbook Hello adı.|
+SourceSystem | Merhaba kaynak sistem gönderilen hello veri için belirtir.  Otomasyon için OpsManager hello değer olacaktır|
+StreamType | İş akışı Hello türü. Olası değerler şunlardır:<br>- İlerleme durumu<br>- Çıktı<br>- Uyarı<br>- Hata<br>- Hata ayıklama<br>- Ayrıntılı|
+Zaman | Tarih ve saat hello runbook işi zaman yürütülür.|
 
-**JobLogs** veya **JobStreams** kategorisinde kayıtlar döndüren bir günlük araması yaptığınızda, arama tarafından döndürülen güncelleştirmeleri özetleyen bir grup kutucuk görüntüleyen **JobLogs** veya **JobStreams** görünümlerini seçebilirsiniz.
+Kategorisini kayıtlarını döndürür tüm günlük arama yaptığınızda **JobLogs** veya **JobStreams**, hello seçebileceğiniz **JobLogs** veya **JobStreams** bir dizi döşeme hello araması tarafından döndürülen hello güncelleştirmeleri özetlemeye görüntüleyen görünümü.
 
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 
-Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişkin örnek günlük aramaları sunulmaktadır. 
+Merhaba aşağıdaki tabloda bu çözüm tarafından toplanan iş kaydı için örnek günlük aramaları sağlar. 
 
 Sorgu | Açıklama|
 ----------|----------|
@@ -218,24 +218,24 @@ StartVM runbook’una ilişkin başarıyla tamamlanmış işleri bul | Category=
 StopVM runbook’una ilişkin başarıyla tamamlanmış işleri bul | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g
 StartVM ve StopVM runbook'ları için zaman içerisinde iş durumunu göster | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") | measure Count() by ResultType interval 1day|
 
-## <a name="removing-the-solution"></a>Çözüm kaldırma
+## <a name="removing-hello-solution"></a>Merhaba Çözüm kaldırma
 
-Artık daha fazla çözüm herhangi kullanmanıza gerek karar verirseniz, Otomasyon hesabı silebilirsiniz.  Çözüm silme runbook'ları yalnızca kaldırır, zamanlamaları veya çözümü eklediğinizde, oluşturulan değişkenleri silmez.  Bu varlıkları, bunları ile diğer runbook'ları kullanmıyorsanız el ile silmeniz gerekir.  
+Artık toouse hello çözüm herhangi daha fazla gereksinim karar verirseniz, Automation hesabı hello silebilirsiniz.  Merhaba çözümünün silinmesi hello runbook'ları yalnızca kaldırır, hello zamanlamaları veya hello çözüm eklediğinizde, oluşturulan değişkenleri silmez.  El ile bunları ile diğer runbook'ları kullanmıyorsanız bu varlıkları toodelete gerekir.  
 
-Çözümü silmek için aşağıdaki adımları gerçekleştirin:
+toodelete Merhaba çözüm, hello aşağıdaki adımları gerçekleştirin:
 
-1.  Otomasyon hesabınızdan seçin **çözümleri** döşeme.  
-2.  Üzerinde **çözümleri** dikey penceresinde, çözümü seçin **Start-Stop-VM [çalışma]**.  Üzerinde **VMManagementSolution [çalışma]** dikey penceresinde, menü öğesini **silmek**.<br><br> ![VM yönetimi çözümü Sil](media/automation-solution-vm-management/vm-management-solution-delete.png)
-3.  İçinde **silmek çözüm** penceresinde çözümü silmek istediğinizi onaylamak.
-4.  Bilgi doğrulanır ve çözüm silinmiş olsa da, altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.  İçin döndürülecek **VMManagementSolution [çalışma]** Çözüm kaldırma işlemini başladıktan sonra dikey.  
+1.  Merhaba, Otomasyon hesabınızı seçin **çözümleri** döşeme.  
+2.  Merhaba üzerinde **çözümleri** dikey penceresinde, select hello çözüm **Start-Stop-VM [çalışma]**.  Merhaba üzerinde **VMManagementSolution [çalışma]** hello menü tıklayın dikey **silmek**.<br><br> ![VM yönetimi çözümü Sil](media/automation-solution-vm-management/vm-management-solution-delete.png)
+3.  Merhaba, **silmek çözüm** penceresinde toodelete hello çözüm istediğinizi onaylayın.
+4.  Merhaba bilgi doğrulanır ve hello çözüm silinir, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde.  Toohello döndürülen **VMManagementSolution [çalışma]** hello işlem tooremove çözüm başladıktan sonra dikey.  
 
-Bu işlemin bir parçası olarak, OMS çalışma ve Automation hesabı silinmez.  OMS çalışma korumak istemiyorsanız, el ile silmeniz gerekir.  Bu, Azure portalından da gerçekleştirilebilir.   Giriş-ekranından Azure portalında, seçin **günlük analizi** ve daha sonra **günlük analizi** dikey penceresinde, çalışma alanını seçin ve tıklatın **silmek** menüsünden çalışma ayarları dikey penceresi.  
+Bu işlemin bir parçası olarak Hello Otomasyon hesabı ve OMS çalışma silinmez.  Tooretain hello OMS çalışma istemiyorsanız gerekir toomanually silin.  Bu da Azure portal hello gerçekleştirilebilir.   Merhaba giriş-ekranından hello Azure portal'ın, seçin **günlük analizi** ve ardından hello **günlük analizi** dikey penceresinde, select hello çalışma ve tıklatın **silmek** hello menüsünden Merhaba çalışma ayarlar dikey penceresi.  
       
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Farklı arama sorguları oluşturma ve Log Analytics ile Otomasyon iş günlüklerini gözden geçirme hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te günlük aramaları](../log-analytics/log-analytics-log-searches.md)
-- Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md)
-- OMS Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te Azure depolama verileri toplamaya genel bakış](../log-analytics/log-analytics-azure-storage.md)
+- Günlük analizi ile günlükleri nasıl tooconstruct farklı arama sorguları ve gözden geçirme hello Otomasyon iş hakkında daha fazla toolearn bakın [oturum aramaları günlük analizi](../log-analytics/log-analytics-log-searches.md)
+- toolearn hakkında daha fazla runbook yürütme toomonitor runbook işleri ve diğer teknik ayrıntıları görmek nasıl [bir runbook işi izlenemedi](automation-runbook-execution.md)
+- OMS günlük analizi ve veri toplama kaynakları hakkında daha fazla toolearn bakın [toplama Azure storage veri günlük analizi genel bakış](../log-analytics/log-analytics-azure-storage.md)
 
 
 

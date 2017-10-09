@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu Kullanmaya Başlama | Microsoft Docs"
-description: "Bu makale, Azure Market tekliflerini eklemeyle ilgili tasarım ve uygulama ayrıntılarını gözden geçirerek Azure Otomasyonu hizmetine genel bakış sağlar."
+title: "Ayrıca, Azure Automation ile Başlarken | Microsoft Docs"
+description: "Bu makalede, Azure Marketi'nden sunumu hazırlık tooonboard hello hello tasarım ve uygulama ayrıntıları gözden geçirerek Azure Otomasyon hizmetine genel bir bakış sağlar."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 434e8ea28c55ff9bda1d2e46a7a6b8378a3baa0a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Azure Otomasyonu’nu Kullanmaya Başlama
 
-Bu başlangıç kılavuzunda Azure Otomasyonu’nun dağıtımıyla ilgili temel kavramlar açıklanmaktadır. Azure’da Otomasyon’u kullanmaya yeni başladıysanız veya System Center Orchestrator gibi otomasyon iş akışı yazılımlarıyla ilgili deneyiminiz varsa bu kılavuz, Otomasyon’u nasıl hazırlayacağınızı ve kullanmaya başlayacağınızı anlamanıza yardımcı olur.  Ardından işlem otomasyonu ihtiyaçlarınızı karşılamak amacıyla runbook’lar geliştirmeye başlamak için hazır olacaksınız. 
+Bu başlangıç kılavuzuna temel kavramları ilgili toohello Azure Otomasyonu dağıtımını tanıtır. Azure'da yeni tooAutomation olan veya System Center Orchestrator gibi Otomasyon iş akışı yazılım deneyimiyle varsa, bu kılavuz anlamanıza yardımcı olur nasıl tooprepare ve yerleşik Otomasyon.  Daha sonra runbook'ları işlemi Otomasyon gerekliliklerini desteklemek geliştirme toobegin hazır. 
 
 
 ## <a name="automation-architecture-overview"></a>Otomasyon mimarisine genel bakış
 
 ![Azure Automation’a genel bakış](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Azure Otomasyonu, runbook’lar ile işlemleri otomatik hale getirmek ve Azure, diğer bulut hizmetleri ya da şirket içinde İstenen Durum Yapılandırması (DSC) kullanarak Windows ve Linux sistemlerinde yapılan değişiklikleri yönetmek üzere ölçeklenebilir, güvenilir ve çok kiracılı bir ortam sağlayan hizmet olarak yazılım (SaaS) uygulamasıdır. Otomasyon hesabınızda bulunan runbook, varlık ve Farklı Çalıştır hesapları gibi varlıklar, aboneliğinizdeki ve diğer aboneliklerdeki başka Otomasyon hesaplarından yalıtılır.  
+Azure Otomasyonu, ölçeklenebilir ve güvenilir bir çok kiracılı sağlayan bir hizmet (SaaS) uygulaması bir yazılım olduğu ortam tooautomate işler runbook'larla ve yapılandırma değişiklikleri tooWindows ve istenen durum yapılandırması kullanarak Linux sistemlerini yönetme (DSC) Azure, bulut Hizmetleri ya da şirket içi. Otomasyon hesabınızda bulunan runbook, varlık ve Farklı Çalıştır hesapları gibi varlıklar, aboneliğinizdeki ve diğer aboneliklerdeki başka Otomasyon hesaplarından yalıtılır.  
 
-Azure'da çalıştırdığınız runbook'lar, Azure hizmet olarak platform (PaaS) sanal makinelerinde barındırılan Otomasyon korumalı alanı üzerinde yürütülür.  Otomasyon korumalı alanları, runbook yürütme işleminin tüm yönleri için (modüller, depolama, bellek, ağ iletişimi, iş akışları vb.) kiracı yalıtımı sağlar. Bu rol, hizmet tarafından yönetilir ve denetlemek için Azure veya Azure Otomasyonu hesabınızdan bu role erişilemez.         
+Azure'da çalıştırdığınız runbook'lar, Azure hizmet olarak platform (PaaS) sanal makinelerinde barındırılan Otomasyon korumalı alanı üzerinde yürütülür.  Otomasyon korumalı alanları, runbook yürütme işleminin tüm yönleri için (modüller, depolama, bellek, ağ iletişimi, iş akışları vb.) kiracı yalıtımı sağlar. Bu rolü hello hizmeti tarafından yönetiliyor ve Azure veya Azure Automation hesabınız, toocontrol için erişilebilir değil.         
 
-Yerel veri merkezinizde veya diğer bulut hizmetlerinde bulunan kaynakların dağıtım ve yönetimini otomatikleştirmek için, Otomasyon hesabı oluşturduktan sonra [Karma Runbook Çalışanı (HRW)](automation-hybrid-runbook-worker.md) rolünü çalıştıracak bir veya daha fazla makine belirleyebilirsiniz.  Her HRW, Log Analytics çalışma alanıyla bağlantısı olan bir Microsoft Yönetim Aracısı ve bir Otomasyon hesabı gerektirir.  Log Analytics, yüklemenin önyüklemesini yapmak, Microsoft Yönetim Aracısını korumak ve HRW işlevselliğini izlemek için kullanılır.  Runbook’ların teslim edilmesi ve çalıştırma yönergeleri, Azure Otomasyonu tarafından gerçekleştirilir.
+tooautomate hello dağıtım ve yönetim yerel veri merkeziniz ya da bir Otomasyon hesabı oluşturduktan sonra diğer bulut hizmetlerine kaynakların bir veya daha fazla makineler toorun hello belirleyebilirler [karma Runbook çalışanı (HRW)](automation-hybrid-runbook-worker.md) rol.  Her HRW hello Microsoft Yönetim Aracısı bağlantısı tooa günlük analizi çalışma alanı ve bir Otomasyon hesabı gerektirir.  Günlük analizi kullanılan toobootstrap hello yükleme korumak hello Microsoft Yönetim aracısı ve hello HRW hello işlevselliğini izleyin.  runbook'ları teslimini hello ve bunları Azure Automation tarafından gerçekleştirilen yönerge toorun hello.
 
-Runbook’larını için yüksek kullanılabilirlik sağlamak, runbook işlerinin yük dengelemesini yapmak ve bazı durumlarda runbook’ları belirli iş yükleri veya ortamlar için ayırmak üzere birden fazla HRW dağıtabilirsiniz.  HRW üzerindeki Microsoft Monitoring Agent, TCP bağlantı noktası 443 üzerinden Otomasyon hizmeti ile iletişim başlatır. Gelen veriler için güvenlik duvarı gereksinimi yoktur.  Ortamdaki bir HRW üzerinde çalışan runbook’unuzun ortamdaki diğer makineler veya hizmetler üzerinde yönetim görevleri gerçekleştirmesini istiyorsanız, bunun için runbook’un başka bağlantı noktalarına erişmesi gerekebilir.  BT güvenlik ilkeleriniz ağınızdaki bilgisayarların İnternet’e bağlanmasına izin vermiyorsa, HRW’nin Otomasyon hesabınızdaki iş durumu bilgilerini toplayan ve yapılandırma bilgilerini alan proxy’si olarak davranan [OMS Ağ Geçidi](../log-analytics/log-analytics-oms-gateway.md) makalesini gözden geçirin.
+Birden çok HRW tooprovide yüksek kullanılabilirlik için runbook'ları dağıtmak, Yük Dengeleme runbook işleri ve belirli iş yükleri veya ortamlar için bazı durumlarda bunları ayrılması.  Merhaba Microsoft İzleme Aracısı hello HRW üzerinde TCP bağlantı noktası 443 hello Otomasyon hizmeti ile iletişim başlatır ve gelen güvenlik duvarı gereksinimi yoktur.  Bir HRW hello ortamında çalışan runbook varsa ve istediğiniz diğer makineler veya hizmetler bu ortam içinde karşı hello runbook tooperform yönetim görevleri, olabilir sonra hello diğer bağlantı noktası olarak runbook erişimi olmalıdır.  BT güvenlik ilkeleri, ağ tooconnect toohello Internet bilgisayarları izin vermiyorsa hello makalesini inceleyin [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md), hangi hello HRW toocollect için bir proxy olarak görev yapar iş durumu ve yapılandırma bilgilerini alma Otomasyon hesabınızı.
 
-Bir HRW üzerinde çalışan runbook’lar, bilgisayardaki yerel Sistem hesabı bağlamında çalışır; bu bağlam, yerel Windows makinesinde yönetim eylemleri gerçekleştirirken önerilen güvenlik bağlamıdır. Runbook’un yerel makine dışındaki kaynaklarda görevler çalıştırmasını istiyorsanız, Otomasyon hesabında runbook’tan erişebileceğiniz ve dış kaynakla kimlik doğrulaması yapmak için kullanabileceğiniz güvenli kimlik bilgisi varlıkları tanımlamanız gerekebilir. Runbook’unuzda [Kimlik Bilgisi](automation-credentials.md), [Sertifika](automation-certificates.md) ve [Bağlantı](automation-connections.md) varlıklarını, kimlik doğrulaması yapabilmek için kimlik bilgilerini belirtmenize olanak tanıyan cmdlet’lerle birlikte kullanabilirsiniz.
+Merhaba bilgisayardaki yerel sistem hesabı hello hello bağlamında çalıştırın HRW üzerinde çalışan Runbook'lar, hangi hello güvenlik bağlamı hello yerel Windows makinesinde yönetici eylemleri gerçekleştirirken önerilir. Merhaba runbook toorun görevleri hello yerel makine dışında kaynaklara karşı istiyorsanız hello hello runbook'tan erişmek ve tooauthenticate hello dış kaynak ile kullanmak Otomasyon hesabı toodefine güvenli kimlik bilgisi varlıkları gerekebilir. Kullanabileceğiniz [kimlik bilgisi](automation-credentials.md), [sertifika](automation-certificates.md), ve [bağlantı](automation-connections.md) runbook'unuzda bunları doğrulanabilir şekilde toospecify kimlik bilgilerine izin ver cmdlet'leri ile varlıklar.
 
-Azure Otomasyonu'nda depolanan DSC yapılandırmaları, Azure sanal makinelerine doğrudan uygulanabilir. Diğer fiziksel ve sanal makineler, yapılandırmaları Azure Automation DSC çekme sunucusundan isteyebilir.  Şirket içi fiziksel veya sanal Windows ve Linux sistemlerinizin yapılandırmalarını yönetmek için, Automation DSC çekme sunucusunu destekleyen herhangi bir altyapı dağıtmanız gerekmez; yalnızca TCP bağlantı noktası 443 üzerinden OMS hizmetiyle iletişim kurarak Automation DSC tarafından yönetilecek her sistemden giden İnternet erişimi gereklidir.   
+DSC yapılandırmaları Azure Otomasyonu'nda depolanan doğrudan uygulanan tooAzure sanal makineler olabilir. Diğer fiziksel ve sanal makine yapılandırmaları hello Azure Otomasyonu DSC istek sunucusundan isteyebilir.  Sistemlerinizin şirket içi fiziksel veya sanal Windows ve Linux yapılandırmaları yönetmek için tüm altyapı toosupport hello Otomasyonu DSC istek sunucusuyla, yalnızca giden Internet erişimden Automation DSC tarafından yönetilen her sistem toobe toodeploy gerekmez , TCP bağlantı noktası 443 toohello OMS hizmeti iletişim.   
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="automation-dsc"></a>Automation DSC
-Azure Automation DSC çeşitli makineleri yönetmek için kullanılabilir:
+Azure Otomasyonu DSC kullanılan toomanage çeşitli makineler olabilir:
 
 * Windows veya Linux çalıştıran Azure sanal makineleri (klasik)
 * Windows veya Linux çalıştıran Azure sanal makineleri
@@ -52,73 +52,73 @@ Azure Automation DSC çeşitli makineleri yönetmek için kullanılabilir:
 * Şirket içinde veya Azure ya da AWS dışındaki bir bulutta bulunan fiziksel/sanal Windows bilgisayarları
 * Şirket içinde veya Azure ya da AWS dışındaki bir bulutta bulunan fiziksel/sanal Linux bilgisayarları
 
-Windows için PowerShell DSC aracısının Azure Otomasyonu ile iletişim kurabilmesi için en son WMF 5 sürümü yüklü olmalıdır. Linux’un Azure Otomasyonu ile iletişim kurabilmesi için [Linux için PowerShell DSC aracısının](https://www.microsoft.com/en-us/download/details.aspx?id=49150) en son sürümü yüklü olmalıdır.
+WMF 5 en son sürümünü Hello hello PowerShell DSC Aracısı Windows toobe mümkün toocommunicate Azure otomasyonu için yüklenmelidir. Merhaba en son sürümünü Hello [Linux için PowerShell DSC Aracısı](https://www.microsoft.com/en-us/download/details.aspx?id=49150) Linux toobe mümkün toocommunicate Azure otomasyonu için yüklü olmalıdır.
 
 ### <a name="hybrid-runbook-worker"></a>Karma Runbook Çalışanı  
-Karma runbook işleri çalıştırmak üzere bir bilgisayar belirlerken, bu bilgisayarın aşağıdakilere sahip olması gerekir:
+Bir bilgisayar toorun karma runbook işleri atandığında, bu bilgisayar hello şunlara sahip olmanız gerekir:
 
 * Windows Server 2012 veya üzeri
-* Windows PowerShell 4.0 veya üzeri.  Daha fazla güvenilirlik için bilgisayara Windows PowerShell 5.0 yüklenmesi önerilir. Yeni sürümü [Microsoft Yükleme Merkezi](https://www.microsoft.com/download/details.aspx?id=50395)'nden indirebilirsiniz
+* Windows PowerShell 4.0 veya üzeri.  Daha fazla güvenilirlik için hello bilgisayarda Windows PowerShell 5.0 yüklemenizi öneririz. Hello hello yeni sürümü indirebilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=50395)
 * En az iki çekirdek
 * En az 4 GB RAM
 
-### <a name="permissions-required-to-create-automation-account"></a>Otomasyon hesabı oluşturmak için gereken izinler
-Otomasyon hesabını oluşturmak veya güncelleştirmek isterseniz bu konuyu tamamlamak için gereken aşağıdaki özel ayrıcalıklara ve izinlere sahip olmanız gerekir.   
+### <a name="permissions-required-toocreate-automation-account"></a>Toocreate Otomasyon hesabı gereken izinler
+Bu konuda toocomplete gereken izinler ve toocreate veya güncelleştirme Automation hesabı, belirli ayrıcalıkları aşağıdaki hello sahip olmalıdır.   
  
-* Bir Otomasyon hesabı oluşturmak için AD kullanıcı hesabınızın, [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md) makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki Sahip rolüne eşdeğer izinlere sahip bir role eklenmesi gerekir.  
-* Azure AD kiracınızdaki yönetici olmayan kullanıcılar, Uygulama kayıtları ayarı [Evet](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) olarak ayarlıysa **AD uygulamalarını kaydedebilir**.  Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir. 
+* Sipariş toocreate bir Otomasyon hesabı'da, AD kullanıcı hesabınızın toobe eklenen tooa izinleri eşdeğer toohello sahip rolünü rolüyle Microsoft.Automation kaynaklar için makalesinde ana hatlarıyla gereken [Azure automation'da rol tabanlı erişim denetimi ](automation-role-based-access-control.md).  
+* Merhaba uygulama kayıtlar ayarı ayarlarsanız çok**Evet**, Azure AD kiracınızda yönetici olmayan kullanıcılar [AD uygulamaları kaydetmek](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Merhaba uygulama kayıtlar ayarı ayarlarsanız çok**Hayır**, hello kullanıcının bu eylemi gerçekleştirmeden Azure AD genel yönetici olması gerekir. 
 
-Aboneliğin genel yönetici/ortak yönetici rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory’ye konuk olarak eklenirsiniz. Bu durumda, “Oluşturma izniniz yok…” iletisini alırsınız. uyarısını **Otomasyon Hesabı Ekle** dikey penceresinde görürsünüz. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
+Toohello genel yönetici/co-administrator rolüne hello abonelik eklenmeden önce hello aboneliğinin Active Directory örneğine üyesi değilseniz, tooActive dizinine konuk olarak eklenir. Bu durumda, bir "sahip olmadığınız izinleri toocreate..." alırsınız. Merhaba üzerinde uyarı **Automation hesabı Ekle** dikey. Toohello genel yönetici/co-administrator rolüne ilk hello aboneliğinin Active Directory örneğinden kaldırılabilir ve yeniden, toomake eklendi eklenen kullanıcılar bunları Active Directory'de tam bir kullanıcı. tooverify bu durumdan hello **Azure Active Directory** hello Azure portal, select bölmesinde **kullanıcılar ve gruplar**seçin **tüm kullanıcılar** ve hello seçtikten sonra belirli bir kullanıcı, select **profil**. Merhaba hello değerini **kullanıcı türü** hello kullanıcı profili altındaki özniteliğini eşit değil **Konuk**.
 
 ## <a name="authentication-planning"></a>Kimlik doğrulaması planlama
-Azure Otomasyonu, Azure’daki şirket içindeki kaynaklara karşı ve diğer bulut sağlayıcılarıyla görevleri otomatikleştirmenizi sağlar.  Runbook'un gerekli işlemlerini gerçekleştirebilmesi için, abonelikte gereken en düşük haklara sahip kaynaklara güvenli erişim izinlerinin olması gerekir.  
+Azure Otomasyonu, Azure, şirket içi ve diğer bulut sağlayıcılarıyla kaynaklara karşı tooautomate görevleri sağlar.  Bir runbook tooperform için gerekli işlemleri, onu hello kaynaklarına erişim izinleri toosecurely hello abonelikte gereken hello en düşük haklara sahip olması gerekir.  
 
 ### <a name="what-is-an-automation-account"></a>Otomasyon Hesabı nedir? 
-Azure Otomasyonu’nda Azure cmdlet’lerini kullanarak kaynaklara karşı gerçekleştirdiğiniz tüm otomasyon görevleri, Azure Active Directory kuruluş kimliği kimlik bilgilerine dayalı kimlik doğrulaması kullanılarak Azure’da doğrulanır.  Otomasyon hesabı, Azure kaynaklarını yapılandırmak ve kullanmak üzere portalda oturum açmak için kullandığınız hesaptan farklıdır.  Hesaba dahil olan otomasyon kaynakları şunlardır:
+Azure Otomasyonu'nda hello Azure cmdlet'lerini kullanan kaynaklara karşı gerçekleştirdiğiniz tüm hello otomasyon görevleri tooAzure kullanarak Azure Active Directory kuruluş kimlik bilgileri tabanlı kimlik doğrulaması.  Automation hesabı Azure kaynaklarına toohello portal tooconfigure içinde toosign kullanın ve hello hesabından ayrıdır.  Otomasyon kaynaklar dahil olan bir hesap hello şunlardır:
 
 * **Sertifikalar** - Runbook’tan veya DSC yapılandırmasından kimlik doğrulaması için kullanılan bir sertifika içerir. Bunları siz de ekleyebilirsiniz.
-* **Bağlantılar** - Runbook’tan veya DSC yapılandırmasından dış hizmete veya uygulamaya bağlanmak için gereken kimlik doğrulaması ve yapılandırma bilgilerini içerir.
-* **Kimlik bilgileri** - Runbook’tan veya DSC yapılandırmasından kimlik doğrulamak için gereken kullanıcı adı ve parola gibi güvenlik kimlik bilgilerini içeren PSCredential nesnesidir.
-* **Tümleştirme modülleri** - Runbook’larda ve DSC yapılandırmalarında cmdlet’lerin kullanılabilmesi için Azure Otomasyonu hesabına dahil edilen PowerShell modülleridir.
+* **Bağlantıları** -kimlik doğrulama ve yapılandırma gerekli bilgileri tooconnect tooan dış hizmet veya uygulama bir runbook veya DSC yapılandırması içerir.
+* **Kimlik bilgileri** -bir kullanıcı adı ve parola gerekli gibi güvenlik kimlik bilgileri içeren bir PSCredential nesnesi tooauthenticate bir runbook veya DSC yapılandırması.
+* **Tümleştirme modülleri** -olan runbook'ları ve DSC yapılandırmalarınızda içinden cmdlet'leri bir Azure Otomasyonu hesabı toomake kullanımı ile birlikte gelen PowerShell modülleri.
 * **Zamanlamalar** - Bir runbook’u yineleme sıklıkları dahil belirtilen zamanda başlatan veya durduran zamanlamaları içerir.
 * **Değişkenler** -Runbook veya DSC yapılandırmasından kullanılabilen değerleri içerir.
-* **DSC Yapılandırmaları** - Windows veya Linux bilgisayarlarda bir işletim sistemi özelliğinin ya da ayarının nasıl yapılandırılacağını veya işletim sistemine bir uygulamanın nasıl yükleneceğini açıklayan PowerShell betikleridir.  
+* **DSC yapılandırmaları** -açıklar PowerShell komut dosyaları nasıl tooconfigure bir işletim sistemi özelliği ayarlama veya bir uygulamanın bir Windows veya Linux bilgisayara yükleyin.  
 * **Runbook’lar** - Windows PowerShell’i temel alarak Azure Otomasyonu’nda bazı otomatik işlemleri gerçekleştiren görevler gruplarıdır.    
 
-Her Otomasyon hesabı için Otomasyon kaynakları tek bir Azure bölgesiyle ilişkilendirilir, ancak Otomasyon hesapları aboneliğinizdeki tüm kaynakları yönetebilir. Kaynakların belirli bir bölgede yalıtılmasını gerektiren ilkeleriniz varsa, farklı bölgelerde Otomasyon hesapları oluşturun.
+Merhaba her Automation hesabı için Automation kaynakları tek bir Azure bölgesiyle ilişkilendirilir, ancak Automation hesapları tüm hello kaynakları yönetebilir. Veri ve kaynaklarınız toobe yalıtılmış tooa belirli bölge gerektiren ilkeleri varsa, farklı bölgelerde Automation hesapları oluşturun.
 
 > [!NOTE]
-> Azure portalında oluşturulan Automation hesapları ve içerdikleri kaynaklara Klasik Azure portalında erişilemez. Bu hesapları veya kaynaklarını Windows PowerShell’le yönetmek istiyorsanız, Azure Resource Manager modüllerini kullanmanız gerekir.
+> Automation hesapları ve içerdikleri hello kaynakları hello Azure portalında oluşturulur, hello Klasik Azure portalında erişilemez. Bu hesapları veya kaynaklarını Windows PowerShell ile toomanage istiyorsanız hello Azure Resource Manager modüllerini kullanmanız gerekir.
 > 
 
-Azure portalında bir Otomasyon hesabı oluşturduğunuzda otomatik olarak iki kimlik doğrulama varlığı oluşturursunuz:
+Hello Azure portalında bir Otomasyon hesabı oluşturduğunuzda, otomatik olarak iki kimlik doğrulama varlık oluşturun:
 
-* Bir Farklı Çalıştır hesabı. Bu hesap, Azure Active Directory'de (Azure AD) bir hizmet sorumlusu ve bir sertifika oluşturur. Ayrıca, runbook kullanarak Resource Manager kaynaklarını yöneten Katkıda Bulunan rol tabanlı erişim denetimi (RBAC) iznini atar.
-* Klasik Farklı Çalıştır hesabı. Bu hesap, runbook kullanarak klasik kaynakları yönetmek için kullanılan bir yönetim sertifikasını karşıya yükler.
+* Bir Farklı Çalıştır hesabı. Bu hesap, Azure Active Directory'de (Azure AD) bir hizmet sorumlusu ve bir sertifika oluşturur. Ayrıca, runbook'lar kullanılarak Resource Manager kaynaklarını yöneten hello katkıda bulunan rol tabanlı erişim denetimi (RBAC) atar.
+* Klasik Farklı Çalıştır hesabı. Bu hesap, runbook'ları kullanarak kullanılan toomanage Klasik kaynakları olan bir yönetim sertifikası karşıya yükleme.
 
-Rol tabanlı erişim denetimi, Azure AD kullanıcı hesabı ve Farklı Çalıştır hesabına izin verilen eylemleri vermek, ve bu hizmet sorumlusunun kimliğini doğrulamak için Azure Resource Manager ile kullanılabilir.  Otomasyon izinlerinin yönetilmesi için modelinizin geliştirilmesine yardımcı olma hakkında daha fazla bilgi için [Azure Otomasyonu’nda rol tabanlı erişim denetimi](automation-role-based-access-control.md) makalesini okuyun.  
+Rol tabanlı erişim denetimi ile Azure Resource Manager toogrant Eylemler tooan Azure AD kullanıcı hesabı ve farklı çalıştır hesabı izin kullanılabilir ve bu hizmet sorumlusunun kimliğini.  Okuma [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md) daha fazla bilgi için toohelp Automation izinlerinin yönetilmesi için modelinizin geliştirin.  
 
 #### <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
-Aşağıdaki tabloda, Azure Otomasyonu tarafından desteklenen her ortamla ilgili farklı kimlik doğrulaması yöntemleri özetlenmiştir.
+Merhaba aşağıdaki tabloda Azure Automation'ın desteklediği her ortam için hello farklı kimlik doğrulama yöntemlerini özetler.
 
 | Yöntem | Ortam 
 | --- | --- | 
 | Azure Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı |Azure Resource Manager ve Azure klasik dağıtımı |  
 | Azure AD Kullanıcı hesabı |Azure Resource Manager ve Azure klasik dağıtımı |  
-| Windows kimlik doğrulaması |Yerel veri merkezi veya Karma Runbook Çalışanı kullanan diğer bulut sağlayıcısı |  
+| Windows kimlik doğrulaması |Yerel veri merkezinde veya hello karma Runbook çalışanı kullanarak diğer bulut sağlayıcısı |  
 | AWS kimlik bilgileri |Amazon Web Hizmetleri |  
 
-**Nasıl yapılır\Kimlik doğrulaması ve güvenlik** bölümü altında, ilgili ortamlar için var olan veya ayırdığınız yeni bir hesapla kimlik doğrulamasını yapılandırmaya yönelik genel bakış ve uygulama adımları verilmektedir.  Azure Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı için, [Otomasyon Farklı Çalıştır hesabını güncelleştirme](automation-create-runas-account.md) konu başlığında, başlangıçta Farklı Çalıştır veya Klasik Farklı Çalıştır hesabıyla yapılandırılmamışsa mevcut Otomasyon hesabınızı portaldan veya PowerShell kullanarak Farklı Çalıştır hesaplarıyla güncelleştirme işlemi açıklanmaktadır. Kuruluş sertifika yetkiliniz (CA) tarafından verilen bir sertifikayla Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı oluşturmak istiyorsanız bu yapılandırmayı kullanarak hesapları oluşturma hakkında bilgi edinmek için bu makaleyi gözden geçirin.     
+Merhaba altında **nasıl to\Authentication ve güvenlik** bölümünde, tooconfigure kimlik doğrulaması bu ortamlarda, varolan bir ya da genel bakış ve uygulama adımlarını sağlayarak makaleleri destekleme veya yeni hesabı Bu ortam için atayın.  Hello Azure farklı çalıştır ve klasik farklı çalıştır hesabı için konu hello [güncelleştirme Automation farklı çalıştır hesabı](automation-create-runas-account.md) nasıl tooupdate hello portal veya PowerShell başarısız olduysa kullanarak var olan Otomasyon hesabınızı hello farklı çalıştır hesapları açıklar ilk olarak bir farklı çalıştır veya Klasik farklı çalıştır hesabıyla yapılandırılmış. Toocreate bir farklı çalıştır ve klasik farklı çalıştır hesabı kuruluş sertifika yetkilisi (CA) tarafından verilen bir sertifika ile isterseniz, nasıl toocreate hello hesaplarını kullanarak bu makale toolearn gözden geçirin. Bu yapılandırma.     
  
 ## <a name="network-planning"></a>Ağ planlama
-Karma Runbook Çalışanınızın Microsoft Operations Management Suite’e (OMS) bağlanması ve kaydolması için aşağıda belirtilen bağlantı noktası numarası ve URL’lere erişiminin olması gerekir.  Bunlar dışında, OMS’ye bağlanmak için [Microsoft İzleme Aracısının gerektirdiği bağlantı noktaları ve URL’ler](../log-analytics/log-analytics-windows-agents.md#network) mevcuttur. Aracı ile OMS hizmeti arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olmanız gerekir. İnternet'e erişimi kısıtlamak için güvenlik duvarı kullanıyorsanız erişime izin vermek için güvenlik duvarınızı yapılandırmanız gerekir.
+Hello karma Runbook çalışanı tooconnect tooand kayıt Microsoft Operations Management Suite (OMS), erişim toohello bağlantı noktası numarası olmalıdır ve hello URL'leri aşağıda açıklanmıştır.  Ayrıca toohello budur [bağlantı noktalarını ve URL'ler için gerekli hello Microsoft İzleme Aracısı](../log-analytics/log-analytics-windows-agents.md#network) tooconnect tooOMS. Merhaba Aracısı ile Merhaba OMS hizmeti arasındaki iletişimi için bir proxy sunucu kullanıyorsanız hello uygun kaynaklara erişilebilir tooensure gerekir. Bir güvenlik duvarı toorestrict erişim toohello Internet kullanırsanız, güvenlik duvarı toopermit erişiminizi tooconfigure gerekir.
 
-Aşağıdaki bilgiler, Karma Runbook Çalışanının Otomasyon ile iletişim kurması için gereken bağlantı noktası ve URL’leri listeler.
+Liste hello bağlantı noktası ve otomasyon ile Merhaba karma Runbook çalışanı toocommunicate için gerekli olan URL'ler altındaki Hello bilgi.
 
 * Bağlantı noktası: Giden İnternet erişimi için yalnızca TCP 443 gereklidir
 * Genel URL: *.azure-automation.net
 
-Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız varsa ve bu bölgesel veri merkezi ile iletişimi kısıtlamak istiyorsanız, aşağıdaki tabloda her bölgeye yönelik DNS kaydı verilmiştir.
+Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız var ve bu Bölgesel veri merkezi ile toorestrict iletişim istiyorsanız hello aşağıdaki tabloda hello DNS kaydı her bölge için sağlar.
 
 | **Bölge** | **DNS Kaydı** |
 | --- | --- |
@@ -135,60 +135,60 @@ Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız varsa ve bu b�
 | Birleşik Krallık Güney | uks-jobruntimedata-prod-su1.azure-automation.net |
 | ABD Devleti Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Adların yerine IP adreslerinin bir listesi için Microsoft Yükleme Merkezi’nden [Azure Veri Merkezi IP adresi](https://www.microsoft.com/download/details.aspx?id=41653) xml dosyasını indirip gözden geçirin. 
+Adları yerine IP adresleri listesi, indirin ve hello gözden [Azure veri merkezi IP adresi](https://www.microsoft.com/download/details.aspx?id=41653) hello Microsoft Download Center xml dosyasından. 
 
 > [!NOTE]
-> Bu dosya, Microsoft Azure Veri Merkezlerinde kullanılan IP adresi aralıklarını (İşlem, SQL ve Depolama aralıkları dahil olmak üzere) içerir. O anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtan güncelleştirilmiş bir dosya haftalık olarak yayınlanır. Dosyada görünen yeni aralıklar en az bir hafta boyunca veri merkezlerinde kullanılmaz. Lütfen her hafta yeni xml dosyasını indirin ve Azure’da çalışan hizmetleri doğru şekilde tanımlamak üzere sitenizde gerekli değişiklikleri yapın. Express Route kullanıcıları bu dosyanın, her ayın ilk haftasında Azure alanındaki BGP tanıtımını güncelleştirmek için kullanıldığını fark edebilir. 
+> Bu dosya hello Microsoft Azure veri merkezleri kullanılan (işlem, SQL ve depolama aralıkları dahil) başlangıç IP adresi aralıklarını içerir. Güncelleştirilen bir dosya şu anda dağıtılan hello aralıkları ve tüm yaklaşan değişiklikleri toohello IP aralıkları yansıtır haftalık nakledilir. Merhaba dosyasında görünen yeni aralıkları için en az bir hafta hello veri merkezlerinde kullanılmayacak. Lütfen yükleme hello yeni xml dosyası her hafta ve sitenizde hello gerekli değişiklikleri yapın toocorrectly Azure üzerinde çalışan hizmetleri tanımlayın. Hızlı rota kullanıcıların bu dosyayı tooupdate hello BGP reklamı'hello Azure alan her ayın ilk haftasında kullanılan unutmayın. 
 > 
 
 ## <a name="creating-an-automation-account"></a>Otomasyon hesabı oluşturma
 
-Azure portalında bir Otomasyon hesabı oluşturmak için farklı yöntemler vardır.  Aşağıdaki tabloda her dağıtım deneyiminin türü ve aralarındaki farklılıklar verilmiştir.  
+Bir Otomasyon hesabı hello Azure portalında oluşturabileceğiniz farklı yolu vardır.  Aşağıdaki tablonun hello her tür dağıtım deneyimi ve arasındaki farkları tanıtır.  
 
 |Yöntem | Açıklama |
 |-------|-------------|
-| Market’ten Otomasyon ve Denetim seçme | Aynı kaynak grubunda ve bölgede birbirine bağlı bir Otomasyon hesabı ve OMS çalışma alanı oluşturan bir teklif.  OMS tümleştirmesi, zaman içinde runbook iş durumunu ve iş akışlarını izlemek, analiz etmek ve sorunların iletilmesini veya araştırılmasını sağlayan gelişmiş özelliklerinden yararlanmak için Log Analytics’in kullanılmasına da imkan tanır. Teklif, varsayılan olarak etkin olan Değişiklik İzleme ve Güncelleştirme Yönetimi çözümlerini de dağıtır. |
-| Market’ten Otomasyon seçme | OMS çalışma alanına bağlı olmayan yeni veya mevcut bir kaynak grubunda Otomasyon hesabı oluşturur ve Otomasyon ve Denetim teklifindeki çözümleri içermez. Bu temel yapılandırma sizi Otomasyon ile tanıştırır ve runbook yazma, DSC yapılandırmaları ve hizmetin özelliklerini kullanma hakkında bilgi edinmenize yardımcı olabilir. |
-| Seçili Yönetim çözümleri | **[Güncelleştirme Yönetimi](../operations-management-suite/oms-solution-update-management.md)**, **[Mesai saatleri dışında VM’leri başlatma/durdurma](automation-solution-vm-management.md)** veya **[Değişiklik İzleme](../log-analytics/log-analytics-change-tracking.md)** gibi bir çözüm seçerseniz, mevcut bir Otomasyon ve OMS çalışma alanını seçmeniz istenir ya da çözümün aboneliğinizde dağıtılması için gerekiyorsa her ikisini de oluşturma seçeneği sunulur. |
+| Otomasyon & hello Market denetiminden Seç | Bir Otomasyon hesabı ve OMS çalışma alanı oluşturur bir sunum tooone bağlı başka bir programda hello aynı kaynak grubu ve bölge.  OMS ile tümleştirme de günlük analizi toomonitor kullanmanın avantajı hello içerir ve runbook iş durumu ve iş akışları zamanla çözümlemek ve Gelişmiş Özellikler tooescalate kullanma veya sorunlarını araştırmak. Merhaba ayrıca sunumu varsayılan olarak etkinleştirilen hello değişiklik izleme ve güncelleştirme yönetimi çözümleri, dağıtır. |
+| Otomasyon Market hello seçin | Bağlantılı tooan OMS çalışma değildir ve hello otomasyon ve denetim teklifi kullanılabilir tüm çözümlerinden içermeyen bir yeni veya var olan kaynak grubunda bir Otomasyon hesabı oluşturur. Bu tooAutomation tanıtan bir temel yapılandırma ve toowrite runbook'ları, DSC yapılandırmalarını ve kullanım hello hizmet özelliklerini nasıl hello öğrenmenize yardımcı olabilir. |
+| Seçili Yönetim çözümleri | Bir çözüm – seçerseniz  **[güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)**,  **[dışı saatlerde sırasında sanal makineleri Başlat/Durdur](automation-solution-vm-management.md)**, veya  **[ Değişiklik izleme](../log-analytics/log-analytics-change-tracking.md)**  tooselect var olan otomasyon ve OMS çalışma sor veya aboneliğinizde dağıtılan hello çözüm toobe için gerekli olarak her ikisi de seçeneği toocreate hello sunar. |
 
-Bu konu başlığı, Otomasyon ve Denetim teklifi eklenerek bir Otomasyon hesabı ve OMS çalışma alanı oluşturma işleminde size yol gösterir.  Teste yönelik tek başına Otomasyon hesabı oluşturmak veya hizmetin önizlemesini görmek için, aşağıdaki [Tek başına Otomasyon hesabı oluşturma](automation-create-standalone-account.md) makalesini gözden geçirin.  
+Bu konuda bir Otomasyon hesabı ve OMS çalışma ekleme hello otomasyon ve denetim teklifi tarafından oluşturmada size yol gösterir.  tek başına bir Otomasyon hesabı sınama ya da toopreview hello hizmeti için aşağıdaki makaleye bakın gözden geçirme hello toocreate [tek başına Automation hesabı oluşturma](automation-create-standalone-account.md).  
 
 ### <a name="create-automation-account-integrated-with-oms"></a>OMS ile tümleştirilmiş Otomasyon hesabı oluşturma
-Otomasyon eklemek için önerilen yöntem, Market’ten Otomasyon ve Denetim teklifinin seçilmesidir.  Bu işlem hem bir Otomasyon hesabı oluşturur hem de teklifle birlikte sunulan yönetim çözümlerini yükleme seçeneğiyle birlikte OMS çalışma alanı ile tümleştirme sağlar.  
+Merhaba Market hello hello otomasyon ve denetim teklifi seçerek Otomasyon olduğu yöntemi tooonboard önerilir.  Bu, hem bir Otomasyon hesabı oluşturur ve hello teklifi ile kullanılabilen hello seçeneği tooinstall hello yönetim çözümleri dahil olmak üzere bir OMS çalışma ile Merhaba tümleştirme oluşturur.  
 
-1. Azure portalında Abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.
+1. Toohello Azure portal hello abonelik Yöneticileri rolünün üyesi ve hello aboneliğinin ortak yöneticisi olan bir hesapla oturum açın.
 
 2. **Yeni**’ye tıklayın.<br><br> ![Azure portalında Yeni seçeneğini belirleyin](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. **Otomasyon** araması yapın ve sonra arama sonuçlarından **Otomasyon ve Denetim*** öğesini seçin.<br><br> ![Market’te Otomasyon ve Denetim araması yapıp seçin](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. Arama **Otomasyon** ve ardından hello seçin arama sonuçları **otomasyon ve Denetim***.<br><br> ![Market’te Otomasyon ve Denetim araması yapıp seçin](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
-4. Teklifin açıklamasını okuduktan sonra **Oluştur**’a tıklayın.  
+4. Merhaba teklifi Hello açıklamasını okuduktan sonra tıklatın **oluşturma**.  
 
-5. **Otomasyon ve Denetim** ayarları dikey penceresinde **OMS Çalışma Alanı**’nı seçin.  **OMS Çalışma Alanları** dikey penceresinde, Otomasyon hesabının bulunduğu Azure aboneliğine bağlı olan bir OMS çalışma alanı seçin ya da yeni bir OMS çalışma alanı oluşturun.  OMS çalışma alanınız yoksa **Yeni Çalışma Alanı Oluştur**’u seçip **OMS Çalışma Alanı** dikey penceresinde aşağıdakileri yapın: 
-   - Yeni **OMS Çalışma Alanı** için bir ad belirtin.
-   - Varsayılan seçili abonelik uygun değilse açılan listeden bağlanacak bir **Abonelik** seçin.
+5. Merhaba üzerinde **otomasyon ve Denetim** dikey penceresinde, select **OMS çalışma**.  Merhaba üzerinde **OMS çalışma alanları** dikey penceresinde, Automation hesabı hello aynı Azure aboneliği olan bir OMS çalışma bağlı toohello seçin veya bir OMS çalışma alanı oluşturun.  Bir OMS çalışma yoksa seçin **yeni çalışma alanı oluştur** ve hello **OMS çalışma** dikey penceresinde hello aşağıdakileri gerçekleştirin: 
+   - Merhaba yeni bir ad belirtin **OMS çalışma**.
+   - Seçin bir **abonelik** hello varsayılan seçili uygun değilse toolink tooby hello aşağı açılan listeden seçerek..
    - **Kaynak Grubu** için bir kaynak grubu oluşturabilir veya mevcut bir kaynak grubunu seçebilirsiniz.  
-   - Bir **Konum** seçin.  Şu anda yalnızca **Avustralya Güneydoğu**, **Doğu ABD**, **Güneydoğu Asya**, **Batı Orta ABD** ve **Batı Avrupa** konumları kullanılabilir.
-   - Bir **Fiyatlandırma katmanı** seçin.  Çözüm iki katmanda sunulur: ücretsiz ve Düğüm Başına (OMS) katmanı.  Ücretsiz katmanında günlük toplanan veri miktarı, elde tutma süresi ve runbook işi çalışma zamanı dakika sayısına ilişkin sınırlar vardır.  Düğüm Başına (OMS) katmanında günlük toplanan veri miktarı için bir sınır yoktur.  
-   - **Otomasyonu Hesabı**’nı seçin.  Yeni bir OMS çalışma alanı oluşturuyorsanız Azure aboneliğiniz, kaynak grubunuz ve bölgeniz dahil olmak üzere belirtilen yeni OMS çalışma alanı ile ilişkilendirilen bir Otomasyon hesabı da oluşturmanız gerekir.  **Otomasyon hesabı oluştur**’u seçin ve **Otomasyon Hesabı** dikey penceresinde aşağıdaki bilgileri girin: 
-  - **Ad** alanına Otomasyon hesabının adını girin.
+   - Bir **Konum** seçin.  Şu anda hello yalnızca kullanılabilir konumlarının **Avustralya Güneydoğu**, **Doğu ABD**, **Güneydoğu Asya**, **Batı Orta ABD**ve  **Batı Avrupa**.
+   - Bir **Fiyatlandırma katmanı** seçin.  Merhaba çözüm iki katmanlarda sunulur: boşaltın ve her düğüm (OMS) katmanı.  Merhaba ücretsiz katmanı hello günlük tutma süresi ve runbook iş çalışma zamanı dakika toplanan veri miktarına bir sınırı vardır.  Merhaba başına düğüm (OMS) katmanı bir sınır hello günlük toplanan veri miktarına sahip değil.  
+   - **Otomasyonu Hesabı**’nı seçin.  Yeni bir OMS çalışma alanı oluşturuyorsanız, gerekli tooalso Azure abonelik, kaynak grubu ve bölge gibi daha önce belirtilen hello yeni OMS çalışma alanı ile ilişkili olan bir Otomasyon hesabı oluşturun.  Seçebileceğiniz **Automation hesabı oluşturma** ve hello **Otomasyon hesabı** dikey penceresinde hello şunları sağlar: 
+  - Merhaba, **adı** alanında, hello hello Automation hesabı adını girin.
 
-    Tüm diğer seçenekler, seçili OMS çalışma alanına dayalı olarak otomatik doldurulur ve bu seçenekler değiştirilemez.  Teklif için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır.  **Tamam**’a tıkladığınızda yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur.  Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
+    Seçili hello OMS çalışma alanı temelli tüm diğer seçenekler otomatik olarak doldurulur ve bu seçenekleri değiştirilemez.  Bir Azure farklı çalıştır hesabı hello varsayılan kimlik doğrulama hello teklifi için yöntemidir.  Tıkladığınızda **Tamam**hello yapılandırma seçenekleri doğrulanır ve hello Otomasyon hesabı oluşturulur.  Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde. 
 
-    Aksi takdirde, mevcut bir Otomasyon Farklı Çalıştır hesabını seçebilirsiniz.  Seçtiğiniz hesap önceden başka bir OMS çalışma alanına bağlı olamaz, böyle olması durumunda dikey pencerede bir bildirim iletisi gösterilir.  Önceden bağlıysa, farklı bir Otomasyon Farklı Çalıştır hesabı seçmeniz veya bir hesap oluşturmanız gerekir.
+    Aksi takdirde, mevcut bir Otomasyon Farklı Çalıştır hesabını seçebilirsiniz.  Seçtiğiniz hello hesabı zaten bağlı tooanother OMS çalışma olamaz, aksi takdirde bir bildirim iletisi hello dikey pencerede sunulur.  Zaten bağlıysa, tooselect farklı bir Automation farklı çalıştır hesabı gerekiyor veya bir tane oluşturun.
 
-    Gerekli bilgileri doldurduktan sonra **Oluştur**’a tıklayın.  Bilgiler doğrulanır ve Otomasyon Hesabı ile Farklı Çalıştır hesapları oluşturulur.  Otomatik olarak **OMS çalışma alanı** dikey penceresine geri dönersiniz.  
+    Gerekli hello bilgileri tamamladıktan sonra tıklatın **oluşturma**.  Merhaba bilgi doğrulanır ve hello Otomasyon hesabı ve farklı çalıştır hesapları oluşturulur.  Toohello döndürülen **OMS çalışma** dikey penceresinde otomatik olarak.  
 
-6. **OMS Çalışma Alanı** dikey penceresinde gerekli bilgileri girdikten sonra **Oluştur**’a tıklayın.  Bilgilerin doğrulanıp çalışma alanının oluşturulması sırasında işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.  **Çözüm Ekle** dikey penceresine geri dönersiniz.  
+6. Merhaba üzerinde hello gerekli bilgileri girdikten sonra **OMS çalışma** dikey penceresinde tıklatın **oluşturma**.  Merhaba bilgi doğrulanır ve hello çalışma alanı oluşturulur, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde.  Toohello döndürülen **Çözüm Ekle** dikey.  
 
-7. **Otomasyon ve Denetim** ayarları dikey penceresinde, önceden seçilmiş önerilen çözümleri yüklemek istediğinizi onaylayın. Herhangi bir seçimi kaldırırsanız, daha sonra tek tek yükleyebilirsiniz.  
+7. Merhaba üzerinde **otomasyon ve Denetim** dikey penceresinde, istediğiniz tooinstall hello önerilen önceden seçilmiş çözümleri onaylayın. Herhangi bir seçimi kaldırırsanız, daha sonra tek tek yükleyebilirsiniz.  
 
-8. Otomasyon ve OMS çalışma alanı ekleme işlemine devam etmek için **Oluştur**’a tıklayın. Tüm ayarlar doğrulanır ve sonra teklifin aboneliğinize dağıtılması denenir.  Bu işlemin tamamlanması birkaç saniye alabilir ve ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
+8. Tıklatın **oluşturma** tooproceed ekleme otomasyon ve bir OMS çalışma. Tüm ayarlar doğrulanır ve aboneliğinizde sunumu toodeploy hello çalışır.  Bu işlem birkaç sürebilir saniye toocomplete ve altında ilerleme durumunu izleyebilirsiniz **bildirimleri** hello menüsünde. 
 
-Teklif eklendikten sonra runbook oluşturmaya başlayabilir, etkinleştirdiğiniz yönetim çözümleriyle çalışabilir, [Karma Runbook çalışanı](automation-hybrid-runbook-worker.md) rolü dağıtabilir veya bulut ya da şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri toplamak üzere [Log Analytics](https://docs.microsoft.com/azure/log-analytics) ile çalışabilirsiniz.   
+Hello teklifi edildi olduktan sonra yönetim çözümleri, etkin runbook'ları, hello çalışmak oluşturmaya başlamak, dağıtımı bir [karma Runbook çalışanı](automation-hybrid-runbook-worker.md) rol veya ile çalışmaya başlamak [günlük analizi](https://docs.microsoft.com/azure/log-analytics) toocollect verileri Bulut veya şirket içi ortamınızdaki kaynakların tarafından üretildi.   
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Otomasyonu Farklı Çalıştır hesabı kimlik doğrulama testi](automation-verify-runas-authentication.md) bölümünü gözden geçirerek, yeni Otomasyon hesabınızın Azure kaynaklarıyla kimlik doğrulaması yapıp yapamadığını onaylayabilirsiniz.
-* Runbook'lar oluşturmaya başlamak için yazmaya başlamadan önce desteklenen [Otomasyon runbook türlerini](automation-runbook-types.md) ve ilgili noktaları gözden geçirin.
+* tooget başlatılan runbook'larınızı oluşturma ile ilk hello gözden [Automation runbook türleri](automation-runbook-types.md) yazma başlamadan önce ilgili dikkat edilecek noktalar ve desteklenir.
 
 

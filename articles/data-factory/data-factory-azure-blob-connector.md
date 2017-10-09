@@ -1,6 +1,6 @@
 ---
-title: Veri kopyalama/Azure Blob depolama biriminden | Microsoft Docs
-description: "Azure Data Factory'de BLOB verileri kopyalamak öğrenin. Bizim örnek kullanın: ve Azure Blob Storage ve Azure SQL veritabanına veri kopyalamak nasıl."
+title: Azure Blob Storage/aaaCopy verileri | Microsoft Docs
+description: "Nasıl toocopy blob Azure Data Factory veri öğrenin. Bizim örnek kullanın: nasıl toocopy veri tooand Azure Blob Storage ve Azure SQL veritabanı."
 keywords: BLOB verilerini, azure blob kopyalama
 services: data-factory
 documentationcenter: 
@@ -15,74 +15,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 2cf955b52010869a4e753c441e17bdd32fd2e63d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8428c64e8e8b1084b3f2f680c4e1819559e4ffa3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Veri ya da Azure Data Factory kullanarak Azure Blob depolama biriminden kopyalayın
-Bu makalede kopya etkinliği Azure Data Factory'de ve Azure Blob depolama biriminden veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
+# <a name="copy-data-tooor-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob depolama alanından veri tooor kopyalama
+Bu makalede nasıl toouse hello kopya etkinliği Azure Data Factory toocopy veri tooand Azure Blob depolama biriminden de açıklanmaktadır. Üzerinde hello derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalenin hello kopyalama etkinliği ile veri taşıma için genel bir bakış sunar.
 
 ## <a name="overview"></a>Genel Bakış
-Verileri Azure Blob Storage için tüm desteklenen kaynak veri deposundan veya Azure Blob Storage tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Aşağıdaki tabloda tarafından kopyalama etkinliği iç havuzlar veya kaynakları olarak desteklenen veri depoları listesini sağlar. Örneğin, veri taşıyabilirsiniz **gelen** bir SQL Server veritabanı veya bir Azure SQL veritabanı **için** Azure blob depolama. Ve veri kopyalayabilirsiniz **gelen** Azure blob depolama **için** Azure SQL Data Warehouse veya bir Azure Cosmos DB koleksiyonu. 
+Veri depolamak tooAzure Blob Storage veya Azure Blob Storage desteklenen tooany havuz verileri depolamak herhangi desteklenen bir kaynaktan veri kopyalayabilirsiniz. Merhaba aşağıdaki tabloda kaynakları olarak desteklenen veri depoları listesini sağlar veya tarafından hello kopyalama etkinliği iç havuzlar. Örneğin, veri taşıyabilirsiniz **gelen** bir SQL Server veritabanı veya bir Azure SQL veritabanı **için** Azure blob depolama. Ve veri kopyalayabilirsiniz **gelen** Azure blob depolama **için** Azure SQL Data Warehouse veya bir Azure Cosmos DB koleksiyonu. 
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
-Veri kopyalama **Azure Blob depolama biriminden** aşağıdaki veri depolar:
+Veri kopyalama **Azure Blob depolama biriminden** veri depolarına aşağıdaki toohello:
 
 [!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
 
-Aşağıdaki veri depolarına verileri kopyalayabilirsiniz **Azure Blob depolama alanına**:
+Veri depoları aşağıdaki hello verileri kopyalayabilirsiniz **tooAzure Blob Storage**:
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
  
 > [!IMPORTANT]
-> Kopyalama etkinliği başlangıç/bitiş hem genel amaçlı Azure depolama hesapları hem de etkin/Cool Blob Depolama veri kopyalamayı destekler. Etkinlik destekler **bloğundan okuma, ekleme veya sayfa blobları**, ancak destekleyen **yalnızca blok yazma**. Sayfa blobları tarafından yedeklenen olduğundan azure Premium depolama havuzu olarak desteklenmiyor.
+> Kopyalama etkinliği destekleyen kopyalama verilerden / tooboth genel amaçlı Azure depolama hesapları ve sık erişimli/seyrek erişimli Blob Depolama. Merhaba etkinlik destekler **bloğundan okuma, ekleme veya sayfa blobları**, ancak destekleyen **tooonly blok blobları yazma**. Sayfa blobları tarafından yedeklenen olduğundan azure Premium depolama havuzu olarak desteklenmiyor.
 > 
-> Verileri başarıyla hedefe kopyalandıktan sonra kopyalama etkinliği kaynaktan verileri silmez. Sonra başarılı bir kopyasını kaynak verilerini silmek ihtiyacınız varsa oluşturma bir [özel etkinlik](data-factory-use-custom-activities.md) verileri silmek ve ardışık düzeninde etkinlik kullanın. Bir örnek için bkz: [Delete blob veya klasör örneği github'daki](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity). 
+> Veri başarıyla olduğundan hello toohello hedef kopyalandıktan sonra kopyalama etkinliği hello kaynaktan verileri silmez. Sonra başarılı bir kopyasını toodelete kaynak verilere ihtiyacınız varsa oluşturma bir [özel etkinlik](data-factory-use-custom-activities.md) toodelete hello veri ve hello ardışık düzeninde hello etkinliği kullanın. Merhaba bir örnek için bkz: [Delete blob veya klasör örneği github'daki](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity). 
 
 ## <a name="get-started"></a>başlarken
 Farklı araçlar/API'lerini kullanarak verileri Azure Blob Storage/gruptan taşır kopyalama etkinliği ile işlem hattı oluşturun.
 
-Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bu makalede sahip bir [izlenecek](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) verileri bir Azure Blob Depolama Birimi konumundan başka bir Azure Blob depolama konumuna kopyalamak için bir işlem hattı oluşturmak için. Verileri Azure Blob depolama alanından Azure SQL veritabanına kopyalamak için bir işlem hattı oluşturma bir öğretici için bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
+Merhaba en kolay yolu toocreate bir ardışık düzen olduğu toouse hello **Kopyalama Sihirbazı'nı**. Bu makalede sahip bir [izlenecek](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) bir Azure Blob Depolama konumu tooanother Azure Blob depolama konumunu bir ardışık düzen toocopy verileri oluşturmak için. Ardışık Düzen toocopy veri bir Azure Blob Storage tooAzure SQL veritabanı oluşturma, Öğretici için bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+Aşağıdaki araçlar toocreate bir ardışık düzen hello de kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) adım adım yönergeler toocreate kopyalama etkinliği ile işlem hattı için.
 
-Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
+Merhaba araçları veya API'lerle de kullansanız adımları toocreate veri kaynağına veri dosyaları tooa havuz veri deposunu taşır ardışık aşağıdaki hello gerçekleştirin:
 
 1. Oluşturma bir **veri fabrikası**. Veri Fabrikası bir veya daha fazla ardışık düzen içerebilir. 
-2. Oluşturma **bağlantılı Hizmetleri** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar. Örneğin, verileri Azure blob depolama alanından Azure SQL veritabanına kopyalıyorsanız Azure storage hesabını ve Azure SQL veritabanını veri fabrikanıza bağlamak için iki bağlı hizmet oluşturun. Azure Blob depolama alanına özel bağlantılı hizmet özellikleri için bkz: [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü. 
-2. Oluşturma **veri kümeleri** kopyalama işlemi için girdi ve çıktı verilerini temsil etmek için. Son adımda bahsedilen örnekte blob kapsayıcısı ve giriş verilerini içeren klasörü belirtmek için bir veri kümesi oluşturun. Ve blob depolama biriminden kopyalanan verilerini tutan Azure SQL veritabanında SQL tablosu belirtmek için başka bir veri kümesi oluşturun. Azure Blob depolama alanına özel veri kümesi özellikleri için bkz: [veri kümesi özellikleri](#dataset-properties) bölümü.
-3. Oluşturma bir **ardışık düzen** bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile. Daha önce bahsedilen örnekte BlobSource bir kaynak ve SqlSink havuzu olarak kopya etkinliği için kullanırsınız. Azure Blob depolama alanına Azure SQL veritabanından kopyalıyorsanız benzer şekilde, SqlSource ve BlobSink kopyalama etkinliği kullanırsınız. Azure Blob depolama alanına belirli kopyalama etkinliği özellikleri için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties) bölümü. Bir veri deposu bir kaynak veya bir havuz nasıl kullanılacağı hakkında daha fazla bilgi için önceki bölümde, veri deposu için bağlantıya tıklayın.  
+2. Oluşturma **bağlantılı Hizmetleri** toolink girdi ve çıktı veri depoları tooyour veri fabrikası. Bir Azure blob depolama tooan Azure SQL veritabanından veri kopyalama, örneğin, iki bağlı hizmet toolink Azure depolama hesabınız ve Azure SQL veritabanı tooyour veri fabrikası oluşturun. Belirli tooAzure Blob Storage bağlı hizmeti özellikler için bkz: [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü. 
+2. Oluşturma **veri kümeleri** giriş ve çıkış toorepresent hello için veri kopyalama işlemi. Merhaba son adımda bahsedilen hello örnekte, bir veri kümesi toospecify hello blob kapsayıcısı ve hello giriş verisi içeren klasörü oluşturun. Ve hello blob depolama biriminden kopyalanan hello verilerini tutan hello Azure SQL veritabanında başka bir veri kümesi toospecify hello SQL tablo oluşturun. Belirli tooAzure Blob Storage veri kümesi özellikler için bkz: [veri kümesi özellikleri](#dataset-properties) bölümü.
+3. Oluşturma bir **ardışık düzen** bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile. Daha önce bahsedilen hello örnekte BlobSource bir kaynak ve SqlSink havuzu olarak hello kopya etkinliği için kullanırsınız. Azure SQL veritabanı tooAzure Blob Depolama kopyalıyorsanız benzer şekilde, SqlSource ve BlobSink hello kopyalama etkinliği kullanırsınız. Belirli tooAzure Blob Storage kopyalama etkinliği özellikler için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties) bölümü. Nasıl toouse bir veri deposu bir kaynak veya bir havuz olarak hakkında daha fazla bilgi için veri deposu hello önceki bölümdeki hello bağlantısına tıklayın.  
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, JSON biçimini kullanarak bu Data Factory varlıklarını tanımlayın.  / Azure Blob depolama biriminden veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımlarıyla örnekleri için bkz: [JSON örnekler](#json-examples-for-copying-data-to-and-from-blob-storage  ) bu makalenin.
+Başlangıç Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve hello ardışık düzeni) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıklarını hello JSON biçimini kullanarak tanımlayın.  Kullanılan toocopy verileri Azure Blob Storage/Data Factory varlıkları için JSON tanımlarıyla örnekleri için bkz: [JSON örnekler](#json-examples-for-copying-data-to-and-from-blob-storage  ) bu makalenin.
 
-Aşağıdaki bölümler, Azure Blob depolama alanına Data Factory varlıklarını belirli tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümlerde hello kullanılan toodefine Data Factory varlıkları belirli tooAzure Blob Storage JSON özellikleri hakkında ayrıntılı bilgiler sağlar.
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
-Bağlı hizmetler Azure Storage bir Azure data factory'ye bağlamak için kullanabileceğiniz iki tür vardır. Bunlar: **AzureStorage** bağlantılı hizmeti ve **AzureStorageSas** bağlı hizmeti. Azure Storage bağlı hizmeti Azure Storage data factory ile genel erişim sağlar. Azure depolama SAS (paylaşılan erişim imzası) bağlı ise hizmeti Azure Storage veri fabrikası kısıtlanmış/zaman sınırlı erişimi olan sağlar. Bu iki bağlı hizmet arasındaki herhangi bir fark vardır. Gereksinimlerinize uygun bağlı hizmeti seçin. Aşağıdaki bölümler bu iki bağlı hizmet üzerinde daha fazla ayrıntı sağlar.
+İki tür vardır bağlı hizmetler Azure Storage tooan Azure data factory toolink kullanabilirsiniz. Bunlar: **AzureStorage** bağlantılı hizmeti ve **AzureStorageSas** bağlı hizmeti. Hello Azure Storage bağlı hizmeti hello data factory genel erişim toohello Azure Storage ile sağlar. Hello Azure depolama SAS (paylaşılan erişim imzası) bağlı ise hello data factory ile sınırlı/zaman sınırlı erişim toohello Azure depolama hizmeti sağlar. Bu iki bağlı hizmet arasındaki herhangi bir fark vardır. Gereksinimlerinize uygun hello bağlı hizmeti seçin. Merhaba aşağıdaki bölümlerde daha fazla ayrıntı bu iki bağlı hizmet sağlar.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Giriş veya çıkış verileri Azure Blob Depolama göstermek için bir veri kümesi belirtmek için veri kümesine tür özelliği ayarlayın: **AzureBlob**. Ayarlama **linkedServiceName** bağlı hizmeti Azure Storage veya Azure depolama SAS adını kümesinin özellik.  Veri kümesi türü özelliklerini belirtin **blob kapsayıcısı** ve **klasörü** blob depolamada.
+toospecify dataset toorepresent giriş veya çıkış verileri Azure Blob Depolama hello türü özelliği için hello kümesinin ayarlayın: **AzureBlob**. Set hello **linkedServiceName** özelliği hello dataset toohello adının hello Azure Storage veya Azure depolama SAS bağlantılı hizmeti.  Merhaba kümesinin Hello türü özellikleri belirtin hello **blob kapsayıcısı** ve hello **klasörü** hello blob depolama.
 
-JSON bölümleri & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
+Merhaba JSON bölümleri & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
 
-Veri Fabrikası yapısındaki"" şema üzerinde okuma veri kaynakları için Azure blob gibi tür bilgilerini sağlamaktan aşağıdaki temel CLS uyumlu .NET türü değerleri destekler: Int16, Int32, Int64, tek, Double, Decimal, Byte [], Bool, dize, GUID, Datetime, Datetimeoffset, Timespan. Veri Fabrikası tür dönüşümleri veri bir havuz veri deposu için bir kaynak veri deposundan taşırken otomatik olarak gerçekleştirir.
+Veri Fabrikası yapısındaki"" şema üzerinde okuma veri kaynakları için Azure blob gibi türü bilgileri sağlamak için temel CLS uyumlu .NET türü değerleri aşağıdaki hello destekler: Int16, Int32, Int64, tek, Double, Decimal, Byte [], Bool, dize, GUID, Datetime, Datetimeoffset, Timespan. Veri Fabrikası otomatik olarak veri kaynağına veri dosyaları tooa havuz veri deposunu taşırken tür dönüşümleri gerçekleştirir.
 
-**TypeProperties** bölüm bilgileri sağlar ve her veri kümesi türü için farklı konumu hakkında vb., verilerin veri deposundaki biçimlendirin. TypeProperties bölüm türü veri kümesi için **AzureBlob** veri kümesine aşağıdaki özelliklere sahiptir:
+Merhaba **typeProperties** bölüm bilgileri sağlar ve her veri kümesi türü için farklı hello konumu hakkında hello veri hello veri deposundaki vb., biçimlendirme. Merhaba typeProperties bölüm türü veri kümesi için **AzureBlob** veri kümesine hello aşağıdaki özelliklere sahiptir:
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Kapsayıcı ve klasöre blob depolamada yolu. Örnek: myblobcontainer\myblobfolder\ |Evet |
-| fileName |Blob adı. isteğe bağlıdır ve büyük küçük harfe duyarlı dosya adıdır.<br/><br/>Bir dosya adı belirtirseniz, (kopyalama dahil) etkinlik belirli Blob üzerinde çalışır.<br/><br/>Dosya adı belirtilmediğinde kopyalama tüm BLOB'lar girdi veri kümesi için folderPath içerir.<br/><br/>Zaman **fileName** bir çıkış veri kümesi için belirtilmemiş ve **preserveHierarchy** belirtilmedi etkinlik havuzunda oluşturulmuş dosya adı aşağıdaki olacaktır Bu biçim: veri.<Guid>. txt (örneğin:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bir dinamik folderPath ve zaman serisi verileri için dosya adı belirtmek için kullanabilirsiniz. Örneğin, folderPath için verileri saatte parametreli olabilir. Bkz: [partitionedBy özellik bölümünü kullanarak](#using-partitionedBy-property) ayrıntı ve örnekler için. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| folderPath |Yol toohello kapsayıcı ve klasöre hello blob depolama. Örnek: myblobcontainer\myblobfolder\ |Evet |
+| fileName |Merhaba blob adı. isteğe bağlıdır ve büyük küçük harfe duyarlı dosya adıdır.<br/><br/>Üzerinde bir dosya adı, hello (kopyalama dahil) etkinlik works belirtirseniz, belirli Blob hello.<br/><br/>FileName belirtilmediğinde kopyalama tüm BLOB'lar girdi veri kümesi için hello folderPath içerir.<br/><br/>Zaman **fileName** bir çıkış veri kümesi için belirtilmemiş ve **preserveHierarchy** belirtilmedi etkinlik havuzunda oluşturulan hello dosyasının hello adı, bu biçim aşağıdaki hello olacaktır: veri.<Guid>. txt (örneğin:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| partitionedBy |partitionedBy isteğe bağlı bir özelliktir. Bunu toospecify dinamik folderPath ve dosya adı için zaman serisi veri kullanabilirsiniz. Örneğin, folderPath için verileri saatte parametreli olabilir. Merhaba bkz [partitionedBy özellik bölümünü kullanarak](#using-partitionedBy-property) ayrıntı ve örnekler için. |Hayır |
+| Biçimi | şu biçimi türlerini hello desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Set hello **türü** biçimi tooone şu değerlerden biri altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Çok istiyorsanız**olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında hello Biçim bölümü atlayın. |Hayır |
+| Sıkıştırma | Merhaba türünü ve hello veri sıkıştırma düzeyini belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 ### <a name="using-partitionedby-property"></a>PartitionedBy özelliğini kullanma
-Önceki bölümde belirtildiği gibi bir dinamik folderPath ve zaman serisi verilerle dosya adını belirtebilirsiniz **partitionedBy** özelliği, [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md).
+Merhaba önceki bölümünde belirtildiği gibi bir dinamik folderPath ve zaman serisi verileri için dosya adı ile Merhaba belirtebilirsiniz **partitionedBy** özelliği, [Data Factory işlevler ve hello sistem değişkenleri](data-factory-functions-variables.md).
 
 Zaman serisi veri kümeleri, zamanlama ve dilimleri hakkında daha fazla bilgi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) ve [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makaleleri.
 
@@ -96,7 +96,7 @@ Zaman serisi veri kümeleri, zamanlama ve dilimleri hakkında daha fazla bilgi i
 ],
 ```
 
-Bu örnekte, {dilim} belirtilen veri fabrikası sistem değişkenin değerini SliceStart (YYYYMMDDHH) biçiminde ile değiştirilir. Dilimin başlangıç SliceStart başvuruyor. FolderPath her dilim için farklıdır. Örneğin: wikidatagateway/wikisampledataout/2014100103 veya wikidatagateway/wikisampledataout/2014100104
+Bu örnekte, {dilim} belirtilen hello Data Factory sistem değişkenin değerini SliceStart hello biçiminde (YYYYMMDDHH) ile değiştirilir. Merhaba SliceStart hello dilim toostart süresini ifade eder. Merhaba folderPath her dilim için farklıdır. Örneğin: wikidatagateway/wikisampledataout/2014100103 veya wikidatagateway/wikisampledataout/2014100104
 
 #### <a name="sample-2"></a>Örnek 2
 
@@ -115,157 +115,157 @@ Bu örnekte, {dilim} belirtilen veri fabrikası sistem değişkenin değerini Sl
 Bu örnekte, folderPath ve fileName özellikleri tarafından kullanılan ayrı değişkenleri içine yıl, ay, gün ve saat SliceStart ayıklanır.
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
-Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış veri kümeleri ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir. Bulunan özellikler **typeProperties** etkinlik bölümünü her etkinlik türü ile değişir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir. Bir Azure Blob depolama alanından veri taşıyorsanız, kaynak türü için kopyalama etkinliğinde ayarladığınız **BlobSource**. Bir Azure Blob depolama alanına veri taşıyorsanız, benzer şekilde, Havuz türü için kopyalama etkinliğinde ayarladığınız **BlobSink**. Bu bölümde BlobSource ve BlobSink tarafından desteklenen özellikler listesini sağlar.
+Merhaba bölümleri & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış veri kümeleri ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir. Oysa hello kullanılabilen özellikleri **typeProperties** hello etkinlik bölümünü her etkinlik türü ile değişir. Kopya etkinliği için bunlar hello türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir. Bir Azure Blob depolama alanından veri taşıyorsanız, hello kaynak türü hello kopyalama etkinliği çok ayarladığınız**BlobSource**. Veri tooan Azure Blob Storage taşıyorsanız, benzer şekilde, hello Havuz türü hello kopyalama etkinliği çok ayarladığınız**BlobSink**. Bu bölümde BlobSource ve BlobSink tarafından desteklenen özellikler listesini sağlar.
 
-**BlobSource** aşağıdaki özellikleri destekler **typeProperties** bölümü:
-
-| Özellik | Açıklama | İzin verilen değerler | Gerekli |
-| --- | --- | --- | --- |
-| Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
-
-**BlobSink** aşağıdaki özellikleri destekler **typeProperties** bölümü:
+**BlobSource** hello özelliklerinde aşağıdaki hello destekleyen **typeProperties** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| copyBehavior |Kaynak BlobSource veya dosya sistemi olduğunda kopyalama davranışını tanımlar. |<b>PreserveHierarchy</b>: Dosya hiyerarşisi hedef klasördeki korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yolunu aynıdır.<br/><br/><b>FlattenHierarchy</b>: tüm kaynak klasörü hedef klasör ilk düzeyi dosyalarıdır. Hedef dosyalar otomatik adına sahip. <br/><br/><b>MergeFiles</b>: bir dosya için kaynak klasöründeki tüm dosyaları birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilirse, belirtilen ad olur; Aksi takdirde otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
+| Özyinelemeli |Merhaba alt klasörler veya yalnızca hello belirtilen klasör Hello veri yinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
+
+**BlobSink** aşağıdaki özelliklere hello destekleyen **typeProperties** bölümü:
+
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
+| --- | --- | --- | --- |
+| copyBehavior |Merhaba kaynağı BlobSource veya dosya sistemi olduğunda hello kopyalama davranışını tanımlar. |<b>PreserveHierarchy</b>: korur hello hello hedef klasörü içinde dosya hiyerarşisi. Kaynak dosya toosource klasörünün göreli yolu Hello aynı toohello göreli hedef dosya tootarget klasör yoludur.<br/><br/><b>FlattenHierarchy</b>: hello kaynak klasördeki tüm dosyaları hello ilk hedef klasörü düzeyi. Merhaba hedef dosyalara otomatik adına sahip. <br/><br/><b>MergeFiles</b>: hello kaynak klasör tooone dosyasından tüm dosyaları birleştirir. Merhaba dosya/Blob adı belirtilirse, hello birleştirilmiş dosya adı hello belirtilen adı olur; Aksi takdirde otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
 
 **BlobSource** geriye dönük uyumluluk için bu iki özellik de destekler.
 
-* **treatEmptyAsNull**: null veya boş dize null değeri olarak kabul edilip edilmeyeceğini belirtir.
+* **treatEmptyAsNull**: belirtir olup olmadığını tootreat null veya boş dize olarak null değer.
 * **skipHeaderLineCount** -kaç satır atlandı belirtir. Yalnızca girdi veri kümesi TextFormat kullandığında geçerli olduğu.
 
-Benzer şekilde, **BlobSink** geriye dönük uyumluluk için aşağıdaki özelliği destekler.
+Benzer şekilde, **BlobSink** özelliği geriye dönük uyumluluk için aşağıdaki hello destekler.
 
-* **blobWriterAddHeader**: bir çıkış veri kümesi yazılırken sütun tanımları üstbilgisinin eklenip eklenmeyeceğini belirler.
+* **blobWriterAddHeader**: tooadd tooan yazılırken sütun tanımları üstbilgisinin veri kümesini çıktı olup olmadığını belirtir.
 
-Veri kümeleri artık aynı işlevselliği uygulamak aşağıdaki özellikleri destekler: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
+Veri kümeleri şimdi destek hello aşağıdaki uygulamak özelliklere hello aynı işlevselliği: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-Aşağıdaki tabloda, bu blob kaynak/havuz özellikleri yerine yeni veri kümesi özellikleri kullanma hakkında yönergeler sunmaktadır.
+Merhaba aşağıdaki tabloda bu blob kaynak/havuz özellikleri yerine hello yeni veri kümesi özellikleri kullanma hakkında yönergeler sunmaktadır.
 
 | Kopya etkinliği özelliği | Veri kümesi özelliği |
 |:--- |:--- |
-| BlobSource üzerinde skipHeaderLineCount |skipLineCount ve firstRowAsHeader. Satırlar ilk atlanır ve ilk satırın üstbilgi olarak sonra okuyun. |
+| BlobSource üzerinde skipHeaderLineCount |skipLineCount ve firstRowAsHeader. Satırlar ilk atlanır ve hello ilk satırın üstbilgi olarak sonra okuyun. |
 | BlobSource üzerinde treatEmptyAsNull |girdi veri kümesi üzerinde treatEmptyAsNull |
 | BlobSink üzerinde blobWriterAddHeader |Çıktı veri kümesi üzerinde firstRowAsHeader |
 
 Bkz: [belirtme TextFormat](data-factory-supported-file-and-compression-formats.md#text-format) bu özellikleri hakkında ayrıntılı bilgi için bölüm.    
 
 ### <a name="recursive-and-copybehavior-examples"></a>özyinelemeli ve copyBehavior örnekleri
-Bu bölümde, sonuçta elde edilen davranışını özyinelemeli ve copyBehavior değerleri farklı birleşimlerini kopyalama işlemi açıklanmaktadır.
+Bu bölümde hello kopyalama işlemi farklı bir özyinelemeli ve copyBehavior değerleri kombinasyonu için sonuçta elde edilen davranışını hello açıklanmaktadır.
 
 | Özyinelemeli | copyBehavior | Bunun sonucunda oluşan davranışı |
 | --- | --- | --- |
-| TRUE |preserveHierarchy |Bir kaynak klasörü için Klasör1 şu yapıda: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 kaynak aynı yapısını oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| TRUE |flattenHierarchy |Bir kaynak klasörü için Klasör1 şu yapıda: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef Klasör1 aşağıdaki yapısıyla oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya1 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya3 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 için otomatik olarak oluşturulan adı |
-| TRUE |mergeFiles |Bir kaynak klasörü için Klasör1 şu yapıda: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef Klasör1 aşağıdaki yapısıyla oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1 + dosya2 + dosya3 + File4 + 5 dosyası içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir |
-| False |preserveHierarchy |Bir kaynak klasörü için Klasör1 şu yapıda: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/><br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
-| False |flattenHierarchy |Bir kaynak klasörü için Klasör1 şu yapıda:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya1 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan adı<br/><br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
-| False |mergeFiles |Bir kaynak klasörü için Klasör1 şu yapıda:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1 + dosya2 içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir. dosya1 için otomatik olarak oluşturulan adı<br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
+| TRUE |preserveHierarchy |Bir kaynak klasörü için Klasör1 yapı izlenerek hello ile: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Merhaba hedef klasör Klasör1 aynı hello kaynağı olarak yapısı hello oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| TRUE |flattenHierarchy |Bir kaynak klasörü için Klasör1 yapı izlenerek hello ile: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Merhaba hedef Klasör1 yapı izlenerek hello ile oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya1 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya3 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 için otomatik olarak oluşturulan adı |
+| TRUE |mergeFiles |Bir kaynak klasörü için Klasör1 yapı izlenerek hello ile: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Merhaba hedef Klasör1 yapı izlenerek hello ile oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1 + dosya2 + dosya3 + File4 + 5 dosyası içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir |
+| False |preserveHierarchy |Bir kaynak klasörü için Klasör1 yapı izlenerek hello ile: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Merhaba hedef klasör Klasör1 yapı izlenerek hello ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/><br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
+| False |flattenHierarchy |Bir kaynak klasörü için Klasör1 yapı izlenerek hello ile:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Merhaba hedef klasör Klasör1 yapı izlenerek hello ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya1 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan adı<br/><br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
+| False |mergeFiles |Bir kaynak klasörü için Klasör1 yapı izlenerek hello ile:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Merhaba hedef klasör Klasör1 yapı izlenerek hello ile oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1 + dosya2 içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir. dosya1 için otomatik olarak oluşturulan adı<br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
 
-## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>İzlenecek yol: Kullanım Kopyalama Sihirbazı ' / Blob depolama biriminden verileri kopyalamak için
-Hızlı bir şekilde grafikten bir Azure blob depolama veri kopyalamak nasıl bakalım. Bu kılavuzda, hem kaynak hem de hedef veri türünü depolar: Azure Blob Storage. Bu kılavuzda ardışık düzen veri bir klasörden aynı blob kapsayıcısında başka bir klasöre kopyalar. Bu kılavuz, Blob Depolama kaynağı veya havuz olarak kullanırken ayarları veya özellikleri göstermek kasıtlı olarak basit bir işlemdir. 
+## <a name="walkthrough-use-copy-wizard-toocopy-data-tofrom-blob-storage"></a>İzlenecek yol: Kopyalama Sihirbazı'nı kullan toocopy veri/Blob depolama biriminden
+Nasıl tooquickly kopya verileri için/Azure blob depolama konumunda bakalım. Bu kılavuzda, hem kaynak hem de hedef veri türünü depolar: Azure Blob Storage. Merhaba ardışık düzen bu kılavuzda veri bir tooanother klasörü hello kopyalar aynı blob kapsayıcısı. Bu kılavuzda kasıtlı olarak basit tooshow olan ayarları veya Blob Depolama kaynağı veya havuz olarak kullanırken özellikleri. 
 
 ### <a name="prerequisites"></a>Ön koşullar
-1. Bir genel amaçlı oluşturma **Azure depolama hesabı** zaten yoksa. Her iki biçimde blob storage kullanma **kaynak** ve **hedef** verileri depolamak bu kılavuzda. bir Azure depolama hesabınız yoksa bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makale oluşturmak adımlar.
-2. Adlı bir blob kapsayıcı oluşturun **adfblobconnector** depolama hesabındaki. 
-4. Adlı bir klasör oluşturun **giriş** içinde **adfblobconnector** kapsayıcı.
-5. Adlı bir dosya oluşturun **emp.txt** ile aşağıdaki içerik ve kendisine karşıya **giriş** gibi araçları kullanarak klasör [Azure Storage Gezgini](https://azurestorageexplorer.codeplex.com/)
+1. Bir genel amaçlı oluşturma **Azure depolama hesabı** zaten yoksa. Her iki biçimde hello blob storage kullanma **kaynak** ve **hedef** verileri depolamak bu kılavuzda. bir Azure depolama hesabınız yoksa, hello bkz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) adımları toocreate bir makale.
+2. Adlı bir blob kapsayıcı oluşturun **adfblobconnector** hello depolama hesabındaki. 
+4. Adlı bir klasör oluşturun **giriş** hello içinde **adfblobconnector** kapsayıcı.
+5. Adlı bir dosya oluşturun **emp.txt** aşağıdaki hello ile içerik ve toohello karşıya **giriş** gibi araçları kullanarak klasör [Azure Storage Gezgini](https://azurestorageexplorer.codeplex.com/)
     ```json
     John, Doe
     Jane, Doe
     ```
-### <a name="create-the-data-factory"></a>Veri Fabrikası oluşturma
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Tıklatın **+ yeni** sol üst köşeden tıklatın **Intelligence + analiz**, tıklatıp **Data Factory**.
-3. **Yeni data factory** dikey penceresinde:   
-    1. Girin **ADFBlobConnectorDF** için **adı**. Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: `*Data factory name “ADFBlobConnectorDF” is not available`, veri fabrikası (örneğin, yournameADFBlobConnectorDF) adını değiştirin ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
+### <a name="create-hello-data-factory"></a>Merhaba veri fabrikası oluşturma
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Tıklatın **+ yeni** hello sol üst köşeden tıklatın **Intelligence + analiz**, tıklatıp **Data Factory**.
+3. Merhaba, **yeni data factory** dikey penceresinde:   
+    1. Girin **ADFBlobConnectorDF** hello için **adı**. Merhaba hello Azure veri fabrikasının adı genel olarak benzersiz olması gerekir. Merhaba hatayı alırsanız: `*Data factory name “ADFBlobConnectorDF” is not available`, hello veri fabrikası (örneğin, yournameADFBlobConnectorDF) hello adını değiştirin ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
     2. Azure **aboneliğinizi** seçin.
-    3. Kaynak grubu için seçin **kullanım varolan** varolan bir kaynak grubu seçin (veya) seçmek için **Yeni Oluştur** bir kaynak grubu için bir ad girmelisiniz.
-    4. Veri fabrikası için bir **konum** seçin.
-    5. Dikey pencerenin alt kısmındaki **Panoya sabitle** onay kutusunu seçin.
+    3. Kaynak grubu için seçin **kullanım varolan** tooselect bir var olan kaynak grubunu (veya) seçin **Yeni Oluştur** tooenter bir kaynak grubu için bir ad.
+    4. Seçin bir **konumu** hello veri fabrikası için.
+    5. Seçin **PIN toodashboard** hello dikey penceresinde hello altındaki onay kutusu.
     6. **Oluştur**'a tıklayın.
-3. Oluşturma işlemi tamamlandıktan sonra gördüğünüz **Data Factory** dikey penceresini aşağıdaki görüntüde gösterildiği gibi: ![Data factory giriş sayfası](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. Merhaba oluşturma işlemi tamamlandıktan sonra hello bkz **Data Factory** hello görüntü aşağıdaki gösterildiği gibi dikey: ![Data factory giriş sayfası](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Kopyalama Sihirbazı
-1. Data Factory giriş sayfasında, tıklatın **kopyalama [Önizleme] verileri** başlatmak için döşeme **kopyalama veri Sihirbazı** ayrı bir sekmede.    
+1. Merhaba Hello Data Factory giriş sayfasında, tıklatın **kopyalama [Önizleme] verileri** toolaunch döşeme **kopyalama veri Sihirbazı** ayrı bir sekmede.    
     
     > [!NOTE]
-    >    Web tarayıcısının "Yetkilendiriliyor..." durumunda takıldığını görürseniz, devre dışı bırakın/işaretini **üçüncü taraf tanımlama bilgilerini engelleyebilir ve site verileri** ayarlama (veya) etkin ve oluşturmak için bir özel durum **login.microsoftonline.com** ve ardından Sihirbazı yeniden başlatmayı deneyin.
-2. **Özellikler** sayfasında:
-    1. Girin **CopyPipeline** için **görev adı**. Görev adı, veri fabrikasında ardışık düzeni adıdır.
-    2. Girin bir **açıklama** görevin (isteğe bağlı).
-    3. İçin **görev tempoyla veya görev zamanlama**, tutmak **düzenli olarak zamanında** seçeneği. Bu görevi yalnızca bir kez art arda bir zamanlamaya göre çalıştır yerine çalıştırmak isteyip istemediğinizi seçin **kez Şimdi Çalıştır**. Öğesini seçerseniz, **kez Şimdi Çalıştır** seçeneği, bir [tek seferlik ardışık düzen](data-factory-create-pipelines.md#onetime-pipeline) oluşturulur. 
-    4. Ayarlarını koruyabilirsiniz **yinelenen desen**. Bu görev, sonraki adımda belirttiğiniz her gün başlangıç ve bitiş zamanları arasında çalışır.
-    5. Değişiklik **başlangıç tarihi ve saati** için **21/04/2017**. 
-    6. Değişiklik **bitiş tarihi ve saati** için **25/04/2017**. Takvim gözatma yerine tarihi yazın isteyebilirsiniz.     
+    >    Bu hello web tarayıcısının "Yetkilendiriliyor..." takılmış görürseniz, devre dışı bırakın/işaretini kaldırın **üçüncü taraf tanımlama bilgilerini engelleyebilir ve site verileri** ayarlama (veya) etkin ve oluşturmak için bir özel durum **login.microsoftonline.com**ve hello Sihirbazı yeniden başlatmayı deneyin.
+2. Merhaba, **özellikleri** sayfa:
+    1. Girin **CopyPipeline** için **görev adı**. Merhaba görev adı, veri fabrikasında ardışık düzeni hello hello adıdır.
+    2. Girin bir **açıklama** hello görevin (isteğe bağlı).
+    3. İçin **görev tempoyla veya görev zamanlama**, hello tutmak **düzenli olarak zamanında** seçeneği. Bu görevi yalnızca bir kez yerine çalıştırmak sürekli bir zamanlamaya göre toorun istiyorsanız seçin **kez Şimdi Çalıştır**. Öğesini seçerseniz, **kez Şimdi Çalıştır** seçeneği, bir [tek seferlik ardışık düzen](data-factory-create-pipelines.md#onetime-pipeline) oluşturulur. 
+    4. Hello ayarlarını koruyabilirsiniz **yinelenen desen**. Her gün çalışır hello arasında başlangıç ve bitiş, bu görev hello sonraki adımda belirtin.
+    5. Değişiklik hello **başlangıç tarihi ve saati** çok**21/04/2017**. 
+    6. Değişiklik hello **bitiş tarihi ve saati** çok**25/04/2017**. Merhaba takvimi aracılığıyla gözatma yerine tootype hello tarih isteyebilirsiniz.     
     8. **İleri**’ye tıklayın.
       ![Kopyalama aracı - Özellikler sayfası](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png) 
-3. **Kaynak veri deposu** sayfasında **Azure Blob Storage** kutucuğuna tıklayın. Kopyalama görevine yönelik kaynak veri deposunu belirtmek için bu sayfayı kullanın. Yeni bir veri deposu belirtmek için mevcut bir veri deposu bağlı hizmetini kullanabilirsiniz (veya) yeni bir veri deposu belirtebilirsiniz. Mevcut bir bağlı hizmeti kullanmak için seçeceğiniz **mevcut bağlı hizmetlerden** ve doğru bağlı hizmeti seçin. 
+3. Merhaba üzerinde **kaynak veri deposu** sayfasında, **Azure Blob Storage** döşeme. Bu sayfa toospecify hello kaynak veri deposu hello kopyalama görevi için kullanın. Yeni bir veri deposu belirtmek için mevcut bir veri deposu bağlı hizmetini kullanabilirsiniz (veya) yeni bir veri deposu belirtebilirsiniz. var olan toouse bağlantılı hizmeti, seçtiğiniz **mevcut bağlı hizmetlerden** ve hello doğru bağlı hizmeti seçin. 
     ![Kopyalama aracı - kaynak veri deposu sayfası](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
-4. **Azure Blob depolama hesabı belirtin** sayfasında:
-   1. İçin otomatik olarak oluşturulan adı bırakın **bağlantı adı**. Bağlantı adı türündeki bağlı hizmetin adıdır: Azure depolama. 
+4. Merhaba üzerinde **hello Azure Blob Depolama hesabı belirtin** sayfa:
+   1. İçin Hello otomatik olarak oluşturulan adı bırakın **bağlantı adı**. Merhaba bağlantı adı adıdır hello hello bağlantılı hizmet türü: Azure depolama. 
    2. **Hesap seçme yöntemi** için **Azure aboneliklerinden** seçeneğinin belirlendiğini onaylayın.
    3. Azure aboneliğinizi seçin ya da koruma **Tümünü Seç** için **Azure aboneliği**.   
-   4. Seçili abonelikte bulunan Azure depolama hesapları listesinden bir **Azure depolama hesabı** seçin. Ayrıca depolama hesabı ayarlarını el ile girmeyi seçebilirsiniz **el ile girmeniz** seçenek için **hesap seçme yöntemi**.
+   4. Seçin bir **Azure depolama hesabı** hello hesaplarına Azure depolama listesi hello seçili abonelikte kullanılabilir. Ayrıca tooenter depolama hesabı ayarlarını el ile seçerek seçebilirsiniz **el ile girmeniz** hello seçeneği **hesap seçme yöntemi**.
    5. **İleri**’ye tıklayın. 
-      ![Kopyalama aracı - Azure Blob Depolama hesabı belirtin](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
-5. **Girdi dosyası veya klasörü seçin** sayfasında:
+      ![Kopyalama aracı - hello Azure Blob Depolama hesabı belirtin](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
+5. Üzerinde **Seç hello girdi dosyası veya klasörü** sayfa:
    1. Çift **adfblobcontainer**.
-   2. Seçin **giriş**, tıklatıp **Seç**. Bu kılavuzda, giriş klasörü seçin. Ayrıca emp.txt dosya klasöründe yerine seçebilirsiniz. 
-      ![Kopyalama aracı - girdi dosyası veya klasörü seçin](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
-6. Üzerinde **girdi dosyası veya klasörü seçin** sayfa:
-    1. Onaylayın **dosya veya klasör** ayarlanır **adfblobconnector/giriş**. Dosyaları alt klasörlerde, örneğin, 04/2017/01, 04/2017/02 ve vb. adfblobconnector/giriş girin / {year} / {month} / {day} dosya veya klasör için. Metin kutusu dışında SEKME tuşuna bastığınızda biçimlerini (yyyy) yıl, ay (MM) ve gün (dd) seçmek için üç açılan listeleri bakın. 
-    2. Ayarlamayın **kopyalayın dosyayı yinelemeli olarak**. Hedefe kopyalanacak dosyaları yinelemeli olarak çapraz klasörlerde için bu seçeneği belirleyin. 
-    3. Sağlamadığı **ikili kopyalama** seçeneği. Hedef kaynak dosyaya ikili bir kopyasını gerçekleştirmek için bu seçeneği belirleyin. Daha fazla seçenek sonraki sayfalarda görebilmeniz için bu kılavuzda seçmeyin. 
-    4. Onaylayın **sıkıştırma türünü** ayarlanır **hiçbiri**. Kaynak dosyalar desteklenen biçimlerden birinde sıkıştırılmış bu seçenek için bir değer seçin. 
+   2. Seçin **giriş**, tıklatıp **Seç**. Bu kılavuzda, hello giriş klasörü seçin. Merhaba emp.txt dosya hello klasöründe bunun yerine seçeneğini de. 
+      ![Kopyalama aracı - hello girdi dosyası veya klasörü seçin](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+6. Merhaba üzerinde **Seç hello girdi dosyası veya klasörü** sayfa:
+    1. Bu hello onaylayın **dosya veya klasör** çok ayarlanır**adfblobconnector/giriş**. Merhaba dosyaları alt klasörlerde, örneğin, 04/2017/01, 04/2017/02 ve vb. adfblobconnector/giriş girin / {year} / {month} / {day} dosya veya klasör için. Merhaba metin kutusu dışında SEKME tuşuna bastığınızda (yyyy) yıl, ay (MM) ve gün (dd) için üç açılan listeleri tooselect biçimleri bakın. 
+    2. Ayarlamayın **kopyalayın dosyayı yinelemeli olarak**. Bu seçenek toorecursively çapraz dosyaları toobe kopyalanan toohello hedefine klasörlerde seçin. 
+    3. Değil hello **ikili kopyalama** seçeneği. Bu seçenek tooperform kaynak dosya toohello hedef ikili bir kopyasını seçin. Daha fazla seçenek hello sonraki sayfalarda görebilmeniz için bu kılavuzda seçmeyin. 
+    4. Bu hello onaylayın **sıkıştırma türünü** çok ayarlanır**hiçbiri**. Kaynak dosyalar hello desteklenen biçimlerden birinde sıkıştırılmış bu seçenek için bir değer seçin. 
     5. **İleri**’ye tıklayın.
-    ![Kopyalama aracı - girdi dosyası veya klasörü seçin](./media/data-factory-azure-blob-connector/chose-input-file-folder.png) 
-7. **Dosya biçimi ayarları** sayfasında sınırlayıcıları ve sihirbaz tarafından dosya ayrıştırılarak otomatik olarak algılanan düzeni görürsünüz. 
-    1. Aşağıdaki seçenekler onaylayın: bir. **Dosya biçimi** ayarlanır **metin biçimi**. Aşağı açılan listesinde tüm desteklenen biçimler görebilirsiniz. Örneğin: JSON, Avro, ORC, Parquet.
-        b. **Sütun sınırlayıcı** ayarlanır `Comma (,)`. Aşağı açılan listesinde Data Factory ile desteklenen diğer sütun sınırlayıcıları görebilirsiniz. Özel bir sınırlayıcı de belirtebilirsiniz.
-        c. **Satır ayırıcı** ayarlanır `Carriage Return + Line feed (\r\n)`. Aşağı açılan listesinde Data Factory ile desteklenen diğer satır sınırlayıcıları görebilirsiniz. Özel bir sınırlayıcı de belirtebilirsiniz.
-        d. **Satır sayısı atla** ayarlanır **0**. Dosyanın üst kısmında atlanacak birkaç satır numarasını buraya girin.
-        e.  **İlk veri satırı sütun adları içeren** ayarlı değil. İlk satırı sütun adları kaynak dosyaları içeriyorsa, bu seçeneği belirleyin.
-        f. **Boş sütun değeri null olarak davran** seçeneği ayarlanmış.
-    2. Genişletme **Gelişmiş ayarları** Gelişmiş seçeneği kullanılabilir görmek için.
-    3. Sayfanın alt kısmındaki bkz **Önizleme** emp.txt dosya verileri.
-    4. Tıklatın **şema** kaynak dosyasında veri bakarak Kopyalama Sihirbazı'nı çıkarımı yapılan şema görmek için alt sekmesi.
-    5. Sınırlayıcıları gözden geçirin verilerin önizlemesini gördükten sonra **İleri**’ye tıklayın.
+    ![Kopyalama aracı - hello girdi dosyası veya klasörü seçin](./media/data-factory-azure-blob-connector/chose-input-file-folder.png) 
+7. Merhaba üzerinde **dosya biçimi ayarları** sayfasında, gördüğünüz hello sınırlayıcıları ve hello dosyası ayrıştırılırken hello Sihirbazı tarafından otomatik olarak algılanır hello şema. 
+    1. Seçenekler aşağıdaki hello onaylayın: bir. Merhaba **dosya biçimi** çok ayarlanır**metin biçimi**. Tüm desteklenen hello biçimleri hello aşağı açılan listesinde görebilirsiniz. Örneğin: JSON, Avro, ORC, Parquet.
+        b. Merhaba **sütun sınırlayıcı** çok ayarlanır`Comma (,)`. Gördüğünüz hello aşağı açılan listesinde Data Factory ile desteklenen diğer sütun sınırlayıcıları hello. Özel bir sınırlayıcı de belirtebilirsiniz.
+        c. Merhaba **satır ayırıcı** çok ayarlanır`Carriage Return + Line feed (\r\n)`. Gördüğünüz hello aşağı açılan listesinde Data Factory ile desteklenen diğer satır sınırlayıcıları hello. Özel bir sınırlayıcı de belirtebilirsiniz.
+        d. Merhaba **satır sayısı atla** çok ayarlanır**0**. Merhaba dosya hello üstünde atlandı birkaç satırları toobe istiyorsanız hello numarasını buraya girin.
+        e.  Merhaba **ilk veri satırı sütun adları içeren** ayarlı değil. Merhaba ilk satırı sütun adları Hello kaynak dosyaları içeriyorsa, bu seçeneği belirleyin.
+        f. Merhaba **boş sütun değeri null olarak davran** seçeneği ayarlanmış.
+    2. Genişletme **Gelişmiş ayarları** toosee Gelişmiş seçeneği kullanılabilir.
+    3. Merhaba sayfasının Hello altında hello bkz **Önizleme** hello emp.txt dosya verileri.
+    4. Tıklatın **şema** hello kaynak dosyasında hello veri bakarak çıkarımı yapılan bu hello Kopyalama Sihirbazı hello alt toosee hello şema sekmesi.
+    5. Tıklatın **sonraki** hello sınırlayıcıları gözden geçirin ve Önizleme veri sonra.
     ![Kopyalama aracı - dosya biçimi ayarları](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)  
-8. Üzerinde **hedef veri deposu sayfası**seçin **Azure Blob Storage**, tıklatıp **sonraki**. Kaynak ve hedef veri depolarına bu kılavuzda olarak Azure Blob Storage kullanıyor.    
+8. Merhaba üzerinde **hedef veri deposu sayfası**seçin **Azure Blob Storage**, tıklatıp **sonraki**. Her iki hello kaynak ve hedef veri depolarına bu kılavuzda olarak hello Azure Blob Storage kullanıyor.    
     ![Kopyalama aracı - select hedef veri deposu](media/data-factory-azure-blob-connector/select-destination-data-store.png)
-9. Üzerinde **Azure Blob Depolama hesabı belirtin** sayfa:
-   1. Girin **AzureStorageLinkedService** için **bağlantı adı** alan.
+9. Üzerinde **hello Azure Blob Depolama hesabı belirtin** sayfa:
+   1. Girin **AzureStorageLinkedService** hello için **bağlantı adı** alan.
    2. **Hesap seçme yöntemi** için **Azure aboneliklerinden** seçeneğinin belirlendiğini onaylayın.
    3. Azure **aboneliğinizi** seçin.  
    4. Azure depolama hesabınızı seçin. 
    5. **İleri**’ye tıklayın.     
-10. Üzerinde **çıktı dosyası veya klasörü seçin** sayfa: 
+10. Merhaba üzerinde **Seç hello çıktı dosya veya klasör** sayfa: 
     6. belirtin **klasör yolu** olarak **adfblobconnector/çıkış / {year} / {month} / {day}**. Girin **sekmesini**.
-    7. İçin **yıl**seçin **yyyy**.
-    8. İçin **ay**, kümesine olduğunu onaylayın **MM**.
-    9. İçin **gün**, kümesine olduğunu onaylayın **GG**.
-    10. Onaylayın **sıkıştırma türünü** ayarlanır **hiçbiri**.
-    11. Onaylayın **kopyalama davranışı** ayarlanır **dosyaları Birleştir**. Aynı ada sahip çıktı dosyası zaten varsa, yeni içerik aynı dosyanın sonuna eklenir.
+    7. Hello için **yıl**seçin **yyyy**.
+    8. Hello için **ay**, çok ayarlandığından emin olun**MM**.
+    9. Hello için **gün**, çok ayarlandığından emin olun**GG**.
+    10. Bu hello onaylayın **sıkıştırma türünü** çok ayarlanır**hiçbiri**.
+    11. Bu hello onaylayın **kopyalama davranışı** çok ayarlanır**dosyaları Birleştir**. Hello çıkış dosyası ile aynı adı zaten var. Merhaba, hello yeni içerik eklendi toohello hello sonunda dosya aynı olur.
     12. **İleri**’ye tıklayın.
     ![Kopyalama aracı - çıktı dosyası veya klasörü seçin](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
-11. Üzerinde **dosya biçimi ayarları** sayfasında, ayarları gözden geçirin ve tıklayın **sonraki**. Ek seçenekler burada ve çıktı dosyası için bir başlık eklemek için biridir. Bu seçeneği belirlerseniz, bir başlık satırı sütunlarının adlarını kaynak şemadan eklenir. Varsayılan sütun adları kaynağı için şema görüntülerken yeniden adlandırabilirsiniz. Örneğin, ad ve Soyadı ikinci sütuna ilk sütun değiştirebilir. Ardından, çıktı dosyası bu adları içeren bir başlık sütun adları olarak üretilir. 
+11. Merhaba üzerinde **dosya biçimi ayarları** sayfasında hello ayarlarını gözden geçirin ve tıklayın **sonraki**. Burada ek seçenekler hello tooadd üstbilgi toohello çıktı dosyası biridir. Bu seçeneği belirlerseniz, bir başlık satırı hello kaynak hello şemadan hello sütunların adlarıyla eklenir. Merhaba varsayılan sütun adları hello kaynak hello şemasını görüntülerken yeniden adlandırabilirsiniz. Örneğin, hello ilk sütun tooFirst adı ve ikinci sütun tooLast adını değiştirebilirsiniz. Ardından, hello çıktı dosyası bu adları içeren bir başlık sütun adları olarak üretilir. 
     ![Kopyalama aracı - hedef için dosya biçimi ayarları](media/data-factory-azure-blob-connector/file-format-destination.png)
-12. Üzerinde **performans ayarlarını** sayfasında, onaylayın **bulut birimleri** ve **paralel kopyaları** ayarlanır **otomatik**, İleri'yi tıklatın. Bu ayarlar hakkında daha fazla ayrıntı için bkz: [kopyalama etkinliği performans ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md#parallel-copy).
+12. Merhaba üzerinde **performans ayarlarını** sayfasında, onaylayın **bulut birimleri** ve **paralel kopyaları** çok ayarlanır**otomatik**, İleri'yi tıklatın. Bu ayarlar hakkında daha fazla ayrıntı için bkz: [kopyalama etkinliği performans ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md#parallel-copy).
     ![Kopyalama aracı - performans ayarları](media/data-factory-azure-blob-connector/copy-performance-settings.png) 
-14. Üzerinde **Özet** sayfasında (görev özellikleri, kaynak ve hedef ayarları ve kopya ayarlarını) tüm ayarları gözden geçirin ve tıklayın **sonraki**.
+14. Merhaba üzerinde **Özet** sayfasında (görev özellikleri, kaynak ve hedef ayarları ve kopya ayarlarını) tüm ayarları gözden geçirin ve tıklayın **sonraki**.
     ![Kopyalama aracı - Özet sayfası](media/data-factory-azure-blob-connector/copy-tool-summary-page.png)
-15. **Özet** sayfasındaki bilgileri gözden geçirin ve **Son**’a tıklayın. Sihirbaz, veri fabrikasında (Kopyalama Sihirbazı’nı başlattığınız yer) iki bağlı hizmet, iki veri kümesi (girdi ve çıktı) ve bir işlem hattı oluşturur.
+15. Merhaba bilgileri gözden **Özet** sayfasında ve tıklayın **son**. Başlangıç Sihirbazı'nı (Başlangıç burada hello Kopyalama Sihirbazı'nı başlatılan) hello veri fabrikasında iki bağlı hizmet, iki veri kümesi (girdi ve çıktı) ve bir işlem hattı oluşturur.
     ![Kopyalama aracı - dağıtım sayfası](media/data-factory-azure-blob-connector/copy-tool-deployment-page.png)
 
-### <a name="monitor-the-pipeline-copy-task"></a>(Kopyalama görevi) işlem hattını izleme
+### <a name="monitor-hello-pipeline-copy-task"></a>İzleyici hello ardışık düzen (kopyalama görevi)
 
-1. Bağlantıya tıklayın `Click here to monitor copy pipeline` üzerinde **dağıtım** sayfası. 
-2. Görmeniz gerekir **izleme ve yönetme uygulaması** ayrı bir sekmede.  ![İzleme ve uygulama yönetme](media/data-factory-azure-blob-connector/monitor-manage-app.png)
-3. Değişiklik **Başlat** en üstte zaman `04/19/2017` ve **son** için zaman `04/27/2017`ve ardından **Uygula**. 
-4. Beş etkinlik Windows'da görmelisiniz **etkinlik WINDOWS** listesi. **WindowStart** kez ardışık düzen baştan bitiş zamanları kanal tüm günler kapak. 
-5. Tıklatın **yenileme** için düğmesini **etkinlik WINDOWS** birkaç kez tüm etkinlik windows durumunu görene kadar listesini hazır ayarlayın. 
-6. Şimdi, çıktı dosyaları adfblobconnector kapsayıcı çıkış klasöründe oluşturulan doğrulayın. Çıkış klasöründe aşağıdaki klasör yapısını görmeniz gerekir: 
+1. Merhaba bağlantısına tıklayın `Click here toomonitor copy pipeline` hello üzerinde **dağıtım** sayfası. 
+2. Merhaba görmelisiniz **izleme ve yönetme uygulaması** ayrı bir sekmede.  ![İzleme ve uygulama yönetme](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+3. Değişiklik hello **Başlat** hello üstünde çok zaman`04/19/2017` ve **son** çok zaman`04/27/2017`ve ardından **Uygula**. 
+4. Beş etkinlik windows hello görmelisiniz **etkinlik WINDOWS** listesi. Merhaba **WindowStart** kez ardışık düzen başlangıç toopipeline bitiş zamanları tüm gün kapak. 
+5. Tıklatın **yenileme** hello düğmesi **etkinlik WINDOWS** birkaç kez tüm hello etkinlik windows hello durumunu görene kadar listesini tooReady ayarlayın. 
+6. Şimdi, adfblobconnector kapsayıcısının çıkış klasörüne hello oluşturulan hello çıktı dosyaları doğrulayın. Klasör yapısı hello çıkış klasöründe aşağıdaki hello görmeniz gerekir: 
     ```
     2017/04/21
     2017/04/22
@@ -276,24 +276,24 @@ Hızlı bir şekilde grafikten bir Azure blob depolama veri kopyalamak nasıl ba
 İzleme ve veri fabrikaları yönetme hakkında ayrıntılı bilgi için bkz: [İzleyici ve Data Factory işlem hattı yönetmek](data-factory-monitor-manage-app.md) makalesi. 
  
 ### <a name="data-factory-entities"></a>Data Factory varlıklarını
-Data Factory giriş sayfası sekmesi için şimdi dönün. İki bağlı hizmet, iki veri kümesi ve bir ardışık düzeni, veri fabrikası'nda artık dikkat edin. 
+Şimdi, hello Data Factory giriş sayfasına geri toohello sekmesiyle geçin. İki bağlı hizmet, iki veri kümesi ve bir ardışık düzeni, veri fabrikası'nda artık dikkat edin. 
 
 ![Varlıklarla Data Factory giriş sayfası](media/data-factory-azure-blob-connector/data-factory-home-page-with-numbers.png)
 
-Tıklatın **yazar ve dağıtma** Data Factory Düzenleyici başlatmak için. 
+Tıklatın **yazar ve dağıtma** toolaunch Data Factory Düzenleyici. 
 
 ![Data Factory Düzenleyicisi](media/data-factory-azure-blob-connector/data-factory-editor.png)
 
-Veri fabrikanızın aşağıdaki Data Factory varlıklarını görmeniz gerekir: 
+Data Factory varlıklarını, veri fabrikası'nda aşağıdaki hello görmeniz gerekir: 
 
- - İki bağlı hizmet. Bir kaynak ve hedef için başka bir. Bu kılavuzda aynı Azure depolama hesabı her iki bağlı hizmet bakın. 
- - İki veri kümesi. Bir giriş veri kümesi ve bir çıkış veri kümesi. Bu kılavuzda, her ikisi de aynı blob kapsayıcısı kullanır ancak farklı klasörlere (girdi ve çıktı) bakın.
- - Ardışık Düzen. Ardışık düzen, verileri bir Azure blob konumundan başka bir Azure blob konumuna kopyalamak için bir blob kaynağı ve blob havuz kullanan kopyalama etkinliği içerir. 
+ - İki bağlı hizmet. Biri hello kaynak ve hello diğeri hello hedef için. İki bağlı hello hizmet toohello başvurmak bu kılavuzda aynı Azure depolama hesabı. 
+ - İki veri kümesi. Bir giriş veri kümesi ve bir çıkış veri kümesi. Bu kılavuzda, her ikisini de hello kullanmanız aynı blob kapsayıcısı ancak toodifferent klasörleri (girdi ve çıktı) ifade eder.
+ - Ardışık Düzen. Merhaba ardışık düzen blob kaynağı ve Azure blob konumu tooanother Azure blob konumu blob havuz toocopy verilerden kullanan kopyalama etkinliği içerir. 
 
-Aşağıdaki bölümler bu varlıkları hakkında daha fazla bilgi sağlar. 
+Merhaba aşağıdaki bölümler bu varlıkları hakkında daha fazla bilgi sağlar. 
 
 #### <a name="linked-services"></a>Bağlı hizmetler
-İki bağlı hizmet görmeniz gerekir. Bir kaynak ve hedef için başka bir. Bu kılavuzda, her iki tanımları aynı adları dışında arayın. **Türü** bağlı hizmetin adı ayarlamak **AzureStorage**. Bağlantılı hizmet tanımını en önemli özelliği **connectionString**, hangi veri fabrikası tarafından çalışma zamanında Azure Storage hesabınıza bağlanmak için kullanılır. HubName özelliği tanımı'ndaki yoksay. 
+İki bağlı hizmet görmeniz gerekir. Biri hello kaynak ve hello diğeri hello hedef için. Bu kılavuzda, her iki tanımları görünüm hello aynı dışında hello adları. Merhaba **türü** Merhaba bağlantılı hizmet olarak ayarlanmış çok**AzureStorage**. En önemli hello bağlantılı hizmet tanımı özelliğidir hello **connectionString**, veri fabrikası tooconnect tooyour çalışma zamanında Azure depolama hesabı tarafından kullanılıyor. Merhaba hubName özelliği hello tanımında yoksay. 
 
 ##### <a name="source-blob-storage-linked-service"></a>Kaynak blob storage bağlı hizmeti
 ```json
@@ -325,11 +325,11 @@ Aşağıdaki bölümler bu varlıkları hakkında daha fazla bilgi sağlar.
 Azure Storage bağlı hizmeti hakkında daha fazla bilgi için bkz: [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü. 
 
 #### <a name="datasets"></a>Veri kümeleri
-İki veri kümesi vardır: bir giriş veri kümesi ve bir çıkış veri kümesi. Veri kümesi türü kümesine **AzureBlob** her ikisi için de. 
+İki veri kümesi vardır: bir giriş veri kümesi ve bir çıkış veri kümesi. Merhaba dataset Hello türü çok ayarlamak**AzureBlob** her ikisi için de. 
 
-Girdi veri kümesi işaret **giriş** klasöründe **adfblobconnector** blob kapsayıcısı. **Dış** özelliği ayarlanmış **true** bu veri kümesi için verileri bu veri kümesine bir girdi olarak alır kopyalama etkinliği ile ardışık düzen tarafından üretilen değil olarak. 
+Merhaba girdi veri kümesi işaret toohello **giriş** hello klasörünü **adfblobconnector** blob kapsayıcısı. Merhaba **dış** özelliği çok ayarlanmış**true** hello olarak bu veri kümesi için veri hello ardışık düzen tarafından bu veri kümesine bir girdi olarak alır hello kopyalama etkinliği ile oluşturulmuyor. 
 
-Çıktı veri kümesi işaret **çıkış** aynı blob kapsayıcısının klasör. Çıktı veri kümesi yıl, ay ve günün kullanan **SliceStart** çıktı dosyası yolu dinamik olarak değerlendirilecek sistem değişkeni. İşlevler ve Data Factory ile desteklenen sistem değişkenleri listesi için bkz: [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md). **Dış** özelliği ayarlanmış **false** (varsayılan değer) bu veri kümesi ardışık düzen tarafından üretilen olduğundan. 
+Çıktı veri kümesi noktaları toohello hello **çıkış** hello klasörü aynı blob kapsayıcısı. Merhaba çıktı veri kümesi de hello yıl, ay ve gün Merhaba, kullanır **SliceStart** sistem değişken toodynamically hello çıktı dosyası için hello yol değerlendirin. İşlevler ve Data Factory ile desteklenen sistem değişkenleri listesi için bkz: [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md). Merhaba **dış** özelliği çok ayarlanmış**false** (varsayılan değer) bu veri kümesi hello ardışık düzen tarafından üretilen olduğundan. 
 
 Azure Blob veri kümesi tarafından desteklenen özellikler hakkında daha fazla bilgi için bkz: [veri kümesi özellikleri](#dataset-properties) bölümü.
 
@@ -397,7 +397,7 @@ Azure Blob veri kümesi tarafından desteklenen özellikler hakkında daha fazla
 ```
 
 #### <a name="pipeline"></a>İşlem hattı
-Ardışık Düzen yalnızca bir etkinlik vardır. **Türü** etkinliğini kümesine **kopya**.  Etkinlik türü özelliklerini iki bölümü, kaynak için bir ve havuz için başka bir vardır. Kaynak türü kümesine **BlobSource** etkinlik bir blob depolama alanından veri kopyalama gibi. Havuz türü kümesine **BlobSink** bir blob depolama alanına veri kopyalama etkinlik olarak. Kopya etkinliği InputDataset z4y giriş olarak alır ve çıktı olarak OutputDataset z4y. 
+Merhaba ardışık yalnızca bir etkinlik vardır. Merhaba **türü** Merhaba, etkinlik çok ayarlanır**kopya**.  Merhaba etkinliğinin Hello tür özellikleri kaynak ve hello başka bir havuz için iki bölümü vardır. Merhaba kaynak türü çok ayarlamak**BlobSource** hello etkinliği bir blob depolama alanından veri kopyalama gibi. Merhaba Havuz türü çok ayarlanmış**BlobSink** veri tooa blob depolama kopyalama hello etkinlik olarak. Merhaba kopyalama etkinliği InputDataset z4y hello giriş ve OutputDataset z4y hello çıktı olarak alır. 
 
 BlobSource ve BlobSink tarafından desteklenen özellikler hakkında daha fazla bilgi için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties) bölümü. 
 
@@ -454,11 +454,11 @@ BlobSource ve BlobSink tarafından desteklenen özellikler hakkında daha fazla 
 }
 ```
 
-## <a name="json-examples-for-copying-data-to-and-from-blob-storage"></a>Depolamaya ve Blob depolamadan veri kopyalamak için JSON örnekleri  
-Aşağıdaki örnekleri kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar ve Azure Blob Storage ve Azure SQL veritabanına veri kopyalamak nasıl gösterir. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden herhangi birine belirtildiği havuzlarını kaynakları [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopya etkinliği Azure Data Factory kullanarak.
+## <a name="json-examples-for-copying-data-tooand-from-blob-storage"></a>Blob depolama alanından veri tooand kopyalama için JSON örnekleri  
+Merhaba aşağıdaki örneklerde sağlayan örnek JSON tanımları toocreate bir ardışık düzen kullanarak kullanabilirsiniz [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar Göster nasıl toocopy veri tooand Azure Blob Storage ve Azure SQL veritabanı. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden belirtildiği hello havuzlarını, kaynakları tooany [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kullanarak Azure Data Factory kopyalama etkinliği hello.
 
-### <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>JSON örnek: verileri Blob depolama alanından SQL veritabanına kopyalamak
-Aşağıdaki örnek gösterilmektedir:
+### <a name="json-example-copy-data-from-blob-storage-toosql-database"></a>JSON örnek: Verilerini Blob Storage tooSQL veritabanı
+Merhaba, aşağıdaki örnek gösterilmektedir:
 
 1. Bağlı hizmet türü [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties).
 2. Bağlı hizmet türü [AzureStorage](#linked-service-properties).
@@ -466,7 +466,7 @@ Aşağıdaki örnek gösterilmektedir:
 4. Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
 5. A [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [BlobSource](#copy-activity-properties) ve [SqlSink](data-factory-azure-sql-connector.md#copy-activity-properties).
 
-Zaman serisi bir Azure SQL verileri Azure blob örnek kopyaları saatlik tablo. Bu örnekler kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
+Merhaba örnek time series verilerini saatlik bir Azure blob tooan Azure SQL tablosundan kopyalar. Bu örnekler kullanılan hello JSON özellikleri hello örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
 **Azure SQL bağlı hizmeti:**
 
@@ -494,11 +494,11 @@ Zaman serisi bir Azure SQL verileri Azure blob örnek kopyaları saatlik tablo. 
   }
 }
 ```
-Azure Data Factory iki tür Azure Storage bağlı hizmeti destekler: **AzureStorage** ve **AzureStorageSas**. İlk biri için hesap anahtarı içeren bağlantı dizesini belirtin ve daha sonra biri için paylaşılan erişim imzası (SAS) URI'sini belirtin. Bkz: [bağlı hizmetler](#linked-service-properties) ayrıntıları bölümü.  
+Azure Data Factory iki tür Azure Storage bağlı hizmeti destekler: **AzureStorage** ve **AzureStorageSas**. İçin birinci Merhaba, hello hesap anahtarı içeren hello bağlantı dizesini belirtin ve hello daha ileri bir hello paylaşılan erişim imzası (SAS) URI belirtin. Bkz: [bağlı hizmetler](#linked-service-properties) ayrıntıları bölümü.  
 
 **Azure Blob girdi veri kümesi:**
 
-Veri toplanma yeni blob üzerinden saatte (sıklığı: saat, aralığı: 1). Blob klasör yolu ve dosya adı dinamik olarak değerlendirilir işleniyor dilim başlangıç zamanı temel alınarak. Klasör yolu yıl, ay ve gün kısmını başlangıç saati ve dosya adı başlangıç zamanı saat bölümünü kullanır. "dış": "true" ayarı bildirir Data Factory tablosu data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil.
+Veri toplanma yeni blob üzerinden saatte (sıklığı: saat, aralığı: 1). Merhaba klasör yolu ve dosya adını hello blob dinamik olarak değerlendirilir işleniyor hello dilimin hello başlangıç zamanı temel alınarak. Merhaba klasör yolu yıl, ay ve gün kısmını hello başlangıç saati ve dosya adı hello başlangıç saati hello saat bölümünü kullanır. "dış": "true" ayarı bu hello tablosu dış toohello veri fabrikası ve hello veri fabrikasında bir etkinlik tarafından üretilen değil veri fabrikası sizi bilgilendirir.
 
 ```json
 {
@@ -538,7 +538,7 @@ Veri toplanma yeni blob üzerinden saatte (sıklığı: saat, aralığı: 1). Bl
 ```
 **Azure SQL çıktı veri kümesi:**
 
-Kopya veri örneklemek için bir tablo bir Azure SQL veritabanında "MyTable" adlı. Blob CSV dosyasında içerecek şekilde beklediğiniz gibi Azure SQL veritabanınızda aynı sayıda sütuna sahip tablo oluşturun. Yeni satırlar tabloya saatte eklenir.
+Merhaba örnek bir Azure SQL veritabanında "MyTable" adlı veri tooa tablosuna kopyalar. Azure SQL veritabanınızda Hello tablo oluşturma hello Blob CSV dosyası toocontain beklediğiniz gibi hello aynı sayıda sütun. Yeni satırlar toohello tablo saatte eklenir.
 
 ```json
 {
@@ -558,7 +558,7 @@ Kopya veri örneklemek için bir tablo bir Azure SQL veritabanında "MyTable" ad
 ```
 **Blob kaynağı ve SQL havuz sahip işlem hattı kopyalama etkinliğinde:**
 
-Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **BlobSource** ve **havuz** türü ayarlanmış **SqlSink**.
+Merhaba ardışık düzen içeren yapılandırılmış toouse olan kopyalama etkinliği girdi ve çıktı veri kümeleri hello ve zamanlanmış toorun her saatte birdir. JSON tanımını Hello ardışık düzeninde, hello **kaynak** türü olarak ayarlanmış çok**BlobSource** ve **havuz** türü olarak ayarlanmış çok**SqlSink**.
 
 ```json
 {  
@@ -605,8 +605,8 @@ Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapıland�
    }
 }
 ```
-### <a name="json-example-copy-data-from-azure-sql-to-azure-blob"></a>JSON örnek: Verilerini Azure SQL Azure Blob
-Aşağıdaki örnek gösterilmektedir:
+### <a name="json-example-copy-data-from-azure-sql-tooazure-blob"></a>JSON örnek: Verilerini Azure SQL tooAzure Blob
+Merhaba, aşağıdaki örnek gösterilmektedir:
 
 1. Bağlı hizmet türü [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties).
 2. Bağlı hizmet türü [AzureStorage](#linked-service-properties).
@@ -614,7 +614,7 @@ Aşağıdaki örnek gösterilmektedir:
 4. Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureBlob](#dataset-properties).
 5. A [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) ve [BlobSink](#copy-activity-properties).
 
-Örnek zaman serisi veri bir Azure SQL tablosundan bir Azure blob saatlik kopyalar. Bu örnekler kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
+Merhaba örnek time series verilerini saatlik bir Azure SQL tablosu tooan Azure blob kopyalar. Bu örnekler kullanılan hello JSON özellikleri hello örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
 **Azure SQL bağlı hizmeti:**
 
@@ -642,13 +642,13 @@ Aşağıdaki örnek gösterilmektedir:
   }
 }
 ```
-Azure Data Factory iki tür Azure Storage bağlı hizmeti destekler: **AzureStorage** ve **AzureStorageSas**. İlk biri için hesap anahtarı içeren bağlantı dizesini belirtin ve daha sonra biri için paylaşılan erişim imzası (SAS) URI'sini belirtin. Bkz: [bağlı hizmetler](#linked-service-properties) ayrıntıları bölümü.  
+Azure Data Factory iki tür Azure Storage bağlı hizmeti destekler: **AzureStorage** ve **AzureStorageSas**. İçin birinci Merhaba, hello hesap anahtarı içeren hello bağlantı dizesini belirtin ve hello daha ileri bir hello paylaşılan erişim imzası (SAS) URI belirtin. Bkz: [bağlı hizmetler](#linked-service-properties) ayrıntıları bölümü.  
 
 **Azure SQL girdi veri kümesi:**
 
-Örnek, Azure SQL tablosu "MyTable" oluşturulur ve zaman serisi veri için "timestampcolumn" adlı bir sütun içerdiği varsayar.
+Merhaba örnek "MyTable" Azure SQL tablosu oluşturdunuz ve zaman serisi veri için "timestampcolumn" adlı bir sütun içerdiği varsayar.
 
-"Dış" ayarı: "true" bildirir Data Factory hizmetinin tablo data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil.
+"Dış" ayarı: "true" bildirir Data Factory hizmetinin bu hello tablosu dış toohello veri fabrikası ve hello veri fabrikasında bir etkinlik tarafından üretilen değil.
 
 ```json
 {
@@ -677,7 +677,7 @@ Azure Data Factory iki tür Azure Storage bağlı hizmeti destekler: **AzureStor
 
 **Azure Blob dataset çıktı:**
 
-Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob klasör yolu dinamik işlenmekte olan dilim başlangıç zamanı temel alınarak değerlendirilir. Klasör yolu yıl, ay, gün ve saat bölümleri başlangıç saatini kullanır.
+Veri saatte tooa yeni blob yazılır (sıklığı: saat, aralığı: 1). hello blob Hello klasör yolu dinamik işlenmekte olan hello dilimin hello başlangıç zamanı temel alınarak değerlendirilir. Merhaba klasör yolu hello başlangıç zamanı yıl, ay, gün ve saat bölümlerini kullanır.
 
 ```json
 {
@@ -711,7 +711,7 @@ Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob 
 
 **SQL kaynak ve Blob havuz sahip işlem hattı kopyalama etkinliğinde:**
 
-Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **SqlSource** ve **havuz** türü ayarlanmış **BlobSink**. SQL sorgusu için belirtilen **SqlReaderQuery** özelliği veri kopyalamak için son bir saat içindeki seçer.
+Merhaba ardışık düzen içeren yapılandırılmış toouse olan kopyalama etkinliği girdi ve çıktı veri kümeleri hello ve zamanlanmış toorun her saatte birdir. JSON tanımını Hello ardışık düzeninde, hello **kaynak** türü olarak ayarlanmış çok**SqlSource** ve **havuz** türü olarak ayarlanmış çok**BlobSink**. Merhaba belirtilen hello SQL sorgusu **SqlReaderQuery** özelliği saat toocopy geçmiş hello hello veri seçer.
 
 ```json
 {  
@@ -761,7 +761,7 @@ Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapıland�
 ```
 
 > [!NOTE]
-> Kaynak veri kümesi sütunlarından havuz kümesinden sütunlara eşlemek için bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
+> Kaynak veri kümesi toocolumns havuz kümesinden toomap sütunlarından bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Performans ve ayarlama
-Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve onu en iyi duruma getirmek için çeşitli yollar etkisi performansını anahtar Etkenler hakkında bilgi edinmek için.
+Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) toolearn anahtarı hakkında Etkenler bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve çeşitli yolları toooptimize etkisi performansını da.

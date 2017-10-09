@@ -1,6 +1,6 @@
 ---
-title: "Bir Linux VM Azure CLI 1.0 ile disklerde şifrelemek | Microsoft Docs"
-description: "Azure CLI 1.0 ve Resource Manager dağıtım modeli kullanarak bir Linux VM disklerde şifreleme"
+title: bir Linux VM hello Azure CLI 1.0 ile aaaEncrypt disklerde | Microsoft Docs
+description: "Azure CLI 1.0 ve hello Resource Manager dağıtım modeli kullanarak bir Linux VM tooencrypt disklerde nasıl hello"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,47 +15,47 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
-ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68a0394d366c3c6941e2c6db0d4263123f951946
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak bir Linux VM disklerde şifrele
-Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için Azure sanal diskleri bekleyen şifrelenebilir. Diskleri, bir Azure anahtar kasası güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarları denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede Azure CLI 1.0 ve Resource Manager dağıtım modeli kullanarak bir Linux VM sanal disklerde şifrelemek nasıl ayrıntılarını verir.
+# <a name="encrypt-disks-on-a-linux-vm-using-hello-azure-cli-10"></a>Hello Azure CLI 1.0 kullanarak bir Linux VM disklerde şifrele
+Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için Azure sanal diskleri bekleyen şifrelenebilir. Diskleri, bir Azure anahtar kasası güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarları denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede, Azure CLI 1.0 ve hello Resource Manager dağıtım modeli kullanarak bir Linux VM sanal disklerde tooencrypt nasıl hello ayrıntıları.
 
-## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
+## <a name="cli-versions-toocomplete-hello-task"></a>CLI sürümleri toocomplete hello görevi
+CLI sürümleri aşağıdaki hello birini kullanarak hello görevi tamamlamak:
 
-- [Azure CLI 1.0](#quick-commands) – bizim CLI Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)
-- [Azure CLI 2.0](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
+- [Azure CLI 1.0](#quick-commands) – bizim CLI hello Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)
+- [Azure CLI 2.0](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -bizim nesil CLI hello kaynak yönetimi dağıtım modeli için
 
 ## <a name="quick-commands"></a>Hızlı komutlar
-VM sanal disklerde şifrelemek için hızlı bir şekilde, aşağıdaki bölümde ayrıntıları temel görevi gerekiyorsa komutları. Her adım, belgenin geri kalanında bulunabilir bilgi ve içerik daha ayrıntılı [burada başlangıç](#overview-of-disk-encryption).
+Tooquickly gerekiyorsa hello görevi, VM'yi sanal disklerde tooencrypt hello bölüm ayrıntıları hello temel aşağıdaki komutları. Her adım hello belgenin hello kalan bulunabilir bilgi ve içerik daha ayrıntılı [burada başlangıç](#overview-of-disk-encryption).
 
-Gereksinim duyduğunuz [en son Azure CLI 1.0](../../xplat-cli-install.md) yüklü ve Resource Manager modunu aşağıdaki gibi kullanarak oturum:
+Merhaba gereksinim [en son Azure CLI 1.0](../../xplat-cli-install.md) yüklü ve aşağıdaki gibi hello Resource Manager modunu kullanarak oturum:
 
 ```azurecli
 azure config mode arm
 ```
 
-Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `myKeyVault`, ve `myVM`.
+Hello aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `myKeyVault`, ve `myVM`.
 
-İlk olarak, Azure aboneliğinizde içinde Azure anahtar kasası Sağlayıcısı'nı etkinleştirin ve bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu adı oluşturur `myResourceGroup` içinde `WestUS` konumu:
+İlk olarak, Azure aboneliğinizde içinde hello Azure anahtar kasası sağlayıcısı etkinleştirin ve bir kaynak grubu oluşturun. Merhaba aşağıdaki örnekte oluşturur bir kaynak grubu adı `myResourceGroup` hello içinde `WestUS` konumu:
 
 ```azurecli
 azure provider register Microsoft.KeyVault
 azure group create myResourceGroup --location WestUS
 ```
 
-Azure anahtar kasası oluşturun. Aşağıdaki örnek adlı bir anahtar kasası oluşturur `myKeyVault`:
+Azure anahtar kasası oluşturun. Merhaba aşağıdaki örnekte oluşturur adlı bir anahtar kasası `myKeyVault`:
 
 ```azurecli
 azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
   --location WestUS
 ```
 
-Bir şifreleme anahtarı anahtar kasanızı oluşturmak ve disk şifrelemesi için etkinleştirin. Aşağıdaki örnek adlı bir anahtar oluşturur `myKey`:
+Bir şifreleme anahtarı anahtar kasanızı oluşturmak ve disk şifrelemesi için etkinleştirin. Merhaba aşağıdaki örnek adlı bir anahtar oluşturur `myKey`:
 
 ```azurecli
 azure keyvault key create --vault-name myKeyVault --key-name myKey \
@@ -64,7 +64,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
   --enabled-for-disk-encryption true
 ```
 
-Kimlik doğrulama işleme ve şifreleme anahtarlarının anahtar Kasası'ndan değişimi için Azure Active Directory'yi kullanarak bir uç nokta oluşturun. `--home-page` Ve `--identifier-uris` gerçek yönlendirilebilir adresi olması gerekmez. Yüksek düzeyde güvenlik için istemci gizli yerine parolalar kullanılmalıdır. Azure CLI istemci gizli şu anda oluşturulamıyor. İstemci gizli yalnızca Azure portalında oluşturulabilir. Aşağıdaki örnek adlı bir Azure Active Directory uç nokta oluşturuyor `myAADApp` ve bir parola kullanıyorsa `myPassword`. Kendi parolanızı aşağıdaki gibi belirtin:
+İşleme hello kimlik doğrulama ve şifreleme anahtarlarının anahtar Kasası'ndan değişimi için Azure Active Directory'yi kullanarak bir uç nokta oluşturun. Merhaba `--home-page` ve `--identifier-uris` gerek kalmaz toobe gerçek yönlendirilebilir adres. Merhaba yüksek düzeyde güvenlik için istemci gizli yerine parolalar kullanılmalıdır. Hello Azure CLI istemci gizli şu anda oluşturulamıyor. İstemci gizli yalnızca hello Azure portal oluşturulabilir. Merhaba aşağıdaki örnek adlı bir Azure Active Directory uç nokta oluşturuyor `myAADApp` ve bir parola kullanıyorsa `myPassword`. Kendi parolanızı aşağıdaki gibi belirtin:
 
 ```azurecli
 azure ad app create --name myAADApp \
@@ -73,7 +73,7 @@ azure ad app create --name myAADApp \
   --password myPassword
 ```
 
-Not `applicationId` yukarıdaki komut çıktısı gösterilmektedir. Bu uygulama kimliği, aşağıdaki adımlarda kullanılır:
+Not hello `applicationId` komutu önceki hello hello çıktısını gösterilen. Bu uygulama kimliği, aşağıdaki adımları hello kullanılır:
 
 ```azurecli
 azure ad sp create --applicationId myApplicationID
@@ -81,14 +81,14 @@ azure keyvault set-policy --vault-name myKeyVault --spn myApplicationID \
   --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]
 ```
 
-Bir veri diski için mevcut bir VM'yi ekleyin. Aşağıdaki örnek, adlı VM için bir veri diski ekler `myVM`:
+VM varolan bir veri diski tooan ekleyin. Merhaba aşağıdaki örnek, bir veri diski tooa adlı VM `myVM`:
 
 ```azurecli
 azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
   --size-in-gb 5
 ```
 
-Anahtar kasası ve oluşturduğunuz anahtarı için ayrıntıları inceleyin. Anahtar kasası kimliği, URI ve anahtar gerek son adımda URL. Aşağıdaki örnek ayrıntıları adlı bir anahtar kasası için incelemeleri `myKeyVault` ve adlı anahtar `myKey`:
+Oluşturduğunuz anahtar kasası ve hello anahtarınızı Hello ayrıntılarını gözden geçirin. Anahtar kasası kimliği, URI ve anahtar hello hello son adımda URL. Merhaba aşağıdaki örnek hello ayrıntılarını adlı bir anahtar kasası için gözden geçiriyor `myKeyVault` ve adlı anahtar `myKey`:
 
 ```azurecli
 azure keyvault show myKeyVault
@@ -107,7 +107,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --volume-type Data
 ```
 
-Azure CLI ayrıntılı hataları şifreleme işlemi sırasında sağlamaz. Ek sorun giderme bilgileri için inceleyin `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`. Yukarıdaki komut birçok değişkeni yok ve işlem neden başarısız konusunda kadar göstergesi alamayabilirsiniz gibi tam komut örneği aşağıdaki gibi olur:
+Hello Azure CLI ayrıntılı hataları hello şifreleme işlemi sırasında sağlamaz. Ek sorun giderme bilgileri için inceleyin `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`. Hello komut önceki birçok değişkeni yok ve kadar göstergesi toowhy hello işlemi başarısız olarak alamayabilirsiniz, tam komut örneği aşağıdaki gibi olur:
 
 ```azurecli
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
@@ -120,76 +120,76 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --volume-type Data
 ```
 
-Son olarak, sanal diskler artık şifrelenmiş olduğunu onaylamak için yeniden şifreleme durumunu gözden geçirin. Aşağıdaki örnek adlı bir VM'den durumunu denetler `myVM` içinde `myResourceGroup` kaynak grubu:
+Son olarak, gözden geçirme hello şifreleme durumu yeniden sanal diskler şimdi şifrelendikten tooconfirm. Merhaba aşağıdaki örnek hello durumunu adlı bir VM denetler `myVM` hello içinde `myResourceGroup` kaynak grubu:
 
 ```azurecli
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="overview-of-disk-encryption"></a>Disk şifrelemesi'ne genel bakış
-Linux sanal makineleri sanal disklerde rest kullanarak şifrelenir [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Azure sanal diskleri şifreleme ücretsizdir. Şifreleme anahtarları yazılım koruması'nı kullanarak Azure anahtar kasası içinde depolanır veya içe aktarmak ya da anahtarlarınızı FIPS 140-2 Düzey 2 standartları sertifikalı donanım güvenlik modüllerinde (HSM'ler) oluşturur. Bu şifreleme anahtarları denetimin korumak ve kullanımlarını denetleyebilirsiniz. Bu şifreleme anahtarlarını şifrelemek ve şifresini çözmek, VM'ye bağlı sanal diskler için kullanılır. Bir Azure Active Directory uç nokta VM'ler açma ve kapatma gücü gibi bu şifreleme anahtarları verme için güvenli bir mekanizma sağlar.
+Linux sanal makineleri sanal disklerde rest kullanarak şifrelenir [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Azure sanal diskleri şifreleme ücretsizdir. Şifreleme anahtarları yazılım koruması'nı kullanarak Azure anahtar kasası içinde depolanır veya içe aktarmak ya da anahtarlarınızı tooFIPS sertifikalı donanım güvenlik modüllerinde (HSM'ler) 140-2 Düzey 2 standartları oluşturur. Bu şifreleme anahtarları denetimin korumak ve kullanımlarını denetleyebilirsiniz. Bu şifreleme anahtarlar kullanılan tooencrypt ve sanal diskleri ekli tooyour VM şifresini. Bir Azure Active Directory uç nokta VM'ler açma ve kapatma gücü gibi bu şifreleme anahtarları verme için güvenli bir mekanizma sağlar.
 
-Bir VM şifreleme işlemi aşağıdaki gibidir:
+bir VM şifrelemek için hello işlem aşağıdaki gibidir:
 
 1. Bir şifreleme anahtarının bir Azure anahtar kasası oluşturun.
-2. Diskleri şifrelemek için kullanılabilmesi için şifreleme anahtarını yapılandırın.
-3. Şifreleme anahtarı Azure anahtar Kasası'okumak için Azure Active Directory'yi kullanarak uygun izinlere sahip bir uç nokta oluşturun.
-4. Kullanılacak uygun şifreleme anahtarını ve Azure Active Directory uç noktası belirterek, sanal diskler şifrelemek için komutu yürütün.
-5. Azure Active Directory uç nokta gereken şifreleme anahtarını Azure anahtar Kasası'ister.
-6. Sanal diskler sağlanan şifreleme anahtarı kullanılarak şifrelenir.
+2. Merhaba şifreleme anahtar toobe diskleri şifrelemek için kullanılabilir yapılandırın.
+3. tooread hello şifreleme anahtarını hello Azure anahtar kasası, Azure Active Directory'yi kullanarak hello uygun izinlere sahip bir uç nokta oluşturun.
+4. Merhaba komutu tooencrypt hello Azure Active Directory uç noktası ve uygun şifreleme anahtar toobe kullanılan belirtme, sanal diskler gönderin.
+5. Hello Azure Active Directory uç nokta Azure anahtar Kasası'hello gereken şifreleme anahtarını ister.
+6. Merhaba sanal diskler sağlanan hello şifreleme anahtarı kullanılarak şifrelenir.
 
 ## <a name="supporting-services-and-encryption-process"></a>Destek Hizmetleri ve şifreleme işlemi
-Disk şifrelemesi aşağıdaki ek bileşenlerini dayanır:
+Disk şifrelemesi ek bileşenler aşağıdaki hello üzerinde dayanır:
 
-* **Azure anahtar kasası** - şifreleme anahtarları ve gizli anahtarları disk şifreleme/şifre çözme işlemi için kullanılan korumak için kullanılan.
-  * Varsa, mevcut bir Azure anahtar kasası kullanabilirsiniz. Diskleri şifrelemek için bir anahtar kasası ayrılması gerekmez.
-  * Yönetim sınırlarını ve anahtar görünürlük ayırmak için ayrılmış bir anahtar kasası oluşturabilirsiniz.
-* **Azure Active Directory** -güvenli değişimi gerekli şifreleme anahtarlarını ve kimlik doğrulaması istenen eylemler için işler.
+* **Azure anahtar kasası** -kullanılan toosafeguard şifreleme anahtarları ve gizli anahtarları hello disk şifreleme/şifre çözme işlemi için kullanılır.
+  * Varsa, mevcut bir Azure anahtar kasası kullanabilirsiniz. Bir anahtar kasası tooencrypting disk toodedicate sahip değildir.
+  * tooseparate yönetim sınırlarını ve anahtar görünürlük, ayrılmış bir anahtar kasası oluşturabilirsiniz.
+* **Azure Active Directory** - tanıtıcıları hello gerekli şifreleme anahtarlarını güvenli değişimi ve kimlik doğrulaması için istenen eylemler.
   * Genellikle, uygulamanızı barındırmak için var olan bir Azure Active Directory örneğini kullanabilirsiniz.
-  * Daha fazla istemek ve uygun şifreleme anahtarları verilen anahtar kasası ve sanal makine Hizmetleri için bir uç nokta uygulamasıdır. Azure Active Directory ile tümleşen gerçek uygulama geliştirme değil.
+  * Merhaba uygulama uç noktası hello anahtar kasası için ve sanal makine Hizmetleri toorequest daha fazla bilgi ve hello uygun şifreleme anahtarları verilen. Azure Active Directory ile tümleşen gerçek uygulama geliştirme değil.
 
 ## <a name="requirements-and-limitations"></a>Gereksinimler ve sınırlamalar
 Desteklenen senaryolar ve disk şifrelemesi için gereksinimleri:
 
-* Aşağıdaki Linux sunucusu SKU'ları - Ubuntu ve CentOS, SUSE ve SUSE Linux Enterprise Server (SLES) ve Red Hat Enterprise Linux.
-* Tüm kaynaklar (örneğin, anahtar kasası, depolama hesabı ve VM) aynı Azure bölgesinde ve abonelik olmalıdır.
+* Linux sunucusu SKU'ları - Ubuntu ve CentOS, SUSE ve SUSE Linux Enterprise Server (SLES) ve Red Hat Enterprise Linux aşağıdaki hello.
+* Tüm kaynaklar (örneğin, anahtar kasası, depolama hesabı ve VM) hello olmalıdır aynı Azure bölgesinde ve abonelik.
 * Standart bir, D, DS, G ve GS serisi VM'ler.
 
-Disk şifrelemesi aşağıdaki senaryolarda şu anda desteklenmiyor:
+Disk şifrelemesi senaryoları aşağıdaki hello şu anda desteklenmiyor:
 
 * Temel katman VM'ler.
-* Klasik dağıtım modeli kullanılarak oluşturulan VM'ler.
+* Merhaba Klasik dağıtım modeli kullanılarak oluşturulan VM'ler.
 * İşletim sistemi disk şifrelemesi Linux sanal makineleri üzerinde devre dışı bırakılıyor.
-* Zaten şifrelenmiş bir Linux VM üzerinde şifreleme anahtarlarını güncelleştiriliyor.
+* Şifreleme anahtarlarının zaten şifrelenmiş bir Linux VM Hello güncelleştiriliyor.
 
-## <a name="create-the-azure-key-vault-and-keys"></a>Azure anahtar kasası ve anahtarları oluşturma
-Bu kılavuz kalanını tamamlamak için ihtiyacınız [en son Azure CLI 1.0](../../xplat-cli-install.md) yüklü ve Resource Manager modunu aşağıdaki gibi kullanarak oturum:
+## <a name="create-hello-azure-key-vault-and-keys"></a>Oluşturma Azure anahtar kasası ve anahtarları hello
+toocomplete hello geri kalanında bu kılavuz, gereksinim duyduğunuz hello [en son Azure CLI 1.0](../../xplat-cli-install.md) yüklü ve aşağıdaki gibi hello Resource Manager modunu kullanarak oturum:
 
 ```azurecli
 azure config mode arm
 ```
 
-Komut örnekleri tüm örnek parametreleri kendi adları, konum ve anahtar değerlerini değiştirin. Aşağıdaki örnekler, bir kuralı kullanmak `myResourceGroup`, `myKeyVault`, `myAADApp`vb..
+Merhaba komut örnekleri tüm örnek parametreleri kendi adları, konum ve anahtar değerlerini değiştirin. Merhaba aşağıdaki örnekleri kullanmak, bir kural `myResourceGroup`, `myKeyVault`, `myAADApp`vb..
 
-İlk adım, şifreleme anahtarlarını depolamak için bir Azure anahtar kasası oluşturmaktır. Azure anahtar kasası anahtarları, gizli ya da, uygulama ve hizmetlerinize güvenli bir şekilde uygulamak izin parolaları depolayabilirsiniz. Sanal disk şifreleme için şifreleme veya şifrelerini çözme, sanal diskler için kullanılan bir şifreleme anahtarı depolamak için anahtar kasası kullanın.
+Merhaba ilk adımı şifreleme anahtarlarınızı toocreate Azure anahtar kasası toostore değil. Azure anahtar kasası anahtarları, gizli depolayabilir veya toosecurely izin parolalar, uygulama ve hizmetlerinize uygulamadan. Sanal disk şifrelemesi için anahtar kasası toostore kullanılan tooencrypt bir şifreleme anahtarı kullanın veya sanal diskleri şifresini.
 
-Azure aboneliğinizde Azure anahtar kasası sağlayıcısını etkinleştirin, ardından bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `WestUS` konumu:
+Azure aboneliğinizde Hello Azure anahtar kasası sağlayıcısını etkinleştirin, ardından bir kaynak grubu oluşturun. Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu `myResourceGroup` hello içinde `WestUS` konumu:
 
 ```azurecli
 azure provider register Microsoft.KeyVault
 azure group create myResourceGroup --location WestUS
 ```
 
-Şifreleme anahtarlarını ve depolama ve VM gibi ilişkili işlem kaynakları içeren Azure anahtar kasası aynı bölgede bulunmalıdır. Aşağıdaki örnek, bir Azure anahtar kasası adlı oluşturur `myKeyVault`:
+depolama ve hello VM kendisini gibi kaynakları bulunmalıdır Hello Azure anahtar kasası içeren hello şifreleme anahtarlarını ve ilişkili işlem aynı bölgede hello. Merhaba aşağıdaki örnekte oluşturur adlı bir Azure anahtar kasası `myKeyVault`:
 
 ```azurecli
 azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
   --location WestUS
 ```
 
-Yazılım veya donanım güvenlik modeli (HSM) koruması kullanarak şifreleme anahtarlarını depolayabilirsiniz. HSM kullanmanın premium anahtar kasası gerektirir. Premium yazılım korumalı anahtarlar depolar standart anahtar kasası yerine anahtar kasası oluşturmak için ek bir maliyet yoktur. Premium anahtar kasası oluşturmak için önceki adımda ekleyin `--sku Premium` komutu. Aşağıdaki örnek, standart bir anahtar kasası oluşturduğumuz bu yana yazılım korumalı anahtarlar kullanır.
+Yazılım veya donanım güvenlik modeli (HSM) koruması kullanarak şifreleme anahtarlarını depolayabilirsiniz. HSM kullanmanın premium anahtar kasası gerektirir. Premium yazılım korumalı anahtarlar depolar standart anahtar kasası yerine anahtar kasası ek maliyet toocreating yoktur. bir ' % s'premium anahtar kasası, adım önceki hello içinde eklemek toocreate `--sku Premium` toohello komutu. Standart bir anahtar kasası oluşturduğumuz beri hello aşağıdaki örnek yazılım korumalı anahtarlar kullanır.
 
-Her iki koruma modeli için Azure platformu VM sanal diskleri şifresini çözmek için önyüklendiğinde şifreleme anahtarları istemek için erişim verilmesi gerekir. Bir şifreleme anahtarı, anahtar kasası içinde oluşturun, sonra sanal disk şifrelemesi ile kullanmak için etkinleştirin. Aşağıdaki örnek adlı bir anahtar oluşturur `myKey` ve disk şifrelemesi için sağlar:
+Her iki koruma modelleri için erişim toorequest hello şifreleme anahtarları hello VM toodecrypt hello sanal diskler önyüklendiğinde verilen toobe hello Azure platformu gerekir. Bir şifreleme anahtarı, anahtar kasası içinde oluşturun, sonra sanal disk şifrelemesi ile kullanmak için etkinleştirin. Merhaba aşağıdaki örnekte oluşturur adlı bir anahtar `myKey` ve disk şifrelemesi için sağlar:
 
 ```azurecli
 azure keyvault key create --vault-name myKeyVault --key-name myKey \
@@ -199,12 +199,12 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
 ```
 
 
-## <a name="create-the-azure-active-directory-application"></a>Azure Active Directory uygulaması oluşturma
-Sanal diskler şifrelenmiş veya şifresi, kimlik doğrulama ve şifreleme anahtarlarının anahtar Kasası'ndan değişimi işlemek için bir uç nokta kullanın. Bu uç noktası, bir Azure Active Directory uygulaması VM adına uygun şifreleme anahtarları istemek Azure platformu sağlar. Birçok kuruluş Azure Active Directory dizinleri ayrılmış olsa, aboneliğinizde varsayılan Azure Active Directory örneği kullanılabilir.
+## <a name="create-hello-azure-active-directory-application"></a>Merhaba Azure Active Directory uygulaması oluşturma
+Sanal diskler şifrelenmiş veya şifresi, bir uç nokta toohandle hello kimlik doğrulama ve şifreleme anahtarlarının anahtar Kasası'ndan değişimi kullanın. Bu uç noktası, bir Azure Active Directory uygulaması hello Azure platformu toorequest hello uygun şifreleme anahtarları hello VM adına izin verir. Birçok kuruluş Azure Active Directory dizinleri ayrılmış olsa, aboneliğinizde varsayılan Azure Active Directory örneği kullanılabilir.
 
-Tam bir Azure Active Directory Uygulama oluşturmadığınızı gibi `--home-page` ve `--identifier-uris` parametreleri aşağıdaki örnekte gerçek yönlendirilebilir adresi olması gerekmez. Aşağıdaki örnek, ayrıca Azure portal oluşturma anahtarları yerine bir parola tabanlı gizlilik belirtir. Bu sürede anahtarlar oluşturma Azure CLI üzerinden yapılamaz.
+Tam bir Azure Active Directory Uygulama oluşturmadığınızı gibi hello `--home-page` ve `--identifier-uris` aşağıdaki örneğine hello parametrelerinde toobe gerçek yönlendirilebilir adres gerek yoktur. Merhaba aşağıdaki örnek, ayrıca hello Azure portal oluşturma anahtarları yerine bir parola tabanlı gizlilik belirtir. Bu sürede anahtarlar oluşturma hello Azure CLI ' yapılamaz.
 
-Azure Active Directory uygulamanızı oluşturun. Aşağıdaki örnek adlı bir uygulama oluşturur `myAADApp` ve bir parola kullanıyorsa `myPassword`. Kendi parolanızı aşağıdaki gibi belirtin:
+Azure Active Directory uygulamanızı oluşturun. Merhaba aşağıdaki örnek adlı bir uygulama oluşturur `myAADApp` ve bir parola kullanıyorsa `myPassword`. Kendi parolanızı aşağıdaki gibi belirtin:
 
 ```azurecli
 azure ad app create --name myAADApp \
@@ -213,9 +213,9 @@ azure ad app create --name myAADApp \
   --password myPassword
 ```
 
-Not `applicationId` döndürülen çıktıda önceki komutu. Bu uygulama kimliği kalan adımları bazıları kullanılır. Ardından, uygulama ortamınızda erişilebilir olmasını sağlamak bir hizmet asıl adı (SPN) oluşturun. Başarılı bir şekilde şifrelemek veya sanal diskleri şifresini çözmek için anahtar kasasında depolanan şifreleme anahtarı üzerindeki izinleri anahtarları okumak için Azure Active Directory Uygulama izin verecek şekilde ayarlanması gerekir.
+Merhaba Not `applicationId` döndürülen hello çıktısında komutu önceki hello. Bu uygulama kimliği bazı adımları kalan hello kullanılır. Merhaba uygulaması ortamınızda erişilebilir olmasını sağlayın, ardından, bir hizmet asıl adı (SPN) oluşturun. toosuccessfully şifrelemek veya şifresini sanal diskler, anahtar kasasında depolanan hello şifreleme anahtarı üzerindeki izinleri kümesi toopermit hello Azure Active Directory Uygulama tooread hello anahtarları olmalıdır.
 
-SPN oluşturmak ve uygun izinleri aşağıdaki gibi ayarlayın:
+Merhaba SPN oluşturmak ve hello uygun izinleri aşağıdaki gibi ayarlayın:
 
 ```azurecli
 azure ad sp create --applicationId myApplicationID
@@ -225,14 +225,14 @@ azure keyvault set-policy --vault-name myKeyVault --spn myApplicationID \
 
 
 ## <a name="add-a-virtual-disk-and-review-encryption-status"></a>Sanal bir disk ekleyin ve şifreleme durumunu gözden geçirin
-Bazı sanal diskler gerçekte şifrelemek için bir disk eklemek için mevcut bir VM'yi olanak sağlar. 5 Gb veri diski için mevcut bir VM'yi aşağıdaki şekilde ekleyin:
+tooactually bazı sanal diskler şifrelerseniz, VM var olan bir disk tooan eklemek olanak sağlar. VM gibi varolan bir 5 Gb veri diski tooan ekleyin:
 
 ```azurecli
 azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
   --size-in-gb 5
 ```
 
-Sanal diskleri şu anda şifrelenmez. VM geçerli şifreleme durumunu aşağıdaki gibi gözden geçirin:
+Merhaba sanal diskleri şu anda şifrelenmez. Merhaba, VM geçerli şifreleme durumu aşağıdaki gibi gözden geçirin:
 
 ```azurecli
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
@@ -240,21 +240,21 @@ azure vm show-disk-encryption-status --resource-group myResourceGroup --name myV
 
 
 ## <a name="encrypt-virtual-disks"></a>Sanal diskler şifrele
-Şimdi sanal diskleri şifrelemek için birlikte tüm önceki bileşenleri getirin:
+toonow şifrelemek hello sanal diskler, tüm hello önceki bileşenleri araya getirin:
 
-1. Azure Active Directory uygulaması ve parola belirtin.
-2. Şifrelenmiş diskleriniz için meta verileri depolamak için anahtar kasası belirtin.
-3. Gerçek şifreleme ve şifre çözme için kullanılacak şifreleme anahtarları belirtin.
-4. İşletim sistemi diski, veri diskleri veya tüm şifrelemek isteyip istemediğinizi belirtin.
+1. Merhaba Azure Active Directory uygulaması ve parola belirtin.
+2. Şifrelenmiş disklerinizi Hello anahtar kasası toostore hello meta verileri belirtin.
+3. Merhaba şifreleme anahtarları toouse hello gerçek şifreleme ve şifre çözme için belirtin.
+4. Tooencrypt hello işletim sistemi diski, hello veri diskleri veya tüm isteyip istemediğinizi belirtin.
 
-Azure anahtar kasası ve URI, anahtar kasası kimliği gerekir ve ardından son adım URL anahtar olarak, oluşturulan anahtarın ayrıntıları incelemenizi sağlar:
+Anahtar kasası kimliği URI hello ve ardından URL hello son adımda anahtar, oluşturulan Azure anahtar kasası ve hello anahtarınızı Hello ayrıntılarını gözden olanak sağlar:
 
 ```azurecli
 azure keyvault show myKeyVault
 azure keyvault key show myKeyVault myKey
 ```
 
-Çıktısını kullanarak, sanal disklere şifrelemek `azure keyvault show` ve `azure keyvault key show` gibi komutlar:
+Merhaba Hello çıktısını kullanarak, sanal disklere şifrelemek `azure keyvault show` ve `azure keyvault key show` gibi komutlar:
 
 ```azurecli
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
@@ -266,7 +266,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --volume-type Data
 ```
 
-Yukarıdaki komut birçok değişken taşıdığından, tam komut başvurusu için aşağıdaki örnek verilmiştir:
+Hello yukarıdaki komut sahip birçok değişkenleri olarak hello aşağıdaki hello tam komut başvurusu için bir örnektir:
 
 ```azurecli
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
@@ -279,9 +279,9 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --volume-type Data
 ```
 
-Azure CLI ayrıntılı hataları şifreleme işlemi sırasında sağlamaz. Ek sorun giderme bilgileri için inceleyin `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log` şifreleme VM üzerinde.
+Hello Azure CLI ayrıntılı hataları hello şifreleme işlemi sırasında sağlamaz. Ek sorun giderme bilgileri için inceleyin `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log` hello şifreleme VM üzerinde.
 
-Son olarak, sanal diskler artık şifrelenmiş olduğunu onaylamak için yeniden şifreleme durumunu gözden olanak sağlar:
+Son olarak, hello şifreleme durumunu gözden geçirmek sağlar yeniden sanal diskler şimdi şifrelendikten tooconfirm:
 
 ```azurecli
 azure vm show-disk-encryption-status --resource-group myResourceGroup --name myVM
@@ -289,16 +289,16 @@ azure vm show-disk-encryption-status --resource-group myResourceGroup --name myV
 
 
 ## <a name="add-additional-data-disks"></a>Ek veri disklerinin ekleme
-Veri disklerinizi şifrelenmiş sonra daha sonra ek sanal diskleri VM'nize eklemek ve de şifreleme. Çalıştırdığınızda `azure vm enable-disk-encryption` komutu, dizisi sürümü kullanılarak Artır `--sequence-version` parametresi. Bu sıra sürüm parametresi aynı VM üzerinde yinelenen işlemler gerçekleştirmenizi sağlar.
+Veri disklerinizi şifrelenmiş sonra daha sonra ek sanal diskler tooyour VM eklemek ve de şifreleme. Merhaba çalıştırdığınızda `azure vm enable-disk-encryption` komutu, hello kullanarak artışı hello dizisi sürümü `--sequence-version` parametresi. Bu sıra sürüm parametresi tooperform verir üzerinde yinelenen işlemler hello aynı VM.
 
-Örneğin, ikinci bir sanal disk VM'nize aşağıdaki şekilde ekleyin olanak sağlar:
+Örneğin, ikinci bir sanal disk tooyour VM aşağıdaki şekilde ekleyin olanak sağlar:
 
 ```azurecli
 azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
   --size-in-gb 5
 ```
 
-Sanal diskler şifrelemek için komutu yeniden çalıştırın bu zaman ekleme `--sequence-version` parametresi ve değeri bizim ilk çalıştırma gibi artırma:
+Merhaba ekleyerek bu kez Hello komutu tooencrypt hello sanal diskler, yeniden `--sequence-version` parametre ve artan hello değerini bizim ilk aşağıdaki gibi çalıştırın:
 
 ```azurecli
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
@@ -314,4 +314,4 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Azure anahtar kasası, şifreleme anahtarlarını ve kasa, silme de dahil olmak üzere yönetme hakkında daha fazla bilgi için bkz: [anahtar kasası CLI kullanarak yönetme](../../key-vault/key-vault-manage-with-cli2.md).
-* Azure için karşıya yüklemek için şifrelenmiş bir özel VM hazırlama gibi disk şifrelemesi hakkında daha fazla bilgi için bkz: [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption.md).
+* Bir şifrelenmiş özel VM tooupload tooAzure, hazırlama gibi disk şifrelemesi hakkında daha fazla bilgi için bkz: [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption.md).
