@@ -1,0 +1,6 @@
+1. <span data-ttu-id="0411a-101">Merhaba Visual Studio menüsünden seçin **Dosya > Yeni > Proje**.</span><span class="sxs-lookup"><span data-stu-id="0411a-101">From hello Visual Studio menu, select **File > New > Project**.</span></span>
+2. <span data-ttu-id="0411a-102">Merhaba altında **şablonları** hello bölümünü **yeni proje** iletişim kutusunda **Visual C# > Web**.</span><span class="sxs-lookup"><span data-stu-id="0411a-102">Under hello **Templates** section of hello **New Project** dialog box, select **Visual C# > Web**.</span></span>
+3. <span data-ttu-id="0411a-103">Seçin **ASP.NET Core Web uygulaması (.NET Core)**.</span><span class="sxs-lookup"><span data-stu-id="0411a-103">Select **ASP.NET Core Web Application (.NET Core)**.</span></span>
+4. <span data-ttu-id="0411a-104">Yeni uygulama adı (veya Al hello varsayılan) verin ve seçin **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="0411a-104">Give your new application a name (or take hello default) and select **OK**.</span></span>
+5. <span data-ttu-id="0411a-105">Altında **ASP.NET Core 1.1 şablonları**seçin **Web uygulaması** seçip **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="0411a-105">Under **ASP.NET Core 1.1 Templates**, select **Web Application** and select **OK**.</span></span>
+

@@ -1,6 +1,6 @@
 ---
-title: "VM ile birden çok IP adreslerini Azure CLI 2.0 kullanan | Microsoft Docs"
-description: "Azure CLI 2.0 kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin | Resource Manager."
+title: "hello Azure CLI 2.0 kullanarak birden çok IP adresleriyle aaaVM | Microsoft Docs"
+description: "Nasıl tooassign birden çok IP adresleri öğrenin tooa kullanarak sanal makine hello Azure CLI 2.0 | Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 15efd853cc7c31bacb64ed052dabedd3fe4d3079
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a><span data-ttu-id="2564e-103">Azure CLI 2.0 kullanarak sanal makineleri için birden çok IP adresi atayın</span><span class="sxs-lookup"><span data-stu-id="2564e-103">Assign multiple IP addresses to virtual machines using the Azure CLI 2.0</span></span>
+# <a name="assign-multiple-ip-addresses-toovirtual-machines-using-hello-azure-cli-20"></a><span data-ttu-id="84504-103">Hello Azure CLI 2.0 kullanarak toovirtual makineleri birden çok IP adresi atayın</span><span class="sxs-lookup"><span data-stu-id="84504-103">Assign multiple IP addresses toovirtual machines using hello Azure CLI 2.0</span></span>
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-<span data-ttu-id="2564e-104">Bu makalede, Azure CLI 2.0 kullanarak Azure Resource Manager dağıtım modeli sanal makine (VM) oluşturma açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="2564e-104">This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI 2.0.</span></span> <span data-ttu-id="2564e-105">Birden çok IP adresi Klasik dağıtım modeli aracılığıyla oluşturulan kaynakları atanamaz.</span><span class="sxs-lookup"><span data-stu-id="2564e-105">Multiple IP addresses cannot be assigned to resources created through the classic deployment model.</span></span> <span data-ttu-id="2564e-106">Azure dağıtım modelleri hakkında daha fazla bilgi için okuma [dağıtım modellerini anlama](../resource-manager-deployment-model.md) makalesi.</span><span class="sxs-lookup"><span data-stu-id="2564e-106">To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.</span></span>
+<span data-ttu-id="84504-104">Bu makalede nasıl toocreate hello Azure Resource Manager dağıtım modeli kullanılarak aracılığıyla sanal makine (VM) hello Azure CLI 2.0 açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="84504-104">This article explains how toocreate a virtual machine (VM) through hello Azure Resource Manager deployment model using hello Azure CLI 2.0.</span></span> <span data-ttu-id="84504-105">Birden çok IP adresi hello Klasik dağıtım modeli aracılığıyla oluşturulan tooresources atanamaz.</span><span class="sxs-lookup"><span data-stu-id="84504-105">Multiple IP addresses cannot be assigned tooresources created through hello classic deployment model.</span></span> <span data-ttu-id="84504-106">Merhaba okuma Azure dağıtım modelleri hakkında daha fazla toolearn [dağıtım modellerini anlama](../resource-manager-deployment-model.md) makalesi.</span><span class="sxs-lookup"><span data-stu-id="84504-106">toolearn more about Azure deployment models, read hello [Understand deployment models](../resource-manager-deployment-model.md) article.</span></span>
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <span data-ttu-id="2564e-107"><a name = "create"></a>Birden çok IP adresiyle bir VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="2564e-107"><a name = "create"></a>Create a VM with multiple IP addresses</span></span>
+## <span data-ttu-id="84504-107"><a name = "create"></a>Birden çok IP adresiyle bir VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="84504-107"><a name = "create"></a>Create a VM with multiple IP addresses</span></span>
 
-<span data-ttu-id="2564e-108">Azure CLI 2.0 (Bu makalede) kullanarak bu görevi tamamlayabilirsiniz veya [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="2564e-108">You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md).</span></span> <span data-ttu-id="2564e-109">Değerleri, ortamınız için uygun şekilde değiştirin.</span><span class="sxs-lookup"><span data-stu-id="2564e-109">Change the values, as appropriate, for your environment.</span></span> <span data-ttu-id="2564e-110">Adımları birden çok IP adresleriyle VM örneği oluşturmak senaryosunda açıklandığı şekilde açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="2564e-110">The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario.</span></span> <span data-ttu-id="2564e-111">Değişken değerleri değiştirmek "" ve IP adresi türleri, uygulamanız için gerekli olarak.</span><span class="sxs-lookup"><span data-stu-id="2564e-111">Change variable values in "" and IP address types as required for your implementation.</span></span> 
+<span data-ttu-id="84504-108">Hello Azure CLI 2.0 (Bu makalede) veya hello kullanarak bu görevi tamamlayabilirsiniz [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md).</span><span class="sxs-lookup"><span data-stu-id="84504-108">You can complete this task using hello Azure CLI 2.0 (this article) or hello [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md).</span></span> <span data-ttu-id="84504-109">Ortamınız için uygun şekilde Hello değerlerini değiştirin.</span><span class="sxs-lookup"><span data-stu-id="84504-109">Change hello values, as appropriate, for your environment.</span></span> <span data-ttu-id="84504-110">izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl toocreate örneği VM ile birden çok IP adresleri, açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="84504-110">hello steps that follow explain how toocreate an example VM with multiple IP addresses, as described in hello scenario.</span></span> <span data-ttu-id="84504-111">Değişken değerleri değiştirmek "" ve IP adresi türleri, uygulamanız için gerekli olarak.</span><span class="sxs-lookup"><span data-stu-id="84504-111">Change variable values in "" and IP address types as required for your implementation.</span></span> 
 
-1. <span data-ttu-id="2564e-112">Yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) , zaten yüklü değilse.</span><span class="sxs-lookup"><span data-stu-id="2564e-112">Install the [Azure CLI 2.0](/cli/azure/install-az-cli2) if you don't already have it installed.</span></span>
-2. <span data-ttu-id="2564e-113">İçindeki adımları tamamlayarak Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma [Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="2564e-113">Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).</span></span>
-3. <span data-ttu-id="2564e-114">Oturum açma komutunu bir komut kabuğu'ndan `az login` ve kullanmakta olduğunuz abonelik seçin.</span><span class="sxs-lookup"><span data-stu-id="2564e-114">From a command shell, login with the command `az login` and select the subscription you're using.</span></span>
-4. <span data-ttu-id="2564e-115">VM, bir Linux veya Mac bilgisayarda aşağıdaki komut dosyasını çalıştırarak oluşturun.</span><span class="sxs-lookup"><span data-stu-id="2564e-115">Create the VM by executing the script that follows on a Linux or Mac computer.</span></span> <span data-ttu-id="2564e-116">Komut dosyası, ona iliştirilmiş iki NIC içeren bir kaynak grubu, bir sanal ağ (VNet), bir NIC üç IP yapılandırmaları olan ve bir VM oluşturur.</span><span class="sxs-lookup"><span data-stu-id="2564e-116">The script creates a resource group, one virtual network (VNet), one NIC with three IP configurations, and a VM with the two NICs attached to it.</span></span> <span data-ttu-id="2564e-117">NIC, ortak IP adresi, sanal ağ ve VM kaynakları tüm aynı konumu ve abonelik bulunmalıdır.</span><span class="sxs-lookup"><span data-stu-id="2564e-117">The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription.</span></span> <span data-ttu-id="2564e-118">Kaynakların tümü aynı kaynak grubunda mevcut gerekmez ancak, aşağıdaki komut dosyasında yaparlar.</span><span class="sxs-lookup"><span data-stu-id="2564e-118">Though the resources don't all have to exist in the same resource group, in the following script they do.</span></span>
+1. <span data-ttu-id="84504-112">Merhaba yüklemek [Azure CLI 2.0](/cli/azure/install-az-cli2) , zaten yüklü değilse.</span><span class="sxs-lookup"><span data-stu-id="84504-112">Install hello [Azure CLI 2.0](/cli/azure/install-az-cli2) if you don't already have it installed.</span></span>
+2. <span data-ttu-id="84504-113">Merhaba hello adımları tamamlayarak Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma [Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="84504-113">Create an SSH public and private key pair for Linux VMs by completing hello steps in hello [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).</span></span>
+3. <span data-ttu-id="84504-114">Oturum açma hello komutuyla bir komut kabuğu'ndan `az login` ve kullanmakta olduğunuz hello abonelik seçin.</span><span class="sxs-lookup"><span data-stu-id="84504-114">From a command shell, login with hello command `az login` and select hello subscription you're using.</span></span>
+4. <span data-ttu-id="84504-115">Bir Linux veya Mac bilgisayarda aşağıdaki hello komut dosyası çalıştırarak Hello VM oluşturun.</span><span class="sxs-lookup"><span data-stu-id="84504-115">Create hello VM by executing hello script that follows on a Linux or Mac computer.</span></span> <span data-ttu-id="84504-116">Merhaba komut dosyası bir kaynak grubu, bir sanal ağ (VNet), bir NIC üç IP yapılandırmaları olan ve bir VM ile Merhaba iki bağlı NIC tooit oluşturur.</span><span class="sxs-lookup"><span data-stu-id="84504-116">hello script creates a resource group, one virtual network (VNet), one NIC with three IP configurations, and a VM with hello two NICs attached tooit.</span></span> <span data-ttu-id="84504-117">Merhaba NIC, ortak IP adresi, sanal ağ ve VM kaynakları tüm bulunmalıdır hello aynı konumu ve abonelik.</span><span class="sxs-lookup"><span data-stu-id="84504-117">hello NIC, public IP address, virtual network, and VM resources must all exist in hello same location and subscription.</span></span> <span data-ttu-id="84504-118">Merhaba kaynakları tüm tooexist hello yok ancak aynı kaynak grubunda, yaptıkları komut dosyası izleyen hello.</span><span class="sxs-lookup"><span data-stu-id="84504-118">Though hello resources don't all have tooexist in hello same resource group, in hello following script they do.</span></span>
 
 ```bash
     
@@ -46,10 +46,10 @@ RgName="myResourceGroup"
 Location="westcentralus"
 az group create --name $RgName --location $Location
     
-# Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
-# do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
-# of IP adresses unique to each Azure region. Download and view the file from
-# https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists the ranges for each region.
+# Create a public IP address resource with a static IP address using hello `--allocation-method Static` option. If you
+# do not specify this option, hello address is allocated dynamically. hello address is assigned toohello resource from a pool
+# of IP adresses unique tooeach Azure region. Download and view hello file from
+# https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists hello ranges for each region.
 
 PipName="myPublicIP"
 
@@ -78,8 +78,8 @@ az network vnet create \
 --subnet-name $VnetSubnetName \
 --subnet-prefix $VnetSubnetPrefix
 
-# Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
-# first IP configuration with a static private IP address and will associate the public IP address resource to it.
+# Create a network interface connected toohello subnet and associate hello public IP address tooit. Azure will create the
+# first IP configuration with a static private IP address and will associate hello public IP address resource tooit.
 
 NicName="MyNic1"
 az network nic create \
@@ -91,7 +91,7 @@ az network nic create \
 --vnet-name $VnetName \
 --public-ip-address $PipName
     
-# Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
+# Create a second public IP address, a second IP configuration, and associate it toohello NIC. This configuration has a
 # static public IP address and a static private IP address.
 
 az network public-ip create \
@@ -108,7 +108,7 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
+# Create a third IP configuration, and associate it toohello NIC. This configuration has  static private IP address and # no public IP address.
 
 azure network nic ip-config create \
 --resource-group $RgName \
@@ -116,30 +116,30 @@ azure network nic ip-config create \
 --private-ip-address 10.0.0.6 \
 --name IPConfig-3
 
-# Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
-# to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
+# Note: Though this article assigns all IP configurations tooa single NIC, you can also assign multiple IP configurations
+# tooany NIC in a VM. toolearn how toocreate a VM with multiple NICs, read hello Create a VM with multiple NICs 
 # article: https://docs.microsoft.com/azure/virtual-network/virtual-network-deploy-multinic-arm-cli.
 
-# Create a VM and attach the NIC.
+# Create a VM and attach hello NIC.
 
 VmName="myVm"
 
-# Replace the value for the following **VmSize** variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes rticle. The script fails if the VM size
-# is not supported in the location you select. Run the `azure vm sizes --location estcentralus` command to get a full list
+# Replace hello value for hello following **VmSize** variable with a value from the
+# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes rticle. hello script fails if hello VM size
+# is not supported in hello location you select. Run hello `azure vm sizes --location estcentralus` command tooget a full list
 # of VMs in US West Central, for example.
 
 VmSize="Standard_DS1"
 
-# Replace the value for the OsImage variable value with a value for *urn* from the utput returned by entering the
+# Replace hello value for hello OsImage variable value with a value for *urn* from hello utput returned by entering the
 # `az vm image list` command.
 
 OsImage="credativ:Debian:8:latest"
 
 Username="adminuser"
 
-# Replace the following value with the path to your public key file. If you're creating a Windows VM, remove the following
-# line and you'll be prompted for the password you want to configure for the VM.
+# Replace hello following value with hello path tooyour public key file. If you're creating a Windows VM, remove hello following
+# line and you'll be prompted for hello password you want tooconfigure for hello VM.
 
 SshKeyValue="~/.ssh/id_rsa.pub"
 
@@ -154,28 +154,28 @@ az vm create \
 --ssh-key-value $SshKeyValue
 ```
 
-<span data-ttu-id="2564e-119">3 IP yapılandırmaları olan bir NIC ile VM oluşturmaya ek olarak, komut dosyası oluşturur:</span><span class="sxs-lookup"><span data-stu-id="2564e-119">In addition to creating a VM with a NIC with 3 IP configurations, the script creates:</span></span>
+<span data-ttu-id="84504-119">Ayrıca toocreating 3 IP yapılandırmaları olan bir NIC ile VM, hello komut dosyası oluşturur:</span><span class="sxs-lookup"><span data-stu-id="84504-119">In addition toocreating a VM with a NIC with 3 IP configurations, hello script creates:</span></span>
 
-- <span data-ttu-id="2564e-120">Tek bir premium disk varsayılan olarak yönetilen, ancak oluşturabileceğiniz disk türü için diğer seçeneğiniz vardır.</span><span class="sxs-lookup"><span data-stu-id="2564e-120">A single premium managed disk by default, but you have other options for the disk type you can create.</span></span> <span data-ttu-id="2564e-121">Okuma [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Ayrıntılar için makale.</span><span class="sxs-lookup"><span data-stu-id="2564e-121">Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.</span></span>
-- <span data-ttu-id="2564e-122">Bir alt ağı ve iki genel IP adresine sahip bir sanal ağ.</span><span class="sxs-lookup"><span data-stu-id="2564e-122">A virtual network with one subnet and two public IP addresses.</span></span> <span data-ttu-id="2564e-123">Alternatif olarak, kullanabileceğiniz *varolan* sanal ağ, alt ağ, NIC veya ortak IP adresi kaynakları.</span><span class="sxs-lookup"><span data-stu-id="2564e-123">Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources.</span></span> <span data-ttu-id="2564e-124">Oluşturma ek kaynaklar yerine var olan ağ kaynaklarını kullanmayı öğrenmek için girin `az vm create -h`.</span><span class="sxs-lookup"><span data-stu-id="2564e-124">To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.</span></span>
+- <span data-ttu-id="84504-120">Tek bir premium disk varsayılan olarak yönetilen, ancak oluşturabileceğiniz hello disk türü için diğer seçeneğiniz vardır.</span><span class="sxs-lookup"><span data-stu-id="84504-120">A single premium managed disk by default, but you have other options for hello disk type you can create.</span></span> <span data-ttu-id="84504-121">Okuma hello [hello Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Ayrıntılar için makale.</span><span class="sxs-lookup"><span data-stu-id="84504-121">Read hello [Create a Linux VM using hello Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.</span></span>
+- <span data-ttu-id="84504-122">Bir alt ağı ve iki genel IP adresine sahip bir sanal ağ.</span><span class="sxs-lookup"><span data-stu-id="84504-122">A virtual network with one subnet and two public IP addresses.</span></span> <span data-ttu-id="84504-123">Alternatif olarak, kullanabileceğiniz *varolan* sanal ağ, alt ağ, NIC veya ortak IP adresi kaynakları.</span><span class="sxs-lookup"><span data-stu-id="84504-123">Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources.</span></span> <span data-ttu-id="84504-124">nasıl toouse varolan ağ kaynakları yerine ek kaynakları oluşturma girin toolearn `az vm create -h`.</span><span class="sxs-lookup"><span data-stu-id="84504-124">toolearn how toouse existing network resources rather than creating additional resources, enter `az vm create -h`.</span></span>
 
-<span data-ttu-id="2564e-125">Nominal bir ücret ortak IP adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="2564e-125">Public IP addresses have a nominal fee.</span></span> <span data-ttu-id="2564e-126">IP adresi fiyatlandırma hakkında daha fazla bilgi için okuma [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası.</span><span class="sxs-lookup"><span data-stu-id="2564e-126">To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.</span></span> <span data-ttu-id="2564e-127">Bir abonelikte kullanılabilir genel IP adresleri sayısına bir sınır yoktur.</span><span class="sxs-lookup"><span data-stu-id="2564e-127">There is a limit to the number of public IP addresses that can be used in a subscription.</span></span> <span data-ttu-id="2564e-128">Sınırlar hakkında daha fazla bilgi için [Azure limitleri](../azure-subscription-service-limits.md#networking-limits) makalesini okuyun.</span><span class="sxs-lookup"><span data-stu-id="2564e-128">To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.</span></span>
+<span data-ttu-id="84504-125">Nominal bir ücret ortak IP adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="84504-125">Public IP addresses have a nominal fee.</span></span> <span data-ttu-id="84504-126">IP hakkında daha fazla adres fiyatlandırma toolearn okuma hello [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası.</span><span class="sxs-lookup"><span data-stu-id="84504-126">toolearn more about IP address pricing, read hello [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.</span></span> <span data-ttu-id="84504-127">Bir abonelikte kullanılabilir genel IP adresleri sınırı toohello sayısı yoktur.</span><span class="sxs-lookup"><span data-stu-id="84504-127">There is a limit toohello number of public IP addresses that can be used in a subscription.</span></span> <span data-ttu-id="84504-128">Merhaba okuma hello sınırları hakkında daha fazla toolearn [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) makalesi.</span><span class="sxs-lookup"><span data-stu-id="84504-128">toolearn more about hello limits, read hello [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.</span></span>
 
-<span data-ttu-id="2564e-129">VM oluşturulduktan sonra girin `az network nic show --name MyNic1 --resource-group myResourceGroup` NIC yapılandırmasını görüntülemek için komutu.</span><span class="sxs-lookup"><span data-stu-id="2564e-129">After the VM is created, enter the `az network nic show --name MyNic1 --resource-group myResourceGroup` command to view the NIC configuration.</span></span> <span data-ttu-id="2564e-130">Girin `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` NIC'ye ilişkili IP yapılandırmaları bir listesini görüntülemek için</span><span class="sxs-lookup"><span data-stu-id="2564e-130">Enter the `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` to view a list of the IP configurations associated to the NIC.</span></span>
+<span data-ttu-id="84504-129">Merhaba VM oluşturulduktan sonra hello girin `az network nic show --name MyNic1 --resource-group myResourceGroup` komut tooview hello NIC yapılandırması.</span><span class="sxs-lookup"><span data-stu-id="84504-129">After hello VM is created, enter hello `az network nic show --name MyNic1 --resource-group myResourceGroup` command tooview hello NIC configuration.</span></span> <span data-ttu-id="84504-130">Merhaba girin `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` tooview hello IP yapılandırmaları listesini ilişkili toohello NIC</span><span class="sxs-lookup"><span data-stu-id="84504-130">Enter hello `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` tooview a list of hello IP configurations associated toohello NIC.</span></span>
 
-<span data-ttu-id="2564e-131">İşletim sisteminiz için adımları tamamlayarak VM işletim sistemine özel IP adresleri ekleme [eklemek IP adresleri bir VM işletim sistemine](#os-config) bu makalenin.</span><span class="sxs-lookup"><span data-stu-id="2564e-131">Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article.</span></span>
+<span data-ttu-id="84504-131">Ekle hello özel IP adresleri toohello VM işletim sistemi işletim sisteminizin hello hello adımları tamamlayarak [eklemek IP adresleri tooa VM işletim sistemi](#os-config) bu makalenin.</span><span class="sxs-lookup"><span data-stu-id="84504-131">Add hello private IP addresses toohello VM operating system by completing hello steps for your operating system in hello [Add IP addresses tooa VM operating system](#os-config) section of this article.</span></span>
 
-## <span data-ttu-id="2564e-132"><a name="add"></a>Bir VM için IP adreslerini ekleyin</span><span class="sxs-lookup"><span data-stu-id="2564e-132"><a name="add"></a>Add IP addresses to a VM</span></span>
+## <span data-ttu-id="84504-132"><a name="add"></a>IP adreslerini tooa VM ekleme</span><span class="sxs-lookup"><span data-stu-id="84504-132"><a name="add"></a>Add IP addresses tooa VM</span></span>
 
-<span data-ttu-id="2564e-133">Adımları izleyerek mevcut NIC'in için ek özel ve genel IP adresleri ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="2564e-133">You can add additional private and public IP addresses to an existing NIC by completing the steps that follow.</span></span> <span data-ttu-id="2564e-134">Temel örnekler yapı [senaryo](#Scenario) bu makalede açıklanan.</span><span class="sxs-lookup"><span data-stu-id="2564e-134">The examples build upon the [scenario](#Scenario) described in this article.</span></span>
+<span data-ttu-id="84504-133">NIC izleyin hello adımları tamamlayarak varolan ek özel ve genel IP adresleri tooan ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="84504-133">You can add additional private and public IP addresses tooan existing NIC by completing hello steps that follow.</span></span> <span data-ttu-id="84504-134">Hello örnekleri derleme sırasında hello [senaryo](#Scenario) bu makalede açıklanan.</span><span class="sxs-lookup"><span data-stu-id="84504-134">hello examples build upon hello [scenario](#Scenario) described in this article.</span></span>
 
-1. <span data-ttu-id="2564e-135">Bir komut kabuğu'nu açın ve tek bir oturum içinde bu bölümdeki kalan adımları tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="2564e-135">Open a command shell and complete the remaining steps in this section within a single session.</span></span> <span data-ttu-id="2564e-136">Azure CLI yüklenmiş ve yapılandırılmış zaten sahip değilseniz, bölümündeki adımları tamamlamanız [Azure CLI 2.0 yüklemesi](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) makale ve Azure oturum açma hesabı ile `az-login` komutu.</span><span class="sxs-lookup"><span data-stu-id="2564e-136">If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) article and login to your Azure account with the `az-login` command.</span></span>
+1. <span data-ttu-id="84504-135">Bir komut kabuğu ve bu bölümdeki adımları tek bir oturum içinde kalan tam hello açın.</span><span class="sxs-lookup"><span data-stu-id="84504-135">Open a command shell and complete hello remaining steps in this section within a single session.</span></span> <span data-ttu-id="84504-136">Azure CLI yüklenmiş ve yapılandırılmış zaten sahip değilseniz, tam hello hello adımları [Azure CLI 2.0 yüklemesi](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) makale ve oturum açma tooyour hello Azure hesabı `az-login` komutu.</span><span class="sxs-lookup"><span data-stu-id="84504-136">If you don't already have Azure CLI installed and configured, complete hello steps in hello [Azure CLI 2.0 installation](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) article and login tooyour Azure account with hello `az-login` command.</span></span>
 
-2. <span data-ttu-id="2564e-137">Gereksinimlerinize göre aşağıdaki bölümlerden birindeki adımları tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="2564e-137">Complete the steps in one of the following sections, based on your requirements:</span></span>
+2. <span data-ttu-id="84504-137">Aşağıdaki bölümlerde, gereksinimlerinize göre hello Hello adımları tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="84504-137">Complete hello steps in one of hello following sections, based on your requirements:</span></span>
 
-    <span data-ttu-id="2564e-138">**Özel bir IP adresi Ekle**</span><span class="sxs-lookup"><span data-stu-id="2564e-138">**Add a private IP address**</span></span>
+    <span data-ttu-id="84504-138">**Özel bir IP adresi Ekle**</span><span class="sxs-lookup"><span data-stu-id="84504-138">**Add a private IP address**</span></span>
     
-    <span data-ttu-id="2564e-139">Bir NIC için özel bir IP adresi eklemek için aşağıdaki komutu kullanarak IP yapılandırması oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="2564e-139">To add a private IP address to a NIC, you must create an IP configuration using the command that follows.</span></span> <span data-ttu-id="2564e-140">Statik IP adresi alt ağ için kullanılmayan bir adres olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="2564e-140">The static IP address must be an unused address for the subnet.</span></span>
+    <span data-ttu-id="84504-139">özel bir IP adresi tooa NIC tooadd, izleyen hello komutunu kullanarak bir IP yapılandırması oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="84504-139">tooadd a private IP address tooa NIC, you must create an IP configuration using hello command that follows.</span></span> <span data-ttu-id="84504-140">Merhaba statik IP adresi hello alt ağ için kullanılmayan bir adres olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="84504-140">hello static IP address must be an unused address for hello subnet.</span></span>
 
     ```bash
     az network nic ip-config create \
@@ -185,17 +185,17 @@ az vm create \
     --name IPConfig-4
     ```
     
-    <span data-ttu-id="2564e-141">Benzersiz yapılandırma adları ve özel IP adresleri (yapılandırmaları statik IP adresleriyle) kullanarak gereksinim duyduğunuz kadar çok yapılandırmaları oluşturun.</span><span class="sxs-lookup"><span data-stu-id="2564e-141">Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).</span></span>
+    <span data-ttu-id="84504-141">Benzersiz yapılandırma adları ve özel IP adresleri (yapılandırmaları statik IP adresleriyle) kullanarak gereksinim duyduğunuz kadar çok yapılandırmaları oluşturun.</span><span class="sxs-lookup"><span data-stu-id="84504-141">Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).</span></span>
 
-    <span data-ttu-id="2564e-142">**Bir ortak IP adresi Ekle**</span><span class="sxs-lookup"><span data-stu-id="2564e-142">**Add a public IP address**</span></span>
+    <span data-ttu-id="84504-142">**Bir ortak IP adresi Ekle**</span><span class="sxs-lookup"><span data-stu-id="84504-142">**Add a public IP address**</span></span>
     
-    <span data-ttu-id="2564e-143">Bir ortak IP adresi, yeni bir IP yapılandırması veya var olan IP yapılandırmasını ilişkilendirerek eklenir.</span><span class="sxs-lookup"><span data-stu-id="2564e-143">A public IP address is added by associating it to either a new IP configuration or an existing IP configuration.</span></span> <span data-ttu-id="2564e-144">Gereksinim duyduğunuz kadar aşağıdaki bölümlerde birindeki adımları tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="2564e-144">Complete the steps in one of the sections that follow, as you require.</span></span>
+    <span data-ttu-id="84504-143">Bir ortak IP adresi tooeither ilişkilendirerek eklenen yeni bir IP yapılandırması veya var olan bir IP yapılandırması.</span><span class="sxs-lookup"><span data-stu-id="84504-143">A public IP address is added by associating it tooeither a new IP configuration or an existing IP configuration.</span></span> <span data-ttu-id="84504-144">Gereksinim duyduğunuz kadar izleyin, hello bölümlerden biri hello adımlarını tamamlayın.</span><span class="sxs-lookup"><span data-stu-id="84504-144">Complete hello steps in one of hello sections that follow, as you require.</span></span>
 
-    <span data-ttu-id="2564e-145">Nominal bir ücret ortak IP adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="2564e-145">Public IP addresses have a nominal fee.</span></span> <span data-ttu-id="2564e-146">IP adresi fiyatlandırma hakkında daha fazla bilgi için okuma [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası.</span><span class="sxs-lookup"><span data-stu-id="2564e-146">To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.</span></span> <span data-ttu-id="2564e-147">Bir abonelikte kullanılabilir genel IP adresleri sayısına bir sınır yoktur.</span><span class="sxs-lookup"><span data-stu-id="2564e-147">There is a limit to the number of public IP addresses that can be used in a subscription.</span></span> <span data-ttu-id="2564e-148">Sınırlar hakkında daha fazla bilgi için [Azure limitleri](../azure-subscription-service-limits.md#networking-limits) makalesini okuyun.</span><span class="sxs-lookup"><span data-stu-id="2564e-148">To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.</span></span>
+    <span data-ttu-id="84504-145">Nominal bir ücret ortak IP adresine sahip.</span><span class="sxs-lookup"><span data-stu-id="84504-145">Public IP addresses have a nominal fee.</span></span> <span data-ttu-id="84504-146">IP hakkında daha fazla adres fiyatlandırma toolearn okuma hello [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası.</span><span class="sxs-lookup"><span data-stu-id="84504-146">toolearn more about IP address pricing, read hello [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.</span></span> <span data-ttu-id="84504-147">Bir abonelikte kullanılabilir genel IP adresleri sınırı toohello sayısı yoktur.</span><span class="sxs-lookup"><span data-stu-id="84504-147">There is a limit toohello number of public IP addresses that can be used in a subscription.</span></span> <span data-ttu-id="84504-148">Merhaba okuma hello sınırları hakkında daha fazla toolearn [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) makalesi.</span><span class="sxs-lookup"><span data-stu-id="84504-148">toolearn more about hello limits, read hello [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.</span></span>
 
-    - <span data-ttu-id="2564e-149">**Yeni bir IP yapılandırması için kaynak ilişkilendirme**</span><span class="sxs-lookup"><span data-stu-id="2564e-149">**Associate the resource to a new IP configuration**</span></span>
+    - <span data-ttu-id="84504-149">**Merhaba kaynak tooa yeni IP yapılandırmasını ilişkilendirin**</span><span class="sxs-lookup"><span data-stu-id="84504-149">**Associate hello resource tooa new IP configuration**</span></span>
     
-        <span data-ttu-id="2564e-150">Yeni bir IP yapılandırmasında bir ortak IP adresi eklediğinizde, tüm IP yapılandırmalarının özel bir IP adresi olması gerektiği için özel bir IP adresi eklemelisiniz.</span><span class="sxs-lookup"><span data-stu-id="2564e-150">Whenever you add a public IP address in a new IP configuration, you must also add a private IP address, because all IP configurations must have a private IP address.</span></span> <span data-ttu-id="2564e-151">Varolan bir ortak IP adresi kaynağı ekleyin veya yeni bir tane oluşturun.</span><span class="sxs-lookup"><span data-stu-id="2564e-151">You can either add an existing public IP address resource, or create a new one.</span></span> <span data-ttu-id="2564e-152">Yeni bir tane oluşturmak için aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="2564e-152">To create a new one, enter the following command:</span></span>
+        <span data-ttu-id="84504-150">Yeni bir IP yapılandırmasında bir ortak IP adresi eklediğinizde, tüm IP yapılandırmalarının özel bir IP adresi olması gerektiği için özel bir IP adresi eklemelisiniz.</span><span class="sxs-lookup"><span data-stu-id="84504-150">Whenever you add a public IP address in a new IP configuration, you must also add a private IP address, because all IP configurations must have a private IP address.</span></span> <span data-ttu-id="84504-151">Varolan bir ortak IP adresi kaynağı ekleyin veya yeni bir tane oluşturun.</span><span class="sxs-lookup"><span data-stu-id="84504-151">You can either add an existing public IP address resource, or create a new one.</span></span> <span data-ttu-id="84504-152">toocreate yeni bir hello aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="84504-152">toocreate a new one, enter hello following command:</span></span>
     
         ```bash
         az network public-ip create \
@@ -205,7 +205,7 @@ az vm create \
         --dns-name mypublicdns3
         ```
 
-        <span data-ttu-id="2564e-153">Özel bir statik IP adresi ile ilişkili yeni bir IP yapılandırması oluşturmak için *myPublicIP3* genel IP adresi kaynak, aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="2564e-153">To create a new IP configuration with a static private IP address and the associated *myPublicIP3* public IP address resource, enter the following command:</span></span>
+        <span data-ttu-id="84504-153">Özel statik IP adresi ve ilişkili hello yeni bir IP yapılandırmasıyla toocreate *myPublicIP3* genel IP adresi kaynak, komutu aşağıdaki hello girin:</span><span class="sxs-lookup"><span data-stu-id="84504-153">toocreate a new IP configuration with a static private IP address and hello associated *myPublicIP3* public IP address resource, enter hello following command:</span></span>
 
         ```bash
         az network nic ip-config create \
@@ -216,7 +216,7 @@ az vm create \
         --public-ip-address myPublicIP3
         ```
 
-    - <span data-ttu-id="2564e-154">**Var olan IP yapılandırmasını kaynağa ilişkilendirmek** genel bir IP adresi kaynağı yalnızca zaten ilişkili olmayan bir IP yapılandırmasıyla ilişkilendirilmiş olabilir.</span><span class="sxs-lookup"><span data-stu-id="2564e-154">**Associate the resource to an existing IP configuration** A public IP address resource can only be associated to an IP configuration that doesn't already have one associated.</span></span> <span data-ttu-id="2564e-155">Aşağıdaki komutu girerek bir IP yapılandırması ilişkili bir ortak IP adresi olup olmadığını belirleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="2564e-155">You can determine whether an IP configuration has an associated public IP address by entering the following command:</span></span>
+    - <span data-ttu-id="84504-154">**İlişkilendirme hello kaynak tooan mevcut IP yapılandırması** genel bir IP adresi kaynağı yalnızca zaten ilişkili olmayan ilişkili tooan IP yapılandırması olabilir.</span><span class="sxs-lookup"><span data-stu-id="84504-154">**Associate hello resource tooan existing IP configuration** A public IP address resource can only be associated tooan IP configuration that doesn't already have one associated.</span></span> <span data-ttu-id="84504-155">Komutu aşağıdaki hello girerek bir IP yapılandırması ilişkili bir ortak IP adresi olup olmadığını belirleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="84504-155">You can determine whether an IP configuration has an associated public IP address by entering hello following command:</span></span>
 
         ```bash
         az network nic ip-config list \
@@ -225,7 +225,7 @@ az vm create \
         --query "[?provisioningState=='Succeeded'].{ Name: name, PublicIpAddressId: publicIpAddress.id }" --output table
         ```
 
-        <span data-ttu-id="2564e-156">Çıkış döndürdü:</span><span class="sxs-lookup"><span data-stu-id="2564e-156">Returned output:</span></span>
+        <span data-ttu-id="84504-156">Çıkış döndürdü:</span><span class="sxs-lookup"><span data-stu-id="84504-156">Returned output:</span></span>
     
             Name        PublicIpAddressId
             
@@ -233,7 +233,7 @@ az vm create \
             IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
             IPConfig-3
 
-        <span data-ttu-id="2564e-157">Bu yana **PublicIpAddressId** sütunu için *IpConfig 3* olan çıkışı, hiçbir ortak IP adresi kaynağı ilişkili şu anda boştur.</span><span class="sxs-lookup"><span data-stu-id="2564e-157">Since the **PublicIpAddressId** column for *IpConfig-3* is blank in the output, no public IP address resource is currently associated to it.</span></span> <span data-ttu-id="2564e-158">Mevcut bir ortak IP adresi kaynağı IpConfig-3'e ekleyin veya oluşturmak için aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="2564e-158">You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:</span></span>
+        <span data-ttu-id="84504-157">Merhaba itibaren **PublicIpAddressId** sütunu için *IpConfig 3* olan hello boş çıkış, hiçbir ortak IP adresi kaynağı şu anda ilişkili tooit.</span><span class="sxs-lookup"><span data-stu-id="84504-157">Since hello **PublicIpAddressId** column for *IpConfig-3* is blank in hello output, no public IP address resource is currently associated tooit.</span></span> <span data-ttu-id="84504-158">Bir var olan ortak IP adresi kaynak tooIpConfig-3 ekleyin veya komut toocreate bir aşağıdaki hello girin:</span><span class="sxs-lookup"><span data-stu-id="84504-158">You can add an existing public IP address resource tooIpConfig-3, or enter hello following command toocreate one:</span></span>
 
         ```bash
         az network public-ip create \
@@ -244,7 +244,7 @@ az vm create \
         --allocation-method Static
         ```
     
-        <span data-ttu-id="2564e-159">Adlı varolan IP yapılandırması için genel IP adresi kaynağı ilişkilendirmek için aşağıdaki komutu girin *IPConfig 3*:</span><span class="sxs-lookup"><span data-stu-id="2564e-159">Enter the following command to associate the public IP address resource to the existing IP configuration named *IPConfig-3*:</span></span>
+        <span data-ttu-id="84504-159">Tooassociate hello ortak IP adresi adlı kaynak toohello mevcut IP yapılandırması komutu aşağıdaki hello girin *IPConfig 3*:</span><span class="sxs-lookup"><span data-stu-id="84504-159">Enter hello following command tooassociate hello public IP address resource toohello existing IP configuration named *IPConfig-3*:</span></span>
     
         ```bash
         az network nic ip-config update \
@@ -254,7 +254,7 @@ az vm create \
         --public-ip myPublicIP3
         ```
 
-3. <span data-ttu-id="2564e-160">Özel IP adreslerini ve ortak IP adresi kaynağı aşağıdaki komutu girerek NIC'ye atanan kimlikler görüntüleyin:</span><span class="sxs-lookup"><span data-stu-id="2564e-160">View the private IP addresses and the public IP address resource Ids assigned to the NIC by entering the following command:</span></span>
+3. <span data-ttu-id="84504-160">Girerek NIC hello komutu aşağıdaki toohello atanan kaynak kimlikleri görünüm hello özel IP adresleri ve hello genel IP adresi:</span><span class="sxs-lookup"><span data-stu-id="84504-160">View hello private IP addresses and hello public IP address resource Ids assigned toohello NIC by entering hello following command:</span></span>
 
     ```bash
     az network nic ip-config list \
@@ -263,7 +263,7 @@ az vm create \
     --query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
     ```
 
-    <span data-ttu-id="2564e-161">Çıkış döndürdü:</span><span class="sxs-lookup"><span data-stu-id="2564e-161">Returned output:</span></span> <br>
+    <span data-ttu-id="84504-161">Çıkış döndürdü:</span><span class="sxs-lookup"><span data-stu-id="84504-161">Returned output:</span></span> <br>
     
         Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
         
@@ -272,6 +272,6 @@ az vm create \
         IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
     
 
-4. <span data-ttu-id="2564e-162">Eklediğiniz NIC VM işletim sistemine'ndaki yönergeleri izleyerek özel IP adresleri ekleme [eklemek IP adresleri bir VM işletim sistemine](#os-config) bu makalenin.</span><span class="sxs-lookup"><span data-stu-id="2564e-162">Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article.</span></span> <span data-ttu-id="2564e-163">Genel IP adreslerine işletim sistemine eklemeyin.</span><span class="sxs-lookup"><span data-stu-id="2564e-163">Do not add the public IP addresses to the operating system.</span></span>
+4. <span data-ttu-id="84504-162">Merhaba hello yönergeleri takip ederek toohello NIC toohello VM işletim sistemi eklenen hello özel IP adresleri ekleme [eklemek IP adresleri tooa VM işletim sistemi](#os-config) bu makalenin.</span><span class="sxs-lookup"><span data-stu-id="84504-162">Add hello private IP addresses you added toohello NIC toohello VM operating system by following hello instructions in hello [Add IP addresses tooa VM operating system](#os-config) section of this article.</span></span> <span data-ttu-id="84504-163">Merhaba ortak IP adresleri toohello işletim sistemi eklemeyin.</span><span class="sxs-lookup"><span data-stu-id="84504-163">Do not add hello public IP addresses toohello operating system.</span></span>
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

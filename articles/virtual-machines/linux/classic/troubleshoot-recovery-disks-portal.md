@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Linux Klasik VM kurtarma VM için işletim sistemi diski ekleyerek sorunlarını giderme | Microsoft Docs"
-description: "Bir Azure Linux Klasik VM kurtarma VM için işletim sistemi diski ekleyerek sorun giderme öğrenin"
+title: "aaaTroubleshoot hello işletim sistemi disk tooa kurtarma VM ekleyerek bir Azure Linux Klasik VM | Microsoft Docs"
+description: "Nasıl tootroubleshoot ekleyerek bir Azure Linux Klasik VM hello işletim sistemi disk tooa kurtarma VM öğrenin"
 services: virtual-machines-linux
 documentationCenter: 
 authors: genlin
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/21/2017
 ms.author: genli
-ms.openlocfilehash: 04b21c9e3bc3ccb317494bac0dbc93e3e4cda377
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b08075de859ad64ab99f598dc58946c149fb6122
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a><span data-ttu-id="e248c-103">Klasik bir Linux VM kurtarma VM için işletim sistemi diski ekleyerek sorun giderme</span><span class="sxs-lookup"><span data-stu-id="e248c-103">Troubleshoot a Linux classic VM by attaching the OS disk to a recovery VM</span></span>
+# <a name="troubleshoot-a-linux-classic-vm-by-attaching-hello-os-disk-tooa-recovery-vm"></a><span data-ttu-id="efd4b-103">Klasik bir Linux VM hello işletim sistemi disk tooa kurtarma VM ekleyerek sorun giderme</span><span class="sxs-lookup"><span data-stu-id="efd4b-103">Troubleshoot a Linux classic VM by attaching hello OS disk tooa recovery VM</span></span>
 
 [!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
 
-## <a name="next-steps"></a><span data-ttu-id="e248c-104">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="e248c-104">Next steps</span></span>
-<span data-ttu-id="e248c-105">VM'nize bağlanırken sorun yaşıyorsanız, bkz: [sorun giderme SSH bağlantıları, hatalar, başarısız olur veya reddedilir Azure Linux VM'de](../troubleshoot-ssh-connection.md).</span><span class="sxs-lookup"><span data-stu-id="e248c-105">If you are having problems connecting to your VM, see [Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused](../troubleshoot-ssh-connection.md).</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="efd4b-104">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="efd4b-104">Next steps</span></span>
+<span data-ttu-id="efd4b-105">Tooyour VM bağlanırken sorun yaşıyorsanız, bkz: [sorun giderme SSH bağlantıları tooan, hatalar, başarısız olur veya reddedilir Azure Linux VM'de](../troubleshoot-ssh-connection.md).</span><span class="sxs-lookup"><span data-stu-id="efd4b-105">If you are having problems connecting tooyour VM, see [Troubleshoot SSH connections tooan Azure Linux VM that fails, errors out, or is refused](../troubleshoot-ssh-connection.md).</span></span> 
 
-<span data-ttu-id="e248c-106">VM üzerinde çalışan uygulamalara erişme ilgili sorunları görün [azure'da bir Linux sanal makinede uygulama bağlantı sorunlarını giderme](../troubleshoot-app-connection.md).</span><span class="sxs-lookup"><span data-stu-id="e248c-106">For problems accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux virtual machine in Azure](../troubleshoot-app-connection.md).</span></span>
+<span data-ttu-id="efd4b-106">VM üzerinde çalışan uygulamalara erişme ilgili sorunları görün [azure'da bir Linux sanal makinede uygulama bağlantı sorunlarını giderme](../troubleshoot-app-connection.md).</span><span class="sxs-lookup"><span data-stu-id="efd4b-106">For problems accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux virtual machine in Azure](../troubleshoot-app-connection.md).</span></span>

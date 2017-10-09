@@ -1,0 +1,12 @@
+> [!IMPORTANT] 
+> <span data-ttu-id="6babb-101">1 Mart 2017 itibariyle hello Klasik dağıtım modelinde yeni expressroute bağlantı oluşturulamıyor.</span><span class="sxs-lookup"><span data-stu-id="6babb-101">As of March 1, 2017, you can't create new ExpressRoute circuits in hello classic deployment model.</span></span>
+> 
+> - <span data-ttu-id="6babb-102">Tüm bağlantı kesintisi zaman almadan hello Klasik dağıtım modeli toohello Resource Manager dağıtım modeli varolan bir expressroute bağlantı hattı taşıyabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6babb-102">You can move an existing ExpressRoute circuit from hello classic deployment model toohello Resource Manager deployment model without experiencing any connectivity down time.</span></span> <span data-ttu-id="6babb-103">Daha fazla bilgi için bkz. [Mevcut bir devreyi taşıma](../articles/expressroute/expressroute-move.md).</span><span class="sxs-lookup"><span data-stu-id="6babb-103">For more information, see [Move an existing circuit](../articles/expressroute/expressroute-move.md).</span></span>
+> - <span data-ttu-id="6babb-104">Ayarlayarak hello Klasik dağıtım modelinde toovirtual ağlara bağlanabilir miyim **allowClassicOperations** tooTRUE.</span><span class="sxs-lookup"><span data-stu-id="6babb-104">You can connect toovirtual networks in hello classic deployment model by setting **allowClassicOperations** tooTRUE.</span></span>
+> 
+> <span data-ttu-id="6babb-105">Aşağıdaki bağlantılar toocreate hello kullanın ve ExpressRoute bağlantı hatları hello Resource Manager dağıtım modelinde yönetebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="6babb-105">Use hello following links toocreate and manage ExpressRoute circuits in hello Resource Manager deployment model:</span></span>
+
+> - [<span data-ttu-id="6babb-106">ExpressRoute devreleri oluşturup yönetme</span><span class="sxs-lookup"><span data-stu-id="6babb-106">Create and manage ExpressRoute circuits</span></span>](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)<br>
+> - [<span data-ttu-id="6babb-107">ExpressRoute işlem hatları için yönlendirmeyi (eşleme) yapılandırma</span><span class="sxs-lookup"><span data-stu-id="6babb-107">Configure routing (peering) for ExpressRoute circuits</span></span>](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)
+>
+>

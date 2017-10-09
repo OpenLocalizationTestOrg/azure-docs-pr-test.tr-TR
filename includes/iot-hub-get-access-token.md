@@ -1,7 +1,7 @@
-## <a name="obtain-an-azure-resource-manager-token"></a><span data-ttu-id="5c5b2-101">Bir Azure Resource Manager belirteç edinme</span><span class="sxs-lookup"><span data-stu-id="5c5b2-101">Obtain an Azure Resource Manager token</span></span>
-<span data-ttu-id="5c5b2-102">Azure Active Directory kaynakları Azure Kaynak Yöneticisi'ni kullanarak gerçekleştirdiğiniz tüm görevler kimliğini doğrulaması gerekir.</span><span class="sxs-lookup"><span data-stu-id="5c5b2-102">Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager.</span></span> <span data-ttu-id="5c5b2-103">Burada gösterilen örnekte, parola kimlik doğrulaması kullanır, diğer yaklaşım için bkz [Azure Resource Manager kimlik doğrulama istekleri][lnk-authenticate-arm].</span><span class="sxs-lookup"><span data-stu-id="5c5b2-103">The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].</span></span>
+## <a name="obtain-an-azure-resource-manager-token"></a><span data-ttu-id="c2899-101">Bir Azure Resource Manager belirteç edinme</span><span class="sxs-lookup"><span data-stu-id="c2899-101">Obtain an Azure Resource Manager token</span></span>
+<span data-ttu-id="c2899-102">Azure Active Directory kaynakları hello Azure Resource Manager kullanarak gerçekleştirdiğiniz tüm hello görevler kimliğini doğrulaması gerekir.</span><span class="sxs-lookup"><span data-stu-id="c2899-102">Azure Active Directory must authenticate all hello tasks that you perform on resources using hello Azure Resource Manager.</span></span> <span data-ttu-id="c2899-103">diğer yaklaşımlar görmek için hello burada gösterilen örnek parola kimlik doğrulaması kullanır, [Azure Resource Manager kimlik doğrulama istekleri][lnk-authenticate-arm].</span><span class="sxs-lookup"><span data-stu-id="c2899-103">hello example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].</span></span>
 
-1. <span data-ttu-id="5c5b2-104">Aşağıdaki kodu ekleyin **ana** uygulama kimliği ve parola kullanarak Azure AD'den bir belirteç almak için Program.cs yöntemi.</span><span class="sxs-lookup"><span data-stu-id="5c5b2-104">Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.</span></span>
+1. <span data-ttu-id="c2899-104">Aşağıdaki kodu toohello hello eklemek **ana** Program.cs tooretrieve hello uygulama kimliği ve parola kullanarak Azure AD'den bir belirteç yöntemi.</span><span class="sxs-lookup"><span data-stu-id="c2899-104">Add hello following code toohello **Main** method in Program.cs tooretrieve a token from Azure AD using hello application id and password.</span></span>
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -12,18 +12,18 @@
    
     if (token == null)
     {
-      Console.WriteLine("Failed to obtain the token");
+      Console.WriteLine("Failed tooobtain hello token");
       return;
     }
     ```
-2. <span data-ttu-id="5c5b2-105">Oluşturma bir **ResourceManagementClient** sonuna aşağıdaki kodu ekleyerek belirteç kullanan nesne **ana** yöntemi:</span><span class="sxs-lookup"><span data-stu-id="5c5b2-105">Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:</span></span>
+2. <span data-ttu-id="c2899-105">Oluşturma bir **ResourceManagementClient** kullanan kodu toohello hello sonuna aşağıdaki hello ekleyerek belirteci hello nesne **ana** yöntemi:</span><span class="sxs-lookup"><span data-stu-id="c2899-105">Create a **ResourceManagementClient** object that uses hello token by adding hello following code toohello end of hello **Main** method:</span></span>
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. <span data-ttu-id="5c5b2-106">Oluşturma veya bir başvuru için kullanmakta olduğunuz kaynak grubu elde:</span><span class="sxs-lookup"><span data-stu-id="5c5b2-106">Create, or obtain a reference to, the resource group you are using:</span></span>
+3. <span data-ttu-id="c2899-106">Oluşturma veya bir başvuru için kullanmakta olduğunuz hello kaynak grubu elde:</span><span class="sxs-lookup"><span data-stu-id="c2899-106">Create, or obtain a reference to, hello resource group you are using:</span></span>
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

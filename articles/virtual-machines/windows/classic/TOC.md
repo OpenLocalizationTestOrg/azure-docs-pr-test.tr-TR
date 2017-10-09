@@ -6,9 +6,9 @@
 ## [VM'leri, web sitelerini ve bulut hizmetlerini karşılaştırma](../../../app-service-web/choose-web-site-cloud-service-vm.md)
 ## [Kapsayıcılar](../../virtual-machines-windows-containers.md)
 
-# Başlarken
-## [Portalı kullanarak VM oluşturma](tutorial.md)
-## [VM’de oturum açma](connect-logon.md)
+# başlarken
+## [Merhaba portal kullanarak bir VM oluşturma](tutorial.md)
+## [VM tooa üzerinde oturum](connect-logon.md)
 ## [Azure PowerShell’i yükleme](/powershell/azure/overview)
 ## [Azure CLI'yı yükleme](../../../cli-install-nodejs.md)
 
@@ -20,9 +20,9 @@
 ### [D: sürücüsünü veri diski olarak kullanma](../../virtual-machines-windows-change-drive-letter.md)
 
 ## Ağ
-### [Uç noktaları ayarlama](setup-endpoints.md)
+### [Nasıl tooset uç noktaları ayarlama](setup-endpoints.md)
 ### [VNET veya Bulut Hizmeti ile VM’leri bağlama](connect-vms.md)
-### [Klasik sanal ağları Resource Manager sanal ağlarına bağlama](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+### [Klasik sanal ağlar tooResource Yöneticisi Sanal ağlara bağlanma](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 ### [Yük dengeleyici oluşturma](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 ### [Azure PowerShell kullanarak NSG’leri yönetme](../../../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 
@@ -38,17 +38,17 @@
 ### [Django Hello World web uygulaması](python-django-web-app.md)
 
 ## Yapılandırma
-### [Parolayı veya Uzak Masaüstü hizmetini sıfırlama](../../virtual-machines-windows-reset-rdp.md)
+### [Bir parola veya hello Uzak Masaüstü hizmetini sıfırlayın](../../virtual-machines-windows-reset-rdp.md)
 ### [Symantec Endpoint Protection'ı yükleme ve yapılandırma](install-symantec.md)
 ### [Hizmet Olarak Trend Micro Deep Security'yi yükleme ve yapılandırma](install-trend.md)
 ### [Kullanılabilirlik kümesi yapılandırma](configure-availability.md)
-### [Windows Klasik dağıtım modelinde oluşturulan bir VM'yi yeniden boyutlandırma](resize-vm.md)
+### [Windows hello Klasik dağıtım modelinde oluşturulan bir VM'yi yeniden boyutlandırın](resize-vm.md)
 ### [Bakım](planned-maintenance-schedule.md)
 
 ## Yönet
-### [Klasikten Resource Manager’a Geçiş](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [Klasik tooResource Yöneticisi ' geçirme](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 ### [Azure PowerShell kullanarak sanal makinelerinizi yönetme](manage-psh.md)
-### [VM aracısı ve uzantıları hakkında](agents-and-extensions.md)
+### [Merhaba VM aracısı ve uzantılar hakkında](agents-and-extensions.md)
 ### [VM uzantılarını yönetme](manage-extensions.md)
 ### [Sanal makineler için Özel Betik uzantısı](extensions-customscript.md)
 ### [Azure VM'sine özel veri ekleme](inject-custom-data.md)
@@ -64,10 +64,10 @@
 #### [Kaynakları otomatik olarak ölçeklendirme](hpcpack-cluster-node-autogrowshrink.md)
 #### [İşlem düğümlerini yönetme](hpcpack-cluster-node-manage.md)
 #### [Küme oluşturma](hpcpack-cluster-powershell-script.md)
-#### [MPI uygulamaları çalıştırmak için bir küme oluşturma](hpcpack-rdma-cluster.md)
+#### [Bir küme toorun MPI uygulama ayarlama](hpcpack-rdma-cluster.md)
 #### [Excel ve SOA iş yükleri çalıştırma](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [Market görüntüsü ile baş düğümünü oluşturma](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [Şirket içinden Azure'a iş gönderme](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
+#### [Merhaba baş düğüm ile bir Market görüntüsü oluşturma](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
+#### [Şirket içi tooAzure işlerden gönderme](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Oracle](../../workloads/oracle/oracle-considerations.md)
@@ -78,11 +78,11 @@
 ## Sorun giderme
 ### [Uzak Masaüstü bağlantıları](../../virtual-machines-windows-troubleshoot-rdp-connection.md)
 ####[Uzak masaüstü bağlantısı sorunlarına yönelik ayrıntılı sorun giderme adımları](../../virtual-machines-windows-detailed-troubleshoot-rdp.md)
-### [Bir uygulamaya erişme](../../virtual-machines-windows-troubleshoot-app-connection.md)
+### [Erişim tooan uygulama](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Yeni bir VM oluşturmayla ilgili klasik dağıtım sorunları](troubleshoot-deployment-new-vm.md)
 ### [Mevcut bir VM'yi yeniden başlatma veya yeniden boyutlandırmayla ilgili klasik dağıtım sorunları](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 ### [RDP parolasını sıfırlama](reset-rdp.md)
-### [VM sorunlarını gidermek için sanal sabit disk takma](troubleshoot-recovery-disks-portal.md)
+### [Sanal sabit disk tootroubleshooting VM ekleme](troubleshoot-recovery-disks-portal.md)
 
 # Başvuru
 ## [PowerShell](/powershell/azure/overview)

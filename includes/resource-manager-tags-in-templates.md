@@ -1,7 +1,7 @@
-<span data-ttu-id="da741-101">Dağıtım sırasında bir kaynağı etiketlemek için `tags` öğesini dağıtmakta olduğunuz kaynağa ekleyin.</span><span class="sxs-lookup"><span data-stu-id="da741-101">To tag a resource during deployment, add the `tags` element to the resource you are deploying.</span></span> <span data-ttu-id="da741-102">Etiket adını ve değerini belirtin.</span><span class="sxs-lookup"><span data-stu-id="da741-102">Provide the tag name and value.</span></span>
+<span data-ttu-id="c9c9b-101">tootag dağıtımı sırasında bir kaynak ekleyin hello `tags` dağıttığınız öğesi toohello kaynak.</span><span class="sxs-lookup"><span data-stu-id="c9c9b-101">tootag a resource during deployment, add hello `tags` element toohello resource you are deploying.</span></span> <span data-ttu-id="c9c9b-102">Merhaba etiket adını ve değerini belirtin.</span><span class="sxs-lookup"><span data-stu-id="c9c9b-102">Provide hello tag name and value.</span></span>
 
-### <a name="apply-a-literal-value-to-the-tag-name"></a><span data-ttu-id="da741-103">Etiket adına değişmez değer uygulama</span><span class="sxs-lookup"><span data-stu-id="da741-103">Apply a literal value to the tag name</span></span>
-<span data-ttu-id="da741-104">Aşağıdaki örnekte değişmez değerlere ayarlanmış iki etiketi (`Dept` ve `Environment`) olan bir depolama hesabı gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="da741-104">The following example shows a storage account with two tags (`Dept` and `Environment`) that are set to literal values:</span></span>
+### <a name="apply-a-literal-value-toohello-tag-name"></a><span data-ttu-id="c9c9b-103">Değişmez değer toohello etiket adı Uygula</span><span class="sxs-lookup"><span data-stu-id="c9c9b-103">Apply a literal value toohello tag name</span></span>
+<span data-ttu-id="c9c9b-104">Merhaba aşağıdaki örnekte gösterilir iki etiket depolama hesabıyla (`Dept` ve `Environment`) tooliteral değerlerini ayarlayabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="c9c9b-104">hello following example shows a storage account with two tags (`Dept` and `Environment`) that are set tooliteral values:</span></span>
 
 ```json
 {
@@ -27,8 +27,8 @@
 }
 ```
 
-### <a name="apply-an-object-to-the-tag-element"></a><span data-ttu-id="da741-105">Nesne etiketine öğe uygulama</span><span class="sxs-lookup"><span data-stu-id="da741-105">Apply an object to the tag element</span></span>
-<span data-ttu-id="da741-106">Birkaç etiketi depolayan bir nesne parametresi tanımlayabilir ve bu nesneyi etiket öğesine uygulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="da741-106">You can define an object parameter that stores several tags, and apply that object to the tag element.</span></span> <span data-ttu-id="da741-107">Nesnedeki her özellik, kaynak için ayrı bir etiket haline gelir.</span><span class="sxs-lookup"><span data-stu-id="da741-107">Each property in the object becomes a separate tag for the resource.</span></span> <span data-ttu-id="da741-108">Aşağıdaki örnekte etiket parametresine uygulanan `tagValues` adlı bir parametre kullanılmaktadır.</span><span class="sxs-lookup"><span data-stu-id="da741-108">The following example has a parameter named `tagValues` that is applied to the tag element.</span></span>
+### <a name="apply-an-object-toohello-tag-element"></a><span data-ttu-id="c9c9b-105">Bir nesne toohello etiket öğesi uygulayın</span><span class="sxs-lookup"><span data-stu-id="c9c9b-105">Apply an object toohello tag element</span></span>
+<span data-ttu-id="c9c9b-106">Birkaç etiket depolayan bir nesne parametre tanımlayın ve bu nesne toohello etiketi öğe uygulayın.</span><span class="sxs-lookup"><span data-stu-id="c9c9b-106">You can define an object parameter that stores several tags, and apply that object toohello tag element.</span></span> <span data-ttu-id="c9c9b-107">Merhaba nesnedeki her özellik hello kaynak için ayrı bir etiket olur.</span><span class="sxs-lookup"><span data-stu-id="c9c9b-107">Each property in hello object becomes a separate tag for hello resource.</span></span> <span data-ttu-id="c9c9b-108">Merhaba aşağıdaki örnek adlı bir parametre içeriyor `tagValues` diğer bir deyişle uygulanan toohello etiketi öğe.</span><span class="sxs-lookup"><span data-stu-id="c9c9b-108">hello following example has a parameter named `tagValues` that is applied toohello tag element.</span></span>
 
 ```json
 {
@@ -60,9 +60,9 @@
 }
 ```
 
-### <a name="apply-a-json-string-to-the-tag-name"></a><span data-ttu-id="da741-109">Etiket adına JSON dizesi uygulama</span><span class="sxs-lookup"><span data-stu-id="da741-109">Apply a JSON string to the tag name</span></span>
+### <a name="apply-a-json-string-toohello-tag-name"></a><span data-ttu-id="c9c9b-109">Bir JSON dizesi toohello etiket adı Uygula</span><span class="sxs-lookup"><span data-stu-id="c9c9b-109">Apply a JSON string toohello tag name</span></span>
 
-<span data-ttu-id="da741-110">Çok sayıda değeri tek bir etikete depolamak için, değerleri temsil eden bir JSON dizesi uygulayın.</span><span class="sxs-lookup"><span data-stu-id="da741-110">To store many values in a single tag, apply a JSON string that represents the values.</span></span> <span data-ttu-id="da741-111">Tüm JSON dizesi, 256 karakterden uzun olmayan bir etiket olarak depolanır.</span><span class="sxs-lookup"><span data-stu-id="da741-111">The entire JSON string is stored as one tag that cannot exceed 256 characters.</span></span> <span data-ttu-id="da741-112">Aşağıdaki örnekte bir JSON dizesindeki çok sayıda değeri içeren `CostCenter` adlı tek bir etiket kullanılmaktadır:</span><span class="sxs-lookup"><span data-stu-id="da741-112">The following example has a single tag named `CostCenter` that contains several values from a JSON string:</span></span>  
+<span data-ttu-id="c9c9b-110">toostore tek bir etiket birçok değerleri hello değerlerini temsil eden bir JSON dizesi uygulayın.</span><span class="sxs-lookup"><span data-stu-id="c9c9b-110">toostore many values in a single tag, apply a JSON string that represents hello values.</span></span> <span data-ttu-id="c9c9b-111">Merhaba tüm JSON dizesi 256 karakterden uzun olamaz bir etiket olarak depolanır.</span><span class="sxs-lookup"><span data-stu-id="c9c9b-111">hello entire JSON string is stored as one tag that cannot exceed 256 characters.</span></span> <span data-ttu-id="c9c9b-112">Merhaba aşağıdaki örnekte sahip adlı tek bir etiket `CostCenter` bir JSON dizesinde birkaç değerleri içerir:</span><span class="sxs-lookup"><span data-stu-id="c9c9b-112">hello following example has a single tag named `CostCenter` that contains several values from a JSON string:</span></span>  
 
 ```json
 {

@@ -1,0 +1,16 @@
+<span data-ttu-id="980a1-101">İşte nasıl toouse hello **bir sırada bir ileti alındığında, Service Bus -** yeni bir öğe tooa Service Bus kuyruğuna gönderildiğinde tooinitiate mantığı uygulama iş akışı tetikler.</span><span class="sxs-lookup"><span data-stu-id="980a1-101">Here's how toouse hello **Service Bus - When a message is received in a queue** trigger tooinitiate a logic app workflow when a new item is sent tooa Service Bus queue.</span></span>  
+
+> [!NOTE]
+> <span data-ttu-id="980a1-102">Zaten bir veri yolu bağlantı tooService oluşturmadıysanız, hizmet veri yolu bağlantı dizenizi oturum istendiğinde toosign olacaktır.</span><span class="sxs-lookup"><span data-stu-id="980a1-102">You will be prompted toosign in with your Service Bus connection string if you have not already created a connection tooService Bus.</span></span>  
+> 
+> 
+
+1. <span data-ttu-id="980a1-103">Merhaba arama kutusuna hello logic apps tasarımcısında **hizmet veri yolu**.</span><span class="sxs-lookup"><span data-stu-id="980a1-103">In hello search box on hello logic apps designer, enter **service bus**.</span></span> <span data-ttu-id="980a1-104">Merhaba seçip **bir sırada bir ileti alındığında, Service Bus -** tetikleyici.</span><span class="sxs-lookup"><span data-stu-id="980a1-104">Then select hello **Service Bus - When a message is received in a queue** trigger.</span></span>  
+   <span data-ttu-id="980a1-105">![Hizmet veri yolu tetikleyici görüntü 1](./media/connectors-create-api-servicebus/trigger-1.png)</span><span class="sxs-lookup"><span data-stu-id="980a1-105">![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)</span></span>   
+2. <span data-ttu-id="980a1-106">Merhaba **ne zaman bir ileti alındığında bir sırada** iletişim kutusu görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="980a1-106">hello **When a message is received in a queue** dialog box is displayed.</span></span>  
+   <span data-ttu-id="980a1-107">![Hizmet veri yolu tetikleyici görüntü 2](./media/connectors-create-api-servicebus/trigger-2.png)</span><span class="sxs-lookup"><span data-stu-id="980a1-107">![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)</span></span>   
+3. <span data-ttu-id="980a1-108">Merhaba hello tetikleyici toomonitor istediğiniz Service Bus kuyruğuna Hello adını girin.</span><span class="sxs-lookup"><span data-stu-id="980a1-108">Enter hello name of hello Service Bus queue you would like hello trigger toomonitor.</span></span>   
+   ![Hizmet veri yolu tetikleyici görüntü 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+
+<span data-ttu-id="980a1-110">Bu noktada, mantıksal uygulamanızı tetikleyici ile yapılandırıldı.</span><span class="sxs-lookup"><span data-stu-id="980a1-110">At this point, your logic app has been configured with a trigger.</span></span> <span data-ttu-id="980a1-111">Yeni bir öğe seçtiğiniz hello sırada alındığında hello tetikleyici diğer tetikleyiciler ve Eylemler hello iş akışında hello yürütülmesi başlar.</span><span class="sxs-lookup"><span data-stu-id="980a1-111">When a new item is received in hello queue you selected, hello trigger will begin a run of hello other triggers and actions in hello workflow.</span></span>    
+

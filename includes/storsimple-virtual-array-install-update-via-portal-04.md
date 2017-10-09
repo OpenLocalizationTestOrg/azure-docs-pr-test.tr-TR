@@ -1,53 +1,53 @@
 <!--author=alkohli last changed: 01/18/17 -->
 
-#### <a name="to-install-updates-via-the-azure-portal"></a><span data-ttu-id="65305-101">Azure portalı aracılığıyla güncelleştirmeleri yüklemek için</span><span class="sxs-lookup"><span data-stu-id="65305-101">To install updates via the Azure portal</span></span>
+#### <a name="tooinstall-updates-via-hello-azure-portal"></a><span data-ttu-id="0c15a-101">hello Azure portal aracılığıyla tooinstall güncelleştirmeleri</span><span class="sxs-lookup"><span data-stu-id="0c15a-101">tooinstall updates via hello Azure portal</span></span>
 
-1. <span data-ttu-id="65305-102">StorSimple Cihaz Yöneticinize gidip **Cihazlar**’ı seçin.</span><span class="sxs-lookup"><span data-stu-id="65305-102">Go to your StorSimple Device Manager and select **Devices**.</span></span> <span data-ttu-id="65305-103">Hizmetinize bağlı cihazların listesinden güncelleştirmek istediğiniz cihazı seçip tıklayın.</span><span class="sxs-lookup"><span data-stu-id="65305-103">From the list of devices connected to your service, select and click the device you want to update.</span></span> 
+1. <span data-ttu-id="0c15a-102">Tooyour StorSimple Aygıt Yöneticisi'ni gidip seçin **aygıtları**.</span><span class="sxs-lookup"><span data-stu-id="0c15a-102">Go tooyour StorSimple Device Manager and select **Devices**.</span></span> <span data-ttu-id="0c15a-103">Merhaba aygıtları bağlı tooyour hizmetinin, listeden seçin ve tooupdate hello cihaza tıklayın.</span><span class="sxs-lookup"><span data-stu-id="0c15a-103">From hello list of devices connected tooyour service, select and click hello device you want tooupdate.</span></span> 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate1m.png) 
 
-2. <span data-ttu-id="65305-105">**Ayarlar** dikey penceresinde **Cihaz güncelleştirmeleri**'ne tıklayın.</span><span class="sxs-lookup"><span data-stu-id="65305-105">In the **Settings** blade, click **Device updates**.</span></span> 
+2. <span data-ttu-id="0c15a-105">Merhaba, **ayarları** dikey penceresinde tıklatın **aygıt güncelleştirmeleri**.</span><span class="sxs-lookup"><span data-stu-id="0c15a-105">In hello **Settings** blade, click **Device updates**.</span></span> 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate2m.png)  
 
-3. <span data-ttu-id="65305-107">Yazılım güncelleştirmeleri varsa bir ileti görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="65305-107">You see a message if the software updates are available.</span></span> <span data-ttu-id="65305-108">Güncelleştirmeleri denetlemek için **Tara**’ya da tıklayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="65305-108">To check for updates, you can also click **Scan**.</span></span>
+3. <span data-ttu-id="0c15a-107">Merhaba yazılım güncelleştirmeleri kullanılabilir değilse, bir ileti görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="0c15a-107">You see a message if hello software updates are available.</span></span> <span data-ttu-id="0c15a-108">toocheck güncelleştirmeleri de tıklayabilirsiniz **tarama**.</span><span class="sxs-lookup"><span data-stu-id="0c15a-108">toocheck for updates, you can also click **Scan**.</span></span>
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate3m1.png)
 
-    <span data-ttu-id="65305-110">Tarama başlayıp başarıyla tamamlandığında size bildirilir.</span><span class="sxs-lookup"><span data-stu-id="65305-110">You will be notified when the scan starts and completes successfully.</span></span>
+    <span data-ttu-id="0c15a-110">Merhaba tarama başlatır ve başarıyla tamamlandığında olduğunda size bildirilecek.</span><span class="sxs-lookup"><span data-stu-id="0c15a-110">You will be notified when hello scan starts and completes successfully.</span></span>
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate5m.png)
 
-4. <span data-ttu-id="65305-112">Güncelleştirmeleri tarandıktan sonra **Güncelleştirmeleri indir**’e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="65305-112">Once the updates are scanned, click **Download updates**.</span></span> 
+4. <span data-ttu-id="0c15a-112">Merhaba güncelleştirmeleri taranır sonra tıklayın **güncelleştirmelerini yükleme**.</span><span class="sxs-lookup"><span data-stu-id="0c15a-112">Once hello updates are scanned, click **Download updates**.</span></span> 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate6m.png)
 
-5. <span data-ttu-id="65305-114">**Yeni güncelleştirmeler** dikey penceresinde güncelleştirmeler indirildikten sonra bilgileri gözden geçirin; yüklemeyi onaylamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="65305-114">In the **New updates** blade, review the information that after the updates are downloaded, you need to confirm the installation.</span></span> <span data-ttu-id="65305-115">**Tamam** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="65305-115">Click **OK**.</span></span>
+5. <span data-ttu-id="0c15a-114">Merhaba, **yeni güncelleştirmeler** dikey penceresinde hello bilgileri gözden geçir hello güncelleştirmeler İndirildikten sonra tooconfirm hello yüklemesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="0c15a-114">In hello **New updates** blade, review hello information that after hello updates are downloaded, you need tooconfirm hello installation.</span></span> <span data-ttu-id="0c15a-115">**Tamam** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="0c15a-115">Click **OK**.</span></span>
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate7m.png)
 
-6. <span data-ttu-id="65305-117">Karşıya yükleme başlayıp başarıyla tamamlandığında size bildirilir.</span><span class="sxs-lookup"><span data-stu-id="65305-117">You are notified when the upload starts and completes successfully.</span></span>
+6. <span data-ttu-id="0c15a-117">Merhaba karşıya yükleme başlar ve başarıyla tamamlandığında, size bildirilir.</span><span class="sxs-lookup"><span data-stu-id="0c15a-117">You are notified when hello upload starts and completes successfully.</span></span>
 
      ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate8m.png)
 
-5. <span data-ttu-id="65305-119">**Cihaz güncelleştirmeleri** dikey penceresinde **Yükle**’ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="65305-119">In the **Device updates** blade, click **Install**.</span></span>
+5. <span data-ttu-id="0c15a-119">Merhaba, **aygıt güncelleştirmeleri** dikey penceresinde tıklatın **yüklemek**.</span><span class="sxs-lookup"><span data-stu-id="0c15a-119">In hello **Device updates** blade, click **Install**.</span></span>
 
      ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate11m1.png)   
 
-6. <span data-ttu-id="65305-121">**Yeni güncelleştirmeler** dikey penceresinde güncelleştirmenin kesintiye uğratacağı konusunda uyarı alırsınız.</span><span class="sxs-lookup"><span data-stu-id="65305-121">In the **New updates** blade, you are warned that the update is disruptive.</span></span> <span data-ttu-id="65305-122">Sanal dizi tek düğümlü bir cihaz olduğundan, cihaz güncelleştirildikten sonra yeniden başlatılır.</span><span class="sxs-lookup"><span data-stu-id="65305-122">As virtual array is a single node device, the device restarts after it is updated.</span></span> <span data-ttu-id="65305-123">Bu işlem devam eden G/Ç işlemlerini kesintiye uğratır.</span><span class="sxs-lookup"><span data-stu-id="65305-123">This disrupts any IO in progress.</span></span> <span data-ttu-id="65305-124">Güncelleştirmeleri yüklemek için **Tamam**’a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="65305-124">Click **OK** to install the updates.</span></span> 
+6. <span data-ttu-id="0c15a-121">Merhaba, **yeni güncelleştirmeler** dikey penceresinde hello güncelleştirmenin kesintiye uğratan uyarılırsınız.</span><span class="sxs-lookup"><span data-stu-id="0c15a-121">In hello **New updates** blade, you are warned that hello update is disruptive.</span></span> <span data-ttu-id="0c15a-122">Sanal dizinin bir tek düğümlü cihaz olduğundan, bu güncelleştirildikten sonra hello aygıt yeniden başlatılır.</span><span class="sxs-lookup"><span data-stu-id="0c15a-122">As virtual array is a single node device, hello device restarts after it is updated.</span></span> <span data-ttu-id="0c15a-123">Bu işlem devam eden G/Ç işlemlerini kesintiye uğratır.</span><span class="sxs-lookup"><span data-stu-id="0c15a-123">This disrupts any IO in progress.</span></span> <span data-ttu-id="0c15a-124">Tıklatın **Tamam** tooinstall hello güncelleştirmeler.</span><span class="sxs-lookup"><span data-stu-id="0c15a-124">Click **OK** tooinstall hello updates.</span></span> 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate12m.png) 
 
-7. <span data-ttu-id="65305-126">Yükleme işi başladığında size bildirilir.</span><span class="sxs-lookup"><span data-stu-id="65305-126">You are notified when the install job starts.</span></span> 
+7. <span data-ttu-id="0c15a-126">Merhaba yükleme işi başladığında size bildirilir.</span><span class="sxs-lookup"><span data-stu-id="0c15a-126">You are notified when hello install job starts.</span></span> 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate13m.png)
 
-8.  <span data-ttu-id="65305-128">Yükleme işi başarıyla tamamlandıktan sonra yüklemeyi izlemek için **Cihaz güncelleştirmeleri** dikey penceresindeki **İşi Görüntüle** bağlantısına tıklayın.</span><span class="sxs-lookup"><span data-stu-id="65305-128">After the install job completes successfully, click **View Job** link in the **Device updates** blade to monitor the installation.</span></span> 
+8.  <span data-ttu-id="0c15a-128">Merhaba yükleme işi başarıyla tamamlandıktan sonra **işi görüntüle** hello bağlantıyı **aygıt güncelleştirmeleri** dikey toomonitor hello yükleme.</span><span class="sxs-lookup"><span data-stu-id="0c15a-128">After hello install job completes successfully, click **View Job** link in hello **Device updates** blade toomonitor hello installation.</span></span> 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate15m1.png)
 
-    <span data-ttu-id="65305-130">Bu işlem sizi **Güncelleştirmeleri Yükle** dikey penceresine götürür.</span><span class="sxs-lookup"><span data-stu-id="65305-130">This takes you to the **Install Updates** blade.</span></span> <span data-ttu-id="65305-131">İşle ilgili ayrıntılı bilgileri burada görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="65305-131">You can view detailed information about the job here.</span></span>
+    <span data-ttu-id="0c15a-130">Bu toohello sürer **Güncelleştirmeleri Yükle** dikey.</span><span class="sxs-lookup"><span data-stu-id="0c15a-130">This takes you toohello **Install Updates** blade.</span></span> <span data-ttu-id="0c15a-131">Burada hello işle ilgili ayrıntılı bilgileri görüntüleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="0c15a-131">You can view detailed information about hello job here.</span></span>
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. <span data-ttu-id="65305-133">Güncelleştirmeler başarıyla yüklendikten sonra **Cihaz güncelleştirmeleri** dikey penceresinde bununla ilgili bir ileti görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="65305-133">After the updates are successfully installed, you see a message to this effect in the **Device updates** blade.</span></span> 
+9. <span data-ttu-id="0c15a-133">Merhaba güncelleştirmeler başarıyla yüklendikten sonra bir ileti toothis efekti hello bkz **aygıt güncelleştirmeleri** dikey.</span><span class="sxs-lookup"><span data-stu-id="0c15a-133">After hello updates are successfully installed, you see a message toothis effect in hello **Device updates** blade.</span></span> 

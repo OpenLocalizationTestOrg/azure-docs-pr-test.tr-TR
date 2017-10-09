@@ -1,0 +1,11 @@
+<span data-ttu-id="bf77b-101">Azure App Service Mobile Apps özelliğini Hello kullanan [Azure Notification Hubs] toosend iter, mobil uygulamanız için bir bildirim hub'ı yapılandırma şekilde.</span><span class="sxs-lookup"><span data-stu-id="bf77b-101">hello Mobile Apps feature of Azure App Service uses [Azure Notification Hubs] toosend pushes, so you will be configuring a notification hub for your mobile app.</span></span>
+
+1. <span data-ttu-id="bf77b-102">Hello içinde [Azure portal], çok gidin**uygulama hizmetleri**ve ardından, uygulama arka ucu tıklayın.</span><span class="sxs-lookup"><span data-stu-id="bf77b-102">In hello [Azure portal], go too**App Services**, and then click your app back end.</span></span> <span data-ttu-id="bf77b-103">Altında **ayarları**, tıklatın **anında**.</span><span class="sxs-lookup"><span data-stu-id="bf77b-103">Under **Settings**, click **Push**.</span></span>
+2. <span data-ttu-id="bf77b-104">Tıklatın **Bağlan** tooadd bir bildirim hub'ı kaynak toohello uygulaması.</span><span class="sxs-lookup"><span data-stu-id="bf77b-104">Click **Connect** tooadd a notification hub resource toohello app.</span></span> <span data-ttu-id="bf77b-105">Bir hub oluşturmak veya bir varolan tooan bağlanın.</span><span class="sxs-lookup"><span data-stu-id="bf77b-105">You can either create a hub or connect tooan existing one.</span></span>
+
+    ![](./media/app-service-mobile-create-notification-hub/configure-hub-flow.png)
+
+<span data-ttu-id="bf77b-106">Şimdi bir bildirim hub'ı tooyour Mobile Apps arka uç projesi bağlandınız.</span><span class="sxs-lookup"><span data-stu-id="bf77b-106">Now you have connected a notification hub tooyour Mobile Apps back-end project.</span></span> <span data-ttu-id="bf77b-107">Daha sonra bu bildirim hub'ı tooconnect tooa platform bildirim sistemi (PNS) toopush toodevices yapılandırır.</span><span class="sxs-lookup"><span data-stu-id="bf77b-107">Later you will configure this notification hub tooconnect tooa platform notification system (PNS) toopush toodevices.</span></span>
+
+[Azure portal]: https://portal.azure.com/
+[Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/

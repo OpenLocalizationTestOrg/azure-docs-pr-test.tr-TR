@@ -1,19 +1,19 @@
-#### <a name="to-configure-and-register-the-cloud-appliance"></a><span data-ttu-id="896f3-101">Bulut gerecini yapılandırmak ve kaydetmek için</span><span class="sxs-lookup"><span data-stu-id="896f3-101">To configure and register the cloud appliance</span></span>
+#### <a name="tooconfigure-and-register-hello-cloud-appliance"></a><span data-ttu-id="ccc4e-101">tooconfigure ve kaydetme hello bulut uygulaması</span><span class="sxs-lookup"><span data-stu-id="ccc4e-101">tooconfigure and register hello cloud appliance</span></span>
 
-1. <span data-ttu-id="896f3-102">**Cihazlar** dikey penceresinde oluşturduğunuz StorSimple Cloud Appliance’ı seçmek için tıklayın.</span><span class="sxs-lookup"><span data-stu-id="896f3-102">Select and click the StorSimple Cloud Appliance you created in the **Devices** blade.</span></span>
+1. <span data-ttu-id="ccc4e-102">Merhaba hello oluşturduğunuz StorSimple bulut uygulaması tıklatıp **aygıtları** dikey.</span><span class="sxs-lookup"><span data-stu-id="ccc4e-102">Select and click hello StorSimple Cloud Appliance you created in hello **Devices** blade.</span></span>
 
-    ![Cihaz listesinde StorSimple Cloud Appliance](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-2. <span data-ttu-id="896f3-104">**Cihazı yapılandırma** dikey penceresinde aşağıdaki adımları uygulayın:</span><span class="sxs-lookup"><span data-stu-id="896f3-104">In the **Configure device** blade, do the following steps:</span></span>
+    ![Cihazların Merhaba listesinde StorSimple bulut uygulaması](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
+2. <span data-ttu-id="ccc4e-104">Merhaba, **cihazı Yapılandır** dikey penceresinde, adımları hello:</span><span class="sxs-lookup"><span data-stu-id="ccc4e-104">In hello **Configure device** blade, do hello following steps:</span></span>
     
-    1. <span data-ttu-id="896f3-105">Verilen alana **Hizmet Verileri Şifreleme Anahtarı**’nı girin.</span><span class="sxs-lookup"><span data-stu-id="896f3-105">Enter the **Service Data Encryption Key** in the space provided.</span></span> <span data-ttu-id="896f3-106">Bu anahtar, StorSimple Cihaz Yöneticisi hizmetinize ilk fiziksel cihazı kaydettiğinizde oluşturuldu.</span><span class="sxs-lookup"><span data-stu-id="896f3-106">This key is generated when you registered the first physical device with your StorSimple Device Manager service.</span></span>
+    1. <span data-ttu-id="ccc4e-105">Merhaba girin **hizmet verileri şifreleme anahtarı** hello alana.</span><span class="sxs-lookup"><span data-stu-id="ccc4e-105">Enter hello **Service Data Encryption Key** in hello space provided.</span></span> <span data-ttu-id="ccc4e-106">StorSimple cihaz Yöneticisi hizmeti ile Merhaba ilk fiziksel aygıt kaydolurken bu anahtarı oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="ccc4e-106">This key is generated when you registered hello first physical device with your StorSimple Device Manager service.</span></span>
 
-    2. <span data-ttu-id="896f3-107">Belirtilen uzunluk ve ayarlardaki **Cihaz sahibi parolasını** ve **Snapshot Manager** parolasını girin.</span><span class="sxs-lookup"><span data-stu-id="896f3-107">Enter the **Device admin password** and **Snapshot Manager** password of the specified length and settings.</span></span>
+    2. <span data-ttu-id="ccc4e-107">Merhaba girin **cihaz Yönetici parolasının** ve **anlık görüntü Yöneticisi'ni** hello parolasını belirtilen uzunluk ve ayarlar.</span><span class="sxs-lookup"><span data-stu-id="ccc4e-107">Enter hello **Device admin password** and **Snapshot Manager** password of hello specified length and settings.</span></span>
 
-    3. <span data-ttu-id="896f3-108">İlk yapılandırmayı ve bulut gereci kaydını tamamlamak için **Tamam**’a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="896f3-108">Click **OK** to finish the initial configuration and registration of the cloud appliance.</span></span>
+    3. <span data-ttu-id="ccc4e-108">Tıklatın **Tamam** toofinish hello başlangıç yapılandırmasını ve hello kaydı bulut uygulaması.</span><span class="sxs-lookup"><span data-stu-id="ccc4e-108">Click **OK** toofinish hello initial configuration and registration of hello cloud appliance.</span></span>
     
         ![StorSimple Cloud Appliance Cihazı yapılandırma](./media/storsimple-8000-configure-register-cloud-appliance/sca-configure1.png)
 
-<span data-ttu-id="896f3-110">Yapılandırma ve kayıt tamamlandıktan sonra cihaz çevrimiçi duruma gelir.</span><span class="sxs-lookup"><span data-stu-id="896f3-110">After the configuration and registration is complete, the device will come online.</span></span> <span data-ttu-id="896f3-111">(Cihazın çevrimiçi duruma olması birkaç dakika sürebilir.)</span><span class="sxs-lookup"><span data-stu-id="896f3-111">(It may take several minutes for the device to come online.)</span></span>
+<span data-ttu-id="ccc4e-110">Merhaba yapılandırma ve kayıt tamamlandıktan sonra hello cihaz çevrimiçi duruma gelir.</span><span class="sxs-lookup"><span data-stu-id="ccc4e-110">After hello configuration and registration is complete, hello device will come online.</span></span> <span data-ttu-id="ccc4e-111">(Bu birkaç dakika hello aygıt toocome için çevrimiçi sürebilir.)</span><span class="sxs-lookup"><span data-stu-id="ccc4e-111">(It may take several minutes for hello device toocome online.)</span></span>
 
 ![StorSimple cloud appliance çevrimiçi aşaması](./media/storsimple-8000-configure-register-cloud-appliance/sca-configure2.png)
 

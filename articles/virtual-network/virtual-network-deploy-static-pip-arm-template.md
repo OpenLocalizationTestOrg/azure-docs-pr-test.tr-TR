@@ -1,6 +1,6 @@
 ---
-title: "Bir statik genel IP adresi ile - Azure Resource Manager şablonu bir VM oluşturma | Microsoft Docs"
-description: "Bir Azure Resource Manager şablonu kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin."
+title: "bir statik genel IP adresi - Azure Resource Manager şablonu ile bir VM aaaCreate | Microsoft Docs"
+description: "Nasıl toocreate VM bir statik genel IP adresi bir Azure Resource Manager şablonu kullanarak öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,32 +16,32 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f503aa60fdd9b7cf66ef482a1041e34c88e5c01
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a8640ed4fad06b0e09820e6114fd6789db73847
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a><span data-ttu-id="dd3fd-103">Bir Azure Resource Manager şablonu kullanarak bir statik genel IP adresiyle bir VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="dd3fd-103">Create a VM with a static public IP address using an Azure Resource Manager template</span></span>
+# <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a><span data-ttu-id="c0706-103">Bir Azure Resource Manager şablonu kullanarak bir statik genel IP adresiyle bir VM oluşturma</span><span class="sxs-lookup"><span data-stu-id="c0706-103">Create a VM with a static public IP address using an Azure Resource Manager template</span></span>
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="dd3fd-104">Azure portal</span><span class="sxs-lookup"><span data-stu-id="dd3fd-104">Azure portal</span></span>](virtual-network-deploy-static-pip-arm-portal.md)
-> * [<span data-ttu-id="dd3fd-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="dd3fd-105">PowerShell</span></span>](virtual-network-deploy-static-pip-arm-ps.md)
-> * [<span data-ttu-id="dd3fd-106">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="dd3fd-106">Azure CLI</span></span>](virtual-network-deploy-static-pip-arm-cli.md)
-> * [<span data-ttu-id="dd3fd-107">Şablon</span><span class="sxs-lookup"><span data-stu-id="dd3fd-107">Template</span></span>](virtual-network-deploy-static-pip-arm-template.md)
-> * [<span data-ttu-id="dd3fd-108">PowerShell (Klasik)</span><span class="sxs-lookup"><span data-stu-id="dd3fd-108">PowerShell (Classic)</span></span>](virtual-networks-reserved-public-ip.md)
+> * [<span data-ttu-id="c0706-104">Azure portal</span><span class="sxs-lookup"><span data-stu-id="c0706-104">Azure portal</span></span>](virtual-network-deploy-static-pip-arm-portal.md)
+> * [<span data-ttu-id="c0706-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="c0706-105">PowerShell</span></span>](virtual-network-deploy-static-pip-arm-ps.md)
+> * [<span data-ttu-id="c0706-106">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="c0706-106">Azure CLI</span></span>](virtual-network-deploy-static-pip-arm-cli.md)
+> * [<span data-ttu-id="c0706-107">Şablon</span><span class="sxs-lookup"><span data-stu-id="c0706-107">Template</span></span>](virtual-network-deploy-static-pip-arm-template.md)
+> * [<span data-ttu-id="c0706-108">PowerShell (Klasik)</span><span class="sxs-lookup"><span data-stu-id="c0706-108">PowerShell (Classic)</span></span>](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> <span data-ttu-id="dd3fd-109">Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="dd3fd-109">Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="dd3fd-110">Bu makalede, Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft önerir Resource Manager dağıtım modelini kullanarak yer almaktadır.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-110">This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.</span></span>
+> <span data-ttu-id="c0706-109">Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="c0706-109">Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="c0706-110">Bu makalede, Microsoft hello Klasik dağıtım modeli yerine çoğu yeni dağıtımlar için önerir hello Resource Manager dağıtım modeli kullanılarak kapsar.</span><span class="sxs-lookup"><span data-stu-id="c0706-110">This article covers using hello Resource Manager deployment model, which Microsoft recommends for most new deployments instead of hello classic deployment model.</span></span>
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## <a name="public-ip-address-resources-in-a-template-file"></a><span data-ttu-id="dd3fd-111">Bir şablon dosyasındaki ortak IP adresi kaynakları</span><span class="sxs-lookup"><span data-stu-id="dd3fd-111">Public IP address resources in a template file</span></span>
-<span data-ttu-id="dd3fd-112">Görüntüleyin ve indirme [örnek şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).</span><span class="sxs-lookup"><span data-stu-id="dd3fd-112">You can view and download the [sample template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).</span></span>
+## <a name="public-ip-address-resources-in-a-template-file"></a><span data-ttu-id="c0706-111">Bir şablon dosyasındaki ortak IP adresi kaynakları</span><span class="sxs-lookup"><span data-stu-id="c0706-111">Public IP address resources in a template file</span></span>
+<span data-ttu-id="c0706-112">Görüntüleme ve hello karşıdan yükleme [örnek şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).</span><span class="sxs-lookup"><span data-stu-id="c0706-112">You can view and download hello [sample template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).</span></span>
 
-<span data-ttu-id="dd3fd-113">Aşağıdaki bölümde yukarıdaki senaryoyu temel genel IP kaynağı tanımını gösterir:</span><span class="sxs-lookup"><span data-stu-id="dd3fd-113">The following section shows the definition of the public IP resource, based on the scenario above:</span></span>
+<span data-ttu-id="c0706-113">Merhaba aşağıdaki bölümde yukarıdaki hello senaryoyu temel hello genel IP kaynağı, hello tanımını gösterir:</span><span class="sxs-lookup"><span data-stu-id="c0706-113">hello following section shows hello definition of hello public IP resource, based on hello scenario above:</span></span>
 
 ```json
 {
@@ -58,9 +58,9 @@ ms.lasthandoff: 07/11/2017
 },
 ```
 
-<span data-ttu-id="dd3fd-114">Bildirim **Publicıpallocationmethod** ayarlamak için özellik *statik*.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-114">Notice the **publicIPAllocationMethod** property, which is set to *Static*.</span></span> <span data-ttu-id="dd3fd-115">Bu özellik ya da olabilir *dinamik* (varsayılan değer) veya *statik*.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-115">This property can be either *Dynamic* (default value) or *Static*.</span></span> <span data-ttu-id="dd3fd-116">Atanan genel IP adresi hiçbir zaman değiştirecek statik garanti ayarlama.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-116">Setting it to static guarantees that the public IP address assigned will never change.</span></span>
+<span data-ttu-id="c0706-114">Bildirim hello **Publicıpallocationmethod** çok ayarlama özelliği*statik*.</span><span class="sxs-lookup"><span data-stu-id="c0706-114">Notice hello **publicIPAllocationMethod** property, which is set too*Static*.</span></span> <span data-ttu-id="c0706-115">Bu özellik ya da olabilir *dinamik* (varsayılan değer) veya *statik*.</span><span class="sxs-lookup"><span data-stu-id="c0706-115">This property can be either *Dynamic* (default value) or *Static*.</span></span> <span data-ttu-id="c0706-116">Merhaba atanan genel IP adresi hiçbir zaman değiştirecek toostatic garanti ayarlama.</span><span class="sxs-lookup"><span data-stu-id="c0706-116">Setting it toostatic guarantees that hello public IP address assigned will never change.</span></span>
 
-<span data-ttu-id="dd3fd-117">Aşağıdaki bölümde, bir ağ arabirimi genel IP adresi ilişkilendirmesini gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="dd3fd-117">The following section shows the association of the public IP address with a network interface:</span></span>
+<span data-ttu-id="c0706-117">Merhaba aşağıdaki bölümde hello ilişkilendirmesini hello ortak IP adresinin ağ arabirimi gösterir:</span><span class="sxs-lookup"><span data-stu-id="c0706-117">hello following section shows hello association of hello public IP address with a network interface:</span></span>
 
 ```json
   {
@@ -95,9 +95,9 @@ ms.lasthandoff: 07/11/2017
 },
 ```
 
-<span data-ttu-id="dd3fd-118">Bildirim **Publicıpaddress** işaret eden özelliği **kimliği** adlı bir kaynağın **variables('webVMSetting').pipName**.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-118">Notice the **publicIPAddress** property pointing to the **Id** of a resource named **variables('webVMSetting').pipName**.</span></span> <span data-ttu-id="dd3fd-119">Yukarıda gösterilen ortak IP kaynak adının olmasıdır.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-119">That is the name of the public IP resource shown above.</span></span>
+<span data-ttu-id="c0706-118">Bildirim hello **Publicıpaddress** toohello işaret eden özellik **kimliği** adlı bir kaynağın **variables('webVMSetting').pipName**.</span><span class="sxs-lookup"><span data-stu-id="c0706-118">Notice hello **publicIPAddress** property pointing toohello **Id** of a resource named **variables('webVMSetting').pipName**.</span></span> <span data-ttu-id="c0706-119">Yukarıda gösterilen hello genel IP kaynağı hello adını olmasıdır.</span><span class="sxs-lookup"><span data-stu-id="c0706-119">That is hello name of hello public IP resource shown above.</span></span>
 
-<span data-ttu-id="dd3fd-120">Son olarak, ağ arabiriminin yukarıdaki listede **networkProfile** oluşturulan VM özelliği.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-120">Finally, the network interface above is listed in the **networkProfile** property of the VM being created.</span></span>
+<span data-ttu-id="c0706-120">Merhaba ağ arabirimi yukarıdaki hello son olarak, listelenen **networkProfile** hello oluşturulan VM özelliği.</span><span class="sxs-lookup"><span data-stu-id="c0706-120">Finally, hello network interface above is listed in hello **networkProfile** property of hello VM being created.</span></span>
 
 ```json
       "networkProfile": {
@@ -109,22 +109,22 @@ ms.lasthandoff: 07/11/2017
       }
 ```
 
-## <a name="deploy-the-template-by-using-click-to-deploy"></a><span data-ttu-id="dd3fd-121">Tıklayarak dağıtma kullanarak şablonu dağıtma</span><span class="sxs-lookup"><span data-stu-id="dd3fd-121">Deploy the template by using click to deploy</span></span>
+## <a name="deploy-hello-template-by-using-click-toodeploy"></a><span data-ttu-id="c0706-121">Kullanarak Hello şablonu dağıtma toodeploy tıklatın</span><span class="sxs-lookup"><span data-stu-id="c0706-121">Deploy hello template by using click toodeploy</span></span>
 
-<span data-ttu-id="dd3fd-122">Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için kullanılan varsayılan değerleri içeren parametre dosyası kullanılmaktadır.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-122">The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above.</span></span> <span data-ttu-id="dd3fd-123">Dağıtmak için bir tıklamayla bu şablonu dağıtmak için **Azure'a Dağıt** Readme.md dosyasında [statik PIP VM](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) şablonu.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-123">To deploy this template using click to deploy, click **Deploy to Azure** in the Readme.md file for the [VM with static PIP](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) template.</span></span> <span data-ttu-id="dd3fd-124">İstenirse, varsayılan parametre değerlerini değiştirin ve boş parametreler için değerler girin.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-124">Replace the default parameter values if desired and enter values for the blank parameters.</span></span>  <span data-ttu-id="dd3fd-125">Statik bir genel IP adresine sahip bir sanal makine oluşturmak için Portalı'ndaki yönergeleri izleyin.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-125">Follow the instructions in the portal to create a virtual machine with a static public IP address.</span></span>
+<span data-ttu-id="c0706-122">Merhaba örnek şablonunda kullanılabilir hello genel depo yukarıda açıklanan hello varsayılan kullanılan değerler toogenerate hello senaryosu içeren bir parametre dosyası kullanır.</span><span class="sxs-lookup"><span data-stu-id="c0706-122">hello sample template available in hello public repository uses a parameter file containing hello default values used toogenerate hello scenario described above.</span></span> <span data-ttu-id="c0706-123">toodeploy tıklatın toodeploy, bu şablonu kullanarak tıklatın **tooAzure dağıtmak** hello Readme.md dosyasında hello [statik PIP VM](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) şablonu.</span><span class="sxs-lookup"><span data-stu-id="c0706-123">toodeploy this template using click toodeploy, click **Deploy tooAzure** in hello Readme.md file for hello [VM with static PIP](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) template.</span></span> <span data-ttu-id="c0706-124">İsterseniz Hello varsayılan parametre değerlerini değiştirin ve hello boş parametreler için değerler girin.</span><span class="sxs-lookup"><span data-stu-id="c0706-124">Replace hello default parameter values if desired and enter values for hello blank parameters.</span></span>  <span data-ttu-id="c0706-125">Merhaba portal toocreate statik genel IP adresine sahip bir sanal makine Hello yönergeleri izleyin.</span><span class="sxs-lookup"><span data-stu-id="c0706-125">Follow hello instructions in hello portal toocreate a virtual machine with a static public IP address.</span></span>
 
-## <a name="deploy-the-template-by-using-powershell"></a><span data-ttu-id="dd3fd-126">PowerShell kullanarak şablonu dağıtma</span><span class="sxs-lookup"><span data-stu-id="dd3fd-126">Deploy the template by using PowerShell</span></span>
+## <a name="deploy-hello-template-by-using-powershell"></a><span data-ttu-id="c0706-126">PowerShell kullanarak Hello şablonu dağıtma</span><span class="sxs-lookup"><span data-stu-id="c0706-126">Deploy hello template by using PowerShell</span></span>
 
-<span data-ttu-id="dd3fd-127">PowerShell kullanarak yüklediğiniz şablonu dağıtmak için aşağıdaki adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-127">To deploy the template you downloaded by using PowerShell, follow the steps below.</span></span>
+<span data-ttu-id="c0706-127">PowerShell kullanarak yüklediğiniz toodeploy hello şablonunu hello adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="c0706-127">toodeploy hello template you downloaded by using PowerShell, follow hello steps below.</span></span>
 
-1. <span data-ttu-id="dd3fd-128">Azure PowerShell'i hiç kullanmadıysanız, bölümündeki adımları tamamlamanız [yükleme ve yapılandırma Azure PowerShell](/powershell/azure/overview) makalesi.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-128">If you have never used Azure PowerShell, complete the steps in the [How to Install and Configure Azure PowerShell](/powershell/azure/overview) article.</span></span>
-2. <span data-ttu-id="dd3fd-129">Bir PowerShell konsolunda çalıştırın `New-AzureRmResourceGroup` gerekiyorsa, yeni bir kaynak grubu oluşturmak için cmdlet'i.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-129">In a PowerShell console, run the `New-AzureRmResourceGroup` cmdlet to create a new resource group, if necessary.</span></span> <span data-ttu-id="dd3fd-130">Oluşturulan bir kaynak grubu zaten varsa, 3. adıma gidin.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-130">If you already have a resource group created, go to step 3.</span></span>
+1. <span data-ttu-id="c0706-128">Azure PowerShell'i hiç kullanmadıysanız, tam hello hello adımları [nasıl tooInstall ve yapılandırma Azure PowerShell](/powershell/azure/overview) makalesi.</span><span class="sxs-lookup"><span data-stu-id="c0706-128">If you have never used Azure PowerShell, complete hello steps in hello [How tooInstall and Configure Azure PowerShell](/powershell/azure/overview) article.</span></span>
+2. <span data-ttu-id="c0706-129">Bir PowerShell konsolunda hello çalıştırın `New-AzureRmResourceGroup` cmdlet toocreate yeni bir kaynak grubu, gerekirse.</span><span class="sxs-lookup"><span data-stu-id="c0706-129">In a PowerShell console, run hello `New-AzureRmResourceGroup` cmdlet toocreate a new resource group, if necessary.</span></span> <span data-ttu-id="c0706-130">Oluşturulan bir kaynak grubu zaten varsa, toostep 3 gidin.</span><span class="sxs-lookup"><span data-stu-id="c0706-130">If you already have a resource group created, go toostep 3.</span></span>
 
     ```powershell
     New-AzureRmResourceGroup -Name PIPTEST -Location westus
     ```
 
-    <span data-ttu-id="dd3fd-131">Beklenen çıktı:</span><span class="sxs-lookup"><span data-stu-id="dd3fd-131">Expected output:</span></span>
+    <span data-ttu-id="c0706-131">Beklenen çıktı:</span><span class="sxs-lookup"><span data-stu-id="c0706-131">Expected output:</span></span>
    
         ResourceGroupName : PIPTEST
         Location          : westus
@@ -132,7 +132,7 @@ ms.lasthandoff: 07/11/2017
         Tags              :
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
 
-3. <span data-ttu-id="dd3fd-132">Bir PowerShell konsolunda çalıştırın `New-AzureRmResourceGroupDeployment` şablonu dağıtmak için cmdlet.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-132">In a PowerShell console, run the `New-AzureRmResourceGroupDeployment` cmdlet to deploy the template.</span></span>
+3. <span data-ttu-id="c0706-132">Bir PowerShell konsolunda hello çalıştırın `New-AzureRmResourceGroupDeployment` cmdlet toodeploy hello şablonu.</span><span class="sxs-lookup"><span data-stu-id="c0706-132">In a PowerShell console, run hello `New-AzureRmResourceGroupDeployment` cmdlet toodeploy hello template.</span></span>
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DeployVM -ResourceGroupName PIPTEST `
@@ -140,7 +140,7 @@ ms.lasthandoff: 07/11/2017
         -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json
     ```
 
-    <span data-ttu-id="dd3fd-133">Beklenen çıktı:</span><span class="sxs-lookup"><span data-stu-id="dd3fd-133">Expected output:</span></span>
+    <span data-ttu-id="c0706-133">Beklenen çıktı:</span><span class="sxs-lookup"><span data-stu-id="c0706-133">Expected output:</span></span>
    
         DeploymentName    : DeployVM
         ResourceGroupName : PIPTEST
@@ -167,28 +167,28 @@ ms.lasthandoff: 07/11/2017
    
         Outputs           :
 
-## <a name="deploy-the-template-by-using-the-azure-cli"></a><span data-ttu-id="dd3fd-134">Azure CLI kullanarak şablonu dağıtma</span><span class="sxs-lookup"><span data-stu-id="dd3fd-134">Deploy the template by using the Azure CLI</span></span>
-<span data-ttu-id="dd3fd-135">Azure CLI kullanarak şablonu dağıtmak için aşağıdaki adımları tamamlayın:</span><span class="sxs-lookup"><span data-stu-id="dd3fd-135">To deploy the template by using the Azure CLI, complete the following steps:</span></span>
+## <a name="deploy-hello-template-by-using-hello-azure-cli"></a><span data-ttu-id="c0706-134">Hello Azure CLI kullanarak Hello şablonu dağıtma</span><span class="sxs-lookup"><span data-stu-id="c0706-134">Deploy hello template by using hello Azure CLI</span></span>
+<span data-ttu-id="c0706-135">hello Azure CLI, tam hello aşağıdaki adımları kullanarak toodeploy hello şablonu:</span><span class="sxs-lookup"><span data-stu-id="c0706-135">toodeploy hello template by using hello Azure CLI, complete hello following steps:</span></span>
 
-1. <span data-ttu-id="dd3fd-136">Hiç Azure CLI kullanmadıysanız, adımları [Azure CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md) makalenin yükleyin ve yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-136">If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article to install and configure it.</span></span>
-2. <span data-ttu-id="dd3fd-137">Çalıştırma `azure config mode` aşağıda gösterildiği gibi Resource Manager moduna geçmek için komutu.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-137">Run the `azure config mode` command to switch to Resource Manager mode, as shown below.</span></span>
+1. <span data-ttu-id="c0706-136">Hiç Azure CLI kullanmadıysanız, hello hello adımları [hello Azure CLI yükleyip](../cli-install-nodejs.md) makale tooinstall ve yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="c0706-136">If you have never used Azure CLI, follow hello steps in hello [Install and Configure hello Azure CLI](../cli-install-nodejs.md) article tooinstall and configure it.</span></span>
+2. <span data-ttu-id="c0706-137">Merhaba çalıştırmak `azure config mode` aşağıda gösterildiği gibi komut tooswitch tooResource Yöneticisi modu.</span><span class="sxs-lookup"><span data-stu-id="c0706-137">Run hello `azure config mode` command tooswitch tooResource Manager mode, as shown below.</span></span>
 
     ```azurecli
     azure config mode arm
     ```
 
-    <span data-ttu-id="dd3fd-138">Yukarıdaki komut için beklenen çıktı:</span><span class="sxs-lookup"><span data-stu-id="dd3fd-138">The expected output for the command above:</span></span>
+    <span data-ttu-id="c0706-138">Merhaba hello komutunun çıktısını yukarıdaki beklenen:</span><span class="sxs-lookup"><span data-stu-id="c0706-138">hello expected output for hello command above:</span></span>
 
         info:    New mode is arm
 
-3. <span data-ttu-id="dd3fd-139">Açık [parametre dosyası](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json)içeriğini seçin ve bilgisayarınızdaki bir dosyaya kaydedin.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-139">Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), select its content, and save it to a file in your computer.</span></span> <span data-ttu-id="dd3fd-140">Bu örnekte, parametreleri adlı bir dosyaya kaydedilir *parameters.json*.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-140">For this example, the parameters are saved to a file named *parameters.json*.</span></span> <span data-ttu-id="dd3fd-141">İsterseniz dosya içinde parametre değerlerini değiştirmek ancak en azından Admınpassword parametresinin değeri için benzersiz ve karmaşık bir parola değiştirme önerilir.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-141">Change the parameter values within the file if desired, but at a minimum, it's recommended that you change the value for the adminPassword parameter to a unique, complex password.</span></span>
-4. <span data-ttu-id="dd3fd-142">Çalıştırma `azure group deployment create` , yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre kullanarak yeni Vnet'i dağıtmak için komut dosyaları.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-142">Run the `azure group deployment create` cmd to deploy the new VNet by using the template and parameter files you downloaded and modified above.</span></span> <span data-ttu-id="dd3fd-143">Aşağıdaki komutta, <path> yolu dosyasına kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="dd3fd-143">In the command below, replace <path> with the path you saved the file to.</span></span> 
+3. <span data-ttu-id="c0706-139">Açık hello [parametre dosyası](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json)içeriğini seçin ve tooa dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="c0706-139">Open hello [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), select its content, and save it tooa file in your computer.</span></span> <span data-ttu-id="c0706-140">Bu örnekte, hello parametreleri adlı tooa dosyasına kaydedilir *parameters.json*.</span><span class="sxs-lookup"><span data-stu-id="c0706-140">For this example, hello parameters are saved tooa file named *parameters.json*.</span></span> <span data-ttu-id="c0706-141">İsterseniz hello dosyası içinde Hello parametre değerlerini değiştirmek ancak en azından hello Admınpassword parametresi tooa benzersiz ve karmaşık bir parola hello değerini değiştirmek önerilir.</span><span class="sxs-lookup"><span data-stu-id="c0706-141">Change hello parameter values within hello file if desired, but at a minimum, it's recommended that you change hello value for hello adminPassword parameter tooa unique, complex password.</span></span>
+4. <span data-ttu-id="c0706-142">Merhaba çalıştırmak `azure group deployment create` cmd toodeploy hello hello şablonu ve parametre kullanarak yeni Vnet'i, yukarıda indirdiğiniz ve değiştirdiğiniz dosyaları.</span><span class="sxs-lookup"><span data-stu-id="c0706-142">Run hello `azure group deployment create` cmd toodeploy hello new VNet by using hello template and parameter files you downloaded and modified above.</span></span> <span data-ttu-id="c0706-143">Merhaba aşağıdaki komutta, <path> hello yoluna sahip hello dosyasına kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="c0706-143">In hello command below, replace <path> with hello path you saved hello file to.</span></span> 
 
     ```azurecli
     azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
     ```
 
-    <span data-ttu-id="dd3fd-144">Beklenen çıktı: (kullanılan parametre değerlerini listeler)</span><span class="sxs-lookup"><span data-stu-id="dd3fd-144">Expected output (lists parameter values used):</span></span>
+    <span data-ttu-id="c0706-144">Beklenen çıktı: (kullanılan parametre değerlerini listeler)</span><span class="sxs-lookup"><span data-stu-id="c0706-144">Expected output (lists parameter values used):</span></span>
 
         info:    Executing command group create
         + Getting resource group PIPTEST2

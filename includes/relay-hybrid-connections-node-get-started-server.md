@@ -1,26 +1,26 @@
-### <a name="create-a-nodejs-application"></a><span data-ttu-id="d877e-101">Node.js uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="d877e-101">Create a Node.js application</span></span>
+### <a name="create-a-nodejs-application"></a><span data-ttu-id="123da-101">Node.js uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="123da-101">Create a Node.js application</span></span>
 
-<span data-ttu-id="d877e-102">`listener.js` adlı yeni bir JavaScript dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="d877e-102">Create a new JavaScript file called `listener.js`.</span></span>
+<span data-ttu-id="123da-102">`listener.js` adlı yeni bir JavaScript dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="123da-102">Create a new JavaScript file called `listener.js`.</span></span>
 
-### <a name="add-the-relay-npm-package"></a><span data-ttu-id="d877e-103">Geçiş NPM paketini ekleme</span><span class="sxs-lookup"><span data-stu-id="d877e-103">Add the Relay NPM package</span></span>
+### <a name="add-hello-relay-npm-package"></a><span data-ttu-id="123da-103">Merhaba geçiş NPM paket ekleme</span><span class="sxs-lookup"><span data-stu-id="123da-103">Add hello Relay NPM package</span></span>
 
-<span data-ttu-id="d877e-104">Proje klasörünüzdeki bir Düğüm komut isteminden `npm install hyco-ws` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="d877e-104">Run `npm install hyco-ws` from a Node command prompt in your project folder.</span></span>
+<span data-ttu-id="123da-104">Proje klasörünüzdeki bir Düğüm komut isteminden `npm install hyco-ws` komutunu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="123da-104">Run `npm install hyco-ws` from a Node command prompt in your project folder.</span></span>
 
-### <a name="write-some-code-to-receive-messages"></a><span data-ttu-id="d877e-105">İleti almak için bazı kodlar yazma</span><span class="sxs-lookup"><span data-stu-id="d877e-105">Write some code to receive messages</span></span>
+### <a name="write-some-code-tooreceive-messages"></a><span data-ttu-id="123da-105">Tooreceive iletileri biraz kod yazma</span><span class="sxs-lookup"><span data-stu-id="123da-105">Write some code tooreceive messages</span></span>
 
-1. <span data-ttu-id="d877e-106">Aşağıdaki sabiti `listener.js` dosyasının başına ekleyin.</span><span class="sxs-lookup"><span data-stu-id="d877e-106">Add the following constant to the top of the `listener.js` file.</span></span>
+1. <span data-ttu-id="123da-106">Merhaba sabit toohello üstündeki aşağıdaki hello eklemek `listener.js` dosya.</span><span class="sxs-lookup"><span data-stu-id="123da-106">Add hello following constant toohello top of hello `listener.js` file.</span></span>
    
     ```js
     const WebSocket = require('hyco-ws');
     ```
-2. <span data-ttu-id="d877e-107">Karma bağlantı ayrıntıları için şu sabitleri `listener.js` dosyasına ekleyin.</span><span class="sxs-lookup"><span data-stu-id="d877e-107">Add the following constants to the `listener.js` file for the hybrid connection details.</span></span> <span data-ttu-id="d877e-108">Köşeli ayraçlar içindeki yer tutucuları, karma bağlantıyı oluştururken aldığınız değerlerle değiştirin.</span><span class="sxs-lookup"><span data-stu-id="d877e-108">Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.</span></span>
+2. <span data-ttu-id="123da-107">Sabitler toohello aşağıdaki hello eklemek `listener.js` hello karma bağlantı ayrıntılar için.</span><span class="sxs-lookup"><span data-stu-id="123da-107">Add hello following constants toohello `listener.js` file for hello hybrid connection details.</span></span> <span data-ttu-id="123da-108">Köşeli ayraçlar Hello yer tutucuları hello karma bağlantıyı oluştururken aldığınız hello değerlerle değiştirin.</span><span class="sxs-lookup"><span data-stu-id="123da-108">Replace hello placeholders in brackets with hello values you obtained when you created hello hybrid connection.</span></span>
    
-   1. <span data-ttu-id="d877e-109">`const ns` - Geçiş ad alanı.</span><span class="sxs-lookup"><span data-stu-id="d877e-109">`const ns` - The Relay namespace.</span></span> <span data-ttu-id="d877e-110">Tam ad alanı adını kullandığınızdan emin olun: örneğin, `{namespace}.servicebus.windows.net`.</span><span class="sxs-lookup"><span data-stu-id="d877e-110">Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.</span></span>
-   2. <span data-ttu-id="d877e-111">`const path` - Karma bağlantının adı.</span><span class="sxs-lookup"><span data-stu-id="d877e-111">`const path` - The name of the hybrid connection.</span></span>
-   3. <span data-ttu-id="d877e-112">`const keyrule` - SAS anahtarının adı.</span><span class="sxs-lookup"><span data-stu-id="d877e-112">`const keyrule` - The name of the SAS key.</span></span>
-   4. <span data-ttu-id="d877e-113">`const key` - SAS anahtarının değeri.</span><span class="sxs-lookup"><span data-stu-id="d877e-113">`const key` - The SAS key value.</span></span>
+   1. <span data-ttu-id="123da-109">`const ns`-Geçiş ad alanı hello.</span><span class="sxs-lookup"><span data-stu-id="123da-109">`const ns` - hello Relay namespace.</span></span> <span data-ttu-id="123da-110">Emin toouse hello tam ad alanı adı olmalıdır; Örneğin, `{namespace}.servicebus.windows.net`.</span><span class="sxs-lookup"><span data-stu-id="123da-110">Be sure toouse hello fully qualified namespace name; for example, `{namespace}.servicebus.windows.net`.</span></span>
+   2. <span data-ttu-id="123da-111">`const path`-hello karma bağlantı hello adı.</span><span class="sxs-lookup"><span data-stu-id="123da-111">`const path` - hello name of hello hybrid connection.</span></span>
+   3. <span data-ttu-id="123da-112">`const keyrule`-hello hello SAS anahtarının adı.</span><span class="sxs-lookup"><span data-stu-id="123da-112">`const keyrule` - hello name of hello SAS key.</span></span>
+   4. <span data-ttu-id="123da-113">`const key`-hello SAS anahtarı değeri.</span><span class="sxs-lookup"><span data-stu-id="123da-113">`const key` - hello SAS key value.</span></span>
 
-3. <span data-ttu-id="d877e-114">`listener.js` dosyasına aşağıdaki kodu ekleyin:</span><span class="sxs-lookup"><span data-stu-id="d877e-114">Add the following code to the `listener.js` file:</span></span>
+3. <span data-ttu-id="123da-114">Aşağıdaki kodu toohello hello eklemek `listener.js` dosyası:</span><span class="sxs-lookup"><span data-stu-id="123da-114">Add hello following code toohello `listener.js` file:</span></span>
    
     ```js
     var wss = WebSocket.createRelayedServer(
@@ -44,7 +44,7 @@
         console.log('error' + err);
     });
     ```
-    <span data-ttu-id="d877e-115">Listener.js dosyanız şu şekilde görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="d877e-115">Here is what your listener.js file should look like:</span></span>
+    <span data-ttu-id="123da-115">Listener.js dosyanız şu şekilde görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="123da-115">Here is what your listener.js file should look like:</span></span>
    
     ```js
     const WebSocket = require('hyco-ws');

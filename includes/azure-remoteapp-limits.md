@@ -1,0 +1,22 @@
+
+| <span data-ttu-id="efcc1-101">Kaynak</span><span class="sxs-lookup"><span data-stu-id="efcc1-101">Resource</span></span> | <span data-ttu-id="efcc1-102">Varsayılan limit</span><span class="sxs-lookup"><span data-stu-id="efcc1-102">Default limit</span></span> |
+| --- | --- |
+| <span data-ttu-id="efcc1-103">Kullanıcı başına koleksiyonları</span><span class="sxs-lookup"><span data-stu-id="efcc1-103">Collections per user</span></span> |<span data-ttu-id="efcc1-104">1</span><span class="sxs-lookup"><span data-stu-id="efcc1-104">1</span></span> |
+| <span data-ttu-id="efcc1-105">Koleksiyon başına yayımlanan uygulamalar</span><span class="sxs-lookup"><span data-stu-id="efcc1-105">Published apps per collection</span></span> |<span data-ttu-id="efcc1-106">100</span><span class="sxs-lookup"><span data-stu-id="efcc1-106">100</span></span> |
+| <span data-ttu-id="efcc1-107">Ücretli koleksiyonları</span><span class="sxs-lookup"><span data-stu-id="efcc1-107">Paid collections</span></span> |<span data-ttu-id="efcc1-108">3</span><span class="sxs-lookup"><span data-stu-id="efcc1-108">3</span></span> |
+| <span data-ttu-id="efcc1-109">Ücretli şablon görüntüleri</span><span class="sxs-lookup"><span data-stu-id="efcc1-109">Paid template images</span></span> |<span data-ttu-id="efcc1-110">25</span><span class="sxs-lookup"><span data-stu-id="efcc1-110">25</span></span> |
+| <span data-ttu-id="efcc1-111">Kullanıcılar - temel katmanı</span><span class="sxs-lookup"><span data-stu-id="efcc1-111">Users - basic tier</span></span> |<span data-ttu-id="efcc1-112">en fazla 800</span><span class="sxs-lookup"><span data-stu-id="efcc1-112">800 maximum</span></span> |
+| <span data-ttu-id="efcc1-113">Kullanıcılar - standart katmanı</span><span class="sxs-lookup"><span data-stu-id="efcc1-113">Users - standard tier</span></span> |<span data-ttu-id="efcc1-114">en fazla 500</span><span class="sxs-lookup"><span data-stu-id="efcc1-114">500 maximum</span></span> |
+| <span data-ttu-id="efcc1-115">Kullanıcıların premium katmanı</span><span class="sxs-lookup"><span data-stu-id="efcc1-115">Users- premium tier</span></span> |<span data-ttu-id="efcc1-116">en fazla 100</span><span class="sxs-lookup"><span data-stu-id="efcc1-116">100 maximum</span></span> |
+| <span data-ttu-id="efcc1-117">Kullanıcılar - artı premium katmanı</span><span class="sxs-lookup"><span data-stu-id="efcc1-117">Users - premium plus tier</span></span> |<span data-ttu-id="efcc1-118">en çok 50</span><span class="sxs-lookup"><span data-stu-id="efcc1-118">50 maximum</span></span> |
+| <span data-ttu-id="efcc1-119">Koleksiyon başına kullanıcı başına kullanıcı veri depolama (UDP)</span><span class="sxs-lookup"><span data-stu-id="efcc1-119">User data storage (UPD) per user per collection</span></span> |<span data-ttu-id="efcc1-120">50 GB</span><span class="sxs-lookup"><span data-stu-id="efcc1-120">50 GB</span></span> |
+| <span data-ttu-id="efcc1-121">Boşta kalma zaman aşımı</span><span class="sxs-lookup"><span data-stu-id="efcc1-121">Idle timeout</span></span> |<span data-ttu-id="efcc1-122">4 saat</span><span class="sxs-lookup"><span data-stu-id="efcc1-122">4 hours</span></span> |
+| <span data-ttu-id="efcc1-123">Bağlantısı kesilmiş zaman aşımı</span><span class="sxs-lookup"><span data-stu-id="efcc1-123">Disconnected timeout</span></span> |<span data-ttu-id="efcc1-124">4 saat</span><span class="sxs-lookup"><span data-stu-id="efcc1-124">4 hours</span></span> |
+
+<span data-ttu-id="efcc1-125">Merhaba sayısı, kullanıcı koleksiyonunuz için kullanılan sanal makineleri hello sayısı tarafından belirlenir:</span><span class="sxs-lookup"><span data-stu-id="efcc1-125">hello number of users is determined by hello number of VMs used for your collection:</span></span>
+
+* <span data-ttu-id="efcc1-126">Temel VM başına 16 kullanıcı =</span><span class="sxs-lookup"><span data-stu-id="efcc1-126">Basic = 16 users per VM</span></span>
+* <span data-ttu-id="efcc1-127">Standart VM başına 10 kullanıcı =</span><span class="sxs-lookup"><span data-stu-id="efcc1-127">Standard = 10 users per VM</span></span>
+* <span data-ttu-id="efcc1-128">Premium VM başına 4 kullanıcı =</span><span class="sxs-lookup"><span data-stu-id="efcc1-128">Premium = 4 users per VM</span></span>
+* <span data-ttu-id="efcc1-129">Premium plus VM başına 2 kullanıcı =</span><span class="sxs-lookup"><span data-stu-id="efcc1-129">Premium plus = 2 users per VM</span></span>
+

@@ -1,69 +1,69 @@
-<span data-ttu-id="400b7-101">Azure müşterileri her ay 25.000 ücretsiz e-postanın kilidini açabilir.</span><span class="sxs-lookup"><span data-stu-id="400b7-101">Azure customers can unlock 25,000 free emails each month.</span></span> <span data-ttu-id="400b7-102">Bu aylık 25.000 ücretsiz e-posta sayesinde gelişmiş raporlama ve analitiklerin yanı sıra [tüm API'lere][all APIs] (Web, SMTP, Olay, Ayrıştırma ve diğerleri) erişebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="400b7-102">These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more).</span></span> <span data-ttu-id="400b7-103">SendGrid tarafından sağlanan ek hizmetler hakkında bilgi için [SendGrid Solutions][SendGrid Solutions] sayfasını ziyaret edin.</span><span class="sxs-lookup"><span data-stu-id="400b7-103">For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.</span></span>
+<span data-ttu-id="02c94-101">Azure müşterileri her ay 25.000 ücretsiz e-postanın kilidini açabilir.</span><span class="sxs-lookup"><span data-stu-id="02c94-101">Azure customers can unlock 25,000 free emails each month.</span></span> <span data-ttu-id="02c94-102">Bu 25.000 ücretsiz aylık e-postaları erişim tooadvanced raporlama ve analiz verir ve [tüm API'leri] [ all APIs] (Web, SMTP, olay, ayrıştırma ve daha fazla).</span><span class="sxs-lookup"><span data-stu-id="02c94-102">These 25,000 free monthly emails will give you access tooadvanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more).</span></span> <span data-ttu-id="02c94-103">Merhaba SendGrid tarafından sağlanan ek hizmetleri hakkında daha fazla bilgi için ziyaret [SendGrid çözümleri] [ SendGrid Solutions] sayfası.</span><span class="sxs-lookup"><span data-stu-id="02c94-103">For information about additional services provided by SendGrid, visit hello [SendGrid Solutions][SendGrid Solutions] page.</span></span>
 
-### <a name="to-sign-up-for-a-sendgrid-account"></a><span data-ttu-id="400b7-104">SendGrid hesabı açmak için</span><span class="sxs-lookup"><span data-stu-id="400b7-104">To sign up for a SendGrid account</span></span>
-1. <span data-ttu-id="400b7-105">[Azure Yönetim Portalı][Azure Management Portal]'nda oturum açın.</span><span class="sxs-lookup"><span data-stu-id="400b7-105">Log in to the [Azure Management Portal][Azure Management Portal].</span></span>
-2. <span data-ttu-id="400b7-106">Sol taraftaki menüden **Yeni**'ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="400b7-106">In the menu on the left, click **New**.</span></span>
+### <a name="toosign-up-for-a-sendgrid-account"></a><span data-ttu-id="02c94-104">SendGrid hesap kaydınızı toosign</span><span class="sxs-lookup"><span data-stu-id="02c94-104">toosign up for a SendGrid account</span></span>
+1. <span data-ttu-id="02c94-105">İçinde toohello oturum [Azure Yönetim Portalı][Azure Management Portal].</span><span class="sxs-lookup"><span data-stu-id="02c94-105">Log in toohello [Azure Management Portal][Azure Management Portal].</span></span>
+2. <span data-ttu-id="02c94-106">Merhaba soldaki Hello menüde tıklatın **yeni**.</span><span class="sxs-lookup"><span data-stu-id="02c94-106">In hello menu on hello left, click **New**.</span></span>
 
     ![komut-çubuğu-yeni][command-bar-new]
-3. <span data-ttu-id="400b7-108">**Eklentiler**'e ve ardından **SendGrid E-posta Teslimi**'ne tıklayın.</span><span class="sxs-lookup"><span data-stu-id="400b7-108">Click **Add-ons** and then **SendGrid Email Delivery**.</span></span>
+3. <span data-ttu-id="02c94-108">**Eklentiler**'e ve ardından **SendGrid E-posta Teslimi**'ne tıklayın.</span><span class="sxs-lookup"><span data-stu-id="02c94-108">Click **Add-ons** and then **SendGrid Email Delivery**.</span></span>
 
     ![sendgrid-mağazası][sendgrid-store]
-4. <span data-ttu-id="400b7-110">Kayıt formunu doldurun ve **Oluştur**'u seçin.</span><span class="sxs-lookup"><span data-stu-id="400b7-110">Complete the signup form and select **Create**.</span></span>
+4. <span data-ttu-id="02c94-110">Merhaba kaydolma formu tamamlayın ve seçin **oluşturma**.</span><span class="sxs-lookup"><span data-stu-id="02c94-110">Complete hello signup form and select **Create**.</span></span>
 
     ![sendgrid-oluştur][sendgrid-create]
-5. <span data-ttu-id="400b7-112">SendGrid hizmetinizi Azure ayarlarınızda tanımlamak için bir **Ad** girin.</span><span class="sxs-lookup"><span data-stu-id="400b7-112">Enter a **Name** to identify your SendGrid service in your Azure settings.</span></span> <span data-ttu-id="400b7-113">Adın 1-100 karakter arasında olması ve yalnızca alfasayısal karakterler, çizgi, nokta ve alt çizgi içermesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="400b7-113">Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores.</span></span> <span data-ttu-id="400b7-114">Adın abone olunan Azure Mağazası Öğeleri arasında benzersiz olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="400b7-114">The name must be unique in your list of subscribed Azure Store Items.</span></span>
-6. <span data-ttu-id="400b7-115">**Parolanızı** girin ve onaylayın.</span><span class="sxs-lookup"><span data-stu-id="400b7-115">Enter and confirm your **Password**.</span></span>
-7. <span data-ttu-id="400b7-116">**Aboneliğinizi** seçin.</span><span class="sxs-lookup"><span data-stu-id="400b7-116">Choose your **Subscription**.</span></span>
-8. <span data-ttu-id="400b7-117">Yeni bir **Kaynak grubu** oluşturun veya var olanlardan birini kullanın.</span><span class="sxs-lookup"><span data-stu-id="400b7-117">Create a new **Resource group** or use an existing one.</span></span>
-9. <span data-ttu-id="400b7-118">**Fiyatlandırma katmanı** bölümünde kaydolmak istediğiniz SendGrid planını seçin.</span><span class="sxs-lookup"><span data-stu-id="400b7-118">In the **Pricing tier** section select the SendGrid plan you want to sign up for.</span></span>
+5. <span data-ttu-id="02c94-112">Girin bir **adı** , SendGrid hizmet Azure ayarlarınızda tooidentify.</span><span class="sxs-lookup"><span data-stu-id="02c94-112">Enter a **Name** tooidentify your SendGrid service in your Azure settings.</span></span> <span data-ttu-id="02c94-113">Adın 1-100 karakter arasında olması ve yalnızca alfasayısal karakterler, çizgi, nokta ve alt çizgi içermesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="02c94-113">Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores.</span></span> <span data-ttu-id="02c94-114">Merhaba adı, abone olduğunuz Azure depolama öğeler listesinde benzersiz olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="02c94-114">hello name must be unique in your list of subscribed Azure Store Items.</span></span>
+6. <span data-ttu-id="02c94-115">**Parolanızı** girin ve onaylayın.</span><span class="sxs-lookup"><span data-stu-id="02c94-115">Enter and confirm your **Password**.</span></span>
+7. <span data-ttu-id="02c94-116">**Aboneliğinizi** seçin.</span><span class="sxs-lookup"><span data-stu-id="02c94-116">Choose your **Subscription**.</span></span>
+8. <span data-ttu-id="02c94-117">Yeni bir **Kaynak grubu** oluşturun veya var olanlardan birini kullanın.</span><span class="sxs-lookup"><span data-stu-id="02c94-117">Create a new **Resource group** or use an existing one.</span></span>
+9. <span data-ttu-id="02c94-118">Merhaba, **fiyatlandırma katmanı** bölümü için toosign hello SendGrid planı seçin.</span><span class="sxs-lookup"><span data-stu-id="02c94-118">In hello **Pricing tier** section select hello SendGrid plan you want toosign up for.</span></span>
 
     ![sendgrid-fiyatlandırması][sendgrid-pricing]
-10. <span data-ttu-id="400b7-120">Varsa **Promosyon Kodu** girin.</span><span class="sxs-lookup"><span data-stu-id="400b7-120">Enter a **Promotion Code** if you have one.</span></span>
-11. <span data-ttu-id="400b7-121">**İletişim Bilgilerinizi** girin.</span><span class="sxs-lookup"><span data-stu-id="400b7-121">Enter your **Contact Information**.</span></span>
-12. <span data-ttu-id="400b7-122">**Yasal koşulları** gözden geçirin ve kabul edin.</span><span class="sxs-lookup"><span data-stu-id="400b7-122">Review and accept the **Legal terms**.</span></span>
-13. <span data-ttu-id="400b7-123">Satın alma işlemini onayladıktan sonra **Dağıtım Başarılı** açılır penceresini ve **Tüm kaynaklar** bölümündeki listede hesabınızı göreceksiniz.</span><span class="sxs-lookup"><span data-stu-id="400b7-123">After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in the **All resources** section.</span></span>
+10. <span data-ttu-id="02c94-120">Varsa **Promosyon Kodu** girin.</span><span class="sxs-lookup"><span data-stu-id="02c94-120">Enter a **Promotion Code** if you have one.</span></span>
+11. <span data-ttu-id="02c94-121">**İletişim Bilgilerinizi** girin.</span><span class="sxs-lookup"><span data-stu-id="02c94-121">Enter your **Contact Information**.</span></span>
+12. <span data-ttu-id="02c94-122">Gözden geçirin ve kabul hello **yasal koşulları**.</span><span class="sxs-lookup"><span data-stu-id="02c94-122">Review and accept hello **Legal terms**.</span></span>
+13. <span data-ttu-id="02c94-123">Satın alma işleminiz onaylandıktan sonra görürsünüz bir **dağıtımı başarılı oldu** açılır ve hesabınızı hello görürsünüz **tüm kaynakları** bölümü.</span><span class="sxs-lookup"><span data-stu-id="02c94-123">After confirming your purchase you will see a **Deployment Succeeded** pop-up and you will see your account listed in hello **All resources** section.</span></span>
 
     ![tüm-kaynaklar][all-resources]
 
-    <span data-ttu-id="400b7-125">Satın alma işlemini tamamladıktan ve e-posta doğrulama işlemini başlatmak için **Yönet** düğmesine tıkladıktan sonra SendGrid'den hesabınızı doğrulamanızı isteyen bir e-posta alacaksınız.</span><span class="sxs-lookup"><span data-stu-id="400b7-125">After you have completed your purchase and clicked the **Manage** button to initiate the email verification process, you will receive an email from SendGrid asking you to verify your account.</span></span> <span data-ttu-id="400b7-126">Bu e-postayı almadıysanız veya hesabınızı doğrulamayla ilgili sorunlar yaşıyorsanız lütfen bu SSS sayfasını inceleyin.</span><span class="sxs-lookup"><span data-stu-id="400b7-126">If you do not receive this email, or have problems verifying your account, please see this FAQ.</span></span>
+    <span data-ttu-id="02c94-125">Satın alma işleminiz tamamladıktan ve hello tıklattınız sonra **Yönet** düğmesini tooinitiate hello e-posta doğrulama işlemi, SendGrid tooverify soran bir e-posta alırsınız hesabınızı.</span><span class="sxs-lookup"><span data-stu-id="02c94-125">After you have completed your purchase and clicked hello **Manage** button tooinitiate hello email verification process, you will receive an email from SendGrid asking you tooverify your account.</span></span> <span data-ttu-id="02c94-126">Bu e-postayı almadıysanız veya hesabınızı doğrulamayla ilgili sorunlar yaşıyorsanız lütfen bu SSS sayfasını inceleyin.</span><span class="sxs-lookup"><span data-stu-id="02c94-126">If you do not receive this email, or have problems verifying your account, please see this FAQ.</span></span>
 
     ![yönet][manage]
 
-    <span data-ttu-id="400b7-128">**Hesabınızı doğrulayana kadar günde en fazla 100 e-posta gönderebilirsiniz.**</span><span class="sxs-lookup"><span data-stu-id="400b7-128">**You can only send up to 100 emails/day until you have verified your account.**</span></span>
+    <span data-ttu-id="02c94-128">**Hesabınızı olana kadar too100 e-postaları/gün yalnızca gönderebilirsiniz.**</span><span class="sxs-lookup"><span data-stu-id="02c94-128">**You can only send up too100 emails/day until you have verified your account.**</span></span>
 
-    <span data-ttu-id="400b7-129">Abonelik planınızı değiştirmek veya SendGrid iletişim ayarlarını görüntülemek için SendGrid hizmetinizin adına tıklayarak SendGrid Marketplace panosunu açın.</span><span class="sxs-lookup"><span data-stu-id="400b7-129">To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard.</span></span>
+    <span data-ttu-id="02c94-129">toomodify abonelik planı veya bkz. SendGrid kişi ayarlarını Merhaba, SendGrid hizmet tooopen hello SendGrid Market Pano hello adına tıklayın.</span><span class="sxs-lookup"><span data-stu-id="02c94-129">toomodify your subscription plan or see hello SendGrid contact settings, click hello name of your SendGrid service tooopen hello SendGrid Marketplace dashboard.</span></span>
 
     ![ayarlar][settings]
 
-    <span data-ttu-id="400b7-131">SendGrid kullanarak bir e-posta göndermek için API Anahtarınızı girmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="400b7-131">To send an email using SendGrid, you must supply your API Key.</span></span>
+    <span data-ttu-id="02c94-131">toosend SendGrid kullanarak e-posta bir API anahtarınızı sağlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="02c94-131">toosend an email using SendGrid, you must supply your API Key.</span></span>
 
-### <a name="to-find-your-sendgrid-api-key"></a><span data-ttu-id="400b7-132">SendGrid API Anahtarınızı bulmak için</span><span class="sxs-lookup"><span data-stu-id="400b7-132">To find your SendGrid API Key</span></span>
-1. <span data-ttu-id="400b7-133">**Yönet**'e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="400b7-133">Click **Manage**.</span></span>
+### <a name="toofind-your-sendgrid-api-key"></a><span data-ttu-id="02c94-132">toofind SendGrid API anahtarınıza</span><span class="sxs-lookup"><span data-stu-id="02c94-132">toofind your SendGrid API Key</span></span>
+1. <span data-ttu-id="02c94-133">**Yönet**'e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="02c94-133">Click **Manage**.</span></span>
 
     ![yönet][manage]
-2. <span data-ttu-id="400b7-135">SendGrid panonuzda **Ayarlar**'ı ve ardından sol taraftaki menüden **API Anahtarları**'nı seçin.</span><span class="sxs-lookup"><span data-stu-id="400b7-135">In your SendGrid dashboard, select **Settings** and then **API Keys** in the menu on the left.</span></span>
+2. <span data-ttu-id="02c94-135">SendGrid Panonuzda seçin **ayarları** ve ardından **API anahtarları** hello sol hello menüsünde.</span><span class="sxs-lookup"><span data-stu-id="02c94-135">In your SendGrid dashboard, select **Settings** and then **API Keys** in hello menu on hello left.</span></span>
 
     ![api-anahtarları][api-keys]
 
-3. <span data-ttu-id="400b7-137">**API Anahtarı Oluştur** açılır menüsüne tıklayın ve **Genel API Anahtarı**'nı seçin.</span><span class="sxs-lookup"><span data-stu-id="400b7-137">Click the **Create API Key** dropdown and select **General API Key**.</span></span>
+3. <span data-ttu-id="02c94-137">Merhaba tıklatın **API anahtarı oluştur** açılır ve seçin **Genel API anahtarı**.</span><span class="sxs-lookup"><span data-stu-id="02c94-137">Click hello **Create API Key** dropdown and select **General API Key**.</span></span>
 
     ![genel-api-anahtarı][general-api-key]
-4. <span data-ttu-id="400b7-139">En azından **Bu anahtarın adı** alanını doldurun, **Posta Gönderimi** için tam erişim verin ve **Kaydet**'i seçin.</span><span class="sxs-lookup"><span data-stu-id="400b7-139">At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.</span></span>
+4. <span data-ttu-id="02c94-139">En azından hello sağlamak **bu anahtarın adını** ve çok tam erişim sağlamak**posta gönderme** seçip **kaydetmek**.</span><span class="sxs-lookup"><span data-stu-id="02c94-139">At a minimum, provide hello **Name of this key** and provide full access too**Mail Send** and select **Save**.</span></span>
 
     ![erişim][access]
-5. <span data-ttu-id="400b7-141">API anahtarınız bu adımda bir kez görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="400b7-141">Your API will be displayed at this point one time.</span></span> <span data-ttu-id="400b7-142">Güvenli bir yerde saklamayı unutmayın.</span><span class="sxs-lookup"><span data-stu-id="400b7-142">Please be sure to store it safely.</span></span>
+5. <span data-ttu-id="02c94-141">API anahtarınız bu adımda bir kez görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="02c94-141">Your API will be displayed at this point one time.</span></span> <span data-ttu-id="02c94-142">Lütfen emin toostore olması, güvenli bir şekilde.</span><span class="sxs-lookup"><span data-stu-id="02c94-142">Please be sure toostore it safely.</span></span>
 
-### <a name="to-find-your-sendgrid-credentials"></a><span data-ttu-id="400b7-143">SendGrid kimlik bilgilerinizi bulmak için</span><span class="sxs-lookup"><span data-stu-id="400b7-143">To find your SendGrid credentials</span></span>
-1. <span data-ttu-id="400b7-144">**Kullanıcı adınızı** bulmak için anahtar simgesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="400b7-144">Click the key icon to find your **Username**.</span></span>
+### <a name="toofind-your-sendgrid-credentials"></a><span data-ttu-id="02c94-143">toofind SendGrid kimlik</span><span class="sxs-lookup"><span data-stu-id="02c94-143">toofind your SendGrid credentials</span></span>
+1. <span data-ttu-id="02c94-144">Merhaba anahtar simgesine toofind'ı tıklatın, **kullanıcıadı**.</span><span class="sxs-lookup"><span data-stu-id="02c94-144">Click hello key icon toofind your **Username**.</span></span>
 
     ![anahtar][key]
-2. <span data-ttu-id="400b7-146">Parola, kurulum sırasında seçtiğiniz paroladır.</span><span class="sxs-lookup"><span data-stu-id="400b7-146">The password is the one you chose at setup.</span></span> <span data-ttu-id="400b7-147">**Parolayı değiştir** veya **Parolayı sıfırla**'yı seçerek değişiklik yapabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="400b7-147">You can select **Change password** or **Reset password** to make any changes.</span></span>
+2. <span data-ttu-id="02c94-146">Merhaba, bir kurulum sırasında seçtiğiniz hello paroladır.</span><span class="sxs-lookup"><span data-stu-id="02c94-146">hello password is hello one you chose at setup.</span></span> <span data-ttu-id="02c94-147">Seçebileceğiniz **parola değiştirme** veya **parola sıfırlama** toomake herhangi bir değişiklik.</span><span class="sxs-lookup"><span data-stu-id="02c94-147">You can select **Change password** or **Reset password** toomake any changes.</span></span>
 
-<span data-ttu-id="400b7-148">E-posta teslim ayarlarınızı yönetmek için **Yönet** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="400b7-148">To manage your email deliverability settings, click the **Manage button**.</span></span> <span data-ttu-id="400b7-149">Bu SendGrid panonuz yönlendirir.</span><span class="sxs-lookup"><span data-stu-id="400b7-149">This will redirect to your SendGrid dashboard.</span></span>
+<span data-ttu-id="02c94-148">toomanage e-posta e-posta ayarlarınızı tıklatın hello **Yönet düğmesine**.</span><span class="sxs-lookup"><span data-stu-id="02c94-148">toomanage your email deliverability settings, click hello **Manage button**.</span></span> <span data-ttu-id="02c94-149">Bu tooyour SendGrid Pano yönlendirir.</span><span class="sxs-lookup"><span data-stu-id="02c94-149">This will redirect tooyour SendGrid dashboard.</span></span>
 
     ![manage][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+    For more information on sending email through SendGrid, visit hello [Email API Overview][Email API Overview].
 
 <!--images-->
 

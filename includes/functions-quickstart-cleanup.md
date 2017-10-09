@@ -1,0 +1,5 @@
+<span data-ttu-id="f179a-101">Bu koleksiyondaki diğer hızlı başlangıçlar, bu hızlı başlangıca göre belirlenir.</span><span class="sxs-lookup"><span data-stu-id="f179a-101">Other quick starts in this collection build upon this quick start.</span></span> <span data-ttu-id="f179a-102">Sonraki hızlı başlangıçlar veya hello öğreticileri toowork üzerinde toocontinue planlıyorsanız, temiz oluşturulan bu hızlı başlangıç kaynakları başlatılmaz.</span><span class="sxs-lookup"><span data-stu-id="f179a-102">If you plan toocontinue on toowork with subsequent quick starts or with hello tutorials, do not clean up hello resources created in this quick start.</span></span> 
+
+<span data-ttu-id="f179a-103">Toocontinue düşünmüyorsanız hello tıklatın **kaynak grubu** hello portal ve ardından hello işlev uygulaması için **silmek**.</span><span class="sxs-lookup"><span data-stu-id="f179a-103">If you do not plan toocontinue, click hello **Resource group** for hello function app in hello portal, and then click **Delete**.</span></span> 
+
+![Merhaba kaynak grubu toodelete hello işlevi uygulamasını seçin.](./media/functions-quickstart-cleanup/functions-app-delete-resource-group.png)

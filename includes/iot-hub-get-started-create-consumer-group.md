@@ -1,0 +1,10 @@
+## <a name="add-a-consumer-group-tooyour-iot-hub"></a><span data-ttu-id="cc457-101">Bir tüketici grubu tooyour IOT hub'ı ekleme</span><span class="sxs-lookup"><span data-stu-id="cc457-101">Add a consumer group tooyour IoT hub</span></span>
+
+<span data-ttu-id="cc457-102">Tüketici grupları, uygulamalar toopull verileri Azure IOT Hub tarafından kullanılır.</span><span class="sxs-lookup"><span data-stu-id="cc457-102">Consumer groups are used by applications toopull data from Azure IoT Hub.</span></span> <span data-ttu-id="cc457-103">Bu öğreticide, IOT hub'ınızı gelecek bir Azure hizmeti tooread verilerinden tarafından kullanılan bir tüketici grubu toobe oluşturun.</span><span class="sxs-lookup"><span data-stu-id="cc457-103">In this tutorial, you create a consumer group toobe used by a coming Azure service tooread data from your IoT hub.</span></span>
+
+<span data-ttu-id="cc457-104">tooadd bir tüketici grubu tooyour IOT hub aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="cc457-104">tooadd a consumer group tooyour IoT hub, follow these steps:</span></span>
+
+1. <span data-ttu-id="cc457-105">Merhaba, [Azure portal](https://ms.portal.azure.com/), IOT hub'ınızı açın.</span><span class="sxs-lookup"><span data-stu-id="cc457-105">In hello [Azure portal](https://ms.portal.azure.com/), open your IoT hub.</span></span>
+2. <span data-ttu-id="cc457-106">Merhaba sol bölmede **uç noktaları**seçin **olayları** hello Orta bölmede altında bir ad girin **tüketici grupları** hello sağ bölmede ve ardından  **Kaydet**.</span><span class="sxs-lookup"><span data-stu-id="cc457-106">In hello left pane, click **Endpoints**, select **Events** on hello middle pane, enter a name under **Consumer groups** on hello right pane, and then click **Save**.</span></span>
+
+   ![IOT hub'ınıza bir tüketici grubu oluştur](../articles/iot-hub/media/iot-hub-create-consumer-group/1_iot-hub-create-consumer-group-azure.png)

@@ -1,0 +1,5 @@
+> [!IMPORTANT]
+> <span data-ttu-id="c589d-101">Ağ geçidi alt ağları ile çalışırken, bir ağ güvenlik grubu (NSG) toohello ağ geçidi alt ilişkilendirme kaçının.</span><span class="sxs-lookup"><span data-stu-id="c589d-101">When working with gateway subnets, avoid associating a network security group (NSG) toohello gateway subnet.</span></span> <span data-ttu-id="c589d-102">Bir ağ güvenlik grubu toothis alt ilişkilendirme beklendiği gibi çalışmıyor, VPN ağ geçidi toostop neden olabilir.</span><span class="sxs-lookup"><span data-stu-id="c589d-102">Associating a network security group toothis subnet may cause your VPN gateway toostop functioning as expected.</span></span> <span data-ttu-id="c589d-103">Ağ güvenlik grupları hakkında daha fazla bilgi için bkz. [Ağ güvenlik grubu nedir?](../articles/virtual-network/virtual-networks-nsg.md)</span><span class="sxs-lookup"><span data-stu-id="c589d-103">For more information about network security groups, see [What is a network security group?](../articles/virtual-network/virtual-networks-nsg.md)</span></span>
+> 
+> 
+

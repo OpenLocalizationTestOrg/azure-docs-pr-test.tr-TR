@@ -1,6 +1,6 @@
 ---
-title: "Tablo depolama (Node.js) ile Web uygulaması | Microsoft Docs"
-description: "Azure Storage Hizmetleri ve Azure modülü ekleyerek Express öğretici Web uygulamasıyla derlemeler Öğreticisi."
+title: Tablo depolama (Node.js) aaaWeb uygulamayla | Microsoft Docs
+description: "Azure depolama hizmetleri ve hello Azure modülü ekleyerek hello Web uygulaması hızlı öğretici ile derlemeler Öğreticisi."
 services: cloud-services, storage
 documentationcenter: nodejs
 author: mmacy
@@ -14,77 +14,77 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: 5d7ee2f529b5127ee60ec8b4f5acaa49e75ddf39
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4eba16f09f8b69cbc135d097e6ca71e08b33733c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a><span data-ttu-id="aef63-103">Depolama kullanarak node.js Web uygulaması</span><span class="sxs-lookup"><span data-stu-id="aef63-103">Node.js Web Application using Storage</span></span>
-## <a name="overview"></a><span data-ttu-id="aef63-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="aef63-104">Overview</span></span>
-<span data-ttu-id="aef63-105">Bu öğreticide oluşturduğunuz uygulama uzatır [Express kullanarak Node.js Web uygulaması] veri Yönetim Hizmetleri ile çalışmak için Node.js için Microsoft Azure istemci kitaplıkları kullanarak Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="aef63-105">In this tutorial, you will extend the application created in the [Node.js Web Application using Express] tutorial by using the Microsoft Azure Client Libraries for Node.js to work with data management services.</span></span> <span data-ttu-id="aef63-106">Azure için dağıtabileceğiniz bir web tabanlı görev listesi uygulaması oluşturmak için uygulamanızın uzatır.</span><span class="sxs-lookup"><span data-stu-id="aef63-106">You will extend your application to create a web-based task-list application that you can deploy to Azure.</span></span> <span data-ttu-id="aef63-107">Görev listesi, kullanıcının görevleri almak, yeni görevler ekleyin ve Görevler tamamlandı olarak işaretle izin verir.</span><span class="sxs-lookup"><span data-stu-id="aef63-107">The task list allows a user to retrieve tasks, add new tasks, and mark tasks as completed.</span></span>
+# <a name="nodejs-web-application-using-storage"></a><span data-ttu-id="40a7a-103">Depolama kullanarak node.js Web uygulaması</span><span class="sxs-lookup"><span data-stu-id="40a7a-103">Node.js Web Application using Storage</span></span>
+## <a name="overview"></a><span data-ttu-id="40a7a-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="40a7a-104">Overview</span></span>
+<span data-ttu-id="40a7a-105">Bu öğreticide oluşturduğunuz Merhaba uygulaması uzatır [Express kullanarak Node.js Web uygulaması] veri Yönetim Hizmetleri ile Node.js toowork için hello Microsoft Azure istemci kitaplıkları kullanarak Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="40a7a-105">In this tutorial, you will extend hello application created in the [Node.js Web Application using Express] tutorial by using hello Microsoft Azure Client Libraries for Node.js toowork with data management services.</span></span> <span data-ttu-id="40a7a-106">Uygulama toocreate tooAzure dağıtabileceğiniz bir web tabanlı görev listesi uygulaması uzatır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-106">You will extend your application toocreate a web-based task-list application that you can deploy tooAzure.</span></span> <span data-ttu-id="40a7a-107">Merhaba görev listesi, kullanıcının görevleri almak, yeni görevler ekleyin ve Görevler tamamlandı olarak işaretle izin verir.</span><span class="sxs-lookup"><span data-stu-id="40a7a-107">hello task list allows a user to retrieve tasks, add new tasks, and mark tasks as completed.</span></span>
 
-<span data-ttu-id="aef63-108">Görev öğeleri Azure depolama alanında depolanır.</span><span class="sxs-lookup"><span data-stu-id="aef63-108">The task items are stored in Azure Storage.</span></span> <span data-ttu-id="aef63-109">Azure depolama hataya dayanıklı ve yüksek oranda kullanılabilir yapılandırılmamış veri depolama sağlar.</span><span class="sxs-lookup"><span data-stu-id="aef63-109">Azure Storage provides unstructured data storage that is fault-tolerant and highly available.</span></span> <span data-ttu-id="aef63-110">Azure depolama burada depolayabileceğiniz ve verilere erişmek ve REST API'leri aracılığıyla veya Node.js için Azure SDK'ın dahil API'leri depolama hizmetlerinden yararlanabilirsiniz birkaç veri yapılarını içerir.</span><span class="sxs-lookup"><span data-stu-id="aef63-110">Azure Storage includes several data structures where you can store and access data, and you can leverage the storage services from the APIs included in the Azure SDK for Node.js or via REST APIs.</span></span> <span data-ttu-id="aef63-111">Daha fazla bilgi için bkz: [depolama ve veri erişim].</span><span class="sxs-lookup"><span data-stu-id="aef63-111">For more information, see [Storing and Accessing Data in Azure].</span></span>
+<span data-ttu-id="40a7a-108">Merhaba görev öğeleri Azure depolama alanında depolanır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-108">hello task items are stored in Azure Storage.</span></span> <span data-ttu-id="40a7a-109">Azure depolama hataya dayanıklı ve yüksek oranda kullanılabilir yapılandırılmamış veri depolama sağlar.</span><span class="sxs-lookup"><span data-stu-id="40a7a-109">Azure Storage provides unstructured data storage that is fault-tolerant and highly available.</span></span> <span data-ttu-id="40a7a-110">Azure depolama burada depolayabileceğiniz ve verilere erişmek ve hello Node.js için veya REST API'leri aracılığıyla hello Azure SDK'sını dahil API'leri hello depolama hizmetlerinden yararlanabilirsiniz birkaç veri yapılarını içerir.</span><span class="sxs-lookup"><span data-stu-id="40a7a-110">Azure Storage includes several data structures where you can store and access data, and you can leverage hello storage services from hello APIs included in hello Azure SDK for Node.js or via REST APIs.</span></span> <span data-ttu-id="40a7a-111">Daha fazla bilgi için bkz: [depolama ve veri erişim].</span><span class="sxs-lookup"><span data-stu-id="40a7a-111">For more information, see [Storing and Accessing Data in Azure].</span></span>
 
-<span data-ttu-id="aef63-112">Bu öğretici, tamamladığınızı varsaymaktadır [Node.js Web uygulaması] ve [Node.js Express ile][Express kullanarak Node.js Web uygulaması] öğreticileri.</span><span class="sxs-lookup"><span data-stu-id="aef63-112">This tutorial assumes that you have completed the [Node.js Web Application] and [Node.js with Express][Node.js Web Application using Express] tutorials.</span></span>
+<span data-ttu-id="40a7a-112">Bu öğretici hello tamamladığınızı varsaymaktadır [Node.js Web uygulaması] ve [Node.js Express ile][Express kullanarak Node.js Web uygulaması] öğreticileri.</span><span class="sxs-lookup"><span data-stu-id="40a7a-112">This tutorial assumes that you have completed hello [Node.js Web Application] and [Node.js with Express][Node.js Web Application using Express] tutorials.</span></span>
 
-<span data-ttu-id="aef63-113">Şunları öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="aef63-113">You will learn:</span></span>
+<span data-ttu-id="40a7a-113">Şunları öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="40a7a-113">You will learn:</span></span>
 
-* <span data-ttu-id="aef63-114">Jade şablon altyapısıyla çalışma</span><span class="sxs-lookup"><span data-stu-id="aef63-114">How to work with the Jade template engine</span></span>
-* <span data-ttu-id="aef63-115">Azure veri Yönetim Hizmetleri ile birlikte çalışma</span><span class="sxs-lookup"><span data-stu-id="aef63-115">How to work with Azure Data Management services</span></span>
+* <span data-ttu-id="40a7a-114">Nasıl toowork ile Merhaba Jade şablon motoru</span><span class="sxs-lookup"><span data-stu-id="40a7a-114">How toowork with hello Jade template engine</span></span>
+* <span data-ttu-id="40a7a-115">Nasıl toowork Azure veri Yönetim Hizmetleri ile</span><span class="sxs-lookup"><span data-stu-id="40a7a-115">How toowork with Azure Data Management services</span></span>
 
-<span data-ttu-id="aef63-116">Tamamlanmış uygulamanın bir ekran görüntüsü aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="aef63-116">A screenshot of the completed application is below:</span></span>
+<span data-ttu-id="40a7a-116">Tamamlanan hello uygulamasının ekran görüntüsü aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="40a7a-116">A screenshot of hello completed application is below:</span></span>
 
-![Internet Explorer'da tamamlanan web sayfası](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Internet Explorer'da web sayfası Hello tamamlandı](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
-## <a name="setting-storage-credentials-in-webconfig"></a><span data-ttu-id="aef63-118">Web.Config dosyasında depolama kimlik bilgilerini ayarlama</span><span class="sxs-lookup"><span data-stu-id="aef63-118">Setting Storage Credentials in Web.Config</span></span>
-<span data-ttu-id="aef63-119">Azure Storage erişmek için depolama kimlik bilgilerinde geçmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="aef63-119">To access Azure Storage, you need to pass in storage credentials.</span></span> <span data-ttu-id="aef63-120">Bunu yapmak için web.config uygulama ayarları kullanın.</span><span class="sxs-lookup"><span data-stu-id="aef63-120">To do this, you utilize web.config application settings.</span></span>
-<span data-ttu-id="aef63-121">Bu ayarları ortam değişkenleri olarak düğümü için Azure SDK'sı tarafından ardından okuma geçirilir.</span><span class="sxs-lookup"><span data-stu-id="aef63-121">Those settings will be passed as environment variables to Node, which are then read by the Azure SDK.</span></span>
+## <a name="setting-storage-credentials-in-webconfig"></a><span data-ttu-id="40a7a-118">Web.Config dosyasında depolama kimlik bilgilerini ayarlama</span><span class="sxs-lookup"><span data-stu-id="40a7a-118">Setting Storage Credentials in Web.Config</span></span>
+<span data-ttu-id="40a7a-119">tooaccess Azure depolama, depolama kimlik bilgilerinde toopass gerekir.</span><span class="sxs-lookup"><span data-stu-id="40a7a-119">tooaccess Azure Storage, you need toopass in storage credentials.</span></span> <span data-ttu-id="40a7a-120">toodo Bu, web.config uygulama ayarları kullanır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-120">toodo this, you utilize web.config application settings.</span></span>
+<span data-ttu-id="40a7a-121">Bu ayarlar, ardından hello Azure SDK'sı tarafından okunan ortam değişkenleri tooNode geçirilir.</span><span class="sxs-lookup"><span data-stu-id="40a7a-121">Those settings will be passed as environment variables tooNode, which are then read by hello Azure SDK.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="aef63-122">Azure için uygulama dağıtıldığında depolama kimlik bilgileri yalnızca kullanılır.</span><span class="sxs-lookup"><span data-stu-id="aef63-122">Storage credentials are only used when the application is deployed to Azure.</span></span> <span data-ttu-id="aef63-123">Öykünücüde çalıştırırken, uygulama depolama öykünücüsü kullanır.</span><span class="sxs-lookup"><span data-stu-id="aef63-123">When running in the emulator, the application will use the storage emulator.</span></span>
+> <span data-ttu-id="40a7a-122">Merhaba uygulaması dağıtılan tooAzure olduğunda depolama kimlik bilgileri yalnızca kullanılır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-122">Storage credentials are only used when hello application is deployed tooAzure.</span></span> <span data-ttu-id="40a7a-123">Merhaba öykünücüsünde çalıştırırken Merhaba uygulaması hello depolama öykünücüsü kullanır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-123">When running in hello emulator, hello application will use hello storage emulator.</span></span>
 >
 >
 
-<span data-ttu-id="aef63-124">Depolama hesabı bilgilerini almak ve bunları web.config ayarları eklemek için aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="aef63-124">Perform the following steps to retrieve the storage account credentials and add them to the web.config settings:</span></span>
+<span data-ttu-id="40a7a-124">Adımları tooretrieve hello depolama hesabının kimlik bilgilerini aşağıdaki hello gerçekleştirmek ve bunları toohello web.config ayarları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="40a7a-124">Perform hello following steps tooretrieve hello storage account credentials and add them toohello web.config settings:</span></span>
 
-1. <span data-ttu-id="aef63-125">Zaten açık değilse, gelen Azure PowerShell'i başlatın **Başlat** genişleterek menü **tüm programları, Azure**, sağ **Azure PowerShell**ve ardından seçin **Yönetici olarak çalıştır**.</span><span class="sxs-lookup"><span data-stu-id="aef63-125">If it is not already open, start the Azure PowerShell from the **Start** menu by expanding **All Programs, Azure**, right-click **Azure PowerShell**, and then select **Run As Administrator**.</span></span>
-2. <span data-ttu-id="aef63-126">Dizinleri uygulamanızı içeren klasöre gidin.</span><span class="sxs-lookup"><span data-stu-id="aef63-126">Change directories to the folder containing your application.</span></span> <span data-ttu-id="aef63-127">Örneğin, C:\\düğümü\\tasklist\\WebRole1.</span><span class="sxs-lookup"><span data-stu-id="aef63-127">For example, C:\\node\\tasklist\\WebRole1.</span></span>
-3. <span data-ttu-id="aef63-128">Azure Powershell penceresinden depolama hesabı bilgilerini almak için aşağıdaki cmdlet'i girin:</span><span class="sxs-lookup"><span data-stu-id="aef63-128">From the Azure Powershell window enter the following cmdlet to retrieve the storage account information:</span></span>
+1. <span data-ttu-id="40a7a-125">Zaten açık değilse, hello hello Azure PowerShell Başlat **Başlat** genişleterek menü **tüm programları, Azure**, sağ tıklatın **Azure PowerShell**ve ardından seçin **Yönetici olarak çalıştır**.</span><span class="sxs-lookup"><span data-stu-id="40a7a-125">If it is not already open, start hello Azure PowerShell from hello **Start** menu by expanding **All Programs, Azure**, right-click **Azure PowerShell**, and then select **Run As Administrator**.</span></span>
+2. <span data-ttu-id="40a7a-126">Uygulamanızı içeren dizinleri toohello klasörü değiştirin.</span><span class="sxs-lookup"><span data-stu-id="40a7a-126">Change directories toohello folder containing your application.</span></span> <span data-ttu-id="40a7a-127">Örneğin, C:\\düğümü\\tasklist\\WebRole1.</span><span class="sxs-lookup"><span data-stu-id="40a7a-127">For example, C:\\node\\tasklist\\WebRole1.</span></span>
+3. <span data-ttu-id="40a7a-128">Hello Azure Powershell penceresinden cmdlet tooretrieve hello depolama hesabı bilgilerini aşağıdaki hello girin:</span><span class="sxs-lookup"><span data-stu-id="40a7a-128">From hello Azure Powershell window enter hello following cmdlet tooretrieve hello storage account information:</span></span>
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
     ```
 
-   <span data-ttu-id="aef63-129">Bu depolama hesapları ve anahtarları barındırılan hizmetiniz ile ilişkili hesap listesini alır.</span><span class="sxs-lookup"><span data-stu-id="aef63-129">This retrieves the list of storage accounts and account keys associated with your hosted service.</span></span>
+   <span data-ttu-id="40a7a-129">Bu depolama hesapları ve anahtarları barındırılan hizmetiniz ile ilişkili hesap hello listesini alır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-129">This retrieves hello list of storage accounts and account keys associated with your hosted service.</span></span>
 
    > [!NOTE]
-   > <span data-ttu-id="aef63-130">Bir hizmet dağıttığınızda Azure SDK'yı bir depolama hesabı oluşturduğundan, bir depolama hesabı zaten önceki kılavuzları uygulamanızda dağıtma var olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="aef63-130">Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.</span></span>
+   > <span data-ttu-id="40a7a-130">Bir hizmeti dağıtırken hello Azure SDK'yı bir depolama hesabı oluşturduğundan, bir depolama hesabı zaten hello önceki kılavuzları uygulamanızda dağıtma var olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-130">Since hello Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in hello previous guides.</span></span>
    >
    >
-4. <span data-ttu-id="aef63-131">Açık **ServiceDefinition.csdef** uygulamayı Azure'a dağıtıldığında kullanılan ortam ayarlarını içeren dosyayı:</span><span class="sxs-lookup"><span data-stu-id="aef63-131">Open the **ServiceDefinition.csdef** file containing the environment settings that are used when the application is deployed to Azure:</span></span>
+4. <span data-ttu-id="40a7a-131">Açık hello **ServiceDefinition.csdef** Merhaba uygulaması dağıtılan tooAzure olduğunda kullanılan hello ortam ayarlarını içeren dosyayı:</span><span class="sxs-lookup"><span data-stu-id="40a7a-131">Open hello **ServiceDefinition.csdef** file containing hello environment settings that are used when hello application is deployed tooAzure:</span></span>
 
     ```powershell
     PS C:\node\tasklist> notepad ServiceDefinition.csdef
     ```
 
-5. <span data-ttu-id="aef63-132">Altında aşağıdaki blok Ekle **ortam** {depolama hesabı} değiştirerek öğesi ve {depolama erişim tuşu} hesap adını ve dağıtım için kullanmak istediğiniz depolama hesabı için birincil anahtar:</span><span class="sxs-lookup"><span data-stu-id="aef63-132">Insert the following block under **Environment** element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the account name and the primary key for the storage account you want to use for deployment:</span></span>
+5. <span data-ttu-id="40a7a-132">INSERT hello aşağıdaki engelle altında **ortam** {depolama hesabı} değiştirerek öğesi ve {depolama erişim tuşu} hello hesap adını ve dağıtım için kullanmak istediğiniz toouse hello depolama hesabının birincil anahtarı hello:</span><span class="sxs-lookup"><span data-stu-id="40a7a-132">Insert hello following block under **Environment** element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with hello account name and hello primary key for hello storage account you want toouse for deployment:</span></span>
 
   <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
   <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-   ![Web.cloud.config dosya içerikleri](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
+   ![Merhaba web.cloud.config dosya içerikleri](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
 
-6. <span data-ttu-id="aef63-134">Dosyayı kaydedin ve Not Defteri'ni kapatın.</span><span class="sxs-lookup"><span data-stu-id="aef63-134">Save the file and close notepad.</span></span>
+6. <span data-ttu-id="40a7a-134">Merhaba dosyayı kaydedin ve Not Defteri'ni kapatın.</span><span class="sxs-lookup"><span data-stu-id="40a7a-134">Save hello file and close notepad.</span></span>
 
-### <a name="install-additional-modules"></a><span data-ttu-id="aef63-135">Ek modüller yükleme</span><span class="sxs-lookup"><span data-stu-id="aef63-135">Install additional modules</span></span>
-1. <span data-ttu-id="aef63-136">[Azure], yüklemek için aşağıdaki komutu kullanın [düğüm-UUID], [nconf] ve bunların bir girdiyi kaydetmek için de yerel olarak [async] modülleri **package.json** dosyası:</span><span class="sxs-lookup"><span data-stu-id="aef63-136">Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:</span></span>
+### <a name="install-additional-modules"></a><span data-ttu-id="40a7a-135">Ek modüller yükleme</span><span class="sxs-lookup"><span data-stu-id="40a7a-135">Install additional modules</span></span>
+1. <span data-ttu-id="40a7a-136">Komut tooinstall hello [azure] aşağıdaki kullanım hello, [düğüm-UUID], [nconf] ve yerel olarak toosave bir giriş için bunları toohello yanı sıra [async] modülleri **package.json** dosyası:</span><span class="sxs-lookup"><span data-stu-id="40a7a-136">Use hello following command tooinstall hello [azure], [node-uuid], [nconf] and [async] modules locally as well as toosave an entry for them toohello **package.json** file:</span></span>
 
   ```powershell
   PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
   ```
 
-  <span data-ttu-id="aef63-137">Bu komutun çıktısı aşağıdakine benzer görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="aef63-137">The output of this command should appear similar to the following:</span></span>
+  <span data-ttu-id="40a7a-137">Bu komutun çıktısı Hello benzer toohello aşağıdaki görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="40a7a-137">hello output of this command should appear similar toohello following:</span></span>
 
   ```
   node-uuid@1.4.1 node_modules\node-uuid
@@ -105,13 +105,13 @@ ms.lasthandoff: 07/11/2017
   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
   ```
 
-## <a name="using-the-table-service-in-a-node-application"></a><span data-ttu-id="aef63-138">Tablo hizmetinde bir düğüm uygulamasında kullanma</span><span class="sxs-lookup"><span data-stu-id="aef63-138">Using the Table service in a node application</span></span>
-<span data-ttu-id="aef63-139">Bu bölümde temel uygulama tarafından oluşturulan uzatır **express** komutu ekleyerek bir **task.js** görevleriniz için model içeren dosya.</span><span class="sxs-lookup"><span data-stu-id="aef63-139">In this section you will extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks.</span></span> <span data-ttu-id="aef63-140">Varolan değiştirecek **app.js** ve yeni bir **tasklist.js** modelini kullanan dosya.</span><span class="sxs-lookup"><span data-stu-id="aef63-140">You will also modify the existing **app.js** and create a new **tasklist.js** file that uses the model.</span></span>
+## <a name="using-hello-table-service-in-a-node-application"></a><span data-ttu-id="40a7a-138">Merhaba tablo hizmetini bir düğüm uygulamasında kullanma</span><span class="sxs-lookup"><span data-stu-id="40a7a-138">Using hello Table service in a node application</span></span>
+<span data-ttu-id="40a7a-139">Bu bölümde hello temel uygulama hello tarafından oluşturulan uzatır **express** komutu ekleyerek bir **task.js** görevleriniz için hello modeli içeren dosya.</span><span class="sxs-lookup"><span data-stu-id="40a7a-139">In this section you will extend hello basic application created by hello **express** command by adding a **task.js** file which contains hello model for your tasks.</span></span> <span data-ttu-id="40a7a-140">Merhaba varolan değiştirecek **app.js** ve yeni bir **tasklist.js** hello modelini kullanan dosya.</span><span class="sxs-lookup"><span data-stu-id="40a7a-140">You will also modify hello existing **app.js** and create a new **tasklist.js** file that uses hello model.</span></span>
 
-### <a name="create-the-model"></a><span data-ttu-id="aef63-141">Modeli oluşturma</span><span class="sxs-lookup"><span data-stu-id="aef63-141">Create the model</span></span>
-1. <span data-ttu-id="aef63-142">İçinde **WebRole1** dizin adlı yeni bir dizin oluşturun **modelleri**.</span><span class="sxs-lookup"><span data-stu-id="aef63-142">In the **WebRole1** directory, create a new directory named **models**.</span></span>
-2. <span data-ttu-id="aef63-143">İçinde **modelleri** dizin adlı yeni bir dosya oluşturun **task.js**.</span><span class="sxs-lookup"><span data-stu-id="aef63-143">In the **models** directory, create a new file named **task.js**.</span></span> <span data-ttu-id="aef63-144">Bu dosya, uygulamanız tarafından oluşturulan görevlerin modelini içerir.</span><span class="sxs-lookup"><span data-stu-id="aef63-144">This file will contain the model for the tasks created by your application.</span></span>
-3. <span data-ttu-id="aef63-145">Başında **task.js** dosya, gerekli kitaplıklar başvurmak için aşağıdaki kodu ekleyin:</span><span class="sxs-lookup"><span data-stu-id="aef63-145">At the beginning of the **task.js** file, add the following code to reference required libraries:</span></span>
+### <a name="create-hello-model"></a><span data-ttu-id="40a7a-141">Merhaba modeli oluşturma</span><span class="sxs-lookup"><span data-stu-id="40a7a-141">Create hello model</span></span>
+1. <span data-ttu-id="40a7a-142">Merhaba, **WebRole1** dizin adlı yeni bir dizin oluşturun **modelleri**.</span><span class="sxs-lookup"><span data-stu-id="40a7a-142">In hello **WebRole1** directory, create a new directory named **models**.</span></span>
+2. <span data-ttu-id="40a7a-143">Merhaba, **modelleri** dizin adlı yeni bir dosya oluşturun **task.js**.</span><span class="sxs-lookup"><span data-stu-id="40a7a-143">In hello **models** directory, create a new file named **task.js**.</span></span> <span data-ttu-id="40a7a-144">Bu dosya, uygulamanız tarafından oluşturulan hello görevler için hello modeli içerir.</span><span class="sxs-lookup"><span data-stu-id="40a7a-144">This file will contain hello model for hello tasks created by your application.</span></span>
+3. <span data-ttu-id="40a7a-145">Merhaba hello başında **task.js** dosya, aşağıdaki kodu tooreference gerekli kitaplıkları hello ekleyin:</span><span class="sxs-lookup"><span data-stu-id="40a7a-145">At hello beginning of hello **task.js** file, add hello following code tooreference required libraries:</span></span>
 
     ```nodejs
     var azure = require('azure-storage');
@@ -119,7 +119,7 @@ ms.lasthandoff: 07/11/2017
     var entityGen = azure.TableUtilities.entityGenerator;
     ```
 
-4. <span data-ttu-id="aef63-146">Ardından, Task nesnesini tanımlamak ve dışarı aktarmak için kod ekleyeceksiniz.</span><span class="sxs-lookup"><span data-stu-id="aef63-146">Next, you will add code to define and export the Task object.</span></span> <span data-ttu-id="aef63-147">Bu nesne, tabloya bağlanmak için sorumludur.</span><span class="sxs-lookup"><span data-stu-id="aef63-147">This object is responsible for connecting to the table.</span></span>
+4. <span data-ttu-id="40a7a-146">Ardından, kodu toodefine ekleyin ve hello görev nesneyi verin.</span><span class="sxs-lookup"><span data-stu-id="40a7a-146">Next, you will add code toodefine and export hello Task object.</span></span> <span data-ttu-id="40a7a-147">Bu nesne, toohello tablo bağlamak için sorumludur.</span><span class="sxs-lookup"><span data-stu-id="40a7a-147">This object is responsible for connecting toohello table.</span></span>
 
     ```nodejs
     module.exports = Task;
@@ -136,7 +136,7 @@ ms.lasthandoff: 07/11/2017
     };
     ```
 
-5. <span data-ttu-id="aef63-148">Ardından, ek yöntemleri Task nesnesinde tanımlamak için aşağıdaki kodu tabloda depolanan verileri ile etkileşim sağlayan ekleyin:</span><span class="sxs-lookup"><span data-stu-id="aef63-148">Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:</span></span>
+5. <span data-ttu-id="40a7a-148">Ardından, kod toodefine ek yöntemleri hello Task nesnesinde aşağıdaki hello hello tablosunda depolanan veriler ile etkileşim sağlayan ekleyin:</span><span class="sxs-lookup"><span data-stu-id="40a7a-148">Next, add hello following code toodefine additional methods on hello Task object, which allow interactions with data stored in hello table:</span></span>
 
     ```nodejs
     Task.prototype = {
@@ -153,7 +153,7 @@ ms.lasthandoff: 07/11/2017
 
       addItem: function(item, callback) {
         self = this;
-        // use entityGenerator to set types
+        // use entityGenerator tooset types
         // NOTE: RowKey must be a string type, even though
         // it contains a GUID in this example.
         var itemDescriptor = {
@@ -190,11 +190,11 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-6. <span data-ttu-id="aef63-149">Kaydet ve Kapat **task.js** dosya.</span><span class="sxs-lookup"><span data-stu-id="aef63-149">Save and close the **task.js** file.</span></span>
+6. <span data-ttu-id="40a7a-149">Kaydet ve Kapat hello **task.js** dosya.</span><span class="sxs-lookup"><span data-stu-id="40a7a-149">Save and close hello **task.js** file.</span></span>
 
-### <a name="create-the-controller"></a><span data-ttu-id="aef63-150">Denetleyiciyi oluşturma</span><span class="sxs-lookup"><span data-stu-id="aef63-150">Create the controller</span></span>
-1. <span data-ttu-id="aef63-151">İçinde **WebRole1/yollar** dizin adlı yeni bir dosya oluşturun **tasklist.js** ve bir metin düzenleyicisinde açın.</span><span class="sxs-lookup"><span data-stu-id="aef63-151">In the **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.</span></span>
-2. <span data-ttu-id="aef63-152">Aşağıdaki kodu **tasklist.js**'ye ekleyin.</span><span class="sxs-lookup"><span data-stu-id="aef63-152">Add the following code to **tasklist.js**.</span></span> <span data-ttu-id="aef63-153">Bu tarafından kullanılan azure ve async modüllerini yükler **tasklist.js**.</span><span class="sxs-lookup"><span data-stu-id="aef63-153">This loads the azure and async modules, which are used by **tasklist.js**.</span></span> <span data-ttu-id="aef63-154">Bu ayrıca tanımlar **TaskList** bir örneği olarak geçirilmiş işlevi **görev** daha önce tanımladığımız:</span><span class="sxs-lookup"><span data-stu-id="aef63-154">This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:</span></span>
+### <a name="create-hello-controller"></a><span data-ttu-id="40a7a-150">Merhaba denetleyicisi oluşturun</span><span class="sxs-lookup"><span data-stu-id="40a7a-150">Create hello controller</span></span>
+1. <span data-ttu-id="40a7a-151">Merhaba, **WebRole1/yollar** dizin adlı yeni bir dosya oluşturun **tasklist.js** ve bir metin düzenleyicisinde açın.</span><span class="sxs-lookup"><span data-stu-id="40a7a-151">In hello **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.</span></span>
+2. <span data-ttu-id="40a7a-152">Kod çok aşağıdaki hello eklemek**tasklist.js**.</span><span class="sxs-lookup"><span data-stu-id="40a7a-152">Add hello following code too**tasklist.js**.</span></span> <span data-ttu-id="40a7a-153">Bu tarafından kullanılan hello azure ve async modüllerini yükler **tasklist.js**.</span><span class="sxs-lookup"><span data-stu-id="40a7a-153">This loads hello azure and async modules, which are used by **tasklist.js**.</span></span> <span data-ttu-id="40a7a-154">Bu ayrıca hello tanımlar **TaskList** hello örneği geçirilen işlevi **görev** daha önce tanımladığımız:</span><span class="sxs-lookup"><span data-stu-id="40a7a-154">This also defines hello **TaskList** function, which is passed an instance of hello **Task** object we defined earlier:</span></span>
 
     ```nodejs
     var azure = require('azure-storage');
@@ -207,7 +207,7 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-3. <span data-ttu-id="aef63-155">Eklemeye devam **tasklist.js** için kullanılan yöntemleri ekleyerek dosya **showTasks**, **addTask**, ve **tasklist.js**:</span><span class="sxs-lookup"><span data-stu-id="aef63-155">Continue adding to the **tasklist.js** file by adding the methods used to **showTasks**, **addTask**, and **completeTasks**:</span></span>
+3. <span data-ttu-id="40a7a-155">Toohello eklemeye devam **tasklist.js** çok kullanılan hello yöntemleri ekleyerek dosya**showTasks**, **addTask**, ve **tasklist.js**:</span><span class="sxs-lookup"><span data-stu-id="40a7a-155">Continue adding toohello **tasklist.js** file by adding hello methods used too**showTasks**, **addTask**, and **completeTasks**:</span></span>
 
     ```nodejs
     TaskList.prototype = {
@@ -253,11 +253,11 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-4. <span data-ttu-id="aef63-156">Kaydet **tasklist.js** dosya.</span><span class="sxs-lookup"><span data-stu-id="aef63-156">Save the **tasklist.js** file.</span></span>
+4. <span data-ttu-id="40a7a-156">Merhaba Kaydet **tasklist.js** dosya.</span><span class="sxs-lookup"><span data-stu-id="40a7a-156">Save hello **tasklist.js** file.</span></span>
 
-### <a name="modify-appjs"></a><span data-ttu-id="aef63-157">App.js'yi değiştirme</span><span class="sxs-lookup"><span data-stu-id="aef63-157">Modify app.js</span></span>
-1. <span data-ttu-id="aef63-158">İçinde **WebRole1** dizin, açık **app.js** dosyasını bir metin düzenleyicisinde.</span><span class="sxs-lookup"><span data-stu-id="aef63-158">In the **WebRole1** directory, open the **app.js** file in a text editor.</span></span>
-2. <span data-ttu-id="aef63-159">Dosyasının başında azure modülünü yüklemek ve tablo adı ve bölüm anahtarı ayarlamak için aşağıdakileri ekleyin:</span><span class="sxs-lookup"><span data-stu-id="aef63-159">At the beginning of the file, add the following to load the azure module and set the table name and partition key:</span></span>
+### <a name="modify-appjs"></a><span data-ttu-id="40a7a-157">App.js'yi değiştirme</span><span class="sxs-lookup"><span data-stu-id="40a7a-157">Modify app.js</span></span>
+1. <span data-ttu-id="40a7a-158">Merhaba, **WebRole1** dizin, açık hello **app.js** dosyasını bir metin düzenleyicisinde.</span><span class="sxs-lookup"><span data-stu-id="40a7a-158">In hello **WebRole1** directory, open hello **app.js** file in a text editor.</span></span>
+2. <span data-ttu-id="40a7a-159">Başında hello hello dosya, tooload hello azure Modülü aşağıdaki hello ekleyin ve hello tablo adı ve bölüm anahtarı ayarlayın:</span><span class="sxs-lookup"><span data-stu-id="40a7a-159">At hello beginning of hello file, add hello following tooload hello azure module and set hello table name and partition key:</span></span>
 
     ```nodejs
     var azure = require('azure-storage');
@@ -265,14 +265,14 @@ ms.lasthandoff: 07/11/2017
     var partitionKey = 'hometasks';
     ```
 
-3. <span data-ttu-id="aef63-160">App.js dosyasında aşağıdaki satırı gördüğünüz aşağıya doğru kaydırma:</span><span class="sxs-lookup"><span data-stu-id="aef63-160">In the app.js file, scroll down to where you see the following line:</span></span>
+3. <span data-ttu-id="40a7a-160">Merhaba app.js dosyasında gördüğünüz toowhere kaydırarak hello satırı:</span><span class="sxs-lookup"><span data-stu-id="40a7a-160">In hello app.js file, scroll down toowhere you see hello following line:</span></span>
 
     ```nodejs
     app.use('/', routes);
     app.use('/users', users);
     ```
 
-    <span data-ttu-id="aef63-161">Yukarıdaki satırlar aşağıda kod ile değiştirin.</span><span class="sxs-lookup"><span data-stu-id="aef63-161">Replace the above lines with the code shown below.</span></span> <span data-ttu-id="aef63-162">Bu örneği başlatılamıyor <strong>görev</strong> depolama hesabınıza bir bağlantıyla.</span><span class="sxs-lookup"><span data-stu-id="aef63-162">This will initialize an instance of <strong>Task</strong> with a connection to your storage account.</span></span> <span data-ttu-id="aef63-163">Bu geçirilir <strong>TaskList</strong>, hangi kullanır, tablo hizmeti ile iletişim kurmak için:</span><span class="sxs-lookup"><span data-stu-id="aef63-163">This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:</span></span>
+    <span data-ttu-id="40a7a-161">Satırları yukarıda Hello aşağıda gösterilen hello kod ile değiştirin.</span><span class="sxs-lookup"><span data-stu-id="40a7a-161">Replace hello above lines with hello code shown below.</span></span> <span data-ttu-id="40a7a-162">Bu örneği başlatılamıyor <strong>görev</strong> bağlantı tooyour depolama hesabına sahip.</span><span class="sxs-lookup"><span data-stu-id="40a7a-162">This will initialize an instance of <strong>Task</strong> with a connection tooyour storage account.</span></span> <span data-ttu-id="40a7a-163">Bu toohello geçirilen <strong>TaskList</strong>, hangi kullanır, toocommunicate hello tablo hizmeti ile:</span><span class="sxs-lookup"><span data-stu-id="40a7a-163">This is passed toohello <strong>TaskList</strong>, which will use it toocommunicate with hello Table service:</span></span>
 
     ```nodejs
     var TaskList = require('./routes/tasklist');
@@ -285,11 +285,11 @@ ms.lasthandoff: 07/11/2017
     app.post('/completetask', taskList.completeTask.bind(taskList));
     ```
 
-4. <span data-ttu-id="aef63-164">Kaydet **app.js** dosya.</span><span class="sxs-lookup"><span data-stu-id="aef63-164">Save the **app.js** file.</span></span>
+4. <span data-ttu-id="40a7a-164">Merhaba Kaydet **app.js** dosya.</span><span class="sxs-lookup"><span data-stu-id="40a7a-164">Save hello **app.js** file.</span></span>
 
-### <a name="modify-the-index-view"></a><span data-ttu-id="aef63-165">Dizin görünümünü değiştirme</span><span class="sxs-lookup"><span data-stu-id="aef63-165">Modify the index view</span></span>
-1. <span data-ttu-id="aef63-166">Değiştirme dizinleri **görünümleri** dizin ve açık **index.jade** dosyasını bir metin düzenleyicisinde.</span><span class="sxs-lookup"><span data-stu-id="aef63-166">Change directories to the **views** directory and open the **index.jade** file in a text editor.</span></span>
-2. <span data-ttu-id="aef63-167">Değiştir **index.jade** aşağıdaki kod ile dosya.</span><span class="sxs-lookup"><span data-stu-id="aef63-167">Replace the contents of the **index.jade** file with the code below.</span></span> <span data-ttu-id="aef63-168">Bu yeni görev eklemeye ve varolanları tamamlandı olarak işaretlemek için bir form yanı sıra var olan görevleri görüntülemek için görünümü tanımlar.</span><span class="sxs-lookup"><span data-stu-id="aef63-168">This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.</span></span>
+### <a name="modify-hello-index-view"></a><span data-ttu-id="40a7a-165">Merhaba dizini görünümünü değiştirme</span><span class="sxs-lookup"><span data-stu-id="40a7a-165">Modify hello index view</span></span>
+1. <span data-ttu-id="40a7a-166">Değiştirme dizinleri toohello **görünümleri** dizin ve açık hello **index.jade** dosyasını bir metin düzenleyicisinde.</span><span class="sxs-lookup"><span data-stu-id="40a7a-166">Change directories toohello **views** directory and open hello **index.jade** file in a text editor.</span></span>
+2. <span data-ttu-id="40a7a-167">Merhaba Hello içeriğini değiştirin **index.jade** aşağıdaki hello kodu dosyasıyla.</span><span class="sxs-lookup"><span data-stu-id="40a7a-167">Replace hello contents of hello **index.jade** file with hello code below.</span></span> <span data-ttu-id="40a7a-168">Bu yeni görev eklemeye ve varolanları tamamlandı olarak işaretlemek için bir form yanı sıra var olan görevleri görüntülemek için hello görünümü tanımlar.</span><span class="sxs-lookup"><span data-stu-id="40a7a-168">This defines hello view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.</span></span>
 
     ```
     extends layout
@@ -330,50 +330,50 @@ ms.lasthandoff: 07/11/2017
         button.btn(type="submit") Add item
     ```
 
-3. <span data-ttu-id="aef63-169">Kaydet ve Kapat **index.jade** dosya.</span><span class="sxs-lookup"><span data-stu-id="aef63-169">Save and close **index.jade** file.</span></span>
+3. <span data-ttu-id="40a7a-169">Kaydet ve Kapat **index.jade** dosya.</span><span class="sxs-lookup"><span data-stu-id="40a7a-169">Save and close **index.jade** file.</span></span>
 
-### <a name="modify-the-global-layout"></a><span data-ttu-id="aef63-170">Genel düzenini değiştirme</span><span class="sxs-lookup"><span data-stu-id="aef63-170">Modify the global layout</span></span>
-<span data-ttu-id="aef63-171">**views** dizinindeki **layout.jade** dosyası diğer **.jade** dosyaları için genel bir şablon olarak kullanılır.</span><span class="sxs-lookup"><span data-stu-id="aef63-171">The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files.</span></span> <span data-ttu-id="aef63-172">Bu adımda, iyi görünümlü bir web sitesi tasarlamayı kolaylaştıran bir araç seti olan [Twitter Bootstrap](https://github.com/twbs/bootstrap)'i kullanmak için bu dosyayı değiştireceksiniz.</span><span class="sxs-lookup"><span data-stu-id="aef63-172">In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website.</span></span>
+### <a name="modify-hello-global-layout"></a><span data-ttu-id="40a7a-170">Merhaba genel düzenini değiştirme</span><span class="sxs-lookup"><span data-stu-id="40a7a-170">Modify hello global layout</span></span>
+<span data-ttu-id="40a7a-171">Merhaba **layout.jade** hello dosyasında **görünümleri** dizin kullanılan genel bir şablon olarak diğer **.jade** dosyaları.</span><span class="sxs-lookup"><span data-stu-id="40a7a-171">hello **layout.jade** file in hello **views** directory is used as a global template for other **.jade** files.</span></span> <span data-ttu-id="40a7a-172">Bu adımda, toouse değiştirecek [Twitter Bootstrap](https://github.com/twbs/bootstrap), kolay toodesign iyi görünümlü bir Web sitesi kolaylaştıran bir araç olan.</span><span class="sxs-lookup"><span data-stu-id="40a7a-172">In this step you will modify it toouse [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy toodesign a nice looking website.</span></span>
 
-1. <span data-ttu-id="aef63-173">Karşıdan yükleyip dosyaları ayıklayın [Twitter Bootstrap](http://getbootstrap.com/).</span><span class="sxs-lookup"><span data-stu-id="aef63-173">Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/).</span></span> <span data-ttu-id="aef63-174">Kopya **bootstrap.min.css** dosya **önyükleme\\dağ\\css** klasörüne **ortak\\stil sayfaları** tasklist uygulamanızın dizin.</span><span class="sxs-lookup"><span data-stu-id="aef63-174">Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.</span></span>
-2. <span data-ttu-id="aef63-175">Gelen **görünümleri** klasörü, açık **layout.jade** metin düzenleyicinizde ve içeriğini aşağıdakilerle değiştirin:</span><span class="sxs-lookup"><span data-stu-id="aef63-175">From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:</span></span>
+1. <span data-ttu-id="40a7a-173">Karşıdan yükleyip hello dosyaları ayıklayın [Twitter Bootstrap](http://getbootstrap.com/).</span><span class="sxs-lookup"><span data-stu-id="40a7a-173">Download and extract hello files for [Twitter Bootstrap](http://getbootstrap.com/).</span></span> <span data-ttu-id="40a7a-174">Kopya hello **bootstrap.min.css** hello dosyasından **önyükleme\\dağ\\css** klasörü toohello **ortak\\stil sayfaları** tasklist uygulamanızın dizin.</span><span class="sxs-lookup"><span data-stu-id="40a7a-174">Copy hello **bootstrap.min.css** file from hello **bootstrap\\dist\\css** folder toohello **public\\stylesheets** directory of your tasklist application.</span></span>
+2. <span data-ttu-id="40a7a-175">Merhaba gelen **görünümleri** klasörü, açık hello **layout.jade** , metin düzenleyici ve Değiştir hello içeriği hello aşağıdaki ile:</span><span class="sxs-lookup"><span data-stu-id="40a7a-175">From hello **views** folder, open hello **layout.jade** in your text editor and replace hello contents with hello following:</span></span>
 
-    <span data-ttu-id="aef63-176">doctype html html head başlığını başlık bağlantısı = (rel 'stil', href='/stylesheets/bootstrap.min.css =) bağlantı (rel 'stil', href='/stylesheets/style.css =) body.app nav.navbar.navbar varsayılan div.navbar üstbilgi a.navbar-brand(href='/') My  İçerik görevleri engelle</span><span class="sxs-lookup"><span data-stu-id="aef63-176">doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content</span></span>
+    <span data-ttu-id="40a7a-176">doctype html html head başlığını başlık bağlantısı = (rel 'stil', href='/stylesheets/bootstrap.min.css =) bağlantı (rel 'stil', href='/stylesheets/style.css =) body.app nav.navbar.navbar varsayılan div.navbar üstbilgi a.navbar-brand(href='/') My  İçerik görevleri engelle</span><span class="sxs-lookup"><span data-stu-id="40a7a-176">doctype html  html    head      title= title      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')      link(rel='stylesheet', href='/stylesheets/style.css')    body.app      nav.navbar.navbar-default        div.navbar-header          a.navbar-brand(href='/') My Tasks      block content</span></span>
 
-3. <span data-ttu-id="aef63-177">Kaydet **layout.jade** dosya.</span><span class="sxs-lookup"><span data-stu-id="aef63-177">Save the **layout.jade** file.</span></span>
+3. <span data-ttu-id="40a7a-177">Merhaba Kaydet **layout.jade** dosya.</span><span class="sxs-lookup"><span data-stu-id="40a7a-177">Save hello **layout.jade** file.</span></span>
 
-### <a name="running-the-application-in-the-emulator"></a><span data-ttu-id="aef63-178">Uygulamayı Öykünücüde çalıştırma</span><span class="sxs-lookup"><span data-stu-id="aef63-178">Running the Application in the Emulator</span></span>
-<span data-ttu-id="aef63-179">Öykünücüde uygulamayı başlatmak için aşağıdaki komutu kullanın.</span><span class="sxs-lookup"><span data-stu-id="aef63-179">Use the following command to start the application in the emulator.</span></span>
+### <a name="running-hello-application-in-hello-emulator"></a><span data-ttu-id="40a7a-178">Çalışan hello uygulama hello öykünücüsü</span><span class="sxs-lookup"><span data-stu-id="40a7a-178">Running hello Application in hello Emulator</span></span>
+<span data-ttu-id="40a7a-179">Komut toostart hello hello öykünücüsü uygulamasında aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="40a7a-179">Use hello following command toostart hello application in hello emulator.</span></span>
 
 ```powershell
 PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 ```
 
-<span data-ttu-id="aef63-180">Tarayıcı açılır ve aşağıdaki sayfasını görüntüler:</span><span class="sxs-lookup"><span data-stu-id="aef63-180">The browser will open and displays the following page:</span></span>
+<span data-ttu-id="40a7a-180">Merhaba tarayıcı açılır ve sayfa aşağıdaki hello görüntüler:</span><span class="sxs-lookup"><span data-stu-id="40a7a-180">hello browser will open and displays hello following page:</span></span>
 
-![Disk belleğine alınan web görevleri ve yeni bir görev eklemek için alanları içeren bir tablo ile My görev listesi başlıklı.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
+![Disk belleğine alınan web My görev listesi görevleri ve alanları tooadd içeren bir tablo ile yeni bir görev başlıklı.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
 
-<span data-ttu-id="aef63-182">Öğeler eklemek için form kullanın veya var olan öğeleri tamamlanmış olarak işaretleyerek kaldırın.</span><span class="sxs-lookup"><span data-stu-id="aef63-182">Use the form to add items, or remove existing items by marking them as completed.</span></span>
+<span data-ttu-id="40a7a-182">Merhaba form tooadd öğeleri kullanın veya var olan öğeleri tamamlanmış olarak işaretleyerek kaldırın.</span><span class="sxs-lookup"><span data-stu-id="40a7a-182">Use hello form tooadd items, or remove existing items by marking them as completed.</span></span>
 
-## <a name="publishing-the-application-to-azure"></a><span data-ttu-id="aef63-183">Uygulamayı Azure'a yayımlama</span><span class="sxs-lookup"><span data-stu-id="aef63-183">Publishing the Application to Azure</span></span>
-<span data-ttu-id="aef63-184">Windows PowerShell penceresinde Azure barındırılan hizmete yeniden dağıtmak için aşağıdaki cmdlet'i çağırın.</span><span class="sxs-lookup"><span data-stu-id="aef63-184">In the Windows PowerShell window, call the following cmdlet to redeploy your hosted service to Azure.</span></span>
+## <a name="publishing-hello-application-tooazure"></a><span data-ttu-id="40a7a-183">Yayımlama hello uygulama tooAzure</span><span class="sxs-lookup"><span data-stu-id="40a7a-183">Publishing hello Application tooAzure</span></span>
+<span data-ttu-id="40a7a-184">Merhaba Windows PowerShell penceresinde, aşağıdaki cmdlet'i tooredeploy hello barındırılan hizmet tooAzure çağırın.</span><span class="sxs-lookup"><span data-stu-id="40a7a-184">In hello Windows PowerShell window, call hello following cmdlet tooredeploy your hosted service tooAzure.</span></span>
 
 ```powershell
 PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 ```
 
-<span data-ttu-id="aef63-185">Değiştir **myuniquename** bu uygulama için benzersiz bir ada sahip.</span><span class="sxs-lookup"><span data-stu-id="aef63-185">Replace **myuniquename** with a unique name for this application.</span></span> <span data-ttu-id="aef63-186">Değiştir **datacentername** bir Azure veri merkezi adı gibi **Batı ABD**.</span><span class="sxs-lookup"><span data-stu-id="aef63-186">Replace **datacentername** with the name of an Azure data center, such as **West US**.</span></span>
+<span data-ttu-id="40a7a-185">Değiştir **myuniquename** bu uygulama için benzersiz bir ada sahip.</span><span class="sxs-lookup"><span data-stu-id="40a7a-185">Replace **myuniquename** with a unique name for this application.</span></span> <span data-ttu-id="40a7a-186">Değiştir **datacentername** hello adıyla bir Azure veri merkezi gibi **Batı ABD**.</span><span class="sxs-lookup"><span data-stu-id="40a7a-186">Replace **datacentername** with hello name of an Azure data center, such as **West US**.</span></span>
 
-<span data-ttu-id="aef63-187">Dağıtım tamamlandıktan sonra aşağıdakine benzer bir yanıt görmeniz gerekir:</span><span class="sxs-lookup"><span data-stu-id="aef63-187">After the deployment is complete, you should see a response similar to the following:</span></span>
+<span data-ttu-id="40a7a-187">Merhaba dağıtım tamamlandıktan sonra bir yanıt benzer toohello aşağıdaki görmeniz gerekir:</span><span class="sxs-lookup"><span data-stu-id="40a7a-187">After hello deployment is complete, you should see a response similar toohello following:</span></span>
 
 ```
   PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-  WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
+  WARNING: Publishing tasklist tooMicrosoft Azure. This may take several minutes...
   WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
   WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
   WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
   WARNING: 2:19:01 PM - Connecting...
-  WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
+  WARNING: 2:19:02 PM - Uploading Package toostorage service larrystore...
   WARNING: 2:19:40 PM - Upgrading...
   WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
   WARNING: 2:22:48 PM - Initializing...
@@ -381,38 +381,38 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
 ```
 
-<span data-ttu-id="aef63-188">Önceki gibi belirtilen çünkü **-başlatma** seçeneği, tarayıcı açılır ve uygulamanızı yayımlama tamamlandığında, Azure'da çalışan görüntüler.</span><span class="sxs-lookup"><span data-stu-id="aef63-188">As before, because you specified the **-launch** option, the browser opens and displays your application running in Azure when publishing is completed.</span></span>
+<span data-ttu-id="40a7a-188">Önceki gibi hello belirtilmediğinden **-başlatma** seçeneği hello tarayıcı açar ve uygulamanızı yayımlama tamamlandığında, Azure'da çalışan görüntüler.</span><span class="sxs-lookup"><span data-stu-id="40a7a-188">As before, because you specified hello **-launch** option, hello browser opens and displays your application running in Azure when publishing is completed.</span></span>
 
-![My görev listesi sayfasını gösteren bir tarayıcı penceresi.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![Merhaba My görev listesi sayfasını gösteren bir tarayıcı penceresi.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
-## <a name="stopping-and-deleting-your-application"></a><span data-ttu-id="aef63-191">Durdurma ve uygulamanızı silme</span><span class="sxs-lookup"><span data-stu-id="aef63-191">Stopping and Deleting Your Application</span></span>
-<span data-ttu-id="aef63-192">Uygulamanızı dağıttıktan sonra maliyetleri önlemek veya yapılandırabilir ve ücretsiz deneme süre içinde diğer uygulamaları dağıtmak için devre dışı bırakmak isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="aef63-192">After deploying your application, you may want to disable it so you can avoid costs or build and deploy other applications within the free trial time period.</span></span>
+## <a name="stopping-and-deleting-your-application"></a><span data-ttu-id="40a7a-191">Durdurma ve uygulamanızı silme</span><span class="sxs-lookup"><span data-stu-id="40a7a-191">Stopping and Deleting Your Application</span></span>
+<span data-ttu-id="40a7a-192">Uygulamanızı dağıttıktan sonra onu önce maliyetleri önlemek veya yapılandırabilir ve hello içindeki diğer uygulamaları dağıtmak için ücretsiz deneme süre toodisable isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="40a7a-192">After deploying your application, you may want toodisable it so you can avoid costs or build and deploy other applications within hello free trial time period.</span></span>
 
-<span data-ttu-id="aef63-193">Azure web rolü örneklerini harcanan sunucu saati başına faturalandırır.</span><span class="sxs-lookup"><span data-stu-id="aef63-193">Azure bills web role instances per hour of server time consumed.</span></span>
-<span data-ttu-id="aef63-194">Uygulamanız dağıtıldıktan sonra örnekler çalışmadığında ve durdurulmuş halde olduğunda bile sunucu saati harcanır.</span><span class="sxs-lookup"><span data-stu-id="aef63-194">Server time is consumed once your application is deployed, even if the instances are not running and are in the stopped state.</span></span>
+<span data-ttu-id="40a7a-193">Azure web rolü örneklerini harcanan sunucu saati başına faturalandırır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-193">Azure bills web role instances per hour of server time consumed.</span></span>
+<span data-ttu-id="40a7a-194">Uygulamanızı dağıtıldığında örnekler çalışmadığında ve hello durdurulmuş durumda olsa bile sunucu saati harcanır.</span><span class="sxs-lookup"><span data-stu-id="40a7a-194">Server time is consumed once your application is deployed, even if the instances are not running and are in hello stopped state.</span></span>
 
-<span data-ttu-id="aef63-195">Aşağıdaki adımlar durdurmak ve uygulamanızı silmek nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="aef63-195">The following steps show you how to stop and delete your application.</span></span>
+<span data-ttu-id="40a7a-195">Merhaba aşağıdaki adımlarda size yol gösterecektir toostop ve uygulamanızı silin.</span><span class="sxs-lookup"><span data-stu-id="40a7a-195">hello following steps show you how toostop and delete your application.</span></span>
 
-1. <span data-ttu-id="aef63-196">Windows PowerShell penceresinde önceki bölümde oluşturulan hizmet dağıtımını aşağıdaki cmdlet ile durdurun:</span><span class="sxs-lookup"><span data-stu-id="aef63-196">In the Windows PowerShell window, stop the service deployment created in the previous section with the following cmdlet:</span></span>
+1. <span data-ttu-id="40a7a-196">Merhaba Windows PowerShell penceresinde hello hizmet dağıtımı cmdlet aşağıdaki hello ile Merhaba önceki bölümde oluşturduğunuz durdurun:</span><span class="sxs-lookup"><span data-stu-id="40a7a-196">In hello Windows PowerShell window, stop hello service deployment created in hello previous section with hello following cmdlet:</span></span>
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Stop-AzureService
     ```
 
-   <span data-ttu-id="aef63-197">Hizmetin durdurulması birkaç dakika sürebilir.</span><span class="sxs-lookup"><span data-stu-id="aef63-197">Stopping the service may take several minutes.</span></span> <span data-ttu-id="aef63-198">Hizmet durdurulduğunda bunu belirten bir ileti alırsınız.</span><span class="sxs-lookup"><span data-stu-id="aef63-198">When the service is stopped, you receive a message indicating that it has stopped.</span></span>
+   <span data-ttu-id="40a7a-197">Merhaba hizmetin durdurulması birkaç dakika sürebilir.</span><span class="sxs-lookup"><span data-stu-id="40a7a-197">Stopping hello service may take several minutes.</span></span> <span data-ttu-id="40a7a-198">Merhaba hizmet durdurulduğunda bunu belirten bir ileti alırsınız.</span><span class="sxs-lookup"><span data-stu-id="40a7a-198">When hello service is stopped, you receive a message indicating that it has stopped.</span></span>
 
-2. <span data-ttu-id="aef63-199">Hizmeti silmek için aşağıdaki cmdlet'i çağırın:</span><span class="sxs-lookup"><span data-stu-id="aef63-199">To delete the service, call the following cmdlet:</span></span>
+2. <span data-ttu-id="40a7a-199">toodelete hello hizmeti, cmdlet aşağıdaki çağrı hello:</span><span class="sxs-lookup"><span data-stu-id="40a7a-199">toodelete hello service, call hello following cmdlet:</span></span>
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
     ```
 
-   <span data-ttu-id="aef63-200">İstendiğinde hizmeti silmek için **Y** yazın.</span><span class="sxs-lookup"><span data-stu-id="aef63-200">When prompted, enter **Y** to delete the service.</span></span>
+   <span data-ttu-id="40a7a-200">İstendiğinde, girin **Y** toodelete hello hizmet.</span><span class="sxs-lookup"><span data-stu-id="40a7a-200">When prompted, enter **Y** toodelete hello service.</span></span>
 
-   <span data-ttu-id="aef63-201">Hizmetin silinmesi birkaç dakika sürebilir.</span><span class="sxs-lookup"><span data-stu-id="aef63-201">Deleting the service may take several minutes.</span></span> <span data-ttu-id="aef63-202">Hizmet silindikten sonra bunu belirten bir ileti alırsınız.</span><span class="sxs-lookup"><span data-stu-id="aef63-202">After the service has been deleted you receive a message indicating that the service was deleted.</span></span>
+   <span data-ttu-id="40a7a-201">Merhaba hizmetin silinmesi birkaç dakika sürebilir.</span><span class="sxs-lookup"><span data-stu-id="40a7a-201">Deleting hello service may take several minutes.</span></span> <span data-ttu-id="40a7a-202">Merhaba hizmet silindikten sonra hello hizmeti silinmiş olduğunu belirten bir ileti alırsınız.</span><span class="sxs-lookup"><span data-stu-id="40a7a-202">After hello service has been deleted you receive a message indicating that hello service was deleted.</span></span>
 
-<span data-ttu-id="aef63-203">[Express kullanarak Node.js Web uygulaması]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/</span><span class="sxs-lookup"><span data-stu-id="aef63-203">[Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/</span></span>
-<span data-ttu-id="aef63-204">[depolama ve veri erişim]: http://msdn.microsoft.com/library/azure/gg433040.aspx</span><span class="sxs-lookup"><span data-stu-id="aef63-204">[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx</span></span>
-<span data-ttu-id="aef63-205">[Node.js Web uygulaması]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/</span><span class="sxs-lookup"><span data-stu-id="aef63-205">[Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/</span></span>
+[Express kullanarak Node.js Web uygulaması]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+[depolama ve veri erişim]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Node.js Web uygulaması]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

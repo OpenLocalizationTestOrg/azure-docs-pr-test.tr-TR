@@ -1,0 +1,17 @@
+> [!div class="op_single_selector"]
+> * [<span data-ttu-id="29222-101">Cihaz: Node.js Service: Node.js</span><span class="sxs-lookup"><span data-stu-id="29222-101">Device: Node.js Service: Node.js</span></span>](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [<span data-ttu-id="29222-102">Cihaz: Node.js Service: C#</span><span class="sxs-lookup"><span data-stu-id="29222-102">Device: Node.js Service: C#</span></span>](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
+> * [<span data-ttu-id="29222-103">Aygıt: Java hizmet: Java</span><span class="sxs-lookup"><span data-stu-id="29222-103">Device: Java Service: Java</span></span>](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+
+<span data-ttu-id="29222-104">Arka uç uygulamaları kullanabileceğiniz Azure IOT Hub temelleri gibi [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri][lnk-c2dmethod], tooremotely başlatmak ve izleme cihazlarda cihaz yönetim işlemleri.</span><span class="sxs-lookup"><span data-stu-id="29222-104">Back-end apps can use Azure IoT Hub primitives, such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod], tooremotely start and monitor device management actions on devices.</span></span> <span data-ttu-id="29222-105">Bu öğreticide, nasıl bir arka uç uygulaması ve cihaz uygulaması tooinitiate birlikte çalışır ve IOT hub'ı kullanarak bir uzak aygıt yeniden başlatma izlemek gösterilir.</span><span class="sxs-lookup"><span data-stu-id="29222-105">This tutorial shows you how a back-end app and a device app can work together tooinitiate and monitor a remote device reboot using IoT Hub.</span></span>
+
+<span data-ttu-id="29222-106">Merhaba bulutta bir arka uç uygulamasından doğrudan yöntemi tooinitiate aygıt yönetimi Eylemler (örneğin, yeniden başlatma, Fabrika sıfırlaması ve üretici yazılımı güncelleştirmesi) kullanın.</span><span class="sxs-lookup"><span data-stu-id="29222-106">Use a direct method tooinitiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in hello cloud.</span></span> <span data-ttu-id="29222-107">Merhaba aygıt sorumludur:</span><span class="sxs-lookup"><span data-stu-id="29222-107">hello device is responsible for:</span></span>
+
+* <span data-ttu-id="29222-108">IOT Hub'ından gönderilen hello yöntemi isteği işleme.</span><span class="sxs-lookup"><span data-stu-id="29222-108">Handling hello method request sent from IoT Hub.</span></span>
+* <span data-ttu-id="29222-109">Hello karşılık gelen aygıta özgü eylemin hello aygıtta başlatılıyor.</span><span class="sxs-lookup"><span data-stu-id="29222-109">Initiating hello corresponding device-specific action on hello device.</span></span>
+* <span data-ttu-id="29222-110">Durum güncelleştirmeleri aracılığıyla sağlama *özellikleri bildirilen* tooIoT Hub.</span><span class="sxs-lookup"><span data-stu-id="29222-110">Providing status updates through *reported properties* tooIoT Hub.</span></span>
+
+<span data-ttu-id="29222-111">Bir arka uç uygulaması hello bulut toorun cihaz çifti sorguları tooreport hello ilerlemeyi cihaz yönetim eylemlerinin kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="29222-111">You can use a back-end app in hello cloud toorun device twin queries tooreport on hello progress of your device management actions.</span></span>
+
+[lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
+[lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

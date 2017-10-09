@@ -1,0 +1,3 @@
+## <a name="whats-changed"></a><span data-ttu-id="898b1-101">Yapılan değişiklikler</span><span class="sxs-lookup"><span data-stu-id="898b1-101">What's changed</span></span>
+* <span data-ttu-id="898b1-102">Web siteleri tooApp hizmet değişikliği Kılavuzu toohello için bkz: [Azure App Service ve mevcut Azure hizmetlerine etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)</span><span class="sxs-lookup"><span data-stu-id="898b1-102">For a guide toohello change from Websites tooApp Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)</span></span>
+

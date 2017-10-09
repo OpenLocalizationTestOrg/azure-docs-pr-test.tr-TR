@@ -1,0 +1,4 @@
+> [!TIP]
+>
+> <span data-ttu-id="fb288-101">Yanlış örnek oluşturma tarafından kaynaklanabilir tooavoid bağlantı noktası Tükenme toouse hello HTTP ya da Web kancası bağlamaları planlıyorsanız, planlama `HttpClient`.</span><span class="sxs-lookup"><span data-stu-id="fb288-101">If you plan toouse hello HTTP or WebHook bindings, plan tooavoid port exhaustion that can be caused by improper instantiation of `HttpClient`.</span></span> <span data-ttu-id="fb288-102">Daha fazla bilgi için hello makalesini inceleyin [hatalı örneklemesi antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).</span><span class="sxs-lookup"><span data-stu-id="fb288-102">For more information, review hello article [Improper Instantiation antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).</span></span>
+>

@@ -1,5 +1,5 @@
-<span data-ttu-id="b7447-101">Sipi tarafından düzenlenebilir.</span><span class="sxs-lookup"><span data-stu-id="b7447-101">Edited by Sipi.</span></span>
+<span data-ttu-id="6ff29-101">Sipi tarafından düzenlenebilir.</span><span class="sxs-lookup"><span data-stu-id="6ff29-101">Edited by Sipi.</span></span>
 
-<span data-ttu-id="b7447-102">Azure AD B2C kiracınıza geçiş yapmak için portalın sağ üst köşesinden B2C dizinini seçin.</span><span class="sxs-lookup"><span data-stu-id="b7447-102">To switch to your Azure AD B2C tenant, select the B2C directory in the top-right corner of the portal.</span></span>
+<span data-ttu-id="6ff29-102">Azure AD B2C kiracısı tooswitch tooyour hello portalının sağ üst köşedeki hello hello B2C dizini seçin.</span><span class="sxs-lookup"><span data-stu-id="6ff29-102">tooswitch tooyour Azure AD B2C tenant, select hello B2C directory in hello top-right corner of hello portal.</span></span>
 
-![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-switch-b2c-tenant/switch-to-b2c-tenant.png)
+![Tooyour Azure AD B2C Kiracı anahtarı](./media/active-directory-b2c-switch-b2c-tenant/switch-to-b2c-tenant.png)

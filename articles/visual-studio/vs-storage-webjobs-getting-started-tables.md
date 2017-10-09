@@ -1,6 +1,6 @@
 ---
-title: "Azure depolama ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (Web işi projeler)"
-description: "Visual Studio kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da Azure Web işleri projesinde Azure tablo depolaması ile çalışmaya başlamak nasıl bağlı Hizmetleri"
+title: "Azure depolama ve Visual Studio ile başlatıldı aaaGetting Hizmetleri (Web işi projeleri) bağlı"
+description: "Nasıl tooget Visual Studio kullanarak tooa depolama hesabı bağlanma Hizmetleri bağlandıktan sonra Azure Table depolama Visual Studio'daki Azure Web işleri projesinde kullanmaya"
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.openlocfilehash: 0bf51f9113c45c747cd4fd3f76bdabd4a4c1f8e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 80d9f8d8b493ce612623dfed7e89325fb154a1c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a><span data-ttu-id="e25d2-103">Azure ile çalışmaya başlama depolama (Azure Web işi projeler)</span><span class="sxs-lookup"><span data-stu-id="e25d2-103">Getting Started with Azure Storage (Azure WebJob Projects)</span></span>
+# <a name="getting-started-with-azure-storage-azure-webjob-projects"></a><span data-ttu-id="d12a5-103">Azure ile çalışmaya başlama depolama (Azure Web işi projeler)</span><span class="sxs-lookup"><span data-stu-id="d12a5-103">Getting Started with Azure Storage (Azure WebJob Projects)</span></span>
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a><span data-ttu-id="e25d2-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="e25d2-104">Overview</span></span>
-<span data-ttu-id="e25d2-105">Bu makalede gösteren C# kod örnekleri Göster Azure WebJobs SDK sürümü kullanmak nasıl sağlar 1.x Azure tablo depolama hizmeti ile.</span><span class="sxs-lookup"><span data-stu-id="e25d2-105">This article provides C# code samples that show show how to use the Azure WebJobs SDK version 1.x with the Azure table storage service.</span></span> <span data-ttu-id="e25d2-106">Kod örnekleri kullan [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) sürüm 1.x.</span><span class="sxs-lookup"><span data-stu-id="e25d2-106">The code samples use the [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x.</span></span>
+## <a name="overview"></a><span data-ttu-id="d12a5-104">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="d12a5-104">Overview</span></span>
+<span data-ttu-id="d12a5-105">Bu makalede gösteren C# kod örnekleri Göster nasıl toouse hello Azure WebJobs SDK sürüm sağlar 1.x hello Azure tablo depolama hizmeti ile.</span><span class="sxs-lookup"><span data-stu-id="d12a5-105">This article provides C# code samples that show show how toouse hello Azure WebJobs SDK version 1.x with hello Azure table storage service.</span></span> <span data-ttu-id="d12a5-106">Merhaba kod örnekleri kullanır hello [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) sürüm 1.x.</span><span class="sxs-lookup"><span data-stu-id="d12a5-106">hello code samples use hello [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x.</span></span>
 
-<span data-ttu-id="e25d2-107">Azure Table depolama birimi hizmeti, büyük miktarlarda yapılandırılmış verileri depolamak sağlar.</span><span class="sxs-lookup"><span data-stu-id="e25d2-107">The Azure Table storage service enables you to store large amounts of structured data.</span></span> <span data-ttu-id="e25d2-108">Kimliği doğrulanmış çağrılarından içinden ve dışından Azure bulut kabul eden bir NoSQL veri deposu hizmetidir.</span><span class="sxs-lookup"><span data-stu-id="e25d2-108">The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud.</span></span> <span data-ttu-id="e25d2-109">Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir.</span><span class="sxs-lookup"><span data-stu-id="e25d2-109">Azure tables are ideal for storing structured, non-relational data.</span></span>  <span data-ttu-id="e25d2-110">Bkz: [.NET kullanarak Azure Table storage'ı kullanmaya başlama](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="e25d2-110">See [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) for more information.</span></span>
+<span data-ttu-id="d12a5-107">Hello Azure Table depolama hizmeti toostore büyük miktarlarda yapılandırılmış veri sağlar.</span><span class="sxs-lookup"><span data-stu-id="d12a5-107">hello Azure Table storage service enables you toostore large amounts of structured data.</span></span> <span data-ttu-id="d12a5-108">Merhaba, iç ve dış hello Azure bulut gelen kimliği doğrulanmış çağrıları kabul eden bir NoSQL veri deposu hizmetidir.</span><span class="sxs-lookup"><span data-stu-id="d12a5-108">hello service is a NoSQL datastore that accepts authenticated calls from inside and outside hello Azure cloud.</span></span> <span data-ttu-id="d12a5-109">Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir.</span><span class="sxs-lookup"><span data-stu-id="d12a5-109">Azure tables are ideal for storing structured, non-relational data.</span></span>  <span data-ttu-id="d12a5-110">Bkz: [.NET kullanarak Azure Table storage'ı kullanmaya başlama](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="d12a5-110">See [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) for more information.</span></span>
 
-<span data-ttu-id="e25d2-111">Kod parçacıkları Göster bazıları **tablo** el ile diğer bir deyişle, tetikleyici özniteliklerinden biri kullanılarak değil çağrılır işlevlerde kullanılan öznitelik.</span><span class="sxs-lookup"><span data-stu-id="e25d2-111">Some of the code snippets show the **Table** attribute used in functions that are called manually, that is, not by using one of the trigger attributes.</span></span>
+<span data-ttu-id="d12a5-111">Merhaba kod parçacıkları bazıları hello Göster **tablo** el ile diğer bir deyişle, hello tetikleyici özniteliklerinden biri kullanılarak değil çağrılır işlevlerde kullanılan öznitelik.</span><span class="sxs-lookup"><span data-stu-id="d12a5-111">Some of hello code snippets show hello **Table** attribute used in functions that are called manually, that is, not by using one of hello trigger attributes.</span></span>
 
-## <a name="how-to-add-entities-to-a-table"></a><span data-ttu-id="e25d2-112">Bir tabloya varlıklar ekleme</span><span class="sxs-lookup"><span data-stu-id="e25d2-112">How to add entities to a table</span></span>
-<span data-ttu-id="e25d2-113">Bir tabloya varlıkları eklemek için kullanın **tablo** ile öznitelik bir **ICollector<T>**  veya **IAsyncCollector<T>**  parametresi nerede **T** eklemek istediğiniz varlıklar şeması belirtir.</span><span class="sxs-lookup"><span data-stu-id="e25d2-113">To add entities to a table, use the **Table** attribute with an **ICollector<T>** or **IAsyncCollector<T>** parameter where **T** specifies the schema of the entities you want to add.</span></span> <span data-ttu-id="e25d2-114">Öznitelik oluşturucunun tablonun adını belirten bir dize parametresi alan.</span><span class="sxs-lookup"><span data-stu-id="e25d2-114">The attribute constructor takes a string parameter that specifies the name of the table.</span></span>
+## <a name="how-tooadd-entities-tooa-table"></a><span data-ttu-id="d12a5-112">Nasıl tooadd varlıklar tooa tablosu</span><span class="sxs-lookup"><span data-stu-id="d12a5-112">How tooadd entities tooa table</span></span>
+<span data-ttu-id="d12a5-113">tooadd varlıklar tooa tablo, kullanım hello **tablo** ile öznitelik bir **ICollector<T>**  veya **IAsyncCollector<T>**  parametresi nerede **T** hello şema belirtir hello varlıklarının tooadd istiyor.</span><span class="sxs-lookup"><span data-stu-id="d12a5-113">tooadd entities tooa table, use hello **Table** attribute with an **ICollector<T>** or **IAsyncCollector<T>** parameter where **T** specifies hello schema of hello entities you want tooadd.</span></span> <span data-ttu-id="d12a5-114">Merhaba öznitelik oluşturucunun hello Merhaba tablonun adını belirten bir dize parametresi alan.</span><span class="sxs-lookup"><span data-stu-id="d12a5-114">hello attribute constructor takes a string parameter that specifies hello name of hello table.</span></span>
 
-<span data-ttu-id="e25d2-115">Aşağıdaki kod örneği ekler **kişi** adlı bir tablo varlıklara *giriş*.</span><span class="sxs-lookup"><span data-stu-id="e25d2-115">The following code sample adds **Person** entities to a table named *Ingress*.</span></span>
+<span data-ttu-id="d12a5-115">Merhaba aşağıdaki kod örneği ekler **kişi** adlı varlıklar tooa tablo *giriş*.</span><span class="sxs-lookup"><span data-stu-id="d12a5-115">hello following code sample adds **Person** entities tooa table named *Ingress*.</span></span>
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -50,7 +50,7 @@ ms.lasthandoff: 08/29/2017
             }
         }
 
-<span data-ttu-id="e25d2-116">Genellikle türü ile kullandığınız **ICollector** türetilen **TableEntity** veya uygulayan **ITableEntity**, ancak gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="e25d2-116">Typically the type you use with **ICollector** derives from **TableEntity** or implements **ITableEntity**, but it doesn't have to.</span></span> <span data-ttu-id="e25d2-117">Aşağıdakilerden birini **kişi** önceki gösterilen kodu ile çalışma sınıfları **giriş** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="e25d2-117">Either of the following **Person** classes work with the code shown in the preceding **Ingress** method.</span></span>
+<span data-ttu-id="d12a5-116">Genellikle, kullandığınız ile türünün hello **ICollector** türetilen **TableEntity** veya uygulayan **ITableEntity**, ancak gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="d12a5-116">Typically hello type you use with **ICollector** derives from **TableEntity** or implements **ITableEntity**, but it doesn't have to.</span></span> <span data-ttu-id="d12a5-117">Merhaba aşağıdakilerden birini **kişi** hello önceki gösterilen hello kodu ile çalışma sınıfları **giriş** yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d12a5-117">Either of hello following **Person** classes work with hello code shown in hello preceding **Ingress** method.</span></span>
 
         public class Person : TableEntity
         {
@@ -64,25 +64,25 @@ ms.lasthandoff: 08/29/2017
             public string Name { get; set; }
         }
 
-<span data-ttu-id="e25d2-118">Ekleyebileceğiniz doğrudan Azure storage ile API çalışmak isterseniz, bir **CloudStorageAccount** yöntem imzası parametresi.</span><span class="sxs-lookup"><span data-stu-id="e25d2-118">If you want to work directly with the Azure storage API, you can add a **CloudStorageAccount** parameter to the method signature.</span></span>
+<span data-ttu-id="d12a5-118">Ekleyebileceğiniz hello Azure storage API'si ile doğrudan toowork isterseniz, bir **CloudStorageAccount** parametre toohello yöntemi imzası.</span><span class="sxs-lookup"><span data-stu-id="d12a5-118">If you want toowork directly with hello Azure storage API, you can add a **CloudStorageAccount** parameter toohello method signature.</span></span>
 
-## <a name="real-time-monitoring"></a><span data-ttu-id="e25d2-119">Gerçek zamanlı izleme</span><span class="sxs-lookup"><span data-stu-id="e25d2-119">Real-time monitoring</span></span>
-<span data-ttu-id="e25d2-120">Veri giriş işlevleri genellikle büyük miktarda veriyi işlemek için Web işleri SDK'si Pano gerçek zamanlı izleme verileri sağlar.</span><span class="sxs-lookup"><span data-stu-id="e25d2-120">Because data ingress functions often process large volumes of data, the WebJobs SDK dashboard provides real-time monitoring data.</span></span> <span data-ttu-id="e25d2-121">**Çağırma günlüğü** bölüm bildirir işlevi halen çalışmakta olup olmadığını.</span><span class="sxs-lookup"><span data-stu-id="e25d2-121">The **Invocation Log** section tells you if the function is still running.</span></span>
+## <a name="real-time-monitoring"></a><span data-ttu-id="d12a5-119">Gerçek zamanlı izleme</span><span class="sxs-lookup"><span data-stu-id="d12a5-119">Real-time monitoring</span></span>
+<span data-ttu-id="d12a5-120">Veri giriş işlevleri genellikle büyük miktarda veriyi işlemek için hello Web işleri SDK'si Pano gerçek zamanlı izleme verileri sağlar.</span><span class="sxs-lookup"><span data-stu-id="d12a5-120">Because data ingress functions often process large volumes of data, hello WebJobs SDK dashboard provides real-time monitoring data.</span></span> <span data-ttu-id="d12a5-121">Merhaba **çağırma günlüğü** bölüm bildirir hello işlevi halen çalışmakta olup olmadığını.</span><span class="sxs-lookup"><span data-stu-id="d12a5-121">hello **Invocation Log** section tells you if hello function is still running.</span></span>
 
 ![Çalışan giriş işlevi](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
 
-<span data-ttu-id="e25d2-123">**Çağırma ayrıntıları** Raporları Sayfası işlevin ilerleme durumu (yazılmış varlıkların sayısı) çalıştıran ve onu abort fırsatı sunar.</span><span class="sxs-lookup"><span data-stu-id="e25d2-123">The **Invocation Details** page reports the function's progress (number of entities written) while it's running and gives you an opportunity to abort it.</span></span>
+<span data-ttu-id="d12a5-123">Merhaba **çağırma ayrıntıları** Raporları Sayfası hello işlevin ilerleme durumu (yazılmış varlıkların sayısı) çalıştıran ve bir fırsat tooabort verir ancak onu.</span><span class="sxs-lookup"><span data-stu-id="d12a5-123">hello **Invocation Details** page reports hello function's progress (number of entities written) while it's running and gives you an opportunity tooabort it.</span></span>
 
 ![Çalışan giriş işlevi](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
 
-<span data-ttu-id="e25d2-125">İşlev sona erdiğinde, **çağırma ayrıntıları** Raporları Sayfası yazılmış satırların sayısı.</span><span class="sxs-lookup"><span data-stu-id="e25d2-125">When the function finishes, the **Invocation Details** page reports the number of rows written.</span></span>
+<span data-ttu-id="d12a5-125">Merhaba işlevi tamamlandığında, hello **çağırma ayrıntıları** Raporları Sayfası hello yazılmış satırların sayısı.</span><span class="sxs-lookup"><span data-stu-id="d12a5-125">When hello function finishes, hello **Invocation Details** page reports hello number of rows written.</span></span>
 
 ![Tamamlanmış Giriş işlevi](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
-## <a name="how-to-read-multiple-entities-from-a-table"></a><span data-ttu-id="e25d2-127">Birden çok varlık bir tablodan okumak nasıl</span><span class="sxs-lookup"><span data-stu-id="e25d2-127">How to read multiple entities from a table</span></span>
-<span data-ttu-id="e25d2-128">Bir tablo okumak için kullandığınız **tablo** ile öznitelik bir **Iqueryable<T>**  parametresi girildiği **T** türetilen **TableEntity** veya uygulayan **ITableEntity**.</span><span class="sxs-lookup"><span data-stu-id="e25d2-128">To read a table, use the **Table** attribute with an **IQueryable<T>** parameter where type **T** derives from **TableEntity** or implements **ITableEntity**.</span></span>
+## <a name="how-tooread-multiple-entities-from-a-table"></a><span data-ttu-id="d12a5-127">Nasıl tooread bir tablodaki birden çok varlık</span><span class="sxs-lookup"><span data-stu-id="d12a5-127">How tooread multiple entities from a table</span></span>
+<span data-ttu-id="d12a5-128">tooread bir tablo kullanmak hello **tablo** ile öznitelik bir **Iqueryable<T>**  parametresi girildiği **T** türetilen **TableEntity**veya uygulayan **ITableEntity**.</span><span class="sxs-lookup"><span data-stu-id="d12a5-128">tooread a table, use hello **Table** attribute with an **IQueryable<T>** parameter where type **T** derives from **TableEntity** or implements **ITableEntity**.</span></span>
 
-<span data-ttu-id="e25d2-129">Aşağıdaki kod örneği okur ve tüm satırları günlüklerini **giriş** tablosu:</span><span class="sxs-lookup"><span data-stu-id="e25d2-129">The following code sample reads and logs all rows from the **Ingress** table:</span></span>
+<span data-ttu-id="d12a5-129">Merhaba aşağıdaki kod örneği okur ve tüm satırları hello günlüklerini **giriş** tablosu:</span><span class="sxs-lookup"><span data-stu-id="d12a5-129">hello following code sample reads and logs all rows from hello **Ingress** table:</span></span>
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -96,10 +96,10 @@ ms.lasthandoff: 08/29/2017
             }
         }
 
-### <a name="how-to-read-a-single-entity-from-a-table"></a><span data-ttu-id="e25d2-130">Tek bir varlık tablodan okumak nasıl</span><span class="sxs-lookup"><span data-stu-id="e25d2-130">How to read a single entity from a table</span></span>
-<span data-ttu-id="e25d2-131">Var olan bir **tablo** öznitelik oluşturucunun tek tablo varlığa bağlamak istediğinizde bölüm anahtarını ve satır anahtarını belirtmenize olanak sağlayan iki ek parametrelere sahip.</span><span class="sxs-lookup"><span data-stu-id="e25d2-131">There is a **Table** attribute constructor with two additional parameters that let you specify the partition key and row key when you want to bind to a single table entity.</span></span>
+### <a name="how-tooread-a-single-entity-from-a-table"></a><span data-ttu-id="d12a5-130">Nasıl tooread bir tablodaki tek bir varlık</span><span class="sxs-lookup"><span data-stu-id="d12a5-130">How tooread a single entity from a table</span></span>
+<span data-ttu-id="d12a5-131">Var olan bir **tablo** öznitelik oluşturucunun toobind tooa tek tablo varlığı istediğinizde hello bölüm anahtarı ve satır anahtarını belirtmenize olanak sağlayan iki ek parametrelere sahip.</span><span class="sxs-lookup"><span data-stu-id="d12a5-131">There is a **Table** attribute constructor with two additional parameters that let you specify hello partition key and row key when you want toobind tooa single table entity.</span></span>
 
-<span data-ttu-id="e25d2-132">Aşağıdaki kod örneği için bir tablo satır okuyan bir **kişi** bir kuyruk iletisi alınan bölüm anahtarını ve satır anahtarı değerleri temel varlık:</span><span class="sxs-lookup"><span data-stu-id="e25d2-132">The following code sample reads a table row for a **Person** entity based on partition key and row key values received in a queue message:</span></span>  
+<span data-ttu-id="d12a5-132">Merhaba aşağıdaki kod örneği okuyan bir tablo satır için bir **kişi** bir kuyruk iletisi alınan bölüm anahtarını ve satır anahtarı değerleri temel varlık:</span><span class="sxs-lookup"><span data-stu-id="d12a5-132">hello following code sample reads a table row for a **Person** entity based on partition key and row key values received in a queue message:</span></span>  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -119,12 +119,12 @@ ms.lasthandoff: 08/29/2017
         }
 
 
-<span data-ttu-id="e25d2-133">**Kişi** uygulamak Bu örnekte sınıfı yok **ITableEntity**.</span><span class="sxs-lookup"><span data-stu-id="e25d2-133">The **Person** class in this example does not have to implement **ITableEntity**.</span></span>
+<span data-ttu-id="d12a5-133">Merhaba **kişi** sınıfı bu örnekte tooimplement yok **ITableEntity**.</span><span class="sxs-lookup"><span data-stu-id="d12a5-133">hello **Person** class in this example does not have tooimplement **ITableEntity**.</span></span>
 
-## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a><span data-ttu-id="e25d2-134">Bir tablo ile doğrudan çalışmak için .NET depolama API kullanma</span><span class="sxs-lookup"><span data-stu-id="e25d2-134">How to use the .NET Storage API directly to work with a table</span></span>
-<span data-ttu-id="e25d2-135">Aynı zamanda **tablo** ile öznitelik bir **CloudTable** nesne bir tablo ile çalışma daha fazla esneklik için.</span><span class="sxs-lookup"><span data-stu-id="e25d2-135">You can also use the **Table** attribute with a **CloudTable** object for more flexibility in working with a table.</span></span>
+## <a name="how-toouse-hello-net-storage-api-directly-toowork-with-a-table"></a><span data-ttu-id="d12a5-134">Nasıl toouse hello .NET depolama API doğrudan toowork bir tablo ile</span><span class="sxs-lookup"><span data-stu-id="d12a5-134">How toouse hello .NET Storage API directly toowork with a table</span></span>
+<span data-ttu-id="d12a5-135">Merhaba de kullanabilirsiniz **tablo** ile öznitelik bir **CloudTable** nesne bir tablo ile çalışma daha fazla esneklik için.</span><span class="sxs-lookup"><span data-stu-id="d12a5-135">You can also use hello **Table** attribute with a **CloudTable** object for more flexibility in working with a table.</span></span>
 
-<span data-ttu-id="e25d2-136">Aşağıdaki kod örneği kullanan bir **CloudTable** tek bir varlık eklemek için nesne *giriş* tablo.</span><span class="sxs-lookup"><span data-stu-id="e25d2-136">The following code sample uses a **CloudTable** object to add a single entity to the *Ingress* table.</span></span>
+<span data-ttu-id="d12a5-136">Merhaba aşağıdaki kod örneği kullanan bir **CloudTable** tooadd tek bir varlık toohello nesne *giriş* tablo.</span><span class="sxs-lookup"><span data-stu-id="d12a5-136">hello following code sample uses a **CloudTable** object tooadd a single entity toohello *Ingress* table.</span></span>
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -140,11 +140,11 @@ ms.lasthandoff: 08/29/2017
             tableBinding.Execute(insertOperation);
         }
 
-<span data-ttu-id="e25d2-137">Nasıl kullanılacağı hakkında daha fazla bilgi için **CloudTable** nesne için bkz: [.NET kullanarak Azure Table storage'ı kullanmaya başlama](../storage/storage-dotnet-how-to-use-tables.md).</span><span class="sxs-lookup"><span data-stu-id="e25d2-137">For more information about how to use the **CloudTable** object, see [Get started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md).</span></span>
+<span data-ttu-id="d12a5-137">Hakkında daha fazla bilgi için toouse hello **CloudTable** nesne için bkz: [.NET kullanarak Azure Table storage'ı kullanmaya başlama](../storage/storage-dotnet-how-to-use-tables.md).</span><span class="sxs-lookup"><span data-stu-id="d12a5-137">For more information about how toouse hello **CloudTable** object, see [Get started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md).</span></span>
 
-## <a name="related-topics-covered-by-the-queues-how-to-article"></a><span data-ttu-id="e25d2-138">Kuyruklar nasıl yapılır makalesi tarafından kapsanan ilgili konular</span><span class="sxs-lookup"><span data-stu-id="e25d2-138">Related topics covered by the queues how-to article</span></span>
-<span data-ttu-id="e25d2-139">Bir kuyruk iletisi tarafından tetiklenen tablo işleme nasıl ele alınacağını hakkında bilgi için veya tablo işlemeye özel olmayan Web işleri SDK'si senaryoları için bkz: [bağlı Hizmetleri (Web işi projeleri) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama](../storage/vs-storage-webjobs-getting-started-queues.md).</span><span class="sxs-lookup"><span data-stu-id="e25d2-139">For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)](../storage/vs-storage-webjobs-getting-started-queues.md).</span></span>
+## <a name="related-topics-covered-by-hello-queues-how-tooarticle"></a><span data-ttu-id="d12a5-138">Merhaba sıraları nasıl-tooarticle tarafından kapsanan ilgili konular</span><span class="sxs-lookup"><span data-stu-id="d12a5-138">Related topics covered by hello queues how-tooarticle</span></span>
+<span data-ttu-id="d12a5-139">Nasıl toohandle tablo işleme bir kuyruk iletisi tarafından veya WebJobs SDK senaryoları tetiklenen değil hakkında bilgi için işleme, özel tootable bakın [bağlı Hizmetleri (Web işi projeleri) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama ](../storage/vs-storage-webjobs-getting-started-queues.md).</span><span class="sxs-lookup"><span data-stu-id="d12a5-139">For information about how toohandle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific tootable processing, see [Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)](../storage/vs-storage-webjobs-getting-started-queues.md).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="e25d2-140">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="e25d2-140">Next steps</span></span>
-<span data-ttu-id="e25d2-141">Bu makalede Azure tabloları ile çalışmak için genel senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır.</span><span class="sxs-lookup"><span data-stu-id="e25d2-141">This article has provided code samples that show how to handle common scenarios for working with Azure tables.</span></span> <span data-ttu-id="e25d2-142">Azure Web işleri ve WebJobs SDK nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure Web işleri belge kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).</span><span class="sxs-lookup"><span data-stu-id="e25d2-142">For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="d12a5-140">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d12a5-140">Next steps</span></span>
+<span data-ttu-id="d12a5-141">Bu makalede kod sağlamıştır gösteren nasıl örnekleri Azure tabloları ile çalışmak için genel senaryolar toohandle.</span><span class="sxs-lookup"><span data-stu-id="d12a5-141">This article has provided code samples that show how toohandle common scenarios for working with Azure tables.</span></span> <span data-ttu-id="d12a5-142">Toouse Azure Web işleri ve hello Web işleri SDK'si nasıl görürüm hakkında daha fazla bilgi için [Azure Web işleri belge kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).</span><span class="sxs-lookup"><span data-stu-id="d12a5-142">For more information about how toouse Azure WebJobs and hello WebJobs SDK, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).</span></span>
 

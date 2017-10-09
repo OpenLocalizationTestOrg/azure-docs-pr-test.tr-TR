@@ -1,0 +1,8 @@
+
+<span data-ttu-id="9e039-101">toodeploy hello kaynakları tooAzure tooyour Azure hesabı oturum açmanız gerekir ve hello Azure Resource Manager modülüyle kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="9e039-101">toodeploy hello resources tooAzure, you must be logged in tooyour Azure account and you must use hello Azure Resource Manager module.</span></span> <span data-ttu-id="9e039-102">Azure Resource Manager Azure PowerShell veya Azure CLI ile kullanma hakkında toolearn bakın:</span><span class="sxs-lookup"><span data-stu-id="9e039-102">toolearn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, see:</span></span>
+
+* [<span data-ttu-id="9e039-103">Azure PowerShell’i Azure Resource Manager ile kullanma</span><span class="sxs-lookup"><span data-stu-id="9e039-103">Using Azure PowerShell with Azure Resource Manager</span></span>](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
+* <span data-ttu-id="9e039-104">[Kullanarak hello Azure CLI Mac, Linux ve Windows Azure kaynak yönetimi ile için](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="9e039-104">[Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).</span></span>
+
+<span data-ttu-id="9e039-105">Örnek hello hesabınızda hello belirtilen ada sahip bir kaynak grubu zaten olduğunu varsayın.</span><span class="sxs-lookup"><span data-stu-id="9e039-105">hello following examples assume you already have a resource group in your account with hello specified name.</span></span> 
+

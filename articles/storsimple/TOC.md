@@ -1,16 +1,16 @@
 # StorSimple Sanal Dizisi
 
 ## Genel Bakış
-### [Çözüm nedir?](storsimple-ova-overview.md)
+### [Merhaba çözüm nedir?](storsimple-ova-overview.md)
 
-## Başlarken
+## başlarken
 ### Planlama
 #### [Gereksinimleri inceleme](storsimple-ova-system-requirements.md)
 #### [Sınırları anlama](storsimple-ova-limits.md)
 #### [En iyi uygulamaları inceleme](storsimple-ova-best-practices.md)
 
 ### Dağıtma
-#### [Dağıtmaya hazırlanma](storsimple-virtual-array-deploy1-portal-prep.md)
+#### [Toodeploy hazırlama](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md)
 #### [Hyper-V’de sağlama](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [VMware’de sağlama](storsimple-virtual-array-deploy2-provision-vmware.md)
@@ -53,7 +53,7 @@
 # StorSimple 8000 Serisi (Azure portalı)
 
 ## Genel Bakış
-### [Çözüm nedir?](storsimple-overview.md)
+### [Merhaba çözüm nedir?](storsimple-overview.md)
 ### [StorSimple öğrenme haritası](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](storsimple-8000-security.md)
 
@@ -87,12 +87,12 @@
 #### [StorSimple Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md)
 ##### [Bir yedeklemeden geri yükleme](storsimple-8000-restore-from-backup-set-u2.md)
 ##### [Bir birimi kopyalama](storsimple-8000-clone-volume-u2.md)
-##### [Cihazınıza uzaktan bağlanma](storsimple-8000-remote-connect.md)
+##### [Uzaktan tooyour aygıtı bağlayın](storsimple-8000-remote-connect.md)
 ##### [Cihazınızı devre dışı bırakma ve silme](storsimple-8000-deactivate-and-delete-device.md)
 ##### [Cihazınızda yük devretme gerçekleştirme](storsimple-8000-device-failover-disaster-recovery.md)
-###### [Fiziksel cihaza yük devretme](storsimple-8000-device-failover-physical-device.md)
-###### [Bulut gerecine yük devretme](storsimple-8000-device-failover-cloud-appliance.md)
-###### [Aynı cihaza yük devretme](storsimple-8000-device-failover-same-device.md)
+###### [Toophysical aygıt üzerinden başarısız](storsimple-8000-device-failover-physical-device.md)
+###### [Toocloud Gereci başarısız](storsimple-8000-device-failover-cloud-appliance.md)
+###### [Toosame aygıt üzerinden başarısız](storsimple-8000-device-failover-same-device.md)
 ##### [Yedekleme kataloğunu yönetme](storsimple-8000-manage-backup-catalog.md)
 ##### [Yedekleme ilkelerini yönetme](storsimple-8000-manage-backup-policies-u2.md)
 ##### [Depolama hesaplarını yönetme](storsimple-8000-manage-storage-accounts.md)
@@ -132,7 +132,7 @@
 #### [Veeam ile StorSimple](storsimple-configure-backup-target-veeam.md)
 #### [Veritas Backup Exec ile StorSimple](storsimple-configure-backup-target-using-backup-exec.md)
 #### [Veritas NetBackup ile StorSimple](storsimple-configure-backuptarget-netbackup.md)
-#### [Dosya Sunucusu DR’sini Azure’a otomatikleştirme](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Dosya sunucusu DR tooAzure otomatikleştirme](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express Route ile StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [VMware ile StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
 #### [Hyper-V ile StorSimple](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
@@ -163,7 +163,7 @@
 
 ### Geçiş
 #### [5000-7000 serisinden](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
-#### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data tooStorSimple Volumes_09-02-15.pdf)
 
 ### Güncelleştirme
 #### [Güncelleştirme 5'i yükleme - geçerli](storsimple-8000-install-update-5.md)
@@ -191,7 +191,7 @@
 # StorSimple 8000 Serisi (Klasik portal)
 
 ## Genel Bakış
-### [Çözüm nedir?](storsimple-overview.md)
+### [Merhaba çözüm nedir?](storsimple-overview.md)
 ### [StorSimple öğrenme haritası](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](storsimple-8000-security.md)
 
@@ -230,7 +230,7 @@
 ###### [Bir yedeklemeden geri yükleme](storsimple-restore-from-backup-set.md)
 ##### [Bir birimi kopyalama](storsimple-clone-volume-u2.md)
 ###### [Bir birimi kopyalama](storsimple-clone-volume.md)
-##### [Cihazınıza uzaktan bağlanma](storsimple-remote-connect.md)
+##### [Uzaktan tooyour aygıtı bağlayın](storsimple-remote-connect.md)
 ##### [Cihazınızı devre dışı bırakma ve silme](storsimple-deactivate-and-delete-device.md)
 ##### [Cihazınızda yük devretme gerçekleştirme](storsimple-device-failover-disaster-recovery.md)
 ##### [Yedekleme kataloğunu yönetme](storsimple-manage-backup-catalog.md)
@@ -273,7 +273,7 @@
 #### [Veeam ile StorSimple](storsimple-configure-backup-target-veeam.md)
 #### [Veritas Backup Exec ile StorSimple](storsimple-configure-backup-target-using-backup-exec.md)
 #### [Veritas NetBackup ile StorSimple](storsimple-configure-backuptarget-netbackup.md)
-#### [Dosya Sunucusu DR’sini Azure’a otomatikleştirme](storsimple-disaster-recovery-using-azure-site-recovery.md)
+#### [Dosya sunucusu DR tooAzure otomatikleştirme](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express Route ile StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [VMware ile StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
 #### [Hyper-V ile StorSimple](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
@@ -302,7 +302,7 @@
 
 ### Geçiş
 #### [5000-7000 serisinden](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
-#### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data tooStorSimple Volumes_09-02-15.pdf)
 
 ### Güncelleştirme
 #### [Güncelleştirme 4'ü yükleme](storsimple-install-update-4.md)
@@ -329,20 +329,20 @@
 # StorSimple Veri Yöneticisi (Özel önizleme)
 
 ## Genel Bakış
-### [Çözüm nedir?](storsimple-data-manager-overview.md)
+### [Merhaba çözüm nedir?](storsimple-data-manager-overview.md)
 
-## Başlarken
+## başlarken
 ### [StorSimple Veri Yöneticisi’ni kullanma](storsimple-data-manager-ui.md)
 
 ## Nasıl yapılır?
-### [İşleri başlatmak için .NET’i kullanma](storsimple-data-manager-dotnet-jobs.md)
-### [İşleri başlatmak için Otomasyon’u kullanma](storsimple-data-manager-job-using-automation.md)
+### [.NET toostart işlerini kullanın](storsimple-data-manager-dotnet-jobs.md)
+### [Otomasyon toostart işlerini kullanın](storsimple-data-manager-job-using-automation.md)
 ### [Varsayılan blob yolunu değiştirme](storsimple-data-manager-change-default-blob-path.md)
 
 # İş ortakları için StorSimple
 
 ## Genel Bakış
-### [Çözüm nedir?](storsimple-partner-csp-overview.md)
+### [Merhaba çözüm nedir?](storsimple-partner-csp-overview.md)
 
 ## başlarken
 ### [CSP için sanal dizin dağıtma](storsimple-partner-csp-deploy.md)

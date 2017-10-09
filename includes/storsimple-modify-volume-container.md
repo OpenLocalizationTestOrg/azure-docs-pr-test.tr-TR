@@ -1,0 +1,19 @@
+<!--author=SharS last changed: 1/7/2016-->
+
+#### <a name="toomodify-a-volume-container"></a><span data-ttu-id="5774a-101">toomodify birim kapsayıcısı</span><span class="sxs-lookup"><span data-stu-id="5774a-101">toomodify a volume container</span></span>
+1. <span data-ttu-id="5774a-102">Merhaba üzerinde **aygıtları** sayfasında, hello cihaz seçin, çift tıklayın ve hello ardından **birim kapsayıcıları** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="5774a-102">On hello **Devices** page, select hello device, double-click it, and then click hello **Volume containers** tab.</span></span>
+2. <span data-ttu-id="5774a-103">Merhaba Tablo listesi hello birim kapsayıcıları içinde toomodify istediğiniz ve tıklatın hello ayarı seçin **Değiştir**.</span><span class="sxs-lookup"><span data-stu-id="5774a-103">In hello tabular listing of hello volume containers, select hello setting that you want toomodify, and click **Modify**.</span></span>
+3. <span data-ttu-id="5774a-104">Merhaba, **değiştirmek birim kapsayıcısı** iletişim kutusunda, aşağıdaki hello:</span><span class="sxs-lookup"><span data-stu-id="5774a-104">In hello **Modify Volume container** dialog box, do hello following:</span></span>
+   
+   1. <span data-ttu-id="5774a-105">Merhaba birim kapsayıcısı Hello adını değiştirin ve ilişkili hello bant genişliği ayarı değiştirin.</span><span class="sxs-lookup"><span data-stu-id="5774a-105">Change hello name of hello volume container and modify hello associated bandwidth setting.</span></span> 
+      
+       ![1 bant genişliği şablonuyla birim kapsayıcı değiştirme](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+   2. <span data-ttu-id="5774a-107">Belirtilen sonra hello şifreleme anahtarı ve depolama hesabı değiştirilemez.</span><span class="sxs-lookup"><span data-stu-id="5774a-107">hello encryption key and storage account cannot be changed after they are specified.</span></span> <span data-ttu-id="5774a-108">Belirttiyseniz **bant genişliği şablonu seçin**, hello ok tooproceed toohello sonraki sayfa'yı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="5774a-108">If you specified **Select a bandwidth template**, click hello arrow tooproceed toohello next page.</span></span>
+4. <span data-ttu-id="5774a-109">Merhaba, sonraki sayfada hello **değiştirmek birim kapsayıcısı** iletişim kutusunda:</span><span class="sxs-lookup"><span data-stu-id="5774a-109">In hello next page of hello **Modify Volume Container** dialog box:</span></span>
+   
+   1. <span data-ttu-id="5774a-110">Merhaba aşağı açılan listeden, var olan bir bant genişliği şablonu seçin.</span><span class="sxs-lookup"><span data-stu-id="5774a-110">From hello drop-down list, choose an existing bandwidth template.</span></span>
+   2. <span data-ttu-id="5774a-111">Merhaba belirtilen bant genişliği şablonu Hello zamanlama ayarlarını gözden geçirin.</span><span class="sxs-lookup"><span data-stu-id="5774a-111">Review hello schedule settings for hello specified bandwidth template.</span></span>
+      
+       ![2 bant genişliği şablonuyla birim kapsayıcı değiştirme](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
+   3. <span data-ttu-id="5774a-113">Merhaba onay simgesine ![onay simgesi](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) toosave hello ayarları güncelleştirildi.</span><span class="sxs-lookup"><span data-stu-id="5774a-113">Click hello check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) toosave hello updated settings.</span></span> <span data-ttu-id="5774a-114">Merhaba **birim kapsayıcıları** sayfa güncelleştirilmiş tooreflect hello değişiklikleri olacaktır.</span><span class="sxs-lookup"><span data-stu-id="5774a-114">hello **Volume containers** page will be updated tooreflect hello changes.</span></span>
+

@@ -1,0 +1,26 @@
+### <a name="prerequisites"></a><span data-ttu-id="3c09a-101">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="3c09a-101">Prerequisites</span></span>
+* <span data-ttu-id="3c09a-102">Twilio hesabı</span><span class="sxs-lookup"><span data-stu-id="3c09a-102">A Twilio account</span></span>
+* <span data-ttu-id="3c09a-103">SMS alabileceği bir doğrulanmış Twilio telefon numarası</span><span class="sxs-lookup"><span data-stu-id="3c09a-103">A verified Twilio phone number that can receive SMS</span></span>
+* <span data-ttu-id="3c09a-104">SMS gönderebilen bir doğrulanmış Twilio telefon numarası</span><span class="sxs-lookup"><span data-stu-id="3c09a-104">A verified Twilio phone number that can send SMS</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="3c09a-105">Twilio deneme hesabı kullanıyorsanız, yalnızca SMS çok gönderebilirsiniz**doğrulandı** telefon numaraları.</span><span class="sxs-lookup"><span data-stu-id="3c09a-105">If you are using a Twilio trial account, you can only send SMS too**verified** phone numbers.</span></span>  
+> 
+> 
+
+<span data-ttu-id="3c09a-106">Bir mantıksal uygulama Twilio hesabınızı kullanabilmeniz için önce hello mantığı uygulama tooconnect tooyour Twilio hesabını yetkilendirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="3c09a-106">Before you can use your Twilio account in a Logic app, you must authorize hello Logic app tooconnect tooyour Twilio account.</span></span> <span data-ttu-id="3c09a-107">Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3c09a-107">Fortunately, you can do this easily from within your Logic app on hello Azure Portal.</span></span> 
+
+<span data-ttu-id="3c09a-108">Mantıksal uygulama tooconnect tooyour Twilio hesabı hello adımları tooauthorize şunlardır:</span><span class="sxs-lookup"><span data-stu-id="3c09a-108">Here are hello steps tooauthorize your Logic app tooconnect tooyour Twilio account:</span></span>
+
+1. <span data-ttu-id="3c09a-109">Merhaba mantığı Uygulama Tasarımcısı'nda bir bağlantı tooTwilio toocreate seçin **Göster Microsoft yönetilen API'ler** Merhaba, açılan liste ardından girin *Twilio* hello arama kutusuna.</span><span class="sxs-lookup"><span data-stu-id="3c09a-109">toocreate a connection tooTwilio, in hello Logic app designer, select **Show Microsoft managed APIs** in hello drop down list then enter *Twilio* in hello search box.</span></span> <span data-ttu-id="3c09a-110">Merhaba tetikleyici veya toouse beğendiğiniz eylem seçin:</span><span class="sxs-lookup"><span data-stu-id="3c09a-110">Select hello trigger or action you'll like toouse:</span></span>  
+   ![](./media/connectors-create-api-twilio/twilio-0.png)
+2. <span data-ttu-id="3c09a-111">Tüm bağlantılar tooTwilio önce oluşturmadıysanız, istendiğinde tooprovide Twilio kimlik bilgilerinizi elde edersiniz.</span><span class="sxs-lookup"><span data-stu-id="3c09a-111">If you haven't created any connections tooTwilio before, you'll get prompted tooprovide your Twilio credentials.</span></span> <span data-ttu-id="3c09a-112">Bu kimlik bilgileri, Logic app tooconnect kullanılan tooauthorize olması ve Twilio hesabınızın veri erişim:</span><span class="sxs-lookup"><span data-stu-id="3c09a-112">These credentials will be used tooauthorize your Logic app tooconnect to, and access your Twilio account's data:</span></span>  
+   ![](./media/connectors-create-api-twilio/twilio-1.png)  
+3. <span data-ttu-id="3c09a-113">Merhaba gerekir **Twilio hesap kimliği** ve **Twilio erişim belirteci** Twilio içinde hello panodan şekilde bu iki parça bilgi tooyour Twilio hesabı şimdi toograb oturum:</span><span class="sxs-lookup"><span data-stu-id="3c09a-113">You'll need hello **Twilio account id** and **Twilio access token**  from hello dashboard in Twilio, so log in tooyour Twilio account now toograb these two pieces of information:</span></span>  
+   ![](./media/connectors-create-api-twilio/twilio-2.png)  
+4. <span data-ttu-id="3c09a-114">Twilio ve Logic apps farklı adlar tooidentify bu iki parça bilgi kullanın.</span><span class="sxs-lookup"><span data-stu-id="3c09a-114">Twilio and Logic apps use different names tooidentify these two pieces of infomation.</span></span> <span data-ttu-id="3c09a-115">İşte nasıl bunları toohello Logic apps iletişim eşlemeniz gerekir:![](./media/connectors-create-api-twilio/twilio-3.png)</span><span class="sxs-lookup"><span data-stu-id="3c09a-115">Here is how you must map them toohello Logic apps dialog: ![](./media/connectors-create-api-twilio/twilio-3.png)</span></span>  
+5. <span data-ttu-id="3c09a-116">Select hello **bağlantı oluşturmak** düğmesi:</span><span class="sxs-lookup"><span data-stu-id="3c09a-116">Select hello **Create connection** button:</span></span>  
+   ![](./media/connectors-create-api-twilio/twilio-4.png)
+6. <span data-ttu-id="3c09a-117">Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="3c09a-117">Notice hello connection has been created and you are now free tooproceed with hello other steps in your Logic app:</span></span>  
+   ![](./media/connectors-create-api-twilio/twilio-5.png)
+

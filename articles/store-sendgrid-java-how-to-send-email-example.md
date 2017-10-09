@@ -1,6 +1,6 @@
 ---
-title: Store-sendgrid-Java-How-To-Send-EMail-example
-description: "Bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme"
+title: aaastore-sendgrid-Java-How-To-Send-EMail-example
+description: "Toosend e-posta nasıl bir Azure dağıtımında Java'dan SendGrid kullanma"
 services: 
 documentationcenter: java
 author: thinkingserious
@@ -14,33 +14,33 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: d80d7d9c54bad12a4d26d8623eeccdf9bc2a743a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 51fde1fc71467f8252532b30d2f87856ec25067b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a><span data-ttu-id="29b0b-103">Bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme</span><span class="sxs-lookup"><span data-stu-id="29b0b-103">How to Send Email Using SendGrid from Java in an Azure Deployment</span></span>
-<span data-ttu-id="29b0b-104">Aşağıdaki örnek, Azure üzerinde barındırılan bir web sayfasından e-postalar gönderme SendGrid nasıl kullanabileceğinizi gösterir.</span><span class="sxs-lookup"><span data-stu-id="29b0b-104">The following example shows you how you can use SendGrid to send emails from a web page hosted in Azure.</span></span> <span data-ttu-id="29b0b-105">Sonuçta elde edilen uygulama kullanıcı e-posta değerleri için aşağıdaki ekran görüntüsünde gösterildiği gibi isteyecektir.</span><span class="sxs-lookup"><span data-stu-id="29b0b-105">The resulting application will prompt the user for email values, as shown in the following screen shot.</span></span>
+# <a name="how-toosend-email-using-sendgrid-from-java-in-an-azure-deployment"></a><span data-ttu-id="652de-103">Nasıl tooSend e-posta kullanarak SendGrid Azure dağıtımında Java'dan</span><span class="sxs-lookup"><span data-stu-id="652de-103">How tooSend Email Using SendGrid from Java in an Azure Deployment</span></span>
+<span data-ttu-id="652de-104">Merhaba aşağıdaki örnek, Azure üzerinde barındırılan bir web sayfasından SendGrid toosend e-postaları nasıl kullanabileceğinizi gösterir.</span><span class="sxs-lookup"><span data-stu-id="652de-104">hello following example shows you how you can use SendGrid toosend emails from a web page hosted in Azure.</span></span> <span data-ttu-id="652de-105">Merhaba sonuç uygulaması hello kullanıcı e-posta değerleri için hello aşağıdaki ekran görüntüsü gösterildiği gibi ister.</span><span class="sxs-lookup"><span data-stu-id="652de-105">hello resulting application will prompt hello user for email values, as shown in hello following screen shot.</span></span>
 
 ![E-posta formu][emailform]
 
-<span data-ttu-id="29b0b-107">Sonuçta elde edilen e-posta aşağıdaki ekran görüntüsüne benzer görünür.</span><span class="sxs-lookup"><span data-stu-id="29b0b-107">The resulting email will look similar to the following screen shot.</span></span>
+<span data-ttu-id="652de-107">e-posta kaynaklanan hello ekran görüntüsü aşağıdaki benzer toohello arar.</span><span class="sxs-lookup"><span data-stu-id="652de-107">hello resulting email will look similar toohello following screen shot.</span></span>
 
 ![E-posta iletisi][emailsent]
 
-<span data-ttu-id="29b0b-109">Bu konudaki kodu kullanmak için aşağıdakileri yapmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="29b0b-109">You'll need to do the following to use the code in this topic:</span></span>
+<span data-ttu-id="652de-109">Toodo hello aşağıdakilere ihtiyacınız olacak toouse hello kod bu konuda:</span><span class="sxs-lookup"><span data-stu-id="652de-109">You'll need toodo hello following toouse hello code in this topic:</span></span>
 
-1. <span data-ttu-id="29b0b-110">Javax.mail Kavanoz örneğin almak <http://www.oracle.com/technetwork/java/javamail/index.html>.</span><span class="sxs-lookup"><span data-stu-id="29b0b-110">Obtain the javax.mail JARs, for example from <http://www.oracle.com/technetwork/java/javamail/index.html>.</span></span>
-2. <span data-ttu-id="29b0b-111">Kavanoz, Java derleme yolu ekleyin.</span><span class="sxs-lookup"><span data-stu-id="29b0b-111">Add the JARs to your Java build path.</span></span>
-3. <span data-ttu-id="29b0b-112">Bu Java uygulaması oluşturmak için Eclipse kullanıyorsanız, SendGrid kitaplıkları Eclipse'nın dağıtım derleme özelliğini kullanarak, uygulama dağıtım dosyanızda (WAR) içerebilir.</span><span class="sxs-lookup"><span data-stu-id="29b0b-112">If you are using Eclipse to create this Java application, you can include the SendGrid libraries in your application deployment file (WAR) using Eclipse's deployment assembly feature.</span></span> <span data-ttu-id="29b0b-113">Bu Java uygulaması oluşturmak için Eclipse kullanmıyorsanız kitaplıkları Java uygulamanız aynı Azure rolünü içerdiği ve uygulamanızı sınıfı yoluna eklenen emin olun.</span><span class="sxs-lookup"><span data-stu-id="29b0b-113">If you are not using Eclipse to create this Java application, ensure the libraries are included within the same Azure role as your Java application, and added to the class path of your application.</span></span>
+1. <span data-ttu-id="652de-110">Elde javax.mail Kavanoz, örneğin gelen hello <http://www.oracle.com/technetwork/java/javamail/index.html>.</span><span class="sxs-lookup"><span data-stu-id="652de-110">Obtain hello javax.mail JARs, for example from <http://www.oracle.com/technetwork/java/javamail/index.html>.</span></span>
+2. <span data-ttu-id="652de-111">Java derleme yolu hello Kavanoz tooyour ekleyin.</span><span class="sxs-lookup"><span data-stu-id="652de-111">Add hello JARs tooyour Java build path.</span></span>
+3. <span data-ttu-id="652de-112">Bu Java uygulaması Eclipse toocreate kullanıyorsanız, hello SendGrid kitaplıkları Eclipse'nın dağıtım derleme özelliğini kullanarak, uygulama dağıtım dosyanızda (WAR) içerebilir.</span><span class="sxs-lookup"><span data-stu-id="652de-112">If you are using Eclipse toocreate this Java application, you can include hello SendGrid libraries in your application deployment file (WAR) using Eclipse's deployment assembly feature.</span></span> <span data-ttu-id="652de-113">Bu Java uygulaması Eclipse toocreate kullanmıyorsanız hello kitaplıkları hello içinde bulunan emin olun, Java uygulama ve eklenen toohello sınıf yolu uygulamanızın olarak aynı Azure rol.</span><span class="sxs-lookup"><span data-stu-id="652de-113">If you are not using Eclipse toocreate this Java application, ensure hello libraries are included within hello same Azure role as your Java application, and added toohello class path of your application.</span></span>
 
-<span data-ttu-id="29b0b-114">SendGrid kullanıcı adınızı ve e-posta gönderebilmesi için parola, ayrıca sahip olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="29b0b-114">You must also have your own SendGrid username and password, to be able to send the email.</span></span> <span data-ttu-id="29b0b-115">SendGrid başlamak için bkz: [SendGrid Java kullanarak e-posta göndermek nasıl](store-sendgrid-java-how-to-send-email.md).</span><span class="sxs-lookup"><span data-stu-id="29b0b-115">To get started with SendGrid, see [How to send email using SendGrid from Java](store-sendgrid-java-how-to-send-email.md).</span></span>
+<span data-ttu-id="652de-114">Oluşturmuş olmanız da gerekir, kendi SendGrid kullanıcı adı ve parola, toobe mümkün toosend hello e-posta.</span><span class="sxs-lookup"><span data-stu-id="652de-114">You must also have your own SendGrid username and password, toobe able toosend hello email.</span></span> <span data-ttu-id="652de-115">SendGrid başlatılan tooget bkz [toosend e-posta nasıl SendGrid Java kullanarak](store-sendgrid-java-how-to-send-email.md).</span><span class="sxs-lookup"><span data-stu-id="652de-115">tooget started with SendGrid, see [How toosend email using SendGrid from Java](store-sendgrid-java-how-to-send-email.md).</span></span>
 
-<span data-ttu-id="29b0b-116">Ayrıca, bilgileri aşina [bir Hello World uygulamasının Azure için Eclipse'te oluşturma](http://msdn.microsoft.com/library/windowsazure/hh690944), veya Eclipse kullanıyorsanız azure'da Java uygulamaları barındırmak için başka teknikler ile önemle önerilir.</span><span class="sxs-lookup"><span data-stu-id="29b0b-116">Additionally, familiarity with the information at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944), or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.</span></span>
+<span data-ttu-id="652de-116">Merhaba bilgilerine ek olarak, bir aşina [Hello World uygulamasının Azure için Eclipse'te oluşturma](http://msdn.microsoft.com/library/windowsazure/hh690944), veya Eclipse kullanıyorsanız azure'da Java uygulamaları barındırmak için başka teknikler ile önemle önerilir.</span><span class="sxs-lookup"><span data-stu-id="652de-116">Additionally, familiarity with hello information at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944), or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.</span></span>
 
-## <a name="create-a-web-form-for-sending-email"></a><span data-ttu-id="29b0b-117">E-posta göndermek için web formu oluşturma</span><span class="sxs-lookup"><span data-stu-id="29b0b-117">Create a web form for sending email</span></span>
-<span data-ttu-id="29b0b-118">Aşağıdaki kod, e-posta göndermek için kullanıcı verilerini almak için web formu oluşturulacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="29b0b-118">The following code shows how to create a web form to retrieve user data for sending email.</span></span> <span data-ttu-id="29b0b-119">Bu içerik amaçları doğrultusunda JSP dosyası adlı **emailform.jsp**.</span><span class="sxs-lookup"><span data-stu-id="29b0b-119">For purposes of this content, the JSP file is named **emailform.jsp**.</span></span>
+## <a name="create-a-web-form-for-sending-email"></a><span data-ttu-id="652de-117">E-posta göndermek için web formu oluşturma</span><span class="sxs-lookup"><span data-stu-id="652de-117">Create a web form for sending email</span></span>
+<span data-ttu-id="652de-118">koddan hello nasıl toocreate web form e-posta göndermek için tooretrieve kullanıcı verileri gösterir.</span><span class="sxs-lookup"><span data-stu-id="652de-118">hello following code shows how toocreate a web form tooretrieve user data for sending email.</span></span> <span data-ttu-id="652de-119">Bu içerik amaçları doğrultusunda hello JSP dosyası adlı **emailform.jsp**.</span><span class="sxs-lookup"><span data-stu-id="652de-119">For purposes of this content, hello JSP file is named **emailform.jsp**.</span></span>
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
@@ -95,8 +95,8 @@ ms.lasthandoff: 07/11/2017
     </body>
     </html>
 
-## <a name="create-the-code-to-send-the-email"></a><span data-ttu-id="29b0b-120">E-posta göndermek için kod oluşturma</span><span class="sxs-lookup"><span data-stu-id="29b0b-120">Create the code to send the email</span></span>
-<span data-ttu-id="29b0b-121">Emailform.jsp biçiminde tamamladığınızda olarak adlandırılır, aşağıdaki kod, e-posta iletisi oluşturur ve bunu gönderir.</span><span class="sxs-lookup"><span data-stu-id="29b0b-121">The following code, which is called when you complete the form in emailform.jsp, creates the email message and sends it.</span></span> <span data-ttu-id="29b0b-122">Bu içerik amaçları doğrultusunda JSP dosyası adlı **sendemail.jsp**.</span><span class="sxs-lookup"><span data-stu-id="29b0b-122">For purposes of this content, the JSP file is named **sendemail.jsp**.</span></span>
+## <a name="create-hello-code-toosend-hello-email"></a><span data-ttu-id="652de-120">Merhaba kod toosend hello e-posta oluşturma</span><span class="sxs-lookup"><span data-stu-id="652de-120">Create hello code toosend hello email</span></span>
+<span data-ttu-id="652de-121">Merhaba emailform.jsp hello formunda tamamladığınızda olarak adlandırılır, aşağıdaki kod, hello e-posta iletisi oluşturur ve gönderir.</span><span class="sxs-lookup"><span data-stu-id="652de-121">hello following code, which is called when you complete hello form in emailform.jsp, creates hello email message and sends it.</span></span> <span data-ttu-id="652de-122">Bu içerik amaçları doğrultusunda hello JSP dosyası adlı **sendemail.jsp**.</span><span class="sxs-lookup"><span data-stu-id="652de-122">For purposes of this content, hello JSP file is named **sendemail.jsp**.</span></span>
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
@@ -126,7 +126,7 @@ ms.lasthandoff: 07/11/2017
      try
      {
 
-         // The SendGrid SMTP server.
+         // hello SendGrid SMTP server.
          String SMTP_HOST_NAME = "smtp.sendgrid.net";
 
          Properties properties;
@@ -139,24 +139,24 @@ ms.lasthandoff: 07/11/2017
          properties.put("mail.smtp.port", 587);
          properties.put("mail.smtp.auth", "true");
 
-         // Display the email fields entered by the user. 
+         // Display hello email fields entered by hello user. 
          out.println("Value entered for email Subject: " + request.getParameter("emailSubject") + "<br/>");        
          out.println("Value entered for email      To: " + request.getParameter("emailTo") + "<br/>");
          out.println("Value entered for email    From: " + request.getParameter("emailFrom") + "<br/>");
          out.println("Value entered for email    Text: " + "<br/>" + request.getParameter("emailText") + "<br/>");
 
-         // Create the authenticator object.
+         // Create hello authenticator object.
          Authenticator authenticator = new SMTPAuthenticator();
 
-         // Create the mail session object.
+         // Create hello mail session object.
          Session mailSession;
          mailSession = Session.getDefaultInstance(properties, authenticator);
 
-         // Display debug information to stdout, useful when using the
+         // Display debug information toostdout, useful when using the
          // compute emulator during development.
          mailSession.setDebug(true);
 
-         // Create the message and message part objects.
+         // Create hello message and message part objects.
          MimeMessage message;
          Multipart multipart;
          MimeBodyPart messagePart; 
@@ -168,25 +168,25 @@ ms.lasthandoff: 07/11/2017
          messagePart.setContent(request.getParameter("emailText"), "text/html");
          multipart.addBodyPart(messagePart);            
 
-         // Specify the email To, From, Subject and Content. 
+         // Specify hello email To, From, Subject and Content. 
          message.setFrom(new InternetAddress(request.getParameter("emailFrom")));
          message.addRecipient(Message.RecipientType.TO, new InternetAddress(request.getParameter("emailTo")));
          message.setSubject(request.getParameter("emailSubject")); 
          message.setContent(multipart);
 
-         // Uncomment the following if you want to add a footer.
+         // Uncomment hello following if you want tooadd a footer.
          // message.addHeader("X-SMTPAPI", "{\"filters\": {\"footer\": {\"settings\": {\"enable\":1,\"text/html\": \"<html>This is my <b>email footer</b>.</html>\"}}}}");
 
-         // Uncomment the following if you want to enable click tracking.
+         // Uncomment hello following if you want tooenable click tracking.
          // message.addHeader("X-SMTPAPI", "{\"filters\": {\"clicktrack\": {\"settings\": {\"enable\":1}}}}");
 
          Transport transport;
          transport = mailSession.getTransport();
-         // Connect the transport object.
+         // Connect hello transport object.
          transport.connect();
-         // Send the message.
+         // Send hello message.
          transport.sendMessage(message,  message.getRecipients(Message.RecipientType.TO));
-         // Close the connection.
+         // Close hello connection.
          transport.close();
 
         out.println("<p>Email processing completed.</p>");
@@ -203,18 +203,18 @@ ms.lasthandoff: 07/11/2017
     </body>
     </html>
 
-<span data-ttu-id="29b0b-123">E-posta gönderme yanı sıra emailform.jsp kullanıcı için bir sonuç sağlar; Aşağıdaki ekran örneğidir:</span><span class="sxs-lookup"><span data-stu-id="29b0b-123">In addition to sending the email, emailform.jsp provides a result for the user; an example is the following screen shot:</span></span>
+<span data-ttu-id="652de-123">Ayrıca toosending hello e-posta emailform.jsp hello kullanıcı için bir sonuç sağlar; Aşağıdaki ekran görüntüsü hello buna bir örnektir:</span><span class="sxs-lookup"><span data-stu-id="652de-123">In addition toosending hello email, emailform.jsp provides a result for hello user; an example is hello following screen shot:</span></span>
 
 ![Posta sonucunu gönderin][emailresult]
 
-## <a name="next-steps"></a><span data-ttu-id="29b0b-125">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="29b0b-125">Next steps</span></span>
-<span data-ttu-id="29b0b-126">İşlem öykünücüsü uygulamanızı dağıtmak ve bir tarayıcıdan emailform.jsp çalıştırmak, değerleri girin, tıklatın **bu e-posta Gönder**ve ardından sendemail.jsp sonuçlarında görebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="29b0b-126">Deploy your application to the compute emulator and within a browser run emailform.jsp, enter values in the form, click **Send this email**, and then see results in sendemail.jsp.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="652de-125">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="652de-125">Next steps</span></span>
+<span data-ttu-id="652de-126">Uygulama toohello işlem öykünücüsü dağıtmak ve emailform.jsp çalıştırmak bir tarayıcı değerleri hello biçiminde girin, tıklatın **bu e-posta Gönder**ve ardından sendemail.jsp sonuçlarında görebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="652de-126">Deploy your application toohello compute emulator and within a browser run emailform.jsp, enter values in hello form, click **Send this email**, and then see results in sendemail.jsp.</span></span>
 
-<span data-ttu-id="29b0b-127">Bu kod, Azure üzerinde Java SendGrid kullanmayı göstermek için sağlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="29b0b-127">This code was provided to show you how to use SendGrid in Java on Azure.</span></span> <span data-ttu-id="29b0b-128">Azure'a üretimde dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="29b0b-128">Before deploying to Azure in production, you may want to add more error handling or other features.</span></span> <span data-ttu-id="29b0b-129">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="29b0b-129">For example:</span></span> 
+<span data-ttu-id="652de-127">Bu kod tooshow sağlanan, nasıl toouse SendGrid azure'da Java.</span><span class="sxs-lookup"><span data-stu-id="652de-127">This code was provided tooshow you how toouse SendGrid in Java on Azure.</span></span> <span data-ttu-id="652de-128">TooAzure üretimde dağıtmadan önce daha fazla hata işleme veya diğer özellikler tooadd isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="652de-128">Before deploying tooAzure in production, you may want tooadd more error handling or other features.</span></span> <span data-ttu-id="652de-129">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="652de-129">For example:</span></span> 
 
-* <span data-ttu-id="29b0b-130">E-posta adreslerini ve bir web formu kullanmak yerine, e-posta iletileri depolamak için Azure storage bloblarında veya SQL veritabanı'nı kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="29b0b-130">You could use Azure storage blobs or SQL Database to store email addresses and email messages, instead of using a web form.</span></span> <span data-ttu-id="29b0b-131">Azure storage bloblarında Java kullanma hakkında daha fazla bilgi için bkz: [Java'dan Blob Depolama hizmetini kullanmayı](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/).</span><span class="sxs-lookup"><span data-stu-id="29b0b-131">For information about using Azure storage blobs in Java, see [How to Use the Blob Storage Service from Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/).</span></span> <span data-ttu-id="29b0b-132">SQL veritabanı Java kullanma hakkında daha fazla bilgi için bkz: [SQL veritabanında kullanarak Java](https://azure.microsoft.com/develop/java/how-to-guides/using-sql-azure-in-java/).</span><span class="sxs-lookup"><span data-stu-id="29b0b-132">For information about using SQL Database in Java, see [Using SQL Database in Java](https://azure.microsoft.com/develop/java/how-to-guides/using-sql-azure-in-java/).</span></span>
-* <span data-ttu-id="29b0b-133">Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` bu değerleri almak için web formu kullanmak yerine dağıtımınızın yapılandırma ayarlarını SendGrid kullanıcı adı ve parola almalarını sağlar.</span><span class="sxs-lookup"><span data-stu-id="29b0b-133">You could use `RoleEnvironment.getConfigurationSettings` to retrieve the SendGrid username and password from your deployment's configuration settings, instead of using the web form to retrieve those values.</span></span> <span data-ttu-id="29b0b-134">Hakkında bilgi için `RoleEnvironment` sınıfı için bkz: [JSP biçiminde Azure hizmeti çalışma zamanı kitaplığını kullanarak](http://msdn.microsoft.com/library/windowsazure/hh690948) ve Azure hizmet çalışma zamanı paketi belgelerine <http://dl.windowsazure.com/javadoc>.</span><span class="sxs-lookup"><span data-stu-id="29b0b-134">For information about the `RoleEnvironment` class, see [Using the Azure Service Runtime Library in JSP](http://msdn.microsoft.com/library/windowsazure/hh690948) and the Azure Service Runtime package documentation at <http://dl.windowsazure.com/javadoc>.</span></span>
-* <span data-ttu-id="29b0b-135">SendGrid Java kullanma hakkında daha fazla bilgi için bkz: [SendGrid Java kullanarak e-posta göndermek nasıl](store-sendgrid-java-how-to-send-email.md).</span><span class="sxs-lookup"><span data-stu-id="29b0b-135">For more information about using SendGrid in Java, see [How to send email using SendGrid from Java](store-sendgrid-java-how-to-send-email.md).</span></span>
+* <span data-ttu-id="652de-130">Bir web formu kullanmak yerine Azure storage bloblarında veya SQL veritabanı toostore e-posta adresleri ve e-posta iletilerini kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="652de-130">You could use Azure storage blobs or SQL Database toostore email addresses and email messages, instead of using a web form.</span></span> <span data-ttu-id="652de-131">Azure storage bloblarında Java kullanma hakkında daha fazla bilgi için bkz: [nasıl tooUse hello Java'dan Blob Depolama hizmetinin](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/).</span><span class="sxs-lookup"><span data-stu-id="652de-131">For information about using Azure storage blobs in Java, see [How tooUse hello Blob Storage Service from Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/).</span></span> <span data-ttu-id="652de-132">SQL veritabanı Java kullanma hakkında daha fazla bilgi için bkz: [SQL veritabanında kullanarak Java](https://azure.microsoft.com/develop/java/how-to-guides/using-sql-azure-in-java/).</span><span class="sxs-lookup"><span data-stu-id="652de-132">For information about using SQL Database in Java, see [Using SQL Database in Java](https://azure.microsoft.com/develop/java/how-to-guides/using-sql-azure-in-java/).</span></span>
+* <span data-ttu-id="652de-133">Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` tooretrieve hello SendGrid kullanıcı adı ve parola kullanmak yerine, dağıtımınızın yapılandırma ayarları, bu değerler web formu tooretrieve hello.</span><span class="sxs-lookup"><span data-stu-id="652de-133">You could use `RoleEnvironment.getConfigurationSettings` tooretrieve hello SendGrid username and password from your deployment's configuration settings, instead of using hello web form tooretrieve those values.</span></span> <span data-ttu-id="652de-134">Merhaba hakkında bilgi için `RoleEnvironment` sınıfı için bkz: [kullanma hello Azure hizmeti Çalışma Zamanı Kitaplığı'nda JSP](http://msdn.microsoft.com/library/windowsazure/hh690948) ve hello Azure hizmeti çalışma zamanı paketi belgelerine <http://dl.windowsazure.com/javadoc>.</span><span class="sxs-lookup"><span data-stu-id="652de-134">For information about hello `RoleEnvironment` class, see [Using hello Azure Service Runtime Library in JSP](http://msdn.microsoft.com/library/windowsazure/hh690948) and hello Azure Service Runtime package documentation at <http://dl.windowsazure.com/javadoc>.</span></span>
+* <span data-ttu-id="652de-135">SendGrid Java kullanma hakkında daha fazla bilgi için bkz: [toosend e-posta nasıl SendGrid Java kullanarak](store-sendgrid-java-how-to-send-email.md).</span><span class="sxs-lookup"><span data-stu-id="652de-135">For more information about using SendGrid in Java, see [How toosend email using SendGrid from Java](store-sendgrid-java-how-to-send-email.md).</span></span>
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg

@@ -1,0 +1,6 @@
+<span data-ttu-id="0f5ea-101">Bağlantınızı hello kullanarak başarılı olduğunu doğrulayabilirsiniz [az ağ vpn bağlantısı Göster](/cli/azure/network/vpn-connection#show) komutu.</span><span class="sxs-lookup"><span data-stu-id="0f5ea-101">You can verify that your connection succeeded by using hello [az network vpn-connection show](/cli/azure/network/vpn-connection#show) command.</span></span> <span data-ttu-id="0f5ea-102">Merhaba örnekte '--ad ' hello bağlantı tootest istediğiniz toohello adını gösterir.</span><span class="sxs-lookup"><span data-stu-id="0f5ea-102">In hello example, '--name' refers toohello name of hello connection that you want tootest.</span></span> <span data-ttu-id="0f5ea-103">Hello bağlantı kuruldu, hello işlemi yürütülürken 'Bağlanıyor' bağlantı durumunu gösterir.</span><span class="sxs-lookup"><span data-stu-id="0f5ea-103">When hello connection is in hello process of being established, its connection status shows 'Connecting'.</span></span> <span data-ttu-id="0f5ea-104">Merhaba bağlantı kurulduktan sonra hello too'Connected durumuna '.</span><span class="sxs-lookup"><span data-stu-id="0f5ea-104">Once hello connection is established, hello status changes too'Connected'.</span></span>
+
+```azurecli
+az network vpn-connection show --name VNet1toSite2 --resource-group TestRG1
+```
+

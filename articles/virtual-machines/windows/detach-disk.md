@@ -1,0 +1,64 @@
+---
+title: bir Windows VM - Azure veri diskten aaaDetach | Microsoft Docs
+description: "Toodetach hello Resource Manager dağıtım modelini kullanarak azure'da bir sanal makineden bir veri diski öğrenin."
+services: virtual-machines-windows
+documentationcenter: 
+author: cynthn
+manager: timlt
+editor: 
+tags: azure-service-management
+ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 03/21/2017
+ms.author: cynthn
+ms.openlocfilehash: f3f581d3f33329db2ecb7d25a68bc59af7361aad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="how-toodetach-a-data-disk-from-a-windows-virtual-machine"></a><span data-ttu-id="0d85c-103">Nasıl toodetach bir veri diski bir Windows sanal makineden</span><span class="sxs-lookup"><span data-stu-id="0d85c-103">How toodetach a data disk from a Windows virtual machine</span></span>
+<span data-ttu-id="0d85c-104">Ekli tooa sanal makine veri diski artık ihtiyacınız olduğunda, kolayca ayırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="0d85c-104">When you no longer need a data disk that's attached tooa virtual machine, you can easily detach it.</span></span> <span data-ttu-id="0d85c-105">Bu hello disk hello sanal makineden kaldırır, ancak depolama biriminden kaldırmaz.</span><span class="sxs-lookup"><span data-stu-id="0d85c-105">This removes hello disk from hello virtual machine, but doesn't remove it from storage.</span></span>
+
+> [!WARNING]
+> <span data-ttu-id="0d85c-106">Bir disk ayırırsanız otomatik olarak silinmez.</span><span class="sxs-lookup"><span data-stu-id="0d85c-106">If you detach a disk it is not automatically deleted.</span></span> <span data-ttu-id="0d85c-107">TooPremium depolama abone hello disk için tooincur depolama ücretleri devam eder.</span><span class="sxs-lookup"><span data-stu-id="0d85c-107">If you have subscribed tooPremium storage, you will continue tooincur storage charges for hello disk.</span></span> <span data-ttu-id="0d85c-108">Daha fazla bilgi için çok başvurun[fiyatlandırma ve faturalama Premium depolama kullanırken](../../storage/common/storage-premium-storage.md#pricing-and-billing).</span><span class="sxs-lookup"><span data-stu-id="0d85c-108">For more information refer too[Pricing and Billing when using Premium Storage](../../storage/common/storage-premium-storage.md#pricing-and-billing).</span></span>
+>
+>
+
+<span data-ttu-id="0d85c-109">Merhaba disk üzerindeki toouse hello mevcut verileri yeniden istiyorsanız, toohello iliştirebilirsiniz aynı sanal makine ya da başka bir.</span><span class="sxs-lookup"><span data-stu-id="0d85c-109">If you want toouse hello existing data on hello disk again, you can reattach it toohello same virtual machine, or another one.</span></span>
+
+## <a name="detach-a-data-disk-using-hello-portal"></a><span data-ttu-id="0d85c-110">Merhaba portalı kullanarak bir veri diskini</span><span class="sxs-lookup"><span data-stu-id="0d85c-110">Detach a data disk using hello portal</span></span>
+1. <span data-ttu-id="0d85c-111">Merhaba portal hub, seçin **sanal makineleri**.</span><span class="sxs-lookup"><span data-stu-id="0d85c-111">In hello portal hub, select **Virtual Machines**.</span></span>
+2. <span data-ttu-id="0d85c-112">Toodetach istediğiniz hello veri diski Hello sanal makine seçin **durdurmak** toodeallocate hello VM.</span><span class="sxs-lookup"><span data-stu-id="0d85c-112">Select hello virtual machine that has hello data disk you want toodetach and click **Stop** toodeallocate hello VM.</span></span>
+3. <span data-ttu-id="0d85c-113">Merhaba sanal makine dikey penceresinde, seçin **diskleri**.</span><span class="sxs-lookup"><span data-stu-id="0d85c-113">In hello virtual machine blade, select **Disks**.</span></span>
+4. <span data-ttu-id="0d85c-114">Merhaba hello üstündeki **diskleri** dikey penceresinde, select **Düzenle**.</span><span class="sxs-lookup"><span data-stu-id="0d85c-114">At hello top of hello **Disks** blade, select **Edit**.</span></span>
+5. <span data-ttu-id="0d85c-115">Merhaba, **diskleri** dikey, sağda hello veri diski toodetach, istediğiniz toohello tıklayın hello ![ayırma düğme görüntüsü](./media/detach-disk/detach.png) düğmesi ayırma.</span><span class="sxs-lookup"><span data-stu-id="0d85c-115">In hello **Disks** blade, toohello far right of hello data disk that you would like toodetach, click hello ![Detach button image](./media/detach-disk/detach.png) detach button.</span></span>
+5. <span data-ttu-id="0d85c-116">Merhaba disk kaldırıldıktan sonra hello dikey penceresinde hello üstündeki Kaydet.</span><span class="sxs-lookup"><span data-stu-id="0d85c-116">After hello disk has been removed, click Save on hello top of hello blade.</span></span>
+6. <span data-ttu-id="0d85c-117">Merhaba sanal makine dikey penceresinde tıklayın **genel bakış** ve hello ardından **Başlat** hello dikey toorestart hello VM hello üstündeki düğmesi.</span><span class="sxs-lookup"><span data-stu-id="0d85c-117">In hello virtual machine blade, click **Overview** and then click hello **Start** button at hello top of hello blade toorestart hello VM.</span></span>
+
+
+
+<span data-ttu-id="0d85c-118">Merhaba disk depolama alanında kalır, ancak artık ekli tooa sanal makine değil.</span><span class="sxs-lookup"><span data-stu-id="0d85c-118">hello disk remains in storage but is no longer attached tooa virtual machine.</span></span>
+
+## <a name="detach-a-data-disk-using-powershell"></a><span data-ttu-id="0d85c-119">PowerShell kullanarak bir veri diskini</span><span class="sxs-lookup"><span data-stu-id="0d85c-119">Detach a data disk using PowerShell</span></span>
+<span data-ttu-id="0d85c-120">Bu örnekte, ilk komut alır hello adlı sanal makineye hello **MyVM07** hello içinde **RG11** hello Get-AzureRmVM cmdlet'ini kullanarak kaynak grubu.</span><span class="sxs-lookup"><span data-stu-id="0d85c-120">In this example, hello first command gets hello virtual machine named **MyVM07** in hello **RG11** resource group using hello Get-AzureRmVM cmdlet.</span></span> <span data-ttu-id="0d85c-121">Merhaba depoları hello hello sanal makinede komut **$VirtualMachine** değişkeni.</span><span class="sxs-lookup"><span data-stu-id="0d85c-121">hello command stores hello virtual machine in hello **$VirtualMachine** variable.</span></span>
+
+<span data-ttu-id="0d85c-122">Merhaba ikinci komut hello sanal makineden DataDisk3 adlı hello veri diski kaldırır.</span><span class="sxs-lookup"><span data-stu-id="0d85c-122">hello second command removes hello data disk named DataDisk3 from hello virtual machine.</span></span>
+
+<span data-ttu-id="0d85c-123">Merhaba son komut hello veri diski kaldırmanın hello sanal makine toocomplete hello işlemi hello durumunu güncelleştirir.</span><span class="sxs-lookup"><span data-stu-id="0d85c-123">hello final command updates hello state of hello virtual machine toocomplete hello process of removing hello data disk.</span></span>
+
+```powershell
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
+Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
+Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```
+
+<span data-ttu-id="0d85c-124">Daha fazla bilgi için bkz: [Kaldır AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).</span><span class="sxs-lookup"><span data-stu-id="0d85c-124">For more information, see [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="0d85c-125">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="0d85c-125">Next steps</span></span>
+<span data-ttu-id="0d85c-126">Tooreuse hello veri diski istiyorsanız, yeni [tooanother VM ekleme](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)</span><span class="sxs-lookup"><span data-stu-id="0d85c-126">If you want tooreuse hello data disk, you can just [attach it tooanother VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)</span></span>
+

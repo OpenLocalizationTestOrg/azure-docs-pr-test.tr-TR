@@ -1,0 +1,7 @@
+
+1. <span data-ttu-id="aa66a-101">Merhaba, [Azure portal](https://portal.azure.com/), tıklatın **tümüne Gözat** > **uygulama hizmetleri**, Mobile Apps arka uç'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="aa66a-101">In hello [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end.</span></span> <span data-ttu-id="aa66a-102">Altında **ayarları**, tıklatın **App Service anında**ve bildirim hub'ı adı'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="aa66a-102">Under **Settings**, click **App Service Push**, and then click your notification hub name.</span></span>
+2. <span data-ttu-id="aa66a-103">Çok Git**Windows (WNS)**, hello girin **güvenlik anahtarı** (gizli) ve **paket SID'si** hello Live Services sitesinden alınan ve ardından  **Kaydet**.</span><span class="sxs-lookup"><span data-stu-id="aa66a-103">Go too**Windows (WNS)**, enter hello **Security key** (client secret) and **Package SID** that you obtained from hello Live Services site, and then click **Save**.</span></span>
+
+    ![Merhaba Portalı'nda Hello WNS anahtarı ayarlayın](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
+
+<span data-ttu-id="aa66a-105">Arka uç yapılandırılmış toouse WNS toosend anında iletme bildirimleri sunulmuştur.</span><span class="sxs-lookup"><span data-stu-id="aa66a-105">Your back end is now configured toouse WNS toosend push notifications.</span></span>

@@ -1,0 +1,8 @@
+## <a name="prerequisite-install-hello-azure-cli"></a><span data-ttu-id="64b27-101">Önkoşul: hello Azure CLI yükleme</span><span class="sxs-lookup"><span data-stu-id="64b27-101">Prerequisite: Install hello Azure CLI</span></span>
+<span data-ttu-id="64b27-102">tooperform hello bu makaledeki adımları, çok gerek[hello Azure komut satırı arabirimi Mac, Linux ve Windows (Azure CLI) için yükleme](../articles/cli-install-nodejs.md) ve çok ihtiyacınız[tooAzure üzerinde oturum](../articles/xplat-cli-connect.md).</span><span class="sxs-lookup"><span data-stu-id="64b27-102">tooperform hello steps in this article, you need too[install hello Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../articles/cli-install-nodejs.md) and you need too[log on tooAzure](../articles/xplat-cli-connect.md).</span></span> 
+
+> [!NOTE]
+> <span data-ttu-id="64b27-103">Bir Azure hesabınız yoksa, biri gerekir.</span><span class="sxs-lookup"><span data-stu-id="64b27-103">If you don't have an Azure account, you need one.</span></span> <span data-ttu-id="64b27-104">[Buradaki ücretsiz deneme sürümüyle](../articles/active-directory/sign-up-organization.md) kaydolun.</span><span class="sxs-lookup"><span data-stu-id="64b27-104">Go sign up for a [free trial here](../articles/active-directory/sign-up-organization.md).</span></span> <span data-ttu-id="64b27-105">Ayrıca, tamamen, boyunca toofollow gerek toohave ya da [jq](https://stedolan.github.io/jq/) veya araç ya da yüklü kitaplığı ayrıştırma başka bir JSON.</span><span class="sxs-lookup"><span data-stu-id="64b27-105">In addition, toofollow along completely you need toohave either [jq](https://stedolan.github.io/jq/) or some other JSON parsing tool or library installed.</span></span>
+> 
+> 
+

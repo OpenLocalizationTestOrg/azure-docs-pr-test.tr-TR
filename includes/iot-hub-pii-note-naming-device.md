@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> <span data-ttu-id="4e08a-101">Cihaz kimliği; müşteri desteği ve sorun giderme için toplanan günlüklerde görünüyor olabilir, bu nedenle adlandırırken herhangi bir önemli bilgi vermekten kaçının.</span><span class="sxs-lookup"><span data-stu-id="4e08a-101">The device ID may be visible in the logs collected for customer support and troubleshooting, so make sure to avoid any sensitive information while naming it.</span></span>
+> <span data-ttu-id="9f246-101">Merhaba cihaz kimliği müşteri destek ve sorun giderme için toplanan hello günlüklerini görünür adlandırma sırasında herhangi bir önemli bilgi nedenle emin tooavoid olun.</span><span class="sxs-lookup"><span data-stu-id="9f246-101">hello device ID may be visible in hello logs collected for customer support and troubleshooting, so make sure tooavoid any sensitive information while naming it.</span></span>
 >
