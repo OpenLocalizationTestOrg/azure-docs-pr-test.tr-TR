@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory ile tümleştirme Confluence için SAML SSO GmbH çözünürlüğün | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile SAML SSO Confluence için arasında GmbH çözünürlüğün yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile SAML SSO GmbH çözünürlüğün Confluence için arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,287 +13,287 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fe50636709857ec49023e24bdc8c6cd8c58e3c7a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a><span data-ttu-id="5a0c9-103">Öğretici: Çözümleme GmbH Confluence için SAML SSO Azure Active Directory Tümleştirmesi</span><span class="sxs-lookup"><span data-stu-id="5a0c9-103">Tutorial: Azure Active Directory integration with SAML SSO for Confluence by resolution GmbH</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a><span data-ttu-id="b20cb-103">Öğretici: Çözümleme GmbH Confluence için SAML SSO Azure Active Directory Tümleştirmesi</span><span class="sxs-lookup"><span data-stu-id="b20cb-103">Tutorial: Azure Active Directory integration with SAML SSO for Confluence by resolution GmbH</span></span>
 
-<span data-ttu-id="5a0c9-104">Bu öğreticide, Azure Active Directory (Azure AD) ile GmbH çözünürlüğün SAML SSO Confluence için tümleştirme öğrenin.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-104">In this tutorial, you learn how to integrate SAML SSO for Confluence by resolution GmbH with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="b20cb-104">Bu öğreticide, bilgi nasıl toointegrate SAML SSO Confluence için Azure Active Directory (Azure AD) ile GmbH çözünürlüğün.</span><span class="sxs-lookup"><span data-stu-id="b20cb-104">In this tutorial, you learn how toointegrate SAML SSO for Confluence by resolution GmbH with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="5a0c9-105">Azure AD ile GmbH çözünürlüğün SAML SSO Confluence için tümleştirme ile aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-105">Integrating SAML SSO for Confluence by resolution GmbH with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="b20cb-105">Azure AD ile GmbH çözünürlüğün SAML SSO Confluence için tümleştirme ile Merhaba aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="b20cb-105">Integrating SAML SSO for Confluence by resolution GmbH with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="5a0c9-106">SAML SSO Confluence için GmbH çözünürlüğün erişimi, Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="5a0c9-106">You can control in Azure AD who has access to SAML SSO for Confluence by resolution GmbH</span></span>
-- <span data-ttu-id="5a0c9-107">Otomatik olarak Confluence için SAML SSO için Azure AD hesaplarına sahip (çoklu oturum açma) GmbH çözünürlüğün açan kullanıcılarınıza etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="5a0c9-107">You can enable your users to automatically get signed-on to SAML SSO for Confluence by resolution GmbH (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="5a0c9-108">Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="5a0c9-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="b20cb-106">Çözümleme GmbH tarafından erişim tooSAML SSO Confluence için olan Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="b20cb-106">You can control in Azure AD who has access tooSAML SSO for Confluence by resolution GmbH</span></span>
+- <span data-ttu-id="b20cb-107">Kullanıcıların tooautomatically get açan tooSAML Confluence için SSO (çoklu oturum açma) GmbH çözünürlüğün Azure AD hesaplarına etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="b20cb-107">You can enable your users tooautomatically get signed-on tooSAML SSO for Confluence by resolution GmbH (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="b20cb-108">Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="b20cb-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="5a0c9-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="5a0c9-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="b20cb-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="b20cb-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="5a0c9-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="5a0c9-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="b20cb-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="b20cb-110">Prerequisites</span></span>
 
-<span data-ttu-id="5a0c9-111">Çözümleme GmbH tarafından Confluence için SAML SSO ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-111">To configure Azure AD integration with SAML SSO for Confluence by resolution GmbH, you need the following items:</span></span>
+<span data-ttu-id="b20cb-111">tooconfigure GmbH çözünürlüğün Confluence için SAML SSO ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="b20cb-111">tooconfigure Azure AD integration with SAML SSO for Confluence by resolution GmbH, you need hello following items:</span></span>
 
-- <span data-ttu-id="5a0c9-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="5a0c9-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="5a0c9-113">SAML SSO etkin abonelik GmbH çoklu oturum çözünürlüğün Confluence için</span><span class="sxs-lookup"><span data-stu-id="5a0c9-113">A SAML SSO for Confluence by resolution GmbH single-sign on enabled subscription</span></span>
+- <span data-ttu-id="b20cb-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="b20cb-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="b20cb-113">SAML SSO etkin abonelik GmbH çoklu oturum çözünürlüğün Confluence için</span><span class="sxs-lookup"><span data-stu-id="b20cb-113">A SAML SSO for Confluence by resolution GmbH single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="5a0c9-114">Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="b20cb-114">tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="b20cb-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="5a0c9-115">Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="b20cb-115">Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:</span><span class="sxs-lookup"><span data-stu-id="b20cb-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="5a0c9-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="5a0c9-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="5a0c9-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="b20cb-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="b20cb-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="b20cb-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="b20cb-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="5a0c9-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="5a0c9-118">Scenario description</span></span>
-<span data-ttu-id="5a0c9-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="5a0c9-120">Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="b20cb-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="b20cb-118">Scenario description</span></span>
+<span data-ttu-id="b20cb-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="b20cb-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="b20cb-120">Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="b20cb-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="5a0c9-121">SAML SSO Confluence için çözüm GmbH tarafından Galeriden ekleme</span><span class="sxs-lookup"><span data-stu-id="5a0c9-121">Adding SAML SSO for Confluence by resolution GmbH from the gallery</span></span>
-2. <span data-ttu-id="5a0c9-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="5a0c9-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="b20cb-121">SAML SSO Confluence için çözüm GmbH tarafından hello Galerisi'nden ekleme</span><span class="sxs-lookup"><span data-stu-id="b20cb-121">Adding SAML SSO for Confluence by resolution GmbH from hello gallery</span></span>
+2. <span data-ttu-id="b20cb-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="b20cb-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-saml-sso-for-confluence-by-resolution-gmbh-from-the-gallery"></a><span data-ttu-id="5a0c9-123">SAML SSO Confluence için çözüm GmbH tarafından Galeriden ekleme</span><span class="sxs-lookup"><span data-stu-id="5a0c9-123">Adding SAML SSO for Confluence by resolution GmbH from the gallery</span></span>
+## <a name="adding-saml-sso-for-confluence-by-resolution-gmbh-from-hello-gallery"></a><span data-ttu-id="b20cb-123">SAML SSO Confluence için çözüm GmbH tarafından hello Galerisi'nden ekleme</span><span class="sxs-lookup"><span data-stu-id="b20cb-123">Adding SAML SSO for Confluence by resolution GmbH from hello gallery</span></span>
 
-<span data-ttu-id="5a0c9-124">SAML SSO Confluence için Azure AD'ye tümleştirme GmbH çözünürlüğün yapılandırmak için SAML SSO Confluence için çözüm GmbH tarafından Galeriden yönetilen SaaS uygulamaları listenize eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-124">To configure the integration of SAML SSO for Confluence by resolution GmbH into Azure AD, you need to add SAML SSO for Confluence by resolution GmbH from the gallery to your list of managed SaaS apps.</span></span>
+<span data-ttu-id="b20cb-124">tooconfigure hello tümleştirilmesi Confluence için SAML SSO GmbH çözünürlüğün Azure AD'ye, tooadd SAML SSO için Confluence hello galeri tooyour yönetilen SaaS uygulamaları listesinden GmbH çözünürlüğün gerekir.</span><span class="sxs-lookup"><span data-stu-id="b20cb-124">tooconfigure hello integration of SAML SSO for Confluence by resolution GmbH into Azure AD, you need tooadd SAML SSO for Confluence by resolution GmbH from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="5a0c9-125">**SAML SSO Confluence için çözüm GmbH tarafından Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="5a0c9-125">**To add SAML SSO for Confluence by resolution GmbH from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="b20cb-125">**tooadd Confluence için SAML SSO hello galerisinden GmbH çözünürlüğün hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b20cb-125">**tooadd SAML SSO for Confluence by resolution GmbH from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="5a0c9-126">İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="b20cb-126">Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="5a0c9-128">Gidin **kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="5a0c9-129">Ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="b20cb-128">Çok gidin**kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="b20cb-129">Çok Git**tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-129">Then go too**All applications**.</span></span>
 
     ![Uygulamalar][2]
     
-3. <span data-ttu-id="5a0c9-131">Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="b20cb-131">tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Uygulamalar][3]
 
-4. <span data-ttu-id="5a0c9-133">Arama kutusuna **SAML SSO GmbH çözünürlüğün Confluence için**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-133">In the search box, type **SAML SSO for Confluence by resolution GmbH**.</span></span>
+4. <span data-ttu-id="b20cb-133">Merhaba arama kutusuna yazın **SAML SSO GmbH çözünürlüğün Confluence için**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-133">In hello search box, type **SAML SSO for Confluence by resolution GmbH**.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_search.png)
 
-5. <span data-ttu-id="5a0c9-135">Sonuçlar panelinde seçin **SAML SSO GmbH çözünürlüğün Confluence için**ve ardından **Ekle** uygulama eklemek için düğmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-135">In the results panel, select **SAML SSO for Confluence by resolution GmbH**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="b20cb-135">Merhaba Sonuçlar panelinde seçin **SAML SSO GmbH çözünürlüğün Confluence için**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.</span><span class="sxs-lookup"><span data-stu-id="b20cb-135">In hello results panel, select **SAML SSO for Confluence by resolution GmbH**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="5a0c9-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="5a0c9-137">Configuring and testing Azure AD single sign-on</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="b20cb-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="b20cb-137">Configuring and testing Azure AD single sign-on</span></span>
 
-<span data-ttu-id="5a0c9-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Confluence için SAML SSO GmbH "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı çözünürlüğün test etme</span><span class="sxs-lookup"><span data-stu-id="5a0c9-138">In this section, you configure and test Azure AD single sign-on with SAML SSO for Confluence by resolution GmbH based on a test user called "Britta Simon."</span></span>
+<span data-ttu-id="b20cb-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Confluence için SAML SSO GmbH "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı çözünürlüğün test etme</span><span class="sxs-lookup"><span data-stu-id="b20cb-138">In this section, you configure and test Azure AD single sign-on with SAML SSO for Confluence by resolution GmbH based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="5a0c9-139">Tekli çalışmaya oturum için Azure AD ne karşılık gelen kullanıcı Confluence için SAML SSO tarafından çözümleme GmbH Azure AD'de bir kullanıcı için olduğunu bilmek ister.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-139">For single sign-on to work, Azure AD needs to know what the counterpart user in SAML SSO for Confluence by resolution GmbH is to a user in Azure AD.</span></span> <span data-ttu-id="5a0c9-140">Diğer bir deyişle, bir Azure AD kullanıcısının SAML SSO Confluence için ilgili kullanıcı çözünürlüğün arasında bir bağlantı ilişkisi GmbH kurulması gerekir.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-140">In other words, a link relationship between an Azure AD user and the related user in SAML SSO for Confluence by resolution GmbH needs to be established.</span></span>
+<span data-ttu-id="b20cb-139">Tek toowork'ın oturum açma Azure AD hangi hello karşılık gelen kullanıcı SAML SSO Confluence için Azure AD içinde GmbH tooa kullanıcıdır çözünürlüğün tooknow gerekir.</span><span class="sxs-lookup"><span data-stu-id="b20cb-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in SAML SSO for Confluence by resolution GmbH is tooa user in Azure AD.</span></span> <span data-ttu-id="b20cb-140">Diğer bir deyişle, bir Azure AD kullanıcısının ve hello çözünürlüğün SAML SSO Confluence için ilgili kullanıcı arasında bir bağlantı ilişkisi GmbH kurulan toobe gerekir.</span><span class="sxs-lookup"><span data-stu-id="b20cb-140">In other words, a link relationship between an Azure AD user and hello related user in SAML SSO for Confluence by resolution GmbH needs toobe established.</span></span>
 
-<span data-ttu-id="5a0c9-141">Değeri GmbH çözünürlüğün Confluence için SAML SSO içinde atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-141">In SAML SSO for Confluence by resolution GmbH, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="b20cb-141">Merhaba hello değeri GmbH çözünürlüğün Confluence için SAML SSO içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-141">In SAML SSO for Confluence by resolution GmbH, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="5a0c9-142">Yapılandırmak ve Azure AD çoklu oturum açma Confluence için SAML SSO GmbH çözünürlüğün sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-142">To configure and test Azure AD single sign-on with SAML SSO for Confluence by resolution GmbH, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="b20cb-142">tooconfigure ve Azure AD çoklu oturum açma ile test SAML SSO Confluence için GmbH çözünürlüğün, yapı taşları aşağıdaki toocomplete hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="b20cb-142">tooconfigure and test Azure AD single sign-on with SAML SSO for Confluence by resolution GmbH, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="5a0c9-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="5a0c9-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="5a0c9-145">**[SAML SSO çözümleme GmbH test kullanıcı tarafından Confluence için oluşturma](#creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user)**  - Britta Simon, karşılık gelen SAML SSO Confluence için kullanıcı Azure AD gösterimini bağlı GmbH çözünürlüğün sağlamak için.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-145">**[Creating a SAML SSO for Confluence by resolution GmbH test user](#creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user)** - to have a counterpart of Britta Simon in SAML SSO for Confluence by resolution GmbH that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="5a0c9-146">**[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="5a0c9-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="b20cb-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.</span><span class="sxs-lookup"><span data-stu-id="b20cb-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="b20cb-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.</span><span class="sxs-lookup"><span data-stu-id="b20cb-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="b20cb-145">**[SAML SSO çözümleme GmbH test kullanıcı tarafından Confluence için oluşturma](#creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user)**  -toohave bir Britta Simon SAML SSO Confluence için karşılık gelen kullanıcı bağlantılı toohello Azure AD gösterimidir GmbH çözünürlüğün.</span><span class="sxs-lookup"><span data-stu-id="b20cb-145">**[Creating a SAML SSO for Confluence by resolution GmbH test user](#creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user)** - toohave a counterpart of Britta Simon in SAML SSO for Confluence by resolution GmbH that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="b20cb-146">**[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="b20cb-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="b20cb-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.</span><span class="sxs-lookup"><span data-stu-id="b20cb-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="5a0c9-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="5a0c9-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="b20cb-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="b20cb-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="5a0c9-149">Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, SAML SSO Confluence için çözüm GmbH uygulama tarafından yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your SAML SSO for Confluence by resolution GmbH application.</span></span>
+<span data-ttu-id="b20cb-149">Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma, SAML SSO Confluence için çözüm GmbH uygulama tarafından yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="b20cb-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your SAML SSO for Confluence by resolution GmbH application.</span></span>
 
-<span data-ttu-id="5a0c9-150">**Azure AD çoklu oturum açma Confluence için SAML SSO GmbH çözümleme tarafından yapılandırmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="5a0c9-150">**To configure Azure AD single sign-on with SAML SSO for Confluence by resolution GmbH, perform the following steps:**</span></span>
+<span data-ttu-id="b20cb-150">**Azure AD çoklu oturum açma GmbH, çözünürlüğün tooconfigure Confluence için SAML SSO hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b20cb-150">**tooconfigure Azure AD single sign-on with SAML SSO for Confluence by resolution GmbH, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="5a0c9-151">Azure portalında üzerinde **SAML SSO GmbH çözünürlüğün Confluence için** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-151">In the Azure portal, on the **SAML SSO for Confluence by resolution GmbH** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="b20cb-151">Merhaba hello üzerinde Azure portal'ın **SAML SSO GmbH çözünürlüğün Confluence için** uygulama tümleştirme sayfası, tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-151">In hello Azure portal, on hello **SAML SSO for Confluence by resolution GmbH** application integration page, click **Single sign-on**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. <span data-ttu-id="5a0c9-153">Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="b20cb-153">Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="b20cb-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_samlbase.png)
 
-3. <span data-ttu-id="5a0c9-155">Üzerinde **Confluence GmbH etki alanı çözünürlüğün ve URL'ler için SAML SSO** uygulamada yapılandırmak istiyorsanız, bölüm **IDP** modu tarafından başlatılan:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-155">On the **SAML SSO for Confluence by resolution GmbH Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:</span></span>
+3. <span data-ttu-id="b20cb-155">Merhaba üzerinde **Confluence GmbH etki alanı çözünürlüğün ve URL'ler için SAML SSO** tooconfigure hello uygulamada isterseniz, bölümü **IDP** modunda başlatılan:</span><span class="sxs-lookup"><span data-stu-id="b20cb-155">On hello **SAML SSO for Confluence by resolution GmbH Domain and URLs** section, If you wish tooconfigure hello application in **IDP** initiated mode:</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_1.png)
 
-    <span data-ttu-id="5a0c9-157">a.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-157">a.</span></span> <span data-ttu-id="5a0c9-158">İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<server-base-url>/plugins/servlet/samlsso`</span><span class="sxs-lookup"><span data-stu-id="5a0c9-158">In the **Identifier** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`</span></span>
+    <span data-ttu-id="b20cb-157">a.</span><span class="sxs-lookup"><span data-stu-id="b20cb-157">a.</span></span> <span data-ttu-id="b20cb-158">Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<server-base-url>/plugins/servlet/samlsso`</span><span class="sxs-lookup"><span data-stu-id="b20cb-158">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<server-base-url>/plugins/servlet/samlsso`</span></span>
 
-    <span data-ttu-id="5a0c9-159">b.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-159">b.</span></span> <span data-ttu-id="5a0c9-160">İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<server-base-url>/plugins/servlet/samlsso`</span><span class="sxs-lookup"><span data-stu-id="5a0c9-160">In the **Reply URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`</span></span>
+    <span data-ttu-id="b20cb-159">b.</span><span class="sxs-lookup"><span data-stu-id="b20cb-159">b.</span></span> <span data-ttu-id="b20cb-160">Merhaba, **yanıt URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<server-base-url>/plugins/servlet/samlsso`</span><span class="sxs-lookup"><span data-stu-id="b20cb-160">In hello **Reply URL** textbox, type a URL using hello following pattern: `https://<server-base-url>/plugins/servlet/samlsso`</span></span>
 
-4. <span data-ttu-id="5a0c9-161">Denetleme **Göster Gelişmiş URL ayarları**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-161">Check **Show advanced URL settings**.</span></span> <span data-ttu-id="5a0c9-162">Uygulamada yapılandırmak istiyorsanız **SP** modu tarafından başlatılan:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-162">If you wish to configure the application in **SP** initiated mode:</span></span>
+4. <span data-ttu-id="b20cb-161">Denetleme **Göster Gelişmiş URL ayarları**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-161">Check **Show advanced URL settings**.</span></span> <span data-ttu-id="b20cb-162">Tooconfigure hello uygulamada istiyorsanız **SP** modu tarafından başlatılan:</span><span class="sxs-lookup"><span data-stu-id="b20cb-162">If you wish tooconfigure hello application in **SP** initiated mode:</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_2.png)
 
-    <span data-ttu-id="5a0c9-164">İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<server-base-url>/plugins/servlet/samlsso`</span><span class="sxs-lookup"><span data-stu-id="5a0c9-164">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/samlsso`</span></span>
+    <span data-ttu-id="b20cb-164">Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<server-base-url>/plugins/servlet/samlsso`</span><span class="sxs-lookup"><span data-stu-id="b20cb-164">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<server-base-url>/plugins/servlet/samlsso`</span></span>
      
     > [!NOTE] 
-    > <span data-ttu-id="5a0c9-165">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-165">These values are not real.</span></span> <span data-ttu-id="5a0c9-166">Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-166">Update these values with the actual Identifier, Reply URL, and Sign-On URL.</span></span> <span data-ttu-id="5a0c9-167">Kişi [SAML SSO GmbH istemci çözünürlüğün Confluence için destek ekibi](https://www.resolution.de/go/support) bu değerleri almak için.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-167">Contact [SAML SSO for Confluence by resolution GmbH Client support team](https://www.resolution.de/go/support) to get these values.</span></span> 
+    > <span data-ttu-id="b20cb-165">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="b20cb-165">These values are not real.</span></span> <span data-ttu-id="b20cb-166">Bu güncelleştirme tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile Merhaba gerçek değerler.</span><span class="sxs-lookup"><span data-stu-id="b20cb-166">Update these values with hello actual Identifier, Reply URL, and Sign-On URL.</span></span> <span data-ttu-id="b20cb-167">Kişi [SAML SSO GmbH istemci çözünürlüğün Confluence için destek ekibi](https://www.resolution.de/go/support) tooget bu değerleri.</span><span class="sxs-lookup"><span data-stu-id="b20cb-167">Contact [SAML SSO for Confluence by resolution GmbH Client support team](https://www.resolution.de/go/support) tooget these values.</span></span> 
 
-5. <span data-ttu-id="5a0c9-168">Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-168">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+5. <span data-ttu-id="b20cb-168">Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="b20cb-168">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_certificate.png) 
 
-6. <span data-ttu-id="5a0c9-170">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-170">Click **Save** button.</span></span>
+6. <span data-ttu-id="b20cb-170">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-170">Click **Save** button.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
-7. <span data-ttu-id="5a0c9-172">Farklı web tarayıcısı penceresinde oturum açın, **SAML SSO çözümleme GmbH Yönetici portalı tarafından Confluence için** yönetici olarak.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-172">In a different web browser window, log in to your **SAML SSO for Confluence by resolution GmbH admin portal** as an administrator.</span></span>
+7. <span data-ttu-id="b20cb-172">Farklı web tarayıcısı penceresinde tooyour içinde oturum **SAML SSO çözümleme GmbH Yönetici portalı tarafından Confluence için** yönetici olarak.</span><span class="sxs-lookup"><span data-stu-id="b20cb-172">In a different web browser window, log in tooyour **SAML SSO for Confluence by resolution GmbH admin portal** as an administrator.</span></span>
 
-8. <span data-ttu-id="5a0c9-173">Dişlisine üzerine gelin ve tıklatın **eklentileri**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-173">Hover on cog and click the **Add-ons**.</span></span>
+8. <span data-ttu-id="b20cb-173">Dişlisine üzerine gelin ve hello tıklatın **eklentileri**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-173">Hover on cog and click hello **Add-ons**.</span></span>
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon1.png)
 
-9. <span data-ttu-id="5a0c9-175">Yönetici erişimi sayfasına yönlendirilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-175">You are redirected to Administrator Access page.</span></span> <span data-ttu-id="5a0c9-176">Parolayı girin ve tıklayın **Onayla** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-176">Enter the password and click **Confirm** button.</span></span>
+9. <span data-ttu-id="b20cb-175">Yeniden yönlendirilen tooAdministrator erişim sayfası var.</span><span class="sxs-lookup"><span data-stu-id="b20cb-175">You are redirected tooAdministrator Access page.</span></span> <span data-ttu-id="b20cb-176">Merhaba parola girin ve tıklayın **Onayla** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-176">Enter hello password and click **Confirm** button.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon2.png)
 
-10. <span data-ttu-id="5a0c9-178">Altında **ATLASSIAN Market** sekmesini tıklatın, **Bul yeni eklentileri**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-178">Under **ATLASSIAN MARKETPLACE** tab, click **Find new add-ons**.</span></span> 
+10. <span data-ttu-id="b20cb-178">Altında **ATLASSIAN Market** sekmesini tıklatın, **Bul yeni eklentileri**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-178">Under **ATLASSIAN MARKETPLACE** tab, click **Find new add-ons**.</span></span> 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon.png)
 
-11. <span data-ttu-id="5a0c9-180">Arama **SAML çoklu oturum açma (SSO) Confluence için** tıklatıp **yükleme** yeni SAML eklentisini yüklemek için düğmeyi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-180">Search **SAML Single Sign On (SSO) for Confluence** and click **Install** button to install the new SAML plugin.</span></span>
+11. <span data-ttu-id="b20cb-180">Arama **SAML çoklu oturum açma (SSO) Confluence için** tıklatıp **yükleme** düğmesini tooinstall hello yeni SAML eklentisini.</span><span class="sxs-lookup"><span data-stu-id="b20cb-180">Search **SAML Single Sign On (SSO) for Confluence** and click **Install** button tooinstall hello new SAML plugin.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon7.png)
 
-12. <span data-ttu-id="5a0c9-182">Eklenti yükleme başlar.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-182">The plugin installation will start.</span></span> <span data-ttu-id="5a0c9-183">**Kapat**’a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-183">Click **Close**.</span></span>
+12. <span data-ttu-id="b20cb-182">Merhaba eklentisi yükleme başlar.</span><span class="sxs-lookup"><span data-stu-id="b20cb-182">hello plugin installation will start.</span></span> <span data-ttu-id="b20cb-183">**Kapat**’a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="b20cb-183">Click **Close**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon8.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13. <span data-ttu-id="5a0c9-186">**Yönet**'e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-186">Click **Manage**.</span></span>
+13. <span data-ttu-id="b20cb-186">**Yönet**'e tıklayın.</span><span class="sxs-lookup"><span data-stu-id="b20cb-186">Click **Manage**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
-14. <span data-ttu-id="5a0c9-188">Tıklatın **yapılandırma** yeni eklenti yapılandırmak için.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-188">Click **Configure** to configure the new plugin.</span></span>
+14. <span data-ttu-id="b20cb-188">Tıklatın **yapılandırma** tooconfigure hello yeni eklenti.</span><span class="sxs-lookup"><span data-stu-id="b20cb-188">Click **Configure** tooconfigure hello new plugin.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon11.png)
 
-15. <span data-ttu-id="5a0c9-190">Bu yeni eklenti ayrıca altında bulunabilir **kullanıcılar ve güvenlik** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-190">This new plugin can also be found under **USERS & SECURITY** tab.</span></span>
+15. <span data-ttu-id="b20cb-190">Bu yeni eklenti ayrıca altında bulunabilir **kullanıcılar ve güvenlik** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-190">This new plugin can also be found under **USERS & SECURITY** tab.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-16. <span data-ttu-id="5a0c9-192">Üzerinde **SAML SingleSignOn eklentisi yapılandırma** sayfasında, **ek kimlik sağlayıcısı ekleyin** düğmesi kimlik sağlayıcısı ayarlarını yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-192">On **SAML SingleSignOn Plugin Configuration** page, click **Add additional Identity Provider** button to configure the settings of Identity Provider.</span></span>
+16. <span data-ttu-id="b20cb-192">Üzerinde **SAML SingleSignOn eklentisi yapılandırma** sayfasında, **ek kimlik sağlayıcısı ekleyin** düğmesini tooconfigure hello ayarlarını kimlik sağlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="b20cb-192">On **SAML SingleSignOn Plugin Configuration** page, click **Add additional Identity Provider** button tooconfigure hello settings of Identity Provider.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-17. <span data-ttu-id="5a0c9-194">Bu sayfada şu adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-194">Perform following steps on this page:</span></span>
+17. <span data-ttu-id="b20cb-194">Bu sayfada şu adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="b20cb-194">Perform following steps on this page:</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
  
-    <span data-ttu-id="5a0c9-196">a.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-196">a.</span></span> <span data-ttu-id="5a0c9-197">Ekleme **adı** kimlik sağlayıcısı (örneğin Azure AD).</span><span class="sxs-lookup"><span data-stu-id="5a0c9-197">Add **Name** of the Identity Provider (e.g Azure AD).</span></span>
+    <span data-ttu-id="b20cb-196">a.</span><span class="sxs-lookup"><span data-stu-id="b20cb-196">a.</span></span> <span data-ttu-id="b20cb-197">Ekleme **adı** hello kimlik sağlayıcısı (örneğin Azure AD).</span><span class="sxs-lookup"><span data-stu-id="b20cb-197">Add **Name** of hello Identity Provider (e.g Azure AD).</span></span>
     
-    <span data-ttu-id="5a0c9-198">b.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-198">b.</span></span> <span data-ttu-id="5a0c9-199">Ekleme **açıklama** kimlik sağlayıcısı (örneğin Azure AD).</span><span class="sxs-lookup"><span data-stu-id="5a0c9-199">Add **Description** of the Identity Provider (e.g Azure AD).</span></span>
+    <span data-ttu-id="b20cb-198">b.</span><span class="sxs-lookup"><span data-stu-id="b20cb-198">b.</span></span> <span data-ttu-id="b20cb-199">Ekleme **açıklama** hello kimlik sağlayıcısı (örneğin Azure AD).</span><span class="sxs-lookup"><span data-stu-id="b20cb-199">Add **Description** of hello Identity Provider (e.g Azure AD).</span></span>
 
-    <span data-ttu-id="5a0c9-200">c.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-200">c.</span></span> <span data-ttu-id="5a0c9-201">Tıklatın **XML** seçip **meta veri** Azure Portalı'ndan indirilen dosya.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-201">Click **XML** and select the **Metadata** file that you have downloaded from Azure portal.</span></span>
+    <span data-ttu-id="b20cb-200">c.</span><span class="sxs-lookup"><span data-stu-id="b20cb-200">c.</span></span> <span data-ttu-id="b20cb-201">Tıklatın **XML** ve select hello **meta veri** Azure Portalı'ndan indirilen dosya.</span><span class="sxs-lookup"><span data-stu-id="b20cb-201">Click **XML** and select hello **Metadata** file that you have downloaded from Azure portal.</span></span>
 
-    <span data-ttu-id="5a0c9-202">d.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-202">d.</span></span> <span data-ttu-id="5a0c9-203">Tıklatın **yük** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-203">Click **Load** button.</span></span>
+    <span data-ttu-id="b20cb-202">d.</span><span class="sxs-lookup"><span data-stu-id="b20cb-202">d.</span></span> <span data-ttu-id="b20cb-203">Tıklatın **yük** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-203">Click **Load** button.</span></span>
 
-    <span data-ttu-id="5a0c9-204">e.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-204">e.</span></span> <span data-ttu-id="5a0c9-205">IDP meta verileri okur ve alanları ekran görüntüsünde vurgulanmış şekilde doldurur.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-205">It reads the IdP metadata and populates the fields as highlighted in the screenshot.</span></span> 
-18. <span data-ttu-id="5a0c9-206">' I tıklatın **ayarlarını kaydetmek** düğmesini tıklatarak ayarları kaydedin.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-206">Click **Save settings** button to save the settings.</span></span>
+    <span data-ttu-id="b20cb-204">e.</span><span class="sxs-lookup"><span data-stu-id="b20cb-204">e.</span></span> <span data-ttu-id="b20cb-205">Merhaba IDP meta verileri okur ve hello alanlar hello ekran vurgulu olarak doldurur.</span><span class="sxs-lookup"><span data-stu-id="b20cb-205">It reads hello IdP metadata and populates hello fields as highlighted in hello screenshot.</span></span>   
+18. <span data-ttu-id="b20cb-206">Tıklatın **Ayarları Kaydet** düğmesini toosave hello ayarları.</span><span class="sxs-lookup"><span data-stu-id="b20cb-206">Click **Save settings** button toosave hello settings.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
 
 > [!TIP]
-> <span data-ttu-id="5a0c9-208">Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="5a0c9-208">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="5a0c9-209">Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-209">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="5a0c9-210">Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="5a0c9-210">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="b20cb-208">Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="b20cb-208">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="b20cb-209">Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına.</span><span class="sxs-lookup"><span data-stu-id="b20cb-209">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="b20cb-210">Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="b20cb-210">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="5a0c9-211">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="5a0c9-211">Creating an Azure AD test user</span></span>
-<span data-ttu-id="5a0c9-212">Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-212">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="b20cb-211">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="b20cb-211">Creating an Azure AD test user</span></span>
+<span data-ttu-id="b20cb-212">Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.</span><span class="sxs-lookup"><span data-stu-id="b20cb-212">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-<span data-ttu-id="5a0c9-214">**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="5a0c9-214">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="b20cb-214">**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b20cb-214">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="5a0c9-215">İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-215">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="b20cb-215">Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-215">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="5a0c9-217">Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-217">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="b20cb-217">Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-217">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="5a0c9-219">Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-219">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="b20cb-219">tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.</span><span class="sxs-lookup"><span data-stu-id="b20cb-219">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="5a0c9-221">Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-221">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="b20cb-221">Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="b20cb-221">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-samlssoconfluence-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="5a0c9-223">a.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-223">a.</span></span> <span data-ttu-id="5a0c9-224">İçinde **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-224">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="b20cb-223">a.</span><span class="sxs-lookup"><span data-stu-id="b20cb-223">a.</span></span> <span data-ttu-id="b20cb-224">Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-224">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="5a0c9-225">b.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-225">b.</span></span> <span data-ttu-id="5a0c9-226">İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-226">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="b20cb-225">b.</span><span class="sxs-lookup"><span data-stu-id="b20cb-225">b.</span></span> <span data-ttu-id="b20cb-226">Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="b20cb-226">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="5a0c9-227">c.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-227">c.</span></span> <span data-ttu-id="5a0c9-228">Seçin **Göster parola** ve değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-228">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="b20cb-227">c.</span><span class="sxs-lookup"><span data-stu-id="b20cb-227">c.</span></span> <span data-ttu-id="b20cb-228">Seçin **Göster parola** ve hello hello değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-228">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="5a0c9-229">d.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-229">d.</span></span> <span data-ttu-id="5a0c9-230">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-230">Click **Create**.</span></span>
+    <span data-ttu-id="b20cb-229">d.</span><span class="sxs-lookup"><span data-stu-id="b20cb-229">d.</span></span> <span data-ttu-id="b20cb-230">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="b20cb-230">Click **Create**.</span></span>
  
-### <a name="creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user"></a><span data-ttu-id="5a0c9-231">SAML SSO çözümleme GmbH test kullanıcı tarafından Confluence için oluşturma</span><span class="sxs-lookup"><span data-stu-id="5a0c9-231">Creating a SAML SSO for Confluence by resolution GmbH test user</span></span>
+### <a name="creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user"></a><span data-ttu-id="b20cb-231">SAML SSO çözümleme GmbH test kullanıcı tarafından Confluence için oluşturma</span><span class="sxs-lookup"><span data-stu-id="b20cb-231">Creating a SAML SSO for Confluence by resolution GmbH test user</span></span>
 
-<span data-ttu-id="5a0c9-232">SAML SSO Confluence için çözüm GmbH tarafından oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar Confluence için SAML SSO içine GmbH çözümleme tarafından sağlanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-232">To enable Azure AD users to log in to SAML SSO for Confluence by resolution GmbH, they must be provisioned into SAML SSO for Confluence by resolution GmbH.</span></span>  
-<span data-ttu-id="5a0c9-233">Confluence GmbH çözünürlüğün için SAML SSO içinde sağlama bir el ile bir görevdir.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-233">In SAML SSO for Confluence by resolution GmbH, provisioning is a manual task.</span></span>
+<span data-ttu-id="b20cb-232">tooenable Azure AD kullanıcıların toolog Confluence için SSO GmbH çözünürlüğün tooSAML bunlar Confluence için SAML SSO içine GmbH çözümleme tarafından sağlanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="b20cb-232">tooenable Azure AD users toolog in tooSAML SSO for Confluence by resolution GmbH, they must be provisioned into SAML SSO for Confluence by resolution GmbH.</span></span>  
+<span data-ttu-id="b20cb-233">Confluence GmbH çözünürlüğün için SAML SSO içinde sağlama bir el ile bir görevdir.</span><span class="sxs-lookup"><span data-stu-id="b20cb-233">In SAML SSO for Confluence by resolution GmbH, provisioning is a manual task.</span></span>
 
-<span data-ttu-id="5a0c9-234">**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="5a0c9-234">**To provision a user account, perform the following steps:**</span></span>
+<span data-ttu-id="b20cb-234">**bir kullanıcı hesabı tooprovision hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b20cb-234">**tooprovision a user account, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="5a0c9-235">SAML SSO çözümleme GmbH şirket site tarafından Confluence için yönetici olarak oturum açın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-235">Log in to your SAML SSO for Confluence by resolution GmbH company site as an administrator.</span></span>
+1. <span data-ttu-id="b20cb-235">İçinde tooyour SAML SSO çözümleme GmbH şirket site tarafından Confluence için yönetici olarak oturum açın.</span><span class="sxs-lookup"><span data-stu-id="b20cb-235">Log in tooyour SAML SSO for Confluence by resolution GmbH company site as an administrator.</span></span>
 
-2. <span data-ttu-id="5a0c9-236">Dişlisine üzerine gelin ve tıklatın **kullanıcı yönetimi**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-236">Hover on cog and click the **User management**.</span></span>
+2. <span data-ttu-id="b20cb-236">Dişlisine üzerine gelin ve hello tıklatın **kullanıcı yönetimi**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-236">Hover on cog and click hello **User management**.</span></span>
 
     ![Çalışanı ekleyin](./media/active-directory-saas-samlssoconfluence-tutorial/user1.png) 
 
-3. <span data-ttu-id="5a0c9-238">Kullanıcılar bölümü altında tıklatın **kullanıcıları eklemek** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-238">Under Users section, click **Add users** tab.</span></span> <span data-ttu-id="5a0c9-239">Üzerinde **"Bir kullanıcı Ekle"** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="5a0c9-239">On the **“Add a User”** dialog page, perform the following steps:</span></span>
+3. <span data-ttu-id="b20cb-238">Kullanıcılar bölümü altında tıklatın **kullanıcıları eklemek** sekmesi. Merhaba üzerinde **"Bir kullanıcı Ekle"** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="b20cb-238">Under Users section, click **Add users** tab. On hello **“Add a User”** dialog page, perform hello following steps:</span></span>
 
     ![Çalışanı ekleyin](./media/active-directory-saas-samlssoconfluence-tutorial/user2.png) 
 
-    <span data-ttu-id="5a0c9-241">a.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-241">a.</span></span> <span data-ttu-id="5a0c9-242">İçinde **kullanıcıadı** metin kutusu, kullanıcı Britta Simon gibi e-posta yazın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-242">In the **Username** textbox, type the email of user like Britta Simon.</span></span>
+    <span data-ttu-id="b20cb-240">a.</span><span class="sxs-lookup"><span data-stu-id="b20cb-240">a.</span></span> <span data-ttu-id="b20cb-241">Merhaba, **kullanıcıadı** metin kutusuna, kullanıcının Britta Simon gibi türü hello e-posta.</span><span class="sxs-lookup"><span data-stu-id="b20cb-241">In hello **Username** textbox, type hello email of user like Britta Simon.</span></span>
 
-    <span data-ttu-id="5a0c9-243">b.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-243">b.</span></span> <span data-ttu-id="5a0c9-244">İçinde **tam adı** metin kutusuna, Britta Simon gibi kullanıcının tam adını yazın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-244">In the **Full Name** textbox, type the full name of user like Britta Simon.</span></span>
+    <span data-ttu-id="b20cb-242">b.</span><span class="sxs-lookup"><span data-stu-id="b20cb-242">b.</span></span> <span data-ttu-id="b20cb-243">Merhaba, **tam adı** metin kutusuna, türü hello kullanıcının tam adını Britta Simon gibi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-243">In hello **Full Name** textbox, type hello full name of user like Britta Simon.</span></span>
 
-    <span data-ttu-id="5a0c9-245">c.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-245">c.</span></span> <span data-ttu-id="5a0c9-246">İçinde **e-posta** metin kutusuna, kullanıcının e-posta adresi türü ister Brittasimon@contoso.com.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-246">In the **Email** textbox, type the email address of user like Brittasimon@contoso.com.</span></span>
+    <span data-ttu-id="b20cb-244">c.</span><span class="sxs-lookup"><span data-stu-id="b20cb-244">c.</span></span> <span data-ttu-id="b20cb-245">Merhaba, **e-posta** türü hello kullanıcının e-posta adresi metin kutusuna, ister Brittasimon@contoso.com.</span><span class="sxs-lookup"><span data-stu-id="b20cb-245">In hello **Email** textbox, type hello email address of user like Brittasimon@contoso.com.</span></span>
 
-    <span data-ttu-id="5a0c9-247">d.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-247">d.</span></span> <span data-ttu-id="5a0c9-248">İçinde **parola** metin kutusuna, Britta Simon için parolayı yazın.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-248">In the **Password** textbox, type the password for Britta Simon.</span></span>
+    <span data-ttu-id="b20cb-246">d.</span><span class="sxs-lookup"><span data-stu-id="b20cb-246">d.</span></span> <span data-ttu-id="b20cb-247">Merhaba, **parola** metin kutusuna, Britta Simon hello parolayı girin.</span><span class="sxs-lookup"><span data-stu-id="b20cb-247">In hello **Password** textbox, type hello password for Britta Simon.</span></span>
 
-    <span data-ttu-id="5a0c9-249">e.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-249">e.</span></span> <span data-ttu-id="5a0c9-250">Tıklatın **parolayı onayla** parolayı yeniden girin.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-250">Click **Confirm Password** reenter the password.</span></span>
+    <span data-ttu-id="b20cb-248">e.</span><span class="sxs-lookup"><span data-stu-id="b20cb-248">e.</span></span> <span data-ttu-id="b20cb-249">Tıklatın **parolayı onayla** hello parolayı yeniden girin.</span><span class="sxs-lookup"><span data-stu-id="b20cb-249">Click **Confirm Password** reenter hello password.</span></span>
     
-    <span data-ttu-id="5a0c9-251">f.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-251">f.</span></span> <span data-ttu-id="5a0c9-252">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-252">Click **Add** button.</span></span>    
+    <span data-ttu-id="b20cb-250">f.</span><span class="sxs-lookup"><span data-stu-id="b20cb-250">f.</span></span> <span data-ttu-id="b20cb-251">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-251">Click **Add** button.</span></span>    
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="5a0c9-253">Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="5a0c9-253">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="b20cb-252">Hello Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="b20cb-252">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="5a0c9-254">Bu bölümde, çözüm GmbH tarafından Confluence için SAML SSO için erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-254">In this section, you enable Britta Simon to use Azure single sign-on by granting access to SAML SSO for Confluence by resolution GmbH.</span></span>
+<span data-ttu-id="b20cb-253">Bu bölümde, çözüm GmbH tarafından erişim tooSAML Confluence için SSO vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="b20cb-253">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooSAML SSO for Confluence by resolution GmbH.</span></span>
 
 ![Kullanıcı atama][200] 
 
-<span data-ttu-id="5a0c9-256">**Çözümleme GmbH tarafından Confluence için SAML SSO Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="5a0c9-256">**To assign Britta Simon to SAML SSO for Confluence by resolution GmbH, perform the following steps:**</span></span>
+<span data-ttu-id="b20cb-255">**tooassign GmbH, çözünürlüğün Britta Simon tooSAML Confluence için SSO hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b20cb-255">**tooassign Britta Simon tooSAML SSO for Confluence by resolution GmbH, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="5a0c9-257">Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-257">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="b20cb-256">Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-256">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Kullanıcı atama][201] 
 
-2. <span data-ttu-id="5a0c9-259">Uygulamalar listesinde **SAML SSO GmbH çözünürlüğün Confluence için**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-259">In the applications list, select **SAML SSO for Confluence by resolution GmbH**.</span></span>
+2. <span data-ttu-id="b20cb-258">Merhaba uygulamalar listesinde **SAML SSO GmbH çözünürlüğün Confluence için**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-258">In hello applications list, select **SAML SSO for Confluence by resolution GmbH**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_samlssoconfluence_app.png) 
 
-3. <span data-ttu-id="5a0c9-261">Soldaki menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-261">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="b20cb-260">Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="b20cb-260">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Kullanıcı atama][202] 
 
-4. <span data-ttu-id="5a0c9-263">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-263">Click **Add** button.</span></span> <span data-ttu-id="5a0c9-264">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-264">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="b20cb-262">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b20cb-262">Click **Add** button.</span></span> <span data-ttu-id="b20cb-263">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="b20cb-263">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Kullanıcı atama][203]
 
-5. <span data-ttu-id="5a0c9-266">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-266">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="b20cb-265">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="b20cb-265">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="5a0c9-267">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-267">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="b20cb-266">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="b20cb-266">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="5a0c9-268">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-268">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="b20cb-267">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="b20cb-267">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="5a0c9-269">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="5a0c9-269">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="b20cb-268">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="b20cb-268">Testing single sign-on</span></span>
 
-<span data-ttu-id="5a0c9-270">Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-270">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="b20cb-269">Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="b20cb-269">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="5a0c9-271">Çözümleme GmbH kutucuğu erişim Paneli'nde tarafından Confluence SAML SSO tıklattığınızda, otomatik olarak Confluence, SAML SSO için çözümleme GmbH uygulama tarafından açan.</span><span class="sxs-lookup"><span data-stu-id="5a0c9-271">When you click the SAML SSO for Confluence by resolution GmbH tile in the Access Panel, you should get automatically signed-on to your SAML SSO for Confluence by resolution GmbH application.</span></span>
-<span data-ttu-id="5a0c9-272">Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="5a0c9-272">For more information about the Access Panel, see [introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="b20cb-270">Merhaba SAML SSO Confluence için çözüm GmbH hello erişim paneli parçasında tarafından tıkladığınızda, çözümleme GmbH uygulama tarafından Confluence için otomatik olarak oturum açma SAML SSO tooyour almanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="b20cb-270">When you click hello SAML SSO for Confluence by resolution GmbH tile in hello Access Panel, you should get automatically signed-on tooyour SAML SSO for Confluence by resolution GmbH application.</span></span>
+<span data-ttu-id="b20cb-271">Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="b20cb-271">For more information about the Access Panel, see [introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="5a0c9-273">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="5a0c9-273">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="b20cb-272">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="b20cb-272">Additional resources</span></span>
 
-* [<span data-ttu-id="5a0c9-274">Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi</span><span class="sxs-lookup"><span data-stu-id="5a0c9-274">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="5a0c9-275">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="5a0c9-275">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="b20cb-273">İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları</span><span class="sxs-lookup"><span data-stu-id="b20cb-273">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="b20cb-274">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="b20cb-274">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

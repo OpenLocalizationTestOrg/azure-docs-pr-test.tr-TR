@@ -1,0 +1,160 @@
+---
+title: "aaaSync verileri (Önizleme) | Microsoft Docs"
+description: "Azure SQL veri eşitleme (Önizleme) bu genel bakış sunar."
+services: sql-database
+documentationcenter: 
+author: douglaslms
+manager: craigg
+editor: 
+ms.assetid: 
+ms.service: sql-database
+ms.custom: load & move data
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/27/2017
+ms.author: douglasl
+ms.openlocfilehash: d5b2bbd6a502ba94dba7fb309a6583d2d95cc1d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a><span data-ttu-id="b654d-103">SQL veri eşitleme ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri</span><span class="sxs-lookup"><span data-stu-id="b654d-103">Sync data across multiple cloud and on-premises databases with SQL Data Sync</span></span>
+
+<span data-ttu-id="b654d-104">SQL veri eşitleme hello veri birden çok SQL veritabanları ve SQL Server örnekleri arasında çift yönlü Seç eşitlemenize olanak sağlayan Azure SQL veritabanı üzerine kurulu bir hizmettir.</span><span class="sxs-lookup"><span data-stu-id="b654d-104">SQL Data Sync is a service built on Azure SQL Database that lets you synchronize hello data you select bi-directionally across multiple SQL databases and SQL Server instances.</span></span>
+
+<span data-ttu-id="b654d-105">Veri Eşitleme eşitleme grubu hello kavramı temel alır.</span><span class="sxs-lookup"><span data-stu-id="b654d-105">Data Sync is based around hello concept of a Sync Group.</span></span> <span data-ttu-id="b654d-106">Bir eşitleme grubu toosynchronize istediğiniz veritabanlarının bir gruptur.</span><span class="sxs-lookup"><span data-stu-id="b654d-106">A Sync Group is a group of databases that you want toosynchronize.</span></span>
+
+<span data-ttu-id="b654d-107">Eşitleme grubu hello aşağıdaki özelliklere sahiptir:</span><span class="sxs-lookup"><span data-stu-id="b654d-107">A Sync Group has hello following properties:</span></span>
+
+-   <span data-ttu-id="b654d-108">Merhaba **eşitleme şema** hangi verilerin eşitleneceğini açıklar.</span><span class="sxs-lookup"><span data-stu-id="b654d-108">hello **Sync Schema** describes which data is being synchronized.</span></span>
+
+-   <span data-ttu-id="b654d-109">Merhaba **eşitleme yönü** çift yönlü olabilir veya yalnızca bir yöne akabilir.</span><span class="sxs-lookup"><span data-stu-id="b654d-109">hello **Sync Direction** can be bi-directional or can flow in only one direction.</span></span> <span data-ttu-id="b654d-110">Diğer bir deyişle, eşitleme yönü olabilir hello *Hub tooMember* veya *üye tooHub*, veya her ikisini de.</span><span class="sxs-lookup"><span data-stu-id="b654d-110">That is, hello Sync Direction can be *Hub tooMember* or *Member tooHub*, or both.</span></span>
+
+-   <span data-ttu-id="b654d-111">Merhaba **eşitleme aralığı** ne sıklıkla eşitleme gerçekleşir.</span><span class="sxs-lookup"><span data-stu-id="b654d-111">hello **Sync Interval** is how often synchronization occurs.</span></span>
+
+-   <span data-ttu-id="b654d-112">Merhaba **çakışma çözüm İlkesi** olabilir bir grubu düzeyi ilkesi *Hub WINS* veya *üye WINS*.</span><span class="sxs-lookup"><span data-stu-id="b654d-112">hello **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.</span></span>
+
+<span data-ttu-id="b654d-113">Veri Eşitleme bir hub ve bağlı bileşen topolojisi toosynchronize verileri kullanır.</span><span class="sxs-lookup"><span data-stu-id="b654d-113">Data Sync uses a hub and spoke topology toosynchronize data.</span></span> <span data-ttu-id="b654d-114">Merhaba veritabanlarından birini hello grubunda hello Hub veritabanı tanımlarsınız.</span><span class="sxs-lookup"><span data-stu-id="b654d-114">You define one of hello databases in hello group as hello Hub Database.</span></span> <span data-ttu-id="b654d-115">üye veritabanları Hello rest hello veritabanlarının var.</span><span class="sxs-lookup"><span data-stu-id="b654d-115">hello rest of hello databases are member databases.</span></span> <span data-ttu-id="b654d-116">Eşitleme yalnızca hello Hub ve tek tek üyeleri arasında oluşur.</span><span class="sxs-lookup"><span data-stu-id="b654d-116">Sync occurs only between hello Hub and individual members.</span></span>
+-   <span data-ttu-id="b654d-117">Merhaba **Hub veritabanı** bir Azure SQL veritabanı olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="b654d-117">hello **Hub Database** must be an Azure SQL Database.</span></span>
+-   <span data-ttu-id="b654d-118">Merhaba **üye veritabanları** SQL veritabanları, şirket içi SQL Server veritabanları veya Azure virtual machines'de SQL Server örnekleri olabilir.</span><span class="sxs-lookup"><span data-stu-id="b654d-118">hello **member databases** can be either SQL Databases, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.</span></span>
+-   <span data-ttu-id="b654d-119">Merhaba **eşitleme veritabanı** veri eşitleme. hello eşitleme veritabanı toobe hello bulunan bir Azure SQL veritabanına sahip hello meta veri ve günlük içermektedir hello Hub veritabanı ile aynı bölgeye.</span><span class="sxs-lookup"><span data-stu-id="b654d-119">hello **Sync Database** contains hello metadata and log for Data Sync. hello Sync Database has toobe an Azure SQL Database located in hello same region as hello Hub Database.</span></span> <span data-ttu-id="b654d-120">Merhaba eşitleme veritabanı müşteri oluşturuldu ve müşteri ait olur.</span><span class="sxs-lookup"><span data-stu-id="b654d-120">hello Sync Database is customer created and customer owned.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="b654d-121">Üzerinde bir şirket içi veritabanı kullanıyorsanız, çok sahip[bir yerel Aracısı yapılandırın.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)</span><span class="sxs-lookup"><span data-stu-id="b654d-121">If you're using an on premises database, you have too[configure a local agent.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)</span></span>
+
+![Veritabanları arasında eşitleme verileri](media/sql-database-sync-data/sync-data-overview.png)
+
+## <a name="when-toouse-data-sync"></a><span data-ttu-id="b654d-123">Toouse veri eşitleme yaparken</span><span class="sxs-lookup"><span data-stu-id="b654d-123">When toouse Data Sync</span></span>
+
+<span data-ttu-id="b654d-124">Veri eşitleme veri birkaç Azure SQL veritabanlarını veya SQL Server veritabanları arasında toodate tutulan toobe gereken durumlarda yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="b654d-124">Data Sync is useful in cases where data needs toobe kept up toodate across several Azure SQL Databases or SQL Server databases.</span></span> <span data-ttu-id="b654d-125">Veri eşitlemesi için hello ana kullanım örnekleri şunlardır:</span><span class="sxs-lookup"><span data-stu-id="b654d-125">Here are hello main use cases for Data Sync:</span></span>
+
+-   <span data-ttu-id="b654d-126">**Karma veri eşitleme:** veri eşitleme ile şirket içi veritabanları ve Azure SQL veritabanlarını tooenable karma uygulamalar arasında eşitlenen verileri tutabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b654d-126">**Hybrid Data Synchronization:** With Data Sync, you can keep data synchronized between your on-premises databases and Azure SQL Databases tooenable hybrid applications.</span></span> <span data-ttu-id="b654d-127">Bu özellik taşıma toohello bulut dikkate ve tooput istediğiniz toocustomers itiraz etmek bazı Azure uygulamalarında.</span><span class="sxs-lookup"><span data-stu-id="b654d-127">This capability may appeal toocustomers who are considering moving toohello cloud and would like tooput some of their application in Azure.</span></span>
+
+-   <span data-ttu-id="b654d-128">**Dağıtılmış uygulamalar:** çoğu durumda, yararlı tooseparate farklı iş yükleri farklı veritabanları arasında değil.</span><span class="sxs-lookup"><span data-stu-id="b654d-128">**Distributed Applications:** In many cases, it's beneficial tooseparate different workloads across different databases.</span></span> <span data-ttu-id="b654d-129">Örneğin, bir üretim veritabanınız var ancak raporlama toorun ya da bu veriler üzerinde analiz iş yükü de gerekir, bu yararlı toohave bu ek iş yükü için ikinci bir veritabanı olur.</span><span class="sxs-lookup"><span data-stu-id="b654d-129">For example, if you have a large production database, but you also need toorun a reporting or analytics workload on this data, it's helpful toohave a second database for this additional workload.</span></span> <span data-ttu-id="b654d-130">Bu yaklaşım, üretim iş yükünü hello performans etkisini en aza indirir.</span><span class="sxs-lookup"><span data-stu-id="b654d-130">This approach minimizes hello performance impact on your production workload.</span></span> <span data-ttu-id="b654d-131">Bu iki veritabanı eşitlenmiş veri eşitleme tookeep kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b654d-131">You can use Data Sync tookeep these two databases synchronized.</span></span>
+
+-   <span data-ttu-id="b654d-132">**Genel olarak dağıtılmış uygulamalar:** birçok işletme birkaç bölgeler ve hatta bazı ülkelerde span.</span><span class="sxs-lookup"><span data-stu-id="b654d-132">**Globally Distributed Applications:** Many businesses span several regions and even several countries.</span></span> <span data-ttu-id="b654d-133">toominimize ağ gecikmesi, verilerinizi bir bölgede kapatmak iyi toohave olan tooyou.</span><span class="sxs-lookup"><span data-stu-id="b654d-133">toominimize network latency, it's best toohave your data in a region close tooyou.</span></span> <span data-ttu-id="b654d-134">Veri Eşitleme ile eşitlenen Merhaba Dünya bölgelerdeki veritabanlarını kolayca tutabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b654d-134">With Data Sync, you can easily keep databases in regions around hello world synchronized.</span></span>
+
+<span data-ttu-id="b654d-135">Veri Eşitleme senaryoları aşağıdaki Merhaba öneririz yok:</span><span class="sxs-lookup"><span data-stu-id="b654d-135">We don't recommend Data Sync for hello following scenarios:</span></span>
+
+-   <span data-ttu-id="b654d-136">Olağanüstü Durum Kurtarma</span><span class="sxs-lookup"><span data-stu-id="b654d-136">Disaster Recovery</span></span>
+
+-   <span data-ttu-id="b654d-137">Ölçek okuma</span><span class="sxs-lookup"><span data-stu-id="b654d-137">Read Scale</span></span>
+
+-   <span data-ttu-id="b654d-138">ETL (OLTP tooOLAP)</span><span class="sxs-lookup"><span data-stu-id="b654d-138">ETL (OLTP tooOLAP)</span></span>
+
+-   <span data-ttu-id="b654d-139">Şirket içi SQL Server tooAzure SQL veritabanı geçiş</span><span class="sxs-lookup"><span data-stu-id="b654d-139">Migration from on-premises SQL Server tooAzure SQL Database</span></span>
+
+## <a name="how-does-data-sync-work"></a><span data-ttu-id="b654d-140">Veri Eşitleme nasıl çalışır?</span><span class="sxs-lookup"><span data-stu-id="b654d-140">How does Data Sync work?</span></span> 
+
+-   <span data-ttu-id="b654d-141">**Veri değişiklikleri izleme:** veri eşitleme Ekle kullanarak değişiklikleri izler, güncelleştirme ve Tetikleyicileri silin.</span><span class="sxs-lookup"><span data-stu-id="b654d-141">**Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers.</span></span> <span data-ttu-id="b654d-142">Merhaba değişiklikleri hello kullanıcı veritabanı taraftaki tabloda kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="b654d-142">hello changes are recorded in a side table in hello user database.</span></span>
+
+-   <span data-ttu-id="b654d-143">**Veri eşitleme:** veri eşitleme bir Hub ve bağlı bileşen modeli tasarlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="b654d-143">**Synchronizing data:** Data Sync is designed in a Hub and Spoke model.</span></span> <span data-ttu-id="b654d-144">Merhaba Hub her üyesiyle ayrı ayrı eşitlenir.</span><span class="sxs-lookup"><span data-stu-id="b654d-144">hello Hub syncs with each member individually.</span></span> <span data-ttu-id="b654d-145">Merhaba Hub değişikliklerden indirilen toohello üye ve ardından değişiklikleri hello üyeden karşıya yüklenen toohello Hub.</span><span class="sxs-lookup"><span data-stu-id="b654d-145">Changes from hello Hub are downloaded toohello member and then changes from hello member are uploaded toohello Hub.</span></span>
+
+-   <span data-ttu-id="b654d-146">**Çakışmaları giderme:** veri eşitleme çakışması çözümleme için iki seçenek sunar *Hub WINS* veya *üye WINS*.</span><span class="sxs-lookup"><span data-stu-id="b654d-146">**Resolving conflicts:** Data Sync provides two options for conflict resolution, *Hub wins* or *Member wins*.</span></span>
+    -   <span data-ttu-id="b654d-147">Seçerseniz *Hub WINS*, hello hub hello değişiklikleri her zaman hello üyesinde değişikliklerin üzerine yaz.</span><span class="sxs-lookup"><span data-stu-id="b654d-147">If you select *Hub wins*, hello changes in hello hub always overwrite changes in hello member.</span></span>
+    -   <span data-ttu-id="b654d-148">Seçerseniz *üye WINS*, hello hello üye üzerine yaz değişiklikleri hello hub'ında yapılan değişiklikler.</span><span class="sxs-lookup"><span data-stu-id="b654d-148">If you select *Member wins*, hello changes in hello member overwrite changes in hello hub.</span></span> <span data-ttu-id="b654d-149">Birden fazla üye ise, hangi üye eşitlenir hello son değer bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="b654d-149">If there's more than one member, hello final value depends on which member syncs first.</span></span>
+
+## <a name="limitations-and-considerations"></a><span data-ttu-id="b654d-150">Sınırlamalar ve ilgili önemli noktalar</span><span class="sxs-lookup"><span data-stu-id="b654d-150">Limitations and considerations</span></span>
+
+### <a name="performance-impact"></a><span data-ttu-id="b654d-151">Performans etkisi</span><span class="sxs-lookup"><span data-stu-id="b654d-151">Performance impact</span></span>
+<span data-ttu-id="b654d-152">Veri Eşitleme kullanır Ekle, Güncelleştir ve Tetikleyicileri tootrack değişiklikleri silin.</span><span class="sxs-lookup"><span data-stu-id="b654d-152">Data Sync uses insert, update, and delete triggers tootrack changes.</span></span> <span data-ttu-id="b654d-153">Merhaba kullanıcı veritabanında değişiklik izleme yan tablolar oluşturur.</span><span class="sxs-lookup"><span data-stu-id="b654d-153">It creates side tables in hello user database for change tracking.</span></span> <span data-ttu-id="b654d-154">Bu değişiklik izleme etkinlikleri veritabanının yükünüzü etkiler.</span><span class="sxs-lookup"><span data-stu-id="b654d-154">These change tracking activities have an impact on your database workload.</span></span> <span data-ttu-id="b654d-155">Hizmet katmanı değerlendirmek ve gerekirse yükseltin.</span><span class="sxs-lookup"><span data-stu-id="b654d-155">Assess your service tier and upgrade if needed.</span></span>
+
+### <a name="eventual-consistency"></a><span data-ttu-id="b654d-156">Nihai tutarlılık</span><span class="sxs-lookup"><span data-stu-id="b654d-156">Eventual consistency</span></span>
+<span data-ttu-id="b654d-157">Veri Eşitleme tetikleyici tabanlı olduğundan, işlem tutarlılığı garanti edilmez.</span><span class="sxs-lookup"><span data-stu-id="b654d-157">Since Data Sync is trigger-based, transactional consistency is not guaranteed.</span></span> <span data-ttu-id="b654d-158">Microsoft, tüm değişiklikler sonunda yapılır ve veri eşitleme veri kaybına neden olmaz garanti eder.</span><span class="sxs-lookup"><span data-stu-id="b654d-158">Microsoft guarantees that all changes are made eventually and that Data Sync does not cause data loss.</span></span>
+
+### <a name="unsupported-data-types"></a><span data-ttu-id="b654d-159">Desteklenmeyen veri türleri</span><span class="sxs-lookup"><span data-stu-id="b654d-159">Unsupported data types</span></span>
+
+-   <span data-ttu-id="b654d-160">FILESTREAM</span><span class="sxs-lookup"><span data-stu-id="b654d-160">FileStream</span></span>
+
+-   <span data-ttu-id="b654d-161">SQL/CLR UDT</span><span class="sxs-lookup"><span data-stu-id="b654d-161">SQL/CLR UDT</span></span>
+
+-   <span data-ttu-id="b654d-162">XMLSchemaCollection (desteklenen XML)</span><span class="sxs-lookup"><span data-stu-id="b654d-162">XMLSchemaCollection (XML supported)</span></span>
+
+-   <span data-ttu-id="b654d-163">İmleç, zaman damgası, HierarchyId</span><span class="sxs-lookup"><span data-stu-id="b654d-163">Cursor, Timestamp, Hierarchyid</span></span>
+
+### <a name="requirements"></a><span data-ttu-id="b654d-164">Gereksinimler</span><span class="sxs-lookup"><span data-stu-id="b654d-164">Requirements</span></span>
+
+-   <span data-ttu-id="b654d-165">Her tablonun birincil anahtarı olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="b654d-165">Each table must have a primary key.</span></span>
+
+-   <span data-ttu-id="b654d-166">Bir tabloda hello birincil anahtarı olmayan bir kimlik sütunu bulunamaz.</span><span class="sxs-lookup"><span data-stu-id="b654d-166">A table cannot have an identity column that is not hello primary key.</span></span>
+
+-   <span data-ttu-id="b654d-167">Nesne (veritabanları, tablolar ve sütunlar) Hello adlarını hello yazdırılabilir karakterleri nokta (.), köşeli ayraç ([]) içeremez ya da sağ kare köşeli ayraç (]).</span><span class="sxs-lookup"><span data-stu-id="b654d-167">hello names of objects (databases, tables, and columns) cannot contain hello printable characters period (.), left square bracket ([), or right square bracket (]).</span></span>
+
+### <a name="limitations-on-service-and-database-dimensions"></a><span data-ttu-id="b654d-168">Hizmet ve veritabanı boyutları sınırlamalar</span><span class="sxs-lookup"><span data-stu-id="b654d-168">Limitations on service and database dimensions</span></span>
+
+|                                                                 |                        |                             |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| <span data-ttu-id="b654d-169">**Boyutlar**</span><span class="sxs-lookup"><span data-stu-id="b654d-169">**Dimensions**</span></span>                                                      | <span data-ttu-id="b654d-170">**Sınırı**</span><span class="sxs-lookup"><span data-stu-id="b654d-170">**Limit**</span></span>              | <span data-ttu-id="b654d-171">**Geçici çözüm**</span><span class="sxs-lookup"><span data-stu-id="b654d-171">**Workaround**</span></span>              |
+| <span data-ttu-id="b654d-172">Eşitleme grubu sayısı için herhangi bir veritabanı ait olabilir.</span><span class="sxs-lookup"><span data-stu-id="b654d-172">Maximum number of sync groups any database can belong to.</span></span>       | <span data-ttu-id="b654d-173">5</span><span class="sxs-lookup"><span data-stu-id="b654d-173">5</span></span>                      |                             |
+| <span data-ttu-id="b654d-174">Bir tek eşitleme grubundaki uç noktaları sayısı</span><span class="sxs-lookup"><span data-stu-id="b654d-174">Maximum number of endpoints in a single sync group</span></span>              | <span data-ttu-id="b654d-175">30</span><span class="sxs-lookup"><span data-stu-id="b654d-175">30</span></span>                     | <span data-ttu-id="b654d-176">Birden çok eşitleme grupları oluşturma</span><span class="sxs-lookup"><span data-stu-id="b654d-176">Create multiple sync groups</span></span> |
+| <span data-ttu-id="b654d-177">Bir tek eşitleme grubundaki şirket içi uç noktaları sayısı üst sınırı.</span><span class="sxs-lookup"><span data-stu-id="b654d-177">Maximum number of on-premises endpoints in a single sync group.</span></span> | <span data-ttu-id="b654d-178">5</span><span class="sxs-lookup"><span data-stu-id="b654d-178">5</span></span>                      | <span data-ttu-id="b654d-179">Birden çok eşitleme grupları oluşturma</span><span class="sxs-lookup"><span data-stu-id="b654d-179">Create multiple sync groups</span></span> |
+| <span data-ttu-id="b654d-180">Veritabanı, tablo, şema ve sütun adları</span><span class="sxs-lookup"><span data-stu-id="b654d-180">Database, table, schema, and column names</span></span>                       | <span data-ttu-id="b654d-181">ad başına 50 karakter</span><span class="sxs-lookup"><span data-stu-id="b654d-181">50 characters per name</span></span> |                             |
+| <span data-ttu-id="b654d-182">Bir eşitleme grubundaki tablolar</span><span class="sxs-lookup"><span data-stu-id="b654d-182">Tables in a sync group</span></span>                                          | <span data-ttu-id="b654d-183">500</span><span class="sxs-lookup"><span data-stu-id="b654d-183">500</span></span>                    | <span data-ttu-id="b654d-184">Birden çok eşitleme grupları oluşturma</span><span class="sxs-lookup"><span data-stu-id="b654d-184">Create multiple sync groups</span></span> |
+| <span data-ttu-id="b654d-185">Bir eşitleme grubundaki bir tablodaki sütunlar</span><span class="sxs-lookup"><span data-stu-id="b654d-185">Columns in a table in a sync group</span></span>                              | <span data-ttu-id="b654d-186">1000</span><span class="sxs-lookup"><span data-stu-id="b654d-186">1000</span></span>                   |                             |
+| <span data-ttu-id="b654d-187">Bir tabloda veri satır boyutu</span><span class="sxs-lookup"><span data-stu-id="b654d-187">Data row size on a table</span></span>                                        | <span data-ttu-id="b654d-188">24 mb</span><span class="sxs-lookup"><span data-stu-id="b654d-188">24 Mb</span></span>                  |                             |
+| <span data-ttu-id="b654d-189">Minimum eşitleme aralığı</span><span class="sxs-lookup"><span data-stu-id="b654d-189">Minimum sync interval</span></span>                                           | <span data-ttu-id="b654d-190">5 dakika</span><span class="sxs-lookup"><span data-stu-id="b654d-190">5 Minutes</span></span>              |                             |
+
+## <a name="common-questions"></a><span data-ttu-id="b654d-191">Sık sorulan sorular</span><span class="sxs-lookup"><span data-stu-id="b654d-191">Common questions</span></span>
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a><span data-ttu-id="b654d-192">Veri Eşitleme verilerimi ne sıklıkta eşitleyebilirsiniz?</span><span class="sxs-lookup"><span data-stu-id="b654d-192">How frequently can Data Sync synchronize my data?</span></span> 
+<span data-ttu-id="b654d-193">Merhaba en az beş dakikada sıklığıdır.</span><span class="sxs-lookup"><span data-stu-id="b654d-193">hello minimum frequency is every five minutes.</span></span>
+
+### <a name="can-i-use-data-sync-toosync-between-sql-server-on-premises-databases-only"></a><span data-ttu-id="b654d-194">Şirket içi veritabanları yalnızca SQL Server arasında veri eşitlemeye toosync kullanabilir miyim?</span><span class="sxs-lookup"><span data-stu-id="b654d-194">Can I use Data Sync toosync between SQL Server on-premises databases only?</span></span> 
+<span data-ttu-id="b654d-195">Doğrudan yönetilemez.</span><span class="sxs-lookup"><span data-stu-id="b654d-195">Not directly.</span></span> <span data-ttu-id="b654d-196">SQL Server içi veritabanları arasında dolaylı olarak, ancak Azure Hub veritabanı oluşturma ve hello şirket içi veritabanları toohello eşitleme grubu ekleme eşitleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b654d-196">You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding hello on-premises databases toohello sync group.</span></span>
+   
+### <a name="can-i-use-data-sync-tooseed-data-from-my-production-database-tooan-empty-database-and-then-keep-them-synchronized"></a><span data-ttu-id="b654d-197">I veri eşitleme tooseed veri my üretim veritabanı tooan boş veritabanından ve kullanabileceğiniz bunları eşitlenmiş tut?</span><span class="sxs-lookup"><span data-stu-id="b654d-197">Can I use Data Sync tooseed data from my production database tooan empty database, and then keep them synchronized?</span></span> 
+<span data-ttu-id="b654d-198">Evet.</span><span class="sxs-lookup"><span data-stu-id="b654d-198">Yes.</span></span> <span data-ttu-id="b654d-199">Merhaba şema hello özgün komut dosyası oluşturularak hello yeni veritabanında el ile oluşturun.</span><span class="sxs-lookup"><span data-stu-id="b654d-199">Create hello schema manually in hello new database by scripting it from hello original.</span></span> <span data-ttu-id="b654d-200">Merhaba şema oluşturduktan sonra hello tabloları tooa eşitleme grubu toocopy hello veri eklemek ve eşitlenen saklayın.</span><span class="sxs-lookup"><span data-stu-id="b654d-200">After you create hello schema, add hello tables tooa sync group toocopy hello data and keep it synced.</span></span>
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a><span data-ttu-id="b654d-201">Oluşturulamadı tabloları neden görüyor musunuz?</span><span class="sxs-lookup"><span data-stu-id="b654d-201">Why do I see tables that I did not create?</span></span>  
+<span data-ttu-id="b654d-202">Veri Eşitleme yan tablolar değişiklik izleme, veritabanınızdaki oluşturur.</span><span class="sxs-lookup"><span data-stu-id="b654d-202">Data Sync creates side tables in your database for change tracking.</span></span> <span data-ttu-id="b654d-203">Bunları silmeyin veya veri eşitleme çalışmayı durdurur.</span><span class="sxs-lookup"><span data-stu-id="b654d-203">Don't delete them or Data Sync stops working.</span></span>
+   
+### <a name="i-got-an-error-message-that-said-cannot-insert-hello-value-null-into-hello-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-hello-error"></a><span data-ttu-id="b654d-204">Başka bir deyişle hata iletisi aldım "hello değeri NULL hello sütununa INSERT yapılamıyor \<sütun\>.</span><span class="sxs-lookup"><span data-stu-id="b654d-204">I got an error message that said "cannot insert hello value NULL into hello column \<column\>.</span></span> <span data-ttu-id="b654d-205">Sütun null değerlere izin vermiyor."</span><span class="sxs-lookup"><span data-stu-id="b654d-205">Column does not allow nulls."</span></span> <span data-ttu-id="b654d-206">Bu ne anlama geliyor ve nasıl hello hata düzeltebilirsiniz?</span><span class="sxs-lookup"><span data-stu-id="b654d-206">What does this mean, and how can I fix hello error?</span></span> 
+<span data-ttu-id="b654d-207">Bu hata iletisini hello iki aşağıdaki sorunlardan biriyle gösterir:</span><span class="sxs-lookup"><span data-stu-id="b654d-207">This error message indicates one of hello two following issues:</span></span>
+1.  <span data-ttu-id="b654d-208">Bir birincil anahtar olmayan bir tablo olabilir.</span><span class="sxs-lookup"><span data-stu-id="b654d-208">There may be a table without a primary key.</span></span> <span data-ttu-id="b654d-209">toofix Bu sorun, bir birincil anahtar tooall hello tabloları eklemek eşitleniyor.</span><span class="sxs-lookup"><span data-stu-id="b654d-209">toofix this issue, add a primary key tooall hello tables you're syncing.</span></span>
+2.  <span data-ttu-id="b654d-210">CREATE INDEX deyiminde WHERE yan tümcesi olabilir.</span><span class="sxs-lookup"><span data-stu-id="b654d-210">There may be a WHERE clause in your CREATE INDEX statement.</span></span> <span data-ttu-id="b654d-211">Eşitleme, bu durum işlemez.</span><span class="sxs-lookup"><span data-stu-id="b654d-211">Sync does not handle this condition.</span></span> <span data-ttu-id="b654d-212">toofix bu sorunu hello WHERE yan tümcesini kaldırın veya el ile Merhaba tooall veritabanları değişiklik.</span><span class="sxs-lookup"><span data-stu-id="b654d-212">toofix this issue, remove hello WHERE clause or manually make hello changes tooall databases.</span></span> 
+ 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-hello-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a><span data-ttu-id="b654d-213">Veri Eşitleme döngüsel başvurulara nasıl işler?</span><span class="sxs-lookup"><span data-stu-id="b654d-213">How does Data Sync handle circular references?</span></span> <span data-ttu-id="b654d-214">Diğer bir deyişle, ne zaman hello aynı verileri birden çok eşitleme gruplarında eşitlenen ve sonuç olarak değiştirerek tutar?</span><span class="sxs-lookup"><span data-stu-id="b654d-214">That is, when hello same data is synced in multiple sync groups, and keeps changing as a result?</span></span>
+<span data-ttu-id="b654d-215">Veri Eşitleme döngüsel başvurulara işleyemez.</span><span class="sxs-lookup"><span data-stu-id="b654d-215">Data Sync doesn’t handle circular references.</span></span> <span data-ttu-id="b654d-216">Emin tooavoid olması bunları.</span><span class="sxs-lookup"><span data-stu-id="b654d-216">Be sure tooavoid them.</span></span> 
+
+## <a name="next-steps"></a><span data-ttu-id="b654d-217">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="b654d-217">Next steps</span></span>
+
+<span data-ttu-id="b654d-218">SQL veri eşitleme hakkında daha fazla bilgi için bkz:</span><span class="sxs-lookup"><span data-stu-id="b654d-218">For more info about SQL Data Sync, see:</span></span>
+
+-   [<span data-ttu-id="b654d-219">SQL veri eşitleme ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="b654d-219">Getting Started with SQL Data Sync</span></span>](sql-database-get-started-sql-data-sync.md)
+
+-   <span data-ttu-id="b654d-220">Göster PowerShell örnekleri tamamlamak tooconfigure SQL veri eşitlemeyi nasıl:</span><span class="sxs-lookup"><span data-stu-id="b654d-220">Complete PowerShell examples that show how tooconfigure SQL Data Sync:</span></span>
+    -   [<span data-ttu-id="b654d-221">Birden çok Azure SQL veritabanı arasında PowerShell toosync kullanın</span><span class="sxs-lookup"><span data-stu-id="b654d-221">Use PowerShell toosync between multiple Azure SQL databases</span></span>](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [<span data-ttu-id="b654d-222">Bir Azure SQL Database ve SQL Server içi veritabanı arasında PowerShell toosync kullanın</span><span class="sxs-lookup"><span data-stu-id="b654d-222">Use PowerShell toosync between an Azure SQL Database and a SQL Server on-premises database</span></span>](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [<span data-ttu-id="b654d-223">Merhaba tam SQL veri eşitleme teknik belgeler indirin</span><span class="sxs-lookup"><span data-stu-id="b654d-223">Download hello complete SQL Data Sync technical documentation</span></span>](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
+
+-   [<span data-ttu-id="b654d-224">Merhaba SQL veri eşitleme REST API belgelerini indirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="b654d-224">Download hello SQL Data Sync REST API documentation</span></span>](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+<span data-ttu-id="b654d-225">SQL veritabanı hakkında daha fazla bilgi için bkz:</span><span class="sxs-lookup"><span data-stu-id="b654d-225">For more info about SQL Database, see:</span></span>
+
+-   [<span data-ttu-id="b654d-226">SQL veritabanı genel bakış</span><span class="sxs-lookup"><span data-stu-id="b654d-226">SQL Database Overview</span></span>](sql-database-technical-overview.md)
+
+-   [<span data-ttu-id="b654d-227">Veritabanı yaşam döngüsü yönetimi</span><span class="sxs-lookup"><span data-stu-id="b654d-227">Database Lifecycle Management</span></span>](https://msdn.microsoft.com/library/jj907294.aspx)

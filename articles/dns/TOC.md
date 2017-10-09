@@ -13,7 +13,7 @@
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-getstarted-cli.md)
 
-## [Etki alanınızı Azure DNS'e atama](dns-delegate-domain-azure-dns.md)
+## [Etki alanı tooAzure DNS temsilci seçme](dns-delegate-domain-azure-dns.md)
 ## [Bir web uygulaması için özel DNS kayıtları oluşturma](dns-web-sites-custom-domain.md)
 
 # Nasıl yapılır
@@ -38,7 +38,7 @@
 ## [DNS bölge dosyasını içeri ve dışarı aktarma](dns-import-export.md)
 ## [Diğer Azure hizmetleri ile tümleştirme](dns-for-azure-services.md)
 ## [DNS bölgeleri ve kayıtlarını koruma](dns-protect-zones-recordsets.md)
-## [.NET SDK ile DNS işlemlerini otomatikleştirme](dns-sdk.md)
+## [Merhaba .NET SDK'sı ile DNS işlemleri otomatik hale getirme](dns-sdk.md)
 
 ## [Azure kaynakları için özel etki alanları](dns-custom-domain.md)
 ## Sorun giderme

@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI betik örnek - şablon dağıtma | Microsoft Docs"
+title: "aaaAzure CLI komut dosyası örneği - şablon dağıtma | Microsoft Docs"
 description: "Bir Azure Resource Manager şablonunu dağıtmak için örnek komut dosyası."
 services: azure-resource-manager
 documentationcenter: na
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: 974230f349aec46fde58e69658e05a13bff4296f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5a94eedbd898ced29d67f8ce3023ca5c65f83af2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-resource-manager-template-deployment---azure-cli-script"></a><span data-ttu-id="98bfc-103">Azure Resource Manager şablon dağıtımı - Azure CLI komut dosyası</span><span class="sxs-lookup"><span data-stu-id="98bfc-103">Azure Resource Manager template deployment - Azure CLI script</span></span>
+# <a name="azure-resource-manager-template-deployment---azure-cli-script"></a><span data-ttu-id="ef670-103">Azure Resource Manager şablon dağıtımı - Azure CLI komut dosyası</span><span class="sxs-lookup"><span data-stu-id="ef670-103">Azure Resource Manager template deployment - Azure CLI script</span></span>
 
-<span data-ttu-id="98bfc-104">Bu komut dosyasını bir Resource Manager şablonu bir kaynak grubu aboneliğinizde dağıtır.</span><span class="sxs-lookup"><span data-stu-id="98bfc-104">This script deploys a Resource Manager template to a resource group in your subscription.</span></span>
+<span data-ttu-id="ef670-104">Bu komut dosyasını bir Resource Manager şablonu tooa kaynak grubu aboneliğinizde dağıtır.</span><span class="sxs-lookup"><span data-stu-id="ef670-104">This script deploys a Resource Manager template tooa resource group in your subscription.</span></span>
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a><span data-ttu-id="98bfc-105">Örnek komut dosyası</span><span class="sxs-lookup"><span data-stu-id="98bfc-105">Sample script</span></span>
+## <a name="sample-script"></a><span data-ttu-id="ef670-105">Örnek komut dosyası</span><span class="sxs-lookup"><span data-stu-id="ef670-105">Sample script</span></span>
 
 ```azurecli
 #!/bin/bash
@@ -37,7 +37,7 @@ IFS=$'\n\t'
 
 # -e: immediately exit if any command has a non-zero exit status
 # -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
+# IFS new value is less likely toocause confusing bugs when looping arrays or arguments (e.g. $@)
 
 usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
 
@@ -84,12 +84,12 @@ if [[ -z "$deploymentName" ]]; then
 fi
 
 if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
+    echo "Enter a location below toocreate a new resource group else skip this"
     echo "ResourceGroupLocation:"
     read resourceGroupLocation
 fi
 
-#templateFile Path - template file to be used
+#templateFile Path - template file toobe used
 templateFilePath="template.json"
 
 if [ ! -f "$templateFilePath" ]; then
@@ -110,7 +110,7 @@ if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentN
     usage
 fi
 
-#login to azure using your credentials
+#login tooazure using your credentials
 az account show 1> /dev/null
 
 if [ $? != 0 ];
@@ -118,7 +118,7 @@ then
     az login
 fi
 
-#set the default subscription id
+#set hello default subscription id
 az account set --subscription $subscriptionId
 
 #Check for existing RG
@@ -145,30 +145,30 @@ then
 fi
 ```
 
-## <a name="clean-up-deployment"></a><span data-ttu-id="98bfc-106">Dağıtımı temizleme</span><span class="sxs-lookup"><span data-stu-id="98bfc-106">Clean up deployment</span></span> 
+## <a name="clean-up-deployment"></a><span data-ttu-id="ef670-106">Dağıtımı temizleme</span><span class="sxs-lookup"><span data-stu-id="ef670-106">Clean up deployment</span></span> 
 
-<span data-ttu-id="98bfc-107">Kaynak grubu ve tüm kaynaklarını kaldırmak için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="98bfc-107">Run the following command to remove the resource group and all its resources.</span></span>
+<span data-ttu-id="ef670-107">Çalışma hello aşağıdaki tooremove hello kaynak grubunu ve tüm kaynaklarını komutu.</span><span class="sxs-lookup"><span data-stu-id="ef670-107">Run hello following command tooremove hello resource group and all its resources.</span></span>
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a><span data-ttu-id="98bfc-108">Komut dosyası açıklaması</span><span class="sxs-lookup"><span data-stu-id="98bfc-108">Script explanation</span></span>
+## <a name="script-explanation"></a><span data-ttu-id="ef670-108">Komut dosyası açıklaması</span><span class="sxs-lookup"><span data-stu-id="ef670-108">Script explanation</span></span>
 
-<span data-ttu-id="98bfc-109">Bu komut dosyası dağıtımı oluşturmak için aşağıdaki komutları kullanır.</span><span class="sxs-lookup"><span data-stu-id="98bfc-109">This script uses the following commands to create the deployment.</span></span> <span data-ttu-id="98bfc-110">Komut belirli belgeleri tablo bağlanan her öğe.</span><span class="sxs-lookup"><span data-stu-id="98bfc-110">Each item in the table links to command specific documentation.</span></span>
+<span data-ttu-id="ef670-109">Bu komut dosyası komutları toocreate hello dağıtım aşağıdaki hello kullanır.</span><span class="sxs-lookup"><span data-stu-id="ef670-109">This script uses hello following commands toocreate hello deployment.</span></span> <span data-ttu-id="ef670-110">Merhaba tablosundaki her öğesi toocommand belirli belgeleri bağlar.</span><span class="sxs-lookup"><span data-stu-id="ef670-110">Each item in hello table links toocommand specific documentation.</span></span>
 
-| <span data-ttu-id="98bfc-111">Komut</span><span class="sxs-lookup"><span data-stu-id="98bfc-111">Command</span></span> | <span data-ttu-id="98bfc-112">Notlar</span><span class="sxs-lookup"><span data-stu-id="98bfc-112">Notes</span></span> |
+| <span data-ttu-id="ef670-111">Komut</span><span class="sxs-lookup"><span data-stu-id="ef670-111">Command</span></span> | <span data-ttu-id="ef670-112">Notlar</span><span class="sxs-lookup"><span data-stu-id="ef670-112">Notes</span></span> |
 |---|---|
-| [<span data-ttu-id="98bfc-113">az grubu var.</span><span class="sxs-lookup"><span data-stu-id="98bfc-113">az group exists</span></span>](/cli/azure/group#exists) | <span data-ttu-id="98bfc-114">Kaynak grubu mevcut olup olmadığını denetler.</span><span class="sxs-lookup"><span data-stu-id="98bfc-114">Checks whether resource group exists.</span></span> |
-| [<span data-ttu-id="98bfc-115">az grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="98bfc-115">az group create</span></span>](/cli/azure/group#create) | <span data-ttu-id="98bfc-116">Tüm kaynaklar depolandığı bir kaynak grubu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="98bfc-116">Creates a resource group in which all resources are stored.</span></span> |
-| [<span data-ttu-id="98bfc-117">az grup dağıtımı oluşturma</span><span class="sxs-lookup"><span data-stu-id="98bfc-117">az group deployment create</span></span>](/cli/azure/group/deployment#create) | <span data-ttu-id="98bfc-118">Bir dağıtımı başlatın.</span><span class="sxs-lookup"><span data-stu-id="98bfc-118">Start a deployment.</span></span>  |
-| [<span data-ttu-id="98bfc-119">az grubu Sil</span><span class="sxs-lookup"><span data-stu-id="98bfc-119">az group delete</span></span>](/cli/azure/group#delete) | <span data-ttu-id="98bfc-120">Tüm kaynaklar da dahil olmak üzere bir kaynak grubu siler.</span><span class="sxs-lookup"><span data-stu-id="98bfc-120">Deletes a resource group including all its resources.</span></span> |
+| [<span data-ttu-id="ef670-113">az grubu var.</span><span class="sxs-lookup"><span data-stu-id="ef670-113">az group exists</span></span>](/cli/azure/group#exists) | <span data-ttu-id="ef670-114">Kaynak grubu mevcut olup olmadığını denetler.</span><span class="sxs-lookup"><span data-stu-id="ef670-114">Checks whether resource group exists.</span></span> |
+| [<span data-ttu-id="ef670-115">az grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="ef670-115">az group create</span></span>](/cli/azure/group#create) | <span data-ttu-id="ef670-116">Tüm kaynaklar depolandığı bir kaynak grubu oluşturur.</span><span class="sxs-lookup"><span data-stu-id="ef670-116">Creates a resource group in which all resources are stored.</span></span> |
+| [<span data-ttu-id="ef670-117">az grup dağıtımı oluşturma</span><span class="sxs-lookup"><span data-stu-id="ef670-117">az group deployment create</span></span>](/cli/azure/group/deployment#create) | <span data-ttu-id="ef670-118">Bir dağıtımı başlatın.</span><span class="sxs-lookup"><span data-stu-id="ef670-118">Start a deployment.</span></span>  |
+| [<span data-ttu-id="ef670-119">az grubu Sil</span><span class="sxs-lookup"><span data-stu-id="ef670-119">az group delete</span></span>](/cli/azure/group#delete) | <span data-ttu-id="ef670-120">Tüm kaynaklar da dahil olmak üzere bir kaynak grubu siler.</span><span class="sxs-lookup"><span data-stu-id="ef670-120">Deletes a resource group including all its resources.</span></span> |
 
 
 
-## <a name="next-steps"></a><span data-ttu-id="98bfc-121">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="98bfc-121">Next steps</span></span>
-* <span data-ttu-id="98bfc-122">Şablon dağıtımı için giriş için bkz [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy-cli.md).</span><span class="sxs-lookup"><span data-stu-id="98bfc-122">For an introduction to deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy-cli.md).</span></span>
-* <span data-ttu-id="98bfc-123">Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [dağıtma özel şablonu SAS belirteci ile](resource-manager-cli-sas-token.md).</span><span class="sxs-lookup"><span data-stu-id="98bfc-123">For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).</span></span>
-* <span data-ttu-id="98bfc-124">Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).</span><span class="sxs-lookup"><span data-stu-id="98bfc-124">To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).</span></span>
-* <span data-ttu-id="98bfc-125">Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="98bfc-125">For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="ef670-121">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="ef670-121">Next steps</span></span>
+* <span data-ttu-id="ef670-122">Bir giriş toodeploying şablonları için bkz: [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy-cli.md).</span><span class="sxs-lookup"><span data-stu-id="ef670-122">For an introduction toodeploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy-cli.md).</span></span>
+* <span data-ttu-id="ef670-123">Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [dağıtma özel şablonu SAS belirteci ile](resource-manager-cli-sas-token.md).</span><span class="sxs-lookup"><span data-stu-id="ef670-123">For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).</span></span>
+* <span data-ttu-id="ef670-124">Şablon toodefine parametrelerinde bkz [şablonları yazma](resource-group-authoring-templates.md#parameters).</span><span class="sxs-lookup"><span data-stu-id="ef670-124">toodefine parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).</span></span>
+* <span data-ttu-id="ef670-125">Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="ef670-125">For guidance on how enterprises can use Resource Manager tooeffectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).</span></span>
 

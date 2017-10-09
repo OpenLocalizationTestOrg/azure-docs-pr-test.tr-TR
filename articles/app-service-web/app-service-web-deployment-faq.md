@@ -1,0 +1,101 @@
+---
+title: "Azure web uygulamaları için aaaDeployment sık sorulan sorular | Microsoft Docs"
+description: "Azure App Service Web Apps özelliğini hello için dağıtımı hakkında sorular yanıtlar toofrequently alın."
+services: app-service\web
+documentationcenter: 
+author: genlin
+manager: cshepard
+editor: 
+tags: top-support-issue
+ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 7/10/2017
+ms.author: genli
+ms.openlocfilehash: 566e1d7028e678f9679200f436118d27dfb07079
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="deployment-faqs-for-web-apps-in-azure"></a><span data-ttu-id="1d54d-103">Azure Web uygulamalarının dağıtımını SSS</span><span class="sxs-lookup"><span data-stu-id="1d54d-103">Deployment FAQs for Web Apps in Azure</span></span>
+
+<span data-ttu-id="1d54d-104">Bu makalede Merhaba dağıtım sorunları hakkında sorulan sorular (SSS) yanıtlar toofrequently sahip [Azure App Service Web Apps özelliğini](https://azure.microsoft.com/services/app-service/web/).</span><span class="sxs-lookup"><span data-stu-id="1d54d-104">This article has answers toofrequently asked questions (FAQs) about deployment issues for hello [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).</span></span>
+
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="i-am-just-getting-started-with-app-service-web-apps-how-do-i-publish-my-code"></a><span data-ttu-id="1d54d-105">I yalnızca App Service web apps ile çalışmaya başlama.</span><span class="sxs-lookup"><span data-stu-id="1d54d-105">I am just getting started with App Service web apps.</span></span> <span data-ttu-id="1d54d-106">Kodumu nasıl yayımlanacak?</span><span class="sxs-lookup"><span data-stu-id="1d54d-106">How do I publish my code?</span></span>
+
+<span data-ttu-id="1d54d-107">Web uygulama kodunuzda yayımlamak için bazı seçenekler şunlardır:</span><span class="sxs-lookup"><span data-stu-id="1d54d-107">Here are some options for publishing your web app code:</span></span>
+
+*   <span data-ttu-id="1d54d-108">Visual Studio kullanarak dağıtın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-108">Deploy by using Visual Studio.</span></span> <span data-ttu-id="1d54d-109">Merhaba Visual Studio çözümünüz varsa hello web uygulama projesine sağ tıklayın ve ardından **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="1d54d-109">If you have hello Visual Studio solution, right-click hello web application project, and then select **Publish**.</span></span>
+*   <span data-ttu-id="1d54d-110">Bir FTP istemcisi kullanarak dağıtın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-110">Deploy by using an FTP client.</span></span> <span data-ttu-id="1d54d-111">Hello Azure portal, indirme hello yayımlama hello web uygulaması için profil kodunuzu toodeploy istiyor.</span><span class="sxs-lookup"><span data-stu-id="1d54d-111">In hello Azure portal, download hello publish profile for hello web app that you want toodeploy your code to.</span></span> <span data-ttu-id="1d54d-112">Ardından, hello dosyaları too\site\wwwroot karşıya hello kullanarak aynı profili FTP kimlik yayımlayın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-112">Then, upload hello files too\site\wwwroot by using hello same publish profile FTP credentials.</span></span>
+
+<span data-ttu-id="1d54d-113">Daha fazla bilgi için bkz: [, uygulama tooApp hizmet dağıtma](web-sites-deploy.md).</span><span class="sxs-lookup"><span data-stu-id="1d54d-113">For more information, see [Deploy your app tooApp Service](web-sites-deploy.md).</span></span>
+
+## <a name="i-see-an-error-message-when-i-try-toodeploy-from-visual-studio-how-do-i-resolve-this"></a><span data-ttu-id="1d54d-114">Visual Studio'dan toodeploy çalıştığınızda hata iletisine bakın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-114">I see an error message when I try toodeploy from Visual Studio.</span></span> <span data-ttu-id="1d54d-115">Bu nasıl giderebilirim?</span><span class="sxs-lookup"><span data-stu-id="1d54d-115">How do I resolve this?</span></span>
+
+<span data-ttu-id="1d54d-116">İletiden hello görürseniz, hello SDK eski bir sürümünü kullanıyor olabilirsiniz: "'YourResourceGroup' kaynak grubundaki 'YourResourceName' kaynağının dağıtımı sırasında bir hata oluştu: MissingRegistrationForLocation: hello abonelik için kayıtlı değil Merhaba kaynak 'Orta ABD' hello konumda 'Bileşenleri' yazın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-116">If you see hello following message, you might be using an older version of hello SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: hello subscription is not registered for hello resource type 'components' in hello location 'Central US'.</span></span> <span data-ttu-id="1d54d-117">Lütfen sıra toohave erişim toothis konumda bu sağlayıcı için yeniden kaydedin."</span><span class="sxs-lookup"><span data-stu-id="1d54d-117">Please re-register for this provider in order toohave access toothis location.”</span></span> 
+
+<span data-ttu-id="1d54d-118">tooresolve bu hata, yükseltme toohello [son SDK](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="1d54d-118">tooresolve this error, upgrade toohello [latest SDK](https://azure.microsoft.com/downloads/).</span></span> <span data-ttu-id="1d54d-119">Bu iletiyi görürseniz ve en yeni SDK'ya hello sahip bir destek isteği gönderin.</span><span class="sxs-lookup"><span data-stu-id="1d54d-119">If you see this message and you have hello latest SDK, submit a support request.</span></span>
+
+## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-tooapp-service"></a><span data-ttu-id="1d54d-120">Visual Studio tooApp Service ASP.NET uygulamasından nasıl dağıtırım?</span><span class="sxs-lookup"><span data-stu-id="1d54d-120">How do I deploy an ASP.NET application from Visual Studio tooApp Service?</span></span>
+<a id="deployasp"></a>
+
+<span data-ttu-id="1d54d-121">Başlangıç Öğreticisi [beş dakika içinde ilk ASP.NET web uygulamanızı oluşturma](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) nasıl toodeploy bir ASP.NET web uygulaması App Service'in web uygulamasında tooa Visual Studio 2015 kullanarak gösterir.</span><span class="sxs-lookup"><span data-stu-id="1d54d-121">hello tutorial [Create your first ASP.NET web app in Azure in five minutes](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) shows you how toodeploy an ASP.NET web application tooa web app in App Service by using Visual Studio 2015.</span></span>
+
+## <a name="what-are-hello-different-types-of-deployment-credentials"></a><span data-ttu-id="1d54d-122">Dağıtım kimlik bilgileri hello farklı türleri nelerdir?</span><span class="sxs-lookup"><span data-stu-id="1d54d-122">What are hello different types of deployment credentials?</span></span>
+
+<span data-ttu-id="1d54d-123">Uygulama hizmeti yerel Git dağıtımı ve FTP/S dağıtımı için iki kimlik bilgisi türlerinin kullanılmasını destekler.</span><span class="sxs-lookup"><span data-stu-id="1d54d-123">App Service supports two types of credentials for local Git deployment and FTP/S deployment.</span></span> <span data-ttu-id="1d54d-124">Hakkında daha fazla bilgi için bkz tooconfigure dağıtım kimlik bilgileri, [dağıtım kimlik bilgileri App Service için yapılandırma](app-service-deployment-credentials.md).</span><span class="sxs-lookup"><span data-stu-id="1d54d-124">For more information about how tooconfigure deployment credentials, see [Configure deployment credentials for App Service](app-service-deployment-credentials.md).</span></span>
+
+## <a name="what-is-hello-file-or-directory-structure-of-my-app-service-web-app"></a><span data-ttu-id="1d54d-125">Merhaba dosya veya dizin yapısını my App Service web uygulaması nedir?</span><span class="sxs-lookup"><span data-stu-id="1d54d-125">What is hello file or directory structure of my App Service web app?</span></span>
+
+<span data-ttu-id="1d54d-126">Uygulama hizmeti uygulamanızı hello dosya yapısı hakkında daha fazla bilgi için bkz: [dosya yapısı Azure'da](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).</span><span class="sxs-lookup"><span data-stu-id="1d54d-126">For information about hello file structure of your App Service app, see [File structure in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).</span></span>
+
+## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-hello-disk-when-i-try-tooftp-my-files"></a><span data-ttu-id="1d54d-127">Ne giderebilirim "FTP hata 550 - orada hello disk üzerinde yeterli alan yok" dosyalarımı tooFTP çalıştığınızda miyim?</span><span class="sxs-lookup"><span data-stu-id="1d54d-127">How do I resolve "FTP Error 550 - There is not enough space on hello disk" when I try tooFTP my files?</span></span>
+
+<span data-ttu-id="1d54d-128">Bu iletiyi görürseniz, disk kotası web uygulamanız için hello hizmeti planında çalıştırıyorsanız olasıdır.</span><span class="sxs-lookup"><span data-stu-id="1d54d-128">If you see this message, it's likely that you are running into a disk quota in hello service plan for your web app.</span></span> <span data-ttu-id="1d54d-129">Disk alanı gereksinimlerinize göre tooa daha yüksek hizmet katmanı oluşturan tooscale gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="1d54d-129">You might need tooscale up tooa higher service tier based on your disk space needs.</span></span> <span data-ttu-id="1d54d-130">Fiyatlandırma planları ve kaynak sınırları hakkında daha fazla bilgi için bkz: [uygulama hizmeti fiyatlandırma](https://azure.microsoft.com/pricing/details/app-service/).</span><span class="sxs-lookup"><span data-stu-id="1d54d-130">For more information about pricing plans and resource limits, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).</span></span>
+
+## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a><span data-ttu-id="1d54d-131">My App Service web uygulaması için sürekli dağıtım nasıl ayarlarım?</span><span class="sxs-lookup"><span data-stu-id="1d54d-131">How do I set up continuous deployment for my App Service web app?</span></span>
+
+<span data-ttu-id="1d54d-132">Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox ve diğer Git depoları gibi çeşitli kaynaklardan sürekli dağıtım ayarlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1d54d-132">You can set up continuous deployment from several resources, including Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories.</span></span> <span data-ttu-id="1d54d-133">Bu seçenekler hello Portalı'nda kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="1d54d-133">These options are available in hello portal.</span></span> <span data-ttu-id="1d54d-134">[Sürekli dağıtım tooApp hizmet](app-service-continuous-deployment.md) açıklayan yararlı bir öğreticidir nasıl tooset sürekli dağıtım.</span><span class="sxs-lookup"><span data-stu-id="1d54d-134">[Continuous deployment tooApp Service](app-service-continuous-deployment.md) is a helpful tutorial that explains how tooset up continuous deployment.</span></span>
+
+## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a><span data-ttu-id="1d54d-135">GitHub ve Bitbucket sürekli dağıtım sorunlarını giderme nasıl?</span><span class="sxs-lookup"><span data-stu-id="1d54d-135">How do I troubleshoot issues with continuous deployment from GitHub and Bitbucket?</span></span>
+
+<span data-ttu-id="1d54d-136">GitHub veya Bitbucket sürekli dağıtım sorunları incelemeye Yardım için bkz. [sürekli dağıtım araştırma](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).</span><span class="sxs-lookup"><span data-stu-id="1d54d-136">For help investigating issues with continuous deployment from GitHub or Bitbucket, see [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).</span></span>
+
+## <a name="i-cant-ftp-toomy-site-and-publish-my-code-how-do-i-resolve-this"></a><span data-ttu-id="1d54d-137">I edemiyor toomy site FTP ve kodumu yayımlayın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-137">I can't FTP toomy site and publish my code.</span></span> <span data-ttu-id="1d54d-138">Bu nasıl giderebilirim?</span><span class="sxs-lookup"><span data-stu-id="1d54d-138">How do I resolve this?</span></span>
+
+<span data-ttu-id="1d54d-139">tooresolve FTP sorunlar:</span><span class="sxs-lookup"><span data-stu-id="1d54d-139">tooresolve FTP issues:</span></span>
+
+1. <span data-ttu-id="1d54d-140">Merhaba doğru ana bilgisayar adı ve kimlik bilgilerini girme olduğunu doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-140">Verify that you are entering hello correct host name and credentials.</span></span> <span data-ttu-id="1d54d-141">Farklı kimlik bilgileri hakkında ayrıntılı bilgi için ve nasıl toouse, görebileceği [dağıtım kimlik bilgileri](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).</span><span class="sxs-lookup"><span data-stu-id="1d54d-141">For detailed information about different types of credentials and how toouse them, see [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).</span></span>
+2. <span data-ttu-id="1d54d-142">Merhaba FTP bağlantı noktalarını güvenlik duvarı tarafından engellenmeyen olduğunu doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-142">Verify that hello FTP ports are not blocked by a firewall.</span></span> <span data-ttu-id="1d54d-143">Merhaba bağlantı noktalarını bu ayarlara sahip olmalıdır:</span><span class="sxs-lookup"><span data-stu-id="1d54d-143">hello ports should have these settings:</span></span>
+    * <span data-ttu-id="1d54d-144">FTP denetim bağlantı noktası: 21</span><span class="sxs-lookup"><span data-stu-id="1d54d-144">FTP control connection port: 21</span></span>
+    * <span data-ttu-id="1d54d-145">FTP veri bağlantı noktası: 989, 10001 10300</span><span class="sxs-lookup"><span data-stu-id="1d54d-145">FTP data connection port: 989, 10001-10300</span></span>
+
+## <a name="how-do-i-publish-my-code-tooapp-service"></a><span data-ttu-id="1d54d-146">My kod tooApp hizmeti nasıl yayımlanacak?</span><span class="sxs-lookup"><span data-stu-id="1d54d-146">How do I publish my code tooApp Service?</span></span>
+
+<span data-ttu-id="1d54d-147">Hello Azure hızlı başlangıç hello dağıtım yığını ve tercih ettiğiniz yöntemi kullanarak uygulamanızı dağıtma tasarlanmış toohelp ' dir.</span><span class="sxs-lookup"><span data-stu-id="1d54d-147">hello Azure Quickstart is designed toohelp you deploy your app by using hello deployment stack and method of your choice.</span></span> <span data-ttu-id="1d54d-148">toouse hello hızlı başlangıç, hello Azure portal, Git çok**ayarları** > **uygulama dağıtımı**.</span><span class="sxs-lookup"><span data-stu-id="1d54d-148">toouse hello Quickstart, in hello Azure portal, go too**Settings** > **App Deployment**.</span></span>
+
+## <a name="why-does-my-app-sometimes-restart-after-deployment-tooapp-service"></a><span data-ttu-id="1d54d-149">Neden Uygulamam bazen dağıtım tooApp sonra hizmeti yeniden?</span><span class="sxs-lookup"><span data-stu-id="1d54d-149">Why does my app sometimes restart after deployment tooApp Service?</span></span>
+
+<span data-ttu-id="1d54d-150">toolearn hello koşullar altında bir uygulama dağıtımının neden olabilir bir yeniden başlatma hakkında bkz [dağıtım çalışma zamanı sorunlarına karşılaştırması](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts").</span><span class="sxs-lookup"><span data-stu-id="1d54d-150">toolearn about hello circumstances under which an application deployment might result in a restart, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts").</span></span> <span data-ttu-id="1d54d-151">Merhaba makalede gibi uygulama hizmeti dosyaları toohello wwwroot klasörüne dağıtır.</span><span class="sxs-lookup"><span data-stu-id="1d54d-151">As hello article describes, App Service deploys files toohello wwwroot folder.</span></span> <span data-ttu-id="1d54d-152">Bunu doğrudan uygulamanızı yeniden başlatmaz.</span><span class="sxs-lookup"><span data-stu-id="1d54d-152">It never directly restarts your app.</span></span>
+
+## <a name="how-do-i-integrate-visual-studio-team-services-code-with-app-service"></a><span data-ttu-id="1d54d-153">Uygulama hizmeti ile nasıl Visual Studio Team Services kod tümleşik mu?</span><span class="sxs-lookup"><span data-stu-id="1d54d-153">How do I integrate Visual Studio Team Services code with App Service?</span></span>
+
+<span data-ttu-id="1d54d-154">Visual Studio Team Services ile kullanarak sürekli dağıtımı için iki seçeneğiniz vardır:</span><span class="sxs-lookup"><span data-stu-id="1d54d-154">You have two options for using continuous deployment with Visual Studio Team Services:</span></span>
+
+*   <span data-ttu-id="1d54d-155">Git proje kullanın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-155">Use a Git project.</span></span> <span data-ttu-id="1d54d-156">Uygulama hizmeti bu depo için hello dağıtım seçenekleri kullanarak bağlanın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-156">Connect via App Service by using hello deployment options for that repo.</span></span>
+*   <span data-ttu-id="1d54d-157">Team Foundation sürüm denetimi (TFVC'yi) proje kullanın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-157">Use a Team Foundation Version Control (TFVC) project.</span></span> <span data-ttu-id="1d54d-158">Uygulama hizmeti için Hello yapı aracısını kullanarak dağıtın.</span><span class="sxs-lookup"><span data-stu-id="1d54d-158">Deploy by using hello build agent for App Service.</span></span>
+
+<span data-ttu-id="1d54d-159">Bu her iki seçenek için sürekli kod dağıtım varolan geliştirici iş akışları ve iade etme yordamları bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="1d54d-159">Continuous code deployment for both these options depends on existing developer workflows and check-in procedures.</span></span> <span data-ttu-id="1d54d-160">Daha fazla bilgi için bu makalelere bakın:</span><span class="sxs-lookup"><span data-stu-id="1d54d-160">For more information, see these articles:</span></span> 
+
+*   [<span data-ttu-id="1d54d-161">Sürekli dağıtımı, uygulama tooan Azure Web uygulaması</span><span class="sxs-lookup"><span data-stu-id="1d54d-161">Implement continuous deployment of your app tooan Azure website</span></span>](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
+*   [<span data-ttu-id="1d54d-162">Tooa web uygulaması dağıtabilmek için bir Visual Studio Team Services hesabı ayarlamanız</span><span class="sxs-lookup"><span data-stu-id="1d54d-162">Set up a Visual Studio Team Services account so it can deploy tooa web app</span></span>](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+
+## <a name="how-do-i-use-ftp-or-ftps-toodeploy-my-app-tooapp-service"></a><span data-ttu-id="1d54d-163">FTP veya FTPS toodeploy my uygulama tooApp hizmet nasıl kullanabilirim?</span><span class="sxs-lookup"><span data-stu-id="1d54d-163">How do I use FTP or FTPS toodeploy my app tooApp Service?</span></span>
+
+<span data-ttu-id="1d54d-164">Web uygulaması tooApp hizmeti, FTP veya FTPS toodeploy kullanma hakkında bilgi için bkz: [FTP/S kullanarak, uygulama tooApp hizmet dağıtma](app-service-deploy-ftp.md).</span><span class="sxs-lookup"><span data-stu-id="1d54d-164">For information about using FTP or FTPS toodeploy your web app tooApp Service, see [Deploy your app tooApp Service by using FTP/S](app-service-deploy-ftp.md).</span></span>

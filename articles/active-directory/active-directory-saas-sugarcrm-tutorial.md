@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme Sugar CRM ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Sugar CRM arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Sugar CRM arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,267 +13,267 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: c27aef24e859522b8001ecb747906abdca14d87a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 108d2f8125e410743ee7bc48883a1d0b00602615
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a><span data-ttu-id="4c69f-103">Öğretici: Sugar CRM Azure Active Directory Tümleştirme</span><span class="sxs-lookup"><span data-stu-id="4c69f-103">Tutorial: Azure Active Directory integration with Sugar CRM</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a><span data-ttu-id="b1a9c-103">Öğretici: Sugar CRM Azure Active Directory Tümleştirme</span><span class="sxs-lookup"><span data-stu-id="b1a9c-103">Tutorial: Azure Active Directory integration with Sugar CRM</span></span>
 
-<span data-ttu-id="4c69f-104">Bu öğreticide, Azure Active Directory (Azure AD) ile Sugar CRM tümleştirmek öğrenin.</span><span class="sxs-lookup"><span data-stu-id="4c69f-104">In this tutorial, you learn how to integrate Sugar CRM with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="b1a9c-104">Bu öğreticide, bilgi nasıl toointegrate Sugar CRM Azure Active Directory'ye (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="b1a9c-104">In this tutorial, you learn how toointegrate Sugar CRM with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="4c69f-105">Sugar CRM Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="4c69f-105">Integrating Sugar CRM with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="b1a9c-105">Sugar CRM Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-105">Integrating Sugar CRM with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="4c69f-106">Sugar CRM erişimi, Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="4c69f-106">You can control in Azure AD who has access to Sugar CRM</span></span>
-- <span data-ttu-id="4c69f-107">Azure AD hesaplarına otomatik olarak Sugar CRM'ye (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="4c69f-107">You can enable your users to automatically get signed-on to Sugar CRM (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="4c69f-108">Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="4c69f-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="b1a9c-106">Erişim tooSugar CRM sahip Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="b1a9c-106">You can control in Azure AD who has access tooSugar CRM</span></span>
+- <span data-ttu-id="b1a9c-107">Kullanıcıların tooautomatically get açan tooSugar CRM (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="b1a9c-107">You can enable your users tooautomatically get signed-on tooSugar CRM (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="b1a9c-108">Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="b1a9c-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="4c69f-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="4c69f-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="b1a9c-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="b1a9c-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="4c69f-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="4c69f-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="b1a9c-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="b1a9c-110">Prerequisites</span></span>
 
-<span data-ttu-id="4c69f-111">Azure AD tümleştirme Sugar CRM ile yapılandırmak için aşağıdaki öğeleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="4c69f-111">To configure Azure AD integration with Sugar CRM, you need the following items:</span></span>
+<span data-ttu-id="b1a9c-111">Sugar CRM ile Azure AD tümleştirme tooconfigure, aşağıdaki öğelerindeki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-111">tooconfigure Azure AD integration with Sugar CRM, you need hello following items:</span></span>
 
-- <span data-ttu-id="4c69f-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="4c69f-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="4c69f-113">Bir Sugar CRM çoklu oturum açma abonelik etkin</span><span class="sxs-lookup"><span data-stu-id="4c69f-113">A Sugar CRM single sign-on enabled subscription</span></span>
+- <span data-ttu-id="b1a9c-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="b1a9c-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="b1a9c-113">Bir Sugar CRM çoklu oturum açma abonelik etkin</span><span class="sxs-lookup"><span data-stu-id="b1a9c-113">A Sugar CRM single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="4c69f-114">Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="4c69f-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="b1a9c-114">tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="4c69f-115">Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="4c69f-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="b1a9c-115">Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="4c69f-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="4c69f-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="4c69f-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="4c69f-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="b1a9c-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="b1a9c-117">Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="b1a9c-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="4c69f-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="4c69f-118">Scenario description</span></span>
-<span data-ttu-id="4c69f-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="4c69f-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="4c69f-120">Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="4c69f-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="b1a9c-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="b1a9c-118">Scenario description</span></span>
+<span data-ttu-id="b1a9c-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="b1a9c-120">Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="4c69f-121">Sugar CRM Galeriden ekleme</span><span class="sxs-lookup"><span data-stu-id="4c69f-121">Adding Sugar CRM from the gallery</span></span>
-2. <span data-ttu-id="4c69f-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="4c69f-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="b1a9c-121">Sugar CRM hello Galerisi'nden ekleme</span><span class="sxs-lookup"><span data-stu-id="b1a9c-121">Adding Sugar CRM from hello gallery</span></span>
+2. <span data-ttu-id="b1a9c-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="b1a9c-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-sugar-crm-from-the-gallery"></a><span data-ttu-id="4c69f-123">Sugar CRM Galeriden ekleme</span><span class="sxs-lookup"><span data-stu-id="4c69f-123">Adding Sugar CRM from the gallery</span></span>
-<span data-ttu-id="4c69f-124">Azure AD Sugar CRM tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Sugar CRM eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="4c69f-124">To configure the integration of Sugar CRM into Azure AD, you need to add Sugar CRM from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-sugar-crm-from-hello-gallery"></a><span data-ttu-id="b1a9c-123">Sugar CRM hello Galerisi'nden ekleme</span><span class="sxs-lookup"><span data-stu-id="b1a9c-123">Adding Sugar CRM from hello gallery</span></span>
+<span data-ttu-id="b1a9c-124">Azure AD'ye tooconfigure hello tümleştirme Sugar CRM tooadd Sugar CRM hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-124">tooconfigure hello integration of Sugar CRM into Azure AD, you need tooadd Sugar CRM from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="4c69f-125">**Sugar CRM Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="4c69f-125">**To add Sugar CRM from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="b1a9c-125">**tooadd Sugar CRM hello galerisinden hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b1a9c-125">**tooadd Sugar CRM from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="4c69f-126">İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="4c69f-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="b1a9c-126">Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="4c69f-128">Gidin **kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="4c69f-129">Ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="b1a9c-128">Çok gidin**kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="b1a9c-129">Çok Git**tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-129">Then go too**All applications**.</span></span>
 
     ![Uygulamalar][2]
     
-3. <span data-ttu-id="4c69f-131">Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.</span><span class="sxs-lookup"><span data-stu-id="4c69f-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="b1a9c-131">tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Uygulamalar][3]
 
-4. <span data-ttu-id="4c69f-133">Arama kutusuna **Sugar CRM**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-133">In the search box, type **Sugar CRM**.</span></span>
+4. <span data-ttu-id="b1a9c-133">Merhaba arama kutusuna yazın **Sugar CRM**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-133">In hello search box, type **Sugar CRM**.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_search.png)
 
-5. <span data-ttu-id="4c69f-135">Sonuçlar panelinde seçin **Sugar CRM**ve ardından **Ekle** uygulama eklemek için düğmesi.</span><span class="sxs-lookup"><span data-stu-id="4c69f-135">In the results panel, select **Sugar CRM**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="b1a9c-135">Merhaba Sonuçlar panelinde seçin **Sugar CRM**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-135">In hello results panel, select **Sugar CRM**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="4c69f-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="4c69f-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="4c69f-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Sugar "Britta Simon" adlı bir test kullanıcı tabanlı CRM ile test etme.</span><span class="sxs-lookup"><span data-stu-id="4c69f-138">In this section, you configure and test Azure AD single sign-on with Sugar CRM based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="b1a9c-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="b1a9c-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="b1a9c-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Sugar "Britta Simon" adlı bir test kullanıcı tabanlı CRM ile test etme.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-138">In this section, you configure and test Azure AD single sign-on with Sugar CRM based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="4c69f-139">Tekli çalışmaya oturum için Azure AD ne karşılık gelen Sugar CRM'deki bir kullanıcı için Azure AD içinde olduğu bilmek ister.</span><span class="sxs-lookup"><span data-stu-id="4c69f-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Sugar CRM is to a user in Azure AD.</span></span> <span data-ttu-id="4c69f-140">Diğer bir deyişle, bir Azure AD kullanıcısının Sugar CRM ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.</span><span class="sxs-lookup"><span data-stu-id="4c69f-140">In other words, a link relationship between an Azure AD user and the related user in Sugar CRM needs to be established.</span></span>
+<span data-ttu-id="b1a9c-139">Tek toowork'ın oturum açma hangi hello karşılık gelen Sugar CRM'deki tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Sugar CRM is tooa user in Azure AD.</span></span> <span data-ttu-id="b1a9c-140">Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Sugar CRM hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-140">In other words, a link relationship between an Azure AD user and hello related user in Sugar CRM needs toobe established.</span></span>
 
-<span data-ttu-id="4c69f-141">Sugar CRM değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="4c69f-141">In Sugar CRM, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="b1a9c-141">Sugar CRM hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-141">In Sugar CRM, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="4c69f-142">Yapılandırma ve Azure AD çoklu oturum açma Sugar CRM ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="4c69f-142">To configure and test Azure AD single sign-on with Sugar CRM, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="b1a9c-142">tooconfigure ve Sugar CRM ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-142">tooconfigure and test Azure AD single sign-on with Sugar CRM, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="4c69f-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="4c69f-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="4c69f-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.</span><span class="sxs-lookup"><span data-stu-id="4c69f-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="4c69f-145">**[Sugar CRM test kullanıcısı oluşturma](#creating-a-sugar-crm-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Sugar CRM sağlamak için.</span><span class="sxs-lookup"><span data-stu-id="4c69f-145">**[Creating a Sugar CRM test user](#creating-a-sugar-crm-test-user)** - to have a counterpart of Britta Simon in Sugar CRM that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="4c69f-146">**[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="4c69f-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="4c69f-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="4c69f-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="b1a9c-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="b1a9c-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="b1a9c-145">**[Sugar CRM test kullanıcısı oluşturma](#creating-a-sugar-crm-test-user)**  -toohave karşılık gelen, Britta Simon Sugar CRM'deki bağlantılı toohello Azure AD kullanıcı gösterimidir.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-145">**[Creating a Sugar CRM test user](#creating-a-sugar-crm-test-user)** - toohave a counterpart of Britta Simon in Sugar CRM that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="b1a9c-146">**[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="b1a9c-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="4c69f-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="4c69f-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="b1a9c-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="b1a9c-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="4c69f-149">Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Sugar CRM uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="4c69f-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Sugar CRM application.</span></span>
+<span data-ttu-id="b1a9c-149">Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Sugar CRM uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Sugar CRM application.</span></span>
 
-<span data-ttu-id="4c69f-150">**Azure AD çoklu oturum açma Sugar CRM ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="4c69f-150">**To configure Azure AD single sign-on with Sugar CRM, perform the following steps:**</span></span>
+<span data-ttu-id="b1a9c-150">**tooconfigure Azure AD çoklu oturum açma Sugar CRM ile Merhaba aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b1a9c-150">**tooconfigure Azure AD single sign-on with Sugar CRM, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="4c69f-151">Azure portalında üzerinde **Sugar CRM** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-151">In the Azure portal, on the **Sugar CRM** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="b1a9c-151">Hello hello üzerinde Azure portal'ın **Sugar CRM** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-151">In hello Azure portal, on hello **Sugar CRM** application integration page, click **Single sign-on**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. <span data-ttu-id="4c69f-153">Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="4c69f-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="b1a9c-153">Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_samlbase.png)
 
-3. <span data-ttu-id="4c69f-155">Üzerinde **Sugar CRM etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="4c69f-155">On the **Sugar CRM Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="b1a9c-155">Merhaba üzerinde **Sugar CRM etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-155">On hello **Sugar CRM Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
-    <span data-ttu-id="4c69f-157">İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:</span><span class="sxs-lookup"><span data-stu-id="4c69f-157">In the **Sign-on URL** textbox, type a URL using the following pattern:</span></span>
+    <span data-ttu-id="b1a9c-157">Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-157">In hello **Sign-on URL** textbox, type a URL using hello following pattern:</span></span>
     | |
     |--|
     | `https://<companyname>.sugarondemand.com` |
     | `https://<companyname>.trial.sugarcrm` |
 
     > [!NOTE] 
-    > <span data-ttu-id="4c69f-158">Değer gerçek değil.</span><span class="sxs-lookup"><span data-stu-id="4c69f-158">The value is not real.</span></span> <span data-ttu-id="4c69f-159">Değerin gerçek oturum açma URL'si ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="4c69f-159">Update the value with the actual Sign-On URL.</span></span> <span data-ttu-id="4c69f-160">Kişi [Sugar CRM istemci destek ekibi](https://support.sugarcrm.com/) değeri alınamıyor.</span><span class="sxs-lookup"><span data-stu-id="4c69f-160">Contact [Sugar CRM Client support team](https://support.sugarcrm.com/) to get the value.</span></span> 
+    > <span data-ttu-id="b1a9c-158">Merhaba değeri gerçek değil.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-158">hello value is not real.</span></span> <span data-ttu-id="b1a9c-159">Güncelleştirme hello değerle hello gerçek oturum açma URL'si.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-159">Update hello value with hello actual Sign-On URL.</span></span> <span data-ttu-id="b1a9c-160">Kişi [Sugar CRM istemci destek ekibi](https://support.sugarcrm.com/) tooget hello değeri.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-160">Contact [Sugar CRM Client support team](https://support.sugarcrm.com/) tooget hello value.</span></span> 
  
-4. <span data-ttu-id="4c69f-161">Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="4c69f-161">On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.</span></span>
+4. <span data-ttu-id="b1a9c-161">Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-161">On hello **SAML Signing Certificate** section, click **Certificate (Base64)** and then save hello certificate file on your computer.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_certificate.png) 
 
-5. <span data-ttu-id="4c69f-163">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="4c69f-163">Click **Save** button.</span></span>
+5. <span data-ttu-id="b1a9c-163">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-163">Click **Save** button.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sugarcrm-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="4c69f-165">Üzerinde **Sugar CRM Yapılandırma** 'yi tıklatın **yapılandırma Sugar CRM** açmak için **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="4c69f-165">On the **Sugar CRM Configuration** section, click **Configure Sugar CRM** to open **Configure sign-on** window.</span></span> <span data-ttu-id="4c69f-166">Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="4c69f-166">Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="b1a9c-165">Merhaba üzerinde **Sugar CRM Yapılandırma** 'yi tıklatın **yapılandırma Sugar CRM** tooopen **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-165">On hello **Sugar CRM Configuration** section, click **Configure Sugar CRM** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="b1a9c-166">Kopya hello **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="b1a9c-166">Copy hello **Sign-Out URL, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_configure.png) 
 
-7. <span data-ttu-id="4c69f-168">Farklı web tarayıcısı penceresinde Sugar CRM şirket sitenize yönetici olarak oturum açın.</span><span class="sxs-lookup"><span data-stu-id="4c69f-168">In a different web browser window, log in to your Sugar CRM company site as an administrator.</span></span>
+7. <span data-ttu-id="b1a9c-168">Farklı web tarayıcısı penceresinde tooyour Sugar CRM şirket sitede yönetici olarak oturum açın.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-168">In a different web browser window, log in tooyour Sugar CRM company site as an administrator.</span></span>
 
-8. <span data-ttu-id="4c69f-169">Git **yönetici**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-169">Go to **Admin**.</span></span>
+8. <span data-ttu-id="b1a9c-169">Çok Git**yönetici**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-169">Go too**Admin**.</span></span>
    
-    <span data-ttu-id="4c69f-170">![Yönetici](./media/active-directory-saas-sugarcrm-tutorial/ic795888.png "yönetici")</span><span class="sxs-lookup"><span data-stu-id="4c69f-170">![Admin](./media/active-directory-saas-sugarcrm-tutorial/ic795888.png "Admin")</span></span>
+    <span data-ttu-id="b1a9c-170">![Yönetici](./media/active-directory-saas-sugarcrm-tutorial/ic795888.png "yönetici")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-170">![Admin](./media/active-directory-saas-sugarcrm-tutorial/ic795888.png "Admin")</span></span>
 
-9. <span data-ttu-id="4c69f-171">İçinde **Yönetim** 'yi tıklatın **parola yönetimi**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-171">In the **Administration** section, click **Password Management**.</span></span>
+9. <span data-ttu-id="b1a9c-171">Merhaba, **Yönetim** 'yi tıklatın **parola yönetimi**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-171">In hello **Administration** section, click **Password Management**.</span></span>
    
-    <span data-ttu-id="4c69f-172">![Yönetim](./media/active-directory-saas-sugarcrm-tutorial/ic795889.png "Yönetim")</span><span class="sxs-lookup"><span data-stu-id="4c69f-172">![Administration](./media/active-directory-saas-sugarcrm-tutorial/ic795889.png "Administration")</span></span>
+    <span data-ttu-id="b1a9c-172">![Yönetim](./media/active-directory-saas-sugarcrm-tutorial/ic795889.png "Yönetim")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-172">![Administration](./media/active-directory-saas-sugarcrm-tutorial/ic795889.png "Administration")</span></span>
 
-10. <span data-ttu-id="4c69f-173">Seçin **SAML kimlik doğrulamasını etkinleştirme**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-173">Select **Enable SAML Authentication**.</span></span>
+10. <span data-ttu-id="b1a9c-173">Seçin **SAML kimlik doğrulamasını etkinleştirme**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-173">Select **Enable SAML Authentication**.</span></span>
    
-    <span data-ttu-id="4c69f-174">![Yönetim](./media/active-directory-saas-sugarcrm-tutorial/ic795890.png "Yönetim")</span><span class="sxs-lookup"><span data-stu-id="4c69f-174">![Administration](./media/active-directory-saas-sugarcrm-tutorial/ic795890.png "Administration")</span></span>
+    <span data-ttu-id="b1a9c-174">![Yönetim](./media/active-directory-saas-sugarcrm-tutorial/ic795890.png "Yönetim")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-174">![Administration](./media/active-directory-saas-sugarcrm-tutorial/ic795890.png "Administration")</span></span>
 
-11. <span data-ttu-id="4c69f-175">İçinde **SAML kimlik doğrulaması** bölümünde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="4c69f-175">In the **SAML Authentication** section, perform the following steps:</span></span>
+11. <span data-ttu-id="b1a9c-175">Merhaba, **SAML kimlik doğrulaması** bölümünde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-175">In hello **SAML Authentication** section, perform hello following steps:</span></span>
    
-    <span data-ttu-id="4c69f-176">![SAML kimlik doğrulaması](./media/active-directory-saas-sugarcrm-tutorial/ic795891.png "SAML kimlik doğrulaması")</span><span class="sxs-lookup"><span data-stu-id="4c69f-176">![SAML Authentication](./media/active-directory-saas-sugarcrm-tutorial/ic795891.png "SAML Authentication")</span></span>  
+    <span data-ttu-id="b1a9c-176">![SAML kimlik doğrulaması](./media/active-directory-saas-sugarcrm-tutorial/ic795891.png "SAML kimlik doğrulaması")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-176">![SAML Authentication](./media/active-directory-saas-sugarcrm-tutorial/ic795891.png "SAML Authentication")</span></span>  
  
-    <span data-ttu-id="4c69f-177">a.</span><span class="sxs-lookup"><span data-stu-id="4c69f-177">a.</span></span> <span data-ttu-id="4c69f-178">İçinde **oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.</span><span class="sxs-lookup"><span data-stu-id="4c69f-178">In the **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.</span></span>
+    <span data-ttu-id="b1a9c-177">a.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-177">a.</span></span> <span data-ttu-id="b1a9c-178">Merhaba, **oturum açma URL'si** metin kutusuna, Yapıştır hello değerini **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-178">In hello **Login URL** textbox, paste hello value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.</span></span>
   
-    <span data-ttu-id="4c69f-179">b.</span><span class="sxs-lookup"><span data-stu-id="4c69f-179">b.</span></span> <span data-ttu-id="4c69f-180">İçinde **SLO URL** metin değerini yapıştırın **Sign-Out URL**, Azure portalından kopyalanan.</span><span class="sxs-lookup"><span data-stu-id="4c69f-180">In the **SLO URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.</span></span>
+    <span data-ttu-id="b1a9c-179">b.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-179">b.</span></span> <span data-ttu-id="b1a9c-180">Merhaba, **SLO URL** metin kutusuna, Yapıştır hello değerini **Sign-Out URL**, Azure portalından kopyalanan.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-180">In hello **SLO URL** textbox, paste hello value of **Sign-Out URL**, which you have copied from Azure portal.</span></span>
   
-    <span data-ttu-id="4c69f-181">c.</span><span class="sxs-lookup"><span data-stu-id="4c69f-181">c.</span></span> <span data-ttu-id="4c69f-182">Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve sonra tüm sertifika içine yapıştırabilirsiniz **X.509 sertifikası** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="4c69f-182">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.</span></span>
+    <span data-ttu-id="b1a9c-181">c.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-181">c.</span></span> <span data-ttu-id="b1a9c-182">Base-64 kodlanmış sertifikanızı kopyalama hello panonuza bunu içerik Not Defteri'nde açın ve ardından yapıştırın içine tüm sertifika hello **X.509 sertifikası** metin kutusu.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-182">Open your base-64 encoded certificate in notepad, copy hello content of it into your clipboard, and then paste hello entire Certificate into **X.509 Certificate** textbox.</span></span>
   
-    <span data-ttu-id="4c69f-183">d.</span><span class="sxs-lookup"><span data-stu-id="4c69f-183">d.</span></span> <span data-ttu-id="4c69f-184">**Kaydet** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="4c69f-184">Click **Save**.</span></span>
+    <span data-ttu-id="b1a9c-183">d.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-183">d.</span></span> <span data-ttu-id="b1a9c-184">**Kaydet** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-184">Click **Save**.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="4c69f-185">Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="4c69f-185">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="4c69f-186">Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm.</span><span class="sxs-lookup"><span data-stu-id="4c69f-186">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="4c69f-187">Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="4c69f-187">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="b1a9c-185">Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="b1a9c-185">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="b1a9c-186">Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-186">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="b1a9c-187">Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="b1a9c-187">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="4c69f-188">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="4c69f-188">Creating an Azure AD test user</span></span>
-<span data-ttu-id="4c69f-189">Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="4c69f-189">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="b1a9c-188">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="b1a9c-188">Creating an Azure AD test user</span></span>
+<span data-ttu-id="b1a9c-189">Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-189">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-<span data-ttu-id="4c69f-191">**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="4c69f-191">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="b1a9c-191">**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b1a9c-191">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="4c69f-192">İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="4c69f-192">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="b1a9c-192">Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-192">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sugarcrm-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="4c69f-194">Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-194">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="b1a9c-194">Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-194">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sugarcrm-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="4c69f-196">Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.</span><span class="sxs-lookup"><span data-stu-id="4c69f-196">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="b1a9c-196">tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-196">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sugarcrm-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="4c69f-198">Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="4c69f-198">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="b1a9c-198">Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-198">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sugarcrm-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="4c69f-200">a.</span><span class="sxs-lookup"><span data-stu-id="4c69f-200">a.</span></span> <span data-ttu-id="4c69f-201">İçinde **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-201">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="b1a9c-200">a.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-200">a.</span></span> <span data-ttu-id="b1a9c-201">Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-201">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="4c69f-202">b.</span><span class="sxs-lookup"><span data-stu-id="4c69f-202">b.</span></span> <span data-ttu-id="4c69f-203">İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="4c69f-203">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="b1a9c-202">b.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-202">b.</span></span> <span data-ttu-id="b1a9c-203">Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-203">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="4c69f-204">c.</span><span class="sxs-lookup"><span data-stu-id="4c69f-204">c.</span></span> <span data-ttu-id="4c69f-205">Seçin **Göster parola** ve değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-205">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="b1a9c-204">c.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-204">c.</span></span> <span data-ttu-id="b1a9c-205">Seçin **Göster parola** ve hello hello değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-205">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="4c69f-206">d.</span><span class="sxs-lookup"><span data-stu-id="4c69f-206">d.</span></span> <span data-ttu-id="4c69f-207">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="4c69f-207">Click **Create**.</span></span>
+    <span data-ttu-id="b1a9c-206">d.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-206">d.</span></span> <span data-ttu-id="b1a9c-207">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-207">Click **Create**.</span></span>
  
-### <a name="creating-a-sugar-crm-test-user"></a><span data-ttu-id="4c69f-208">Sugar CRM test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="4c69f-208">Creating a Sugar CRM test user</span></span>
+### <a name="creating-a-sugar-crm-test-user"></a><span data-ttu-id="b1a9c-208">Sugar CRM test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="b1a9c-208">Creating a Sugar CRM test user</span></span>
 
-<span data-ttu-id="4c69f-209">Sugar CRM oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar Sugar CRM sağlanmalıdır.</span><span class="sxs-lookup"><span data-stu-id="4c69f-209">In order to enable Azure AD users to log in to Sugar CRM, they must be provisioned to Sugar CRM.</span></span>
+<span data-ttu-id="b1a9c-209">Sağlanan tooSugar CRM tooSugar CRM, sipariş tooenable Azure AD kullanıcıların toolog içinde olmaları gerekir.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-209">In order tooenable Azure AD users toolog in tooSugar CRM, they must be provisioned tooSugar CRM.</span></span>
 
-<span data-ttu-id="4c69f-210">Sugar söz konusu olduğunda, sağlama el ile bir görev olduğundan, CRM.</span><span class="sxs-lookup"><span data-stu-id="4c69f-210">In the case of Sugar CRM, provisioning is a manual task.</span></span>
+<span data-ttu-id="b1a9c-210">Sugar CRM Hello durumda sağlama bir el ile bir görevdir.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-210">In hello case of Sugar CRM, provisioning is a manual task.</span></span>
 
-<span data-ttu-id="4c69f-211">**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="4c69f-211">**To provision a user account, perform the following steps:**</span></span>
+<span data-ttu-id="b1a9c-211">**bir kullanıcı hesabı tooprovision hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b1a9c-211">**tooprovision a user account, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="4c69f-212">Oturum, **Sugar CRM** yönetici olarak şirket site.</span><span class="sxs-lookup"><span data-stu-id="4c69f-212">Log in to your **Sugar CRM** company site as administrator.</span></span>
+1. <span data-ttu-id="b1a9c-212">İçinde tooyour oturum **Sugar CRM** yönetici olarak şirket site.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-212">Log in tooyour **Sugar CRM** company site as administrator.</span></span>
 
-2. <span data-ttu-id="4c69f-213">Git **yönetici**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-213">Go to **Admin**.</span></span>
+2. <span data-ttu-id="b1a9c-213">Çok Git**yönetici**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-213">Go too**Admin**.</span></span>
    
-    <span data-ttu-id="4c69f-214">![Yönetici](./media/active-directory-saas-sugarcrm-tutorial/ic795888.png "yönetici")</span><span class="sxs-lookup"><span data-stu-id="4c69f-214">![Admin](./media/active-directory-saas-sugarcrm-tutorial/ic795888.png "Admin")</span></span>
+    <span data-ttu-id="b1a9c-214">![Yönetici](./media/active-directory-saas-sugarcrm-tutorial/ic795888.png "yönetici")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-214">![Admin](./media/active-directory-saas-sugarcrm-tutorial/ic795888.png "Admin")</span></span>
 
-3. <span data-ttu-id="4c69f-215">İçinde **Yönetim** 'yi tıklatın **kullanıcı yönetimi**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-215">In the **Administration** section, click **User Management**.</span></span>
+3. <span data-ttu-id="b1a9c-215">Merhaba, **Yönetim** 'yi tıklatın **kullanıcı yönetimi**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-215">In hello **Administration** section, click **User Management**.</span></span>
    
-    <span data-ttu-id="4c69f-216">![Yönetim](./media/active-directory-saas-sugarcrm-tutorial/ic795893.png "Yönetim")</span><span class="sxs-lookup"><span data-stu-id="4c69f-216">![Administration](./media/active-directory-saas-sugarcrm-tutorial/ic795893.png "Administration")</span></span>
+    <span data-ttu-id="b1a9c-216">![Yönetim](./media/active-directory-saas-sugarcrm-tutorial/ic795893.png "Yönetim")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-216">![Administration](./media/active-directory-saas-sugarcrm-tutorial/ic795893.png "Administration")</span></span>
 
-4. <span data-ttu-id="4c69f-217">Git **kullanıcılar \> yeni bir kullanıcı oluşturmak**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-217">Go to **Users \> Create New User**.</span></span>
+4. <span data-ttu-id="b1a9c-217">Çok Git**kullanıcılar \> yeni kullanıcı oluştur**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-217">Go too**Users \> Create New User**.</span></span>
    
-    <span data-ttu-id="4c69f-218">![Yeni kullanıcı oluşturmak](./media/active-directory-saas-sugarcrm-tutorial/ic795894.png "yeni kullanıcı oluşturun")</span><span class="sxs-lookup"><span data-stu-id="4c69f-218">![Create New User](./media/active-directory-saas-sugarcrm-tutorial/ic795894.png "Create New User")</span></span>
+    <span data-ttu-id="b1a9c-218">![Yeni kullanıcı oluşturmak](./media/active-directory-saas-sugarcrm-tutorial/ic795894.png "yeni kullanıcı oluşturun")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-218">![Create New User](./media/active-directory-saas-sugarcrm-tutorial/ic795894.png "Create New User")</span></span>
 
-5. <span data-ttu-id="4c69f-219">Üzerinde **kullanıcı profili** sekmesinde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="4c69f-219">On the **User Profile** tab, perform the following steps:</span></span>
+5. <span data-ttu-id="b1a9c-219">Merhaba üzerinde **kullanıcı profili** sekmesinde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-219">On hello **User Profile** tab, perform hello following steps:</span></span>
    
-    <span data-ttu-id="4c69f-220">![Yeni kullanıcı](./media/active-directory-saas-sugarcrm-tutorial/ic795895.png "yeni kullanıcı")</span><span class="sxs-lookup"><span data-stu-id="4c69f-220">![New User](./media/active-directory-saas-sugarcrm-tutorial/ic795895.png "New User")</span></span>
+    <span data-ttu-id="b1a9c-220">![Yeni kullanıcı](./media/active-directory-saas-sugarcrm-tutorial/ic795895.png "yeni kullanıcı")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-220">![New User](./media/active-directory-saas-sugarcrm-tutorial/ic795895.png "New User")</span></span>
 
-    <span data-ttu-id="4c69f-221">a.</span><span class="sxs-lookup"><span data-stu-id="4c69f-221">a.</span></span> <span data-ttu-id="4c69f-222">Tür **kullanıcı adı**, **Soyadı**, ve **e-posta adresi** ilgili metin kutularına halinde geçerli bir Azure Active Directory kullanıcı.</span><span class="sxs-lookup"><span data-stu-id="4c69f-222">Type the **user name**, **last name**, and **email address** of a valid Azure Active Directory user into the related textboxes.</span></span>
+    <span data-ttu-id="b1a9c-221">a.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-221">a.</span></span> <span data-ttu-id="b1a9c-222">Türü hello **kullanıcı adı**, **Soyadı**, ve **e-posta adresi** hello halinde geçerli bir Azure Active Directory kullanıcı, metin kutuları ilgili.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-222">Type hello **user name**, **last name**, and **email address** of a valid Azure Active Directory user into hello related textboxes.</span></span>
   
-6. <span data-ttu-id="4c69f-223">Olarak **durum**seçin **etkin**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-223">As **Status**, select **Active**.</span></span>
+6. <span data-ttu-id="b1a9c-223">Olarak **durum**seçin **etkin**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-223">As **Status**, select **Active**.</span></span>
 
-7. <span data-ttu-id="4c69f-224">Parola sekmesinde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="4c69f-224">On the Password tab, perform the following steps:</span></span>
+7. <span data-ttu-id="b1a9c-224">Merhaba parola sekmesinde hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="b1a9c-224">On hello Password tab, perform hello following steps:</span></span>
    
-    <span data-ttu-id="4c69f-225">![Yeni kullanıcı](./media/active-directory-saas-sugarcrm-tutorial/ic795896.png "yeni kullanıcı")</span><span class="sxs-lookup"><span data-stu-id="4c69f-225">![New User](./media/active-directory-saas-sugarcrm-tutorial/ic795896.png "New User")</span></span>
+    <span data-ttu-id="b1a9c-225">![Yeni kullanıcı](./media/active-directory-saas-sugarcrm-tutorial/ic795896.png "yeni kullanıcı")</span><span class="sxs-lookup"><span data-stu-id="b1a9c-225">![New User](./media/active-directory-saas-sugarcrm-tutorial/ic795896.png "New User")</span></span>
 
-    <span data-ttu-id="4c69f-226">a.</span><span class="sxs-lookup"><span data-stu-id="4c69f-226">a.</span></span> <span data-ttu-id="4c69f-227">Parolayı ilgili metin kutusuna yazın.</span><span class="sxs-lookup"><span data-stu-id="4c69f-227">Type the password into the related textbox.</span></span>
+    <span data-ttu-id="b1a9c-226">a.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-226">a.</span></span> <span data-ttu-id="b1a9c-227">Merhaba türü hello parolanıza textbox ilgili.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-227">Type hello password into hello related textbox.</span></span>
 
-    <span data-ttu-id="4c69f-228">b.</span><span class="sxs-lookup"><span data-stu-id="4c69f-228">b.</span></span> <span data-ttu-id="4c69f-229">**Kaydet** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="4c69f-229">Click **Save**.</span></span>
+    <span data-ttu-id="b1a9c-228">b.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-228">b.</span></span> <span data-ttu-id="b1a9c-229">**Kaydet** düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-229">Click **Save**.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="4c69f-230">API sağlama AAD kullanıcı hesaplarına Sugar CRM tarafından sağlanan veya herhangi diğer Sugar CRM kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4c69f-230">You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM to provision AAD user accounts.</span></span> 
+><span data-ttu-id="b1a9c-230">API AAD kullanıcı hesaplarının Sugar CRM tooprovision tarafından sağlanan veya herhangi diğer Sugar CRM kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-230">You can use any other Sugar CRM user account creation tools or APIs provided by Sugar CRM tooprovision AAD user accounts.</span></span> 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="4c69f-231">Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="4c69f-231">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="b1a9c-231">Hello Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="b1a9c-231">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="4c69f-232">Bu bölümde, Britta Sugar CRM'ye erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="4c69f-232">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Sugar CRM.</span></span>
+<span data-ttu-id="b1a9c-232">Bu bölümde, erişim tooSugar CRM vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-232">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooSugar CRM.</span></span>
 
 ![Kullanıcı atama][200] 
 
-<span data-ttu-id="4c69f-234">**Sugar CRM Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="4c69f-234">**To assign Britta Simon to Sugar CRM, perform the following steps:**</span></span>
+<span data-ttu-id="b1a9c-234">**tooassign Britta Simon tooSugar, CRM hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="b1a9c-234">**tooassign Britta Simon tooSugar CRM, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="4c69f-235">Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-235">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="b1a9c-235">Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-235">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Kullanıcı atama][201] 
 
-2. <span data-ttu-id="4c69f-237">Uygulamalar listesinde **Sugar CRM**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-237">In the applications list, select **Sugar CRM**.</span></span>
+2. <span data-ttu-id="b1a9c-237">Merhaba uygulamalar listesinde **Sugar CRM**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-237">In hello applications list, select **Sugar CRM**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_app.png) 
 
-3. <span data-ttu-id="4c69f-239">Soldaki menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="4c69f-239">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="b1a9c-239">Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-239">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Kullanıcı atama][202] 
 
-4. <span data-ttu-id="4c69f-241">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="4c69f-241">Click **Add** button.</span></span> <span data-ttu-id="4c69f-242">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="4c69f-242">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="b1a9c-241">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-241">Click **Add** button.</span></span> <span data-ttu-id="b1a9c-242">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-242">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Kullanıcı atama][203]
 
-5. <span data-ttu-id="4c69f-244">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="4c69f-244">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="b1a9c-244">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-244">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="4c69f-245">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="4c69f-245">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="b1a9c-245">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-245">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="4c69f-246">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="4c69f-246">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="b1a9c-246">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-246">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="4c69f-247">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="4c69f-247">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="b1a9c-247">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="b1a9c-247">Testing single sign-on</span></span>
 
-<span data-ttu-id="4c69f-248">Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.</span><span class="sxs-lookup"><span data-stu-id="4c69f-248">The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="b1a9c-248">Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD çoklu oturum açma Yapılandırması'nı kullanarak.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-248">hello objective of this section is tootest your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="4c69f-249">Erişim paneli Sugar CRM parçasında tıklattığınızda, otomatik olarak Sugar CRM uygulamanıza açan.</span><span class="sxs-lookup"><span data-stu-id="4c69f-249">When you click the Sugar CRM tile in the Access Panel, you should get automatically signed-on to your Sugar CRM application.</span></span>
+<span data-ttu-id="b1a9c-249">Merhaba Sugar CRM hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Sugar CRM uygulaması almanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="b1a9c-249">When you click hello Sugar CRM tile in hello Access Panel, you should get automatically signed-on tooyour Sugar CRM application.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="4c69f-250">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="4c69f-250">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="b1a9c-250">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="b1a9c-250">Additional resources</span></span>
 
-* [<span data-ttu-id="4c69f-251">Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi</span><span class="sxs-lookup"><span data-stu-id="4c69f-251">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="4c69f-252">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="4c69f-252">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="b1a9c-251">İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları</span><span class="sxs-lookup"><span data-stu-id="b1a9c-251">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="b1a9c-252">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="b1a9c-252">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

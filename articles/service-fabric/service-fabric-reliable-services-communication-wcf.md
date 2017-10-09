@@ -1,6 +1,6 @@
 ---
-title: "Güvenilir hizmetler WCF iletişim yığını | Microsoft Docs"
-description: "Service Fabric yerleşik WCF iletişimi yığınında güvenilir hizmetler için İstemci-hizmet WCF iletişimi sağlar."
+title: "aaaReliable Hizmetleri WCF iletişim yığını | Microsoft Docs"
+description: "Merhaba yerleşik WCF iletişim yığını Service Fabric güvenilir hizmetler için İstemci-hizmet WCF iletişimi sağlar."
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 7037620ebdc26a9f18531064bf45d058f5060e39
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7feebef4d46a6ae66d05129f47f9b5911e82aec9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="wcf-based-communication-stack-for-reliable-services"></a><span data-ttu-id="e6f32-103">Güvenilir hizmetler için WCF tabanlı iletişim yığını</span><span class="sxs-lookup"><span data-stu-id="e6f32-103">WCF-based communication stack for Reliable Services</span></span>
-<span data-ttu-id="e6f32-104">Güvenilir hizmetler altyapısına hizmet yazarların kendi hizmet için kullanmak istedikleri iletişim yığını seçin izin verir.</span><span class="sxs-lookup"><span data-stu-id="e6f32-104">The Reliable Services framework allows service authors to choose the communication stack that they want to use for their service.</span></span> <span data-ttu-id="e6f32-105">Kendi seçtikleri iletişim yığınındaki ekleyebilirsiniz **ICommunicationListener** döndürülen [CreateServiceReplicaListeners veya CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) yöntemleri.</span><span class="sxs-lookup"><span data-stu-id="e6f32-105">They can plug in the communication stack of their choice via the **ICommunicationListener** returned from the [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methods.</span></span> <span data-ttu-id="e6f32-106">Çerçeve WCF tabanlı iletişim kullanmak istediğiniz hizmet yazarlar için Windows Communication Foundation (WCF) tabanlı iletişim yığını uygulaması sağlar.</span><span class="sxs-lookup"><span data-stu-id="e6f32-106">The framework provides an implementation of the communication stack based on the Windows Communication Foundation (WCF) for service authors who want to use WCF-based communication.</span></span>
+# <a name="wcf-based-communication-stack-for-reliable-services"></a><span data-ttu-id="5766d-103">Güvenilir hizmetler için WCF tabanlı iletişim yığını</span><span class="sxs-lookup"><span data-stu-id="5766d-103">WCF-based communication stack for Reliable Services</span></span>
+<span data-ttu-id="5766d-104">Merhaba güvenilir framework sağlar Services hizmet yazarlar toochoose hello iletişim yığını toouse için kendi hizmet istiyor.</span><span class="sxs-lookup"><span data-stu-id="5766d-104">hello Reliable Services framework allows service authors toochoose hello communication stack that they want toouse for their service.</span></span> <span data-ttu-id="5766d-105">Merhaba iletişimi yığınında hello aracılığıyla kendi seçtikleri ekleyebilirsiniz **ICommunicationListener** hello döndürülen [CreateServiceReplicaListeners veya CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) yöntemleri.</span><span class="sxs-lookup"><span data-stu-id="5766d-105">They can plug in hello communication stack of their choice via hello **ICommunicationListener** returned from hello [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methods.</span></span> <span data-ttu-id="5766d-106">Merhaba framework hello iletişimi yığınının hello Windows Communication Foundation (WCF) üzerinde toouse WCF tabanlı iletişim isteyen hizmeti yazarlar için temel bir uygulama sağlar.</span><span class="sxs-lookup"><span data-stu-id="5766d-106">hello framework provides an implementation of hello communication stack based on hello Windows Communication Foundation (WCF) for service authors who want toouse WCF-based communication.</span></span>
 
-## <a name="wcf-communication-listener"></a><span data-ttu-id="e6f32-107">WCF iletişimi dinleyicisi</span><span class="sxs-lookup"><span data-stu-id="e6f32-107">WCF Communication Listener</span></span>
-<span data-ttu-id="e6f32-108">WCF özel uyarlamasını **ICommunicationListener** tarafından sağlanan **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** sınıfı.</span><span class="sxs-lookup"><span data-stu-id="e6f32-108">The WCF-specific implementation of **ICommunicationListener** is provided by the **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** class.</span></span>
+## <a name="wcf-communication-listener"></a><span data-ttu-id="5766d-107">WCF iletişimi dinleyicisi</span><span class="sxs-lookup"><span data-stu-id="5766d-107">WCF Communication Listener</span></span>
+<span data-ttu-id="5766d-108">Merhaba WCF özgü uyarlamasını **ICommunicationListener** hello tarafından sağlanan **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** sınıfı.</span><span class="sxs-lookup"><span data-stu-id="5766d-108">hello WCF-specific implementation of **ICommunicationListener** is provided by hello **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** class.</span></span>
 
-<span data-ttu-id="e6f32-109">Bir hizmet sözleşmesini türü deyin sahibiz ekleyin`ICalculator`</span><span class="sxs-lookup"><span data-stu-id="e6f32-109">Lest say we have a service contract of type `ICalculator`</span></span>
+<span data-ttu-id="5766d-109">Bir hizmet sözleşmesini türü deyin sahibiz ekleyin`ICalculator`</span><span class="sxs-lookup"><span data-stu-id="5766d-109">Lest say we have a service contract of type `ICalculator`</span></span>
 
 ```csharp
 [ServiceContract]
@@ -37,7 +37,7 @@ public interface ICalculator
 }
 ```
 
-<span data-ttu-id="e6f32-110">Aşağıdaki şekilde hizmetinde bir WCF iletişimi dinleyici oluşturabiliriz.</span><span class="sxs-lookup"><span data-stu-id="e6f32-110">We can create a WCF communication listener in the service the following manner.</span></span>
+<span data-ttu-id="5766d-110">Aşağıdaki şekilde hello hizmet hello WCF iletişimi dinleyici oluşturabiliriz.</span><span class="sxs-lookup"><span data-stu-id="5766d-110">We can create a WCF communication listener in hello service hello following manner.</span></span>
 
 ```csharp
 
@@ -48,13 +48,13 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
             wcfServiceObject:this,
             serviceContext:context,
             //
-            // The name of the endpoint configured in the ServiceManifest under the Endpoints section
-            // that identifies the endpoint that the WCF ServiceHost should listen on.
+            // hello name of hello endpoint configured in hello ServiceManifest under hello Endpoints section
+            // that identifies hello endpoint that hello WCF ServiceHost should listen on.
             //
             endpointResourceName: "WcfServiceEndpoint",
 
             //
-            // Populate the binding information that you want the service to use.
+            // Populate hello binding information that you want hello service toouse.
             //
             listenerBinding: WcfUtility.CreateTcpListenerBinding()
         )
@@ -63,8 +63,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a><span data-ttu-id="e6f32-111">İstemciler için WCF iletişim yığını yazma</span><span class="sxs-lookup"><span data-stu-id="e6f32-111">Writing clients for the WCF communication stack</span></span>
-<span data-ttu-id="e6f32-112">WCF kullanarak Hizmetleri ile iletişim kurmak için istemcileri yazmak için bir çerçeve sağlar **WcfClientCommunicationFactory**, WCF özgü uyarlamasını olduğu [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).</span><span class="sxs-lookup"><span data-stu-id="e6f32-112">For writing clients to communicate with services by using WCF, the framework provides **WcfClientCommunicationFactory**, which is the WCF-specific implementation of [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).</span></span>
+## <a name="writing-clients-for-hello-wcf-communication-stack"></a><span data-ttu-id="5766d-111">İstemciler hello WCF iletişim yığını için yazma</span><span class="sxs-lookup"><span data-stu-id="5766d-111">Writing clients for hello WCF communication stack</span></span>
+<span data-ttu-id="5766d-112">WCF, hello framework kullanarak hizmetleriyle toocommunicate sağlar istemcileri yazma **WcfClientCommunicationFactory**, hello WCF özgü uyarlamasını olduğu [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).</span><span class="sxs-lookup"><span data-stu-id="5766d-112">For writing clients toocommunicate with services by using WCF, hello framework provides **WcfClientCommunicationFactory**, which is hello WCF-specific implementation of [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).</span></span>
 
 ```csharp
 
@@ -76,7 +76,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-<span data-ttu-id="e6f32-113">WCF iletişim kanalını erişilebilen **WcfCommunicationClient** tarafından oluşturulan **WcfCommunicationClientFactory**.</span><span class="sxs-lookup"><span data-stu-id="e6f32-113">The WCF communication channel can be accessed from the **WcfCommunicationClient** created by the **WcfCommunicationClientFactory**.</span></span>
+<span data-ttu-id="5766d-113">Merhaba WCF iletişim kanalını hello erişilebilir **WcfCommunicationClient** hello tarafından oluşturulan **WcfCommunicationClientFactory**.</span><span class="sxs-lookup"><span data-stu-id="5766d-113">hello WCF communication channel can be accessed from hello **WcfCommunicationClient** created by hello **WcfCommunicationClientFactory**.</span></span>
 
 ```csharp
 
@@ -90,7 +90,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-<span data-ttu-id="e6f32-114">İstemci kodu kullanabileceğiniz **WcfCommunicationClientFactory** ile birlikte **WcfCommunicationClient** hangi uygulayan **ServicePartitionClient** hizmet uç noktası belirlemek ve hizmeti ile iletişim için.</span><span class="sxs-lookup"><span data-stu-id="e6f32-114">Client code can use the **WcfCommunicationClientFactory** along with the **WcfCommunicationClient** which implements **ServicePartitionClient** to determine the service endpoint and communicate with the service.</span></span>
+<span data-ttu-id="5766d-114">İstemci kodu hello kullanabileceğiniz **WcfCommunicationClientFactory** hello birlikte **WcfCommunicationClient** hangi uygulayan **ServicePartitionClient** toodetermine Hizmet uç noktası hello ve hello hizmetiyle iletişim.</span><span class="sxs-lookup"><span data-stu-id="5766d-114">Client code can use hello **WcfCommunicationClientFactory** along with hello **WcfCommunicationClient** which implements **ServicePartitionClient** toodetermine hello service endpoint and communicate with hello service.</span></span>
 
 ```csharp
 // Create binding
@@ -102,7 +102,7 @@ var wcfClientFactory = new WcfCommunicationClientFactory<ICalculator>
     (clientBinding: binding, servicePartitionResolver: partitionResolver);
 
 //
-// Create a client for communicating with the ICalculator service that has been created with the
+// Create a client for communicating with hello ICalculator service that has been created with the
 // Singleton partition scheme.
 //
 var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
@@ -111,19 +111,19 @@ var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
                 ServicePartitionKey.Singleton);
 
 //
-// Call the service to perform the operation.
+// Call hello service tooperform hello operation.
 //
 var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
 > [!NOTE]
-> <span data-ttu-id="e6f32-115">ServicePartitionResolver varsayılan istemci hizmeti olarak aynı kümedeki çalıştığını varsayar.</span><span class="sxs-lookup"><span data-stu-id="e6f32-115">The default ServicePartitionResolver assumes that the client is running in same cluster as the service.</span></span> <span data-ttu-id="e6f32-116">Diğer bir deyişle Aksi halde, bir ServicePartitionResolver nesnesi oluşturur ve küme bağlantı uç noktalardan geçirin.</span><span class="sxs-lookup"><span data-stu-id="e6f32-116">If that is not the case, create a ServicePartitionResolver object and pass in the cluster connection endpoints.</span></span>
+> <span data-ttu-id="5766d-115">Merhaba varsayılan ServicePartitionResolver hello istemci aynı küme hello hizmet olarak çalışıyor varsayar.</span><span class="sxs-lookup"><span data-stu-id="5766d-115">hello default ServicePartitionResolver assumes that hello client is running in same cluster as hello service.</span></span> <span data-ttu-id="5766d-116">Diğer bir deyişle değil hello durumlarda bir ServicePartitionResolver nesnesi oluşturma ve hello küme bağlantı uç geçirin.</span><span class="sxs-lookup"><span data-stu-id="5766d-116">If that is not hello case, create a ServicePartitionResolver object and pass in hello cluster connection endpoints.</span></span>
 > 
 > 
 
-## <a name="next-steps"></a><span data-ttu-id="e6f32-117">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="e6f32-117">Next steps</span></span>
-* [<span data-ttu-id="e6f32-118">Güvenilir hizmetler remoting ile uzaktan yordam çağrısı</span><span class="sxs-lookup"><span data-stu-id="e6f32-118">Remote procedure call with Reliable Services remoting</span></span>](service-fabric-reliable-services-communication-remoting.md)
-* [<span data-ttu-id="e6f32-119">Web API OWIN güvenilir Hizmetleri'ndeki ile</span><span class="sxs-lookup"><span data-stu-id="e6f32-119">Web API with OWIN in Reliable Services</span></span>](service-fabric-reliable-services-communication-webapi.md)
-* [<span data-ttu-id="e6f32-120">Güvenilir hizmetler için iletişimin güvenliğini sağlama</span><span class="sxs-lookup"><span data-stu-id="e6f32-120">Securing communication for Reliable Services</span></span>](service-fabric-reliable-services-secure-communication.md)
+## <a name="next-steps"></a><span data-ttu-id="5766d-117">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="5766d-117">Next steps</span></span>
+* [<span data-ttu-id="5766d-118">Güvenilir hizmetler remoting ile uzaktan yordam çağrısı</span><span class="sxs-lookup"><span data-stu-id="5766d-118">Remote procedure call with Reliable Services remoting</span></span>](service-fabric-reliable-services-communication-remoting.md)
+* [<span data-ttu-id="5766d-119">Web API OWIN güvenilir Hizmetleri'ndeki ile</span><span class="sxs-lookup"><span data-stu-id="5766d-119">Web API with OWIN in Reliable Services</span></span>](service-fabric-reliable-services-communication-webapi.md)
+* [<span data-ttu-id="5766d-120">Güvenilir hizmetler için iletişimin güvenliğini sağlama</span><span class="sxs-lookup"><span data-stu-id="5766d-120">Securing communication for Reliable Services</span></span>](service-fabric-reliable-services-secure-communication.md)
 

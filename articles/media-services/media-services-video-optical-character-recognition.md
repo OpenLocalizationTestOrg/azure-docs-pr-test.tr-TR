@@ -1,6 +1,6 @@
 ---
-title: Azure medya analizi OCR metinle digitize | Microsoft Docs
-description: "Azure medya analizi OCR (optik karakter tanıma) video dosyalarında metin içeriği düzenlenebilir, aranabilir dijital metne dönüştürmek etkinleştirir.  Bu, medya video sinyali anlamlı meta veri ayıklama otomatikleştirmenizi sağlar."
+title: Azure medya analizi OCR aaaDigitize metinle | Microsoft Docs
+description: "Azure medya analizi OCR (optik karakter tanıma) düzenlenebilir, aranabilir dijital metne video dosyalarında tooconvert metin içeriği sağlar.  Bu, medya video sinyali hello anlamlı meta verilerin tooautomate hello ayıklama sağlar."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,42 +14,42 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: 43f5b3a9bbec243e668c79702045094fcfedbdda
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0476c3ba3942b2c5182a34a429909adbf5c75ac9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a><span data-ttu-id="b940f-104">Video dosyalarında metin içeriği dijital metne dönüştürmek için Azure medya analizi kullanın</span><span class="sxs-lookup"><span data-stu-id="b940f-104">Use Azure Media Analytics to convert text content in video files into digital text</span></span>
-## <a name="overview"></a><span data-ttu-id="b940f-105">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="b940f-105">Overview</span></span>
-<span data-ttu-id="b940f-106">Video dosyalarından metin içeriği ayıklamak ve düzenlenebilir, aranabilir dijital metin üretmek ihtiyacınız varsa, Azure medya analizi OCR (optik karakter tanıma) kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="b940f-106">If you need to extract text content from your video files and generate an editable, searchable digital text, you should use Azure Media Analytics OCR (optical character recognition).</span></span> <span data-ttu-id="b940f-107">Bu Azure medya işlemcisi video dosyalarında metin içeriği algılar ve kendi kullanımınız için metin dosyaları oluşturur.</span><span class="sxs-lookup"><span data-stu-id="b940f-107">This Azure Media Processor detects text content in your video files and generates text files for your use.</span></span> <span data-ttu-id="b940f-108">OCR medyanızın video sinyali anlamlı meta veri ayıklama otomatikleştirmenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="b940f-108">OCR enables you to automate the extraction of meaningful metadata from the video signal of your media.</span></span>
+# <a name="use-azure-media-analytics-tooconvert-text-content-in-video-files-into-digital-text"></a><span data-ttu-id="4effb-104">Azure medya analizi tooconvert metin içeriği video dosyalarında dijital metne kullanın.</span><span class="sxs-lookup"><span data-stu-id="4effb-104">Use Azure Media Analytics tooconvert text content in video files into digital text</span></span>
+## <a name="overview"></a><span data-ttu-id="4effb-105">Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="4effb-105">Overview</span></span>
+<span data-ttu-id="4effb-106">Video dosyalarından tooextract metin içerik gerekir ve düzenlenebilir, aranabilir dijital metin oluşturan Azure medya analizi OCR (optik karakter tanıma) kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="4effb-106">If you need tooextract text content from your video files and generate an editable, searchable digital text, you should use Azure Media Analytics OCR (optical character recognition).</span></span> <span data-ttu-id="4effb-107">Bu Azure medya işlemcisi video dosyalarında metin içeriği algılar ve kendi kullanımınız için metin dosyaları oluşturur.</span><span class="sxs-lookup"><span data-stu-id="4effb-107">This Azure Media Processor detects text content in your video files and generates text files for your use.</span></span> <span data-ttu-id="4effb-108">OCR, tooautomate hello ayıklama anlamlı meta verilerin hello video sinyali medyanızın sağlar.</span><span class="sxs-lookup"><span data-stu-id="4effb-108">OCR enables you tooautomate hello extraction of meaningful metadata from hello video signal of your media.</span></span>
 
-<span data-ttu-id="b940f-109">Bir arama motoru ile birlikte kullanıldığında, kolayca medyanızı metin dizin ve içeriğinizi bulunabilirliğini geliştirir.</span><span class="sxs-lookup"><span data-stu-id="b940f-109">When used in conjunction with a search engine, you can easily index your media by text, and enhance the discoverability of your content.</span></span> <span data-ttu-id="b940f-110">Bu bir video kaydı veya bir slayt gösterisi sunumu ekran yakalama gibi yüksek oranda metinsel videoda son derece yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="b940f-110">This is extremely useful in highly textual video, like a video recording or screen-capture of a slideshow presentation.</span></span> <span data-ttu-id="b940f-111">Azure OCR medya işlemcisi dijital metin için optimize edilmiştir.</span><span class="sxs-lookup"><span data-stu-id="b940f-111">The Azure OCR Media Processor is optimized for digital text.</span></span>
+<span data-ttu-id="4effb-109">Bir arama motoru ile birlikte kullanıldığında, kolayca medyanızı metin dizin ve içeriğinizi hello bulunabilirliğini artırmak.</span><span class="sxs-lookup"><span data-stu-id="4effb-109">When used in conjunction with a search engine, you can easily index your media by text, and enhance hello discoverability of your content.</span></span> <span data-ttu-id="4effb-110">Bu bir video kaydı veya bir slayt gösterisi sunumu ekran yakalama gibi yüksek oranda metinsel videoda son derece yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="4effb-110">This is extremely useful in highly textual video, like a video recording or screen-capture of a slideshow presentation.</span></span> <span data-ttu-id="4effb-111">Hello Azure OCR medya işlemcisi dijital metin için optimize edilmiştir.</span><span class="sxs-lookup"><span data-stu-id="4effb-111">hello Azure OCR Media Processor is optimized for digital text.</span></span>
 
-<span data-ttu-id="b940f-112">**Azure medya OCR** medya işlemcisi şu anda önizlemede.</span><span class="sxs-lookup"><span data-stu-id="b940f-112">The **Azure Media OCR** media processor is currently in Preview.</span></span>
+<span data-ttu-id="4effb-112">Merhaba **Azure medya OCR** medya işlemcisi şu anda önizlemede.</span><span class="sxs-lookup"><span data-stu-id="4effb-112">hello **Azure Media OCR** media processor is currently in Preview.</span></span>
 
-<span data-ttu-id="b940f-113">Bu konu hakkında ayrıntılar verir **Azure medya OCR** ve Media Services SDK'sı ile .NET için nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="b940f-113">This topic gives details about  **Azure Media OCR** and shows how to use it with Media Services SDK for .NET.</span></span> <span data-ttu-id="b940f-114">Ek bilgi ve örnekler için bkz: [bu blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).</span><span class="sxs-lookup"><span data-stu-id="b940f-114">For additional information and examples, see [this blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).</span></span>
+<span data-ttu-id="4effb-113">Bu konu hakkında ayrıntılar verir **Azure medya OCR** ve gösterir nasıl toouse .NET için Media Services SDK'sı ile.</span><span class="sxs-lookup"><span data-stu-id="4effb-113">This topic gives details about  **Azure Media OCR** and shows how toouse it with Media Services SDK for .NET.</span></span> <span data-ttu-id="4effb-114">Ek bilgi ve örnekler için bkz: [bu blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).</span><span class="sxs-lookup"><span data-stu-id="4effb-114">For additional information and examples, see [this blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).</span></span>
 
-## <a name="ocr-input-files"></a><span data-ttu-id="b940f-115">OCR giriş dosyaları</span><span class="sxs-lookup"><span data-stu-id="b940f-115">OCR input files</span></span>
-<span data-ttu-id="b940f-116">Video dosyaları.</span><span class="sxs-lookup"><span data-stu-id="b940f-116">Video files.</span></span> <span data-ttu-id="b940f-117">Şu anda aşağıdaki biçimlerden desteklenir: MP4, MOV ve WMV.</span><span class="sxs-lookup"><span data-stu-id="b940f-117">Currently, the following formats are supported: MP4, MOV, and WMV.</span></span>
+## <a name="ocr-input-files"></a><span data-ttu-id="4effb-115">OCR giriş dosyaları</span><span class="sxs-lookup"><span data-stu-id="4effb-115">OCR input files</span></span>
+<span data-ttu-id="4effb-116">Video dosyaları.</span><span class="sxs-lookup"><span data-stu-id="4effb-116">Video files.</span></span> <span data-ttu-id="4effb-117">Şu anda biçimleri aşağıdaki hello desteklenir: MP4, MOV ve WMV.</span><span class="sxs-lookup"><span data-stu-id="4effb-117">Currently, hello following formats are supported: MP4, MOV, and WMV.</span></span>
 
-## <a name="task-configuration"></a><span data-ttu-id="b940f-118">Görev yapılandırması</span><span class="sxs-lookup"><span data-stu-id="b940f-118">Task configuration</span></span>
-<span data-ttu-id="b940f-119">Görev yapılandırması (hazır).</span><span class="sxs-lookup"><span data-stu-id="b940f-119">Task configuration (preset).</span></span> <span data-ttu-id="b940f-120">Bir görev oluştururken **Azure medya OCR**, JSON veya XML kullanarak önceden belirlenmiş bir yapılandırma belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="b940f-120">When creating a task with **Azure Media OCR**, you must specify a configuration preset using JSON  or XML.</span></span> 
+## <a name="task-configuration"></a><span data-ttu-id="4effb-118">Görev yapılandırması</span><span class="sxs-lookup"><span data-stu-id="4effb-118">Task configuration</span></span>
+<span data-ttu-id="4effb-119">Görev yapılandırması (hazır).</span><span class="sxs-lookup"><span data-stu-id="4effb-119">Task configuration (preset).</span></span> <span data-ttu-id="4effb-120">Bir görev oluştururken **Azure medya OCR**, JSON veya XML kullanarak önceden belirlenmiş bir yapılandırma belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="4effb-120">When creating a task with **Azure Media OCR**, you must specify a configuration preset using JSON  or XML.</span></span> 
 
 >[!NOTE]
-><span data-ttu-id="b940f-121">OCR altyapısı en fazla 32000 piksel olarak en az 40 piksel görüntü bölgesiyle hem yükseklik/genişlik içinde geçerli bir giriş olarak yalnızca alır.</span><span class="sxs-lookup"><span data-stu-id="b940f-121">The OCR engine only takes an image region with minimum 40 pixels to maximum 32000 pixels as a valid input in both height/width.</span></span>
+><span data-ttu-id="4effb-121">Merhaba OCR altyapısı minimum 40 piksel toomaximum 32000 piksel görüntü bölgesiyle hem yükseklik/genişlik içinde geçerli bir giriş olarak yalnızca alır.</span><span class="sxs-lookup"><span data-stu-id="4effb-121">hello OCR engine only takes an image region with minimum 40 pixels toomaximum 32000 pixels as a valid input in both height/width.</span></span>
 >
 
-### <a name="attribute-descriptions"></a><span data-ttu-id="b940f-122">Öznitelik tanımlarını</span><span class="sxs-lookup"><span data-stu-id="b940f-122">Attribute descriptions</span></span>
-| <span data-ttu-id="b940f-123">Öznitelik adı</span><span class="sxs-lookup"><span data-stu-id="b940f-123">Attribute name</span></span> | <span data-ttu-id="b940f-124">Açıklama</span><span class="sxs-lookup"><span data-stu-id="b940f-124">Description</span></span> |
+### <a name="attribute-descriptions"></a><span data-ttu-id="4effb-122">Öznitelik tanımlarını</span><span class="sxs-lookup"><span data-stu-id="4effb-122">Attribute descriptions</span></span>
+| <span data-ttu-id="4effb-123">Öznitelik adı</span><span class="sxs-lookup"><span data-stu-id="4effb-123">Attribute name</span></span> | <span data-ttu-id="4effb-124">Açıklama</span><span class="sxs-lookup"><span data-stu-id="4effb-124">Description</span></span> |
 | --- | --- |
-|<span data-ttu-id="b940f-125">AdvancedOutput</span><span class="sxs-lookup"><span data-stu-id="b940f-125">AdvancedOutput</span></span>| <span data-ttu-id="b940f-126">JSON çıktısını AdvancedOutput true olarak ayarlarsanız, her tek sözcüklük (ek olarak tümcecikleri ve bölgeler) için konumsal veri içermez.</span><span class="sxs-lookup"><span data-stu-id="b940f-126">If you set AdvancedOutput to true, the JSON output will contain positional data for every single word (in addition to phrases and regions).</span></span> <span data-ttu-id="b940f-127">Bu ayrıntıları görmek istemiyorsanız bayrağı false olarak ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="b940f-127">If you do not want to see these details, set the flag to false.</span></span> <span data-ttu-id="b940f-128">Varsayılan değer false.</span><span class="sxs-lookup"><span data-stu-id="b940f-128">The default value is false.</span></span> <span data-ttu-id="b940f-129">Daha fazla bilgi için bkz: [bu blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).</span><span class="sxs-lookup"><span data-stu-id="b940f-129">For more information, see [this blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).</span></span>|
-| <span data-ttu-id="b940f-130">Dil</span><span class="sxs-lookup"><span data-stu-id="b940f-130">Language</span></span> |<span data-ttu-id="b940f-131">Aranacak metin dili (isteğe bağlı) açıklar.</span><span class="sxs-lookup"><span data-stu-id="b940f-131">(optional) describes the language of text for which to look.</span></span> <span data-ttu-id="b940f-132">Şunlardan biri: Otomatik Algıla (varsayılan), Arapça, ChineseSimplified, ChineseTraditional, Çekçe Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, SerbianCyrillic, SerbianLatin, Slovakça, İspanyolca, İsveççe, Türkçe.</span><span class="sxs-lookup"><span data-stu-id="b940f-132">One of the following: AutoDetect (default), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German,  Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish.</span></span> |
-| <span data-ttu-id="b940f-133">TextOrientation</span><span class="sxs-lookup"><span data-stu-id="b940f-133">TextOrientation</span></span> |<span data-ttu-id="b940f-134">(isteğe bağlı) aranacak metnin yönünü açıklar.</span><span class="sxs-lookup"><span data-stu-id="b940f-134">(optional) describes the orientation of text for which to look.</span></span>  <span data-ttu-id="b940f-135">Tüm harfler üstündeki işaret, sola doğru "Sol" anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="b940f-135">"Left" means that the top of all letters are pointed towards the left.</span></span>  <span data-ttu-id="b940f-136">Varsayılan metin (örneğin, kitaptaki bulunan) "Yedekleme" yönlendirilmiş çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="b940f-136">Default text (like that which can be found in a book) can be called "Up" oriented.</span></span>  <span data-ttu-id="b940f-137">Şunlardan biri: Otomatik Algıla (varsayılan), sağ, aşağı, sol.</span><span class="sxs-lookup"><span data-stu-id="b940f-137">One of the following: AutoDetect (default), Up, Right, Down, Left.</span></span> |
-| <span data-ttu-id="b940f-138">TimeInterval</span><span class="sxs-lookup"><span data-stu-id="b940f-138">TimeInterval</span></span> |<span data-ttu-id="b940f-139">(isteğe bağlı) örnekleme hızını açıklar.</span><span class="sxs-lookup"><span data-stu-id="b940f-139">(optional) describes the sampling rate.</span></span>  <span data-ttu-id="b940f-140">1/2 saniyede varsayılandır.</span><span class="sxs-lookup"><span data-stu-id="b940f-140">Default is every 1/2 second.</span></span><br/><span data-ttu-id="b940f-141">JSON biçimi – SS: dd:. SSS (varsayılan 00:00:00.500)</span><span class="sxs-lookup"><span data-stu-id="b940f-141">JSON format – HH:mm:ss.SSS (default 00:00:00.500)</span></span><br/><span data-ttu-id="b940f-142">XML biçiminde – W3C XSD süresi ilkel (varsayılan PT0.5)</span><span class="sxs-lookup"><span data-stu-id="b940f-142">XML format – W3C XSD duration primitive (default PT0.5)</span></span> |
-| <span data-ttu-id="b940f-143">DetectRegions</span><span class="sxs-lookup"><span data-stu-id="b940f-143">DetectRegions</span></span> |<span data-ttu-id="b940f-144">(isteğe bağlı) Metin algılamak üzere video çerçevesinde bölgeler belirtme DetectRegion nesnelerinin bir dizisi.</span><span class="sxs-lookup"><span data-stu-id="b940f-144">(optional) An array of DetectRegion objects specifying regions within the video frame in which to detect text.</span></span><br/><span data-ttu-id="b940f-145">Bir DetectRegion nesnesi aşağıdaki dört tamsayı değerlerini yapılır:</span><span class="sxs-lookup"><span data-stu-id="b940f-145">A DetectRegion object is made of the following four integer values:</span></span><br/><span data-ttu-id="b940f-146">Sol – sol kenar boşluğundan piksel</span><span class="sxs-lookup"><span data-stu-id="b940f-146">Left – pixels from the left-margin</span></span><br/><span data-ttu-id="b940f-147">Üst – üst kenar boşluğundan piksel</span><span class="sxs-lookup"><span data-stu-id="b940f-147">Top – pixels from the top-margin</span></span><br/><span data-ttu-id="b940f-148">Genişlik – bölge piksel cinsinden genişliği</span><span class="sxs-lookup"><span data-stu-id="b940f-148">Width – width of the region in pixels</span></span><br/><span data-ttu-id="b940f-149">Yükseklik – bölge piksel cinsinden yüksekliği</span><span class="sxs-lookup"><span data-stu-id="b940f-149">Height – height of the region in pixels</span></span> |
+|<span data-ttu-id="4effb-125">AdvancedOutput</span><span class="sxs-lookup"><span data-stu-id="4effb-125">AdvancedOutput</span></span>| <span data-ttu-id="4effb-126">Merhaba JSON çıktısını AdvancedOutput tootrue ayarlarsanız, her tek Word'de (toplama toophrases ve bölgeler) için konumsal veri içermez.</span><span class="sxs-lookup"><span data-stu-id="4effb-126">If you set AdvancedOutput tootrue, hello JSON output will contain positional data for every single word (in addition toophrases and regions).</span></span> <span data-ttu-id="4effb-127">Bu ayrıntılar toosee istemiyorsanız hello bayrağı toofalse ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="4effb-127">If you do not want toosee these details, set hello flag toofalse.</span></span> <span data-ttu-id="4effb-128">Merhaba varsayılan değer false şeklindedir.</span><span class="sxs-lookup"><span data-stu-id="4effb-128">hello default value is false.</span></span> <span data-ttu-id="4effb-129">Daha fazla bilgi için bkz: [bu blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).</span><span class="sxs-lookup"><span data-stu-id="4effb-129">For more information, see [this blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).</span></span>|
+| <span data-ttu-id="4effb-130">Dil</span><span class="sxs-lookup"><span data-stu-id="4effb-130">Language</span></span> |<span data-ttu-id="4effb-131">(isteğe bağlı) için hangi toolook metin hello dilini açıklar.</span><span class="sxs-lookup"><span data-stu-id="4effb-131">(optional) describes hello language of text for which toolook.</span></span> <span data-ttu-id="4effb-132">Merhaba aşağıdakilerden biri: Otomatik Algıla (varsayılan), Arapça, ChineseSimplified, ChineseTraditional, Çekçe Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, SerbianCyrillic, SerbianLatin, Slovakça, İspanyolca, İsveççe, Türkçe.</span><span class="sxs-lookup"><span data-stu-id="4effb-132">One of hello following: AutoDetect (default), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German,  Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish.</span></span> |
+| <span data-ttu-id="4effb-133">TextOrientation</span><span class="sxs-lookup"><span data-stu-id="4effb-133">TextOrientation</span></span> |<span data-ttu-id="4effb-134">(isteğe bağlı) için hangi toolook metnin hello yönünü açıklar.</span><span class="sxs-lookup"><span data-stu-id="4effb-134">(optional) describes hello orientation of text for which toolook.</span></span>  <span data-ttu-id="4effb-135">Tüm harfler üstündeki hello "Sol" anlamına gelir hello sola doğru işaret.</span><span class="sxs-lookup"><span data-stu-id="4effb-135">"Left" means that hello top of all letters are pointed towards hello left.</span></span>  <span data-ttu-id="4effb-136">Varsayılan metin (örneğin, kitaptaki bulunan) "Yedekleme" yönlendirilmiş çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="4effb-136">Default text (like that which can be found in a book) can be called "Up" oriented.</span></span>  <span data-ttu-id="4effb-137">Merhaba aşağıdakilerden biri: Otomatik Algıla (varsayılan), sağ, aşağı, sol.</span><span class="sxs-lookup"><span data-stu-id="4effb-137">One of hello following: AutoDetect (default), Up, Right, Down, Left.</span></span> |
+| <span data-ttu-id="4effb-138">TimeInterval</span><span class="sxs-lookup"><span data-stu-id="4effb-138">TimeInterval</span></span> |<span data-ttu-id="4effb-139">(isteğe bağlı) hello örnekleme oranını açıklar.</span><span class="sxs-lookup"><span data-stu-id="4effb-139">(optional) describes hello sampling rate.</span></span>  <span data-ttu-id="4effb-140">1/2 saniyede varsayılandır.</span><span class="sxs-lookup"><span data-stu-id="4effb-140">Default is every 1/2 second.</span></span><br/><span data-ttu-id="4effb-141">JSON biçimi – SS: dd:. SSS (varsayılan 00:00:00.500)</span><span class="sxs-lookup"><span data-stu-id="4effb-141">JSON format – HH:mm:ss.SSS (default 00:00:00.500)</span></span><br/><span data-ttu-id="4effb-142">XML biçiminde – W3C XSD süresi ilkel (varsayılan PT0.5)</span><span class="sxs-lookup"><span data-stu-id="4effb-142">XML format – W3C XSD duration primitive (default PT0.5)</span></span> |
+| <span data-ttu-id="4effb-143">DetectRegions</span><span class="sxs-lookup"><span data-stu-id="4effb-143">DetectRegions</span></span> |<span data-ttu-id="4effb-144">(isteğe bağlı) Hangi toodetect metinde hello video çerçevesinde bölgeler belirtme DetectRegion nesnelerinin bir dizisi.</span><span class="sxs-lookup"><span data-stu-id="4effb-144">(optional) An array of DetectRegion objects specifying regions within hello video frame in which toodetect text.</span></span><br/><span data-ttu-id="4effb-145">Bir DetectRegion nesnesi dört tamsayı değerleri aşağıdaki hello yapılır:</span><span class="sxs-lookup"><span data-stu-id="4effb-145">A DetectRegion object is made of hello following four integer values:</span></span><br/><span data-ttu-id="4effb-146">Sol – hello sol kenar boşluğu piksellerden</span><span class="sxs-lookup"><span data-stu-id="4effb-146">Left – pixels from hello left-margin</span></span><br/><span data-ttu-id="4effb-147">Üst – hello üst kenar boşluğu piksellerden</span><span class="sxs-lookup"><span data-stu-id="4effb-147">Top – pixels from hello top-margin</span></span><br/><span data-ttu-id="4effb-148">Genişlik – hello bölge piksel cinsinden genişliği</span><span class="sxs-lookup"><span data-stu-id="4effb-148">Width – width of hello region in pixels</span></span><br/><span data-ttu-id="4effb-149">Yükseklik – hello bölge piksel cinsinden yüksekliği</span><span class="sxs-lookup"><span data-stu-id="4effb-149">Height – height of hello region in pixels</span></span> |
 
-#### <a name="json-preset-example"></a><span data-ttu-id="b940f-150">Örnek JSON hazır</span><span class="sxs-lookup"><span data-stu-id="b940f-150">JSON preset example</span></span>
+#### <a name="json-preset-example"></a><span data-ttu-id="4effb-150">Örnek JSON hazır</span><span class="sxs-lookup"><span data-stu-id="4effb-150">JSON preset example</span></span>
 
     {
         "Version":1.0, 
@@ -71,7 +71,7 @@ ms.lasthandoff: 08/29/2017
     }
 
 
-#### <a name="xml-preset-example"></a><span data-ttu-id="b940f-151">XML hazır örneği</span><span class="sxs-lookup"><span data-stu-id="b940f-151">XML preset example</span></span>
+#### <a name="xml-preset-example"></a><span data-ttu-id="4effb-151">XML hazır örneği</span><span class="sxs-lookup"><span data-stu-id="4effb-151">XML preset example</span></span>
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -90,34 +90,34 @@ ms.lasthandoff: 08/29/2017
       </Options>
     </VideoOcrPreset>
 
-## <a name="ocr-output-files"></a><span data-ttu-id="b940f-152">OCR çıktı dosyaları</span><span class="sxs-lookup"><span data-stu-id="b940f-152">OCR output files</span></span>
-<span data-ttu-id="b940f-153">Çıktısı OCR medya işlemcisi bir JSON dosyasıdır.</span><span class="sxs-lookup"><span data-stu-id="b940f-153">The output of the OCR media processor is a JSON file.</span></span>
+## <a name="ocr-output-files"></a><span data-ttu-id="4effb-152">OCR çıktı dosyaları</span><span class="sxs-lookup"><span data-stu-id="4effb-152">OCR output files</span></span>
+<span data-ttu-id="4effb-153">Merhaba çıktı hello OCR medya işlemcisi bir JSON dosyasıdır.</span><span class="sxs-lookup"><span data-stu-id="4effb-153">hello output of hello OCR media processor is a JSON file.</span></span>
 
-### <a name="elements-of-the-output-json-file"></a><span data-ttu-id="b940f-154">Çıkış JSON dosyasının öğeleri</span><span class="sxs-lookup"><span data-stu-id="b940f-154">Elements of the output JSON file</span></span>
-<span data-ttu-id="b940f-155">Video OCR çıkış videonuzu içinde bulunan karakterleri zaman kesimli veri sağlar.</span><span class="sxs-lookup"><span data-stu-id="b940f-155">The Video OCR output provides time-segmented data on the characters found in your video.</span></span>  <span data-ttu-id="b940f-156">Dil veya yönlendirme gibi öznitelikleri hone tam olarak çözümlenmesinde ilgilenen sözcükleri açmak için kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b940f-156">You can use attributes such as language or orientation to hone-in on exactly the words that you are interested in analyzing.</span></span> 
+### <a name="elements-of-hello-output-json-file"></a><span data-ttu-id="4effb-154">Merhaba çıkış JSON dosyasının öğeleri</span><span class="sxs-lookup"><span data-stu-id="4effb-154">Elements of hello output JSON file</span></span>
+<span data-ttu-id="4effb-155">Merhaba Video OCR çıktı hello karakterler videonuzu içinde bulundu zaman kesimli veri sağlar.</span><span class="sxs-lookup"><span data-stu-id="4effb-155">hello Video OCR output provides time-segmented data on hello characters found in your video.</span></span>  <span data-ttu-id="4effb-156">Tam olarak çözümlenmesinde ilgilenen hello sözcükleri dil veya yönde toohone gibi öznitelikleri kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4effb-156">You can use attributes such as language or orientation toohone-in on exactly hello words that you are interested in analyzing.</span></span> 
 
-<span data-ttu-id="b940f-157">Çıktı aşağıdaki öznitelikleri içerir:</span><span class="sxs-lookup"><span data-stu-id="b940f-157">The output contains the following attributes:</span></span>
+<span data-ttu-id="4effb-157">Merhaba çıkış öznitelikleri aşağıdaki hello içerir:</span><span class="sxs-lookup"><span data-stu-id="4effb-157">hello output contains hello following attributes:</span></span>
 
-| <span data-ttu-id="b940f-158">Öğesi</span><span class="sxs-lookup"><span data-stu-id="b940f-158">Element</span></span> | <span data-ttu-id="b940f-159">Açıklama</span><span class="sxs-lookup"><span data-stu-id="b940f-159">Description</span></span> |
+| <span data-ttu-id="4effb-158">Öğesi</span><span class="sxs-lookup"><span data-stu-id="4effb-158">Element</span></span> | <span data-ttu-id="4effb-159">Açıklama</span><span class="sxs-lookup"><span data-stu-id="4effb-159">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="b940f-160">Zaman Çizelgesi</span><span class="sxs-lookup"><span data-stu-id="b940f-160">Timescale</span></span> |<span data-ttu-id="b940f-161">videonun saniyede "çizgilerine"</span><span class="sxs-lookup"><span data-stu-id="b940f-161">"ticks" per second of the video</span></span> |
-| <span data-ttu-id="b940f-162">Uzaklık</span><span class="sxs-lookup"><span data-stu-id="b940f-162">Offset</span></span> |<span data-ttu-id="b940f-163">zaman damgaları için uzaklık.</span><span class="sxs-lookup"><span data-stu-id="b940f-163">time offset for timestamps.</span></span> <span data-ttu-id="b940f-164">Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır.</span><span class="sxs-lookup"><span data-stu-id="b940f-164">In version 1.0 of Video APIs, this will always be 0.</span></span> |
-| <span data-ttu-id="b940f-165">Kare hızı</span><span class="sxs-lookup"><span data-stu-id="b940f-165">Framerate</span></span> |<span data-ttu-id="b940f-166">Videonun Saniyedeki çerçeve sayısı</span><span class="sxs-lookup"><span data-stu-id="b940f-166">Frames per second of the video</span></span> |
-| <span data-ttu-id="b940f-167">Genişlik</span><span class="sxs-lookup"><span data-stu-id="b940f-167">width</span></span> |<span data-ttu-id="b940f-168">video piksel cinsinden genişliği</span><span class="sxs-lookup"><span data-stu-id="b940f-168">width of the video in pixels</span></span> |
-| <span data-ttu-id="b940f-169">Yükseklik</span><span class="sxs-lookup"><span data-stu-id="b940f-169">height</span></span> |<span data-ttu-id="b940f-170">video piksel cinsinden yüksekliği</span><span class="sxs-lookup"><span data-stu-id="b940f-170">height of the video in pixels</span></span> |
-| <span data-ttu-id="b940f-171">Parçaları</span><span class="sxs-lookup"><span data-stu-id="b940f-171">Fragments</span></span> |<span data-ttu-id="b940f-172">Meta veriler içine öbekli video zamana dayalı parçalarını dizisi</span><span class="sxs-lookup"><span data-stu-id="b940f-172">array of time-based chunks of video into which the metadata is chunked</span></span> |
-| <span data-ttu-id="b940f-173">start</span><span class="sxs-lookup"><span data-stu-id="b940f-173">start</span></span> |<span data-ttu-id="b940f-174">Başlangıç saati "çizgilerine" parçadaki</span><span class="sxs-lookup"><span data-stu-id="b940f-174">start time of a fragment in "ticks"</span></span> |
-| <span data-ttu-id="b940f-175">Süre</span><span class="sxs-lookup"><span data-stu-id="b940f-175">duration</span></span> |<span data-ttu-id="b940f-176">"çizgilerine" parçadaki uzunluğu</span><span class="sxs-lookup"><span data-stu-id="b940f-176">length of a fragment in "ticks"</span></span> |
-| <span data-ttu-id="b940f-177">aralığı</span><span class="sxs-lookup"><span data-stu-id="b940f-177">interval</span></span> |<span data-ttu-id="b940f-178">verilen parça içinde her olayın aralığı</span><span class="sxs-lookup"><span data-stu-id="b940f-178">interval of each event within the given fragment</span></span> |
-| <span data-ttu-id="b940f-179">etkinlikler</span><span class="sxs-lookup"><span data-stu-id="b940f-179">events</span></span> |<span data-ttu-id="b940f-180">bölgeleri içeren bir dizi</span><span class="sxs-lookup"><span data-stu-id="b940f-180">array containing regions</span></span> |
-| <span data-ttu-id="b940f-181">Bölge</span><span class="sxs-lookup"><span data-stu-id="b940f-181">region</span></span> |<span data-ttu-id="b940f-182">nesnesini temsil eden kelimeler ve ifadeler algılandı</span><span class="sxs-lookup"><span data-stu-id="b940f-182">object representing detected words or phrases</span></span> |
-| <span data-ttu-id="b940f-183">Dil</span><span class="sxs-lookup"><span data-stu-id="b940f-183">language</span></span> |<span data-ttu-id="b940f-184">bir bölge içinde algılanan metin dili</span><span class="sxs-lookup"><span data-stu-id="b940f-184">language of the text detected within a region</span></span> |
-| <span data-ttu-id="b940f-185">Yönlendirme</span><span class="sxs-lookup"><span data-stu-id="b940f-185">orientation</span></span> |<span data-ttu-id="b940f-186">bir bölge içinde algılanan metnin yönünü</span><span class="sxs-lookup"><span data-stu-id="b940f-186">orientation of the text detected within a region</span></span> |
-| <span data-ttu-id="b940f-187">satırları</span><span class="sxs-lookup"><span data-stu-id="b940f-187">lines</span></span> |<span data-ttu-id="b940f-188">bir bölge içinde algılanan metin satırı dizisi</span><span class="sxs-lookup"><span data-stu-id="b940f-188">array of lines of text detected within a region</span></span> |
-| <span data-ttu-id="b940f-189">Metin</span><span class="sxs-lookup"><span data-stu-id="b940f-189">text</span></span> |<span data-ttu-id="b940f-190">gerçek metin</span><span class="sxs-lookup"><span data-stu-id="b940f-190">the actual text</span></span> |
+| <span data-ttu-id="4effb-160">Zaman Çizelgesi</span><span class="sxs-lookup"><span data-stu-id="4effb-160">Timescale</span></span> |<span data-ttu-id="4effb-161">Merhaba videonun saniyede "çizgilerine"</span><span class="sxs-lookup"><span data-stu-id="4effb-161">"ticks" per second of hello video</span></span> |
+| <span data-ttu-id="4effb-162">Uzaklık</span><span class="sxs-lookup"><span data-stu-id="4effb-162">Offset</span></span> |<span data-ttu-id="4effb-163">zaman damgaları için uzaklık.</span><span class="sxs-lookup"><span data-stu-id="4effb-163">time offset for timestamps.</span></span> <span data-ttu-id="4effb-164">Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır.</span><span class="sxs-lookup"><span data-stu-id="4effb-164">In version 1.0 of Video APIs, this will always be 0.</span></span> |
+| <span data-ttu-id="4effb-165">Kare hızı</span><span class="sxs-lookup"><span data-stu-id="4effb-165">Framerate</span></span> |<span data-ttu-id="4effb-166">Saniyedeki kare hello video sayısı</span><span class="sxs-lookup"><span data-stu-id="4effb-166">Frames per second of hello video</span></span> |
+| <span data-ttu-id="4effb-167">Genişlik</span><span class="sxs-lookup"><span data-stu-id="4effb-167">width</span></span> |<span data-ttu-id="4effb-168">Merhaba video piksel cinsinden genişliği</span><span class="sxs-lookup"><span data-stu-id="4effb-168">width of hello video in pixels</span></span> |
+| <span data-ttu-id="4effb-169">Yükseklik</span><span class="sxs-lookup"><span data-stu-id="4effb-169">height</span></span> |<span data-ttu-id="4effb-170">Merhaba piksel cinsinden görüntü yüksekliği</span><span class="sxs-lookup"><span data-stu-id="4effb-170">height of hello video in pixels</span></span> |
+| <span data-ttu-id="4effb-171">Parçaları</span><span class="sxs-lookup"><span data-stu-id="4effb-171">Fragments</span></span> |<span data-ttu-id="4effb-172">hangi hello meta verileri öbekli video zamana dayalı parçalarını dizisi</span><span class="sxs-lookup"><span data-stu-id="4effb-172">array of time-based chunks of video into which hello metadata is chunked</span></span> |
+| <span data-ttu-id="4effb-173">start</span><span class="sxs-lookup"><span data-stu-id="4effb-173">start</span></span> |<span data-ttu-id="4effb-174">Başlangıç saati "çizgilerine" parçadaki</span><span class="sxs-lookup"><span data-stu-id="4effb-174">start time of a fragment in "ticks"</span></span> |
+| <span data-ttu-id="4effb-175">Süre</span><span class="sxs-lookup"><span data-stu-id="4effb-175">duration</span></span> |<span data-ttu-id="4effb-176">"çizgilerine" parçadaki uzunluğu</span><span class="sxs-lookup"><span data-stu-id="4effb-176">length of a fragment in "ticks"</span></span> |
+| <span data-ttu-id="4effb-177">interval</span><span class="sxs-lookup"><span data-stu-id="4effb-177">interval</span></span> |<span data-ttu-id="4effb-178">Parça verilen hello içinde her olayın aralığı</span><span class="sxs-lookup"><span data-stu-id="4effb-178">interval of each event within hello given fragment</span></span> |
+| <span data-ttu-id="4effb-179">etkinlikler</span><span class="sxs-lookup"><span data-stu-id="4effb-179">events</span></span> |<span data-ttu-id="4effb-180">bölgeleri içeren bir dizi</span><span class="sxs-lookup"><span data-stu-id="4effb-180">array containing regions</span></span> |
+| <span data-ttu-id="4effb-181">Bölge</span><span class="sxs-lookup"><span data-stu-id="4effb-181">region</span></span> |<span data-ttu-id="4effb-182">nesnesini temsil eden kelimeler ve ifadeler algılandı</span><span class="sxs-lookup"><span data-stu-id="4effb-182">object representing detected words or phrases</span></span> |
+| <span data-ttu-id="4effb-183">Dil</span><span class="sxs-lookup"><span data-stu-id="4effb-183">language</span></span> |<span data-ttu-id="4effb-184">bir bölge içinde algılanan hello metin dili</span><span class="sxs-lookup"><span data-stu-id="4effb-184">language of hello text detected within a region</span></span> |
+| <span data-ttu-id="4effb-185">Yönlendirme</span><span class="sxs-lookup"><span data-stu-id="4effb-185">orientation</span></span> |<span data-ttu-id="4effb-186">bir bölge içinde algılanan hello metnin yönünü</span><span class="sxs-lookup"><span data-stu-id="4effb-186">orientation of hello text detected within a region</span></span> |
+| <span data-ttu-id="4effb-187">satırları</span><span class="sxs-lookup"><span data-stu-id="4effb-187">lines</span></span> |<span data-ttu-id="4effb-188">bir bölge içinde algılanan metin satırı dizisi</span><span class="sxs-lookup"><span data-stu-id="4effb-188">array of lines of text detected within a region</span></span> |
+| <span data-ttu-id="4effb-189">Metin</span><span class="sxs-lookup"><span data-stu-id="4effb-189">text</span></span> |<span data-ttu-id="4effb-190">Merhaba gerçek metin</span><span class="sxs-lookup"><span data-stu-id="4effb-190">hello actual text</span></span> |
 
-### <a name="json-output-example"></a><span data-ttu-id="b940f-191">JSON çıkış örneği</span><span class="sxs-lookup"><span data-stu-id="b940f-191">JSON output example</span></span>
-<span data-ttu-id="b940f-192">Aşağıdaki çıktı örneği genel video bilgi ve birkaç video parçalarını içerir.</span><span class="sxs-lookup"><span data-stu-id="b940f-192">The following output example contains the general video information and several video fragments.</span></span> <span data-ttu-id="b940f-193">Video her parçasında, dil ve onun metin hizalamasını OCR MP tarafından algılanan her bölge içerir.</span><span class="sxs-lookup"><span data-stu-id="b940f-193">In every video fragment, it contains every region which is detected by OCR MP with the language and its text orientation.</span></span> <span data-ttu-id="b940f-194">Bölge ayrıca her word satır hattın metin, satırın konumunu ve bu satırdaki her bir word bilgileri (word içerik, konum ve güvenilirlik) ile bu bölgede yer alır.</span><span class="sxs-lookup"><span data-stu-id="b940f-194">The region also contains every word line in this region with the line’s text, the line’s position, and every word information (word content, position and confidence) in this line.</span></span> <span data-ttu-id="b940f-195">Bir örnek verilmiştir ve bazı açıklamalar satır içi yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="b940f-195">The following is an example, and I put some comments inline.</span></span>
+### <a name="json-output-example"></a><span data-ttu-id="4effb-191">JSON çıkış örneği</span><span class="sxs-lookup"><span data-stu-id="4effb-191">JSON output example</span></span>
+<span data-ttu-id="4effb-192">Merhaba aşağıdaki çıktı örneği hello genel video bilgi ve birkaç video parçalarını içerir.</span><span class="sxs-lookup"><span data-stu-id="4effb-192">hello following output example contains hello general video information and several video fragments.</span></span> <span data-ttu-id="4effb-193">Video her parçasında OCR MP hello dili ve onun metin hizalamasını tarafından algılanan her bölge içerir.</span><span class="sxs-lookup"><span data-stu-id="4effb-193">In every video fragment, it contains every region which is detected by OCR MP with hello language and its text orientation.</span></span> <span data-ttu-id="4effb-194">Merhaba bölge ayrıca her word satır hello hattın metin, hello satırın konumunu ve bu satırdaki her bir word bilgileri (word içerik, konum ve güvenilirlik) ile bu bölgede yer alır.</span><span class="sxs-lookup"><span data-stu-id="4effb-194">hello region also contains every word line in this region with hello line’s text, hello line’s position, and every word information (word content, position and confidence) in this line.</span></span> <span data-ttu-id="4effb-195">Merhaba aşağıda bir örnek verilmiştir ve bazı açıklamalar satır içi yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="4effb-195">hello following is an example, and I put some comments inline.</span></span>
 
     {
         "version": 1, 
@@ -130,14 +130,14 @@ ms.lasthandoff: 08/29/2017
             {
                 "start": 0, 
                 "duration": 180000, 
-                "interval": 90000,  // the time information about this fragment
+                "interval": 90000,  // hello time information about this fragment
                 "events": [
                     [
                        { 
-                            "region": { // the detected region array in this fragment 
+                            "region": { // hello detected region array in this fragment 
                                 "language": "English",  // region language
                                 "orientation": "Up",  // text orientation
-                                "lines": [  // line information array in this region, including the text and the position
+                                "lines": [  // line information array in this region, including hello text and hello position
                                     {
                                         "text": "One Two", 
                                         "left": 10, 
@@ -172,19 +172,19 @@ ms.lasthandoff: 08/29/2017
         ]
     }
 
-## <a name="net-sample-code"></a><span data-ttu-id="b940f-196">.NET örnek kod</span><span class="sxs-lookup"><span data-stu-id="b940f-196">.NET sample code</span></span>
+## <a name="net-sample-code"></a><span data-ttu-id="4effb-196">.NET örnek kod</span><span class="sxs-lookup"><span data-stu-id="4effb-196">.NET sample code</span></span>
 
-<span data-ttu-id="b940f-197">Aşağıdaki program gösterir nasıl yapılır:</span><span class="sxs-lookup"><span data-stu-id="b940f-197">The following program shows how to:</span></span>
+<span data-ttu-id="4effb-197">Merhaba aşağıdaki program gösterir nasıl yapılır:</span><span class="sxs-lookup"><span data-stu-id="4effb-197">hello following program shows how to:</span></span>
 
-1. <span data-ttu-id="b940f-198">Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.</span><span class="sxs-lookup"><span data-stu-id="b940f-198">Create an asset and upload a media file into the asset.</span></span>
-2. <span data-ttu-id="b940f-199">İşi bir OCR yapılandırma/hazır dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="b940f-199">Create a job with an OCR configuration/preset file.</span></span>
-3. <span data-ttu-id="b940f-200">Çıkış JSON dosyalarını indirin.</span><span class="sxs-lookup"><span data-stu-id="b940f-200">Download the output JSON files.</span></span> 
+1. <span data-ttu-id="4effb-198">Bir varlık oluşturun ve hello varlığa bir medya dosyasını yükleyin.</span><span class="sxs-lookup"><span data-stu-id="4effb-198">Create an asset and upload a media file into hello asset.</span></span>
+2. <span data-ttu-id="4effb-199">İşi bir OCR yapılandırma/hazır dosyası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="4effb-199">Create a job with an OCR configuration/preset file.</span></span>
+3. <span data-ttu-id="4effb-200">Merhaba çıkış JSON dosyalarını indirin.</span><span class="sxs-lookup"><span data-stu-id="4effb-200">Download hello output JSON files.</span></span> 
    
-#### <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="b940f-201">Visual Studio projesi oluşturup yapılandırma</span><span class="sxs-lookup"><span data-stu-id="b940f-201">Create and configure a Visual Studio project</span></span>
+#### <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="4effb-201">Visual Studio projesi oluşturup yapılandırma</span><span class="sxs-lookup"><span data-stu-id="4effb-201">Create and configure a Visual Studio project</span></span>
 
-<span data-ttu-id="b940f-202">Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun.</span><span class="sxs-lookup"><span data-stu-id="b940f-202">Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
+<span data-ttu-id="4effb-202">Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="4effb-202">Set up your development environment and populate hello app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
 
-#### <a name="example"></a><span data-ttu-id="b940f-203">Örnek</span><span class="sxs-lookup"><span data-stu-id="b940f-203">Example</span></span>
+#### <a name="example"></a><span data-ttu-id="4effb-203">Örnek</span><span class="sxs-lookup"><span data-stu-id="4effb-203">Example</span></span>
 
     using System;
     using System.Configuration;
@@ -198,7 +198,7 @@ ms.lasthandoff: 08/29/2017
     {
         class Program
         {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -214,17 +214,17 @@ ms.lasthandoff: 08/29/2017
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                // Run the OCR job.
+                // Run hello OCR job.
                 var asset = RunOCRJob(@"C:\supportFiles\OCR\presentation.mp4",
                                             @"C:\supportFiles\OCR\config.json");
 
-                // Download the job output asset.
+                // Download hello job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\OCR\Output");
             }
 
             static IAsset RunOCRJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload the input media file to storage.
+                // Create an asset and upload hello input media file toostorage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My OCR Input Asset",
                     AssetCreationOptions.None);
@@ -232,38 +232,38 @@ ms.lasthandoff: 08/29/2017
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My OCR Job");
 
-                // Get a reference to Azure Media OCR.
+                // Get a reference tooAzure Media OCR.
                 string MediaProcessorName = "Azure Media OCR";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from the specified file.
+                // Read configuration from hello specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with the encoding details, using a string preset.
+                // Create a task with hello encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My OCR Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify the input asset.
+                // Specify hello input asset.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset to contain the results of the job.
+                // Add an output asset toocontain hello results of hello job.
                 task.OutputAssets.AddNew("My OCR Output Asset", AssetCreationOptions.None);
 
-                // Use the following event handler to check job progress.  
+                // Use hello following event handler toocheck job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch the job.
+                // Launch hello job.
                 job.Submit();
 
-                // Check job execution and wait for job to finish.
+                // Check job execution and wait for job toofinish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, the event handling
+                // If job state is Error, hello event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)
@@ -345,12 +345,12 @@ ms.lasthandoff: 08/29/2017
         }
     }
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="b940f-204">Media Services’i öğrenme yolları</span><span class="sxs-lookup"><span data-stu-id="b940f-204">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="4effb-204">Media Services’i öğrenme yolları</span><span class="sxs-lookup"><span data-stu-id="4effb-204">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="b940f-205">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="b940f-205">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="4effb-205">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="4effb-205">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a><span data-ttu-id="b940f-206">İlgili bağlantılar</span><span class="sxs-lookup"><span data-stu-id="b940f-206">Related links</span></span>
-[<span data-ttu-id="b940f-207">Azure Media Services Analytics a genel bakış</span><span class="sxs-lookup"><span data-stu-id="b940f-207">Azure Media Services Analytics Overview</span></span>](media-services-analytics-overview.md)
+## <a name="related-links"></a><span data-ttu-id="4effb-206">İlgili bağlantılar</span><span class="sxs-lookup"><span data-stu-id="4effb-206">Related links</span></span>
+[<span data-ttu-id="4effb-207">Azure Media Services Analytics a genel bakış</span><span class="sxs-lookup"><span data-stu-id="4effb-207">Azure Media Services Analytics Overview</span></span>](media-services-analytics-overview.md)
 

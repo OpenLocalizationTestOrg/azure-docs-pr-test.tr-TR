@@ -2,7 +2,7 @@
 # Hızlı Başlangıçlar
 ## [OpenShift: Topluluk şablonu](https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/)
 # Öğreticiler
-## [Azure VM’lerine dağıtma](/azure/virtual-machines/linux/openshift-get-started)
+## [TooAzure sanal makineleri dağıtma](/azure/virtual-machines/linux/openshift-get-started)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [OpenShift Container şablonu](https://github.com/Microsoft/openshift-container-platform)

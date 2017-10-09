@@ -1,13 +1,13 @@
 ---
 layout: HubPage
 hide_bc: True
-title: Microsoft Azure Belgeleri
-description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
-ms.openlocfilehash: 282e1da4a5ec8ccb3c6119c6de6fd37b83bbb71e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+title: Azure belgelerine aaaMicrosoft
+description: "Bilgi nasıl toobuild ve Microsoft Azure bulut hizmetlerini kullanarak güçlü uygulamalar yönetin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
+ms.openlocfilehash: a844a7c29be3e0f61c50eb0e89b8677029ee97dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1081,7 +1081,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Sanal Makine Ölçek Kümeleri</h3>
-                                                    <p>Onlarca veya binlerce Linux ve Windows sanal makinesini yönetip ölçeklendirin</p>
+                                                    <p>Yönetmek ve ölçeklendirme 10s too1000s Linux ve Windows sanal makineler</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1218,7 +1218,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Ağlara Genel Bakış</h3>
-                                                    <p>Azure’da ağ hizmetlerinin tümleşik bir görünümünü</p>
+                                                    <p>Ağ Hizmetleri azure'da hello tümleşik bir görünümünü</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1237,7 +1237,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Sanal Ağ</h3>
-                                                    <p>Özel ağlar sağlayın ve bu ağları isteğe bağlı olarak şirket içi veri merkezlerine bağlayın</p>
+                                                    <p>Özel ağlar sağlamak, isteğe bağlı olarak tooon içi veri merkezleri bağlanın</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1255,8 +1255,8 @@ ms.lasthandoff: 08/03/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Load Balancer</h3>
-                                                    <p>Uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ performansı sağlayın</p>
+                                                    <h3>Yük Dengeleyici</h3>
+                                                    <p>Yüksek kullanılabilirlik ve ağ performansı tooyour uygulamalarını sunmak</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1332,7 +1332,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN</h3>
-                                                    <p>Güçlü küresel veri merkezleri ağı üzerinden son kullanıcılara içerik sağlayın </p>
+                                                    <p>Genel veri merkezlerinin sağlam bir ağ üzerinden içerik tooend kullanıcının teslim </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1370,7 +1370,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
-                                                    <p>Azure için adanmış özel fiber ağ bağlantıları</p>
+                                                    <p>Özel ağ fiber bağlantıları tooAzure ayrılmış</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1470,7 +1470,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>Bulutta basit ve güvenilir sunucu yedeklemesi</p>
+                                                    <p>Basit ve güvenilir sunucu yedekleme toohello bulut</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1532,7 +1532,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Mobile Apps</h3>
-                                                    <p>Tüm mobil uygulamalar için arka uç oluşturun ve barındırın</p>
+                                                    <p>Derleme ve ana bilgisayar hello arka uç için herhangi bir mobil uygulama</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1570,7 +1570,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Logic Apps</h3>
-                                                    <p>Bulutlarda veri erişimini ve kullanımını kod yazmadan otomatik hale getirin</p>
+                                                    <p>Merhaba erişim ve Kullanım verilerinin Bulutlar arasında kod yazmadan otomatikleştirme</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1589,7 +1589,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CDN</h3>
-                                                    <p>Güçlü küresel veri merkezleri ağı üzerinden son kullanıcılara içerik sağlayın </p>
+                                                    <p>Genel veri merkezlerinin sağlam bir ağ üzerinden içerik tooend kullanıcının teslim </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1827,7 +1827,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Esnetme Veritabanı</h3>
-                                                    <p>Şirket içi SQL Server veritabanlarını dinamik olarak esnetin</p>
+                                                    <p>Dinamik olarak şirket içi SQL Server veritabanları tooAzure uzatma</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1903,7 +1903,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Önbelleği</h3>
-                                                    <p>Hızlı ve ölçeklenebilir uygulamalar oluşturmak için yüksek performansın yanı sıra verilerinize düşük gecikme süreli erişim elde edin</p>
+                                                    <p>Yüksek performans, düşük gecikme süresi veri toobuild hızlı/ölçeklenebilir uygulamalar erişim</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1984,7 +1984,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Bing Web Araması</h3>
-                                                    <p>Uygulamalarınıza güçlü web araması bağlama</p>
+                                                    <p>Güçlü web arama tooyour uygulamaları Bağlan</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2022,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Özel Görsel Arama</h3>
-                                                    <p>Görüntülerin içinde belirli içerik tanımayı öğrenen özelleştirilebilir web hizmeti</p>
+                                                    <p>Görüntülerin içinde belirli içerik toorecognize öğrenir özelleştirilebilir web hizmeti</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2060,7 +2060,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Language Understanding Intelligent Services (LUIS)</h3>
-                                                    <p>Uygulamalarınıza kullanıcılarınızın verdiği komutları anlamayı öğretin</p>
+                                                    <p>Kullanıcılarınızın toounderstand komutları uygulamalarınızı öğretmek</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2079,7 +2079,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Bing Özel Arama</h3>
-                                                    <p>Aradığınız arama sonuçlarını oluşturun</p>
+                                                    <p>Derleme aradığınız hello arama sonuçları</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2122,7 +2122,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Tahmine dayalı bakımı etkinleştirmek için güçlü ve bulut tabanlı tahmine dayalı analiz</p>
+                                                    <p>Tooenable Tahmine dayalı bakım bulut tabanlı güçlü Tahmine dayalı analiz aracı</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2160,7 +2160,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Veri Kataloğu</h3>
-                                                    <p>Kuruluş genelinde self servis veri kaynağı bulmayı etkinleştirme</p>
+                                                    <p>Self Servis veri kaynağı bulma hello kuruluş genelinde etkinleştir</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2255,7 +2255,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Kurumsal düzeyde bulutta veri modelleme</p>
+                                                    <p>Kurumsal düzeyde veri Hello bulutta modelleme</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2336,7 +2336,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure IoT Paketi</h3>
-                                                    <p>İş sonuçlarınızı geliştirmek için işlenmemiş verileri yakalayın ve analiz edin</p>
+                                                    <p>Yakalama ve kullanılmayan verileri tooimprove iş sonuçlarını analiz etme</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2393,7 +2393,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Tahmine dayalı bakımı etkinleştirmek için güçlü ve bulut tabanlı tahmine dayalı analiz</p>
+                                                    <p>Tooenable Tahmine dayalı bakım bulut tabanlı güçlü Tahmine dayalı analiz aracı</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2455,7 +2455,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Logic Apps</h3>
-                                                    <p>Bulutlarda veri erişimini ve kullanımını kod yazmadan otomatik hale getirin</p>
+                                                    <p>Merhaba erişim ve Kullanım verilerinin Bulutlar arasında kod yazmadan otomatikleştirme</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2493,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>API'leri geliştiricilere, iş ortaklarına ve çalışanlara güvenli ve uygun ölçekli bir şekilde yayımlayın</p>
+                                                    <p>API toodevelopers, iş ortakları ve çalışanlar güvenli bir şekilde ve ölçekte yayımlama</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2531,7 +2531,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Server Esnetme Veritabanı</h3>
-                                                    <p>Şirket içi SQL Server veritabanlarını dinamik olarak esnetin</p>
+                                                    <p>Dinamik olarak şirket içi SQL Server veritabanları tooAzure uzatma</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2569,7 +2569,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>BizTalk Services</h3>
-                                                    <p>Kurumları ve bulutu sorunsuz bir şekilde tümleştirin</p>
+                                                    <p>Merhaba Kurumsal ve hello bulut sorunsuz şekilde tümleşir</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2593,7 +2593,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Güvenlik Merkezi</h3>
-                                                    <p>Artırılmış görünürlük sayesinde tehditleri önleyin, algılayın ve tehditlere yanıt verin</p>
+                                                    <p>Engellemenize, algılamanıza ve toothreats ile artırılmış görünürlük yanıt</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2612,7 +2612,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Anahtar Kasası</h3>
-                                                    <p>Şifreleme anahtarlarını ve gizli anahtarları nasıl yöneteceğinizi öğrenin</p>
+                                                    <p>Bilgi nasıl toomanage şifreleme anahtarları ve gizli anahtarları</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2650,7 +2650,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory B2C</h3>
-                                                    <p>Bulutta tüketici kimliği ve erişim yönetimi</p>
+                                                    <p>Merhaba bulutta tüketici kimlik ve erişim yönetimi</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2669,7 +2669,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Active Directory Domain Services</h3>
-                                                    <p>Azure sanal makinelerini etki alanı denetleyicileri kullanmadan etki alanına ekleyin</p>
+                                                    <p>Etki alanı denetleyicileri olmadan Azure sanal makineleri tooa etki alanına katılma</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2688,7 +2688,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Ek kimlik doğrulama seviyesi ile verilerinize ve uygulamalarınıza erişimi koruyun</p>
+                                                    <p>Erişim tooyour verileri korumanıza ve uygulamaları fazladan bir kimlik doğrulama düzeyi ile</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2707,7 +2707,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Güvenlik Bilgileri</h3>
-                                                    <p>Azure'ın, bulut çözümlerinizi oluşturabileceğiniz güvenli altyapıyı nasıl sağladığını öğrenin</p>
+                                                    <p>Azure güvenli bir altyapı toobuild bulut çözümleri nasıl sağladığını öğrenin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2731,7 +2731,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Visual Studio Team Services</h3>
-                                                    <p>Ekiplerin kod paylaşmasına, iş izlemesine ve yazılım göndermesine yönelik hizmetler</p>
+                                                    <p>Takımlar tooshare kodu, hizmetleri iş izlemek ve yazılım sevk</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2788,7 +2788,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>API'leri geliştiricilere, iş ortaklarına ve çalışanlara güvenli ve uygun ölçekli bir şekilde yayımlayın</p>
+                                                    <p>API toodevelopers, iş ortakları ve çalışanlar güvenli bir şekilde ve ölçekte yayımlama</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2850,7 +2850,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Makine verilerini operasyonel bilgilere dönüştürmeyi öğrenin</p>
+                                                    <p>Nasıl tootransform makine verileri işletimsel yönetimi bilgileri içine bilgi edinin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2888,7 +2888,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Backup</h3>
-                                                    <p>Bulutta basit ve güvenilir sunucu yedeklemesi</p>
+                                                    <p>Basit ve güvenilir sunucu yedekleme toohello bulut</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2964,7 +2964,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Faturalandırma</h3>
-                                                    <p>Azure aboneliğinizin kullanımını ve faturasını okuma ve anlama hakkında bilgi edinin</p>
+                                                    <p>Tooread ve anlamak kullanım ve fatura Azure aboneliğiniz için nasıl hello öğrenin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2983,7 +2983,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirin</p>
+                                                    <p>Merhaba maliyet verimliliği, performans, yüksek kullanılabilirlik ve Azure kaynaklarınızın güvenliğini geliştirmek</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3116,7 +3116,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">.NET için Azure kitaplıklarını edinme</a>
+                                                    <a href="/dotnet/azure/dotnet-sdk-azure-install">.NET için Azure kitaplıkları Hello Al</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/net/">Başlarken</a>
@@ -3140,7 +3140,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://pypi.python.org/pypi/azure">Python SDK'yı edinme</a>
+                                                    <a href="https://pypi.python.org/pypi/azure">Merhaba Python SDK'sı Al</a>
                                                 </h3>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Başlarken</a>
@@ -3170,7 +3170,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.npmjs.com/package/azure">Node.js SDK'sını edinme</a>
+                                                    <a href="https://www.npmjs.com/package/azure">Merhaba Node.js SDK'sı Al</a>
                                                 </h3>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-sdk-for-node/">Başlarken</a>
@@ -3200,7 +3200,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/java/azure/java-sdk-azure-install">Java için Azure kitaplıklarını edinme</a>
+                                                    <a href="/java/azure/java-sdk-azure-install">Java için Azure kitaplıkları Hello Al</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/java/">Başlarken</a>
@@ -3224,7 +3224,7 @@ ms.lasthandoff: 08/03/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://rubygems.org/gems/azure">Ruby SDK'yı edinme</a>
+                                                    <a href="https://rubygems.org/gems/azure">Merhaba Ruby SDK'sı Al</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Başlarken</a>
@@ -3496,7 +3496,7 @@ ms.lasthandoff: 08/03/2017
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>Bulut uygulamaları için önerilen mimari kümesi. Her mimaride; önerilen yöntemler, belirleyici adımlar ve önerileri şekillendiren yürütülebilir bileşenler bulunur.</p>
+                                    <p>Bulut uygulamaları için önerilen mimari kümesi. Her mimari önerilen yöntemler, düzenleyici adımları ve hello öneriler içerir yürütülebilir bir bileşeni içerir.</p>
                                 </div>
                             </li>
                             <li>
@@ -3511,7 +3511,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Bulut ile ilgili Temel Bilgiler</h3>
-                                                    <p>Bulutta başarılı olmaya yönelik temel bilgiler. Bulutta veya Azure'da yeniyseniz buradan başlayın.</p>
+                                                    <p>Merhaba bulutta temel bilgi toobe başarılı. Yeni toohello bulut ya da yeni tooAzure değilseniz, buradan başlayın.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3530,7 +3530,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Başvuru Mimarileri</h3>
-                                                    <p>Bulut için önerilen mimari kümesi. Her mimaride; en iyi yöntemler, belirleyici adımlar ve dağıtılabilir bir çözüm bulunur.</p>
+                                                    <p>Önerilen mimari hello bulut için bir dizi. Her mimaride; en iyi yöntemler, belirleyici adımlar ve dağıtılabilir bir çözüm bulunur.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3549,7 +3549,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Bulut Tasarımı Desenleri</h3>
-                                                    <p>Buluta yönelik tasarım desenleri. Her desen; bir sorunu, sorunu ele alan bir deseni ve Azure'ı temel alan bir örneği açıklar.</p>
+                                                    <p>Tasarım desenleri hello bulut için. Her desen bir sorun, sorun ve Azure üzerinde temel bir örnek adresleri hello bir deseni açıklar.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3587,7 +3587,7 @@ ms.lasthandoff: 08/03/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Scenario Guides</h3>
-                                                    <p>Guidance for various end-to-end application scenarios in the cloud. Includes
+                                                    <p>Guidance for various end-to-end application scenarios in hello cloud. Includes
                                                         written guidance and reference implementations.</p>
                                                 </div>
                                             </div>

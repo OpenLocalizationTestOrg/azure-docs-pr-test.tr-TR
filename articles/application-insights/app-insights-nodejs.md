@@ -1,5 +1,5 @@
 ---
-title: Node.js hizmetlerini Azure Application Insights ile izleme | Microsoft Docs
+title: Azure Application Insights ile aaaMonitor Node.js Hizmetleri | Microsoft Docs
 description: "Application Insights ile Node.js hizmetlerindeki performansı izleyin ve sorunları tanılayın."
 services: application-insights
 documentationcenter: nodejs
@@ -13,57 +13,57 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: bwren
-ms.openlocfilehash: ee65207e546c7050cc7bf35c36624fc49ad9eec4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0a7e66990cd4d3a2fcaf3fa779adb336c861f8ce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a><span data-ttu-id="bd0bc-103">Application Insights ile Node.js hizmetlerinizi ve uygulamalarınızı izleme</span><span class="sxs-lookup"><span data-stu-id="bd0bc-103">Monitor your Node.js services and apps with Application Insights</span></span>
+# <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a><span data-ttu-id="b304c-103">Application Insights ile Node.js hizmetlerinizi ve uygulamalarınızı izleme</span><span class="sxs-lookup"><span data-stu-id="b304c-103">Monitor your Node.js services and apps with Application Insights</span></span>
 
-<span data-ttu-id="bd0bc-104">[Azure Application Insights](app-insights-overview.md), [performans ve diğer sorunları keşfetmeye ve hızlıca tanılamaya](app-insights-detect-triage-diagnose.md) yardımcı olmak üzere, arka uç hizmetlerinizi ve bileşenlerinizi dağıtmanızdan sonra izler.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-104">[Azure Application Insights](app-insights-overview.md) monitors your backend services and components after you deploy them to help you [discover and rapidly diagnose performance and other issues](app-insights-detect-triage-diagnose.md).</span></span> <span data-ttu-id="bd0bc-105">Veri merkeziniz, Azure VM’leri, Web Apps ve hatta diğer genel bulutlar dahil herhangi bir yerde barındırılan Node.js hizmetleri için kullanın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-105">Use it for Node.js services hosted anywhere: your datacenter, Azure VMs and Web Apps, and even other public clouds.</span></span>
+<span data-ttu-id="b304c-104">[Azure Application Insights](app-insights-overview.md) toohelp dağıttıktan sonra arka uç Hizmetleri ve bileşenleri izler, [bulmak ve hızlı bir şekilde performans ve diğer sorunları tanılamak](app-insights-detect-triage-diagnose.md).</span><span class="sxs-lookup"><span data-stu-id="b304c-104">[Azure Application Insights](app-insights-overview.md) monitors your backend services and components after you deploy them toohelp you [discover and rapidly diagnose performance and other issues](app-insights-detect-triage-diagnose.md).</span></span> <span data-ttu-id="b304c-105">Veri merkeziniz, Azure VM’leri, Web Apps ve hatta diğer genel bulutlar dahil herhangi bir yerde barındırılan Node.js hizmetleri için kullanın.</span><span class="sxs-lookup"><span data-stu-id="b304c-105">Use it for Node.js services hosted anywhere: your datacenter, Azure VMs and Web Apps, and even other public clouds.</span></span>
 
-<span data-ttu-id="bd0bc-106">İzleme verilerinizi almak, depolamak ve araştırmak için kodunuza aracı ekleme ve Azure’da karşılık gelen Application Insights kaynağını ayarlamaya yönelik aşağıdaki yönergeleri izleyin.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-106">To receive, store, and explore your monitoring data, follow the following instructions to include an agent in your code and set up a corresponding Application Insights resource in Azure.</span></span> <span data-ttu-id="bd0bc-107">Aracı daha fazla analiz ve araştırma için verileri bu kaynağa gönderir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-107">The agent sends data to that resource for further analysis and exploration.</span></span>
+<span data-ttu-id="b304c-106">tooreceive, depolayıp, izleme verilerinizi keşfedin, yönergeleri tooinclude kodunuzda bir aracı aşağıdaki hello izleyin ve azure'da karşılık gelen bir Application Insights kaynağı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="b304c-106">tooreceive, store, and explore your monitoring data, follow hello following instructions tooinclude an agent in your code and set up a corresponding Application Insights resource in Azure.</span></span> <span data-ttu-id="b304c-107">Merhaba aracı veri toothat kaynak daha detaylı analiz ve araştırması için gönderir.</span><span class="sxs-lookup"><span data-stu-id="b304c-107">hello agent sends data toothat resource for further analysis and exploration.</span></span>
 
-<span data-ttu-id="bd0bc-108">Node.js aracısı gelen ve giden HTTP isteklerini, birçok sistem ölçümünü ve özel durumları otomatik olarak izleyebilir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-108">The Node.js agent can automatically monitor incoming and outgoing HTTP requests, several system metrics, and exceptions.</span></span> <span data-ttu-id="bd0bc-109">Sürüm 0.20 sonrası sürümlerde, `mongodb`, `mysql` ve `redis` gibi bazı yaygın üçüncü taraf paketlerini de izleyebilir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-109">Beginning in v0.20, it can also monitor some common third-party packages such as `mongodb`, `mysql`, and `redis`.</span></span> <span data-ttu-id="bd0bc-110">Gelen bir HTTP isteği ile ilgili tüm olaylar, daha hızlı sorun giderme için birbiriyle ilişkilendirilir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-110">All events related to an incoming HTTP request are correlated for faster troubleshooting.</span></span>
+<span data-ttu-id="b304c-108">Merhaba Node.js Aracısı, gelen ve giden HTTP isteklerini, birkaç sistem ölçümleri ve özel durumları otomatik olarak izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b304c-108">hello Node.js agent can automatically monitor incoming and outgoing HTTP requests, several system metrics, and exceptions.</span></span> <span data-ttu-id="b304c-109">Sürüm 0.20 sonrası sürümlerde, `mongodb`, `mysql` ve `redis` gibi bazı yaygın üçüncü taraf paketlerini de izleyebilir.</span><span class="sxs-lookup"><span data-stu-id="b304c-109">Beginning in v0.20, it can also monitor some common third-party packages such as `mongodb`, `mysql`, and `redis`.</span></span> <span data-ttu-id="b304c-110">Tüm olayları tooan gelen HTTP istek bağıntılı daha hızlı sorun giderme için ilgili.</span><span class="sxs-lookup"><span data-stu-id="b304c-110">All events related tooan incoming HTTP request are correlated for faster troubleshooting.</span></span>
 
-<span data-ttu-id="bd0bc-111">Daha sonra açıklanacak olan aracı API’si ile el ile izleyerek, uygulama ve sisteminizin daha fazla yönünü izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-111">You can monitor more aspects of your app and system by manually instrumenting them using the agent API described later.</span></span>
+<span data-ttu-id="b304c-111">Uygulamanızı daha fazla yönlerini izleyebilirsiniz ve bunları el ile düzenleme tarafından sistem kullanarak hello Aracısı API'si aşağıda açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="b304c-111">You can monitor more aspects of your app and system by manually instrumenting them using hello agent API described later.</span></span>
 
 ![Örnek performans izleme grafikleri](./media/app-insights-nodejs/10-perf.png)
 
-## <a name="getting-started"></a><span data-ttu-id="bd0bc-113">Başlarken</span><span class="sxs-lookup"><span data-stu-id="bd0bc-113">Getting Started</span></span>
+## <a name="getting-started"></a><span data-ttu-id="b304c-113">Başlarken</span><span class="sxs-lookup"><span data-stu-id="b304c-113">Getting Started</span></span>
 
-<span data-ttu-id="bd0bc-114">Şimdi, bir uygulama veya hizmet için izlemeyi ayarlama adımlarına bakalım.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-114">Let's step through setting up monitoring for an app or service.</span></span>
+<span data-ttu-id="b304c-114">Şimdi, bir uygulama veya hizmet için izlemeyi ayarlama adımlarına bakalım.</span><span class="sxs-lookup"><span data-stu-id="b304c-114">Let's step through setting up monitoring for an app or service.</span></span>
 
-### <span data-ttu-id="bd0bc-115"><a name="resource"></a> App Insights kaynağı oluşturma</span><span class="sxs-lookup"><span data-stu-id="bd0bc-115"><a name="resource"></a> Set up an App Insights resource</span></span>
+### <span data-ttu-id="b304c-115"><a name="resource"></a> App Insights kaynağı oluşturma</span><span class="sxs-lookup"><span data-stu-id="b304c-115"><a name="resource"></a> Set up an App Insights resource</span></span>
 
-<span data-ttu-id="bd0bc-116">**Başlamadan önce**, bir Azure aboneliğine sahip olduğunuzdan emin olun veya [ücretsiz olarak yeni bir tane edinin][azure-free-offer].</span><span class="sxs-lookup"><span data-stu-id="bd0bc-116">**Before you start**, make sure you have an Azure subscription or [get a new one for free][azure-free-offer].</span></span> <span data-ttu-id="bd0bc-117">Kuruluşunuzun bir Azure aboneliğini zaten varsa, yöneticiniz [bu yönergeleri][add-aad-user] izleyerek sizi aboneliğe ekleyebilir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-117">If your organization already has an Azure subscription, an administrator can follow [these instructions][add-aad-user] to add you to it.</span></span>
+<span data-ttu-id="b304c-116">**Başlamadan önce**, bir Azure aboneliğine sahip olduğunuzdan emin olun veya [ücretsiz olarak yeni bir tane edinin][azure-free-offer].</span><span class="sxs-lookup"><span data-stu-id="b304c-116">**Before you start**, make sure you have an Azure subscription or [get a new one for free][azure-free-offer].</span></span> <span data-ttu-id="b304c-117">Kuruluşunuzun zaten bir Azure aboneliğiniz varsa, bir yönetici izleyebilirsiniz [bu yönergeleri] [ add-aad-user] tooadd, tooit.</span><span class="sxs-lookup"><span data-stu-id="b304c-117">If your organization already has an Azure subscription, an administrator can follow [these instructions][add-aad-user] tooadd you tooit.</span></span>
 
 [azure-free-offer]: https://azure.microsoft.com/en-us/free/
 [add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
 
-<span data-ttu-id="bd0bc-118">Şimdi [Azure portalında][portal] oturum açın ve aşağıda gösterilen şekilde bir Application Insights kaynağı oluşturun - "Yeni" > "Geliştirici araçları" > "Application Insights" öğesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-118">Now log in to the [Azure portal][portal] and create an Application Insights resource as illustrated in the following - click "New" > "Developer tools" > "Application Insights".</span></span> <span data-ttu-id="bd0bc-119">Kaynak; telemetri verilerini, bu veriler için depolamayı, kayıtlı rapor ve panoları, kural ve uyarı yapılandırmasını almak ve diğer işlemlere yönelik bir uç nokta içerir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-119">The resource includes an endpoint for receiving telemetry data, storage for this data, saved reports and dashboards, rule and alert configuration, and more.</span></span>
+<span data-ttu-id="b304c-118">Şimdi toohello oturum [Azure portal] [ portal] ve hello aşağıda gösterildiği gibi bir Application Insights kaynağı oluşturma - "Yeni"'a tıklayın > "Geliştirici Araçları" > "Application Insights".</span><span class="sxs-lookup"><span data-stu-id="b304c-118">Now log in toohello [Azure portal][portal] and create an Application Insights resource as illustrated in hello following - click "New" > "Developer tools" > "Application Insights".</span></span> <span data-ttu-id="b304c-119">Merhaba kaynak telemetri verileri, raporlar ve panolar, kural ve uyarı yapılandırma ve daha fazla kaydedilen bu veriler için depolama alanı almak için bir uç nokta içerir.</span><span class="sxs-lookup"><span data-stu-id="b304c-119">hello resource includes an endpoint for receiving telemetry data, storage for this data, saved reports and dashboards, rule and alert configuration, and more.</span></span>
 
 ![App Insights kaynağı oluşturma](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
-<span data-ttu-id="bd0bc-121">Kaynak oluşturma sayfasındaki uygulama türü açılır listesinden "Node.js Uygulaması" öğesini seçin.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-121">On the resource creation page, choose "Node.js Application" from the application type drop-down.</span></span> <span data-ttu-id="bd0bc-122">Uygulama türü, sizin için oluşturulan varsayılan pano ve rapor kümesini belirler.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-122">The app type determines the default set of dashboards and reports created for you.</span></span> <span data-ttu-id="bd0bc-123">Ancak endişelenmeyin, herhangi bir Application Insights kaynağı herhangi bir dil ve platformdan veri toplayabilir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-123">Don't worry though, any App Insights resource can in fact collect data from any language and platform.</span></span>
+<span data-ttu-id="b304c-121">Merhaba kaynak oluşturma sayfasında "Node.js uygulaması" Merhaba uygulama türü açılan listeden seçin.</span><span class="sxs-lookup"><span data-stu-id="b304c-121">On hello resource creation page, choose "Node.js Application" from hello application type drop-down.</span></span> <span data-ttu-id="b304c-122">Merhaba uygulama türü hello varsayılan panolar ve raporlar için oluşturduğunuz belirler.</span><span class="sxs-lookup"><span data-stu-id="b304c-122">hello app type determines hello default set of dashboards and reports created for you.</span></span> <span data-ttu-id="b304c-123">Ancak endişelenmeyin, herhangi bir Application Insights kaynağı herhangi bir dil ve platformdan veri toplayabilir.</span><span class="sxs-lookup"><span data-stu-id="b304c-123">Don't worry though, any App Insights resource can in fact collect data from any language and platform.</span></span>
 
 ![Yeni App Insights kaynağı formu](./media/app-insights-nodejs/04-create_appinsights_resource.png)
 
-### <span data-ttu-id="bd0bc-125"><a name="agent"></a> Node.js aracısını ayarlama</span><span class="sxs-lookup"><span data-stu-id="bd0bc-125"><a name="agent"></a> Set up the Node.js agent</span></span>
+### <span data-ttu-id="b304c-125"><a name="agent"></a>Merhaba Node.js aracısını ayarlama</span><span class="sxs-lookup"><span data-stu-id="b304c-125"><a name="agent"></a> Set up hello Node.js agent</span></span>
 
-<span data-ttu-id="bd0bc-126">Şimdi aracıyı veri toplayabilmesi için uygulamanıza eklemeniz gerekiyor.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-126">Now it's time to include the agent in your app so it can gather data.</span></span>
-<span data-ttu-id="bd0bc-127">İlk olarak, aşağıda gösterildiği gibi kaynağınızın İzleme Anahtarını (bundan böyle `ikey`‘iniz olarak ifade edilecektir) portaldan kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-127">Start by copying your resource's Instrumentation Key (hereinafter referred to as your `ikey`) from the portal as shown below.</span></span> <span data-ttu-id="bd0bc-128">App Insights sistemi, verileri Azure kaynağınıza eşlemek için bu anahtarı kullanır; bu nedenle, bu anahtarı aracının kullanabilmesi için bir ortam değişkeninde ya da kodunuzda belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-128">The App Insights system uses this key to map data to your Azure resource so you need to specify it in an environment variable or your code for the agent to use.</span></span>  
+<span data-ttu-id="b304c-126">Bu verileri toplamak için zaman tooinclude hello aracı, uygulamanızda sunulmuştur.</span><span class="sxs-lookup"><span data-stu-id="b304c-126">Now it's time tooinclude hello agent in your app so it can gather data.</span></span>
+<span data-ttu-id="b304c-127">Başlat, kaynağın izleme anahtarını kopyalayarak (Bundan sonra tooas başvurulan, `ikey`) aşağıda gösterildiği gibi hello portalından.</span><span class="sxs-lookup"><span data-stu-id="b304c-127">Start by copying your resource's Instrumentation Key (hereinafter referred tooas your `ikey`) from hello portal as shown below.</span></span> <span data-ttu-id="b304c-128">Merhaba App Insights sistem toospecify gerekir böylece bu anahtar toomap veri tooyour Azure kaynak kullanır, bir ortam değişkeni veya kodunuz hello Aracısı toouse için.</span><span class="sxs-lookup"><span data-stu-id="b304c-128">hello App Insights system uses this key toomap data tooyour Azure resource so you need toospecify it in an environment variable or your code for hello agent toouse.</span></span>  
 
 ![İzleme anahtarını kopyalama](./media/app-insights-nodejs/05-appinsights_ikey_portal.png)
 
-<span data-ttu-id="bd0bc-130">Ardından, Node.js aracı kitaplığını package.json aracılığıyla uygulamanızın bağımlılıklarına ekleyin.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-130">Next, add the Node.js agent library to your app's dependencies via package.json.</span></span> <span data-ttu-id="bd0bc-131">Uygulamanızın kök klasöründen şunu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="bd0bc-131">From the root folder of your app, run:</span></span>
+<span data-ttu-id="b304c-130">Ardından, package.json aracılığıyla hello Node.js Aracısı kitaplığı tooyour uygulamanın bağımlılıkları ekleyin.</span><span class="sxs-lookup"><span data-stu-id="b304c-130">Next, add hello Node.js agent library tooyour app's dependencies via package.json.</span></span> <span data-ttu-id="b304c-131">Merhaba kök klasörden, uygulamanızın, çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="b304c-131">From hello root folder of your app, run:</span></span>
 
 ```bash
 npm install applicationinsights --save
 ```
 
-<span data-ttu-id="bd0bc-132">Şimdi kitaplığı kodunuza açıkça yüklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-132">Now you need to explicitly load the library in your code.</span></span> <span data-ttu-id="bd0bc-133">Aracı diğer birçok kitaplığa izleme eklediği için, aracıyı diğer `require` deyimlerinden de önce olmak üzere mümkün olduğunca erken yüklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-133">Because the agent injects instrumentation into many other libraries, you should load it as early as possible, even before other `require` statements.</span></span> <span data-ttu-id="bd0bc-134">Başlamak için ilk .js dosyanızın üstüne şunu ekleyin:</span><span class="sxs-lookup"><span data-stu-id="bd0bc-134">To get started, at the top of your first .js file add:</span></span>
+<span data-ttu-id="b304c-132">Şimdi, kodunuzda tooexplicitly yük hello kitaplığı gerekir.</span><span class="sxs-lookup"><span data-stu-id="b304c-132">Now you need tooexplicitly load hello library in your code.</span></span> <span data-ttu-id="b304c-133">Merhaba Aracısı Araçları diğer birçok kitaplıkları içine yerleştirir olduğundan, hatta diğer önce olabildiğince erken yükleyeceğini `require` deyimleri.</span><span class="sxs-lookup"><span data-stu-id="b304c-133">Because hello agent injects instrumentation into many other libraries, you should load it as early as possible, even before other `require` statements.</span></span> <span data-ttu-id="b304c-134">tooget başlatıldı, ilk .js dosyanızı hello üstüne ekleyin:</span><span class="sxs-lookup"><span data-stu-id="b304c-134">tooget started, at hello top of your first .js file add:</span></span>
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -71,46 +71,46 @@ appInsights.setup("<instrumentation_key>");
 appInsights.start();
 ```
 
-<span data-ttu-id="bd0bc-135">`setup` yöntemi, izleme anahtarını (ve bu nedenle Azure kaynağını) izlenen tüm öğeler için varsayılan olarak kullanılacak şekilde yapılandırır.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-135">The `setup` method configures the instrumentation key (and thus Azure resource) to be used by default for all tracked items.</span></span> <span data-ttu-id="bd0bc-136">Telemetri verilerini toplayıp göndermeye başlamak için yapılandırma tamamlandıktan sonra `start` öğesini çağırın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-136">Call `start` after configuration is finished to begin gathering and sending telemetry data.</span></span>
+<span data-ttu-id="b304c-135">Merhaba `setup` yöntemi yapılandırır hello izleme anahtarını (ve bu nedenle Azure kaynak) toobe varsayılan olarak tüm izlenen öğeler için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="b304c-135">hello `setup` method configures hello instrumentation key (and thus Azure resource) toobe used by default for all tracked items.</span></span> <span data-ttu-id="b304c-136">Çağrı `start` yapılandırma tamamlanmış toobegin toplamak ve telemetri verileri göndermeye sonra.</span><span class="sxs-lookup"><span data-stu-id="b304c-136">Call `start` after configuration is finished toobegin gathering and sending telemetry data.</span></span>
 
-<span data-ttu-id="bd0bc-137">Ayrıca `setup()` veya `getClient()` konumuna el ile geçirmek yerine APPINSIGHTS\_INSTRUMENTATIONKEY ortam değişkeni aracılığıyla bir ikey sağlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-137">You can also provide an ikey via the environment variable APPINSIGHTS\_INSTRUMENTATIONKEY instead of passing it manually to  `setup()` or `getClient()`.</span></span> <span data-ttu-id="bd0bc-138">Bu uygulama, ikey’leri yürütülen kaynak kodunun dışında tutmanıza ve farklı ortamlar için farklı ikey’ler belirtmenize olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-138">This practice lets you keep ikeys out of committed source code and to specify different ikeys for different environments.</span></span>
+<span data-ttu-id="b304c-137">Ayrıca bir ikey hello ortam değişkeni APPINSİGHTS'dan aracılığıyla sağlayabilir\_çok el ile geçirme yerine INSTRUMENTATIONKEY `setup()` veya `getClient()`.</span><span class="sxs-lookup"><span data-stu-id="b304c-137">You can also provide an ikey via hello environment variable APPINSIGHTS\_INSTRUMENTATIONKEY instead of passing it manually too `setup()` or `getClient()`.</span></span> <span data-ttu-id="b304c-138">Bu yöntem kaydedilmiş kaynak kodu dışında ikeys ve farklı ortamlar için farklı ikeys toospecify tutmanıza olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="b304c-138">This practice lets you keep ikeys out of committed source code and toospecify different ikeys for different environments.</span></span>
 
-<span data-ttu-id="bd0bc-139">Ek yapılandırma seçenekleri aşağıda belirtilmiştir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-139">Additional configuration options are documented below.</span></span>
+<span data-ttu-id="b304c-139">Ek yapılandırma seçenekleri aşağıda belirtilmiştir.</span><span class="sxs-lookup"><span data-stu-id="b304c-139">Additional configuration options are documented below.</span></span>
 
-<span data-ttu-id="bd0bc-140">İzleme anahtarını boş olmayan bir dizeye ayarlayarak, aracıyı telemetri göndermeden deneyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-140">You can try the agent without sending telemetry by setting the instrumentation key to any non-empty string.</span></span>
+<span data-ttu-id="b304c-140">Merhaba Aracısı hello araçları anahtar tooany boş dize ayarlayarak telemetri verilerini göndermeden deneyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b304c-140">You can try hello agent without sending telemetry by setting hello instrumentation key tooany non-empty string.</span></span>
 
-### <span data-ttu-id="bd0bc-141"><a name="monitor"></a> Uygulamanızı izleme</span><span class="sxs-lookup"><span data-stu-id="bd0bc-141"><a name="monitor"></a> Monitor your app</span></span>
+### <span data-ttu-id="b304c-141"><a name="monitor"></a> Uygulamanızı izleme</span><span class="sxs-lookup"><span data-stu-id="b304c-141"><a name="monitor"></a> Monitor your app</span></span>
 
-<span data-ttu-id="bd0bc-142">Aracı, Node.js çalışma zamanı ve bazı yaygın üçüncü taraf modülleriyle ilgili telemetriyi otomatik olarak toplar.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-142">The agent automatically gathers telemetry about the Node.js runtime and some common third-party modules.</span></span> <span data-ttu-id="bd0bc-143">Şimdi uygulamanızı kullanarak bu verilerin bazılarını oluşturun.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-143">Use your application now to generate some of this data.</span></span>
+<span data-ttu-id="b304c-142">Hello Aracısı hello Node.js çalışma zamanı hakkında telemetriyi ve ortak bazı üçüncü taraf modüllerin otomatik olarak toplar.</span><span class="sxs-lookup"><span data-stu-id="b304c-142">hello agent automatically gathers telemetry about hello Node.js runtime and some common third-party modules.</span></span> <span data-ttu-id="b304c-143">Uygulamayı şimdi toogenerate kullanın Bu verilerin bazıları.</span><span class="sxs-lookup"><span data-stu-id="b304c-143">Use your application now toogenerate some of this data.</span></span>
 
-<span data-ttu-id="bd0bc-144">Ardından, [Azure portalında][portal] daha önce oluşturduğunuz Application Insights kaynağına göz atın ve aşağıdaki görüntüde gösterildiği gibi Genel Bakış zaman çizelgesinde ilk birkaç veri noktanızı arayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-144">Then, in the [Azure portal][portal] browse to the Application Insights resource you created earlier and look for your first few data points in the Overview timeline, as in the following image.</span></span> <span data-ttu-id="bd0bc-145">Daha fazla ayrıntı için grafiklere tıklayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-145">Click through the charts for more details.</span></span>
+<span data-ttu-id="b304c-144">Ardından hello [Azure portal] [ portal] daha önce oluşturduğunuz toohello Application Insights kaynağı göz atın ve birkaç veri noktası için ilk, görüntü aşağıdaki hello olduğu gibi hello genel bakış zaman çizelgesi bakın.</span><span class="sxs-lookup"><span data-stu-id="b304c-144">Then, in hello [Azure portal][portal] browse toohello Application Insights resource you created earlier and look for your first few data points in hello Overview timeline, as in hello following image.</span></span> <span data-ttu-id="b304c-145">Daha fazla ayrıntı için hello grafikler aracılığıyla'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="b304c-145">Click through hello charts for more details.</span></span>
 
 ![İlk veri noktaları](./media/app-insights-nodejs/12-first-perf.png)
 
-<span data-ttu-id="bd0bc-147">Aşağıdaki görüntüde gösterildiği gibi, uygulamanız için bulunan topolojiyi görüntülemek için Uygulama eşlemesi düğmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-147">Click the Application map button to view the topology discovered for your app, as in the following image.</span></span> <span data-ttu-id="bd0bc-148">Daha fazla bilgi için eşlemedeki bileşenlere tıklayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-148">Click through components in the map for more details.</span></span>
+<span data-ttu-id="b304c-147">Merhaba uygulama harita düğmesini tooview hello topolojisi görüntüsü aşağıdaki hello olduğu gibi uygulamanız için bulunan'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="b304c-147">Click hello Application map button tooview hello topology discovered for your app, as in hello following image.</span></span> <span data-ttu-id="b304c-148">Daha fazla ayrıntı için hello eşlemesindeki bileşenleri üzerinden'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="b304c-148">Click through components in hello map for more details.</span></span>
 
 ![Basit uygulama eşlemesi](./media/app-insights-nodejs/06-appinsights_appmap.png)
 
-<span data-ttu-id="bd0bc-150">Uygulamanız hakkında daha fazla bilgi almak ve sorunları gidermek için "Araştır" bölümü altında mevcut olan diğer görünümleri kullanın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-150">Learn more about your app and troubleshoot problems using the other views available under the "Investigate" section.</span></span>
+<span data-ttu-id="b304c-150">Uygulamanız hakkında daha fazla bilgi ve diğer görünümlere hello "Araştır" bölümü altında kullanılabilir hello kullanarak sorunlarını giderebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b304c-150">Learn more about your app and troubleshoot problems using hello other views available under hello "Investigate" section.</span></span>
 
 ![Araştır bölümü](./media/app-insights-nodejs/07-appinsights_investigate_blades.png)
 
-#### <a name="no-data"></a><span data-ttu-id="bd0bc-152">Veri yok mu?</span><span class="sxs-lookup"><span data-stu-id="bd0bc-152">No data?</span></span>
+#### <a name="no-data"></a><span data-ttu-id="b304c-152">Veri yok mu?</span><span class="sxs-lookup"><span data-stu-id="b304c-152">No data?</span></span>
 
-<span data-ttu-id="bd0bc-153">Aracı gönderilecek verileri toplu hale getirdiği için, öğelerin portalde gösterilmesi biraz gecikebilir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-153">Because the agent batches data for submission there may be a delay before items are displayed in the portal.</span></span> <span data-ttu-id="bd0bc-154">Verileri kaynağınızda görmüyorsanız, aşağıdaki düzeltmelerden bazılarını deneyin:</span><span class="sxs-lookup"><span data-stu-id="bd0bc-154">If you don't see data in your resource try some of the following fixes:</span></span>
+<span data-ttu-id="b304c-153">Merhaba aracısı veri gönderimi için toplu işlemleri nedeniyle hello Portalı'nda görüntülenen öğelerin önce bir gecikme olabilir.</span><span class="sxs-lookup"><span data-stu-id="b304c-153">Because hello agent batches data for submission there may be a delay before items are displayed in hello portal.</span></span> <span data-ttu-id="b304c-154">Görmüyorsanız, veri kaynağınızın düzeltmeleri aşağıdaki hello bazılarını deneyin:</span><span class="sxs-lookup"><span data-stu-id="b304c-154">If you don't see data in your resource try some of hello following fixes:</span></span>
 
-* <span data-ttu-id="bd0bc-155">Uygulamayı biraz daha kullanın; daha fazla telemetri oluşturmak için daha fazla eylem gerçekleştirin.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-155">Use the application some more; take more actions to generate more telemetry.</span></span>
-* <span data-ttu-id="bd0bc-156">Portal kaynak görünümünde **Yenile**’ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-156">Click **Refresh** in the portal resource view.</span></span> <span data-ttu-id="bd0bc-157">Grafikler kendilerini düzenli aralıklarla otomatik olarak yeniler, ancak yenileme işlemi bunu hemen gerçekleşmeye zorlar.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-157">Charts automatically refresh themselves periodically but refreshing forces this to happen immediately.</span></span>
-* <span data-ttu-id="bd0bc-158">[Gerekli giden bağlantı noktalarının](app-insights-ip-addresses.md) açık olduğunu doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-158">Verify that [needed outgoing ports](app-insights-ip-addresses.md) are open.</span></span>
-* <span data-ttu-id="bd0bc-159">[Ara](app-insights-diagnostic-search.md) kutucuğunu açın ve olayları tek tek arayın.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-159">Open the [Search](app-insights-diagnostic-search.md) tile and look for individual events.</span></span>
-* <span data-ttu-id="bd0bc-160">[SSS][] sayfasını inceleyin.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-160">Check the [FAQ][].</span></span>
+* <span data-ttu-id="b304c-155">Merhaba uygulaması bazı daha kullanın; Daha fazla Eylemler toogenerate daha fazla telemetri alın.</span><span class="sxs-lookup"><span data-stu-id="b304c-155">Use hello application some more; take more actions toogenerate more telemetry.</span></span>
+* <span data-ttu-id="b304c-156">Tıklatın **yenileme** hello portal kaynak görünümünde.</span><span class="sxs-lookup"><span data-stu-id="b304c-156">Click **Refresh** in hello portal resource view.</span></span> <span data-ttu-id="b304c-157">Grafikler otomatik olarak kendilerini düzenli olarak yeniler, ancak bu toohappen yenilemeyi hemen zorlar.</span><span class="sxs-lookup"><span data-stu-id="b304c-157">Charts automatically refresh themselves periodically but refreshing forces this toohappen immediately.</span></span>
+* <span data-ttu-id="b304c-158">[Gerekli giden bağlantı noktalarının](app-insights-ip-addresses.md) açık olduğunu doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="b304c-158">Verify that [needed outgoing ports](app-insights-ip-addresses.md) are open.</span></span>
+* <span data-ttu-id="b304c-159">Açık hello [arama](app-insights-diagnostic-search.md) parçasında ve tek tek olaylarını arayın.</span><span class="sxs-lookup"><span data-stu-id="b304c-159">Open hello [Search](app-insights-diagnostic-search.md) tile and look for individual events.</span></span>
+* <span data-ttu-id="b304c-160">Merhaba denetleyin [SSS][].</span><span class="sxs-lookup"><span data-stu-id="b304c-160">Check hello [FAQ][].</span></span>
 
 
-## <a name="agent-configuration"></a><span data-ttu-id="bd0bc-161">Aracı Yapılandırması</span><span class="sxs-lookup"><span data-stu-id="bd0bc-161">Agent Configuration</span></span>
+## <a name="agent-configuration"></a><span data-ttu-id="b304c-161">Aracı Yapılandırması</span><span class="sxs-lookup"><span data-stu-id="b304c-161">Agent Configuration</span></span>
 
-<span data-ttu-id="bd0bc-162">Aracının yapılandırma yöntemleri ve varsayılan değerleri aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-162">Following are the agent's configuration methods and their default values.</span></span>
+<span data-ttu-id="b304c-162">Merhaba aracısının yapılandırma yöntemleri ve varsayılan değerlerine aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="b304c-162">Following are hello agent's configuration methods and their default values.</span></span>
 
-<span data-ttu-id="bd0bc-163">Bir hizmetteki olayları tam olarak ilişkilendirmek için `.setAutoDependencyCorrelation(true)` ayarını yaptığınızdan emin olun.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-163">To fully correlate events in a service, be sure to set `.setAutoDependencyCorrelation(true)`.</span></span> <span data-ttu-id="bd0bc-164">Bunun yapılması, aracının Node.js içindeki zaman uyumsuz geri çağırmalar arasında içeriği izlemesine olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-164">This allows the agent to track context across asynchronous callbacks in Node.js.</span></span>
+<span data-ttu-id="b304c-163">bir hizmette toofully correlate olayları olarak emin tooset `.setAutoDependencyCorrelation(true)`.</span><span class="sxs-lookup"><span data-stu-id="b304c-163">toofully correlate events in a service, be sure tooset `.setAutoDependencyCorrelation(true)`.</span></span> <span data-ttu-id="b304c-164">Bu hello Aracısı tootrack bağlamı Node.js içinde zaman uyumsuz geri aramalar arasında sağlar.</span><span class="sxs-lookup"><span data-stu-id="b304c-164">This allows hello agent tootrack context across asynchronous callbacks in Node.js.</span></span>
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -123,13 +123,13 @@ appInsights.setup("<instrumentation_key>")
     .start();
 ```
 
-## <a name="agent-api"></a><span data-ttu-id="bd0bc-165">Aracı API'si</span><span class="sxs-lookup"><span data-stu-id="bd0bc-165">Agent API</span></span>
+## <a name="agent-api"></a><span data-ttu-id="b304c-165">Aracı API'si</span><span class="sxs-lookup"><span data-stu-id="b304c-165">Agent API</span></span>
 
 <!-- TODO: Fully document agent API. -->
 
-<span data-ttu-id="bd0bc-166">.NET aracı API’si [burada](app-insights-api-custom-events-metrics.md) eksiksiz olarak açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-166">The .NET agent API is fully described [here](app-insights-api-custom-events-metrics.md).</span></span>
+<span data-ttu-id="b304c-166">Merhaba .NET Aracısı API tam olarak açıklanan [burada](app-insights-api-custom-events-metrics.md).</span><span class="sxs-lookup"><span data-stu-id="b304c-166">hello .NET agent API is fully described [here](app-insights-api-custom-events-metrics.md).</span></span>
 
-<span data-ttu-id="bd0bc-167">Application Insights Node.js istemcisini kullanarak herhangi bir istek, olay, ölçüm veya özel durumu izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-167">You can track any request, event, metric, or exception using the Application Insights Node.js client.</span></span> <span data-ttu-id="bd0bc-168">Aşağıdaki örnek, kullanılabilir API'lerden bazılarını göstermektedir.</span><span class="sxs-lookup"><span data-stu-id="bd0bc-168">The following example demonstrates some of the available APIs.</span></span>
+<span data-ttu-id="b304c-167">İstek, olay, ölçüm veya hello uygulama Öngörüler Node.js istemcisini kullanarak özel durum izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b304c-167">You can track any request, event, metric, or exception using hello Application Insights Node.js client.</span></span> <span data-ttu-id="b304c-168">Merhaba aşağıdaki örnek bazılarını hello göstermektedir kullanılabilir API'ler.</span><span class="sxs-lookup"><span data-stu-id="b304c-168">hello following example demonstrates some of hello available APIs.</span></span>
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -143,11 +143,11 @@ client.trackTrace("trace message");
 
 let http = require("http");
 http.createServer( (req, res) => {
-  client.trackRequest(req, res); // Place at the beginning of your request handler
+  client.trackRequest(req, res); // Place at hello beginning of your request handler
 });
 ```
 
-### <a name="track-your-dependencies"></a><span data-ttu-id="bd0bc-169">Bağımlılıklarınızı izleme</span><span class="sxs-lookup"><span data-stu-id="bd0bc-169">Track your dependencies</span></span>
+### <a name="track-your-dependencies"></a><span data-ttu-id="b304c-169">Bağımlılıklarınızı izleme</span><span class="sxs-lookup"><span data-stu-id="b304c-169">Track your dependencies</span></span>
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -162,7 +162,7 @@ success = true;
 client.trackDependency("dependency name", "command name", duration, success);
 ```
 
-### <a name="add-a-custom-property-to-all-events"></a><span data-ttu-id="bd0bc-170">Tüm olaylara özel bir özellik ekleme</span><span class="sxs-lookup"><span data-stu-id="bd0bc-170">Add a custom property to all events</span></span>
+### <a name="add-a-custom-property-tooall-events"></a><span data-ttu-id="b304c-170">Bir özel özellik tooall olaylar ekleme</span><span class="sxs-lookup"><span data-stu-id="b304c-170">Add a custom property tooall events</span></span>
 
 ```javascript
 appInsights.client.commonProperties = {
@@ -170,7 +170,7 @@ appInsights.client.commonProperties = {
 };
 ```
 
-### <a name="track-http-get-requests"></a><span data-ttu-id="bd0bc-171">HTTP GET isteklerini izleme</span><span class="sxs-lookup"><span data-stu-id="bd0bc-171">Track HTTP GET requests</span></span>
+### <a name="track-http-get-requests"></a><span data-ttu-id="b304c-171">HTTP GET isteklerini izleme</span><span class="sxs-lookup"><span data-stu-id="b304c-171">Track HTTP GET requests</span></span>
 
 ```javascript
 var server = http.createServer((req, res) => {
@@ -182,7 +182,7 @@ var server = http.createServer((req, res) => {
 });
 ```
 
-### <a name="track-server-startup-time"></a><span data-ttu-id="bd0bc-172">Sunucu başlangıç saatini izleme</span><span class="sxs-lookup"><span data-stu-id="bd0bc-172">Track server startup time</span></span>
+### <a name="track-server-startup-time"></a><span data-ttu-id="b304c-172">Sunucu başlangıç saatini izleme</span><span class="sxs-lookup"><span data-stu-id="b304c-172">Track server startup time</span></span>
 
 ```javascript
 let start = Date.now();
@@ -192,12 +192,12 @@ server.on("listening", () => {
 });
 ```
 
-## <a name="more-resources"></a><span data-ttu-id="bd0bc-173">Diğer kaynaklar</span><span class="sxs-lookup"><span data-stu-id="bd0bc-173">More resources</span></span>
+## <a name="more-resources"></a><span data-ttu-id="b304c-173">Diğer kaynaklar</span><span class="sxs-lookup"><span data-stu-id="b304c-173">More resources</span></span>
 
-* [<span data-ttu-id="bd0bc-174">Portalda telemetrinizi izleme</span><span class="sxs-lookup"><span data-stu-id="bd0bc-174">Monitor your telemetry in the portal</span></span>](app-insights-dashboards.md)
-* [<span data-ttu-id="bd0bc-175">Telemetriniz üzerinden Analiz sorguları yazma</span><span class="sxs-lookup"><span data-stu-id="bd0bc-175">Write Analytics queries over your telemetry</span></span>](app-insights-analytics-tour.md)
+* [<span data-ttu-id="b304c-174">Merhaba portalında telemetrinizi izleme</span><span class="sxs-lookup"><span data-stu-id="b304c-174">Monitor your telemetry in hello portal</span></span>](app-insights-dashboards.md)
+* [<span data-ttu-id="b304c-175">Telemetriniz üzerinden Analiz sorguları yazma</span><span class="sxs-lookup"><span data-stu-id="b304c-175">Write Analytics queries over your telemetry</span></span>](app-insights-analytics-tour.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
-<span data-ttu-id="bd0bc-176">[SSS]: app-insights-troubleshoot-faq.md</span><span class="sxs-lookup"><span data-stu-id="bd0bc-176">[FAQ]: app-insights-troubleshoot-faq.md</span></span>
+[SSS]: app-insights-troubleshoot-faq.md

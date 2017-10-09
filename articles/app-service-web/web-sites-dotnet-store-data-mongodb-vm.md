@@ -1,6 +1,6 @@
 ---
-title: "Sanal makinede çalışan MongoDB’ye bağlanan Azure web uygulaması oluşturma"
-description: "Git bir ASP.NET uygulamasını Azure App Service'e dağıtmak için nasıl kullanılacağını öğretilmektedir öğretici MongoDB üzerinde bir Azure sanal makinesine bağlı."
+title: "bir sanal makinede çalışan tooMongoDB bağlanan Azure web uygulamasında aaaCreate"
+description: "Bir ASP.NET uygulaması tooAzure uygulama hizmeti toouse Git toodeploy nasıl bağlanacağını öğretilmektedir öğretici tooMongoDB üzerinde bir Azure sanal makine."
 tags: azure-portal
 services: app-service\web, virtual-machines
 documentationcenter: .net
@@ -15,90 +15,90 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: cephalin
-ms.openlocfilehash: a3f289ed9c764d0859573de4f834e042d0f103c6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1f5f42c28c3c294d92c9ebf1499374931d47c010
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-web-app-in-azure-that-connects-to-mongodb-running-on-a-virtual-machine"></a><span data-ttu-id="b82d9-103">Sanal makinede çalışan MongoDB’ye bağlanan Azure web uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="b82d9-103">Create a web app in Azure that connects to MongoDB running on a virtual machine</span></span>
-<span data-ttu-id="b82d9-104">Git kullanarak Azure App Service Web Apps için bir ASP.NET uygulamasını dağıtabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b82d9-104">Using Git, you can deploy an ASP.NET application to Azure App Service Web Apps.</span></span> <span data-ttu-id="b82d9-105">Bu öğreticide, basit bir ön uç ASP.NET MVC azure'da sanal makine üzerinde çalışan bir MongoDB veritabanına bağlayan görev listesi uygulaması oluşturacaksınız.</span><span class="sxs-lookup"><span data-stu-id="b82d9-105">In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running on a virtual machine in Azure.</span></span>  <span data-ttu-id="b82d9-106">[MongoDB] [ MongoDB] bir popüler açık kaynak, yüksek performanslı NoSQL veritabanı.</span><span class="sxs-lookup"><span data-stu-id="b82d9-106">[MongoDB][MongoDB] is a popular open source, high performance NoSQL database.</span></span> <span data-ttu-id="b82d9-107">Çalıştıran ve ASP.NET uygulama geliştirme bilgisayarınızda testi sonra App Service Web Apps Git kullanarak uygulamaya karşıya yükler.</span><span class="sxs-lookup"><span data-stu-id="b82d9-107">After running and testing the ASP.NET application on your development computer, you will upload the application to App Service Web Apps using Git.</span></span>
+# <a name="create-a-web-app-in-azure-that-connects-toomongodb-running-on-a-virtual-machine"></a><span data-ttu-id="4d1f5-103">Azure'da bir sanal makinede çalışan tooMongoDB bağlanan bir web uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="4d1f5-103">Create a web app in Azure that connects tooMongoDB running on a virtual machine</span></span>
+<span data-ttu-id="4d1f5-104">Git kullanarak bir ASP.NET uygulaması tooAzure App Service Web Apps dağıtabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-104">Using Git, you can deploy an ASP.NET application tooAzure App Service Web Apps.</span></span> <span data-ttu-id="4d1f5-105">Bu öğreticide, basit bir ön uç ASP.NET MVC, azure'da bir sanal makinede çalışan tooa MongoDB veritabanına bağlayan görev listesi uygulaması oluşturacaksınız.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-105">In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects tooa MongoDB database running on a virtual machine in Azure.</span></span>  <span data-ttu-id="4d1f5-106">[MongoDB] [ MongoDB] bir popüler açık kaynak, yüksek performanslı NoSQL veritabanı.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-106">[MongoDB][MongoDB] is a popular open source, high performance NoSQL database.</span></span> <span data-ttu-id="4d1f5-107">Çalıştıran ve hello ASP.NET uygulama geliştirme bilgisayarınızda testi sonra hello uygulama tooApp Service Web Apps karşıya yükleyecek Git kullanarak.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-107">After running and testing hello ASP.NET application on your development computer, you will upload hello application tooApp Service Web Apps using Git.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b82d9-108">Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin.</span><span class="sxs-lookup"><span data-stu-id="b82d9-108">If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service.</span></span> <span data-ttu-id="b82d9-109">Kredi kartı ve taahhüt gerekmez.</span><span class="sxs-lookup"><span data-stu-id="b82d9-109">No credit cards required; no commitments.</span></span>
+> <span data-ttu-id="4d1f5-108">Azure hesabı için kaydolmadan önce Azure App Service ile başlatılan tooget istiyorsanız, çok Git[App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-108">If you want tooget started with Azure App Service before signing up for an Azure account, go too[Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service.</span></span> <span data-ttu-id="4d1f5-109">Kredi kartı ve taahhüt gerekmez.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-109">No credit cards required; no commitments.</span></span>
 > 
 > 
 
-## <a name="background-knowledge"></a><span data-ttu-id="b82d9-110">Arka plan bilgisi</span><span class="sxs-lookup"><span data-stu-id="b82d9-110">Background knowledge</span></span>
-<span data-ttu-id="b82d9-111">Aşağıdaki bilgisi gerekli değildir ancak bu öğretici için yararlıdır:</span><span class="sxs-lookup"><span data-stu-id="b82d9-111">Knowledge of the following is useful for this tutorial, though not required:</span></span>
+## <a name="background-knowledge"></a><span data-ttu-id="4d1f5-110">Arka plan bilgisi</span><span class="sxs-lookup"><span data-stu-id="4d1f5-110">Background knowledge</span></span>
+<span data-ttu-id="4d1f5-111">Bilgi Bankası hello aşağıdaki gerekli değildir ancak bu öğretici için yararlıdır:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-111">Knowledge of hello following is useful for this tutorial, though not required:</span></span>
 
-* <span data-ttu-id="b82d9-112">C# sürücüsü MongoDB için.</span><span class="sxs-lookup"><span data-stu-id="b82d9-112">The C# driver for MongoDB.</span></span> <span data-ttu-id="b82d9-113">MongoDB MongoDB karşı C# uygulamaları geliştirme hakkında daha fazla bilgi için bkz: [CSharp dil Merkezi][MongoC#LangCenter].</span><span class="sxs-lookup"><span data-stu-id="b82d9-113">For more information on developing C# applications against MongoDB, see the MongoDB [CSharp Language Center][MongoC#LangCenter].</span></span> 
-* <span data-ttu-id="b82d9-114">ASP .NET web uygulama çerçevesidir.</span><span class="sxs-lookup"><span data-stu-id="b82d9-114">The ASP .NET web application framework.</span></span> <span data-ttu-id="b82d9-115">Tüm adresinden hakkında bilgi alabilirsiniz [ASP.net Web sitesi][ASP.NET].</span><span class="sxs-lookup"><span data-stu-id="b82d9-115">You can learn all about it at the [ASP.net website][ASP.NET].</span></span>
-* <span data-ttu-id="b82d9-116">ASP .NET MVC web uygulama çerçevesidir.</span><span class="sxs-lookup"><span data-stu-id="b82d9-116">The ASP .NET MVC web application framework.</span></span> <span data-ttu-id="b82d9-117">Tüm adresinden hakkında bilgi alabilirsiniz [ASP.NET MVC Web][MVCWebSite].</span><span class="sxs-lookup"><span data-stu-id="b82d9-117">You can learn all about it at the [ASP.NET MVC website][MVCWebSite].</span></span>
-* <span data-ttu-id="b82d9-118">kullanıyoruz.</span><span class="sxs-lookup"><span data-stu-id="b82d9-118">Azure.</span></span> <span data-ttu-id="b82d9-119">Bilgi başlayabiliriz [Azure][WindowsAzure].</span><span class="sxs-lookup"><span data-stu-id="b82d9-119">You can get started reading at [Azure][WindowsAzure].</span></span>
+* <span data-ttu-id="4d1f5-112">MongoDB için Hello C# sürücüsü.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-112">hello C# driver for MongoDB.</span></span> <span data-ttu-id="4d1f5-113">C# MongoDB karşı uygulamaları geliştirme hakkında daha fazla bilgi için bkz: Merhaba MongoDB [CSharp dil Merkezi][MongoC#LangCenter].</span><span class="sxs-lookup"><span data-stu-id="4d1f5-113">For more information on developing C# applications against MongoDB, see hello MongoDB [CSharp Language Center][MongoC#LangCenter].</span></span> 
+* <span data-ttu-id="4d1f5-114">Merhaba ASP .NET web uygulama çerçevesidir.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-114">hello ASP .NET web application framework.</span></span> <span data-ttu-id="4d1f5-115">Tüm hello adresinden hakkında bilgi alabilirsiniz [ASP.net Web sitesi][ASP.NET].</span><span class="sxs-lookup"><span data-stu-id="4d1f5-115">You can learn all about it at hello [ASP.net website][ASP.NET].</span></span>
+* <span data-ttu-id="4d1f5-116">Merhaba ASP .NET MVC web uygulama çerçevesidir.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-116">hello ASP .NET MVC web application framework.</span></span> <span data-ttu-id="4d1f5-117">Tüm hello adresinden hakkında bilgi alabilirsiniz [ASP.NET MVC Web][MVCWebSite].</span><span class="sxs-lookup"><span data-stu-id="4d1f5-117">You can learn all about it at hello [ASP.NET MVC website][MVCWebSite].</span></span>
+* <span data-ttu-id="4d1f5-118">kullanıyoruz.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-118">Azure.</span></span> <span data-ttu-id="4d1f5-119">Bilgi başlayabiliriz [Azure][WindowsAzure].</span><span class="sxs-lookup"><span data-stu-id="4d1f5-119">You can get started reading at [Azure][WindowsAzure].</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="b82d9-120">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="b82d9-120">Prerequisites</span></span>
-* <span data-ttu-id="b82d9-121">[Web için Visual Studio Express 2013] [ VSEWeb] veya [Visual Studio 2013][VSUlt]</span><span class="sxs-lookup"><span data-stu-id="b82d9-121">[Visual Studio Express 2013 for Web][VSEWeb] or [Visual Studio 2013][VSUlt]</span></span>
-* [<span data-ttu-id="b82d9-122">.NET için Azure SDK</span><span class="sxs-lookup"><span data-stu-id="b82d9-122">Azure SDK for .NET</span></span>](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
-* <span data-ttu-id="b82d9-123">Etkin bir Microsoft Azure aboneliği</span><span class="sxs-lookup"><span data-stu-id="b82d9-123">An active Microsoft Azure subscription</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="4d1f5-120">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="4d1f5-120">Prerequisites</span></span>
+* <span data-ttu-id="4d1f5-121">[Web için Visual Studio Express 2013] [ VSEWeb] veya [Visual Studio 2013][VSUlt]</span><span class="sxs-lookup"><span data-stu-id="4d1f5-121">[Visual Studio Express 2013 for Web][VSEWeb] or [Visual Studio 2013][VSUlt]</span></span>
+* [<span data-ttu-id="4d1f5-122">.NET için Azure SDK</span><span class="sxs-lookup"><span data-stu-id="4d1f5-122">Azure SDK for .NET</span></span>](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+* <span data-ttu-id="4d1f5-123">Etkin bir Microsoft Azure aboneliği</span><span class="sxs-lookup"><span data-stu-id="4d1f5-123">An active Microsoft Azure subscription</span></span>
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 <a id="virtualmachine"></a> 
 
-## <a name="create-a-virtual-machine-and-install-mongodb"></a><span data-ttu-id="b82d9-124">Bir sanal makine oluşturun ve MongoDB yükleme</span><span class="sxs-lookup"><span data-stu-id="b82d9-124">Create a virtual machine and install MongoDB</span></span>
-<span data-ttu-id="b82d9-125">Bu öğretici, Azure'da bir sanal makine oluşturduğunuz varsayar.</span><span class="sxs-lookup"><span data-stu-id="b82d9-125">This tutorial assumes you have created a virtual machine in Azure.</span></span> <span data-ttu-id="b82d9-126">Sanal makineyi oluşturduktan sonra sanal makinede MongoDB yüklemeniz gerekir:</span><span class="sxs-lookup"><span data-stu-id="b82d9-126">After creating the virtual machine you need to install MongoDB on the virtual machine:</span></span>
+## <a name="create-a-virtual-machine-and-install-mongodb"></a><span data-ttu-id="4d1f5-124">Bir sanal makine oluşturun ve MongoDB yükleme</span><span class="sxs-lookup"><span data-stu-id="4d1f5-124">Create a virtual machine and install MongoDB</span></span>
+<span data-ttu-id="4d1f5-125">Bu öğretici, Azure'da bir sanal makine oluşturduğunuz varsayar.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-125">This tutorial assumes you have created a virtual machine in Azure.</span></span> <span data-ttu-id="4d1f5-126">Merhaba sanal makine oluşturduktan sonra tooinstall MongoDB hello sanal makineye gerekir:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-126">After creating hello virtual machine you need tooinstall MongoDB on hello virtual machine:</span></span>
 
-* <span data-ttu-id="b82d9-127">Bir Windows sanal makine oluşturun ve MongoDB yüklemek için bkz: [Azure'da Windows Server çalıştıran bir sanal makinede yüklemek MongoDB][InstallMongoOnWindowsVM].</span><span class="sxs-lookup"><span data-stu-id="b82d9-127">To create a Windows virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running Windows Server in Azure][InstallMongoOnWindowsVM].</span></span>
+* <span data-ttu-id="4d1f5-127">bkz: toocreate Windows sanal makine ve yükleme MongoDB, [Azure'da Windows Server çalıştıran bir sanal makinede yüklemek MongoDB][InstallMongoOnWindowsVM].</span><span class="sxs-lookup"><span data-stu-id="4d1f5-127">toocreate a Windows virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running Windows Server in Azure][InstallMongoOnWindowsVM].</span></span>
 
-<span data-ttu-id="b82d9-128">Azure'da sanal makine oluşturup MongoDB yüklü sonra uç belirtilen MongoDB için sanal makine ("testlinuxvm.cloudapp.net", örneğin) ve dış bağlantı noktasını DNS adını anımsamak emin olun.</span><span class="sxs-lookup"><span data-stu-id="b82d9-128">After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.</span></span>  <span data-ttu-id="b82d9-129">Bu bilgiler daha sonra öğreticide gerekecektir.</span><span class="sxs-lookup"><span data-stu-id="b82d9-129">You will need this information later in the tutorial.</span></span>
+<span data-ttu-id="4d1f5-128">Azure'da hello sanal makine oluşturup MongoDB yüklü sonra emin tooremember hello DNS adı hello sanal makine ("testlinuxvm.cloudapp.net", örneğin) ve hello dış bağlantı noktası hello bitiş noktası içinde belirtilen MongoDB için olması.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-128">After you have created hello virtual machine in Azure and installed MongoDB, be sure tooremember hello DNS name of hello virtual machine ("testlinuxvm.cloudapp.net", for example) and hello external port for MongoDB that you specified in hello endpoint.</span></span>  <span data-ttu-id="4d1f5-129">Merhaba öğreticide daha sonra bu bilgileri gerekir.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-129">You will need this information later in hello tutorial.</span></span>
 
 <a id="createapp"></a>
 
-## <a name="create-the-application"></a><span data-ttu-id="b82d9-130">Uygulama oluşturma</span><span class="sxs-lookup"><span data-stu-id="b82d9-130">Create the application</span></span>
-<span data-ttu-id="b82d9-131">Bu bölümde Visual Studio kullanarak "My görev listesi" adlı bir ASP.NET uygulaması oluşturun ve Azure App Service Web Apps için ilk bir dağıtım gerçekleştirin.</span><span class="sxs-lookup"><span data-stu-id="b82d9-131">In this section you will create an ASP.NET application called "My Task List" by using Visual Studio and perform an initial deployment to Azure App Service Web Apps.</span></span> <span data-ttu-id="b82d9-132">Uygulamayı yerel olarak çalışır, ancak bunu Azure sanal makinenizde bağlanmak ve oluşturduğunuz MongoDB örneği burada kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b82d9-132">You will run the application locally, but it will connect to your virtual machine on Azure and use the MongoDB instance that you created there.</span></span>
+## <a name="create-hello-application"></a><span data-ttu-id="4d1f5-130">Merhaba uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="4d1f5-130">Create hello application</span></span>
+<span data-ttu-id="4d1f5-131">Bu bölümde Visual Studio kullanarak "My görev listesi" adlı bir ASP.NET uygulaması oluşturun ve ilk dağıtım tooAzure App Service Web Apps gerçekleştirin.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-131">In this section you will create an ASP.NET application called "My Task List" by using Visual Studio and perform an initial deployment tooAzure App Service Web Apps.</span></span> <span data-ttu-id="4d1f5-132">Merhaba uygulama yerel olarak çalışacak, ancak bu Azure tooyour sanal makineye bağlanmak ve oluşturduğunuz hello MongoDB örneği burada kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-132">You will run hello application locally, but it will connect tooyour virtual machine on Azure and use hello MongoDB instance that you created there.</span></span>
 
-1. <span data-ttu-id="b82d9-133">Visual Studio'da sırasıyla **yeni proje**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-133">In Visual Studio, click **New Project**.</span></span>
+1. <span data-ttu-id="4d1f5-133">Visual Studio'da sırasıyla **yeni proje**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-133">In Visual Studio, click **New Project**.</span></span>
    
     ![Sayfa yeni bir proje başlatın][StartPageNewProject]
-2. <span data-ttu-id="b82d9-135">İçinde **yeni proje** penceresinde sol bölmesinde, **Visual C#**ve ardından **Web**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-135">In the **New Project** window, in the left pane, select **Visual C#**, and then select **Web**.</span></span> <span data-ttu-id="b82d9-136">Orta bölmede seçin **ASP.NET Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-136">In the middle pane, select **ASP.NET  Web Application**.</span></span> <span data-ttu-id="b82d9-137">Projeniz "MyTaskListApp" alt kısmındaki adlandırın ve ardından **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-137">At the bottom, name your project "MyTaskListApp," and then click **OK**.</span></span>
+2. <span data-ttu-id="4d1f5-135">Merhaba, **yeni proje** penceresinde hello sol bölmesinde, **Visual C#**ve ardından **Web**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-135">In hello **New Project** window, in hello left pane, select **Visual C#**, and then select **Web**.</span></span> <span data-ttu-id="4d1f5-136">Merhaba orta bölmesinde seçin **ASP.NET Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-136">In hello middle pane, select **ASP.NET  Web Application**.</span></span> <span data-ttu-id="4d1f5-137">Merhaba altındaki "MyTaskListApp" projenizi adlandırın ve ardından **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-137">At hello bottom, name your project "MyTaskListApp," and then click **OK**.</span></span>
    
     ![Yeni Proje İletişim Kutusu][NewProjectMyTaskListApp]
-3. <span data-ttu-id="b82d9-139">İçinde **yeni ASP.NET projesi** iletişim kutusunda **MVC**ve ardından **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-139">In the **New ASP.NET Project** dialog box, select **MVC**, and then click **OK**.</span></span>
+3. <span data-ttu-id="4d1f5-139">Merhaba, **yeni ASP.NET projesi** iletişim kutusunda **MVC**ve ardından **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-139">In hello **New ASP.NET Project** dialog box, select **MVC**, and then click **OK**.</span></span>
    
     ![MVC şablonunu seçin][VS2013SelectMVCTemplate]
-4. <span data-ttu-id="b82d9-141">Microsoft Azure'da zaten oturumunuz açık değil, oturum açmak için istenir.</span><span class="sxs-lookup"><span data-stu-id="b82d9-141">If you aren't already signed into Microsoft Azure, you will be prompted to sign in.</span></span> <span data-ttu-id="b82d9-142">Azure'da oturum için istemleri izleyin.</span><span class="sxs-lookup"><span data-stu-id="b82d9-142">Follow the prompts to sign into Azure.</span></span>
-5. <span data-ttu-id="b82d9-143">Oturum açtıktan sonra App Service web uygulamanızı yapılandırmaya başlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b82d9-143">Once you are signed in, you can start configuring your App Service web app.</span></span> <span data-ttu-id="b82d9-144">Belirtin **Web uygulaması adı**, **uygulama hizmeti planı**, **kaynak grubu**, ve **bölge**, ardından **oluşturma**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-144">Specify the **Web App name**, **App Service plan**, **Resource group**, and **Region**, then click **Create**.</span></span>
+4. <span data-ttu-id="4d1f5-141">Microsoft Azure'da zaten imzalanmadığını içinde istendiğinde toosign olacaktır.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-141">If you aren't already signed into Microsoft Azure, you will be prompted toosign in.</span></span> <span data-ttu-id="4d1f5-142">Azure'da Hello istemleri toosign izleyin.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-142">Follow hello prompts toosign into Azure.</span></span>
+5. <span data-ttu-id="4d1f5-143">Oturum açtıktan sonra App Service web uygulamanızı yapılandırmaya başlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-143">Once you are signed in, you can start configuring your App Service web app.</span></span> <span data-ttu-id="4d1f5-144">Merhaba belirtin **Web uygulaması adı**, **uygulama hizmeti planı**, **kaynak grubu**, ve **bölge**, ardından **Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-144">Specify hello **Web App name**, **App Service plan**, **Resource group**, and **Region**, then click **Create**.</span></span>
    
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
-6. <span data-ttu-id="b82d9-145">Azure App Service'te de belirtildiği gibi oluşturulması için web uygulaması projesi oluşturma tamamlandıktan sonra bekleyin **Azure App Service etkinliği** penceresi.</span><span class="sxs-lookup"><span data-stu-id="b82d9-145">After the project creation completes, wait for the web app to be created in Azure App Service as indicated in the **Azure App Service Activity** window.</span></span> <span data-ttu-id="b82d9-146">Ardından **şimdi bu Web uygulaması yayımlama MyTaskListApp**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-146">Then, click **Publish MyTaskListApp to this Web App now**.</span></span>
-7. <span data-ttu-id="b82d9-147">**Yayımla**’ta tıklayın.</span><span class="sxs-lookup"><span data-stu-id="b82d9-147">Click **Publish**.</span></span>
+6. <span data-ttu-id="4d1f5-145">Başlangıç projesi oluşturma tamamlandıktan sonra Azure App Service'te hello belirtildiği şekilde oluşturulan hello web uygulama toobe bekleyin **Azure App Service etkinliği** penceresi.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-145">After hello project creation completes, wait for hello web app toobe created in Azure App Service as indicated in hello **Azure App Service Activity** window.</span></span> <span data-ttu-id="4d1f5-146">Ardından **yayımlama MyTaskListApp toothis Web uygulaması şimdi**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-146">Then, click **Publish MyTaskListApp toothis Web App now**.</span></span>
+7. <span data-ttu-id="4d1f5-147">**Yayımla**’ta tıklayın.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-147">Click **Publish**.</span></span>
    
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSPublishWeb.png)
    
-    <span data-ttu-id="b82d9-148">Varsayılan ASP.NET uygulamanızı Azure App Service Web Apps için yayımlandığında, tarayıcıda başlatılacak.</span><span class="sxs-lookup"><span data-stu-id="b82d9-148">Once your default ASP.NET application is published to Azure App Service Web Apps, it will be launched in the browser.</span></span>
+    <span data-ttu-id="4d1f5-148">Varsayılan ASP.NET uygulamanızı yayımlanan tooAzure App Service Web Apps eklendiğinde, hello tarayıcıda başlatılacak.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-148">Once your default ASP.NET application is published tooAzure App Service Web Apps, it will be launched in hello browser.</span></span>
 
-## <a name="install-the-mongodb-c-driver"></a><span data-ttu-id="b82d9-149">MongoDB C# sürücüsünü yükleyin</span><span class="sxs-lookup"><span data-stu-id="b82d9-149">Install the MongoDB C# driver</span></span>
-<span data-ttu-id="b82d9-150">MongoDB yerel geliştirme bilgisayarınıza yüklemek için gereken bir sürücüyle C# uygulamaları için istemci tarafı desteği sağlar.</span><span class="sxs-lookup"><span data-stu-id="b82d9-150">MongoDB offers client-side support for C# applications through a driver, which you need to install on your local development computer.</span></span> <span data-ttu-id="b82d9-151">C# sürücü NuGet kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="b82d9-151">The C# driver is available through NuGet.</span></span>
+## <a name="install-hello-mongodb-c-driver"></a><span data-ttu-id="4d1f5-149">Merhaba MongoDB C# sürücü yükleme</span><span class="sxs-lookup"><span data-stu-id="4d1f5-149">Install hello MongoDB C# driver</span></span>
+<span data-ttu-id="4d1f5-150">MongoDB gereksinim duyduğunuz bir sürücüyle C# uygulamaları için istemci tarafı destek sunar, yerel geliştirme bilgisayarınızda tooinstall.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-150">MongoDB offers client-side support for C# applications through a driver, which you need tooinstall on your local development computer.</span></span> <span data-ttu-id="4d1f5-151">Merhaba C# sürücü NuGet kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-151">hello C# driver is available through NuGet.</span></span>
 
-<span data-ttu-id="b82d9-152">MongoDB C# sürücüyü yüklemek için:</span><span class="sxs-lookup"><span data-stu-id="b82d9-152">To install the MongoDB C# driver:</span></span>
+<span data-ttu-id="4d1f5-152">tooinstall hello MongoDB C# sürücüsü:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-152">tooinstall hello MongoDB C# driver:</span></span>
 
-1. <span data-ttu-id="b82d9-153">İçinde **Çözüm Gezgini**, sağ **MyTaskListApp** proje ve seçin **yönetmek NuGetPackages**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-153">In **Solution Explorer**, right-click the **MyTaskListApp** project and select **Manage NuGetPackages**.</span></span>
+1. <span data-ttu-id="4d1f5-153">İçinde **Çözüm Gezgini**, sağ hello **MyTaskListApp** proje ve seçin **yönetmek NuGetPackages**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-153">In **Solution Explorer**, right-click hello **MyTaskListApp** project and select **Manage NuGetPackages**.</span></span>
    
     ![NuGet paketlerini yönetme][VS2013ManageNuGetPackages]
-2. <span data-ttu-id="b82d9-155">İçinde **NuGet paketlerini Yönet** pencerede, sol bölmede, tıklayın **çevrimiçi**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-155">In the **Manage NuGet Packages** window, in the left pane, click **Online**.</span></span> <span data-ttu-id="b82d9-156">İçinde **arama çevrimiçi** kutusuna sağ tarafta, "mongodb.driver" yazın.</span><span class="sxs-lookup"><span data-stu-id="b82d9-156">In the **Search Online** box on the right, type "mongodb.driver".</span></span>  <span data-ttu-id="b82d9-157">Tıklatın **yükleme** sürücüyü yüklemek için.</span><span class="sxs-lookup"><span data-stu-id="b82d9-157">Click **Install** to install the driver.</span></span>
+2. <span data-ttu-id="4d1f5-155">Merhaba, **NuGet paketlerini Yönet** penceresinde hello sol bölmede, tıklatın **çevrimiçi**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-155">In hello **Manage NuGet Packages** window, in hello left pane, click **Online**.</span></span> <span data-ttu-id="4d1f5-156">Merhaba, **arama çevrimiçi** kutusuna sağ Merhaba, "mongodb.driver" yazın.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-156">In hello **Search Online** box on hello right, type "mongodb.driver".</span></span>  <span data-ttu-id="4d1f5-157">Tıklatın **yükleme** tooinstall hello sürücü.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-157">Click **Install** tooinstall hello driver.</span></span>
    
     ![MongoDB C# sürücü arayın][SearchforMongoDBCSharpDriver]
-3. <span data-ttu-id="b82d9-159">Tıklatın **kabul ediyorum** 10gen, Inc. lisans koşullarını kabul etmek için.</span><span class="sxs-lookup"><span data-stu-id="b82d9-159">Click **I Accept** to accept the 10gen, Inc. license terms.</span></span>
-4. <span data-ttu-id="b82d9-160">Tıklatın **Kapat** sürücü yüklendikten sonra.</span><span class="sxs-lookup"><span data-stu-id="b82d9-160">Click **Close** after the driver has installed.</span></span>
-    <span data-ttu-id="b82d9-161">![MongoDB C# sürücüsünün yüklü][MongoDBCsharpDriverInstalled]</span><span class="sxs-lookup"><span data-stu-id="b82d9-161">![MongoDB C# Driver Installed][MongoDBCsharpDriverInstalled]</span></span>
+3. <span data-ttu-id="4d1f5-159">Tıklatın **kabul ediyorum** tooaccept hello 10gen, Inc. lisans koşulları.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-159">Click **I Accept** tooaccept hello 10gen, Inc. license terms.</span></span>
+4. <span data-ttu-id="4d1f5-160">Tıklatın **Kapat** hello sürücü yüklendikten sonra.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-160">Click **Close** after hello driver has installed.</span></span>
+    <span data-ttu-id="4d1f5-161">![MongoDB C# sürücüsünün yüklü][MongoDBCsharpDriverInstalled]</span><span class="sxs-lookup"><span data-stu-id="4d1f5-161">![MongoDB C# Driver Installed][MongoDBCsharpDriverInstalled]</span></span>
 
-<span data-ttu-id="b82d9-162">MongoDB C# sürücü artık yüklüdür.</span><span class="sxs-lookup"><span data-stu-id="b82d9-162">The MongoDB C# driver is now installed.</span></span>  <span data-ttu-id="b82d9-163">Başvurular **MongoDB.Bson**, **MongoDB.Driver**, ve **MongoDB.Driver.Core** kitaplıkları projeye eklendi.</span><span class="sxs-lookup"><span data-stu-id="b82d9-163">References to the **MongoDB.Bson**, **MongoDB.Driver**, and **MongoDB.Driver.Core**  libraries have been added to the project.</span></span>
+<span data-ttu-id="4d1f5-162">Merhaba MongoDB C# sürücü artık yüklüdür.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-162">hello MongoDB C# driver is now installed.</span></span>  <span data-ttu-id="4d1f5-163">Başvuruları toohello **MongoDB.Bson**, **MongoDB.Driver**, ve **MongoDB.Driver.Core** kitaplıkları toohello proje eklenmiştir.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-163">References toohello **MongoDB.Bson**, **MongoDB.Driver**, and **MongoDB.Driver.Core**  libraries have been added toohello project.</span></span>
 
 ![MongoDB C# sürücü başvuruları][MongoDBCSharpDriverReferences]
 
-## <a name="add-a-model"></a><span data-ttu-id="b82d9-165">Model ekleme</span><span class="sxs-lookup"><span data-stu-id="b82d9-165">Add a model</span></span>
-<span data-ttu-id="b82d9-166">İçinde **Çözüm Gezgini**, sağ *modelleri* klasör ve **Ekle** yeni bir **sınıfı** ve adlandırın *TaskModel.cs*.</span><span class="sxs-lookup"><span data-stu-id="b82d9-166">In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Class** and name it *TaskModel.cs*.</span></span>  <span data-ttu-id="b82d9-167">İçinde *TaskModel.cs*, var olan kodu aşağıdaki kodla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="b82d9-167">In *TaskModel.cs*, replace the existing code with the following code:</span></span>
+## <a name="add-a-model"></a><span data-ttu-id="4d1f5-165">Model ekleme</span><span class="sxs-lookup"><span data-stu-id="4d1f5-165">Add a model</span></span>
+<span data-ttu-id="4d1f5-166">İçinde **Çözüm Gezgini**, sağ hello *modelleri* klasör ve **Ekle** yeni bir **sınıfı** ve adlandırın *TaskModel.cs* .</span><span class="sxs-lookup"><span data-stu-id="4d1f5-166">In **Solution Explorer**, right-click hello *Models* folder and **Add** a new **Class** and name it *TaskModel.cs*.</span></span>  <span data-ttu-id="4d1f5-167">İçinde *TaskModel.cs*, hello varolan kod koddan hello ile değiştirin:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-167">In *TaskModel.cs*, replace hello existing code with hello following code:</span></span>
 
     using System;
     using System.Collections.Generic;
@@ -130,8 +130,8 @@ ms.lasthandoff: 07/11/2017
         }
     }
 
-## <a name="add-the-data-access-layer"></a><span data-ttu-id="b82d9-168">Veri erişim katmanı ekleme</span><span class="sxs-lookup"><span data-stu-id="b82d9-168">Add the data access layer</span></span>
-<span data-ttu-id="b82d9-169">İçinde **Çözüm Gezgini**, sağ *MyTaskListApp* proje ve **Ekle** bir **yeni klasör** adlı *DAL*.</span><span class="sxs-lookup"><span data-stu-id="b82d9-169">In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a **New Folder** named *DAL*.</span></span>  <span data-ttu-id="b82d9-170">Sağ *DAL* klasör ve **Ekle** yeni bir **sınıfı**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-170">Right-click the *DAL* folder and **Add** a new **Class**.</span></span> <span data-ttu-id="b82d9-171">Sınıf dosya adı *Dal.cs*.</span><span class="sxs-lookup"><span data-stu-id="b82d9-171">Name the class file *Dal.cs*.</span></span>  <span data-ttu-id="b82d9-172">İçinde *Dal.cs*, var olan kodu aşağıdaki kodla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="b82d9-172">In *Dal.cs*, replace the existing code with the following code:</span></span>
+## <a name="add-hello-data-access-layer"></a><span data-ttu-id="4d1f5-168">Merhaba veri erişim katmanı ekleme</span><span class="sxs-lookup"><span data-stu-id="4d1f5-168">Add hello data access layer</span></span>
+<span data-ttu-id="4d1f5-169">İçinde **Çözüm Gezgini**, sağ hello *MyTaskListApp* proje ve **Ekle** bir **yeni klasör** adlı *DAL*.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-169">In **Solution Explorer**, right-click hello *MyTaskListApp* project and **Add** a **New Folder** named *DAL*.</span></span>  <span data-ttu-id="4d1f5-170">Sağ hello *DAL* klasör ve **Ekle** yeni bir **sınıfı**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-170">Right-click hello *DAL* folder and **Add** a new **Class**.</span></span> <span data-ttu-id="4d1f5-171">Ad hello sınıf dosyası *Dal.cs*.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-171">Name hello class file *Dal.cs*.</span></span>  <span data-ttu-id="4d1f5-172">İçinde *Dal.cs*, hello varolan kod koddan hello ile değiştirin:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-172">In *Dal.cs*, replace hello existing code with hello following code:</span></span>
 
     using System;
     using System.Collections.Generic;
@@ -150,13 +150,13 @@ ms.lasthandoff: 07/11/2017
             private MongoServer mongoServer = null;
             private bool disposed = false;
 
-            // To do: update the connection string with the DNS name
+            // toodo: update hello connection string with hello DNS name
             // or IP address of your server. 
             //For example, "mongodb://testlinux.cloudapp.net"
             private string connectionString = "mongodb://mongodbsrv20151211.cloudapp.net";
 
             // This sample uses a database named "Tasks" and a 
-            //collection named "TasksList".  The database and collection 
+            //collection named "TasksList".  hello database and collection 
             //will be automatically created if they don't already exist.
             private string dbName = "Tasks";
             private string collectionName = "TasksList";
@@ -166,7 +166,7 @@ ms.lasthandoff: 07/11/2017
             {
             }
 
-            // Gets all Task items from the MongoDB server.        
+            // Gets all Task items from hello MongoDB server.        
             public List<MyTask> GetAllTasks()
             {
                 try
@@ -180,7 +180,7 @@ ms.lasthandoff: 07/11/2017
                 }
             }
 
-            // Creates a Task and inserts it into the collection in MongoDB.
+            // Creates a Task and inserts it into hello collection in MongoDB.
             public void CreateTask(MyTask task)
             {
                 var collection = GetTasksCollectionForEdit();
@@ -238,8 +238,8 @@ ms.lasthandoff: 07/11/2017
         }
     }
 
-## <a name="add-a-controller"></a><span data-ttu-id="b82d9-173">Denetleyici ekleme</span><span class="sxs-lookup"><span data-stu-id="b82d9-173">Add a controller</span></span>
-<span data-ttu-id="b82d9-174">Açık *Controllers\HomeController.cs* dosyasını **Çözüm Gezgini** ve var olan kodu aşağıdakilerle değiştirin:</span><span class="sxs-lookup"><span data-stu-id="b82d9-174">Open the *Controllers\HomeController.cs* file in **Solution Explorer** and replace the existing code with the following:</span></span>
+## <a name="add-a-controller"></a><span data-ttu-id="4d1f5-173">Denetleyici ekleme</span><span class="sxs-lookup"><span data-stu-id="4d1f5-173">Add a controller</span></span>
+<span data-ttu-id="4d1f5-174">Açık hello *Controllers\HomeController.cs* dosyasını **Çözüm Gezgini** ve hello var olan kodu hello şununla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-174">Open hello *Controllers\HomeController.cs* file in **Solution Explorer** and replace hello existing code with hello following:</span></span>
 
     using System;
     using System.Collections.Generic;
@@ -319,12 +319,12 @@ ms.lasthandoff: 07/11/2017
         }
     }
 
-## <a name="set-up-the-styles"></a><span data-ttu-id="b82d9-175">Stilleri ayarlama</span><span class="sxs-lookup"><span data-stu-id="b82d9-175">Set up the styles</span></span>
-<span data-ttu-id="b82d9-176">Sayfanın üstündeki başlığını değiştirmek için açık *görünümler/paylaşılan\\_Layout.cshtml* dosyasını **Çözüm Gezgini** ve "Uygulama adı" navbar üstbilgisinde "My görev listesi ile değiştirin. Böyle uygulama"şekilde görünür:</span><span class="sxs-lookup"><span data-stu-id="b82d9-176">To change the title at the top of the page, open the *Views\Shared\\_Layout.cshtml* file in **Solution Explorer** and replace "Application name" in the navbar header with "My Task List Application" so that it looks like this:</span></span>
+## <a name="set-up-hello-styles"></a><span data-ttu-id="4d1f5-175">Hello stilleri ayarlama</span><span class="sxs-lookup"><span data-stu-id="4d1f5-175">Set up hello styles</span></span>
+<span data-ttu-id="4d1f5-176">Merhaba sayfanın üst kısmındaki Merhaba, açık hello toochange hello başlık *görünümler/paylaşılan\\_Layout.cshtml* dosyasını **Çözüm Gezgini** ve "Uygulama adı" Merhaba navbar üstbilgisinde "My görev ile değiştirin. Uygulama listesi"böylece şöyle görünür:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-176">toochange hello title at hello top of hello page, open hello *Views\Shared\\_Layout.cshtml* file in **Solution Explorer** and replace "Application name" in hello navbar header with "My Task List Application" so that it looks like this:</span></span>
 
      @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-<span data-ttu-id="b82d9-177">Görev listesi menüsü Ayarla için açık *\Views\Home\Index.cshtml* dosya ve var olan kodu aşağıdaki kodla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="b82d9-177">In order to set up the Task List menu, open the *\Views\Home\Index.cshtml* file and replace the existing code with the following code:</span></span>
+<span data-ttu-id="4d1f5-177">Merhaba hello görev listesi menü yukarı sipariş tooset içinde açmak *\Views\Home\Index.cshtml* dosya ve hello varolan kod koddan hello ile değiştirin:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-177">In order tooset up hello Task List menu, open hello *\Views\Home\Index.cshtml* file and replace hello existing code with hello following code:</span></span>
 
     @model IEnumerable<MyTaskListApp.Models.MyTask>
 
@@ -361,7 +361,7 @@ ms.lasthandoff: 07/11/2017
     <div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-<span data-ttu-id="b82d9-178">Yeni bir görev oluşturma olanağı eklemek için sağ tıklatın *görünümler\\*  klasör ve **Ekle** bir **Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-178">To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.</span></span>  <span data-ttu-id="b82d9-179">Görünüm adı *oluşturma*.</span><span class="sxs-lookup"><span data-stu-id="b82d9-179">Name the view *Create*.</span></span> <span data-ttu-id="b82d9-180">Kod aşağıdakiyle değiştirin:</span><span class="sxs-lookup"><span data-stu-id="b82d9-180">Replace the code with the following:</span></span>
+<span data-ttu-id="4d1f5-178">tooadd hello özelliği toocreate yeni bir görev sağ hello *görünümler\\*  klasör ve **Ekle** bir **Görünüm**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-178">tooadd hello ability toocreate a new task, right-click hello *Views\Home\\* folder and **Add** a **View**.</span></span>  <span data-ttu-id="4d1f5-179">Ad hello Görünüm *oluşturma*.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-179">Name hello view *Create*.</span></span> <span data-ttu-id="4d1f5-180">Merhaba kod hello şununla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-180">Replace hello code with hello following:</span></span>
 
     @model MyTaskListApp.Models.MyTask
 
@@ -404,48 +404,48 @@ ms.lasthandoff: 07/11/2017
         </fieldset>
     }
 
-<span data-ttu-id="b82d9-181">**Çözüm Gezgini** aşağıdaki gibi görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="b82d9-181">**Solution Explorer** should look like this:</span></span>
+<span data-ttu-id="4d1f5-181">**Çözüm Gezgini** aşağıdaki gibi görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-181">**Solution Explorer** should look like this:</span></span>
 
 ![Çözüm Gezgini][SolutionExplorerMyTaskListApp]
 
-## <a name="set-the-mongodb-connection-string"></a><span data-ttu-id="b82d9-183">MongoDB bağlantı dizesini ayarlayın</span><span class="sxs-lookup"><span data-stu-id="b82d9-183">Set the MongoDB connection string</span></span>
-<span data-ttu-id="b82d9-184">İçinde **Çözüm Gezgini**, açık *DAL/Dal.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="b82d9-184">In **Solution Explorer**, open the *DAL/Dal.cs* file.</span></span> <span data-ttu-id="b82d9-185">Aşağıdaki kod satırını bulun:</span><span class="sxs-lookup"><span data-stu-id="b82d9-185">Find the following line of code:</span></span>
+## <a name="set-hello-mongodb-connection-string"></a><span data-ttu-id="4d1f5-183">Merhaba MongoDB bağlantı dizesini ayarlayın</span><span class="sxs-lookup"><span data-stu-id="4d1f5-183">Set hello MongoDB connection string</span></span>
+<span data-ttu-id="4d1f5-184">İçinde **Çözüm Gezgini**açın hello *DAL/Dal.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-184">In **Solution Explorer**, open hello *DAL/Dal.cs* file.</span></span> <span data-ttu-id="4d1f5-185">Aşağıdaki kod hello bulur:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-185">Find hello following line of code:</span></span>
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-<span data-ttu-id="b82d9-186">Değiştir `<vm-dns-name>` oluşturduğunuz MongoDB çalışan sanal makinenin DNS adı ile [bir sanal makine oluşturun ve MongoDB yükleme] [ Create a virtual machine and install MongoDB] Bu öğreticinin adımı.</span><span class="sxs-lookup"><span data-stu-id="b82d9-186">Replace `<vm-dns-name>` with the DNS name of the virtual machine running MongoDB you created in the [Create a virtual machine and install MongoDB][Create a virtual machine and install MongoDB] step of this tutorial.</span></span>  <span data-ttu-id="b82d9-187">Sanal makineniz DNS adını bulmak için select Azure Portalı'na Git **sanal makineleri**ve Bul **DNS adı**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-187">To find the DNS name of your virtual machine, go to the Azure Portal, select **Virtual Machines**, and find **DNS Name**.</span></span>
+<span data-ttu-id="4d1f5-186">Değiştir `<vm-dns-name>` hello oluşturduğunuz MongoDB çalışan hello sanal makine hello DNS adı ile [bir sanal makine oluşturun ve MongoDB yükleme] [ Create a virtual machine and install MongoDB] Bu öğreticinin adımı.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-186">Replace `<vm-dns-name>` with hello DNS name of hello virtual machine running MongoDB you created in hello [Create a virtual machine and install MongoDB][Create a virtual machine and install MongoDB] step of this tutorial.</span></span>  <span data-ttu-id="4d1f5-187">sanal makinenizin toofind hello DNS adı Git toohello Azure Portal, select **sanal makineleri**ve bulma **DNS adı**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-187">toofind hello DNS name of your virtual machine, go toohello Azure Portal, select **Virtual Machines**, and find **DNS Name**.</span></span>
 
-<span data-ttu-id="b82d9-188">Sanal makinenin DNS adı "testlinuxvm.cloudapp.net" ise ve MongoDB 27017 varsayılan bağlantı noktasında dinleme bağlantı dizesi kod satırı ile gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="b82d9-188">If the DNS name of the virtual machine is "testlinuxvm.cloudapp.net" and MongoDB is listening on the default port 27017, the connection string line of code will look like:</span></span>
+<span data-ttu-id="4d1f5-188">Merhaba sanal makinenin Hello DNS adı "testlinuxvm.cloudapp.net" ise ve MongoDB 27017 hello varsayılan bağlantı noktasında dinleme hello bağlantı dizesi satır kod gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-188">If hello DNS name of hello virtual machine is "testlinuxvm.cloudapp.net" and MongoDB is listening on hello default port 27017, hello connection string line of code will look like:</span></span>
 
     private string connectionString = "mongodb://testlinuxvm.cloudapp.net";
 
-<span data-ttu-id="b82d9-189">Sanal makine uç noktası MongoDB için farklı bir dış bağlantı belirtiyorsa, bağlantı dizesindeki bağlantı noktası belirtin yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="b82d9-189">If the virtual machine endpoint specifies a different external port for MongoDB, you can specifiy the port in the connection string:</span></span>
+<span data-ttu-id="4d1f5-189">Merhaba sanal makine uç noktası MongoDB için farklı bir dış bağlantı belirtiyorsa, kısa hello bağlantı noktası başlangıç bağlantı dizesinde yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-189">If hello virtual machine endpoint specifies a different external port for MongoDB, you can specifiy hello port in hello connection string:</span></span>
 
      private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-<span data-ttu-id="b82d9-190">MongoDB bağlantı dizeleri hakkında daha fazla bilgi için bkz: [bağlantıları][MongoConnectionStrings].</span><span class="sxs-lookup"><span data-stu-id="b82d9-190">For more information on MongoDB connection strings, see [Connections][MongoConnectionStrings].</span></span>
+<span data-ttu-id="4d1f5-190">MongoDB bağlantı dizeleri hakkında daha fazla bilgi için bkz: [bağlantıları][MongoConnectionStrings].</span><span class="sxs-lookup"><span data-stu-id="4d1f5-190">For more information on MongoDB connection strings, see [Connections][MongoConnectionStrings].</span></span>
 
-## <a name="test-the-local-deployment"></a><span data-ttu-id="b82d9-191">Yerel dağıtımı test etme</span><span class="sxs-lookup"><span data-stu-id="b82d9-191">Test the local deployment</span></span>
-<span data-ttu-id="b82d9-192">Geliştirme bilgisayarınızda uygulamanızı çalıştırmak için seçin **hata ayıklamayı Başlat** gelen **hata ayıklama** menüsü veya isabet **F5**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-192">To run your application on your development computer, select **Start Debugging** from the **Debug** menu or hit **F5**.</span></span> <span data-ttu-id="b82d9-193">IIS Express başlar ve bir tarayıcı açar ve uygulamanın giriş sayfasını açar.</span><span class="sxs-lookup"><span data-stu-id="b82d9-193">IIS Express starts and a browser opens and launches the application's home page.</span></span>  <span data-ttu-id="b82d9-194">Sanal makineniz azure'da çalışan MongoDB veritabanına eklenen yeni bir görev ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="b82d9-194">You can add a new task, which will be added to the MongoDB database running on your virtual machine in Azure.</span></span>
+## <a name="test-hello-local-deployment"></a><span data-ttu-id="4d1f5-191">Merhaba yerel dağıtımı test etme</span><span class="sxs-lookup"><span data-stu-id="4d1f5-191">Test hello local deployment</span></span>
+<span data-ttu-id="4d1f5-192">geliştirme bilgisayarınızda uygulamanızı toorun seçin **hata ayıklamayı Başlat** hello gelen **hata ayıklama** menüsü veya isabet **F5**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-192">toorun your application on your development computer, select **Start Debugging** from hello **Debug** menu or hit **F5**.</span></span> <span data-ttu-id="4d1f5-193">IIS Express başlar ve bir tarayıcı açar ve hello uygulamanın giriş sayfasını açar.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-193">IIS Express starts and a browser opens and launches hello application's home page.</span></span>  <span data-ttu-id="4d1f5-194">Sanal makineniz azure'da çalışan toohello MongoDB veritabanı eklenecek yeni bir görev ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-194">You can add a new task, which will be added toohello MongoDB database running on your virtual machine in Azure.</span></span>
 
 ![Görev listesi Uygulamam][TaskListAppBlank]
 
-## <a name="publish-to-azure-app-service-web-apps"></a><span data-ttu-id="b82d9-196">Azure App Service Web Apps için yayımlama</span><span class="sxs-lookup"><span data-stu-id="b82d9-196">Publish to Azure App Service Web Apps</span></span>
-<span data-ttu-id="b82d9-197">Bu bölümde Azure App Service Web Apps için yaptığınız değişiklikleri yayımlar.</span><span class="sxs-lookup"><span data-stu-id="b82d9-197">In this section you will publish your changes to Azure App Service Web Apps.</span></span>
+## <a name="publish-tooazure-app-service-web-apps"></a><span data-ttu-id="4d1f5-196">TooAzure App Service Web Apps yayımlama</span><span class="sxs-lookup"><span data-stu-id="4d1f5-196">Publish tooAzure App Service Web Apps</span></span>
+<span data-ttu-id="4d1f5-197">Bu bölümde, değişiklikleri tooAzure App Service Web Apps yayımlar.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-197">In this section you will publish your changes tooAzure App Service Web Apps.</span></span>
 
-1. <span data-ttu-id="b82d9-198">Çözüm Gezgini'nde sağ **MyTaskListApp** yeniden tıklatıp **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-198">In Solution Explorer, right-click **MyTaskListApp** again and click **Publish**.</span></span>
-2. <span data-ttu-id="b82d9-199">**Yayımla**’ta tıklayın.</span><span class="sxs-lookup"><span data-stu-id="b82d9-199">Click **Publish**.</span></span>
+1. <span data-ttu-id="4d1f5-198">Çözüm Gezgini'nde sağ **MyTaskListApp** yeniden tıklatıp **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-198">In Solution Explorer, right-click **MyTaskListApp** again and click **Publish**.</span></span>
+2. <span data-ttu-id="4d1f5-199">**Yayımla**’ta tıklayın.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-199">Click **Publish**.</span></span>
    
-    <span data-ttu-id="b82d9-200">Web uygulamanızı Azure App Service içinde çalışan ve Azure Virtual Machines'de MongoDB veritabanı erişme görmelisiniz.</span><span class="sxs-lookup"><span data-stu-id="b82d9-200">You should now see your web app running in Azure App Service and accessing the MongoDB database in Azure Virtual Machines.</span></span>
+    <span data-ttu-id="4d1f5-200">Web uygulamanızı Azure App Service içinde çalışan ve hello MongoDB veritabanı Azure Virtual Machines'de erişme görmelisiniz.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-200">You should now see your web app running in Azure App Service and accessing hello MongoDB database in Azure Virtual Machines.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="b82d9-201">Özet</span><span class="sxs-lookup"><span data-stu-id="b82d9-201">Summary</span></span>
-<span data-ttu-id="b82d9-202">ASP.NET uygulamanızı Azure App Service Web Apps için şimdi başarıyla dağıtmış.</span><span class="sxs-lookup"><span data-stu-id="b82d9-202">You have now successfully deployed your ASP.NET application to Azure App Service Web Apps.</span></span> <span data-ttu-id="b82d9-203">Web uygulaması görüntülemek için:</span><span class="sxs-lookup"><span data-stu-id="b82d9-203">To view the web app:</span></span>
+## <a name="summary"></a><span data-ttu-id="4d1f5-201">Özet</span><span class="sxs-lookup"><span data-stu-id="4d1f5-201">Summary</span></span>
+<span data-ttu-id="4d1f5-202">ASP.NET uygulama tooAzure App Service Web Apps şimdi başarıyla dağıtmış.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-202">You have now successfully deployed your ASP.NET application tooAzure App Service Web Apps.</span></span> <span data-ttu-id="4d1f5-203">tooview hello web uygulaması:</span><span class="sxs-lookup"><span data-stu-id="4d1f5-203">tooview hello web app:</span></span>
 
-1. <span data-ttu-id="b82d9-204">Azure portalı günlüğüne.</span><span class="sxs-lookup"><span data-stu-id="b82d9-204">Log into the Azure Portal.</span></span>
-2. <span data-ttu-id="b82d9-205">Tıklatın **Web uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="b82d9-205">Click **Web apps**.</span></span> 
-3. <span data-ttu-id="b82d9-206">Web uygulamanızı seçin **Web Apps** listesi.</span><span class="sxs-lookup"><span data-stu-id="b82d9-206">Select your web app in the **Web Apps** list.</span></span>
+1. <span data-ttu-id="4d1f5-204">Azure Portal Hello oturum açın.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-204">Log into hello Azure Portal.</span></span>
+2. <span data-ttu-id="4d1f5-205">Tıklatın **Web uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-205">Click **Web apps**.</span></span> 
+3. <span data-ttu-id="4d1f5-206">Web uygulamanızı hello seçin **Web Apps** listesi.</span><span class="sxs-lookup"><span data-stu-id="4d1f5-206">Select your web app in hello **Web Apps** list.</span></span>
 
-<span data-ttu-id="b82d9-207">C# MongoDB karşı uygulamaları geliştirme hakkında daha fazla bilgi için bkz: [CSharp dil Merkezi][MongoC#LangCenter].</span><span class="sxs-lookup"><span data-stu-id="b82d9-207">For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter].</span></span> 
+<span data-ttu-id="4d1f5-207">C# MongoDB karşı uygulamaları geliştirme hakkında daha fazla bilgi için bkz: [CSharp dil Merkezi][MongoC#LangCenter].</span><span class="sxs-lookup"><span data-stu-id="4d1f5-207">For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter].</span></span> 
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -483,6 +483,6 @@ ms.lasthandoff: 07/11/2017
 
 <!-- TOC BOOKMARKS -->
 [Create a virtual machine and install MongoDB]: #virtualmachine
-[Create and run the My Task List ASP.NET application on your development computer]: #createapp
+[Create and run hello My Task List ASP.NET application on your development computer]: #createapp
 [Create an Azure web site]: #createwebsite
-[Deploy the ASP.NET application to the web site using Git]: #deployapp
+[Deploy hello ASP.NET application toohello web site using Git]: #deployapp

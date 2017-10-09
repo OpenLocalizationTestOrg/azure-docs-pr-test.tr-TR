@@ -1,6 +1,6 @@
 ---
-title: "Node.js ile Azure IOT kenar modülü oluşturma | Microsoft Docs"
-description: "Bu öğreticide en son Azure IOT kenar NPM paket ve Yeoman kullanarak bir bırak veri dönüştürücü modülü yazma paylaşan Oluşturucu."
+title: "aaaCreate bir Node.js ile Azure IOT kenar Modülü | Microsoft Docs"
+description: "Bu öğretici bir bırak veri dönüştürücü modülünü kullanarak toowrite nasıl hello en son Azure IOT kenar NPM paket ve Yeoman paylaşan Oluşturucu."
 services: iot-hub
 author: sushi
 manager: timlt
@@ -11,65 +11,65 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
-ms.openlocfilehash: ba466f47e157d805600c41fa3d84ed5a0363969c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d3e696b5a310377ffb8e99998ff0714bf7c0bb41
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-azure-iot-edge-module-with-nodejs"></a><span data-ttu-id="69286-103">Node.js ile Azure IOT kenar modülü oluşturun</span><span class="sxs-lookup"><span data-stu-id="69286-103">Create an Azure IoT Edge Module with Node.js</span></span>
+# <a name="create-an-azure-iot-edge-module-with-nodejs"></a><span data-ttu-id="0009d-103">Node.js ile Azure IOT kenar modülü oluşturun</span><span class="sxs-lookup"><span data-stu-id="0009d-103">Create an Azure IoT Edge Module with Node.js</span></span>
 
-<span data-ttu-id="69286-104">Bu öğretici Azure IOT Edge'de JS için bir modül oluşturma gösterir.</span><span class="sxs-lookup"><span data-stu-id="69286-104">This tutorial showcases how to create a module for Azure IoT Edge in JS.</span></span>
+<span data-ttu-id="0009d-104">Bu öğretici paylaşan nasıl toocreate için Azure IOT Edge'de JS modül.</span><span class="sxs-lookup"><span data-stu-id="0009d-104">This tutorial showcases how toocreate a module for Azure IoT Edge in JS.</span></span>
 
-<span data-ttu-id="69286-105">Ortam kurulumu ve nasıl yazılacağını Bu öğreticide, biz yol bir [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) veri dönüştürücü modülü en son Azure IOT kenar NPM paketleri kullanma.</span><span class="sxs-lookup"><span data-stu-id="69286-105">In this tutorial, we walk through environment setup and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest Azure IoT Edge NPM packages.</span></span>
+<span data-ttu-id="0009d-105">Bu öğreticide, biz ortamı kurulumu aracılığıyla yol ve nasıl toowrite bir [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) veri dönüştürücü modülü hello en son Azure IOT kenar NPM paketleri kullanma.</span><span class="sxs-lookup"><span data-stu-id="0009d-105">In this tutorial, we walk through environment setup and how toowrite a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using hello latest Azure IoT Edge NPM packages.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="69286-106">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="69286-106">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="0009d-106">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="0009d-106">Prerequisites</span></span>
 
-<span data-ttu-id="69286-107">Bu bölümde IOT kenar modülü geliştirme ortamınızı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="69286-107">In this section, you set up your environment for IoT Edge module development.</span></span> <span data-ttu-id="69286-108">Her ikisi de geçerli *64-bit Windows* ve *64-bit Linux (Ubuntu 14 +)* işletim sistemleri.</span><span class="sxs-lookup"><span data-stu-id="69286-108">It applies to both *64-bit Windows* and *64-bit Linux (Ubuntu 14+)* operating systems.</span></span>
+<span data-ttu-id="0009d-107">Bu bölümde IOT kenar modülü geliştirme ortamınızı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="0009d-107">In this section, you set up your environment for IoT Edge module development.</span></span> <span data-ttu-id="0009d-108">Tooboth geçerlidir *64-bit Windows* ve *64-bit Linux (Ubuntu 14 +)* işletim sistemleri.</span><span class="sxs-lookup"><span data-stu-id="0009d-108">It applies tooboth *64-bit Windows* and *64-bit Linux (Ubuntu 14+)* operating systems.</span></span>
 
-<span data-ttu-id="69286-109">Aşağıdaki yazılımlar gereklidir:</span><span class="sxs-lookup"><span data-stu-id="69286-109">The following software is required:</span></span>
-* <span data-ttu-id="69286-110">[Git istemci](https://git-scm.com/downloads).</span><span class="sxs-lookup"><span data-stu-id="69286-110">[Git Client](https://git-scm.com/downloads).</span></span>
-* <span data-ttu-id="69286-111">[Düğüm LTS](https://nodejs.org).</span><span class="sxs-lookup"><span data-stu-id="69286-111">[Node LTS](https://nodejs.org).</span></span>
-* <span data-ttu-id="69286-112">`npm install -g yo`.</span><span class="sxs-lookup"><span data-stu-id="69286-112">`npm install -g yo`.</span></span>
+<span data-ttu-id="0009d-109">yazılımı aşağıdaki hello gereklidir:</span><span class="sxs-lookup"><span data-stu-id="0009d-109">hello following software is required:</span></span>
+* <span data-ttu-id="0009d-110">[Git istemci](https://git-scm.com/downloads).</span><span class="sxs-lookup"><span data-stu-id="0009d-110">[Git Client](https://git-scm.com/downloads).</span></span>
+* <span data-ttu-id="0009d-111">[Düğüm LTS](https://nodejs.org).</span><span class="sxs-lookup"><span data-stu-id="0009d-111">[Node LTS](https://nodejs.org).</span></span>
+* <span data-ttu-id="0009d-112">`npm install -g yo`.</span><span class="sxs-lookup"><span data-stu-id="0009d-112">`npm install -g yo`.</span></span>
 * `npm install -g generator-az-iot-gw-module`
 
-## <a name="architecture"></a><span data-ttu-id="69286-113">Mimari</span><span class="sxs-lookup"><span data-stu-id="69286-113">Architecture</span></span>
+## <a name="architecture"></a><span data-ttu-id="0009d-113">Mimari</span><span class="sxs-lookup"><span data-stu-id="0009d-113">Architecture</span></span>
 
-<span data-ttu-id="69286-114">Azure IOT kenar platform yoğun uyarlar [Von Neumann mimarisi](https://en.wikipedia.org/wiki/Von_Neumann_architecture).</span><span class="sxs-lookup"><span data-stu-id="69286-114">The Azure IoT Edge platform heavily adopts the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture).</span></span> <span data-ttu-id="69286-115">Hangi tüm Azure IOT kenar mimarisi girişi işler ve bir çıktı üretir sistem anlamına gelir; ve tek tek her modül küçük bir giriş-çıkış alt olduğunu.</span><span class="sxs-lookup"><span data-stu-id="69286-115">Which means that the entire Azure IoT Edge architecture is a system that processes input and produces output; and that each individual module is also a tiny input-output subsystem.</span></span> <span data-ttu-id="69286-116">Bu öğreticide, aşağıdaki iki modüller tanıtmaktadır:</span><span class="sxs-lookup"><span data-stu-id="69286-116">In this tutorial, we introduce the following two modules:</span></span>
+<span data-ttu-id="0009d-114">Hello Azure IOT kenar platform yoğun hello uyarlar [Von Neumann mimarisi](https://en.wikipedia.org/wiki/Von_Neumann_architecture).</span><span class="sxs-lookup"><span data-stu-id="0009d-114">hello Azure IoT Edge platform heavily adopts hello [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture).</span></span> <span data-ttu-id="0009d-115">O hello tüm Azure IOT kenar mimari başka bir deyişle, giriş işler ve bir çıktı üretir bir sistemdir; ve tek tek her modül küçük bir giriş-çıkış alt olduğunu.</span><span class="sxs-lookup"><span data-stu-id="0009d-115">Which means that hello entire Azure IoT Edge architecture is a system that processes input and produces output; and that each individual module is also a tiny input-output subsystem.</span></span> <span data-ttu-id="0009d-116">Bu öğreticide, iki modülleri aşağıdaki hello tanıtmaktadır:</span><span class="sxs-lookup"><span data-stu-id="0009d-116">In this tutorial, we introduce hello following two modules:</span></span>
 
-1. <span data-ttu-id="69286-117">Sanal alan modül [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) sinyal ve biçimlendirilmiş dönüştürür [JSON](https://en.wikipedia.org/wiki/JSON) ileti.</span><span class="sxs-lookup"><span data-stu-id="69286-117">A module that receives a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal and converts it into a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message.</span></span>
-2. <span data-ttu-id="69286-118">Alınan yazdırır bir modül [JSON](https://en.wikipedia.org/wiki/JSON) ileti.</span><span class="sxs-lookup"><span data-stu-id="69286-118">A module that prints the received [JSON](https://en.wikipedia.org/wiki/JSON) message.</span></span>
+1. <span data-ttu-id="0009d-117">Sanal alan modül [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) sinyal ve biçimlendirilmiş dönüştürür [JSON](https://en.wikipedia.org/wiki/JSON) ileti.</span><span class="sxs-lookup"><span data-stu-id="0009d-117">A module that receives a simulated [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) signal and converts it into a formatted [JSON](https://en.wikipedia.org/wiki/JSON) message.</span></span>
+2. <span data-ttu-id="0009d-118">Alınan hello yazdırır bir modül [JSON](https://en.wikipedia.org/wiki/JSON) ileti.</span><span class="sxs-lookup"><span data-stu-id="0009d-118">A module that prints hello received [JSON](https://en.wikipedia.org/wiki/JSON) message.</span></span>
 
-<span data-ttu-id="69286-119">Aşağıdaki resimde bu proje için tipik uçtan uca veri akışı görüntüler:</span><span class="sxs-lookup"><span data-stu-id="69286-119">The following image displays the typical end to end dataflow for this project:</span></span>
+<span data-ttu-id="0009d-119">Merhaba aşağıdaki resimde bu proje için hello tipik son tooend veri akışı görüntüler:</span><span class="sxs-lookup"><span data-stu-id="0009d-119">hello following image displays hello typical end tooend dataflow for this project:</span></span>
 
-<span data-ttu-id="69286-120">![Veri akışı üç modülleri arasında](media/iot-hub-iot-edge-create-module/dataflow.png "giriş: benzetimli bırak Modülü; İşlemci: Dönüştürücü Modülü; Çıktı: Yazıcı Modülü")</span><span class="sxs-lookup"><span data-stu-id="69286-120">![Dataflow between three modules](media/iot-hub-iot-edge-create-module/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")</span></span>
+<span data-ttu-id="0009d-120">![Veri akışı üç modülleri arasında](media/iot-hub-iot-edge-create-module/dataflow.png "giriş: benzetimli bırak Modülü; İşlemci: Dönüştürücü Modülü; Çıktı: Yazıcı Modülü")</span><span class="sxs-lookup"><span data-stu-id="0009d-120">![Dataflow between three modules](media/iot-hub-iot-edge-create-module/dataflow.png "Input: Simulated BLE Module; Processor: Converter Module; Output: Printer Module")</span></span>
 
-## <a name="set-up-the-environment"></a><span data-ttu-id="69286-121">Ortamını ayarlama</span><span class="sxs-lookup"><span data-stu-id="69286-121">Set up the environment</span></span>
-<span data-ttu-id="69286-122">Aşağıda, ilk bırak dönüştürücü modülü JS ile yazmaya başlamak için ortamı hızlı bir şekilde ayarlamak nasıl gösteriyoruz.</span><span class="sxs-lookup"><span data-stu-id="69286-122">Below we show you how to quickly set up environment to start to write your first BLE converter module with JS.</span></span>
+## <a name="set-up-hello-environment"></a><span data-ttu-id="0009d-121">Merhaba ortamını ayarlama</span><span class="sxs-lookup"><span data-stu-id="0009d-121">Set up hello environment</span></span>
+<span data-ttu-id="0009d-122">Aşağıda tooquickly ortam toostart toowrite JS ilk, bırak dönüştürücü modülüyle nasıl ayarlanacağını gösteriyoruz.</span><span class="sxs-lookup"><span data-stu-id="0009d-122">Below we show you how tooquickly set up environment toostart toowrite your first BLE converter module with JS.</span></span>
 
-### <a name="create-module-project"></a><span data-ttu-id="69286-123">Modül projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="69286-123">Create module project</span></span>
-1. <span data-ttu-id="69286-124">Bir komut satırı penceresi açın, çalıştırmak `yo az-iot-gw-module`.</span><span class="sxs-lookup"><span data-stu-id="69286-124">Open a command-line window, run `yo az-iot-gw-module`.</span></span>
-2. <span data-ttu-id="69286-125">Modül projenizin başlatma tamamlamak için ekrandaki adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="69286-125">Follow the steps on the screen to finish the initialization of your module project.</span></span>
+### <a name="create-module-project"></a><span data-ttu-id="0009d-123">Modül projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="0009d-123">Create module project</span></span>
+1. <span data-ttu-id="0009d-124">Bir komut satırı penceresi açın, çalıştırmak `yo az-iot-gw-module`.</span><span class="sxs-lookup"><span data-stu-id="0009d-124">Open a command-line window, run `yo az-iot-gw-module`.</span></span>
+2. <span data-ttu-id="0009d-125">Merhaba ekranında toofinish hello başlatma modül projenizin Hello adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="0009d-125">Follow hello steps on hello screen toofinish hello initialization of your module project.</span></span>
 
-### <a name="project-structure"></a><span data-ttu-id="69286-126">Proje yapısı</span><span class="sxs-lookup"><span data-stu-id="69286-126">Project structure</span></span>
-<span data-ttu-id="69286-127">JS modül proje aşağıdaki bileşenlerden oluşur:</span><span class="sxs-lookup"><span data-stu-id="69286-127">A JS module project consists of the following components:</span></span>
+### <a name="project-structure"></a><span data-ttu-id="0009d-126">Proje yapısı</span><span class="sxs-lookup"><span data-stu-id="0009d-126">Project structure</span></span>
+<span data-ttu-id="0009d-127">JS modül proje bileşenleri aşağıdaki Merhaba oluşur:</span><span class="sxs-lookup"><span data-stu-id="0009d-127">A JS module project consists of hello following components:</span></span>
 
-<span data-ttu-id="69286-128">`modules`-Özelleştirilmiş JS modül kaynak dosyaları.</span><span class="sxs-lookup"><span data-stu-id="69286-128">`modules` - The customized JS module source files.</span></span> <span data-ttu-id="69286-129">Varsayılan değiştirme `sensor.js` ve `printer.js` kendi modülü dosyalarla.</span><span class="sxs-lookup"><span data-stu-id="69286-129">Replace the default `sensor.js` and `printer.js` with your own module files.</span></span>
+<span data-ttu-id="0009d-128">`modules`-hello özelleştirilmiş JS modül kaynak dosyaları.</span><span class="sxs-lookup"><span data-stu-id="0009d-128">`modules` - hello customized JS module source files.</span></span> <span data-ttu-id="0009d-129">Merhaba varsayılan Değiştir `sensor.js` ve `printer.js` kendi modülü dosyalarla.</span><span class="sxs-lookup"><span data-stu-id="0009d-129">Replace hello default `sensor.js` and `printer.js` with your own module files.</span></span>
 
-<span data-ttu-id="69286-130">`app.js`-Kenar örneği başlatmak için giriş dosyası.</span><span class="sxs-lookup"><span data-stu-id="69286-130">`app.js` - The entry file to start the Edge instance.</span></span>
+<span data-ttu-id="0009d-130">`app.js`-hello giriş dosyası toostart hello kenar örneği.</span><span class="sxs-lookup"><span data-stu-id="0009d-130">`app.js` - hello entry file toostart hello Edge instance.</span></span>
 
-<span data-ttu-id="69286-131">`gw.config.json`-Edge tarafından yüklenmesi için modülleri özelleştirmek için yapılandırma dosyası.</span><span class="sxs-lookup"><span data-stu-id="69286-131">`gw.config.json` - The configuration file to customize the modules to be loaded by Edge.</span></span>
+<span data-ttu-id="0009d-131">`gw.config.json`-hello yapılandırma dosyası toocustomize hello modülleri toobe kenarından yüklendi.</span><span class="sxs-lookup"><span data-stu-id="0009d-131">`gw.config.json` - hello configuration file toocustomize hello modules toobe loaded by Edge.</span></span>
 
-<span data-ttu-id="69286-132">`package.json`-Modülü projesi meta veri bilgilerini.</span><span class="sxs-lookup"><span data-stu-id="69286-132">`package.json` - The metadata information for module project.</span></span>
+<span data-ttu-id="0009d-132">`package.json`-hello modülü projesi için meta veri bilgileri.</span><span class="sxs-lookup"><span data-stu-id="0009d-132">`package.json` - hello metadata information for module project.</span></span>
 
-<span data-ttu-id="69286-133">`README.md`-Temel belgeleri modülü projesi.</span><span class="sxs-lookup"><span data-stu-id="69286-133">`README.md` - The basic documentation for module project.</span></span>
+<span data-ttu-id="0009d-133">`README.md`-hello modülü projesi için temel belgelere.</span><span class="sxs-lookup"><span data-stu-id="0009d-133">`README.md` - hello basic documentation for module project.</span></span>
 
 
-### <a name="package-file"></a><span data-ttu-id="69286-134">Paket dosyası</span><span class="sxs-lookup"><span data-stu-id="69286-134">Package file</span></span>
+### <a name="package-file"></a><span data-ttu-id="0009d-134">Paket dosyası</span><span class="sxs-lookup"><span data-stu-id="0009d-134">Package file</span></span>
 
-<span data-ttu-id="69286-135">Bu `package.json` adı, sürüm, giriş, komut dosyaları, çalışma zamanı ve geliştirme bağımlılıklar içeren bir modülü projesi tarafından gerekli olan tüm meta veri bilgileri bildirir.</span><span class="sxs-lookup"><span data-stu-id="69286-135">This `package.json` declares all the metadata information needed by a module project that includes the name, version, entry, scripts, runtime, and development dependencies.</span></span>
+<span data-ttu-id="0009d-135">Bu `package.json` hello adı, sürüm, giriş, komut dosyaları, çalışma zamanı ve geliştirme bağımlılıklar içeren bir modülü projesi gerekli tüm hello meta veri bilgileri bildirir.</span><span class="sxs-lookup"><span data-stu-id="0009d-135">This `package.json` declares all hello metadata information needed by a module project that includes hello name, version, entry, scripts, runtime, and development dependencies.</span></span>
 
-<span data-ttu-id="69286-136">Aşağıdaki kod parçacığını bırak dönüştürücü örnek projesi için yapılandırma gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="69286-136">Following code snippet shows how to configure for BLE converter sample project.</span></span>
+<span data-ttu-id="0009d-136">Kod parçacığını gösterir nasıl tooconfigure bırak dönüştürücü için örnek proje.</span><span class="sxs-lookup"><span data-stu-id="0009d-136">Following code snippet shows how tooconfigure for BLE converter sample project.</span></span>
 ```json
 {
   "name": "converter",
@@ -94,8 +94,8 @@ ms.lasthandoff: 08/03/2017
 ```
 
 
-### <a name="entry-file"></a><span data-ttu-id="69286-137">Girdi dosyası</span><span class="sxs-lookup"><span data-stu-id="69286-137">Entry file</span></span>
-<span data-ttu-id="69286-138">`app.js` Kenar örneği başlatmak için biçimini tanımlar.</span><span class="sxs-lookup"><span data-stu-id="69286-138">The `app.js` defines the way to initialize the edge instance.</span></span> <span data-ttu-id="69286-139">Burada size herhangi bir değişiklik yapmak gerekmez.</span><span class="sxs-lookup"><span data-stu-id="69286-139">Here we don't need to make any change.</span></span>
+### <a name="entry-file"></a><span data-ttu-id="0009d-137">Girdi dosyası</span><span class="sxs-lookup"><span data-stu-id="0009d-137">Entry file</span></span>
+<span data-ttu-id="0009d-138">Merhaba `app.js` hello yolu tooinitialize hello kenar örnek tanımlar.</span><span class="sxs-lookup"><span data-stu-id="0009d-138">hello `app.js` defines hello way tooinitialize hello edge instance.</span></span> <span data-ttu-id="0009d-139">Burada herhangi bir değişiklik toomake gerekmez.</span><span class="sxs-lookup"><span data-stu-id="0009d-139">Here we don't need toomake any change.</span></span>
 
 ```javascript
 (function() {
@@ -114,16 +114,16 @@ ms.lasthandoff: 08/03/2017
 })();
 ```
 
-### <a name="interface-of-module"></a><span data-ttu-id="69286-140">Modülün arabirimi</span><span class="sxs-lookup"><span data-stu-id="69286-140">Interface of module</span></span>
-<span data-ttu-id="69286-141">Bir veri işleri için işlemci olarak Azure IOT kenar modülü davranabilirsiniz: girişi almak, işlemesi ve çıktı üretir.</span><span class="sxs-lookup"><span data-stu-id="69286-141">You can treat an Azure IoT Edge module as a data processor whose job is to: receive input, process it, and produce output.</span></span>
+### <a name="interface-of-module"></a><span data-ttu-id="0009d-140">Modülün arabirimi</span><span class="sxs-lookup"><span data-stu-id="0009d-140">Interface of module</span></span>
+<span data-ttu-id="0009d-141">Bir veri işleri için işlemci olarak Azure IOT kenar modülü davranabilirsiniz: girişi almak, işlemesi ve çıktı üretir.</span><span class="sxs-lookup"><span data-stu-id="0009d-141">You can treat an Azure IoT Edge module as a data processor whose job is to: receive input, process it, and produce output.</span></span>
 
-<span data-ttu-id="69286-142">Giriş (gibi hareket algılayıcısı) donanım verilerden bir ileti diğer modüller ya da (örneğin, düzenli aralıklarla bir Zamanlayıcı tarafından oluşturulan bir rastgele sayı) başka bir şey olabilir.</span><span class="sxs-lookup"><span data-stu-id="69286-142">The input might be data from hardware (like a motion detector), a message from other modules, or anything else (like a random number generated periodically by a timer).</span></span>
+<span data-ttu-id="0009d-142">Merhaba giriş donanım (gibi hareket algılayıcısı) verileri, bir ileti diğer modüller ya da (örneğin, düzenli aralıklarla bir Zamanlayıcı tarafından oluşturulan bir rastgele sayı) başka bir şey olabilir.</span><span class="sxs-lookup"><span data-stu-id="0009d-142">hello input might be data from hardware (like a motion detector), a message from other modules, or anything else (like a random number generated periodically by a timer).</span></span>
 
-<span data-ttu-id="69286-143">Giriş benzer bir çıkış, tetikleyebilir donanım davranış (gibi yanıp sönen LED), diğer modüller ya da (örneğin, yazdırma konsoluna) başka bir şey için bir ileti.</span><span class="sxs-lookup"><span data-stu-id="69286-143">The output is similar to the input, it could trigger hardware behavior (like the blinking LED), a message to other modules, or anything else (like printing to the console).</span></span>
+<span data-ttu-id="0009d-143">Merhaba çıkış benzer toohello giriş, donanım davranış (gibi hello ışığı yanıp sönen), bir ileti tooother modülleri ya da (yazdırma toohello konsolu gibi) başka bir şey tetikleyebilir.</span><span class="sxs-lookup"><span data-stu-id="0009d-143">hello output is similar toohello input, it could trigger hardware behavior (like hello blinking LED), a message tooother modules, or anything else (like printing toohello console).</span></span>
 
-<span data-ttu-id="69286-144">Modüller birbirleri ile kullanarak iletişim `message` nesnesi.</span><span class="sxs-lookup"><span data-stu-id="69286-144">Modules communicate with each other using `message` object.</span></span> <span data-ttu-id="69286-145">**İçerik** , bir `message` istediğiniz verilerin herhangi bir tür temsil etme özelliğine sahip bir bayt dizisi.</span><span class="sxs-lookup"><span data-stu-id="69286-145">The **content** of a `message` is a byte array that is capable of representing any kind of data you like.</span></span> <span data-ttu-id="69286-146">**Özellikler** mevcuttur `message` ve yalnızca bir dize-dize eşleme.</span><span class="sxs-lookup"><span data-stu-id="69286-146">**Properties** are also available in the `message` and are simply a string-to-string mapping.</span></span> <span data-ttu-id="69286-147">Düşünebilirsiniz **özellikleri** bir HTTP isteğinin ya da meta veri dosyasının başlığı olarak.</span><span class="sxs-lookup"><span data-stu-id="69286-147">You may think of **properties** as the headers in an HTTP request, or the metadata of a file.</span></span>
+<span data-ttu-id="0009d-144">Modüller birbirleri ile kullanarak iletişim `message` nesnesi.</span><span class="sxs-lookup"><span data-stu-id="0009d-144">Modules communicate with each other using `message` object.</span></span> <span data-ttu-id="0009d-145">Merhaba **içerik** , bir `message` istediğiniz verilerin herhangi bir tür temsil etme özelliğine sahip bir bayt dizisi.</span><span class="sxs-lookup"><span data-stu-id="0009d-145">hello **content** of a `message` is a byte array that is capable of representing any kind of data you like.</span></span> <span data-ttu-id="0009d-146">**Özellikler** de hello kullanılabilir `message` ve yalnızca bir dize-dize eşleme.</span><span class="sxs-lookup"><span data-stu-id="0009d-146">**Properties** are also available in hello `message` and are simply a string-to-string mapping.</span></span> <span data-ttu-id="0009d-147">Düşünebilirsiniz **özellikleri** bir HTTP isteğinin ya da hello meta veri dosyasının hello başlığı olarak.</span><span class="sxs-lookup"><span data-stu-id="0009d-147">You may think of **properties** as hello headers in an HTTP request, or hello metadata of a file.</span></span>
 
-<span data-ttu-id="69286-148">JS Azure IOT kenar modülünde geliştirmek için gereken yöntemleri uygulayan yeni bir modül nesnesi oluşturmak ihtiyacınız `receive()`.</span><span class="sxs-lookup"><span data-stu-id="69286-148">In order to develop an Azure IoT Edge module in JS, you need to create a new module object that implements the required methods `receive()`.</span></span> <span data-ttu-id="69286-149">Bu noktada, ayrıca isteğe bağlı uygulamayı seçebilir `create()` veya `start()`, veya `destroy()` de yöntemleri.</span><span class="sxs-lookup"><span data-stu-id="69286-149">At this point, you may also choose to implement the optional `create()` or `start()`, or `destroy()` methods as well.</span></span> <span data-ttu-id="69286-150">Aşağıdaki kod parçacığını JS modül nesne iskelesini gösterir.</span><span class="sxs-lookup"><span data-stu-id="69286-150">The following code snippet shows you the scaffolding of JS module object.</span></span>
+<span data-ttu-id="0009d-148">Sipariş toodevelop JS Azure IOT kenar modülünde'da, toocreate gerekli hello yöntemlerini uygulayan yeni bir modül nesne gereksinim `receive()`.</span><span class="sxs-lookup"><span data-stu-id="0009d-148">In order toodevelop an Azure IoT Edge module in JS, you need toocreate a new module object that implements hello required methods `receive()`.</span></span> <span data-ttu-id="0009d-149">Bu noktada, ayrıca isteğe bağlı tooimplement hello tercih edebilirsiniz `create()` veya `start()`, veya `destroy()` de yöntemleri.</span><span class="sxs-lookup"><span data-stu-id="0009d-149">At this point, you may also choose tooimplement hello optional `create()` or `start()`, or `destroy()` methods as well.</span></span> <span data-ttu-id="0009d-150">Aşağıdaki kod parçacığını hello JS modül nesnesinin iskele hello gösterir.</span><span class="sxs-lookup"><span data-stu-id="0009d-150">hello following code snippet shows you hello scaffolding of JS module object.</span></span>
 
 ```javascript
 'use strict';
@@ -153,21 +153,21 @@ module.exports = {
 };
 ```
 
-### <a name="converter-module"></a><span data-ttu-id="69286-151">Dönüştürücü Modülü</span><span class="sxs-lookup"><span data-stu-id="69286-151">Converter module</span></span>
-| <span data-ttu-id="69286-152">Girdi</span><span class="sxs-lookup"><span data-stu-id="69286-152">Input</span></span>                    | <span data-ttu-id="69286-153">İşlemci</span><span class="sxs-lookup"><span data-stu-id="69286-153">Processor</span></span>                              | <span data-ttu-id="69286-154">Çıktı</span><span class="sxs-lookup"><span data-stu-id="69286-154">Output</span></span>                 | <span data-ttu-id="69286-155">Kaynak dosya</span><span class="sxs-lookup"><span data-stu-id="69286-155">Source File</span></span>            |
+### <a name="converter-module"></a><span data-ttu-id="0009d-151">Dönüştürücü Modülü</span><span class="sxs-lookup"><span data-stu-id="0009d-151">Converter module</span></span>
+| <span data-ttu-id="0009d-152">Girdi</span><span class="sxs-lookup"><span data-stu-id="0009d-152">Input</span></span>                    | <span data-ttu-id="0009d-153">İşlemci</span><span class="sxs-lookup"><span data-stu-id="0009d-153">Processor</span></span>                              | <span data-ttu-id="0009d-154">Çıktı</span><span class="sxs-lookup"><span data-stu-id="0009d-154">Output</span></span>                 | <span data-ttu-id="0009d-155">Kaynak dosya</span><span class="sxs-lookup"><span data-stu-id="0009d-155">Source File</span></span>            |
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
-| <span data-ttu-id="69286-156">Sıcaklık veri iletisi</span><span class="sxs-lookup"><span data-stu-id="69286-156">Temperature data message</span></span> | <span data-ttu-id="69286-157">Ayrıştırma ve yeni bir JSON ileti oluşturun</span><span class="sxs-lookup"><span data-stu-id="69286-157">Parse and construct a new JSON message</span></span> | <span data-ttu-id="69286-158">Yapı JSON iletisi</span><span class="sxs-lookup"><span data-stu-id="69286-158">Structure JSON message</span></span> | `converter.js` |
+| <span data-ttu-id="0009d-156">Sıcaklık veri iletisi</span><span class="sxs-lookup"><span data-stu-id="0009d-156">Temperature data message</span></span> | <span data-ttu-id="0009d-157">Ayrıştırma ve yeni bir JSON ileti oluşturun</span><span class="sxs-lookup"><span data-stu-id="0009d-157">Parse and construct a new JSON message</span></span> | <span data-ttu-id="0009d-158">Yapı JSON iletisi</span><span class="sxs-lookup"><span data-stu-id="0009d-158">Structure JSON message</span></span> | `converter.js` |
 
-<span data-ttu-id="69286-159">Bu modül tipik bir Azure IOT kenar modüldür.</span><span class="sxs-lookup"><span data-stu-id="69286-159">This module is a typical Azure IoT Edge module.</span></span> <span data-ttu-id="69286-160">Diğer modüllerden sıcaklık iletileri kabul eder (bir donanım modülü veya bu bizim benzetimli bırak modülü durumda); ve (sıcaklık uyarı tetiklemesi ve benzeri için ihtiyacımız özelliğini ayarlama ileti kimliği ekleme dahil) yapılandırılmış bir JSON iletisi sıcaklık iletisinde normalleştirir.</span><span class="sxs-lookup"><span data-stu-id="69286-160">It accepts temperature messages from other modules (a hardware module, or in this case our simulated BLE module); and then normalizes the temperature message in to a structured JSON message (including appending the message ID, setting the property of whether we need to trigger the temperature alert, and so on).</span></span>
+<span data-ttu-id="0009d-159">Bu modül tipik bir Azure IOT kenar modüldür.</span><span class="sxs-lookup"><span data-stu-id="0009d-159">This module is a typical Azure IoT Edge module.</span></span> <span data-ttu-id="0009d-160">Diğer modüllerden sıcaklık iletileri kabul eder (bir donanım modülü veya bu bizim benzetimli bırak modülü durumda); ve (Merhaba ileti kimliği, tootrigger hello sıcaklık uyarı ihtiyacımız hello özelliğini ayarlama ekleme de dahil olmak üzere vb.) yapılandırılmış tooa JSON iletinin hello sıcaklık iletiyi normalleştirir.</span><span class="sxs-lookup"><span data-stu-id="0009d-160">It accepts temperature messages from other modules (a hardware module, or in this case our simulated BLE module); and then normalizes hello temperature message in tooa structured JSON message (including appending hello message ID, setting hello property of whether we need tootrigger hello temperature alert, and so on).</span></span>
 
 ```javascript
 receive: function (message) {
-  // Initialize the messageCount in global object at first time.
+  // Initialize hello messageCount in global object at first time.
   if (!global.messageCount) {
     global.messageCount = 0;
   }
 
-  // Read the content and properties objects from message.
+  // Read hello content and properties objects from message.
   let rawContent = JSON.parse(Buffer.from(message.content).toString('utf8'));
   let rawProperties = message.properties;
 
@@ -185,7 +185,7 @@ receive: function (message) {
     temperature: rawContent.temperature
   };
 
-  // Publish the new message to broker.
+  // Publish hello new message toobroker.
   this.broker.publish(
     {
       properties: newProperties,
@@ -195,12 +195,12 @@ receive: function (message) {
 },
 ```
 
-### <a name="printer-module"></a><span data-ttu-id="69286-161">Yazıcı Modülü</span><span class="sxs-lookup"><span data-stu-id="69286-161">Printer module</span></span>
-| <span data-ttu-id="69286-162">Girdi</span><span class="sxs-lookup"><span data-stu-id="69286-162">Input</span></span>                          | <span data-ttu-id="69286-163">İşlemci</span><span class="sxs-lookup"><span data-stu-id="69286-163">Processor</span></span> | <span data-ttu-id="69286-164">Çıktı</span><span class="sxs-lookup"><span data-stu-id="69286-164">Output</span></span>                     | <span data-ttu-id="69286-165">Kaynak dosya</span><span class="sxs-lookup"><span data-stu-id="69286-165">Source File</span></span>          |
+### <a name="printer-module"></a><span data-ttu-id="0009d-161">Yazıcı Modülü</span><span class="sxs-lookup"><span data-stu-id="0009d-161">Printer module</span></span>
+| <span data-ttu-id="0009d-162">Girdi</span><span class="sxs-lookup"><span data-stu-id="0009d-162">Input</span></span>                          | <span data-ttu-id="0009d-163">İşlemci</span><span class="sxs-lookup"><span data-stu-id="0009d-163">Processor</span></span> | <span data-ttu-id="0009d-164">Çıktı</span><span class="sxs-lookup"><span data-stu-id="0009d-164">Output</span></span>                     | <span data-ttu-id="0009d-165">Kaynak dosya</span><span class="sxs-lookup"><span data-stu-id="0009d-165">Source File</span></span>          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
-| <span data-ttu-id="69286-166">Diğer modüllerden herhangi bir iletisi</span><span class="sxs-lookup"><span data-stu-id="69286-166">Any message from other modules</span></span> | <span data-ttu-id="69286-167">Yok</span><span class="sxs-lookup"><span data-stu-id="69286-167">N/A</span></span>       | <span data-ttu-id="69286-168">İleti konsola oturum</span><span class="sxs-lookup"><span data-stu-id="69286-168">Log the message to console</span></span> | `printer.js` |
+| <span data-ttu-id="0009d-166">Diğer modüllerden herhangi bir iletisi</span><span class="sxs-lookup"><span data-stu-id="0009d-166">Any message from other modules</span></span> | <span data-ttu-id="0009d-167">Yok</span><span class="sxs-lookup"><span data-stu-id="0009d-167">N/A</span></span>       | <span data-ttu-id="0009d-168">Merhaba ileti tooconsole oturum</span><span class="sxs-lookup"><span data-stu-id="0009d-168">Log hello message tooconsole</span></span> | `printer.js` |
 
-<span data-ttu-id="69286-169">Bu modül basit ve açıklayıcı, hangi alınan iletiler (özelliği, içerik) terminal penceresine çıkarır.</span><span class="sxs-lookup"><span data-stu-id="69286-169">This module is simple, self-explanatory, which outputs the received messages(property, content) to the terminal window.</span></span>
+<span data-ttu-id="0009d-169">Bu modül basit ve açıklayıcı, hangi hello alınan iletileri (özelliği, içerik) toohello terminal penceresi çıkarır.</span><span class="sxs-lookup"><span data-stu-id="0009d-169">This module is simple, self-explanatory, which outputs hello received messages(property, content) toohello terminal window.</span></span>
 
 ```javascript
 receive: function (message) {
@@ -212,10 +212,10 @@ receive: function (message) {
 }
 ```
 
-### <a name="configuration"></a><span data-ttu-id="69286-170">Yapılandırma</span><span class="sxs-lookup"><span data-stu-id="69286-170">Configuration</span></span>
-<span data-ttu-id="69286-171">Modülleri çalıştırmadan önce son adım, Azure IOT kenar yapılandırmak ve modülleri arasında bağlantı kurmak için ' dir.</span><span class="sxs-lookup"><span data-stu-id="69286-171">The final step before running the modules is to configure the Azure IoT Edge and to establish the connections between modules.</span></span>
+### <a name="configuration"></a><span data-ttu-id="0009d-170">Yapılandırma</span><span class="sxs-lookup"><span data-stu-id="0009d-170">Configuration</span></span>
+<span data-ttu-id="0009d-171">Merhaba modülleri çalıştırmadan önce hello son tooconfigure hello Azure IOT kenarı ve modülleri arasında tooestablish hello bağlantıları adımdır.</span><span class="sxs-lookup"><span data-stu-id="0009d-171">hello final step before running hello modules is tooconfigure hello Azure IoT Edge and tooestablish hello connections between modules.</span></span>
 
-<span data-ttu-id="69286-172">İlk bildirmek ihtiyacımız bizim `node` (itibaren Azure IOT kenar destekler yükleyicilerini farklı dillerde) tarafından başvurulan yükleyicisi kendi `name` bölümlerde daha sonra.</span><span class="sxs-lookup"><span data-stu-id="69286-172">First we need to declare our `node` loader (since Azure IoT Edge supports loaders of different languages) which could be referenced by its `name` in the sections afterward.</span></span>
+<span data-ttu-id="0009d-172">Toodeclare ilk ihtiyacımız bizim `node` (itibaren Azure IOT kenar destekler yükleyicilerini farklı dillerde) tarafından başvurulan yükleyicisi kendi `name` hello bölümlerde daha sonra.</span><span class="sxs-lookup"><span data-stu-id="0009d-172">First we need toodeclare our `node` loader (since Azure IoT Edge supports loaders of different languages) which could be referenced by its `name` in hello sections afterward.</span></span>
 
 ```json
 "loaders": [
@@ -226,7 +226,7 @@ receive: function (message) {
 ]
 ```
 
-<span data-ttu-id="69286-173">Biz bizim yükleyicilerini bildirdikten sonra biz de bizim modüller de bildirmek gerekir.</span><span class="sxs-lookup"><span data-stu-id="69286-173">Once we have declared our loaders, we also need to declare our modules as well.</span></span> <span data-ttu-id="69286-174">Benzer yükleyicileri bildirmek için bunlar ayrıca tarafından başvurulabilir kendi `name` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="69286-174">Similar to declaring the loaders, they can also be referenced by their `name` attribute.</span></span> <span data-ttu-id="69286-175">Bir modül bildirirken (hangi önce tanımladığımız biri olmalıdır) kullanması gereken yükleyicisi belirtmek ihtiyacımız ve-(bizim modül normalleştirilmiş sınıf adı olmalıdır) için giriş noktası her modül.</span><span class="sxs-lookup"><span data-stu-id="69286-175">When declaring a module, we need to specify the loader it should use (which should be the one we defined before) and the entry-point (should be the normalized class name of our module) for each module.</span></span> <span data-ttu-id="69286-176">`simulated_device` Azure IOT kenar çekirdek çalışma zamanı paketinde bulunan bir yerel modül modülüdür.</span><span class="sxs-lookup"><span data-stu-id="69286-176">The `simulated_device` module is a native module that is included in the Azure IoT Edge core runtime package.</span></span> <span data-ttu-id="69286-177">Dahil `args` JSON'dosyası, olsa bile `null`.</span><span class="sxs-lookup"><span data-stu-id="69286-177">Include `args` in the JSON file even if it is `null`.</span></span>
+<span data-ttu-id="0009d-173">Ayrıca, biz bizim yükleyicilerini bildirdikten sonra toodeclare bizim modüller de gerekir.</span><span class="sxs-lookup"><span data-stu-id="0009d-173">Once we have declared our loaders, we also need toodeclare our modules as well.</span></span> <span data-ttu-id="0009d-174">Benzer toodeclaring hello yükleyicileri, bunlar ayrıca başvurulabilir tarafından kendi `name` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="0009d-174">Similar toodeclaring hello loaders, they can also be referenced by their `name` attribute.</span></span> <span data-ttu-id="0009d-175">Bir modül bildirirken (hangi önce tanımladığımız hello biri olmalıdır) kullanması gereken toospecify hello yükleyicisi ihtiyacımız ve -(bizim modülün hello normalleştirilmiş sınıf adı olmalıdır) için giriş noktası her modül hello.</span><span class="sxs-lookup"><span data-stu-id="0009d-175">When declaring a module, we need toospecify hello loader it should use (which should be hello one we defined before) and hello entry-point (should be hello normalized class name of our module) for each module.</span></span> <span data-ttu-id="0009d-176">Merhaba `simulated_device` hello Azure IOT kenar çekirdek çalışma zamanı paketinde bulunan bir yerel modül modülüdür.</span><span class="sxs-lookup"><span data-stu-id="0009d-176">hello `simulated_device` module is a native module that is included in hello Azure IoT Edge core runtime package.</span></span> <span data-ttu-id="0009d-177">Dahil `args` JSON dosyası, olsa bile hello içinde `null`.</span><span class="sxs-lookup"><span data-stu-id="0009d-177">Include `args` in hello JSON file even if it is `null`.</span></span>
 
 ```json
 "modules": [
@@ -266,7 +266,7 @@ receive: function (message) {
 ]
 ```
 
-<span data-ttu-id="69286-178">Yapılandırma sonunda bağlantı kurun.</span><span class="sxs-lookup"><span data-stu-id="69286-178">At the end of the configuration, we establish the connections.</span></span> <span data-ttu-id="69286-179">Her bağlantı ile ifade edilen `source` ve `sink`.</span><span class="sxs-lookup"><span data-stu-id="69286-179">Each connection is expressed by `source` and `sink`.</span></span> <span data-ttu-id="69286-180">Önceden tanımlanmış bir modül her ikisi de başvurmalısınız.</span><span class="sxs-lookup"><span data-stu-id="69286-180">They should both reference a pre-defined module.</span></span> <span data-ttu-id="69286-181">Çıktı ileti `source` modülü girişi için iletilen `sink` modülü.</span><span class="sxs-lookup"><span data-stu-id="69286-181">The output message of `source` module is forwarded to the input of `sink` module.</span></span>
+<span data-ttu-id="0009d-178">Merhaba yapılandırma Hello sonunda hello bağlantı kurar.</span><span class="sxs-lookup"><span data-stu-id="0009d-178">At hello end of hello configuration, we establish hello connections.</span></span> <span data-ttu-id="0009d-179">Her bağlantı ile ifade edilen `source` ve `sink`.</span><span class="sxs-lookup"><span data-stu-id="0009d-179">Each connection is expressed by `source` and `sink`.</span></span> <span data-ttu-id="0009d-180">Önceden tanımlanmış bir modül her ikisi de başvurmalısınız.</span><span class="sxs-lookup"><span data-stu-id="0009d-180">They should both reference a pre-defined module.</span></span> <span data-ttu-id="0009d-181">Merhaba çıkış iletisini `source` modülü toohello girişi iletilen `sink` modülü.</span><span class="sxs-lookup"><span data-stu-id="0009d-181">hello output message of `source` module is forwarded toohello input of `sink` module.</span></span>
 
 ```json
 "links": [
@@ -281,11 +281,11 @@ receive: function (message) {
 ]
 ```
 
-## <a name="running-the-modules"></a><span data-ttu-id="69286-182">Modülleri çalıştırma</span><span class="sxs-lookup"><span data-stu-id="69286-182">Running the modules</span></span>
+## <a name="running-hello-modules"></a><span data-ttu-id="0009d-182">Çalışan hello modülleri</span><span class="sxs-lookup"><span data-stu-id="0009d-182">Running hello modules</span></span>
 1. `npm install`
 2. `npm start`
 
-<span data-ttu-id="69286-183">Uygulamayı istiyorsanız, basın `<Enter>` anahtarı.</span><span class="sxs-lookup"><span data-stu-id="69286-183">If you want to terminate the application, press `<Enter>` key.</span></span>
+<span data-ttu-id="0009d-183">Tooterminate Merhaba uygulaması istiyorsanız basın `<Enter>` anahtarı.</span><span class="sxs-lookup"><span data-stu-id="0009d-183">If you want tooterminate hello application, press `<Enter>` key.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="69286-184">IOT kenar sonlandırmak için Ctrl + C kullanmak için önerilmez.</span><span class="sxs-lookup"><span data-stu-id="69286-184">It is not recommended to use Ctrl + C to terminate the IoT Edge application.</span></span> <span data-ttu-id="69286-185">Bu şekilde aşırı ciddiyeti işlemin neden olarak.</span><span class="sxs-lookup"><span data-stu-id="69286-185">As this way may cause the process to terminate abnormally.</span></span>
+> <span data-ttu-id="0009d-184">Toouse Ctrl + C tooterminate hello IOT kenar önerilmez uygulama.</span><span class="sxs-lookup"><span data-stu-id="0009d-184">It is not recommended toouse Ctrl + C tooterminate hello IoT Edge application.</span></span> <span data-ttu-id="0009d-185">Bu şekilde hello işlem tooterminate aşırı neden olabilecek şekilde.</span><span class="sxs-lookup"><span data-stu-id="0009d-185">As this way may cause hello process tooterminate abnormally.</span></span>

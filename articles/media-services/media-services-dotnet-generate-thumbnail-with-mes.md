@@ -1,6 +1,6 @@
 ---
-title: "Media Encoder Standard ve .NET kullanarak küçük resim oluşturma"
-description: "Bu konu, .NET bir varlık kodlama ve küçük resimleri medya Kodlayıcı standart kullanarak aynı anda oluşturmak için nasıl kullanılacağını gösterir."
+title: "aaaHow toogenerate küçük resimleri Medya Kodlayıcısı standart .NET ile kullanma"
+description: "Bu konuda gösterilmektedir nasıl toouse .NET tooencode bir varlık ve hello en küçük resimler oluşturma medya Kodlayıcı standart kullanarak aynı anda."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: juliako
-ms.openlocfilehash: 89d15cbdf71a140e78f34e07ff208776b7d4cab3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 23d3e4d9bf64a688d45499c045f19d2792167990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a><span data-ttu-id="e312b-103">Media Encoder Standard ve .NET kullanarak küçük resim oluşturma</span><span class="sxs-lookup"><span data-stu-id="e312b-103">How to generate thumbnails using Media Encoder Standard with .NET</span></span>
+# <a name="how-toogenerate-thumbnails-using-media-encoder-standard-with-net"></a><span data-ttu-id="c6e22-103">Nasıl toogenerate küçük resimleri Medya Kodlayıcısı standart .NET ile kullanma</span><span class="sxs-lookup"><span data-stu-id="c6e22-103">How toogenerate thumbnails using Media Encoder Standard with .NET</span></span>
 
-<span data-ttu-id="e312b-104">Medya Kodlayıcısı standart bir veya daha fazla küçük resimleri girişinizi video oluşturmak için kullanabileceğiniz [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), veya [BMP](https://en.wikipedia.org/wiki/BMP_file_format) görüntü dosyası biçimlerini.</span><span class="sxs-lookup"><span data-stu-id="e312b-104">You can use Media Encoder Standard to generate one or more thumbnails from your input video in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), or [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image file formats.</span></span> <span data-ttu-id="e312b-105">Yalnızca görüntü üretmek görevler gönderebilir veya kodlamalı küçük resim oluşturma birleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="e312b-105">You can submit Tasks that produce only images, or you can combine thumbnail generation with encoding.</span></span> <span data-ttu-id="e312b-106">Bu konu, bu tür senaryoları için birkaç örnek XML ve JSON küçük resim hazır sağlar.</span><span class="sxs-lookup"><span data-stu-id="e312b-106">This topic provides a few sample XML and JSON thumbnail presets for such scenarios.</span></span> <span data-ttu-id="e312b-107">Konunun sonunda yoktur bir [örnek koduna](#code_sample) Media Services .NET SDK'sı kodlama görevi gerçekleştirmek için nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="e312b-107">At the end of the topic, there is a [sample code](#code_sample) that shows how to use the Media Services .NET SDK to accomplish the encoding task.</span></span>
+<span data-ttu-id="c6e22-104">Video giriş öğesinden bir veya daha fazla küçük resimleri Medya Kodlayıcısı standart toogenerate kullanabilirsiniz [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), veya [BMP](https://en.wikipedia.org/wiki/BMP_file_format) görüntü dosyası biçimlerini.</span><span class="sxs-lookup"><span data-stu-id="c6e22-104">You can use Media Encoder Standard toogenerate one or more thumbnails from your input video in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), or [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image file formats.</span></span> <span data-ttu-id="c6e22-105">Yalnızca görüntü üretmek görevler gönderebilir veya kodlamalı küçük resim oluşturma birleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c6e22-105">You can submit Tasks that produce only images, or you can combine thumbnail generation with encoding.</span></span> <span data-ttu-id="c6e22-106">Bu konu, bu tür senaryoları için birkaç örnek XML ve JSON küçük resim hazır sağlar.</span><span class="sxs-lookup"><span data-stu-id="c6e22-106">This topic provides a few sample XML and JSON thumbnail presets for such scenarios.</span></span> <span data-ttu-id="c6e22-107">Hello konunun Hello sonunda, var olan bir [örnek koduna](#code_sample) nasıl toouse hello Media Services .NET SDK'sı tooaccomplish hello kodlama görev gösterir.</span><span class="sxs-lookup"><span data-stu-id="c6e22-107">At hello end of hello topic, there is a [sample code](#code_sample) that shows how toouse hello Media Services .NET SDK tooaccomplish hello encoding task.</span></span>
 
-<span data-ttu-id="e312b-108">Örnek hazır kullanılan öğeleri hakkında daha fazla ayrıntı için gözden geçirmeniz gereken [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="e312b-108">For more details on the elements that are used in sample presets, you should review [Media Encoder Standard schema](media-services-mes-schema.md).</span></span>
+<span data-ttu-id="c6e22-108">Örnek hazır kullanılan hello öğeleri hakkında daha fazla ayrıntı için gözden geçirmeniz gereken [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="c6e22-108">For more details on hello elements that are used in sample presets, you should review [Media Encoder Standard schema](media-services-mes-schema.md).</span></span>
 
-<span data-ttu-id="e312b-109">Gözden geçirdiğinizden emin olun [konuları](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) bölümü.</span><span class="sxs-lookup"><span data-stu-id="e312b-109">Make sure to review the [Considerations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) section.</span></span>
+<span data-ttu-id="c6e22-109">Tooreview hello emin olun [konuları](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) bölümü.</span><span class="sxs-lookup"><span data-stu-id="c6e22-109">Make sure tooreview hello [Considerations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) section.</span></span>
 
-## <a name="example--single-png-file"></a><span data-ttu-id="e312b-110">Örnek – tek bir PNG dosyası</span><span class="sxs-lookup"><span data-stu-id="e312b-110">Example – single PNG file</span></span>
+## <a name="example--single-png-file"></a><span data-ttu-id="c6e22-110">Örnek – tek bir PNG dosyası</span><span class="sxs-lookup"><span data-stu-id="c6e22-110">Example – single PNG file</span></span>
 
-<span data-ttu-id="e312b-111">Aşağıdaki JSON ve XML hazır burada Kodlayıcı "ilginç" Çerçeve bulma sırasında bir en yüksek çaba girişiminde bulunur tek bir çıktı PNG dosya video giriş ilk birkaç saniye dışında oluşturmak için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="e312b-111">The following JSON and XML preset can be used to produce a single output PNG file out of the first few seconds of the input video, where the encoder makes a best-effort attempt at finding an “interesting” frame.</span></span> <span data-ttu-id="e312b-112">Bunlar anlamı % 100'e, çıktı görüntü boyutları ayarlanan Not video giriş boyutlarını eşleşir.</span><span class="sxs-lookup"><span data-stu-id="e312b-112">Note that the output image dimensions have been set to 100%, meaning these will match the dimensions of the input video.</span></span> <span data-ttu-id="e312b-113">Ayrıca "Çıktı" içindeki "Format" ayarı "Codec bileşenleri" bölümündeki "PngLayers" kullanımını eşleşecek şekilde nasıl gerekli unutmayın.</span><span class="sxs-lookup"><span data-stu-id="e312b-113">Note also how the “Format” setting in “Outputs” is required to match the use of “PngLayers” in the “Codecs” section.</span></span> 
+<span data-ttu-id="c6e22-111">JSON aşağıdaki hello ve XML hazır, tek bir çıktı PNG dosya hello dışında ilk birkaç kullanılan tooproduce olabilir burada hello Kodlayıcı kılar "ilginç" Çerçeve bulma sırasında bir en yüksek çaba girişimi hello giriş video saniye.</span><span class="sxs-lookup"><span data-stu-id="c6e22-111">hello following JSON and XML preset can be used tooproduce a single output PNG file out of hello first few seconds of hello input video, where hello encoder makes a best-effort attempt at finding an “interesting” frame.</span></span> <span data-ttu-id="c6e22-112">Merhaba çıktı görüntü boyutları too100%, bunlar hello video boyutlarını hello giriş eşleşir anlamı ayarlanan unutmayın.</span><span class="sxs-lookup"><span data-stu-id="c6e22-112">Note that hello output image dimensions have been set too100%, meaning these will match hello dimensions of hello input video.</span></span> <span data-ttu-id="c6e22-113">Ayrıca nasıl "Çıktı" hello "Format" ayarında gerekli Not "PngLayers" Merhaba "Codec bileşenleri" bölümünde toomatch hello kullanımı.</span><span class="sxs-lookup"><span data-stu-id="c6e22-113">Note also how hello “Format” setting in “Outputs” is required toomatch hello use of “PngLayers” in hello “Codecs” section.</span></span> 
 
-### <a name="json-preset"></a><span data-ttu-id="e312b-114">JSON hazır</span><span class="sxs-lookup"><span data-stu-id="e312b-114">JSON preset</span></span>
+### <a name="json-preset"></a><span data-ttu-id="c6e22-114">JSON hazır</span><span class="sxs-lookup"><span data-stu-id="c6e22-114">JSON preset</span></span>
 
     {
       "Version": 1.0,
@@ -59,7 +59,7 @@ ms.lasthandoff: 08/29/2017
       ]
     }
     
-### <a name="xml-preset"></a><span data-ttu-id="e312b-115">XML hazır</span><span class="sxs-lookup"><span data-stu-id="e312b-115">XML preset</span></span>
+### <a name="xml-preset"></a><span data-ttu-id="c6e22-115">XML hazır</span><span class="sxs-lookup"><span data-stu-id="c6e22-115">XML preset</span></span>
 
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -80,11 +80,11 @@ ms.lasthandoff: 08/29/2017
       </Outputs>
     </Preset>
 
-## <a name="example--a-series-of-jpeg-images"></a><span data-ttu-id="e312b-116">Örnek – bir dizi JPEG görüntüleri</span><span class="sxs-lookup"><span data-stu-id="e312b-116">Example – a series of JPEG images</span></span>
+## <a name="example--a-series-of-jpeg-images"></a><span data-ttu-id="c6e22-116">Örnek – bir dizi JPEG görüntüleri</span><span class="sxs-lookup"><span data-stu-id="c6e22-116">Example – a series of JPEG images</span></span>
 
-<span data-ttu-id="e312b-117">Zaman damgaları 5 10 görüntülere kümesi oluşturmak için aşağıdaki JSON ve XML hazır kullanılabilir %, % 15,..., burada görüntü boyutu belirtildiği için giriş çizelgesinin % 95 quarter, video girişi.</span><span class="sxs-lookup"><span data-stu-id="e312b-117">The following JSON and XML preset can be used to produce a set of 10 images at timestamps of 5%, 15%, …, 95% of the input timeline, where the image size is specified to be one quarter that of the input video.</span></span>
+<span data-ttu-id="c6e22-117">JSON aşağıdaki hello ve XML hazır kullanılan tooproduce zaman damgaları % 5, 10 görüntülere bir dizi olabilir % 15,..., burada hello görüntü boyutu, belirtilen toobe bir video girişi, hello Çeyrek hello Giriş zaman çizelgesi % 95.</span><span class="sxs-lookup"><span data-stu-id="c6e22-117">hello following JSON and XML preset can be used tooproduce a set of 10 images at timestamps of 5%, 15%, …, 95% of hello input timeline, where hello image size is specified toobe one quarter that of hello input video.</span></span>
 
-### <a name="json-preset"></a><span data-ttu-id="e312b-118">JSON hazır</span><span class="sxs-lookup"><span data-stu-id="e312b-118">JSON preset</span></span>
+### <a name="json-preset"></a><span data-ttu-id="c6e22-118">JSON hazır</span><span class="sxs-lookup"><span data-stu-id="c6e22-118">JSON preset</span></span>
 
     {
       "Version": 1.0,
@@ -114,7 +114,7 @@ ms.lasthandoff: 08/29/2017
       ]
     }
 
-### <a name="xml-preset"></a><span data-ttu-id="e312b-119">XML hazır</span><span class="sxs-lookup"><span data-stu-id="e312b-119">XML preset</span></span>
+### <a name="xml-preset"></a><span data-ttu-id="c6e22-119">XML hazır</span><span class="sxs-lookup"><span data-stu-id="c6e22-119">XML preset</span></span>
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -136,11 +136,11 @@ ms.lasthandoff: 08/29/2017
       </Outputs>
     </Preset>
 
-## <a name="example--one-image-at-a-specific-timestamp"></a><span data-ttu-id="e312b-120">Örnek – belirli bir zaman damgası konumundaki bir görüntüsü</span><span class="sxs-lookup"><span data-stu-id="e312b-120">Example – one image at a specific timestamp</span></span>
+## <a name="example--one-image-at-a-specific-timestamp"></a><span data-ttu-id="c6e22-120">Örnek – belirli bir zaman damgası konumundaki bir görüntüsü</span><span class="sxs-lookup"><span data-stu-id="c6e22-120">Example – one image at a specific timestamp</span></span>
 
-<span data-ttu-id="e312b-121">Aşağıdaki JSON ve XML hazır giriş videonun 30 ikinci işaretten tek bir JPEG görüntüsü oluşturmak için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="e312b-121">The following JSON and XML preset can be used to produce a single JPEG image at the 30 second mark of the input video.</span></span> <span data-ttu-id="e312b-122">Bu hazır süresi 30 saniyeden fazla girişin olmasını bekliyor (else işi başarısız olur).</span><span class="sxs-lookup"><span data-stu-id="e312b-122">This preset expects the input to be more than 30 seconds in duration (else the job will fail).</span></span>
+<span data-ttu-id="c6e22-121">JSON ve XML hazır aşağıdaki hello hello tek bir JPEG görüntüsüne 30 saniye işaretlemek hello giriş video kullanılan tooproduce olabilir.</span><span class="sxs-lookup"><span data-stu-id="c6e22-121">hello following JSON and XML preset can be used tooproduce a single JPEG image at hello 30 second mark of hello input video.</span></span> <span data-ttu-id="c6e22-122">Bu hazır hello giriş toobe süresi 30 saniyeden fazla bekliyor (başka hello işi başarısız olur).</span><span class="sxs-lookup"><span data-stu-id="c6e22-122">This preset expects hello input toobe more than 30 seconds in duration (else hello job will fail).</span></span>
 
-### <a name="json-preset"></a><span data-ttu-id="e312b-123">JSON hazır</span><span class="sxs-lookup"><span data-stu-id="e312b-123">JSON preset</span></span>
+### <a name="json-preset"></a><span data-ttu-id="c6e22-123">JSON hazır</span><span class="sxs-lookup"><span data-stu-id="c6e22-123">JSON preset</span></span>
 
     {
       "Version": 1.0,
@@ -170,7 +170,7 @@ ms.lasthandoff: 08/29/2017
       ]
     }
     
-### <a name="xml-preset"></a><span data-ttu-id="e312b-124">XML hazır</span><span class="sxs-lookup"><span data-stu-id="e312b-124">XML preset</span></span>
+### <a name="xml-preset"></a><span data-ttu-id="c6e22-124">XML hazır</span><span class="sxs-lookup"><span data-stu-id="c6e22-124">XML preset</span></span>
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -192,23 +192,23 @@ ms.lasthandoff: 08/29/2017
       </Outputs>
     </Preset>
 
-## <span data-ttu-id="e312b-125"><a id="code_sample"></a>Örnek – videoyu kodlamak ve küçük resim oluşturma</span><span class="sxs-lookup"><span data-stu-id="e312b-125"><a id="code_sample"></a>Example – encode video and generate thumbnail</span></span>
+## <span data-ttu-id="c6e22-125"><a id="code_sample"></a>Örnek – videoyu kodlamak ve küçük resim oluşturma</span><span class="sxs-lookup"><span data-stu-id="c6e22-125"><a id="code_sample"></a>Example – encode video and generate thumbnail</span></span>
 
-<span data-ttu-id="e312b-126">Aşağıdaki kod örneği, aşağıdaki görevleri gerçekleştirmek için Media Services .NET SDK'sını kullanır:</span><span class="sxs-lookup"><span data-stu-id="e312b-126">The following code example uses Media Services .NET SDK to perform the following tasks:</span></span>
+<span data-ttu-id="c6e22-126">Aşağıdaki kod örneğine hello görevleri aşağıdaki Media Services .NET SDK'sı tooperform hello kullanır:</span><span class="sxs-lookup"><span data-stu-id="c6e22-126">hello following code example uses Media Services .NET SDK tooperform hello following tasks:</span></span>
 
-* <span data-ttu-id="e312b-127">Bir kodlama işi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="e312b-127">Create an encoding job.</span></span>
-* <span data-ttu-id="e312b-128">Medya Kodlayıcısı standart Kodlayıcı başvuru alın.</span><span class="sxs-lookup"><span data-stu-id="e312b-128">Get a reference to the Media Encoder Standard encoder.</span></span>
-* <span data-ttu-id="e312b-129">Önceden ayarlanmış yük [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) veya [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) içeren küçük resimleri oluşturmak için gereken bilgileri yanı sıra önceden kodlama.</span><span class="sxs-lookup"><span data-stu-id="e312b-129">Load the preset [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) that contain the encoding preset as well as information needed to generate thumbnails.</span></span> <span data-ttu-id="e312b-130">Bu kaydedebilirsiniz [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) veya [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) bir dosya ve Kullan dosyayı yüklemek için aşağıdaki kod.</span><span class="sxs-lookup"><span data-stu-id="e312b-130">You can save this  [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in a file and use the following code to load the file.</span></span>
+* <span data-ttu-id="c6e22-127">Bir kodlama işi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="c6e22-127">Create an encoding job.</span></span>
+* <span data-ttu-id="c6e22-128">Bir başvuru toohello Medya Kodlayıcısı standart Kodlayıcısı alın.</span><span class="sxs-lookup"><span data-stu-id="c6e22-128">Get a reference toohello Media Encoder Standard encoder.</span></span>
+* <span data-ttu-id="c6e22-129">Yük hello önceden [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) veya [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) içeren yanı sıra toogenerate küçük resimleri gerekli bilgiler önceden hello kodlama.</span><span class="sxs-lookup"><span data-stu-id="c6e22-129">Load hello preset [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) that contain hello encoding preset as well as information needed toogenerate thumbnails.</span></span> <span data-ttu-id="c6e22-130">Bu kaydedebilirsiniz [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) veya [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) aşağıdaki kodu tooload hello dosyasına bir dosya ve kullanım hello içinde.</span><span class="sxs-lookup"><span data-stu-id="c6e22-130">You can save this  [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in a file and use hello following code tooload hello file.</span></span>
   
-        // Load the XML (or JSON) from the local file.
+        // Load hello XML (or JSON) from hello local file.
         string configuration = File.ReadAllText(fileName);  
-* <span data-ttu-id="e312b-131">Tek bir kodlama görev projeye ekleyin.</span><span class="sxs-lookup"><span data-stu-id="e312b-131">Add a single encoding task to the job.</span></span> 
-* <span data-ttu-id="e312b-132">Kodlanacak giriş varlık belirtin.</span><span class="sxs-lookup"><span data-stu-id="e312b-132">Specify the input asset to be encoded.</span></span>
-* <span data-ttu-id="e312b-133">Kodlanmış varlık içerecek bir çıkış varlığı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="e312b-133">Create an output asset that will contain the encoded asset.</span></span>
-* <span data-ttu-id="e312b-134">İş ilerleme durumunu denetlemek için olay işleyici ekleyin.</span><span class="sxs-lookup"><span data-stu-id="e312b-134">Add an event handler to check the job progress.</span></span>
-* <span data-ttu-id="e312b-135">İşi göndermek.</span><span class="sxs-lookup"><span data-stu-id="e312b-135">Submit the job.</span></span>
+* <span data-ttu-id="c6e22-131">Tek bir kodlama görev toohello işi ekleyin.</span><span class="sxs-lookup"><span data-stu-id="c6e22-131">Add a single encoding task toohello job.</span></span> 
+* <span data-ttu-id="c6e22-132">Merhaba giriş belirtin kodlanmış varlık toobe.</span><span class="sxs-lookup"><span data-stu-id="c6e22-132">Specify hello input asset toobe encoded.</span></span>
+* <span data-ttu-id="c6e22-133">Kodlanmış hello varlık içerecek bir çıkış varlığı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="c6e22-133">Create an output asset that will contain hello encoded asset.</span></span>
+* <span data-ttu-id="c6e22-134">Bir olay işleyicisi toocheck hello ilerleyişini ekleyin.</span><span class="sxs-lookup"><span data-stu-id="c6e22-134">Add an event handler toocheck hello job progress.</span></span>
+* <span data-ttu-id="c6e22-135">Merhaba işi gönderin.</span><span class="sxs-lookup"><span data-stu-id="c6e22-135">Submit hello job.</span></span>
 
-<span data-ttu-id="e312b-136">Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) konu geliştirme ortamınızı ayarlama konusunda yönergeler için.</span><span class="sxs-lookup"><span data-stu-id="e312b-136">See the [Media Services development with .NET](media-services-dotnet-how-to-use.md) topic for directions on how to set up your dev environment.</span></span>
+<span data-ttu-id="c6e22-136">Merhaba bkz [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) konu konusunda yönergeler için geliştirme ortamınızı tooset.</span><span class="sxs-lookup"><span data-stu-id="c6e22-136">See hello [Media Services development with .NET](media-services-dotnet-how-to-use.md) topic for directions on how tooset up your dev environment.</span></span>
 
         using System;
         using System.Configuration;
@@ -221,7 +221,7 @@ ms.lasthandoff: 08/29/2017
         {
         class Program
         {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -245,7 +245,7 @@ ms.lasthandoff: 08/29/2017
             // Get an uploaded asset.
             var asset = _context.Assets.FirstOrDefault();
 
-            // Encode and generate the thumbnails.
+            // Encode and generate hello thumbnails.
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
@@ -255,11 +255,11 @@ ms.lasthandoff: 08/29/2017
             {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of hello 
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Load the XML (or JSON) from the local file.
+            // Load hello XML (or JSON) from hello local file.
             string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
 
             // Create a task
@@ -268,11 +268,11 @@ ms.lasthandoff: 08/29/2017
                 configuration,
                 TaskOptions.None);
 
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset to contain the results of the job. 
+            // Add an output asset toocontain hello results of hello job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is not encrypted. 
+            // means hello output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
                 AssetCreationOptions.None);
 
@@ -326,8 +326,8 @@ ms.lasthandoff: 08/29/2017
         }
         }
 
-## <span data-ttu-id="e312b-137"><a id="json"></a>Küçük resim JSON hazır</span><span class="sxs-lookup"><span data-stu-id="e312b-137"><a id="json"></a>Thumbnail JSON preset</span></span>
-<span data-ttu-id="e312b-138">Şeması hakkında daha fazla bilgi için bkz: [bu](https://msdn.microsoft.com/library/mt269962.aspx) konu.</span><span class="sxs-lookup"><span data-stu-id="e312b-138">For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.</span></span>
+## <span data-ttu-id="c6e22-137"><a id="json"></a>Küçük resim JSON hazır</span><span class="sxs-lookup"><span data-stu-id="c6e22-137"><a id="json"></a>Thumbnail JSON preset</span></span>
+<span data-ttu-id="c6e22-138">Şeması hakkında daha fazla bilgi için bkz: [bu](https://msdn.microsoft.com/library/mt269962.aspx) konu.</span><span class="sxs-lookup"><span data-stu-id="c6e22-138">For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.</span></span>
 
     {
       "Version": 1.0,
@@ -389,8 +389,8 @@ ms.lasthandoff: 08/29/2017
       ]
     }
 
-## <span data-ttu-id="e312b-139"><a id="xml"></a>Küçük resim XML hazır</span><span class="sxs-lookup"><span data-stu-id="e312b-139"><a id="xml"></a>Thumbnail XML preset</span></span>
-<span data-ttu-id="e312b-140">Şeması hakkında daha fazla bilgi için bkz: [bu](https://msdn.microsoft.com/library/mt269962.aspx) konu.</span><span class="sxs-lookup"><span data-stu-id="e312b-140">For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.</span></span>
+## <span data-ttu-id="c6e22-139"><a id="xml"></a>Küçük resim XML hazır</span><span class="sxs-lookup"><span data-stu-id="c6e22-139"><a id="xml"></a>Thumbnail XML preset</span></span>
+<span data-ttu-id="c6e22-140">Şeması hakkında daha fazla bilgi için bkz: [bu](https://msdn.microsoft.com/library/mt269962.aspx) konu.</span><span class="sxs-lookup"><span data-stu-id="c6e22-140">For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.</span></span>
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -442,32 +442,32 @@ ms.lasthandoff: 08/29/2017
       </Outputs>
     </Preset>
 
-## <a name="considerations"></a><span data-ttu-id="e312b-141">Dikkat edilmesi gerekenler</span><span class="sxs-lookup"><span data-stu-id="e312b-141">Considerations</span></span>
-<span data-ttu-id="e312b-142">Aşağıdaki maddeler geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="e312b-142">The following considerations apply:</span></span>
+## <a name="considerations"></a><span data-ttu-id="c6e22-141">Dikkat edilmesi gerekenler</span><span class="sxs-lookup"><span data-stu-id="c6e22-141">Considerations</span></span>
+<span data-ttu-id="c6e22-142">ilgili önemli noktalar aşağıdaki hello Uygula:</span><span class="sxs-lookup"><span data-stu-id="c6e22-142">hello following considerations apply:</span></span>
 
-* <span data-ttu-id="e312b-143">Başlangıç/adım/aralığı için açık zaman damgaları kullanımını giriş kaynağı en az 1 dakika uzun olduğunu varsayar.</span><span class="sxs-lookup"><span data-stu-id="e312b-143">The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.</span></span>
-* <span data-ttu-id="e312b-144">Başlangıç, adım ve öznitelikleri dize aralığı Png/jpg/BmpImage öğeleri sahip – bu olarak yorumlanacak:</span><span class="sxs-lookup"><span data-stu-id="e312b-144">Jpg/Png/BmpImage elements have Start, Step and Range string attributes – these can be interpreted as:</span></span>
+* <span data-ttu-id="c6e22-143">Merhaba kullanımına açık zaman damgaları Başlat/adım/aralık en az 1 dakika uzun bu hello giriş kaynağı olduğunu varsayar.</span><span class="sxs-lookup"><span data-stu-id="c6e22-143">hello use of explicit timestamps for Start/Step/Range assumes that hello input source is at least 1 minute long.</span></span>
+* <span data-ttu-id="c6e22-144">Başlangıç, adım ve öznitelikleri dize aralığı Png/jpg/BmpImage öğeleri sahip – bu olarak yorumlanacak:</span><span class="sxs-lookup"><span data-stu-id="c6e22-144">Jpg/Png/BmpImage elements have Start, Step and Range string attributes – these can be interpreted as:</span></span>
   
-  * <span data-ttu-id="e312b-145">Negatif olmayan tamsayılar ör olmaları durumunda çerçeve numarası.</span><span class="sxs-lookup"><span data-stu-id="e312b-145">Frame Number if they are non-negative integers, eg.</span></span> <span data-ttu-id="e312b-146">"Başlat": "120",</span><span class="sxs-lookup"><span data-stu-id="e312b-146">"Start": "120",</span></span>
-  * <span data-ttu-id="e312b-147">Göreli % sonekine olarak ör ifade, kaynak süresi.</span><span class="sxs-lookup"><span data-stu-id="e312b-147">Relative to source duration if expressed as %-suffixed, eg.</span></span> <span data-ttu-id="e312b-148">"Başlat": "% 15", veya</span><span class="sxs-lookup"><span data-stu-id="e312b-148">"Start": "15%", OR</span></span>
-  * <span data-ttu-id="e312b-149">Ss: dd: ifade edilen, zaman damgası...</span><span class="sxs-lookup"><span data-stu-id="e312b-149">Timestamp if expressed as HH:MM:SS…</span></span> <span data-ttu-id="e312b-150">biçimi.</span><span class="sxs-lookup"><span data-stu-id="e312b-150">format.</span></span> <span data-ttu-id="e312b-151">Ör.</span><span class="sxs-lookup"><span data-stu-id="e312b-151">Eg.</span></span> <span data-ttu-id="e312b-152">"Başlat": "00: 01:00"</span><span class="sxs-lookup"><span data-stu-id="e312b-152">"Start" : "00:01:00"</span></span>
+  * <span data-ttu-id="c6e22-145">Negatif olmayan tamsayılar ör olmaları durumunda çerçeve numarası.</span><span class="sxs-lookup"><span data-stu-id="c6e22-145">Frame Number if they are non-negative integers, eg.</span></span> <span data-ttu-id="c6e22-146">"Başlat": "120",</span><span class="sxs-lookup"><span data-stu-id="c6e22-146">"Start": "120",</span></span>
+  * <span data-ttu-id="c6e22-147">% Sonekine olarak ör ifade, göreli toosource süresi.</span><span class="sxs-lookup"><span data-stu-id="c6e22-147">Relative toosource duration if expressed as %-suffixed, eg.</span></span> <span data-ttu-id="c6e22-148">"Başlat": "% 15", veya</span><span class="sxs-lookup"><span data-stu-id="c6e22-148">"Start": "15%", OR</span></span>
+  * <span data-ttu-id="c6e22-149">Ss: dd: ifade edilen, zaman damgası...</span><span class="sxs-lookup"><span data-stu-id="c6e22-149">Timestamp if expressed as HH:MM:SS…</span></span> <span data-ttu-id="c6e22-150">biçimi.</span><span class="sxs-lookup"><span data-stu-id="c6e22-150">format.</span></span> <span data-ttu-id="c6e22-151">Ör.</span><span class="sxs-lookup"><span data-stu-id="c6e22-151">Eg.</span></span> <span data-ttu-id="c6e22-152">"Başlat": "00: 01:00"</span><span class="sxs-lookup"><span data-stu-id="c6e22-152">"Start" : "00:01:00"</span></span>
     
-    <span data-ttu-id="e312b-153">Karışık ve yazarken gösterimler Lütfen eşleşmesi.</span><span class="sxs-lookup"><span data-stu-id="e312b-153">You can mix and match notations as you please.</span></span>
+    <span data-ttu-id="c6e22-153">Karışık ve yazarken gösterimler Lütfen eşleşmesi.</span><span class="sxs-lookup"><span data-stu-id="c6e22-153">You can mix and match notations as you please.</span></span>
     
-    <span data-ttu-id="e312b-154">Ayrıca, başlangıç özel makrosu de destekler: {, hangi içerik Not ilk "ilginç" çerçevesi belirlemeyi dener en iyi}: (adım ve aralık yok sayılır başlangıç {iyi} olarak ayarlandığında geçerlidir)</span><span class="sxs-lookup"><span data-stu-id="e312b-154">Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first “interesting” frame of the content NOTE: (Step and Range are ignored when Start is set to {Best})</span></span>
-  * <span data-ttu-id="e312b-155">Varsayılan: Başlat: {en iyi}</span><span class="sxs-lookup"><span data-stu-id="e312b-155">Defaults: Start:{Best}</span></span>
-* <span data-ttu-id="e312b-156">Çıktı biçimi her resim biçimi için açıkça sağlanması gerekiyor: Png/Jpg/BmpFormat.</span><span class="sxs-lookup"><span data-stu-id="e312b-156">Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat.</span></span> <span data-ttu-id="e312b-157">Varsa, MES JpgFormat JpgVideo vb. ile eşleşir.</span><span class="sxs-lookup"><span data-stu-id="e312b-157">When present, MES will match JpgVideo to JpgFormat and so on.</span></span> <span data-ttu-id="e312b-158">Yeni bir görüntü codec belirli makrosu OutputFormat sunar: {Index} olması gerekiyor hangi sunmak (bir kez ve yalnızca bir kez) görüntü Çıkış biçimleri.</span><span class="sxs-lookup"><span data-stu-id="e312b-158">OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.</span></span>
+    <span data-ttu-id="c6e22-154">Ayrıca, başlangıç özel makrosu de destekler: {, hangi toodetermine hello ilk "ilginç" Çerçeve hello içeriğin Not çalışır en iyi}: (adım ve aralığı dikkate alınmaz başlangıç çok ayarlandığında {en iyi})</span><span class="sxs-lookup"><span data-stu-id="c6e22-154">Additionally, Start also supports a special Macro:{Best}, which attempts toodetermine hello first “interesting” frame of hello content NOTE: (Step and Range are ignored when Start is set too{Best})</span></span>
+  * <span data-ttu-id="c6e22-155">Varsayılan: Başlat: {en iyi}</span><span class="sxs-lookup"><span data-stu-id="c6e22-155">Defaults: Start:{Best}</span></span>
+* <span data-ttu-id="c6e22-156">Çıktı biçimi açıkça her resim biçimi için sağlanan toobe gerekiyor: Png/Jpg/BmpFormat.</span><span class="sxs-lookup"><span data-stu-id="c6e22-156">Output format needs toobe explicitly provided for each Image format: Jpg/Png/BmpFormat.</span></span> <span data-ttu-id="c6e22-157">Varsa, MES JpgVideo tooJpgFormat vb. ile eşleşir.</span><span class="sxs-lookup"><span data-stu-id="c6e22-157">When present, MES will match JpgVideo tooJpgFormat and so on.</span></span> <span data-ttu-id="c6e22-158">Yeni bir görüntü codec belirli makrosu OutputFormat sunar: {, hangi toobe mevcut (bir kez ve yalnızca bir kez) gereken görüntü Çıkış biçimleri için dizin}.</span><span class="sxs-lookup"><span data-stu-id="c6e22-158">OutputFormat introduces a new image-codec specific Macro: {Index}, which needs toobe present (once and only once) for image output formats.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="e312b-159">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="e312b-159">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="c6e22-159">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="c6e22-159">Next steps</span></span>
 
-<span data-ttu-id="e312b-160">Kontrol edebilirsiniz [iş ilerleme](media-services-check-job-progress.md) kodlama işinin beklemedeyken.</span><span class="sxs-lookup"><span data-stu-id="e312b-160">You can check the [job progress](media-services-check-job-progress.md) while the encoding job is pending.</span></span>
+<span data-ttu-id="c6e22-160">Merhaba denetleyebilirsiniz [iş ilerleme](media-services-check-job-progress.md) sırasında hello kodlama işinin bekliyor.</span><span class="sxs-lookup"><span data-stu-id="c6e22-160">You can check hello [job progress](media-services-check-job-progress.md) while hello encoding job is pending.</span></span>
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="e312b-161">Media Services’i öğrenme yolları</span><span class="sxs-lookup"><span data-stu-id="e312b-161">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="c6e22-161">Media Services’i öğrenme yolları</span><span class="sxs-lookup"><span data-stu-id="c6e22-161">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="e312b-162">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="e312b-162">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="c6e22-162">Geri bildirimde bulunma</span><span class="sxs-lookup"><span data-stu-id="c6e22-162">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a><span data-ttu-id="e312b-163">Ayrıca Bkz.</span><span class="sxs-lookup"><span data-stu-id="e312b-163">See Also</span></span>
-[<span data-ttu-id="e312b-164">Media Services kodlama a genel bakış</span><span class="sxs-lookup"><span data-stu-id="e312b-164">Media Services Encoding Overview</span></span>](media-services-encode-asset.md)
+## <a name="see-also"></a><span data-ttu-id="c6e22-163">Ayrıca Bkz.</span><span class="sxs-lookup"><span data-stu-id="c6e22-163">See Also</span></span>
+[<span data-ttu-id="c6e22-164">Media Services kodlama a genel bakış</span><span class="sxs-lookup"><span data-stu-id="c6e22-164">Media Services Encoding Overview</span></span>](media-services-encode-asset.md)
 

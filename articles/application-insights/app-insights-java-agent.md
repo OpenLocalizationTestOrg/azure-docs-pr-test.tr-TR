@@ -1,5 +1,5 @@
 ---
-title: "Azure Application ınsights'ta Java web uygulamaları için performans izleme | Microsoft Docs"
+title: "Azure Application Insights Java web uygulamalarının aaaPerformance izleme | Microsoft Docs"
 description: "Genişletilmiş performans ve Application Insights ile Java Web sitenizin kullanım izleme."
 services: application-insights
 documentationcenter: java
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.openlocfilehash: 4e56998382610ad3d7224e6a8de5aee5419ebe43
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bf3983e3b4a16e72bc606b6468a757288d05ebaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a><span data-ttu-id="638aa-103">Bağımlılıklar, özel durumlar ve yürütme sürelerini Java web uygulamalarını izleme</span><span class="sxs-lookup"><span data-stu-id="638aa-103">Monitor dependencies, exceptions and execution times in Java web apps</span></span>
+# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a><span data-ttu-id="9c8ee-103">Bağımlılıklar, özel durumlar ve yürütme sürelerini Java web uygulamalarını izleme</span><span class="sxs-lookup"><span data-stu-id="9c8ee-103">Monitor dependencies, exceptions and execution times in Java web apps</span></span>
 
 
-<span data-ttu-id="638aa-104">Varsa [Java web uygulamanıza Application Insights ile işaretlenir][java], kod değişiklikleri olmadan daha ayrıntılı Öngörüler almak için Java Agent kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="638aa-104">If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:</span></span>
+<span data-ttu-id="9c8ee-104">Varsa [Java web uygulamanıza Application Insights ile işaretlenir][java], hello Java Agent tooget daha ayrıntılı Öngörüler, kod değişiklikleri olmadan kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="9c8ee-104">If you have [instrumented your Java web app with Application Insights][java], you can use hello Java Agent tooget deeper insights, without any code changes:</span></span>
 
-* <span data-ttu-id="638aa-105">**Bağımlılıklar:** verileri de dahil olmak üzere diğer bileşenler için uygulamanızın yaptığı çağrıları hakkında:</span><span class="sxs-lookup"><span data-stu-id="638aa-105">**Dependencies:** Data about calls that your application makes to other components, including:</span></span>
-  * <span data-ttu-id="638aa-106">**REST çağrılarını** HttpClient, OkHttp ve RestTemplate (yay) yapılır.</span><span class="sxs-lookup"><span data-stu-id="638aa-106">**REST calls** made via HttpClient, OkHttp, and RestTemplate (Spring).</span></span>
-  * <span data-ttu-id="638aa-107">**Redis** Jedis istemcisi üzerinden yapılan çağrıları.</span><span class="sxs-lookup"><span data-stu-id="638aa-107">**Redis** calls made via the Jedis client.</span></span> <span data-ttu-id="638aa-108">Çağrı 10'luk uzun sürerse, aracı ayrıca çağrı bağımsız getirir.</span><span class="sxs-lookup"><span data-stu-id="638aa-108">If the call takes longer than 10s, the agent also fetches the call arguments.</span></span>
-  * <span data-ttu-id="638aa-109">**[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB veya Apache Derby DB.</span><span class="sxs-lookup"><span data-stu-id="638aa-109">**[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB or Apache Derby DB.</span></span> <span data-ttu-id="638aa-110">"executeBatch" çağrıları desteklenir.</span><span class="sxs-lookup"><span data-stu-id="638aa-110">"executeBatch" calls are supported.</span></span> <span data-ttu-id="638aa-111">Çağrı 10'luk uzun sürerse, MySQL ve PostgreSQL için aracı sorgu planı bildirir.</span><span class="sxs-lookup"><span data-stu-id="638aa-111">For MySQL and PostgreSQL, if the call takes longer than 10s, the agent reports the query plan.</span></span>
-* <span data-ttu-id="638aa-112">**Özel durum yakalandı:** kodunuz tarafından işlenen özel durumlar hakkında veri.</span><span class="sxs-lookup"><span data-stu-id="638aa-112">**Caught exceptions:** Data about exceptions that are handled by your code.</span></span>
-* <span data-ttu-id="638aa-113">**Yöntem yürütme süresi:** belirli yöntemleri yürütme süresini hakkındaki verileri.</span><span class="sxs-lookup"><span data-stu-id="638aa-113">**Method execution time:** Data about the time it takes to execute specific methods.</span></span>
+* <span data-ttu-id="9c8ee-105">**Bağımlılıklar:** tooother bileşenleri de dahil olmak üzere, uygulamanızın yaptığı çağrıları hakkında veriler:</span><span class="sxs-lookup"><span data-stu-id="9c8ee-105">**Dependencies:** Data about calls that your application makes tooother components, including:</span></span>
+  * <span data-ttu-id="9c8ee-106">**REST çağrılarını** HttpClient, OkHttp ve RestTemplate (yay) yapılır.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-106">**REST calls** made via HttpClient, OkHttp, and RestTemplate (Spring).</span></span>
+  * <span data-ttu-id="9c8ee-107">**Redis** hello Jedis istemci yapılan çağrıları.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-107">**Redis** calls made via hello Jedis client.</span></span> <span data-ttu-id="9c8ee-108">Merhaba çağrısı 10'luk uzun sürerse, hello aracı ayrıca hello çağrı bağımsız getirir.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-108">If hello call takes longer than 10s, hello agent also fetches hello call arguments.</span></span>
+  * <span data-ttu-id="9c8ee-109">**[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB veya Apache Derby DB.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-109">**[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB or Apache Derby DB.</span></span> <span data-ttu-id="9c8ee-110">"executeBatch" çağrıları desteklenir.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-110">"executeBatch" calls are supported.</span></span> <span data-ttu-id="9c8ee-111">Merhaba çağrısı 10'luk uzun sürerse, MySQL ve PostgreSQL için hello Aracısı hello sorgu planı bildirir.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-111">For MySQL and PostgreSQL, if hello call takes longer than 10s, hello agent reports hello query plan.</span></span>
+* <span data-ttu-id="9c8ee-112">**Özel durum yakalandı:** kodunuz tarafından işlenen özel durumlar hakkında veri.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-112">**Caught exceptions:** Data about exceptions that are handled by your code.</span></span>
+* <span data-ttu-id="9c8ee-113">**Yöntem yürütme süresi:** hello hakkındaki verileri alır tooexecute belirli yöntemler seferlik.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-113">**Method execution time:** Data about hello time it takes tooexecute specific methods.</span></span>
 
-<span data-ttu-id="638aa-114">Java Aracısı'nı kullanmak için sunucunuzda yüklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="638aa-114">To use the Java agent, you install it on your server.</span></span> <span data-ttu-id="638aa-115">Web uygulamalarınızı ile işaretlenir gerekir [Application Insights Java SDK'sı][java].</span><span class="sxs-lookup"><span data-stu-id="638aa-115">Your web apps must be instrumented with the [Application Insights Java SDK][java].</span></span> 
+<span data-ttu-id="9c8ee-114">toouse hello Java agent, sunucunuza yükleyin.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-114">toouse hello Java agent, you install it on your server.</span></span> <span data-ttu-id="9c8ee-115">Web uygulamalarınızı hello ile işaretlenir gerekir [Application Insights Java SDK'sı][java].</span><span class="sxs-lookup"><span data-stu-id="9c8ee-115">Your web apps must be instrumented with hello [Application Insights Java SDK][java].</span></span> 
 
-## <a name="install-the-application-insights-agent-for-java"></a><span data-ttu-id="638aa-116">Java için Application Insights aracısı yükleyin</span><span class="sxs-lookup"><span data-stu-id="638aa-116">Install the Application Insights agent for Java</span></span>
-1. <span data-ttu-id="638aa-117">Java sunucunuz makinede çalışan [Aracısı'nı indirme](https://aka.ms/aijavasdk).</span><span class="sxs-lookup"><span data-stu-id="638aa-117">On the machine running your Java server, [download the agent](https://aka.ms/aijavasdk).</span></span>
-2. <span data-ttu-id="638aa-118">Uygulama sunucusu başlangıç komut dosyasını düzenleyin ve aşağıdaki JVM ekleyin:</span><span class="sxs-lookup"><span data-stu-id="638aa-118">Edit the application server startup script, and add the following JVM:</span></span>
+## <a name="install-hello-application-insights-agent-for-java"></a><span data-ttu-id="9c8ee-116">Java için Application Insights Aracısı Hello yükleyin</span><span class="sxs-lookup"><span data-stu-id="9c8ee-116">Install hello Application Insights agent for Java</span></span>
+1. <span data-ttu-id="9c8ee-117">Java sunucunuz Hello makine üzerinde çalışan [hello Aracısı'nı indirme](https://aka.ms/aijavasdk).</span><span class="sxs-lookup"><span data-stu-id="9c8ee-117">On hello machine running your Java server, [download hello agent](https://aka.ms/aijavasdk).</span></span>
+2. <span data-ttu-id="9c8ee-118">Merhaba uygulama sunucusu başlangıç komut dosyasını düzenleyin ve JVM aşağıdaki hello ekleyin:</span><span class="sxs-lookup"><span data-stu-id="9c8ee-118">Edit hello application server startup script, and add hello following JVM:</span></span>
    
-    <span data-ttu-id="638aa-119">`javaagent:`*Aracı JAR dosyasının tam yolu*</span><span class="sxs-lookup"><span data-stu-id="638aa-119">`javaagent:`*full path to the agent JAR file*</span></span>
+    <span data-ttu-id="9c8ee-119">`javaagent:`*tam yol toohello Aracısı JAR dosyasını*</span><span class="sxs-lookup"><span data-stu-id="9c8ee-119">`javaagent:`*full path toohello agent JAR file*</span></span>
    
-    <span data-ttu-id="638aa-120">Örneğin, Tomcat'te bir Linux makinesinde:</span><span class="sxs-lookup"><span data-stu-id="638aa-120">For example, in Tomcat on a Linux machine:</span></span>
+    <span data-ttu-id="9c8ee-120">Örneğin, Tomcat'te bir Linux makinesinde:</span><span class="sxs-lookup"><span data-stu-id="9c8ee-120">For example, in Tomcat on a Linux machine:</span></span>
    
-    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
-3. <span data-ttu-id="638aa-121">Uygulama sunucunuzu yeniden başlatın.</span><span class="sxs-lookup"><span data-stu-id="638aa-121">Restart your application server.</span></span>
+    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path tooagent JAR file>"`
+3. <span data-ttu-id="9c8ee-121">Uygulama sunucunuzu yeniden başlatın.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-121">Restart your application server.</span></span>
 
-## <a name="configure-the-agent"></a><span data-ttu-id="638aa-122">Aracısı'nı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="638aa-122">Configure the agent</span></span>
-<span data-ttu-id="638aa-123">Adlı bir dosya oluşturun `AI-Agent.xml` ve aracı JAR dosyasını aynı klasöre yerleştirin.</span><span class="sxs-lookup"><span data-stu-id="638aa-123">Create a file named `AI-Agent.xml` and place it in the same folder as the agent JAR file.</span></span>
+## <a name="configure-hello-agent"></a><span data-ttu-id="9c8ee-122">Merhaba Aracısı'nı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="9c8ee-122">Configure hello agent</span></span>
+<span data-ttu-id="9c8ee-123">Adlı bir dosya oluşturun `AI-Agent.xml` ve hello yerleştirin hello Aracısı JAR dosyasını aynı klasöre.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-123">Create a file named `AI-Agent.xml` and place it in hello same folder as hello agent JAR file.</span></span>
 
-<span data-ttu-id="638aa-124">Xml dosyasının içeriğini ayarlarsınız.</span><span class="sxs-lookup"><span data-stu-id="638aa-124">Set the content of the xml file.</span></span> <span data-ttu-id="638aa-125">İstediğiniz dahil etmek veya özellikleri atlamak için aşağıdaki örnek düzenleyin.</span><span class="sxs-lookup"><span data-stu-id="638aa-125">Edit the following example to include or omit the features you want.</span></span>
+<span data-ttu-id="9c8ee-124">Merhaba xml dosyası Merhaba içeriğine ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-124">Set hello content of hello xml file.</span></span> <span data-ttu-id="9c8ee-125">Aşağıdaki örnek tooinclude hello düzenleyin veya hello özellikleri atlayın.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-125">Edit hello following example tooinclude or omit hello features you want.</span></span>
 
 ```XML
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/18/2017
                reportExecutionTime="true"
                />
 
-           <!-- Report on the particular signature
+           <!-- Report on hello particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
               reportExecutionTime="true"
@@ -86,20 +86,20 @@ ms.lasthandoff: 08/18/2017
 
 ```
 
-<span data-ttu-id="638aa-126">Raporları özel durumu ve yöntemi zamanlama tek tek yöntemleri için etkinleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="638aa-126">You have to enable reports exception and method timing for individual methods.</span></span>
+<span data-ttu-id="9c8ee-126">Tooenable raporları özel durumu ve tek tek yöntemleri için yöntemi zamanlama var.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-126">You have tooenable reports exception and method timing for individual methods.</span></span>
 
-<span data-ttu-id="638aa-127">Varsayılan olarak, `reportExecutionTime` geçerlidir ve `reportCaughtExceptions` false olur.</span><span class="sxs-lookup"><span data-stu-id="638aa-127">By default, `reportExecutionTime` is true and `reportCaughtExceptions` is false.</span></span>
+<span data-ttu-id="9c8ee-127">Varsayılan olarak, `reportExecutionTime` geçerlidir ve `reportCaughtExceptions` false olur.</span><span class="sxs-lookup"><span data-stu-id="9c8ee-127">By default, `reportExecutionTime` is true and `reportCaughtExceptions` is false.</span></span>
 
-## <a name="view-the-data"></a><span data-ttu-id="638aa-128">Verileri görüntüleme</span><span class="sxs-lookup"><span data-stu-id="638aa-128">View the data</span></span>
-<span data-ttu-id="638aa-129">Application Insights kaynağını toplanmış uzak bağımlılık ve yöntemi yürütme sürelerinin görünür [performans bölmesi altında][metrics].</span><span class="sxs-lookup"><span data-stu-id="638aa-129">In the Application Insights resource, aggregated remote dependency and method execution times appears [under the Performance tile][metrics].</span></span>
+## <a name="view-hello-data"></a><span data-ttu-id="9c8ee-128">Merhaba verileri görüntüleme</span><span class="sxs-lookup"><span data-stu-id="9c8ee-128">View hello data</span></span>
+<span data-ttu-id="9c8ee-129">Hello Application Insights kaynağı, toplanan uzak bağımlılık ve yöntemi yürütme sürelerinin görünür [performans hello altında döşeme][metrics].</span><span class="sxs-lookup"><span data-stu-id="9c8ee-129">In hello Application Insights resource, aggregated remote dependency and method execution times appears [under hello Performance tile][metrics].</span></span>
 
-<span data-ttu-id="638aa-130">Bağımlılık, özel durum ve yöntemi raporları tek tek örneklerini aramak için açık [arama][diagnostic].</span><span class="sxs-lookup"><span data-stu-id="638aa-130">To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].</span></span>
+<span data-ttu-id="9c8ee-130">bağımlılık, özel durum ve yöntemi raporları, tek tek örneklerini toosearch açmak [arama][diagnostic].</span><span class="sxs-lookup"><span data-stu-id="9c8ee-130">toosearch for individual instances of dependency, exception, and method reports, open [Search][diagnostic].</span></span>
 
-<span data-ttu-id="638aa-131">[Tanılama bağımlılık sorunları - daha fazla bilgi](app-insights-asp-net-dependencies.md#diagnosis).</span><span class="sxs-lookup"><span data-stu-id="638aa-131">[Diagnosing dependency issues - learn more](app-insights-asp-net-dependencies.md#diagnosis).</span></span>
+<span data-ttu-id="9c8ee-131">[Tanılama bağımlılık sorunları - daha fazla bilgi](app-insights-asp-net-dependencies.md#diagnosis).</span><span class="sxs-lookup"><span data-stu-id="9c8ee-131">[Diagnosing dependency issues - learn more](app-insights-asp-net-dependencies.md#diagnosis).</span></span>
 
-## <a name="questions-problems"></a><span data-ttu-id="638aa-132">Sorularınız mı var?</span><span class="sxs-lookup"><span data-stu-id="638aa-132">Questions?</span></span> <span data-ttu-id="638aa-133">Sorunlarınız mı var?</span><span class="sxs-lookup"><span data-stu-id="638aa-133">Problems?</span></span>
-* <span data-ttu-id="638aa-134">Veri yok mu?</span><span class="sxs-lookup"><span data-stu-id="638aa-134">No data?</span></span> [<span data-ttu-id="638aa-135">Set güvenlik duvarı özel durumlar</span><span class="sxs-lookup"><span data-stu-id="638aa-135">Set firewall exceptions</span></span>](app-insights-ip-addresses.md)
-* [<span data-ttu-id="638aa-136">Java Sorun Giderme</span><span class="sxs-lookup"><span data-stu-id="638aa-136">Troubleshooting Java</span></span>](app-insights-java-troubleshoot.md)
+## <a name="questions-problems"></a><span data-ttu-id="9c8ee-132">Sorularınız mı var?</span><span class="sxs-lookup"><span data-stu-id="9c8ee-132">Questions?</span></span> <span data-ttu-id="9c8ee-133">Sorunlarınız mı var?</span><span class="sxs-lookup"><span data-stu-id="9c8ee-133">Problems?</span></span>
+* <span data-ttu-id="9c8ee-134">Veri yok mu?</span><span class="sxs-lookup"><span data-stu-id="9c8ee-134">No data?</span></span> [<span data-ttu-id="9c8ee-135">Set güvenlik duvarı özel durumlar</span><span class="sxs-lookup"><span data-stu-id="9c8ee-135">Set firewall exceptions</span></span>](app-insights-ip-addresses.md)
+* [<span data-ttu-id="9c8ee-136">Java Sorun Giderme</span><span class="sxs-lookup"><span data-stu-id="9c8ee-136">Troubleshooting Java</span></span>](app-insights-java-troubleshoot.md)
 
 <!--Link references-->
 

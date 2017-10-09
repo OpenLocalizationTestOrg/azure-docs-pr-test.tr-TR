@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Tidemark | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Tidemark arasında yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Tidemark arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,211 +13,211 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 170dc58363b12ec671c2fab8c80c7720d3dbf352
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4fffee30370d928ae8070a5904c58ba8a7a06343
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a><span data-ttu-id="cea16-103">Öğretici: Azure Active Directory Tümleştirme Tidemark ile</span><span class="sxs-lookup"><span data-stu-id="cea16-103">Tutorial: Azure Active Directory integration with Tidemark</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a><span data-ttu-id="c4554-103">Öğretici: Azure Active Directory Tümleştirme Tidemark ile</span><span class="sxs-lookup"><span data-stu-id="c4554-103">Tutorial: Azure Active Directory integration with Tidemark</span></span>
 
-<span data-ttu-id="cea16-104">Bu öğreticide, Azure Active Directory (Azure AD) ile Tidemark tümleştirmek öğrenin.</span><span class="sxs-lookup"><span data-stu-id="cea16-104">In this tutorial, you learn how to integrate Tidemark with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="c4554-104">Bu öğreticide, bilgi nasıl toointegrate Tidemark Azure Active Directory'ye (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="c4554-104">In this tutorial, you learn how toointegrate Tidemark with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="cea16-105">Tidemark Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="cea16-105">Integrating Tidemark with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="c4554-105">Tidemark Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:</span><span class="sxs-lookup"><span data-stu-id="c4554-105">Integrating Tidemark with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="cea16-106">Tidemark erişimi, Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="cea16-106">You can control in Azure AD who has access to Tidemark</span></span>
-- <span data-ttu-id="cea16-107">Otomatik olarak için Tidemark (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="cea16-107">You can enable your users to automatically get signed-on to Tidemark (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="cea16-108">Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="cea16-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="c4554-106">Erişim tooTidemark sahip Azure AD'de kontrol edebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="c4554-106">You can control in Azure AD who has access tooTidemark</span></span>
+- <span data-ttu-id="c4554-107">Kullanıcıların tooautomatically get açan tooTidemark (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz</span><span class="sxs-lookup"><span data-stu-id="c4554-107">You can enable your users tooautomatically get signed-on tooTidemark (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="c4554-108">Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir</span><span class="sxs-lookup"><span data-stu-id="c4554-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="cea16-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="cea16-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="c4554-109">Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="c4554-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="cea16-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="cea16-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="c4554-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="c4554-110">Prerequisites</span></span>
 
-<span data-ttu-id="cea16-111">Azure AD tümleştirme Tidemark ile yapılandırmak için aşağıdaki öğeleri gerekir:</span><span class="sxs-lookup"><span data-stu-id="cea16-111">To configure Azure AD integration with Tidemark, you need the following items:</span></span>
+<span data-ttu-id="c4554-111">tooconfigure Tidemark ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="c4554-111">tooconfigure Azure AD integration with Tidemark, you need hello following items:</span></span>
 
-- <span data-ttu-id="cea16-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="cea16-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="cea16-113">Bir Tidemark çoklu oturum açma abonelik etkin</span><span class="sxs-lookup"><span data-stu-id="cea16-113">A Tidemark single sign-on enabled subscription</span></span>
+- <span data-ttu-id="c4554-112">Bir Azure AD aboneliği</span><span class="sxs-lookup"><span data-stu-id="c4554-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="c4554-113">Bir Tidemark çoklu oturum açma abonelik etkin</span><span class="sxs-lookup"><span data-stu-id="c4554-113">A Tidemark single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="cea16-114">Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="cea16-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="c4554-114">tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.</span><span class="sxs-lookup"><span data-stu-id="c4554-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="cea16-115">Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="cea16-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="c4554-115">Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:</span><span class="sxs-lookup"><span data-stu-id="c4554-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="cea16-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="cea16-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="cea16-117">Bir Azure AD deneme ortam yoksa, burada bir aylık deneme elde edebilirsiniz: [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="cea16-117">If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="c4554-116">Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="c4554-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="c4554-117">Bir Azure AD deneme ortam yoksa, burada bir aylık deneme elde edebilirsiniz: [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="c4554-117">If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="cea16-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="cea16-118">Scenario description</span></span>
-<span data-ttu-id="cea16-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="cea16-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="cea16-120">Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="cea16-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="c4554-118">Senaryo açıklaması</span><span class="sxs-lookup"><span data-stu-id="c4554-118">Scenario description</span></span>
+<span data-ttu-id="c4554-119">Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.</span><span class="sxs-lookup"><span data-stu-id="c4554-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="c4554-120">Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:</span><span class="sxs-lookup"><span data-stu-id="c4554-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="cea16-121">Galeriden Tidemark ekleme</span><span class="sxs-lookup"><span data-stu-id="cea16-121">Adding Tidemark from the gallery</span></span>
-2. <span data-ttu-id="cea16-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="cea16-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="c4554-121">Merhaba Galerisi'nden Tidemark ekleme</span><span class="sxs-lookup"><span data-stu-id="c4554-121">Adding Tidemark from hello gallery</span></span>
+2. <span data-ttu-id="c4554-122">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="c4554-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-tidemark-from-the-gallery"></a><span data-ttu-id="cea16-123">Galeriden Tidemark ekleme</span><span class="sxs-lookup"><span data-stu-id="cea16-123">Adding Tidemark from the gallery</span></span>
-<span data-ttu-id="cea16-124">Azure AD Tidemark tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Tidemark eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="cea16-124">To configure the integration of Tidemark into Azure AD, you need to add Tidemark from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-tidemark-from-hello-gallery"></a><span data-ttu-id="c4554-123">Merhaba Galerisi'nden Tidemark ekleme</span><span class="sxs-lookup"><span data-stu-id="c4554-123">Adding Tidemark from hello gallery</span></span>
+<span data-ttu-id="c4554-124">Azure AD'ye tooconfigure hello tümleştirme Tidemark, tooadd Tidemark hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.</span><span class="sxs-lookup"><span data-stu-id="c4554-124">tooconfigure hello integration of Tidemark into Azure AD, you need tooadd Tidemark from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="cea16-125">**Galeriden Tidemark eklemek için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="cea16-125">**To add Tidemark from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="c4554-125">**tooadd Tidemark hello galerisinden hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="c4554-125">**tooadd Tidemark from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="cea16-126">İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="cea16-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="c4554-126">Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="c4554-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="cea16-128">Gidin **kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="cea16-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="cea16-129">Ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="cea16-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="c4554-128">Çok gidin**kurumsal uygulamalar**.</span><span class="sxs-lookup"><span data-stu-id="c4554-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="c4554-129">Çok Git**tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="c4554-129">Then go too**All applications**.</span></span>
 
     ![Uygulamalar][2]
     
-3. <span data-ttu-id="cea16-131">Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.</span><span class="sxs-lookup"><span data-stu-id="cea16-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="c4554-131">tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.</span><span class="sxs-lookup"><span data-stu-id="c4554-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Uygulamalar][3]
 
-4. <span data-ttu-id="cea16-133">Arama kutusuna **Tidemark**.</span><span class="sxs-lookup"><span data-stu-id="cea16-133">In the search box, type **Tidemark**.</span></span>
+4. <span data-ttu-id="c4554-133">Merhaba arama kutusuna yazın **Tidemark**.</span><span class="sxs-lookup"><span data-stu-id="c4554-133">In hello search box, type **Tidemark**.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_search.png)
 
-5. <span data-ttu-id="cea16-135">Sonuçlar panelinde seçin **Tidemark**ve ardından **Ekle** uygulama eklemek için düğmesi.</span><span class="sxs-lookup"><span data-stu-id="cea16-135">In the results panel, select **Tidemark**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="c4554-135">Merhaba Sonuçlar panelinde seçin **Tidemark**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.</span><span class="sxs-lookup"><span data-stu-id="c4554-135">In hello results panel, select **Tidemark**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="cea16-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="cea16-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="cea16-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Tidemark sınayın.</span><span class="sxs-lookup"><span data-stu-id="cea16-138">In this section, you configure and test Azure AD single sign-on with Tidemark based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="c4554-137">Çoklu oturum açmayı yapılandırma ve Azure AD sınama</span><span class="sxs-lookup"><span data-stu-id="c4554-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="c4554-138">Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Tidemark sınayın.</span><span class="sxs-lookup"><span data-stu-id="c4554-138">In this section, you configure and test Azure AD single sign-on with Tidemark based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="cea16-139">Tekli çalışmaya oturum için Azure AD Tidemark karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister.</span><span class="sxs-lookup"><span data-stu-id="cea16-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Tidemark is to a user in Azure AD.</span></span> <span data-ttu-id="cea16-140">Diğer bir deyişle, bir Azure AD kullanıcısının Tidemark ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.</span><span class="sxs-lookup"><span data-stu-id="cea16-140">In other words, a link relationship between an Azure AD user and the related user in Tidemark needs to be established.</span></span>
+<span data-ttu-id="c4554-139">Tek toowork'ın oturum açma hangi hello karşılık gelen Tidemark içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir.</span><span class="sxs-lookup"><span data-stu-id="c4554-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Tidemark is tooa user in Azure AD.</span></span> <span data-ttu-id="c4554-140">Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Tidemark hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.</span><span class="sxs-lookup"><span data-stu-id="c4554-140">In other words, a link relationship between an Azure AD user and hello related user in Tidemark needs toobe established.</span></span>
 
-<span data-ttu-id="cea16-141">Tidemark içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="cea16-141">In Tidemark, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="c4554-141">Merhaba hello değeri Tidemark içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.</span><span class="sxs-lookup"><span data-stu-id="c4554-141">In Tidemark, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="cea16-142">Yapılandırma ve Azure AD çoklu oturum açma Tidemark ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="cea16-142">To configure and test Azure AD single sign-on with Tidemark, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="c4554-142">tooconfigure ve Tidemark ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:</span><span class="sxs-lookup"><span data-stu-id="c4554-142">tooconfigure and test Azure AD single sign-on with Tidemark, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="cea16-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="cea16-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="cea16-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.</span><span class="sxs-lookup"><span data-stu-id="cea16-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="cea16-145">**[Tidemark test kullanıcısı oluşturma](#creating-a-tidemark-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Tidemark sağlamak için.</span><span class="sxs-lookup"><span data-stu-id="cea16-145">**[Creating a Tidemark test user](#creating-a-tidemark-test-user)** - to have a counterpart of Britta Simon in Tidemark that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="cea16-146">**[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="cea16-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="cea16-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="cea16-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="c4554-143">**[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.</span><span class="sxs-lookup"><span data-stu-id="c4554-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="c4554-144">**[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.</span><span class="sxs-lookup"><span data-stu-id="c4554-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="c4554-145">**[Tidemark test kullanıcısı oluşturma](#creating-a-tidemark-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Tidemark içinde karşılık gelen.</span><span class="sxs-lookup"><span data-stu-id="c4554-145">**[Creating a Tidemark test user](#creating-a-tidemark-test-user)** - toohave a counterpart of Britta Simon in Tidemark that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="c4554-146">**[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="c4554-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="c4554-147">**[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.</span><span class="sxs-lookup"><span data-stu-id="c4554-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="cea16-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="cea16-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="c4554-148">Azure AD çoklu oturum açmayı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="c4554-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="cea16-149">Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Tidemark uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="cea16-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Tidemark application.</span></span>
+<span data-ttu-id="c4554-149">Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Tidemark uygulamanızda yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="c4554-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Tidemark application.</span></span>
 
-<span data-ttu-id="cea16-150">**Azure AD çoklu oturum açma ile Tidemark yapılandırmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="cea16-150">**To configure Azure AD single sign-on with Tidemark, perform the following steps:**</span></span>
+<span data-ttu-id="c4554-150">**tooconfigure Azure AD çoklu oturum açma ile Tidemark, hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="c4554-150">**tooconfigure Azure AD single sign-on with Tidemark, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="cea16-151">Azure portalında üzerinde **Tidemark** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="cea16-151">In the Azure portal, on the **Tidemark** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="c4554-151">Hello hello üzerinde Azure portal'ın **Tidemark** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.</span><span class="sxs-lookup"><span data-stu-id="c4554-151">In hello Azure portal, on hello **Tidemark** application integration page, click **Single sign-on**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. <span data-ttu-id="cea16-153">Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="cea16-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="c4554-153">Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.</span><span class="sxs-lookup"><span data-stu-id="c4554-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_samlbase.png)
 
-3. <span data-ttu-id="cea16-155">Üzerinde **Tidemark etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="cea16-155">On the **Tidemark Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="c4554-155">Merhaba üzerinde **Tidemark etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="c4554-155">On hello **Tidemark Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_url.png)
 
-    <span data-ttu-id="cea16-157">a.</span><span class="sxs-lookup"><span data-stu-id="cea16-157">a.</span></span> <span data-ttu-id="cea16-158">İçinde **oturum açma URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın:</span><span class="sxs-lookup"><span data-stu-id="cea16-158">In the **Sign-on URL** textbox, type a URL using the following patterns:</span></span> 
+    <span data-ttu-id="c4554-157">a.</span><span class="sxs-lookup"><span data-stu-id="c4554-157">a.</span></span> <span data-ttu-id="c4554-158">Merhaba, **oturum açma URL'si** metin kutusuna, türü aşağıdaki hello kullanarak bir URL düzenleri:</span><span class="sxs-lookup"><span data-stu-id="c4554-158">In hello **Sign-on URL** textbox, type a URL using hello following patterns:</span></span> 
     | |
     |--|
     | `https://<subdomain>.tidemark.com/login` |
     | `https://<subdomain>.tidemark.net/login` |
 
-    <span data-ttu-id="cea16-159">b.</span><span class="sxs-lookup"><span data-stu-id="cea16-159">b.</span></span> <span data-ttu-id="cea16-160">İçinde **tanımlayıcısı** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın:</span><span class="sxs-lookup"><span data-stu-id="cea16-160">In the **Identifier** textbox, type a URL using the following patterns:</span></span> 
+    <span data-ttu-id="c4554-159">b.</span><span class="sxs-lookup"><span data-stu-id="c4554-159">b.</span></span> <span data-ttu-id="c4554-160">Merhaba, **tanımlayıcısı** metin kutusuna, türü aşağıdaki hello kullanarak bir URL düzenleri:</span><span class="sxs-lookup"><span data-stu-id="c4554-160">In hello **Identifier** textbox, type a URL using hello following patterns:</span></span> 
     | |
     |--|
     | `https://<subdomain>.tidemark.com/saml` |
     | `https://<subdomain>.tidemark.net/saml` |
 
     > [!NOTE] 
-    > <span data-ttu-id="cea16-161">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="cea16-161">These values are not real.</span></span> <span data-ttu-id="cea16-162">Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="cea16-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="cea16-163">Kişi [Tidemark istemci destek ekibi](http://www.tidemark.com/contact-us) bu değerleri almak için.</span><span class="sxs-lookup"><span data-stu-id="cea16-163">Contact [Tidemark Client support team](http://www.tidemark.com/contact-us) to get these values.</span></span> 
+    > <span data-ttu-id="c4554-161">Bu değerler gerçek değildir.</span><span class="sxs-lookup"><span data-stu-id="c4554-161">These values are not real.</span></span> <span data-ttu-id="c4554-162">Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="c4554-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="c4554-163">Kişi [Tidemark istemci destek ekibi](http://www.tidemark.com/contact-us) tooget bu değerleri.</span><span class="sxs-lookup"><span data-stu-id="c4554-163">Contact [Tidemark Client support team](http://www.tidemark.com/contact-us) tooget these values.</span></span> 
  
-4. <span data-ttu-id="cea16-164">Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="cea16-164">On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.</span></span>
+4. <span data-ttu-id="c4554-164">Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.</span><span class="sxs-lookup"><span data-stu-id="c4554-164">On hello **SAML Signing Certificate** section, click **Certificate(Base64)** and then save hello certificate file on your computer.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_certificate.png) 
 
-5. <span data-ttu-id="cea16-166">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="cea16-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="c4554-166">Tıklatın **kaydetmek** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="c4554-166">Click **Save** button.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tidemark-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="cea16-168">Üzerinde **Tidemark yapılandırma** 'yi tıklatın **yapılandırma Tidemark** açmak için **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="cea16-168">On the **Tidemark Configuration** section, click **Configure Tidemark** to open **Configure sign-on** window.</span></span> <span data-ttu-id="cea16-169">Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="cea16-169">Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="c4554-168">Merhaba üzerinde **Tidemark yapılandırma** 'yi tıklatın **yapılandırma Tidemark** tooopen **yapılandırma oturum açma** penceresi.</span><span class="sxs-lookup"><span data-stu-id="c4554-168">On hello **Tidemark Configuration** section, click **Configure Tidemark** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="c4554-169">Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**</span><span class="sxs-lookup"><span data-stu-id="c4554-169">Copy hello **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_configure.png) 
 
-7. <span data-ttu-id="cea16-171">Çoklu oturum açma yapılandırmak için **Tidemark** yan, indirilen göndermek için ihtiyacınız **Certificate(Base64), SAML varlık kimliği, Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** için [Tidemark destek ekibi](http://www.tidemark.com/contact-us).</span><span class="sxs-lookup"><span data-stu-id="cea16-171">To configure single sign-on on **Tidemark** side, you need to send the downloaded **Certificate(Base64), SAML Entity ID, Sign-Out URL and SAML Single Sign-On Service URL** to [Tidemark support team](http://www.tidemark.com/contact-us).</span></span> <span data-ttu-id="cea16-172">Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="cea16-172">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+7. <span data-ttu-id="c4554-171">tooconfigure çoklu oturum açma üzerinde **Tidemark** yan, indirilen toosend hello ihtiyacınız **Certificate(Base64), SAML varlık kimliği, Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** çok[Tidemark Takım Destek](http://www.tidemark.com/contact-us).</span><span class="sxs-lookup"><span data-stu-id="c4554-171">tooconfigure single sign-on on **Tidemark** side, you need toosend hello downloaded **Certificate(Base64), SAML Entity ID, Sign-Out URL and SAML Single Sign-On Service URL** too[Tidemark support team](http://www.tidemark.com/contact-us).</span></span> <span data-ttu-id="c4554-172">Bunlar, bu ayar toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="c4554-172">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="cea16-173">Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="cea16-173">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="cea16-174">Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm.</span><span class="sxs-lookup"><span data-stu-id="cea16-174">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="cea16-175">Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="cea16-175">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="c4554-173">Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!</span><span class="sxs-lookup"><span data-stu-id="c4554-173">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="c4554-174">Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına.</span><span class="sxs-lookup"><span data-stu-id="c4554-174">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="c4554-175">Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="c4554-175">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="cea16-176">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="cea16-176">Creating an Azure AD test user</span></span>
-<span data-ttu-id="cea16-177">Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="cea16-177">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="c4554-176">Bir Azure AD test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="c4554-176">Creating an Azure AD test user</span></span>
+<span data-ttu-id="c4554-177">Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.</span><span class="sxs-lookup"><span data-stu-id="c4554-177">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-<span data-ttu-id="cea16-179">**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="cea16-179">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="c4554-179">**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="c4554-179">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="cea16-180">İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="cea16-180">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="c4554-180">Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.</span><span class="sxs-lookup"><span data-stu-id="c4554-180">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tidemark-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="cea16-182">Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="cea16-182">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="c4554-182">Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.</span><span class="sxs-lookup"><span data-stu-id="c4554-182">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tidemark-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="cea16-184">Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.</span><span class="sxs-lookup"><span data-stu-id="cea16-184">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="c4554-184">tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.</span><span class="sxs-lookup"><span data-stu-id="c4554-184">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tidemark-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="cea16-186">Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="cea16-186">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="c4554-186">Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:</span><span class="sxs-lookup"><span data-stu-id="c4554-186">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-tidemark-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="cea16-188">a.</span><span class="sxs-lookup"><span data-stu-id="cea16-188">a.</span></span> <span data-ttu-id="cea16-189">İçinde **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="cea16-189">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="c4554-188">a.</span><span class="sxs-lookup"><span data-stu-id="c4554-188">a.</span></span> <span data-ttu-id="c4554-189">Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="c4554-189">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="cea16-190">b.</span><span class="sxs-lookup"><span data-stu-id="cea16-190">b.</span></span> <span data-ttu-id="cea16-191">İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="cea16-191">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="c4554-190">b.</span><span class="sxs-lookup"><span data-stu-id="c4554-190">b.</span></span> <span data-ttu-id="c4554-191">Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.</span><span class="sxs-lookup"><span data-stu-id="c4554-191">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="cea16-192">c.</span><span class="sxs-lookup"><span data-stu-id="cea16-192">c.</span></span> <span data-ttu-id="cea16-193">Seçin **Göster parola** ve değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="cea16-193">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="c4554-192">c.</span><span class="sxs-lookup"><span data-stu-id="c4554-192">c.</span></span> <span data-ttu-id="c4554-193">Seçin **Göster parola** ve hello hello değerini yazma **parola**.</span><span class="sxs-lookup"><span data-stu-id="c4554-193">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="cea16-194">d.</span><span class="sxs-lookup"><span data-stu-id="cea16-194">d.</span></span> <span data-ttu-id="cea16-195">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="cea16-195">Click **Create**.</span></span>
+    <span data-ttu-id="c4554-194">d.</span><span class="sxs-lookup"><span data-stu-id="c4554-194">d.</span></span> <span data-ttu-id="c4554-195">**Oluştur**'a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="c4554-195">Click **Create**.</span></span>
  
-### <a name="creating-a-tidemark-test-user"></a><span data-ttu-id="cea16-196">Tidemark test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="cea16-196">Creating a Tidemark test user</span></span>
+### <a name="creating-a-tidemark-test-user"></a><span data-ttu-id="c4554-196">Tidemark test kullanıcısı oluşturma</span><span class="sxs-lookup"><span data-stu-id="c4554-196">Creating a Tidemark test user</span></span>
 
-<span data-ttu-id="cea16-197">Bu bölümün amacı Britta Simon içinde Tidemark adlı bir kullanıcı oluşturmaktır.</span><span class="sxs-lookup"><span data-stu-id="cea16-197">The objective of this section is to create a user called Britta Simon in Tidemark.</span></span> <span data-ttu-id="cea16-198">Lütfen çalışmak [Tidemark destek ekibi](http://www.tidemark.com/contact-us) Tidemark hesap kullanıcılar eklemek için.</span><span class="sxs-lookup"><span data-stu-id="cea16-198">Please work with [Tidemark support team](http://www.tidemark.com/contact-us) to add the users in the Tidemark account.</span></span> 
+<span data-ttu-id="c4554-197">Bu bölümde Hello amacı toocreate Britta Simon içinde Tidemark adlı bir kullanıcı ' dir.</span><span class="sxs-lookup"><span data-stu-id="c4554-197">hello objective of this section is toocreate a user called Britta Simon in Tidemark.</span></span> <span data-ttu-id="c4554-198">Lütfen çalışmak [Tidemark destek ekibi](http://www.tidemark.com/contact-us) tooadd hello hello Tidemark hesap kullanıcılar.</span><span class="sxs-lookup"><span data-stu-id="c4554-198">Please work with [Tidemark support team](http://www.tidemark.com/contact-us) tooadd hello users in hello Tidemark account.</span></span> 
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="cea16-199">Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="cea16-199">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="c4554-199">Hello Azure AD test kullanıcısı atama</span><span class="sxs-lookup"><span data-stu-id="c4554-199">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="cea16-200">Bu bölümde, Britta Tidemark için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="cea16-200">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Tidemark.</span></span>
+<span data-ttu-id="c4554-200">Bu bölümde, erişim tooTidemark vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="c4554-200">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooTidemark.</span></span>
 
 ![Kullanıcı atama][200] 
 
-<span data-ttu-id="cea16-202">**Tidemark için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="cea16-202">**To assign Britta Simon to Tidemark, perform the following steps:**</span></span>
+<span data-ttu-id="c4554-202">**tooassign Britta Simon tooTidemark hello aşağıdaki adımları gerçekleştirin:**</span><span class="sxs-lookup"><span data-stu-id="c4554-202">**tooassign Britta Simon tooTidemark, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="cea16-203">Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="cea16-203">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="c4554-203">Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.</span><span class="sxs-lookup"><span data-stu-id="c4554-203">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Kullanıcı atama][201] 
 
-2. <span data-ttu-id="cea16-205">Uygulamalar listesinde **Tidemark**.</span><span class="sxs-lookup"><span data-stu-id="cea16-205">In the applications list, select **Tidemark**.</span></span>
+2. <span data-ttu-id="c4554-205">Merhaba uygulamalar listesinde **Tidemark**.</span><span class="sxs-lookup"><span data-stu-id="c4554-205">In hello applications list, select **Tidemark**.</span></span>
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_app.png) 
 
-3. <span data-ttu-id="cea16-207">Soldaki menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="cea16-207">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="c4554-207">Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.</span><span class="sxs-lookup"><span data-stu-id="c4554-207">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Kullanıcı atama][202] 
 
-4. <span data-ttu-id="cea16-209">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="cea16-209">Click **Add** button.</span></span> <span data-ttu-id="cea16-210">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="cea16-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="c4554-209">Tıklatın **Ekle** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="c4554-209">Click **Add** button.</span></span> <span data-ttu-id="c4554-210">Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="c4554-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Kullanıcı atama][203]
 
-5. <span data-ttu-id="cea16-212">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="cea16-212">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="c4554-212">Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.</span><span class="sxs-lookup"><span data-stu-id="c4554-212">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="cea16-213">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="cea16-213">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="c4554-213">Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.</span><span class="sxs-lookup"><span data-stu-id="c4554-213">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="cea16-214">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="cea16-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="c4554-214">Tıklatın **atamak** düğmesini **eklemek atama** iletişim.</span><span class="sxs-lookup"><span data-stu-id="c4554-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="cea16-215">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="cea16-215">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="c4554-215">Çoklu oturum açmayı test etme</span><span class="sxs-lookup"><span data-stu-id="c4554-215">Testing single sign-on</span></span>
 
-<span data-ttu-id="cea16-216">Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="cea16-216">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="c4554-216">Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.</span><span class="sxs-lookup"><span data-stu-id="c4554-216">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="cea16-217">Erişim paneli Tidemark parçasında tıklattığınızda, otomatik olarak Tidemark uygulamanıza açan.</span><span class="sxs-lookup"><span data-stu-id="cea16-217">When you click the Tidemark tile in the Access Panel, you should get automatically signed-on to your Tidemark application.</span></span>
-<span data-ttu-id="cea16-218">Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="cea16-218">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
+<span data-ttu-id="c4554-217">Merhaba Tidemark hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Tidemark uygulama almanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="c4554-217">When you click hello Tidemark tile in hello Access Panel, you should get automatically signed-on tooyour Tidemark application.</span></span>
+<span data-ttu-id="c4554-218">Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="c4554-218">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="cea16-219">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="cea16-219">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="c4554-219">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="c4554-219">Additional resources</span></span>
 
-* [<span data-ttu-id="cea16-220">Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi</span><span class="sxs-lookup"><span data-stu-id="cea16-220">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="cea16-221">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="cea16-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="c4554-220">İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları</span><span class="sxs-lookup"><span data-stu-id="c4554-220">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="c4554-221">Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?</span><span class="sxs-lookup"><span data-stu-id="c4554-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

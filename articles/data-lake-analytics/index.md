@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Analytics Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Data Lake Analytics ile büyük veri analizi yapmayı öğrenin. Öğreticilerde toplu, gerçek zamanlı ve etkileşimli analiz çalıştırma ve U-SQL sorguları yazma hakkında bilgi sağlanmıştır."
+title: "aaaAzure Data Lake analizi belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Data Lake Analytics ile büyük veri analizi yapmayı öğrenin. Öğreticiler size gösterir nasıl toorun toplu işlem, gerçek zamanlı ve etkileşimli analiz ve nasıl toowrite U-SQL sorguları."
 services: data-lake-analytics
 author: saveenr
 manager: saveenr
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 050965185c0c4b2d6880b74592e640be85678c06
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 515ad4c2a9023e970f1da05785bf3583d37cfccf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-lake-analytics-documentation"></a>Data Lake Analytics Belgeleri
 
-Data Lake Analytics’i kullanarak büyük hacimli veri kümeleri için ölçeklendirilen büyük veri analizi işlerini nasıl çalıştırabileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, toplu, gerçek zamanlı ve etkileşimli analiz işleri oluşturma ve yönetme işlemlerinin yanı sıra U-SQL sorguları yazma ile ilgili bilgiler sunulmuştur.
+Toouse Data Lake Analytics toorun büyük veri analizi, Ölçek toomassive veri kümelerini nasıl işler öğrenin. Öğreticiler ve diğer belgelerin Göster, nasıl toocreate toplu işlem, gerçek zamanlı ve etkileşimli analytics işleri ve nasıl tooquery kullanarak izin ver hello U-SQL dili ve yönetin.
 
 <ul class="panelContent cardsFTitle">
     <li>

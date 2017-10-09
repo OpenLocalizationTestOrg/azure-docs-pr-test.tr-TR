@@ -15,47 +15,47 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: khdang
-ms.openlocfilehash: 27c4d945e418b130c68cfde845571eb93658101e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0be5c9b12cdba4a428c809d00e1e68785a9ec1ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a><span data-ttu-id="34ad1-103">Azure Cosmos DB: Spark ve Apache TinkerPop Gremlin kullanarak grafik analiz gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="34ad1-103">Azure Cosmos DB: Perform graph analytics by using Spark and Apache TinkerPop Gremlin</span></span>
+# <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a><span data-ttu-id="a718e-103">Azure Cosmos DB: Spark ve Apache TinkerPop Gremlin kullanarak grafik analiz gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="a718e-103">Azure Cosmos DB: Perform graph analytics by using Spark and Apache TinkerPop Gremlin</span></span>
 
-<span data-ttu-id="34ad1-104">[Azure Cosmos DB](introduction.md) Microsoft Genel dağıtılmış, birden çok model veritabanı hizmetidir.</span><span class="sxs-lookup"><span data-stu-id="34ad1-104">[Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft.</span></span> <span data-ttu-id="34ad1-105">Oluşturma ve belge, anahtar/değer ve grafik veritabanları, her biri genel dağıtım ve yatay ölçek özellikleri Azure Cosmos DB en yararlı sorgulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="34ad1-105">You can create and query document, key/value, and graph databases, all of which benefit from the global-distribution and horizontal-scale capabilities at the core of Azure Cosmos DB.</span></span> <span data-ttu-id="34ad1-106">Azure Cosmos DB destekleyen kullanın (OLTP) grafik iş yükleri çevrimiçi işlem [Apache TinkerPop Gremlin](graph-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="34ad1-106">Azure Cosmos DB supports online transaction processing (OLTP) graph workloads that use [Apache TinkerPop Gremlin](graph-introduction.md).</span></span>
+<span data-ttu-id="a718e-104">[Azure Cosmos DB](introduction.md) olan hello Microsoft'un Genel dağıtılmış, birden çok model veritabanı hizmeti.</span><span class="sxs-lookup"><span data-stu-id="a718e-104">[Azure Cosmos DB](introduction.md) is hello globally distributed, multi-model database service from Microsoft.</span></span> <span data-ttu-id="a718e-105">Oluşturma ve belge, anahtar/değer ve grafik veritabanları, her biri hello genel dağıtım ve yatay ölçek özelliklerini Azure Cosmos DB'nin hello çekirdek yararlı sorgulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="a718e-105">You can create and query document, key/value, and graph databases, all of which benefit from hello global-distribution and horizontal-scale capabilities at hello core of Azure Cosmos DB.</span></span> <span data-ttu-id="a718e-106">Azure Cosmos DB destekleyen kullanın (OLTP) grafik iş yükleri çevrimiçi işlem [Apache TinkerPop Gremlin](graph-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="a718e-106">Azure Cosmos DB supports online transaction processing (OLTP) graph workloads that use [Apache TinkerPop Gremlin](graph-introduction.md).</span></span>
 
-<span data-ttu-id="34ad1-107">[Spark](http://spark.apache.org/) üzerinde genel amaçlı çevrimiçi analitik işlem (OLAP) veri işleme odaklanan bir Apache Software Foundation projesidir.</span><span class="sxs-lookup"><span data-stu-id="34ad1-107">[Spark](http://spark.apache.org/) is an Apache Software Foundation project that's focused on general-purpose online analytical processing (OLAP) data processing.</span></span> <span data-ttu-id="34ad1-108">Spark Hadoop MapReduce modeline benzer bir karma içinde bellek/disk tabanlı dağıtılmış bilgi işlem modelidir.</span><span class="sxs-lookup"><span data-stu-id="34ad1-108">Spark provides a hybrid in-memory/disk-based distributed computing model that is similar to the Hadoop MapReduce model.</span></span> <span data-ttu-id="34ad1-109">Apache Spark bulutta kullanarak dağıtabilirsiniz [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).</span><span class="sxs-lookup"><span data-stu-id="34ad1-109">You can deploy Apache Spark in the cloud by using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).</span></span>
+<span data-ttu-id="a718e-107">[Spark](http://spark.apache.org/) üzerinde genel amaçlı çevrimiçi analitik işlem (OLAP) veri işleme odaklanan bir Apache Software Foundation projesidir.</span><span class="sxs-lookup"><span data-stu-id="a718e-107">[Spark](http://spark.apache.org/) is an Apache Software Foundation project that's focused on general-purpose online analytical processing (OLAP) data processing.</span></span> <span data-ttu-id="a718e-108">Spark benzer toohello Hadoop MapReduce modeli olan bir karma içinde bellek/disk tabanlı dağıtılmış bilgi işlem modelidir.</span><span class="sxs-lookup"><span data-stu-id="a718e-108">Spark provides a hybrid in-memory/disk-based distributed computing model that is similar toohello Hadoop MapReduce model.</span></span> <span data-ttu-id="a718e-109">Apache Spark hello bulutta kullanarak dağıtabilirsiniz [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).</span><span class="sxs-lookup"><span data-stu-id="a718e-109">You can deploy Apache Spark in hello cloud by using [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).</span></span>
 
-<span data-ttu-id="34ad1-110">Azure Cosmos DB ve Spark birleştirerek Gremlin kullandığınızda OLTP ve OLAP iş yüklerinin gerçekleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="34ad1-110">By combining Azure Cosmos DB and Spark, you can perform both OLTP and OLAP workloads when you use Gremlin.</span></span> <span data-ttu-id="34ad1-111">Bu hızlı başlangıç makale bir Azure Hdınsight Spark kümesinde Azure Cosmos DB karşı Gremlin sorguları çalıştırmak gösterilmiştir.</span><span class="sxs-lookup"><span data-stu-id="34ad1-111">This quick-start article demonstrates how to run Gremlin queries against Azure Cosmos DB on an Azure HDInsight Spark cluster.</span></span>
+<span data-ttu-id="a718e-110">Azure Cosmos DB ve Spark birleştirerek Gremlin kullandığınızda OLTP ve OLAP iş yüklerinin gerçekleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="a718e-110">By combining Azure Cosmos DB and Spark, you can perform both OLTP and OLAP workloads when you use Gremlin.</span></span> <span data-ttu-id="a718e-111">Bu hızlı başlangıç makalede toorun Gremlin Azure Cosmos DB karşı bir Azure Hdınsight Spark kümesinde nasıl sorgular gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="a718e-111">This quick-start article demonstrates how toorun Gremlin queries against Azure Cosmos DB on an Azure HDInsight Spark cluster.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="34ad1-112">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="34ad1-112">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="a718e-112">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="a718e-112">Prerequisites</span></span>
 
-<span data-ttu-id="34ad1-113">Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="34ad1-113">Before you can run this sample, you must have the following prerequisites:</span></span>
-* <span data-ttu-id="34ad1-114">Azure Hdınsight Spark kümesinde 2.0</span><span class="sxs-lookup"><span data-stu-id="34ad1-114">Azure HDInsight Spark cluster 2.0</span></span>
-* <span data-ttu-id="34ad1-115">JDK 1.8 + (JDK yoksa çalıştırmak `apt-get install default-jdk`.)</span><span class="sxs-lookup"><span data-stu-id="34ad1-115">JDK 1.8+ (If you don't have JDK, run `apt-get install default-jdk`.)</span></span>
-* <span data-ttu-id="34ad1-116">Maven (Maven yoksa, çalıştırmak `apt-get install maven`.)</span><span class="sxs-lookup"><span data-stu-id="34ad1-116">Maven (If you don't have Maven, run `apt-get install maven`.)</span></span>
-* <span data-ttu-id="34ad1-117">Bir Azure aboneliği ([!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)])</span><span class="sxs-lookup"><span data-stu-id="34ad1-117">An Azure subscription ([!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)])</span></span>
+<span data-ttu-id="a718e-113">Bu örneği çalıştırmadan önce aşağıdaki önkoşullar hello sahip olmanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="a718e-113">Before you can run this sample, you must have hello following prerequisites:</span></span>
+* <span data-ttu-id="a718e-114">Azure Hdınsight Spark kümesinde 2.0</span><span class="sxs-lookup"><span data-stu-id="a718e-114">Azure HDInsight Spark cluster 2.0</span></span>
+* <span data-ttu-id="a718e-115">JDK 1.8 + (JDK yoksa çalıştırmak `apt-get install default-jdk`.)</span><span class="sxs-lookup"><span data-stu-id="a718e-115">JDK 1.8+ (If you don't have JDK, run `apt-get install default-jdk`.)</span></span>
+* <span data-ttu-id="a718e-116">Maven (Maven yoksa, çalıştırmak `apt-get install maven`.)</span><span class="sxs-lookup"><span data-stu-id="a718e-116">Maven (If you don't have Maven, run `apt-get install maven`.)</span></span>
+* <span data-ttu-id="a718e-117">Bir Azure aboneliği ([!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)])</span><span class="sxs-lookup"><span data-stu-id="a718e-117">An Azure subscription ([!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)])</span></span>
 
-<span data-ttu-id="34ad1-118">Bir Azure Hdınsight Spark kümesi hakkında daha fazla bilgi için bkz: [sağlama Hdınsight kümeleri](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).</span><span class="sxs-lookup"><span data-stu-id="34ad1-118">For information about how to set up an Azure HDInsight Spark cluster, see [Provisioning HDInsight clusters](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).</span></span>
+<span data-ttu-id="a718e-118">Hakkında bilgi için bir Azure Hdınsight Spark kümesi tooset bkz [sağlama Hdınsight kümeleri](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).</span><span class="sxs-lookup"><span data-stu-id="a718e-118">For information about how tooset up an Azure HDInsight Spark cluster, see [Provisioning HDInsight clusters](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).</span></span>
 
-## <a name="create-an-azure-cosmos-db-database-account"></a><span data-ttu-id="34ad1-119">Bir Azure Cosmos DB veritabanı hesabı oluşturma</span><span class="sxs-lookup"><span data-stu-id="34ad1-119">Create an Azure Cosmos DB database account</span></span>
+## <a name="create-an-azure-cosmos-db-database-account"></a><span data-ttu-id="a718e-119">Bir Azure Cosmos DB veritabanı hesabı oluşturma</span><span class="sxs-lookup"><span data-stu-id="a718e-119">Create an Azure Cosmos DB database account</span></span>
 
-<span data-ttu-id="34ad1-120">İlk olarak, aşağıdakileri yaparak grafik API'si ile bir veritabanı hesabı oluşturun:</span><span class="sxs-lookup"><span data-stu-id="34ad1-120">First, create a database account with the Graph API by doing the following:</span></span>
+<span data-ttu-id="a718e-120">İlk olarak, bir veritabanı hesabı hello grafik API'si ile Merhaba aşağıdakileri yaparak oluşturun:</span><span class="sxs-lookup"><span data-stu-id="a718e-120">First, create a database account with hello Graph API by doing hello following:</span></span>
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a><span data-ttu-id="34ad1-121">Koleksiyon ekleme</span><span class="sxs-lookup"><span data-stu-id="34ad1-121">Add a collection</span></span>
+## <a name="add-a-collection"></a><span data-ttu-id="a718e-121">Koleksiyon ekleme</span><span class="sxs-lookup"><span data-stu-id="a718e-121">Add a collection</span></span>
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="get-apache-tinkerpop"></a><span data-ttu-id="34ad1-122">Apache TinkerPop Al</span><span class="sxs-lookup"><span data-stu-id="34ad1-122">Get Apache TinkerPop</span></span>
+## <a name="get-apache-tinkerpop"></a><span data-ttu-id="a718e-122">Apache TinkerPop Al</span><span class="sxs-lookup"><span data-stu-id="a718e-122">Get Apache TinkerPop</span></span>
 
-<span data-ttu-id="34ad1-123">Aşağıdakileri yaparak Apache TinkerPop alın:</span><span class="sxs-lookup"><span data-stu-id="34ad1-123">Get Apache TinkerPop by doing the following:</span></span>
+<span data-ttu-id="a718e-123">Apache TinkerPop hello aşağıdakileri yaparak alın:</span><span class="sxs-lookup"><span data-stu-id="a718e-123">Get Apache TinkerPop by doing hello following:</span></span>
 
-1. <span data-ttu-id="34ad1-124">Hdınsight küme ana düğümünün uzak `ssh tinkerpop3-cosmosdb-demo-ssh.azurehdinsight.net`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-124">Remote to the master node of the HDInsight cluster `ssh tinkerpop3-cosmosdb-demo-ssh.azurehdinsight.net`.</span></span>
+1. <span data-ttu-id="a718e-124">Uzak toohello ana hello Hdınsight küme düğümünün `ssh tinkerpop3-cosmosdb-demo-ssh.azurehdinsight.net`.</span><span class="sxs-lookup"><span data-stu-id="a718e-124">Remote toohello master node of hello HDInsight cluster `ssh tinkerpop3-cosmosdb-demo-ssh.azurehdinsight.net`.</span></span>
 
-2. <span data-ttu-id="34ad1-125">TinkerPop3 kaynak kodunu kopyalama, yerel olarak oluşturun ve Maven önbelleğine yükleyin.</span><span class="sxs-lookup"><span data-stu-id="34ad1-125">Clone the TinkerPop3 source code, build it locally, and install it to Maven cache.</span></span>
+2. <span data-ttu-id="a718e-125">Merhaba TinkerPop3 kaynak kodunu kopyalama, yerel olarak oluşturun ve tooMaven önbellek yükleyin.</span><span class="sxs-lookup"><span data-stu-id="a718e-125">Clone hello TinkerPop3 source code, build it locally, and install it tooMaven cache.</span></span>
 
     ```bash
     git clone https://github.com/apache/tinkerpop.git
@@ -63,11 +63,11 @@ ms.lasthandoff: 07/11/2017
     mvn clean install
     ```
 
-3. <span data-ttu-id="34ad1-126">Spark-Gremlin eklentisini yükleme</span><span class="sxs-lookup"><span data-stu-id="34ad1-126">Install the Spark-Gremlin plug-in</span></span> 
+3. <span data-ttu-id="a718e-126">Merhaba Spark-Gremlin eklentisini yükleme</span><span class="sxs-lookup"><span data-stu-id="a718e-126">Install hello Spark-Gremlin plug-in</span></span> 
 
-    <span data-ttu-id="34ad1-127">a.</span><span class="sxs-lookup"><span data-stu-id="34ad1-127">a.</span></span> <span data-ttu-id="34ad1-128">Eklenti yüklemesi üzüm tarafından işlenir.</span><span class="sxs-lookup"><span data-stu-id="34ad1-128">The installation of the plug-in is handled by Grape.</span></span> <span data-ttu-id="34ad1-129">Eklenti indirebilirsiniz şekilde üzüm ve bağımlılıklarını depoları bilgileri doldurun.</span><span class="sxs-lookup"><span data-stu-id="34ad1-129">Populate the repositories information for Grape so it can download the plug-in and its dependencies.</span></span> 
+    <span data-ttu-id="a718e-127">a.</span><span class="sxs-lookup"><span data-stu-id="a718e-127">a.</span></span> <span data-ttu-id="a718e-128">Merhaba eklenti Hello yüklemesini üzüm tarafından işlenir.</span><span class="sxs-lookup"><span data-stu-id="a718e-128">hello installation of hello plug-in is handled by Grape.</span></span> <span data-ttu-id="a718e-129">Merhaba eklenti ve bağımlılıklarını karşıdan yükleyebileceğiniz şekilde hello depoları bilgi üzüm için doldurun.</span><span class="sxs-lookup"><span data-stu-id="a718e-129">Populate hello repositories information for Grape so it can download hello plug-in and its dependencies.</span></span> 
 
-      <span data-ttu-id="34ad1-130">Konumunda mevcut değilse üzümlü yapılandırma dosyası oluşturma `~/.groovy/grapeConfig.xml`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-130">Create the grape configuration file if it's not present at `~/.groovy/grapeConfig.xml`.</span></span> <span data-ttu-id="34ad1-131">Aşağıdaki ayarları kullanın:</span><span class="sxs-lookup"><span data-stu-id="34ad1-131">Use the following settings:</span></span>
+      <span data-ttu-id="a718e-130">Konumunda mevcut değilse hello üzümlü yapılandırma dosyası oluşturma `~/.groovy/grapeConfig.xml`.</span><span class="sxs-lookup"><span data-stu-id="a718e-130">Create hello grape configuration file if it's not present at `~/.groovy/grapeConfig.xml`.</span></span> <span data-ttu-id="a718e-131">Ayarları aşağıdaki hello kullan:</span><span class="sxs-lookup"><span data-stu-id="a718e-131">Use hello following settings:</span></span>
 
     ```xml
     <ivysettings>
@@ -89,9 +89,9 @@ ms.lasthandoff: 07/11/2017
     </ivysettings>
     ``` 
 
-    <span data-ttu-id="34ad1-132">b.</span><span class="sxs-lookup"><span data-stu-id="34ad1-132">b.</span></span> <span data-ttu-id="34ad1-133">Gremlin konsolunu başlatın `bin/gremlin.sh`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-133">Start Gremlin console `bin/gremlin.sh`.</span></span>
+    <span data-ttu-id="a718e-132">b.</span><span class="sxs-lookup"><span data-stu-id="a718e-132">b.</span></span> <span data-ttu-id="a718e-133">Gremlin konsolunu başlatın `bin/gremlin.sh`.</span><span class="sxs-lookup"><span data-stu-id="a718e-133">Start Gremlin console `bin/gremlin.sh`.</span></span>
         
-    <span data-ttu-id="34ad1-134">c.</span><span class="sxs-lookup"><span data-stu-id="34ad1-134">c.</span></span> <span data-ttu-id="34ad1-135">Spark-Gremlin eklenti sürümüyle yükleyin önceki adımlarda oluşturduğunuz 3.3.0-SNAPSHOT:</span><span class="sxs-lookup"><span data-stu-id="34ad1-135">Install the Spark-Gremlin plug-in with version 3.3.0-SNAPSHOT, which you built in the previous steps:</span></span>
+    <span data-ttu-id="a718e-134">c.</span><span class="sxs-lookup"><span data-stu-id="a718e-134">c.</span></span> <span data-ttu-id="a718e-135">Merhaba Gremlin eklenti Spark sürümüyle yükleyin hello önceki adımlarda oluşturduğunuz 3.3.0-SNAPSHOT:</span><span class="sxs-lookup"><span data-stu-id="a718e-135">Install hello Spark-Gremlin plug-in with version 3.3.0-SNAPSHOT, which you built in hello previous steps:</span></span>
 
     ```bash
     $ bin/gremlin.sh
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/11/2017
     plugin activated: tinkerpop.utilities
     plugin activated: tinkerpop.tinkergraph
     gremlin> :install org.apache.tinkerpop spark-gremlin 3.3.0-SNAPSHOT
-    ==>loaded: [org.apache.tinkerpop, spark-gremlin, 3.3.0-SNAPSHOT] - restart the console to use [tinkerpop.spark]
+    ==>loaded: [org.apache.tinkerpop, spark-gremlin, 3.3.0-SNAPSHOT] - restart hello console toouse [tinkerpop.spark]
     gremlin> :q
     $ bin/gremlin.sh
 
@@ -117,17 +117,17 @@ ms.lasthandoff: 07/11/2017
     ==>tinkerpop.spark activated
     ```
 
-4. <span data-ttu-id="34ad1-136">Denetleyin olup olmadığını `Hadoop-Gremlin` ile etkinleştirilen `:plugin list`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-136">Check to see whether `Hadoop-Gremlin` is activated with `:plugin list`.</span></span> <span data-ttu-id="34ad1-137">Devre dışı bırak Spark-Gremlin ile eklenti engelleyebilir çünkü bu eklenti `:plugin unuse tinkerpop.hadoop`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-137">Disable this plug-in, because it could interfere with the Spark-Gremlin plug-in `:plugin unuse tinkerpop.hadoop`.</span></span>
+4. <span data-ttu-id="a718e-136">Toosee olup olmadığını denetleyin `Hadoop-Gremlin` ile etkinleştirilen `:plugin list`.</span><span class="sxs-lookup"><span data-stu-id="a718e-136">Check toosee whether `Hadoop-Gremlin` is activated with `:plugin list`.</span></span> <span data-ttu-id="a718e-137">Devre dışı bırak Spark Gremlin hello ile eklenti engel çünkü bu eklenti `:plugin unuse tinkerpop.hadoop`.</span><span class="sxs-lookup"><span data-stu-id="a718e-137">Disable this plug-in, because it could interfere with hello Spark-Gremlin plug-in `:plugin unuse tinkerpop.hadoop`.</span></span>
 
-## <a name="prepare-tinkerpop3-dependencies"></a><span data-ttu-id="34ad1-138">TinkerPop3 bağımlılıkları hazırlama</span><span class="sxs-lookup"><span data-stu-id="34ad1-138">Prepare TinkerPop3 dependencies</span></span>
+## <a name="prepare-tinkerpop3-dependencies"></a><span data-ttu-id="a718e-138">TinkerPop3 bağımlılıkları hazırlama</span><span class="sxs-lookup"><span data-stu-id="a718e-138">Prepare TinkerPop3 dependencies</span></span>
 
-<span data-ttu-id="34ad1-139">Önceki adımda TinkerPop3 yapılandırıldığında, işlem de tüm jar bağımlılıkları Spark ve Hadoop için hedef dizinde çekilen.</span><span class="sxs-lookup"><span data-stu-id="34ad1-139">When you built TinkerPop3 in the previous step, the process also pulled all jar dependencies for Spark and Hadoop in the target directory.</span></span> <span data-ttu-id="34ad1-140">HDI ile önceden yüklenmiş ve ek bağımlılıklar yalnızca gerektiğinde isteme Kavanoz kullanın.</span><span class="sxs-lookup"><span data-stu-id="34ad1-140">Use the jars that are pre-installed with HDI, and pull in additional dependencies only as necessary.</span></span>
+<span data-ttu-id="a718e-139">Merhaba önceki adımda TinkerPop3 yapılandırıldığında hello işlem de tüm jar bağımlılıkları Spark ve Hadoop için hello hedef dizinde çekilen.</span><span class="sxs-lookup"><span data-stu-id="a718e-139">When you built TinkerPop3 in hello previous step, hello process also pulled all jar dependencies for Spark and Hadoop in hello target directory.</span></span> <span data-ttu-id="a718e-140">HDI ile önceden yüklenmiş ve ek bağımlılıklar yalnızca gerektiğinde isteme hello Kavanoz kullanın.</span><span class="sxs-lookup"><span data-stu-id="a718e-140">Use hello jars that are pre-installed with HDI, and pull in additional dependencies only as necessary.</span></span>
 
-1. <span data-ttu-id="34ad1-141">Gremlin konsol hedef dizininde gidin `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-141">Go to the Gremlin Console target directory at `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`.</span></span> 
+1. <span data-ttu-id="a718e-141">Git toohello Gremlin konsol hedef dizininde `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`.</span><span class="sxs-lookup"><span data-stu-id="a718e-141">Go toohello Gremlin Console target directory at `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`.</span></span> 
 
-2. <span data-ttu-id="34ad1-142">Tüm Kavanoz altında taşıma `ext/` için `lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-142">Move all jars under `ext/` to `lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`.</span></span>
+2. <span data-ttu-id="a718e-142">Tüm Kavanoz altında taşıma `ext/` çok`lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`.</span><span class="sxs-lookup"><span data-stu-id="a718e-142">Move all jars under `ext/` too`lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`.</span></span>
 
-3. <span data-ttu-id="34ad1-143">Tüm jar kitaplıkları altında Kaldır `lib/` aşağıdaki listede olmayan:</span><span class="sxs-lookup"><span data-stu-id="34ad1-143">Remove all jar libraries under `lib/` that are not in the following list:</span></span>
+3. <span data-ttu-id="a718e-143">Tüm jar kitaplıkları altında Kaldır `lib/` içinde değil hello listesi izliyorsanız:</span><span class="sxs-lookup"><span data-stu-id="a718e-143">Remove all jar libraries under `lib/` that are not in hello following list:</span></span>
 
     ```bash
     # TinkerPop3
@@ -174,15 +174,15 @@ ms.lasthandoff: 07/11/2017
     xml-apis-1.3.04.jar                        
     ```
 
-## <a name="get-the-azure-cosmos-db-spark-connector"></a><span data-ttu-id="34ad1-144">Azure Cosmos DB Spark Bağlayıcısı'nı al</span><span class="sxs-lookup"><span data-stu-id="34ad1-144">Get the Azure Cosmos DB Spark connector</span></span>
+## <a name="get-hello-azure-cosmos-db-spark-connector"></a><span data-ttu-id="a718e-144">Hello Azure Cosmos DB Spark bağlayıcı Al</span><span class="sxs-lookup"><span data-stu-id="a718e-144">Get hello Azure Cosmos DB Spark connector</span></span>
 
-1. <span data-ttu-id="34ad1-145">Azure Cosmos DB Spark bağlayıcı almak `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` ve Cosmos DB Java SDK'sı `azure-documentdb-1.10.0.jar` gelen [Azure Cosmos DB Spark Bağlayıcısı github'da](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).</span><span class="sxs-lookup"><span data-stu-id="34ad1-145">Get the Azure Cosmos DB Spark connector `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` and Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` from [Azure Cosmos DB Spark Connector on GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).</span></span>
+1. <span data-ttu-id="a718e-145">Hello Azure Cosmos DB Spark bağlayıcı almak `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` ve Cosmos DB Java SDK'sı `azure-documentdb-1.10.0.jar` gelen [Azure Cosmos DB Spark Bağlayıcısı github'da](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).</span><span class="sxs-lookup"><span data-stu-id="a718e-145">Get hello Azure Cosmos DB Spark connector `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` and Cosmos DB Java SDK `azure-documentdb-1.10.0.jar` from [Azure Cosmos DB Spark Connector on GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).</span></span>
 
-2. <span data-ttu-id="34ad1-146">Alternatif olarak, onu yerel olarak oluşturabilir.</span><span class="sxs-lookup"><span data-stu-id="34ad1-146">Alternatively, you can build it locally.</span></span> <span data-ttu-id="34ad1-147">Spark Gremlin en son sürümünü 1.6.1 Spark ile oluşturulmuş ve Azure Cosmos DB Spark bağlayıcıda şu anda kullanılan, Spark ile 2.0.2, uyumlu olmadığından son TinkerPop3 kodu derleyin ve Kavanoz el ile yükleyin.</span><span class="sxs-lookup"><span data-stu-id="34ad1-147">Because the latest version of Spark-Gremlin was built with Spark 1.6.1 and is not compatible with Spark 2.0.2, which is currently used in the Azure Cosmos DB Spark connector, you can build the latest TinkerPop3 code and install the jars manually.</span></span> <span data-ttu-id="34ad1-148">Şunları yapın:</span><span class="sxs-lookup"><span data-stu-id="34ad1-148">Do the following:</span></span>
+2. <span data-ttu-id="a718e-146">Alternatif olarak, onu yerel olarak oluşturabilir.</span><span class="sxs-lookup"><span data-stu-id="a718e-146">Alternatively, you can build it locally.</span></span> <span data-ttu-id="a718e-147">Spark Gremlin en son sürümünü Hello 1.6.1 Spark ile oluşturulmuş ve hello Azure Cosmos DB Spark Bağlayıcısı şu anda kullanılan, Spark ile 2.0.2, uyumlu olmadığından hello son TinkerPop3 kodu derleyin ve hello Kavanoz el ile yükleyin.</span><span class="sxs-lookup"><span data-stu-id="a718e-147">Because hello latest version of Spark-Gremlin was built with Spark 1.6.1 and is not compatible with Spark 2.0.2, which is currently used in hello Azure Cosmos DB Spark connector, you can build hello latest TinkerPop3 code and install hello jars manually.</span></span> <span data-ttu-id="a718e-148">Aşağıdaki hello:</span><span class="sxs-lookup"><span data-stu-id="a718e-148">Do hello following:</span></span>
 
-    <span data-ttu-id="34ad1-149">a.</span><span class="sxs-lookup"><span data-stu-id="34ad1-149">a.</span></span> <span data-ttu-id="34ad1-150">Azure Cosmos DB Spark Bağlayıcısı'nı kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="34ad1-150">Clone the Azure Cosmos DB Spark connector.</span></span>
+    <span data-ttu-id="a718e-149">a.</span><span class="sxs-lookup"><span data-stu-id="a718e-149">a.</span></span> <span data-ttu-id="a718e-150">Hello Azure Cosmos DB Spark bağlayıcı kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="a718e-150">Clone hello Azure Cosmos DB Spark connector.</span></span>
 
-    <span data-ttu-id="34ad1-151">b.</span><span class="sxs-lookup"><span data-stu-id="34ad1-151">b.</span></span> <span data-ttu-id="34ad1-152">(Önceki adımlarda zaten yapılır) TinkerPop3 oluşturun.</span><span class="sxs-lookup"><span data-stu-id="34ad1-152">Build TinkerPop3 (already done in previous steps).</span></span> <span data-ttu-id="34ad1-153">Tüm TinkerPop 3.3.0-SNAPSHOT Kavanoz yerel olarak yükleyin.</span><span class="sxs-lookup"><span data-stu-id="34ad1-153">Install all TinkerPop 3.3.0-SNAPSHOT jars locally.</span></span>
+    <span data-ttu-id="a718e-151">b.</span><span class="sxs-lookup"><span data-stu-id="a718e-151">b.</span></span> <span data-ttu-id="a718e-152">(Önceki adımlarda zaten yapılır) TinkerPop3 oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a718e-152">Build TinkerPop3 (already done in previous steps).</span></span> <span data-ttu-id="a718e-153">Tüm TinkerPop 3.3.0-SNAPSHOT Kavanoz yerel olarak yükleyin.</span><span class="sxs-lookup"><span data-stu-id="a718e-153">Install all TinkerPop 3.3.0-SNAPSHOT jars locally.</span></span>
 
     ```bash
     mvn install:install-file -Dfile="gremlin-core-3.3.0-SNAPSHOT.jar" -DgroupId=org.apache.tinkerpop -DartifactId=gremlin-core -Dversion=3.3.0-SNAPSHOT -Dpackaging=jar
@@ -193,9 +193,9 @@ ms.lasthandoff: 07/11/2017
     mvn install:install-file -Dfile="tinkergraph-gremlin-3.3.0-SNAPSHOT.jar" -DgroupId=org.apache.tinkerpop -DartifactId=tinkergraph-gremlin -Dversion=3.3.0-SNAPSHOT -Dpackaging=jar`
     ```
 
-    <span data-ttu-id="34ad1-154">c.</span><span class="sxs-lookup"><span data-stu-id="34ad1-154">c.</span></span> <span data-ttu-id="34ad1-155">Güncelleştirme `tinkerpop.version` `azure-documentdb-spark/pom.xml` için `3.3.0-SNAPSHOT`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-155">Update `tinkerpop.version` `azure-documentdb-spark/pom.xml` to `3.3.0-SNAPSHOT`.</span></span>
+    <span data-ttu-id="a718e-154">c.</span><span class="sxs-lookup"><span data-stu-id="a718e-154">c.</span></span> <span data-ttu-id="a718e-155">Güncelleştirme `tinkerpop.version` `azure-documentdb-spark/pom.xml` çok`3.3.0-SNAPSHOT`.</span><span class="sxs-lookup"><span data-stu-id="a718e-155">Update `tinkerpop.version` `azure-documentdb-spark/pom.xml` too`3.3.0-SNAPSHOT`.</span></span>
     
-    <span data-ttu-id="34ad1-156">d.</span><span class="sxs-lookup"><span data-stu-id="34ad1-156">d.</span></span> <span data-ttu-id="34ad1-157">Maven ile oluşturun.</span><span class="sxs-lookup"><span data-stu-id="34ad1-157">Build with Maven.</span></span> <span data-ttu-id="34ad1-158">Gerekli Kavanoz yerleştirilir `target` ve `target/alternateLocation`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-158">The needed jars are placed in `target` and `target/alternateLocation`.</span></span>
+    <span data-ttu-id="a718e-156">d.</span><span class="sxs-lookup"><span data-stu-id="a718e-156">d.</span></span> <span data-ttu-id="a718e-157">Maven ile oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a718e-157">Build with Maven.</span></span> <span data-ttu-id="a718e-158">Merhaba gerekli Kavanoz yerleştirilir `target` ve `target/alternateLocation`.</span><span class="sxs-lookup"><span data-stu-id="a718e-158">hello needed jars are placed in `target` and `target/alternateLocation`.</span></span>
 
     ```bash
     git clone https://github.com/Azure/azure-cosmosdb-spark.git
@@ -203,7 +203,7 @@ ms.lasthandoff: 07/11/2017
     mvn clean package
     ```
 
-3. <span data-ttu-id="34ad1-159">Yukarıda açıklanan Kavanoz yerel bir dizine kopyalayın ~ / azure-documentdb-spark:</span><span class="sxs-lookup"><span data-stu-id="34ad1-159">Copy the previously mentioned jars to a local directory at ~/azure-documentdb-spark:</span></span>
+3. <span data-ttu-id="a718e-159">Kopya hello Kavanoz tooa yerel dizininde daha önce bahsedilen ~ / azure-documentdb-spark:</span><span class="sxs-lookup"><span data-stu-id="a718e-159">Copy hello previously mentioned jars tooa local directory at ~/azure-documentdb-spark:</span></span>
 
     ```bash
     $ azure-documentdb-spark:
@@ -212,22 +212,22 @@ ms.lasthandoff: 07/11/2017
     cp target/alternateLocation/azure-documentdb-1.10.0.jar ~/azure-documentdb-spark
     ```
 
-## <a name="distribute-the-dependencies-to-the-spark-worker-nodes"></a><span data-ttu-id="34ad1-160">Spark çalışan düğümlerine bağımlılıkları Dağıt</span><span class="sxs-lookup"><span data-stu-id="34ad1-160">Distribute the dependencies to the Spark worker nodes</span></span> 
+## <a name="distribute-hello-dependencies-toohello-spark-worker-nodes"></a><span data-ttu-id="a718e-160">Merhaba bağımlılıkları toohello Spark çalışan düğümleri Dağıt</span><span class="sxs-lookup"><span data-stu-id="a718e-160">Distribute hello dependencies toohello Spark worker nodes</span></span> 
 
-1. <span data-ttu-id="34ad1-161">Grafik verileri dönüştürme TinkerPop3 üzerinde bağımlı olduğundan, tüm Spark çalışan düğümleri için ilgili bağımlılıkları dağıtmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="34ad1-161">Because the transformation of graph data depends on TinkerPop3, you must distribute the related dependencies to all Spark worker nodes.</span></span>
+1. <span data-ttu-id="a718e-161">Grafik verileri Hello dönüşümü TinkerPop3 üzerinde bağımlı olduğundan dağıtmalısınız hello ilgili bağımlılıkları tooall Spark çalışan düğümleri.</span><span class="sxs-lookup"><span data-stu-id="a718e-161">Because hello transformation of graph data depends on TinkerPop3, you must distribute hello related dependencies tooall Spark worker nodes.</span></span>
 
-2. <span data-ttu-id="34ad1-162">Yukarıda açıklanan Gremlin bağımlılıkları, CosmosDB Spark bağlayıcı jar ve CosmosDB Java SDK'sı aşağıdakileri yaparak çalışan düğümlerine kopyalayın:</span><span class="sxs-lookup"><span data-stu-id="34ad1-162">Copy the previously mentioned Gremlin dependencies, the CosmosDB Spark connector jar, and CosmosDB Java SDK to the worker nodes by doing the following:</span></span>
+2. <span data-ttu-id="a718e-162">Kopya hello daha önce Gremlin bağımlılıklar, hello CosmosDB Spark bağlayıcı jar ve CosmosDB Java SDK'sı toohello çalışan düğümleri hello aşağıdakileri yaparak bahsedilen:</span><span class="sxs-lookup"><span data-stu-id="a718e-162">Copy hello previously mentioned Gremlin dependencies, hello CosmosDB Spark connector jar, and CosmosDB Java SDK toohello worker nodes by doing hello following:</span></span>
 
-    <span data-ttu-id="34ad1-163">a.</span><span class="sxs-lookup"><span data-stu-id="34ad1-163">a.</span></span> <span data-ttu-id="34ad1-164">İçine tüm Kavanoz kopyalama `~/azure-documentdb-spark`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-164">Copy all the jars into `~/azure-documentdb-spark`.</span></span>
+    <span data-ttu-id="a718e-163">a.</span><span class="sxs-lookup"><span data-stu-id="a718e-163">a.</span></span> <span data-ttu-id="a718e-164">Tüm hello Kavanoz içine kopyalamak `~/azure-documentdb-spark`.</span><span class="sxs-lookup"><span data-stu-id="a718e-164">Copy all hello jars into `~/azure-documentdb-spark`.</span></span>
 
     ```bash
     $ /home/sshuser/tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone:
     cp lib/* ~/azure-documentdb-spark
     ```
 
-    <span data-ttu-id="34ad1-165">b.</span><span class="sxs-lookup"><span data-stu-id="34ad1-165">b.</span></span> <span data-ttu-id="34ad1-166">Ambari panosunda içinde bulabileceğiniz tüm Spark çalışan düğümlerinin listesine al `Spark2 Clients` listesinde `Spark2` bölümü.</span><span class="sxs-lookup"><span data-stu-id="34ad1-166">Get the list of all Spark worker nodes, which you can find on Ambari Dashboard, in the `Spark2 Clients` list in the `Spark2` section.</span></span>
+    <span data-ttu-id="a718e-165">b.</span><span class="sxs-lookup"><span data-stu-id="a718e-165">b.</span></span> <span data-ttu-id="a718e-166">Ambari panosunda hello bulabileceğiniz tüm Spark çalışan düğümleri Hello listesini almak `Spark2 Clients` hello listesinde `Spark2` bölümü.</span><span class="sxs-lookup"><span data-stu-id="a718e-166">Get hello list of all Spark worker nodes, which you can find on Ambari Dashboard, in hello `Spark2 Clients` list in hello `Spark2` section.</span></span>
 
-    <span data-ttu-id="34ad1-167">c.</span><span class="sxs-lookup"><span data-stu-id="34ad1-167">c.</span></span> <span data-ttu-id="34ad1-168">Bu dizine her düğümlerin kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="34ad1-168">Copy that directory to each of the nodes.</span></span>
+    <span data-ttu-id="a718e-167">c.</span><span class="sxs-lookup"><span data-stu-id="a718e-167">c.</span></span> <span data-ttu-id="a718e-168">Bu dizin tooeach hello düğümlerinin kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="a718e-168">Copy that directory tooeach of hello nodes.</span></span>
 
     ```bash
     scp -r ~/azure-documentdb-spark sshuser@wn0-cosmos:/home/sshuser
@@ -235,19 +235,19 @@ ms.lasthandoff: 07/11/2017
     ...
     ```
     
-## <a name="set-up-the-environment-variables"></a><span data-ttu-id="34ad1-169">Ortam değişkenlerini ayarlama</span><span class="sxs-lookup"><span data-stu-id="34ad1-169">Set up the environment variables</span></span>
+## <a name="set-up-hello-environment-variables"></a><span data-ttu-id="a718e-169">Hello ortam değişkenlerini ayarlama</span><span class="sxs-lookup"><span data-stu-id="a718e-169">Set up hello environment variables</span></span>
 
-1. <span data-ttu-id="34ad1-170">Spark kümesi HDP sürümü bulunamıyor.</span><span class="sxs-lookup"><span data-stu-id="34ad1-170">Find the HDP version of the Spark cluster.</span></span> <span data-ttu-id="34ad1-171">Dizin adı altında olan `/usr/hdp/` (örneğin, 2.5.4.2-7).</span><span class="sxs-lookup"><span data-stu-id="34ad1-171">It is the directory name under `/usr/hdp/` (for example, 2.5.4.2-7).</span></span>
+1. <span data-ttu-id="a718e-170">Merhaba HDP hello Spark kümesi sürümü bulunamıyor.</span><span class="sxs-lookup"><span data-stu-id="a718e-170">Find hello HDP version of hello Spark cluster.</span></span> <span data-ttu-id="a718e-171">Merhaba dizin adı altında olan `/usr/hdp/` (örneğin, 2.5.4.2-7).</span><span class="sxs-lookup"><span data-stu-id="a718e-171">It is hello directory name under `/usr/hdp/` (for example, 2.5.4.2-7).</span></span>
 
-2. <span data-ttu-id="34ad1-172">Tüm düğümler için hdp.Version ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="34ad1-172">Set hdp.version for all nodes.</span></span> <span data-ttu-id="34ad1-173">Ambari panosunda Git **YARN bölüm** > **yapılandırmalar** > **Gelişmiş**, ve ardından aşağıdakileri yapın:</span><span class="sxs-lookup"><span data-stu-id="34ad1-173">In Ambari Dashboard, go to **YARN section** > **Configs** > **Advanced**, and then do the following:</span></span> 
+2. <span data-ttu-id="a718e-172">Tüm düğümler için hdp.Version ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="a718e-172">Set hdp.version for all nodes.</span></span> <span data-ttu-id="a718e-173">Ambari panosunda çok Git**YARN bölüm** > **yapılandırmalar** > **Gelişmiş**ve ardından aşağıdaki hello:</span><span class="sxs-lookup"><span data-stu-id="a718e-173">In Ambari Dashboard, go too**YARN section** > **Configs** > **Advanced**, and then do hello following:</span></span> 
  
-    <span data-ttu-id="34ad1-174">a.</span><span class="sxs-lookup"><span data-stu-id="34ad1-174">a.</span></span> <span data-ttu-id="34ad1-175">İçinde `Custom yarn-site`, yeni bir özellik eklemek `hdp.version` ana düğüm HDP sürümünde değerine sahip.</span><span class="sxs-lookup"><span data-stu-id="34ad1-175">In `Custom yarn-site`, add a new property `hdp.version` with the value of the HDP version on the master node.</span></span> 
+    <span data-ttu-id="a718e-174">a.</span><span class="sxs-lookup"><span data-stu-id="a718e-174">a.</span></span> <span data-ttu-id="a718e-175">İçinde `Custom yarn-site`, yeni bir özellik eklemek `hdp.version` hello ana düğümün hello HDP sürümü hello değerine sahip.</span><span class="sxs-lookup"><span data-stu-id="a718e-175">In `Custom yarn-site`, add a new property `hdp.version` with hello value of hello HDP version on hello master node.</span></span> 
      
-    <span data-ttu-id="34ad1-176">b.</span><span class="sxs-lookup"><span data-stu-id="34ad1-176">b.</span></span> <span data-ttu-id="34ad1-177">Yapılandırmaları kaydedin.</span><span class="sxs-lookup"><span data-stu-id="34ad1-177">Save the configurations.</span></span> <span data-ttu-id="34ad1-178">Göz ardı edebilirsiniz uyarıları vardır.</span><span class="sxs-lookup"><span data-stu-id="34ad1-178">There are warnings, which you can ignore.</span></span> 
+    <span data-ttu-id="a718e-176">b.</span><span class="sxs-lookup"><span data-stu-id="a718e-176">b.</span></span> <span data-ttu-id="a718e-177">Merhaba yapılandırmaları kaydedin.</span><span class="sxs-lookup"><span data-stu-id="a718e-177">Save hello configurations.</span></span> <span data-ttu-id="a718e-178">Göz ardı edebilirsiniz uyarıları vardır.</span><span class="sxs-lookup"><span data-stu-id="a718e-178">There are warnings, which you can ignore.</span></span> 
      
-    <span data-ttu-id="34ad1-179">c.</span><span class="sxs-lookup"><span data-stu-id="34ad1-179">c.</span></span> <span data-ttu-id="34ad1-180">Bildirim simgelerini göstermek gibi YARN ve Oozie hizmetlerini yeniden başlatın.</span><span class="sxs-lookup"><span data-stu-id="34ad1-180">Restart the YARN and Oozie services as the notification icons indicate.</span></span>
+    <span data-ttu-id="a718e-179">c.</span><span class="sxs-lookup"><span data-stu-id="a718e-179">c.</span></span> <span data-ttu-id="a718e-180">Merhaba bildirim simgelerini göstermek gibi hello YARN ve Oozie hizmetlerini yeniden başlatın.</span><span class="sxs-lookup"><span data-stu-id="a718e-180">Restart hello YARN and Oozie services as hello notification icons indicate.</span></span>
 
-3. <span data-ttu-id="34ad1-181">Ana düğümde aşağıdaki ortam değişkenlerini ayarlama (değerleri uygun şekilde değiştirin):</span><span class="sxs-lookup"><span data-stu-id="34ad1-181">Set the following environment variables on the master node (replace the values as appropriate):</span></span>
+3. <span data-ttu-id="a718e-181">Ortam değişkenleri hello ana düğümünde (Değiştir hello değerleri uygun şekilde) aşağıdaki kümesi hello:</span><span class="sxs-lookup"><span data-stu-id="a718e-181">Set hello following environment variables on hello master node (replace hello values as appropriate):</span></span>
 
     ```bash
     export HADOOP_GREMLIN_LIBS=/home/sshuser/tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/ext/spark-gremlin/lib
@@ -256,9 +256,9 @@ ms.lasthandoff: 07/11/2017
     export HADOOP_HOME=${HADOOP_HOME:-/usr/hdp/current/hadoop-client}
     ```
 
-## <a name="prepare-the-graph-configuration"></a><span data-ttu-id="34ad1-182">Grafik yapılandırmasını hazırla</span><span class="sxs-lookup"><span data-stu-id="34ad1-182">Prepare the graph configuration</span></span>
+## <a name="prepare-hello-graph-configuration"></a><span data-ttu-id="a718e-182">Merhaba grafik yapılandırmasını hazırla</span><span class="sxs-lookup"><span data-stu-id="a718e-182">Prepare hello graph configuration</span></span>
 
-1. <span data-ttu-id="34ad1-183">Azure Cosmos DB bağlantı parametrelerini ve Spark ayarlarına sahip bir yapılandırma dosyası oluşturun ve bunu adresindeki koyun `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-183">Create a configuration file with the Azure Cosmos DB connection parameters and Spark settings, and put it at `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.</span></span>
+1. <span data-ttu-id="a718e-183">Yapılandırma dosyası ile hello Azure Cosmos DB bağlantı parametrelerini oluşturma ve Spark ayarları ve adresindeki yerleştirin `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.</span><span class="sxs-lookup"><span data-stu-id="a718e-183">Create a configuration file with hello Azure Cosmos DB connection parameters and Spark settings, and put it at `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.</span></span>
 
     ```
     gremlin.graph=org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph
@@ -278,7 +278,7 @@ ms.lasthandoff: 07/11/2017
     spark.kryo.registrator=org.apache.tinkerpop.gremlin.spark.structure.io.gryo.GryoRegistrator
     gremlin.spark.persistContext=true
 
-    # Classpath for the driver and executors
+    # Classpath for hello driver and executors
     spark.driver.extraClassPath=/usr/hdp/current/spark2-client/jars/*:/home/sshuser/azure-documentdb-spark/*
     spark.executor.extraClassPath=/usr/hdp/current/spark2-client/jars/*:/home/sshuser/azure-documentdb-spark/*
     
@@ -294,9 +294,9 @@ ms.lasthandoff: 07/11/2017
     spark.documentdb.preferredRegions=FILLIN
     ```
 
-2. <span data-ttu-id="34ad1-184">Güncelleştirme `spark.driver.extraClassPath` ve `spark.executor.extraClassPath` önceki adımda, bu durumda dağıtılmış Kavanoz dizininin içerecek şekilde `/home/sshuser/azure-documentdb-spark/*`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-184">Update the `spark.driver.extraClassPath` and `spark.executor.extraClassPath` to include the directory of the jars that you distributed in the previous step, in this case `/home/sshuser/azure-documentdb-spark/*`.</span></span>
+2. <span data-ttu-id="a718e-184">Güncelleştirme hello `spark.driver.extraClassPath` ve `spark.executor.extraClassPath` tooinclude hello hello önceki adımda, bu durumda dağıtılan hello Kavanoz dizininin `/home/sshuser/azure-documentdb-spark/*`.</span><span class="sxs-lookup"><span data-stu-id="a718e-184">Update hello `spark.driver.extraClassPath` and `spark.executor.extraClassPath` tooinclude hello directory of hello jars that you distributed in hello previous step, in this case `/home/sshuser/azure-documentdb-spark/*`.</span></span>
 
-3. <span data-ttu-id="34ad1-185">Azure Cosmos DB için aşağıdaki ayrıntıları girin:</span><span class="sxs-lookup"><span data-stu-id="34ad1-185">Provide the following details for Azure Cosmos DB:</span></span>
+3. <span data-ttu-id="a718e-185">Azure Cosmos DB için aşağıdaki ayrıntılara hello sağlar:</span><span class="sxs-lookup"><span data-stu-id="a718e-185">Provide hello following details for Azure Cosmos DB:</span></span>
 
     ```
     spark.documentdb.Endpoint=https://FILLIN.documents.azure.com:443/
@@ -307,10 +307,10 @@ ms.lasthandoff: 07/11/2017
     #spark.documentdb.preferredRegions=West\ US;West\ US\ 2
     ```
    
-## <a name="load-the-tinkerpop-graph-and-save-it-to-azure-cosmos-db"></a><span data-ttu-id="34ad1-186">TinkerPop grafik yükleyin ve Azure Cosmos DB kaydedin</span><span class="sxs-lookup"><span data-stu-id="34ad1-186">Load the TinkerPop graph, and save it to Azure Cosmos DB</span></span>
-<span data-ttu-id="34ad1-187">Azure Cosmos Veritabanına, bu örnek bir grafik kalıcı hale getirmek nasıl yapılacağını göstermek üzere kullandığı TinkerPop TinkerPop modern grafik önceden tanımlanmış.</span><span class="sxs-lookup"><span data-stu-id="34ad1-187">To demonstrate how to persist a graph into Azure Cosmos DB, this example uses the TinkerPop predefined TinkerPop modern graph.</span></span> <span data-ttu-id="34ad1-188">Grafik Kryo biçiminde depolanır ve TinkerPop depoya sağlanır.</span><span class="sxs-lookup"><span data-stu-id="34ad1-188">The graph is stored in Kryo format, and it's provided in the TinkerPop repository.</span></span>
+## <a name="load-hello-tinkerpop-graph-and-save-it-tooazure-cosmos-db"></a><span data-ttu-id="a718e-186">Merhaba TinkerPop grafik yükleyin ve tooAzure Cosmos DB kaydedin</span><span class="sxs-lookup"><span data-stu-id="a718e-186">Load hello TinkerPop graph, and save it tooAzure Cosmos DB</span></span>
+<span data-ttu-id="a718e-187">toodemonstrate nasıl toopersist Azure Cosmos DB kullanır hello TinkerPop Bu örnek içine bir grafik TinkerPop modern grafik önceden tanımlanmış.</span><span class="sxs-lookup"><span data-stu-id="a718e-187">toodemonstrate how toopersist a graph into Azure Cosmos DB, this example uses hello TinkerPop predefined TinkerPop modern graph.</span></span> <span data-ttu-id="a718e-188">Merhaba grafik Kryo biçiminde depolanır ve hello TinkerPop deposunda sağlanır.</span><span class="sxs-lookup"><span data-stu-id="a718e-188">hello graph is stored in Kryo format, and it's provided in hello TinkerPop repository.</span></span>
 
-1. <span data-ttu-id="34ad1-189">Gremlin YARN modunda çalıştırdığınız için grafik verileri Hadoop dosya sistemi içinde kullanılabilir olmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="34ad1-189">Because you are running Gremlin in YARN mode, you must make the graph data available in the Hadoop file system.</span></span> <span data-ttu-id="34ad1-190">Bir dizin oluşturun ve yerel grafik dosyası içine kopyalamak için aşağıdaki komutları kullanın.</span><span class="sxs-lookup"><span data-stu-id="34ad1-190">Use the following commands to make a directory and copy the local graph file into it.</span></span> 
+1. <span data-ttu-id="a718e-189">Gremlin YARN modunda çalıştırdığınız için hello grafik verileri hello Hadoop dosya sistemi içinde kullanılabilir olmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="a718e-189">Because you are running Gremlin in YARN mode, you must make hello graph data available in hello Hadoop file system.</span></span> <span data-ttu-id="a718e-190">Kullanım hello aşağıdaki toomake bir dizin ve dosya Kopyala hello yerel grafik içine komutları.</span><span class="sxs-lookup"><span data-stu-id="a718e-190">Use hello following commands toomake a directory and copy hello local graph file into it.</span></span> 
 
     ```bash
     $ tinkerpop:
@@ -318,18 +318,18 @@ ms.lasthandoff: 07/11/2017
     hadoop fs -copyFromLocal ~/tinkerpop/data/tinkerpop-modern.kryo /graphData/tinkerpop-modern.kryo
     ```
 
-2. <span data-ttu-id="34ad1-191">Geçici güncelleştirme `gremlin-spark.properties` kullanmak üzere bir dosya `GryoInputFormat` Grafiği okunamıyor.</span><span class="sxs-lookup"><span data-stu-id="34ad1-191">Temporarily update the `gremlin-spark.properties` file to use `GryoInputFormat` to read the graph.</span></span> <span data-ttu-id="34ad1-192">Ayrıca belirtmek `inputLocation` dizin size, aşağıdaki gibi oluşturun:</span><span class="sxs-lookup"><span data-stu-id="34ad1-192">Also indicate `inputLocation` as the directory you create, as in the following:</span></span>
+2. <span data-ttu-id="a718e-191">Geçici olarak hello güncelleştirme `gremlin-spark.properties` toouse dosya `GryoInputFormat` tooread hello grafik.</span><span class="sxs-lookup"><span data-stu-id="a718e-191">Temporarily update hello `gremlin-spark.properties` file toouse `GryoInputFormat` tooread hello graph.</span></span> <span data-ttu-id="a718e-192">Ayrıca belirtmek `inputLocation` hello dizini olarak, olduğu gibi hello aşağıdaki oluşturduğunuz:</span><span class="sxs-lookup"><span data-stu-id="a718e-192">Also indicate `inputLocation` as hello directory you create, as in hello following:</span></span>
 
     ```
     gremlin.hadoop.graphReader=org.apache.tinkerpop.gremlin.hadoop.structure.io.gryo.GryoInputFormat
     gremlin.hadoop.inputLocation=/graphData/tinkerpop-modern.kryo
     ```
 
-3. <span data-ttu-id="34ad1-193">Gremlin konsolunu başlatın ve ardından veri yapılandırılmış Azure Cosmos DB koleksiyona kalıcı hale getirmek için aşağıdaki hesaplama adımları oluşturun:</span><span class="sxs-lookup"><span data-stu-id="34ad1-193">Start Gremlin Console, and then create the following computation steps to persist data to the configured Azure Cosmos DB collection:</span></span>  
+3. <span data-ttu-id="a718e-193">Gremlin konsolunu başlatın ve sonra hesaplama adımları toopersist veri yapılandırılmış toohello Azure Cosmos DB toplama aşağıdaki hello oluşturun:</span><span class="sxs-lookup"><span data-stu-id="a718e-193">Start Gremlin Console, and then create hello following computation steps toopersist data toohello configured Azure Cosmos DB collection:</span></span>  
 
-    <span data-ttu-id="34ad1-194">a.</span><span class="sxs-lookup"><span data-stu-id="34ad1-194">a.</span></span> <span data-ttu-id="34ad1-195">Grafik oluşturma `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-195">Create the graph `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.</span></span>
+    <span data-ttu-id="a718e-194">a.</span><span class="sxs-lookup"><span data-stu-id="a718e-194">a.</span></span> <span data-ttu-id="a718e-195">Merhaba grafik oluşturmak `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.</span><span class="sxs-lookup"><span data-stu-id="a718e-195">Create hello graph `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.</span></span>
 
-    <span data-ttu-id="34ad1-196">b.</span><span class="sxs-lookup"><span data-stu-id="34ad1-196">b.</span></span> <span data-ttu-id="34ad1-197">Yazma için SparkGraphComputer kullanmak `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-197">Use SparkGraphComputer for writing `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.</span></span>
+    <span data-ttu-id="a718e-196">b.</span><span class="sxs-lookup"><span data-stu-id="a718e-196">b.</span></span> <span data-ttu-id="a718e-197">Yazma için SparkGraphComputer kullanmak `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.</span><span class="sxs-lookup"><span data-stu-id="a718e-197">Use SparkGraphComputer for writing `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.</span></span>
 
     ```bash
     gremlin> graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")
@@ -346,25 +346,25 @@ ms.lasthandoff: 07/11/2017
     ==>result[hadoopgraph[documentdbinputrdd->documentdboutputrdd],memory[size:1]]
     ```
 
-4. <span data-ttu-id="34ad1-198">Veri Gezgini'nden verileri Azure Cosmos Veritabanına kalıcı olduğunu doğrulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="34ad1-198">From Data Explorer, you can verify that the data has been persisted to Azure Cosmos DB.</span></span>
+4. <span data-ttu-id="a718e-198">Veri Gezgini'nden veriler bu hello tooAzure Cosmos DB kalıcı doğrulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="a718e-198">From Data Explorer, you can verify that hello data has been persisted tooAzure Cosmos DB.</span></span>
 
-## <a name="load-the-graph-from-azure-cosmos-db-and-run-gremlin-queries"></a><span data-ttu-id="34ad1-199">Grafik Azure Cosmos DB'den yükleme ve Gremlin sorgular çalıştırın</span><span class="sxs-lookup"><span data-stu-id="34ad1-199">Load the graph from Azure Cosmos DB, and run Gremlin queries</span></span>
+## <a name="load-hello-graph-from-azure-cosmos-db-and-run-gremlin-queries"></a><span data-ttu-id="a718e-199">Merhaba grafik Azure Cosmos DB'den yükleme ve Gremlin sorgular çalıştırın</span><span class="sxs-lookup"><span data-stu-id="a718e-199">Load hello graph from Azure Cosmos DB, and run Gremlin queries</span></span>
 
-1. <span data-ttu-id="34ad1-200">Grafik yüklemek için düzenleme `gremlin-spark.properties` ayarlamak için `graphReader` için `DocumentDBInputRDD`:</span><span class="sxs-lookup"><span data-stu-id="34ad1-200">To load the graph, edit `gremlin-spark.properties` to set `graphReader` to `DocumentDBInputRDD`:</span></span>
+1. <span data-ttu-id="a718e-200">tooload hello grafiği Düzenle `gremlin-spark.properties` tooset `graphReader` çok`DocumentDBInputRDD`:</span><span class="sxs-lookup"><span data-stu-id="a718e-200">tooload hello graph, edit `gremlin-spark.properties` tooset `graphReader` too`DocumentDBInputRDD`:</span></span>
 
     ```
     gremlin.hadoop.graphReader=com.microsoft.azure.documentdb.spark.gremlin.DocumentDBInputRDD
     ```
 
-2. <span data-ttu-id="34ad1-201">Grafik yükleme, verileri çapraz geçiş ve Gremlin sorguları ile aşağıdakileri yaparak çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="34ad1-201">Load the graph, traverse the data, and run Gremlin queries with it by doing the following:</span></span>
+2. <span data-ttu-id="a718e-201">Yük hello grafik hello veri çapraz geçiş ve Gremlin sorguları ile Merhaba aşağıdakileri yaparak çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a718e-201">Load hello graph, traverse hello data, and run Gremlin queries with it by doing hello following:</span></span>
 
-    <span data-ttu-id="34ad1-202">a.</span><span class="sxs-lookup"><span data-stu-id="34ad1-202">a.</span></span> <span data-ttu-id="34ad1-203">Gremlin Konsolu'ndan `bin/gremlin.sh`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-203">Start the Gremlin Console `bin/gremlin.sh`.</span></span>
+    <span data-ttu-id="a718e-202">a.</span><span class="sxs-lookup"><span data-stu-id="a718e-202">a.</span></span> <span data-ttu-id="a718e-203">Merhaba Gremlin konsolunu Başlat `bin/gremlin.sh`.</span><span class="sxs-lookup"><span data-stu-id="a718e-203">Start hello Gremlin Console `bin/gremlin.sh`.</span></span>
 
-    <span data-ttu-id="34ad1-204">b.</span><span class="sxs-lookup"><span data-stu-id="34ad1-204">b.</span></span> <span data-ttu-id="34ad1-205">Grafik yapılandırmayla oluşturmak `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-205">Create the graph with the configuration `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.</span></span>
+    <span data-ttu-id="a718e-204">b.</span><span class="sxs-lookup"><span data-stu-id="a718e-204">b.</span></span> <span data-ttu-id="a718e-205">Merhaba yapılandırmayla Hello grafik oluşturmak `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.</span><span class="sxs-lookup"><span data-stu-id="a718e-205">Create hello graph with hello configuration `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.</span></span>
 
-    <span data-ttu-id="34ad1-206">c.</span><span class="sxs-lookup"><span data-stu-id="34ad1-206">c.</span></span> <span data-ttu-id="34ad1-207">Grafik geçişi ile SparkGraphComputer oluşturma `g = graph.traversal().withComputer(SparkGraphComputer)`.</span><span class="sxs-lookup"><span data-stu-id="34ad1-207">Create a graph traversal with SparkGraphComputer `g = graph.traversal().withComputer(SparkGraphComputer)`.</span></span>
+    <span data-ttu-id="a718e-206">c.</span><span class="sxs-lookup"><span data-stu-id="a718e-206">c.</span></span> <span data-ttu-id="a718e-207">Grafik geçişi ile SparkGraphComputer oluşturma `g = graph.traversal().withComputer(SparkGraphComputer)`.</span><span class="sxs-lookup"><span data-stu-id="a718e-207">Create a graph traversal with SparkGraphComputer `g = graph.traversal().withComputer(SparkGraphComputer)`.</span></span>
 
-    <span data-ttu-id="34ad1-208">d.</span><span class="sxs-lookup"><span data-stu-id="34ad1-208">d.</span></span> <span data-ttu-id="34ad1-209">Aşağıdaki Gremlin grafik sorgular çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="34ad1-209">Run the following Gremlin graph queries:</span></span>
+    <span data-ttu-id="a718e-208">d.</span><span class="sxs-lookup"><span data-stu-id="a718e-208">d.</span></span> <span data-ttu-id="a718e-209">Gremlin grafik sorguları aşağıdaki hello çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a718e-209">Run hello following Gremlin graph queries:</span></span>
 
     ```bash
     gremlin> graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")
@@ -397,11 +397,11 @@ ms.lasthandoff: 07/11/2017
     ```
 
 > [!NOTE]
-> <span data-ttu-id="34ad1-210">Daha ayrıntılı günlük kaydı için günlük düzeyde kümesi `conf/log4j-console.properties` daha fazla ayrıntı düzeyi.</span><span class="sxs-lookup"><span data-stu-id="34ad1-210">To see more detailed logging, set the log level in `conf/log4j-console.properties` to a more verbose level.</span></span>
+> <span data-ttu-id="a718e-210">toosee daha ayrıntılı günlük, kümesinde hello günlük düzeyi `conf/log4j-console.properties` tooa daha fazla ayrıntı düzeyi.</span><span class="sxs-lookup"><span data-stu-id="a718e-210">toosee more detailed logging, set hello log level in `conf/log4j-console.properties` tooa more verbose level.</span></span>
 >
 
-## <a name="next-steps"></a><span data-ttu-id="34ad1-211">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="34ad1-211">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="a718e-211">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="a718e-211">Next steps</span></span>
 
-<span data-ttu-id="34ad1-212">Bu hızlı başlangıç makalede, Azure Cosmos DB ve Spark birleştirerek grafikleri ile çalışmaya nasıl öğrendiniz.</span><span class="sxs-lookup"><span data-stu-id="34ad1-212">In this quick-start article, you've learned how to work with graphs by combining Azure Cosmos DB and Spark.</span></span>
+<span data-ttu-id="a718e-212">Bu hızlı başlangıç makalede, Azure Cosmos DB ve Spark birleştirerek toowork ile nasıl grafiklerde öğrendiniz.</span><span class="sxs-lookup"><span data-stu-id="a718e-212">In this quick-start article, you've learned how toowork with graphs by combining Azure Cosmos DB and Spark.</span></span>
 
 > [!div class="nextstepaction"]

@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Galerisi çözümleri | Microsoft Docs"
-description: "Cortana Intelligence Galerisi'nde çözümlerinde bulur."
+title: "aaaCortana Intelligence Galerisi çözümleri | Microsoft Docs"
+description: "Çözümleri hello Cortana Intelligence Galerisi bulur."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 8e180db2ab5fbabf5238b18b1d2866b746eb9994
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2cb6b0892c2eba873fa7e685288dc3b12d1dc981
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-solutions-in-the-cortana-intelligence-gallery"></a><span data-ttu-id="dd256-103">Cortana Intelligence Galerisi'nde çözümlerinde Bul</span><span class="sxs-lookup"><span data-stu-id="dd256-103">Discover Solutions in the Cortana Intelligence Gallery</span></span>
+# <a name="discover-solutions-in-hello-cortana-intelligence-gallery"></a><span data-ttu-id="1059e-103">Merhaba Cortana Intelligence Galerisi'nde Çözüm Bul</span><span class="sxs-lookup"><span data-stu-id="1059e-103">Discover Solutions in hello Cortana Intelligence Gallery</span></span>
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="solutions"></a><span data-ttu-id="dd256-104">Çözümler</span><span class="sxs-lookup"><span data-stu-id="dd256-104">Solutions</span></span>
-<span data-ttu-id="dd256-105">A  **[çözüm](https://gallery.cortanaintelligence.com/solutions)**  hızlı bir şekilde önceden yapılandırılmış çözümler, başvuru mimarisi ve tasarım desenleri Cortana Intelligence çözümleri oluşturmak üzere başkalarından galeride sağlar.</span><span class="sxs-lookup"><span data-stu-id="dd256-105">A **[Solution](https://gallery.cortanaintelligence.com/solutions)** in the Gallery provides a jumpstart to quickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns.</span></span>
-<span data-ttu-id="dd256-106">Bunları kendi dahil yönergeleri veya özel bir iş ortağı ile yapın.</span><span class="sxs-lookup"><span data-stu-id="dd256-106">Make them your own with the included instructions or with a featured partner.</span></span>  
+## <a name="solutions"></a><span data-ttu-id="1059e-104">Çözümler</span><span class="sxs-lookup"><span data-stu-id="1059e-104">Solutions</span></span>
+<span data-ttu-id="1059e-105">A  **[çözüm](https://gallery.cortanaintelligence.com/solutions)**  hello Galerisi önceden yapılandırılmış çözümler başkalarından tooquickly derleme Cortana Intelligence çözümleri sağlar, başvuru mimarisi ve tasarım desenleri.</span><span class="sxs-lookup"><span data-stu-id="1059e-105">A **[Solution](https://gallery.cortanaintelligence.com/solutions)** in hello Gallery provides a jumpstart tooquickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns.</span></span>
+<span data-ttu-id="1059e-106">Bunları kendi dahil hello yönergeleri veya özel bir iş ortağı yapın.</span><span class="sxs-lookup"><span data-stu-id="1059e-106">Make them your own with hello included instructions or with a featured partner.</span></span>  
 
-## <a name="discover"></a><span data-ttu-id="dd256-107">Keşif</span><span class="sxs-lookup"><span data-stu-id="dd256-107">Discover</span></span>
-  <span data-ttu-id="dd256-108">Galerideki çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com) tıklatıp **çözümleri** galeri giriş sayfasının üst.</span><span class="sxs-lookup"><span data-stu-id="dd256-108">To browse for solutions in the Gallery, open the [Gallery](http://gallery.cortanaintelligence.com) and click **Solutions** at the top of the Gallery home page.</span></span>
+## <a name="discover"></a><span data-ttu-id="1059e-107">Keşif</span><span class="sxs-lookup"><span data-stu-id="1059e-107">Discover</span></span>
+  <span data-ttu-id="1059e-108">hello Galerisi, açık hello çözümlerinde toobrowse [galeri](http://gallery.cortanaintelligence.com) tıklatıp **çözümleri** hello galeri giriş sayfasının hello üstünde.</span><span class="sxs-lookup"><span data-stu-id="1059e-108">toobrowse for solutions in hello Gallery, open hello [Gallery](http://gallery.cortanaintelligence.com) and click **Solutions** at hello top of hello Gallery home page.</span></span>
 
- <span data-ttu-id="dd256-109"> **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)**  sayfa en son eklenen çözümlerinin listesini görüntüler.</span><span class="sxs-lookup"><span data-stu-id="dd256-109">The **[Solutions](https://gallery.cortanaintelligence.com/solutions)** page displays a list of the most recently added Solutions.</span></span>
-<span data-ttu-id="dd256-110">Tıklatın **tümünü görmek** tüm çözümleri görüntülemek için.</span><span class="sxs-lookup"><span data-stu-id="dd256-110">Click **See all** to view all Solutions.</span></span>
-<span data-ttu-id="dd256-111">Bu sayfadan galerisinde tüm çözümleri göz atabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="dd256-111">From this page, you can browse all the Solutions in the Gallery.</span></span> <span data-ttu-id="dd256-112">Ayrıca, sol üst girme arama terimleri ve sayfa filtre ölçütü seçerek arayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="dd256-112">You also can search by selecting filter criteria on the left of the page and entering search terms at the top.</span></span>
+ <span data-ttu-id="1059e-109"> **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)**  çözümleri eklenen en son hello listesi sayfası görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="1059e-109">The **[Solutions](https://gallery.cortanaintelligence.com/solutions)** page displays a list of hello most recently added Solutions.</span></span>
+<span data-ttu-id="1059e-110">Tıklatın **tümünü görmek** tooview tüm çözümler.</span><span class="sxs-lookup"><span data-stu-id="1059e-110">Click **See all** tooview all Solutions.</span></span>
+<span data-ttu-id="1059e-111">Bu sayfadan hello galeri tüm çözümlerinde göz atabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1059e-111">From this page, you can browse all the Solutions in hello Gallery.</span></span> <span data-ttu-id="1059e-112">Filtre ölçütü hello sayfasının hello soldaki seçerek de arayabilir ve girme arama koşulların en üst hello.</span><span class="sxs-lookup"><span data-stu-id="1059e-112">You also can search by selecting filter criteria on hello left of hello page and entering search terms at hello top.</span></span>
 
- <span data-ttu-id="dd256-113">Kendi ayrıntı sayfası açın ve daha fazla bilgi okumak için herhangi bir çözümü'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="dd256-113">Click any Solution to open its details page and read more information.</span></span> <span data-ttu-id="dd256-114">Bu sayfada açıklama, geri bildirim sağlamak veya açıklamalar bölümüne aracılığıyla sorular sorun.</span><span class="sxs-lookup"><span data-stu-id="dd256-114">On this page you can comment, provide feedback, or ask questions through the comments section.</span></span> <span data-ttu-id="dd256-115">Bunu arkadaş ya da LinkedIn veya Twitter paylaşım özelliklerini kullanarak iş arkadaşlarınızı bile paylaşabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="dd256-115">You can even share it with friends or colleagues using the share capabilities of LinkedIn or Twitter.</span></span> <span data-ttu-id="dd256-116">Ayrıca bağlantı çözümü sayfasını görüntülemek için diğer kullanıcıları davet e-posta gönderebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="dd256-116">You can also email a link to the Solution to invite other users to view the page.</span></span>
+ <span data-ttu-id="1059e-113">Tüm çözüm tooopen kendi ayrıntı sayfası tıklatın ve daha fazla bilgi okuyun.</span><span class="sxs-lookup"><span data-stu-id="1059e-113">Click any Solution tooopen its details page and read more information.</span></span> <span data-ttu-id="1059e-114">Bu sayfada açıklama, geri bildirim sağlamak veya hello Açıklamalar bölümüne aracılığıyla sorular sorun.</span><span class="sxs-lookup"><span data-stu-id="1059e-114">On this page you can comment, provide feedback, or ask questions through hello comments section.</span></span> <span data-ttu-id="1059e-115">Bunu bile arkadaşlarınızla paylaşabilirsiniz ya da LinkedIn veya Twitter özelliklerini hello kullanarak iş arkadaşlarınızla paylaşabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1059e-115">You can even share it with friends or colleagues using hello share capabilities of LinkedIn or Twitter.</span></span> <span data-ttu-id="1059e-116">Ayrıca bağlantı toothe çözüm tooinvite diğer kullanıcılar tooview hello sayfasında e-posta gönderebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="1059e-116">You can also email a link toothe Solution tooinvite other users tooview hello page.</span></span>
 
 ![Bu öğe arkadaşlarınızla paylaşın](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Kendi açıklamaları ekleme](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="deploy"></a><span data-ttu-id="dd256-119">Dağıtma</span><span class="sxs-lookup"><span data-stu-id="dd256-119">Deploy</span></span>
-<span data-ttu-id="dd256-120">Bir çözüm kullanmak istiyorsanız, **dağıtma**.</span><span class="sxs-lookup"><span data-stu-id="dd256-120">If you want to use a Solution, click **Deploy**.</span></span> <span data-ttu-id="dd256-121">Yapılandırmak ve çalışma alanınızdaki çözümü dağıtmak için sunulan adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="dd256-121">Follow the steps presented to configure and deploy the Solution in your workspace.</span></span>
+## <a name="deploy"></a><span data-ttu-id="1059e-119">Dağıtma</span><span class="sxs-lookup"><span data-stu-id="1059e-119">Deploy</span></span>
+<span data-ttu-id="1059e-120">Toouse bir çözüm istiyorsanız, **dağıtma**.</span><span class="sxs-lookup"><span data-stu-id="1059e-120">If you want toouse a Solution, click **Deploy**.</span></span> <span data-ttu-id="1059e-121">Tooconfigure sunulan hello adımları izleyin ve hello çalışma alanınızdaki çözümü dağıtın.</span><span class="sxs-lookup"><span data-stu-id="1059e-121">Follow hello steps presented tooconfigure and deploy hello Solution in your workspace.</span></span>
 
 ![Bir galeri çözümü dağıtma](media/machine-learning-gallery-solutions/deploy-solution.png)
 
-<span data-ttu-id="dd256-123">**[BANA GALERİSİNE ELE >>](http://gallery.cortanaintelligence.com)**</span><span class="sxs-lookup"><span data-stu-id="dd256-123">**[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**</span></span>
+<span data-ttu-id="1059e-123">**[ELE BANA toohello Galerisi >>](http://gallery.cortanaintelligence.com)**</span><span class="sxs-lookup"><span data-stu-id="1059e-123">**[TAKE ME toohello GALLERY >>](http://gallery.cortanaintelligence.com)**</span></span>
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

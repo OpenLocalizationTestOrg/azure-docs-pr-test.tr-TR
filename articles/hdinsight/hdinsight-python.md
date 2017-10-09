@@ -1,6 +1,6 @@
 ---
-title: "Python UDF Apache ile Hive veya Pig - Azure Hdınsight | Microsoft Docs"
-description: "Hdınsight'ta Hadoop teknoloji yığınının Azure üzerinde Python kullanıcı tanımlı işlevler (UDF) Hive ve Pig kullanmayı öğrenin."
+title: "Apache Hive veya Pig - Azure Hdınsight ile UDF aaaPython | Microsoft Docs"
+description: "Azure üzerinde toouse Python kullanıcı tanımlı işlevler (UDF) Hive ve hdınsight'ta Hadoop teknoloji hello Pig yığın nasıl öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,39 +16,39 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 9b67ded05a52f1e68580434667495cf6cf939871
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 26d8160cc6ed7fc22c3f06f7c1c9954c224b2366
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a><span data-ttu-id="185fc-103">Hdınsight'ta kullanım Python kullanıcı tanımlı işlevler (UDF) Hive veya Pig ile</span><span class="sxs-lookup"><span data-stu-id="185fc-103">Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight</span></span>
+# <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a><span data-ttu-id="de75c-103">Hdınsight'ta kullanım Python kullanıcı tanımlı işlevler (UDF) Hive veya Pig ile</span><span class="sxs-lookup"><span data-stu-id="de75c-103">Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight</span></span>
 
-<span data-ttu-id="185fc-104">Apache Hive veya Pig içinde Azure hdınsight'ta Hadoop ile Python kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin.</span><span class="sxs-lookup"><span data-stu-id="185fc-104">Learn how to use Python user-defined functions (UDF) with Apache Hive and Pig in Hadoop on Azure HDInsight.</span></span>
+<span data-ttu-id="de75c-104">Bilgi nasıl toouse Python kullanıcı tanımlı işlevler (UDF) Apache Hive veya Pig içinde Azure hdınsight'ta Hadoop ile.</span><span class="sxs-lookup"><span data-stu-id="de75c-104">Learn how toouse Python user-defined functions (UDF) with Apache Hive and Pig in Hadoop on Azure HDInsight.</span></span>
 
-## <span data-ttu-id="185fc-105"><a name="python"></a>Hdınsight üzerinde Python</span><span class="sxs-lookup"><span data-stu-id="185fc-105"><a name="python"></a>Python on HDInsight</span></span>
+## <span data-ttu-id="de75c-105"><a name="python"></a>Hdınsight üzerinde Python</span><span class="sxs-lookup"><span data-stu-id="de75c-105"><a name="python"></a>Python on HDInsight</span></span>
 
-<span data-ttu-id="185fc-106">Python2.7 Hdınsight 3.0 ve sonraki sürümlerinde varsayılan olarak yüklenir.</span><span class="sxs-lookup"><span data-stu-id="185fc-106">Python2.7 is installed by default on HDInsight 3.0 and later.</span></span> <span data-ttu-id="185fc-107">Apache Hive Python bu sürümü ile akış işleme için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="185fc-107">Apache Hive can be used with this version of Python for stream processing.</span></span> <span data-ttu-id="185fc-108">Akış işleme, Hive ve UDF arasında veri iletmek için STDOUT ve STDIN kullanır.</span><span class="sxs-lookup"><span data-stu-id="185fc-108">Stream processing uses STDOUT and STDIN to pass data between Hive and the UDF.</span></span>
+<span data-ttu-id="de75c-106">Python2.7 Hdınsight 3.0 ve sonraki sürümlerinde varsayılan olarak yüklenir.</span><span class="sxs-lookup"><span data-stu-id="de75c-106">Python2.7 is installed by default on HDInsight 3.0 and later.</span></span> <span data-ttu-id="de75c-107">Apache Hive Python bu sürümü ile akış işleme için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="de75c-107">Apache Hive can be used with this version of Python for stream processing.</span></span> <span data-ttu-id="de75c-108">Akış işleme Hive ve hello UDF arasında STDOUT ve STDIN toopass verileri kullanır.</span><span class="sxs-lookup"><span data-stu-id="de75c-108">Stream processing uses STDOUT and STDIN toopass data between Hive and hello UDF.</span></span>
 
-<span data-ttu-id="185fc-109">Hdınsight, ayrıca Java'da yazılmış bir Python uygulaması Jython içerir.</span><span class="sxs-lookup"><span data-stu-id="185fc-109">HDInsight also includes Jython, which is a Python implementation written in Java.</span></span> <span data-ttu-id="185fc-110">Jython doğrudan Java sanal makinesi üzerinde çalışır ve akış kullanmaz.</span><span class="sxs-lookup"><span data-stu-id="185fc-110">Jython runs directly on the Java Virtual Machine and does not use streaming.</span></span> <span data-ttu-id="185fc-111">Jython önerilen Python yorumlayıcı Python ile Pig kullanıldığında.</span><span class="sxs-lookup"><span data-stu-id="185fc-111">Jython is the recommended Python interpreter when using Python with Pig.</span></span>
+<span data-ttu-id="de75c-109">Hdınsight, ayrıca Java'da yazılmış bir Python uygulaması Jython içerir.</span><span class="sxs-lookup"><span data-stu-id="de75c-109">HDInsight also includes Jython, which is a Python implementation written in Java.</span></span> <span data-ttu-id="de75c-110">Jython doğrudan hello Java sanal makinesi'üzerinde çalışır ve akış kullanmaz.</span><span class="sxs-lookup"><span data-stu-id="de75c-110">Jython runs directly on hello Java Virtual Machine and does not use streaming.</span></span> <span data-ttu-id="de75c-111">Jython hello Python yorumlayıcı Python ile Pig kullanırken önerilen ' dir.</span><span class="sxs-lookup"><span data-stu-id="de75c-111">Jython is hello recommended Python interpreter when using Python with Pig.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="185fc-112">Bu belgede yer alan adımlar aşağıdaki varsayımlar olun:</span><span class="sxs-lookup"><span data-stu-id="185fc-112">The steps in this document make the following assumptions:</span></span> 
+> <span data-ttu-id="de75c-112">Bu belgedeki Hello adımlar varsayımlar aşağıdaki hello olun:</span><span class="sxs-lookup"><span data-stu-id="de75c-112">hello steps in this document make hello following assumptions:</span></span> 
 >
-> * <span data-ttu-id="185fc-113">Python betiklerini yerel geliştirme ortamınızı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="185fc-113">You create the Python scripts on your local development environment.</span></span>
-> * <span data-ttu-id="185fc-114">Komut dosyalarını kullanarak Hdınsight'a yükleme `scp` yerel bir Bash oturumu veya sağlanan PowerShell komut dosyası komutu.</span><span class="sxs-lookup"><span data-stu-id="185fc-114">You upload the scripts to HDInsight using either the `scp` command from a local Bash session or the provided PowerShell script.</span></span>
+> * <span data-ttu-id="de75c-113">Merhaba yerel geliştirme ortamınızı Python komut dosyaları oluşturun.</span><span class="sxs-lookup"><span data-stu-id="de75c-113">You create hello Python scripts on your local development environment.</span></span>
+> * <span data-ttu-id="de75c-114">Merhaba betikleri tooHDInsight ya da hello kullanarak karşıya `scp` yerel Bash oturumu veya PowerShell komut dosyası sağlanan hello komutu.</span><span class="sxs-lookup"><span data-stu-id="de75c-114">You upload hello scripts tooHDInsight using either hello `scp` command from a local Bash session or hello provided PowerShell script.</span></span>
 >
-> <span data-ttu-id="185fc-115">Kullanmak istiyorsanız, [Azure bulut Kabuğu (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) gerekir sonra Hdınsight ile çalışmak için önizleme:</span><span class="sxs-lookup"><span data-stu-id="185fc-115">If you want to use the [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) preview to work with HDInsight, then you must:</span></span>
+> <span data-ttu-id="de75c-115">Toouse hello istiyorsanız [Azure bulut Kabuğu (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) gerekir sonra Hdınsight ile toowork önizleme:</span><span class="sxs-lookup"><span data-stu-id="de75c-115">If you want toouse hello [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) preview toowork with HDInsight, then you must:</span></span>
 >
-> * <span data-ttu-id="185fc-116">Bulut Kabuk ortamı içindeki komut dosyaları oluşturun.</span><span class="sxs-lookup"><span data-stu-id="185fc-116">Create the scripts inside the cloud shell environment.</span></span>
-> * <span data-ttu-id="185fc-117">Kullanım `scp` Hdınsight bulut Kabuğu'ndan dosyaları karşıya yüklemek için.</span><span class="sxs-lookup"><span data-stu-id="185fc-117">Use `scp` to upload the files from the cloud shell to HDInsight.</span></span>
-> * <span data-ttu-id="185fc-118">Kullanım `ssh` Hdınsight'a bağlanmak ve örnekleri çalıştırmak için bulut Kabuğu'ndan.</span><span class="sxs-lookup"><span data-stu-id="185fc-118">Use `ssh` from the cloud shell to connect to HDInsight and run the examples.</span></span>
+> * <span data-ttu-id="de75c-116">Merhaba bulut Kabuk ortamı içindeki Hello betikleri oluşturun.</span><span class="sxs-lookup"><span data-stu-id="de75c-116">Create hello scripts inside hello cloud shell environment.</span></span>
+> * <span data-ttu-id="de75c-117">Kullanım `scp` tooupload hello hello dosyalarından Kabuk tooHDInsight bulut.</span><span class="sxs-lookup"><span data-stu-id="de75c-117">Use `scp` tooupload hello files from hello cloud shell tooHDInsight.</span></span>
+> * <span data-ttu-id="de75c-118">Kullanım `ssh` hello bulut Kabuk tooconnect tooHDInsight ve çalışma hello örnekleri.</span><span class="sxs-lookup"><span data-stu-id="de75c-118">Use `ssh` from hello cloud shell tooconnect tooHDInsight and run hello examples.</span></span>
 
-## <span data-ttu-id="185fc-119"><a name="hivepython"></a>UDF yığını</span><span class="sxs-lookup"><span data-stu-id="185fc-119"><a name="hivepython"></a>Hive UDF</span></span>
+## <span data-ttu-id="de75c-119"><a name="hivepython"></a>UDF yığını</span><span class="sxs-lookup"><span data-stu-id="de75c-119"><a name="hivepython"></a>Hive UDF</span></span>
 
-<span data-ttu-id="185fc-120">Python, Hive HiveQL üzerinden gelen bir UDF olarak kullanılabilir `TRANSFORM` deyimi.</span><span class="sxs-lookup"><span data-stu-id="185fc-120">Python can be used as a UDF from Hive through the HiveQL `TRANSFORM` statement.</span></span> <span data-ttu-id="185fc-121">Örneğin, aşağıdaki HiveQL çağırır `hiveudf.py` kümesi için varsayılan Azure depolama hesabına depolanan dosya.</span><span class="sxs-lookup"><span data-stu-id="185fc-121">For example, the following HiveQL invokes the `hiveudf.py` file stored in the default Azure Storage account for the cluster.</span></span>
+<span data-ttu-id="de75c-120">Python olarak kullanılabilir bir UDF Hive gelen HiveQL hello `TRANSFORM` deyimi.</span><span class="sxs-lookup"><span data-stu-id="de75c-120">Python can be used as a UDF from Hive through hello HiveQL `TRANSFORM` statement.</span></span> <span data-ttu-id="de75c-121">Örneğin, aşağıdaki HiveQL hello hello çağırır `hiveudf.py` hello kümesi için hello varsayılan Azure depolama hesabına depolanan dosya.</span><span class="sxs-lookup"><span data-stu-id="de75c-121">For example, hello following HiveQL invokes hello `hiveudf.py` file stored in hello default Azure Storage account for hello cluster.</span></span>
 
-<span data-ttu-id="185fc-122">**Linux tabanlı Hdınsight**</span><span class="sxs-lookup"><span data-stu-id="185fc-122">**Linux-based HDInsight**</span></span>
+<span data-ttu-id="de75c-122">**Linux tabanlı Hdınsight**</span><span class="sxs-lookup"><span data-stu-id="de75c-122">**Linux-based HDInsight**</span></span>
 
 ```hiveql
 add file wasb:///hiveudf.py;
@@ -60,7 +60,7 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-<span data-ttu-id="185fc-123">**Windows tabanlı Hdınsight**</span><span class="sxs-lookup"><span data-stu-id="185fc-123">**Windows-based HDInsight**</span></span>
+<span data-ttu-id="de75c-123">**Windows tabanlı Hdınsight**</span><span class="sxs-lookup"><span data-stu-id="de75c-123">**Windows-based HDInsight**</span></span>
 
 ```hiveql
 add file wasb:///hiveudf.py;
@@ -73,20 +73,20 @@ ORDER BY clientid LIMIT 50;
 ```
 
 > [!NOTE]
-> <span data-ttu-id="185fc-124">Windows tabanlı Hdınsight kümelerinde `USING` yan tümcesi Python.exe'yi tam yolunu belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="185fc-124">On Windows-based HDInsight clusters, the `USING` clause must specify the full path to python.exe.</span></span>
+> <span data-ttu-id="de75c-124">Windows tabanlı Hdınsight kümelerinde hello `USING` yan tümcesi hello tam yolu toopython.exe belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="de75c-124">On Windows-based HDInsight clusters, hello `USING` clause must specify hello full path toopython.exe.</span></span>
 
-<span data-ttu-id="185fc-125">Bu örnek yaptığı aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="185fc-125">Here's what this example does:</span></span>
+<span data-ttu-id="de75c-125">Bu örnek yaptığı aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="de75c-125">Here's what this example does:</span></span>
 
-1. <span data-ttu-id="185fc-126">`add file` Dosyasının başında deyimi ekler `hiveudf.py` dağıtılmış önbellek kümedeki tüm düğümler tarafından erişilebilir olması için dosyaya.</span><span class="sxs-lookup"><span data-stu-id="185fc-126">The `add file` statement at the beginning of the file adds the `hiveudf.py` file to the distributed cache, so it's accessible by all nodes in the cluster.</span></span>
-2. <span data-ttu-id="185fc-127">`SELECT TRANSFORM ... USING` Deyimi seçer verilerden `hivesampletable`.</span><span class="sxs-lookup"><span data-stu-id="185fc-127">The `SELECT TRANSFORM ... USING` statement selects data from the `hivesampletable`.</span></span> <span data-ttu-id="185fc-128">Ayrıca ClientID, devicemake ve devicemodel değerlere geçirir `hiveudf.py` komut dosyası.</span><span class="sxs-lookup"><span data-stu-id="185fc-128">It also passes the clientid, devicemake, and devicemodel values to the `hiveudf.py` script.</span></span>
-3. <span data-ttu-id="185fc-129">`AS` Yan tümcesi açıklar döndürülen alanları `hiveudf.py`.</span><span class="sxs-lookup"><span data-stu-id="185fc-129">The `AS` clause describes the fields returned from `hiveudf.py`.</span></span>
+1. <span data-ttu-id="de75c-126">Merhaba `add file` hello dosya hello başında deyiminin ekler hello `hiveudf.py` dosya toohello hello kümedeki tüm düğümler tarafından erişilebilir olması için önbellek, dağıtılmış.</span><span class="sxs-lookup"><span data-stu-id="de75c-126">hello `add file` statement at hello beginning of hello file adds hello `hiveudf.py` file toohello distributed cache, so it's accessible by all nodes in hello cluster.</span></span>
+2. <span data-ttu-id="de75c-127">Merhaba `SELECT TRANSFORM ... USING` deyimi hello veri seçer `hivesampletable`.</span><span class="sxs-lookup"><span data-stu-id="de75c-127">hello `SELECT TRANSFORM ... USING` statement selects data from hello `hivesampletable`.</span></span> <span data-ttu-id="de75c-128">Merhaba ClientID, devicemake ve devicemodel değerleri toohello de geçirir `hiveudf.py` komut dosyası.</span><span class="sxs-lookup"><span data-stu-id="de75c-128">It also passes hello clientid, devicemake, and devicemodel values toohello `hiveudf.py` script.</span></span>
+3. <span data-ttu-id="de75c-129">Merhaba `AS` yan tümcesi açıklar döndürülen hello alanları `hiveudf.py`.</span><span class="sxs-lookup"><span data-stu-id="de75c-129">hello `AS` clause describes hello fields returned from `hiveudf.py`.</span></span>
 
 <a name="streamingpy"></a>
 
-### <a name="create-the-hiveudfpy-file"></a><span data-ttu-id="185fc-130">Hiveudf.py dosyası oluşturma</span><span class="sxs-lookup"><span data-stu-id="185fc-130">Create the hiveudf.py file</span></span>
+### <a name="create-hello-hiveudfpy-file"></a><span data-ttu-id="de75c-130">Merhaba hiveudf.py dosyası oluşturma</span><span class="sxs-lookup"><span data-stu-id="de75c-130">Create hello hiveudf.py file</span></span>
 
 
-<span data-ttu-id="185fc-131">Geliştirme ortamınızı adlı bir metin dosyası oluşturun `hiveudf.py`.</span><span class="sxs-lookup"><span data-stu-id="185fc-131">On your development environment, create a text file named `hiveudf.py`.</span></span> <span data-ttu-id="185fc-132">Aşağıdaki kod dosyasının içeriği kullanın:</span><span class="sxs-lookup"><span data-stu-id="185fc-132">Use the following code as the contents of the file:</span></span>
+<span data-ttu-id="de75c-131">Geliştirme ortamınızı adlı bir metin dosyası oluşturun `hiveudf.py`.</span><span class="sxs-lookup"><span data-stu-id="de75c-131">On your development environment, create a text file named `hiveudf.py`.</span></span> <span data-ttu-id="de75c-132">Merhaba dosyasının Merhaba içeriğine koddan hello kullan:</span><span class="sxs-lookup"><span data-stu-id="de75c-132">Use hello following code as hello contents of hello file:</span></span>
 
 ```python
 #!/usr/bin/env python
@@ -105,34 +105,34 @@ while True:
     print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])
 ```
 
-<span data-ttu-id="185fc-133">Bu komut dosyası, aşağıdaki eylemleri gerçekleştirir:</span><span class="sxs-lookup"><span data-stu-id="185fc-133">This script performs the following actions:</span></span>
+<span data-ttu-id="de75c-133">Bu komut dosyası hello aşağıdaki eylemleri gerçekleştirir:</span><span class="sxs-lookup"><span data-stu-id="de75c-133">This script performs hello following actions:</span></span>
 
-1. <span data-ttu-id="185fc-134">Veri satırı STDIN okuyun.</span><span class="sxs-lookup"><span data-stu-id="185fc-134">Read a line of data from STDIN.</span></span>
-2. <span data-ttu-id="185fc-135">Sondaki yeni satır karakteri kullanarak kaldırılır `string.strip(line, "\n ")`.</span><span class="sxs-lookup"><span data-stu-id="185fc-135">The trailing newline character is removed using `string.strip(line, "\n ")`.</span></span>
-3. <span data-ttu-id="185fc-136">Akış işleme yaparken, tek bir satırı her değer arasında bir sekme karakteri ile tüm değerler içeriyor.</span><span class="sxs-lookup"><span data-stu-id="185fc-136">When doing stream processing, a single line contains all the values with a tab character between each value.</span></span> <span data-ttu-id="185fc-137">Bu nedenle `string.split(line, "\t")` yalnızca alanları dönmeden her sekme konumundaki giriş bölmek için kullanılan.</span><span class="sxs-lookup"><span data-stu-id="185fc-137">So `string.split(line, "\t")` can be used to split the input at each tab, returning just the fields.</span></span>
-4. <span data-ttu-id="185fc-138">İşlem tamamlandığında, çıkış STDOUT sekmesi her alanı arasında tek bir satır olarak yazılması gerekir.</span><span class="sxs-lookup"><span data-stu-id="185fc-138">When processing is complete, the output must be written to STDOUT as a single line, with a tab between each field.</span></span> <span data-ttu-id="185fc-139">Örneğin, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.</span><span class="sxs-lookup"><span data-stu-id="185fc-139">For example, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.</span></span>
-5. <span data-ttu-id="185fc-140">`while` Döngü Hayır kadar yinelenir `line` okunur.</span><span class="sxs-lookup"><span data-stu-id="185fc-140">The `while` loop repeats until no `line` is read.</span></span>
+1. <span data-ttu-id="de75c-134">Veri satırı STDIN okuyun.</span><span class="sxs-lookup"><span data-stu-id="de75c-134">Read a line of data from STDIN.</span></span>
+2. <span data-ttu-id="de75c-135">Yeni satır karakteri sondaki hello kullanarak kaldırılır `string.strip(line, "\n ")`.</span><span class="sxs-lookup"><span data-stu-id="de75c-135">hello trailing newline character is removed using `string.strip(line, "\n ")`.</span></span>
+3. <span data-ttu-id="de75c-136">Akış işleme yaparken, tek bir satırı her değer arasında bir sekme karakteri ile tüm hello değerlerini içerir.</span><span class="sxs-lookup"><span data-stu-id="de75c-136">When doing stream processing, a single line contains all hello values with a tab character between each value.</span></span> <span data-ttu-id="de75c-137">Bu nedenle `string.split(line, "\t")` giriş yalnızca hello alanları dönmeden her sekmesi sırasında kullanılan toosplit hello olabilir.</span><span class="sxs-lookup"><span data-stu-id="de75c-137">So `string.split(line, "\t")` can be used toosplit hello input at each tab, returning just hello fields.</span></span>
+4. <span data-ttu-id="de75c-138">İşlem tamamlandığında, hello çıktı sekmesi her alanı arasında tek bir satır olarak tooSTDOUT yazılmış olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="de75c-138">When processing is complete, hello output must be written tooSTDOUT as a single line, with a tab between each field.</span></span> <span data-ttu-id="de75c-139">Örneğin, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.</span><span class="sxs-lookup"><span data-stu-id="de75c-139">For example, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.</span></span>
+5. <span data-ttu-id="de75c-140">Merhaba `while` döngü Hayır kadar yinelenir `line` okunur.</span><span class="sxs-lookup"><span data-stu-id="de75c-140">hello `while` loop repeats until no `line` is read.</span></span>
 
-<span data-ttu-id="185fc-141">Komut dosyası çıkışını bir yapıdır giriş değerlerini `devicemake` ve `devicemodel`ve birleştirilmiş değerinin karması.</span><span class="sxs-lookup"><span data-stu-id="185fc-141">The script output is a concatenation of the input values for `devicemake` and `devicemodel`, and a hash of the concatenated value.</span></span>
+<span data-ttu-id="de75c-141">Merhaba komut çıktısı şöyledir hello giriş değerleri için bir birleşimini `devicemake` ve `devicemodel`, ve hello karmasını birleştirilmiş değer.</span><span class="sxs-lookup"><span data-stu-id="de75c-141">hello script output is a concatenation of hello input values for `devicemake` and `devicemodel`, and a hash of hello concatenated value.</span></span>
 
-<span data-ttu-id="185fc-142">Bkz: [örnekleri çalıştırma](#running) nasıl Hdınsight kümenize Bu örneği çalıştırmak.</span><span class="sxs-lookup"><span data-stu-id="185fc-142">See [Running the examples](#running) for how to run this example on your HDInsight cluster.</span></span>
+<span data-ttu-id="de75c-142">Bkz: [hello örnekleri çalıştırma](#running) nasıl toorun Hdınsight kümenizdeki Bu örnek.</span><span class="sxs-lookup"><span data-stu-id="de75c-142">See [Running hello examples](#running) for how toorun this example on your HDInsight cluster.</span></span>
 
-## <span data-ttu-id="185fc-143"><a name="pigpython"></a>Pig UDF</span><span class="sxs-lookup"><span data-stu-id="185fc-143"><a name="pigpython"></a>Pig UDF</span></span>
+## <span data-ttu-id="de75c-143"><a name="pigpython"></a>Pig UDF</span><span class="sxs-lookup"><span data-stu-id="de75c-143"><a name="pigpython"></a>Pig UDF</span></span>
 
-<span data-ttu-id="185fc-144">Bir Python komut dosyası Pig gelen bir UDF olarak kullanılabilir `GENERATE` deyimi.</span><span class="sxs-lookup"><span data-stu-id="185fc-144">A Python script can be used as a UDF from Pig through the `GENERATE` statement.</span></span> <span data-ttu-id="185fc-145">Jython veya C Python kullanarak komut dosyasını çalıştırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="185fc-145">You can run the script using either Jython or C Python.</span></span>
+<span data-ttu-id="de75c-144">Bir Python komut dosyası olarak bir UDF Pig gelen hello kullanılabilir `GENERATE` deyimi.</span><span class="sxs-lookup"><span data-stu-id="de75c-144">A Python script can be used as a UDF from Pig through hello `GENERATE` statement.</span></span> <span data-ttu-id="de75c-145">Jython veya C Python kullanarak hello komut dosyası çalıştırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="de75c-145">You can run hello script using either Jython or C Python.</span></span>
 
-* <span data-ttu-id="185fc-146">Jython JVM üzerinde çalışır ve yerel olarak Pig çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="185fc-146">Jython runs on the JVM, and can natively be called from Pig.</span></span>
-* <span data-ttu-id="185fc-147">C Python bir dış işlem olduğundan, Pig JVM üzerinde verilerden bir Python işlemde çalışan komut için gönderilir.</span><span class="sxs-lookup"><span data-stu-id="185fc-147">C Python is an external process, so the data from Pig on the JVM is sent out to the script running in a Python process.</span></span> <span data-ttu-id="185fc-148">Python komut dosyası çıkışını Pig'ya geri gönderilir.</span><span class="sxs-lookup"><span data-stu-id="185fc-148">The output of the Python script is sent back into Pig.</span></span>
+* <span data-ttu-id="de75c-146">Jython JVM hello üzerinde çalışır ve yerel olarak Pig çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="de75c-146">Jython runs on hello JVM, and can natively be called from Pig.</span></span>
+* <span data-ttu-id="de75c-147">C Python bir dış işlem olduğundan, Pig Hello verileri hello üzerinde bir Python işlemde çalışan toohello betik çıkışı JVM gönderilir.</span><span class="sxs-lookup"><span data-stu-id="de75c-147">C Python is an external process, so hello data from Pig on hello JVM is sent out toohello script running in a Python process.</span></span> <span data-ttu-id="de75c-148">Merhaba hello Python komut dosyası çıkışını Pig'ya geri gönderilir.</span><span class="sxs-lookup"><span data-stu-id="de75c-148">hello output of hello Python script is sent back into Pig.</span></span>
 
-<span data-ttu-id="185fc-149">Python yorumlayıcı belirtmek için kullanın `register` Python betiğini başvururken.</span><span class="sxs-lookup"><span data-stu-id="185fc-149">To specify the Python interpreter, use `register` when referencing the Python script.</span></span> <span data-ttu-id="185fc-150">Aşağıdaki örnekler Pig betikleri kaydolmalı `myfuncs`:</span><span class="sxs-lookup"><span data-stu-id="185fc-150">The following examples register scripts with Pig as `myfuncs`:</span></span>
+<span data-ttu-id="de75c-149">toospecify hello Python Yorumlayıcı, kullanım `register` hello Python betiği başvururken.</span><span class="sxs-lookup"><span data-stu-id="de75c-149">toospecify hello Python interpreter, use `register` when referencing hello Python script.</span></span> <span data-ttu-id="de75c-150">Merhaba Aşağıdaki örnekler komut dosyaları ile Pig kaydetmeye `myfuncs`:</span><span class="sxs-lookup"><span data-stu-id="de75c-150">hello following examples register scripts with Pig as `myfuncs`:</span></span>
 
-* <span data-ttu-id="185fc-151">**Jython kullanmak için**:`register '/path/to/pigudf.py' using jython as myfuncs;`</span><span class="sxs-lookup"><span data-stu-id="185fc-151">**To use Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`</span></span>
-* <span data-ttu-id="185fc-152">**C Python kullanma**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`</span><span class="sxs-lookup"><span data-stu-id="185fc-152">**To use C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`</span></span>
+* <span data-ttu-id="de75c-151">**toouse Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`</span><span class="sxs-lookup"><span data-stu-id="de75c-151">**toouse Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`</span></span>
+* <span data-ttu-id="de75c-152">**toouse C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`</span><span class="sxs-lookup"><span data-stu-id="de75c-152">**toouse C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="185fc-153">Jython kullanırken, bir yerel yol veya bir WASB pig_jython dosyasının yolu olabilir: / / yolu.</span><span class="sxs-lookup"><span data-stu-id="185fc-153">When using Jython, the path to the pig_jython file can be either a local path or a WASB:// path.</span></span> <span data-ttu-id="185fc-154">Ancak, C Python kullanırken, Pig işi göndermek için kullanmakta olduğunuz düğümünün yerel dosya sistemindeki bir dosyaya başvurmalıdır.</span><span class="sxs-lookup"><span data-stu-id="185fc-154">However, when using C Python, you must reference a file on the local file system of the node that you are using to submit the Pig job.</span></span>
+> <span data-ttu-id="de75c-153">Jython kullanırken hello yol toohello pig_jython dosya yerel bir yol ya da bir WASB olabilir: / / yolu.</span><span class="sxs-lookup"><span data-stu-id="de75c-153">When using Jython, hello path toohello pig_jython file can be either a local path or a WASB:// path.</span></span> <span data-ttu-id="de75c-154">Ancak, C Python kullanırken, bir dosya toosubmit hello Pig işi kullandığınız hello düğümünün hello yerel dosya sisteminde başvurmalıdır.</span><span class="sxs-lookup"><span data-stu-id="de75c-154">However, when using C Python, you must reference a file on hello local file system of hello node that you are using toosubmit hello Pig job.</span></span>
 
-<span data-ttu-id="185fc-155">Bir kez kayıt Bu örnek için Pig Latin her ikisi için de aynıdır:</span><span class="sxs-lookup"><span data-stu-id="185fc-155">Once past registration, the Pig Latin for this example is the same for both:</span></span>
+<span data-ttu-id="de75c-155">Kaydı, bu örnek için Pig Latin hello olduğunda aynı her ikisi için hello:</span><span class="sxs-lookup"><span data-stu-id="de75c-155">Once past registration, hello Pig Latin for this example is hello same for both:</span></span>
 
 ```pig
 LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
@@ -141,21 +141,21 @@ DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
 DUMP DETAILS;
 ```
 
-<span data-ttu-id="185fc-156">Bu örnek yaptığı aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="185fc-156">Here's what this example does:</span></span>
+<span data-ttu-id="de75c-156">Bu örnek yaptığı aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="de75c-156">Here's what this example does:</span></span>
 
-1. <span data-ttu-id="185fc-157">Örnek veri dosyası, ilk satırı yükler `sample.log` içine `LOGS`.</span><span class="sxs-lookup"><span data-stu-id="185fc-157">The first line loads the sample data file, `sample.log` into `LOGS`.</span></span> <span data-ttu-id="185fc-158">Ayrıca her kayıt olarak tanımlayan bir `chararray`.</span><span class="sxs-lookup"><span data-stu-id="185fc-158">It also defines each record as a `chararray`.</span></span>
-2. <span data-ttu-id="185fc-159">Sonraki satıra işleminin sonucu depolamak herhangi bir null değeri filtreleyen `LOG`.</span><span class="sxs-lookup"><span data-stu-id="185fc-159">The next line filters out any null values, storing the result of the operation into `LOG`.</span></span>
-3. <span data-ttu-id="185fc-160">Ardından, kayıtları üzerinden tekrarlanan `LOG` ve kullandığı `GENERATE` çağrılacak `create_structure` Python/Jython komut dosyasında yer alan yöntemi yüklü olarak `myfuncs`.</span><span class="sxs-lookup"><span data-stu-id="185fc-160">Next, it iterates over the records in `LOG` and uses `GENERATE` to invoke the `create_structure` method contained in the Python/Jython script loaded as `myfuncs`.</span></span> <span data-ttu-id="185fc-161">`LINE`Geçerli kayıt işleve geçirmek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="185fc-161">`LINE` is used to pass the current record to the function.</span></span>
-4. <span data-ttu-id="185fc-162">Son olarak, çıkışları STDOUT atılır kullanarak `DUMP` komutu.</span><span class="sxs-lookup"><span data-stu-id="185fc-162">Finally, the outputs are dumped to STDOUT using the `DUMP` command.</span></span> <span data-ttu-id="185fc-163">İşlem tamamlandıktan sonra bu komutun sonuçlarını görüntüler.</span><span class="sxs-lookup"><span data-stu-id="185fc-163">This command displays the results after the operation completes.</span></span>
+1. <span data-ttu-id="de75c-157">Merhaba ilk satırı yükler hello örnek veri dosyası, `sample.log` içine `LOGS`.</span><span class="sxs-lookup"><span data-stu-id="de75c-157">hello first line loads hello sample data file, `sample.log` into `LOGS`.</span></span> <span data-ttu-id="de75c-158">Ayrıca her kayıt olarak tanımlayan bir `chararray`.</span><span class="sxs-lookup"><span data-stu-id="de75c-158">It also defines each record as a `chararray`.</span></span>
+2. <span data-ttu-id="de75c-159">hello işleminin hello sonucu depolamak herhangi bir null değeri filtreleyen Hello sonraki satıra `LOG`.</span><span class="sxs-lookup"><span data-stu-id="de75c-159">hello next line filters out any null values, storing hello result of hello operation into `LOG`.</span></span>
+3. <span data-ttu-id="de75c-160">Ardından, hello kayıtlarında üzerinden tekrarlanan `LOG` ve kullandığı `GENERATE` tooinvoke hello `create_structure` hello Python/Jython komut dosyasında yer alan yöntemi yüklü olarak `myfuncs`.</span><span class="sxs-lookup"><span data-stu-id="de75c-160">Next, it iterates over hello records in `LOG` and uses `GENERATE` tooinvoke hello `create_structure` method contained in hello Python/Jython script loaded as `myfuncs`.</span></span> <span data-ttu-id="de75c-161">`LINE`kullanılan toopass hello geçerli kayıt toohello işlevdir.</span><span class="sxs-lookup"><span data-stu-id="de75c-161">`LINE` is used toopass hello current record toohello function.</span></span>
+4. <span data-ttu-id="de75c-162">Son olarak, hello çıkışları hello kullanarak Dökümü alınan tooSTDOUT olan `DUMP` komutu.</span><span class="sxs-lookup"><span data-stu-id="de75c-162">Finally, hello outputs are dumped tooSTDOUT using hello `DUMP` command.</span></span> <span data-ttu-id="de75c-163">Merhaba işlemi tamamlandıktan sonra bu komut hello sonuçları görüntüler.</span><span class="sxs-lookup"><span data-stu-id="de75c-163">This command displays hello results after hello operation completes.</span></span>
 
-### <a name="create-the-pigudfpy-file"></a><span data-ttu-id="185fc-164">Pigudf.py dosyası oluşturma</span><span class="sxs-lookup"><span data-stu-id="185fc-164">Create the pigudf.py file</span></span>
+### <a name="create-hello-pigudfpy-file"></a><span data-ttu-id="de75c-164">Merhaba pigudf.py dosyası oluşturma</span><span class="sxs-lookup"><span data-stu-id="de75c-164">Create hello pigudf.py file</span></span>
 
-<span data-ttu-id="185fc-165">Geliştirme ortamınızı adlı bir metin dosyası oluşturun `pigudf.py`.</span><span class="sxs-lookup"><span data-stu-id="185fc-165">On your development environment, create a text file named `pigudf.py`.</span></span> <span data-ttu-id="185fc-166">Aşağıdaki kod dosyasının içeriği kullanın:</span><span class="sxs-lookup"><span data-stu-id="185fc-166">Use the following code as the contents of the file:</span></span>
+<span data-ttu-id="de75c-165">Geliştirme ortamınızı adlı bir metin dosyası oluşturun `pigudf.py`.</span><span class="sxs-lookup"><span data-stu-id="de75c-165">On your development environment, create a text file named `pigudf.py`.</span></span> <span data-ttu-id="de75c-166">Merhaba dosyasının Merhaba içeriğine koddan hello kullan:</span><span class="sxs-lookup"><span data-stu-id="de75c-166">Use hello following code as hello contents of hello file:</span></span>
 
 <a name="streamingpy"></a>
 
 ```python
-# Uncomment the following if using C Python
+# Uncomment hello following if using C Python
 #from pig_util import outputSchema
 
 @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
@@ -166,61 +166,61 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-<span data-ttu-id="185fc-167">Biz Pig Latin örnekte tanımlanan `LINE` girişi için tutarlı bir şemayı olduğundan chararray girin.</span><span class="sxs-lookup"><span data-stu-id="185fc-167">In the Pig Latin example, we defined the `LINE` input as a chararray because there is no consistent schema for the input.</span></span> <span data-ttu-id="185fc-168">Python betiğini veri çıkışı için tutarlı bir şema dönüştürür.</span><span class="sxs-lookup"><span data-stu-id="185fc-168">The Python script transforms the data into a consistent schema for output.</span></span>
+<span data-ttu-id="de75c-167">Merhaba Pig Latin örnekte biz hello tanımlanan `LINE` hello girişi için tutarlı bir şemayı olduğundan chararray girin.</span><span class="sxs-lookup"><span data-stu-id="de75c-167">In hello Pig Latin example, we defined hello `LINE` input as a chararray because there is no consistent schema for hello input.</span></span> <span data-ttu-id="de75c-168">Merhaba Python betiği hello veri çıkışı için tutarlı bir şema dönüştürür.</span><span class="sxs-lookup"><span data-stu-id="de75c-168">hello Python script transforms hello data into a consistent schema for output.</span></span>
 
-1. <span data-ttu-id="185fc-169">`@outputSchema` Deyimi için Pig döndürülen verilerin biçimini tanımlar.</span><span class="sxs-lookup"><span data-stu-id="185fc-169">The `@outputSchema` statement defines the format of the data that is returned to Pig.</span></span> <span data-ttu-id="185fc-170">Bu durumda olan bir **veri paketi**, Pig veri türü.</span><span class="sxs-lookup"><span data-stu-id="185fc-170">In this case, it's a **data bag**, which is a Pig data type.</span></span> <span data-ttu-id="185fc-171">Paketi chararray (dize) tümü aşağıdaki alanları içerir:</span><span class="sxs-lookup"><span data-stu-id="185fc-171">The bag contains the following fields, all of which are chararray (strings):</span></span>
+1. <span data-ttu-id="de75c-169">Merhaba `@outputSchema` deyimi tooPig döndürülen hello verilerin hello biçimini tanımlar.</span><span class="sxs-lookup"><span data-stu-id="de75c-169">hello `@outputSchema` statement defines hello format of hello data that is returned tooPig.</span></span> <span data-ttu-id="de75c-170">Bu durumda olan bir **veri paketi**, Pig veri türü.</span><span class="sxs-lookup"><span data-stu-id="de75c-170">In this case, it's a **data bag**, which is a Pig data type.</span></span> <span data-ttu-id="de75c-171">Merhaba paketi chararray (dize) tümü alanları izleyen hello içerir:</span><span class="sxs-lookup"><span data-stu-id="de75c-171">hello bag contains hello following fields, all of which are chararray (strings):</span></span>
 
-   * <span data-ttu-id="185fc-172">tarih - günlük girişinin oluşturulduğu tarih</span><span class="sxs-lookup"><span data-stu-id="185fc-172">date - the date the log entry was created</span></span>
-   * <span data-ttu-id="185fc-173">zaman - günlük girişinin oluşturulduğu zaman</span><span class="sxs-lookup"><span data-stu-id="185fc-173">time - the time the log entry was created</span></span>
-   * <span data-ttu-id="185fc-174">ClassName - için sınıf adı girişi oluşturuldu</span><span class="sxs-lookup"><span data-stu-id="185fc-174">classname - the class name the entry was created for</span></span>
-   * <span data-ttu-id="185fc-175">Level - günlük düzeyini</span><span class="sxs-lookup"><span data-stu-id="185fc-175">level - the log level</span></span>
-   * <span data-ttu-id="185fc-176">Ayrıntı - günlük girişi için ayrıntılı ayrıntıları</span><span class="sxs-lookup"><span data-stu-id="185fc-176">detail - verbose details for the log entry</span></span>
+   * <span data-ttu-id="de75c-172">-Başlangıç tarihi hello günlük girişinin oluşturulduğu tarih</span><span class="sxs-lookup"><span data-stu-id="de75c-172">date - hello date hello log entry was created</span></span>
+   * <span data-ttu-id="de75c-173">saati - hello günlük girişinin oluşturulduğu hello</span><span class="sxs-lookup"><span data-stu-id="de75c-173">time - hello time hello log entry was created</span></span>
+   * <span data-ttu-id="de75c-174">ClassName - için hello sınıf adı hello girdisi oluşturuldu</span><span class="sxs-lookup"><span data-stu-id="de75c-174">classname - hello class name hello entry was created for</span></span>
+   * <span data-ttu-id="de75c-175">Level - hello günlük düzeyi</span><span class="sxs-lookup"><span data-stu-id="de75c-175">level - hello log level</span></span>
+   * <span data-ttu-id="de75c-176">Ayrıntı - verbose ayrıntılarını hello günlüğü girişi</span><span class="sxs-lookup"><span data-stu-id="de75c-176">detail - verbose details for hello log entry</span></span>
 
-2. <span data-ttu-id="185fc-177">Ardından, `def create_structure(input)` Pig çizgi öğelerine geçirir işlevi tanımlar.</span><span class="sxs-lookup"><span data-stu-id="185fc-177">Next, the `def create_structure(input)` defines the function that Pig passes line items to.</span></span>
+2. <span data-ttu-id="de75c-177">Ardından, hello `def create_structure(input)` Pig çizgi öğelerine geçirir hello işlevi tanımlar.</span><span class="sxs-lookup"><span data-stu-id="de75c-177">Next, hello `def create_structure(input)` defines hello function that Pig passes line items to.</span></span>
 
-3. <span data-ttu-id="185fc-178">Örnek veri `sample.log`, çoğunlukla tarih, saat, classname düzeyi, uyumlu ve ayrıntı istiyoruz döndürmek için şema.</span><span class="sxs-lookup"><span data-stu-id="185fc-178">The example data, `sample.log`, mostly conforms to the date, time, classname, level, and detail schema we want to return.</span></span> <span data-ttu-id="185fc-179">Ancak, ile başlayan birkaç satırları içeren `*java.lang.Exception*`.</span><span class="sxs-lookup"><span data-stu-id="185fc-179">However, it contains a few lines that begin with `*java.lang.Exception*`.</span></span> <span data-ttu-id="185fc-180">Bu satırlar şemayla eşleşecek şekilde değiştirilmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="185fc-180">These lines must be modified to match the schema.</span></span> <span data-ttu-id="185fc-181">`if` Deyimi için olanlar denetler ve ardından taşımak için giriş verileri massages `*java.lang.Exception*` veri satır içi bizim beklenen çıkış şemasıyla getiren sonuna dize.</span><span class="sxs-lookup"><span data-stu-id="185fc-181">The `if` statement checks for those, then massages the input data to move the `*java.lang.Exception*` string to the end, bringing the data in-line with our expected output schema.</span></span>
+3. <span data-ttu-id="de75c-178">Merhaba örnek veri `sample.log`, çoğunlukla toohello tarih, saat, classname düzeyi, uyumlu ve ayrıntı şema tooreturn istiyoruz.</span><span class="sxs-lookup"><span data-stu-id="de75c-178">hello example data, `sample.log`, mostly conforms toohello date, time, classname, level, and detail schema we want tooreturn.</span></span> <span data-ttu-id="de75c-179">Ancak, ile başlayan birkaç satırları içeren `*java.lang.Exception*`.</span><span class="sxs-lookup"><span data-stu-id="de75c-179">However, it contains a few lines that begin with `*java.lang.Exception*`.</span></span> <span data-ttu-id="de75c-180">Bu satırlar değiştirilmiş toomatch hello şema olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="de75c-180">These lines must be modified toomatch hello schema.</span></span> <span data-ttu-id="de75c-181">Merhaba `if` deyimi için olanlar denetler ve ardından massages hello giriş verisi toomove hello `*java.lang.Exception*` hello veri satır içi bizim beklenen çıkış şemasıyla getiren dize toohello son.</span><span class="sxs-lookup"><span data-stu-id="de75c-181">hello `if` statement checks for those, then massages hello input data toomove hello `*java.lang.Exception*` string toohello end, bringing hello data in-line with our expected output schema.</span></span>
 
-4. <span data-ttu-id="185fc-182">Ardından, `split` komutu ilk dört boşluk karakterleri veri bölmek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="185fc-182">Next, the `split` command is used to split the data at the first four space characters.</span></span> <span data-ttu-id="185fc-183">Çıktı içine atanan `date`, `time`, `classname`, `level`, ve `detail`.</span><span class="sxs-lookup"><span data-stu-id="185fc-183">The output is assigned into `date`, `time`, `classname`, `level`, and `detail`.</span></span>
+4. <span data-ttu-id="de75c-182">Ardından, hello `split` hello ilk dört boşluk karakterleri kullanılan toosplit hello veri komuttur.</span><span class="sxs-lookup"><span data-stu-id="de75c-182">Next, hello `split` command is used toosplit hello data at hello first four space characters.</span></span> <span data-ttu-id="de75c-183">Merhaba çıkış içine atandığı `date`, `time`, `classname`, `level`, ve `detail`.</span><span class="sxs-lookup"><span data-stu-id="de75c-183">hello output is assigned into `date`, `time`, `classname`, `level`, and `detail`.</span></span>
 
-5. <span data-ttu-id="185fc-184">Son olarak, değerleri için Pig döndürülür.</span><span class="sxs-lookup"><span data-stu-id="185fc-184">Finally, the values are returned to Pig.</span></span>
+5. <span data-ttu-id="de75c-184">Son olarak, hello değerleri tooPig döndürülür.</span><span class="sxs-lookup"><span data-stu-id="de75c-184">Finally, hello values are returned tooPig.</span></span>
 
-<span data-ttu-id="185fc-185">Verileri için Pig döndürüldüğünde, tutarlı bir şema tanımlandığı şekilde sahip `@outputSchema` deyimi.</span><span class="sxs-lookup"><span data-stu-id="185fc-185">When the data is returned to Pig, it has a consistent schema as defined in the `@outputSchema` statement.</span></span>
+<span data-ttu-id="de75c-185">Merhaba veri tooPig döndürüldüğünde, onu tutarlı bir şemayı hello tanımlanan sahip `@outputSchema` deyimi.</span><span class="sxs-lookup"><span data-stu-id="de75c-185">When hello data is returned tooPig, it has a consistent schema as defined in hello `@outputSchema` statement.</span></span>
 
-## <span data-ttu-id="185fc-186"><a name="running"></a>Karşıya yükleme ve örnekler çalıştırın</span><span class="sxs-lookup"><span data-stu-id="185fc-186"><a name="running"></a>Upload and run the examples</span></span>
+## <span data-ttu-id="de75c-186"><a name="running"></a>Karşıya yükleme ve başlangıç örnekleri çalıştırın</span><span class="sxs-lookup"><span data-stu-id="de75c-186"><a name="running"></a>Upload and run hello examples</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="185fc-187">**SSH** adımlar, yalnızca Linux tabanlı Hdınsight kümesi ile çalışır.</span><span class="sxs-lookup"><span data-stu-id="185fc-187">The **SSH** steps only work with a Linux-based HDInsight cluster.</span></span> <span data-ttu-id="185fc-188">**PowerShell** adımları bir Linux veya Windows tabanlı Hdınsight kümesi ile çalışır, ancak bir Windows istemci gerektirir.</span><span class="sxs-lookup"><span data-stu-id="185fc-188">The **PowerShell** steps work with either a Linux or Windows-based HDInsight cluster, but require a Windows client.</span></span>
+> <span data-ttu-id="de75c-187">Merhaba **SSH** adımlar, yalnızca Linux tabanlı Hdınsight kümesi ile çalışır.</span><span class="sxs-lookup"><span data-stu-id="de75c-187">hello **SSH** steps only work with a Linux-based HDInsight cluster.</span></span> <span data-ttu-id="de75c-188">Merhaba **PowerShell** adımları bir Linux veya Windows tabanlı Hdınsight kümesi ile çalışır, ancak bir Windows istemci gerektirir.</span><span class="sxs-lookup"><span data-stu-id="de75c-188">hello **PowerShell** steps work with either a Linux or Windows-based HDInsight cluster, but require a Windows client.</span></span>
 
-### <a name="ssh"></a><span data-ttu-id="185fc-189">SSH</span><span class="sxs-lookup"><span data-stu-id="185fc-189">SSH</span></span>
+### <a name="ssh"></a><span data-ttu-id="de75c-189">SSH</span><span class="sxs-lookup"><span data-stu-id="de75c-189">SSH</span></span>
 
-<span data-ttu-id="185fc-190">SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).</span><span class="sxs-lookup"><span data-stu-id="185fc-190">For more information on using SSH, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span></span>
+<span data-ttu-id="de75c-190">SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).</span><span class="sxs-lookup"><span data-stu-id="de75c-190">For more information on using SSH, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span></span>
 
-1. <span data-ttu-id="185fc-191">Kullanım `scp` dosyaları Hdınsight kümenize kopyalamak için.</span><span class="sxs-lookup"><span data-stu-id="185fc-191">Use `scp` to copy the files to your HDInsight cluster.</span></span> <span data-ttu-id="185fc-192">Örneğin, aşağıdaki komut dosyaları adlı bir kümeye kopyalar **mycluster**.</span><span class="sxs-lookup"><span data-stu-id="185fc-192">For example, the following command copies the files to a cluster named **mycluster**.</span></span>
+1. <span data-ttu-id="de75c-191">Kullanım `scp` toocopy hello dosyaları tooyour Hdınsight kümesi.</span><span class="sxs-lookup"><span data-stu-id="de75c-191">Use `scp` toocopy hello files tooyour HDInsight cluster.</span></span> <span data-ttu-id="de75c-192">Örneğin, kopya hello adlı dosyaları tooa küme komutu aşağıdaki hello **mycluster**.</span><span class="sxs-lookup"><span data-stu-id="de75c-192">For example, hello following command copies hello files tooa cluster named **mycluster**.</span></span>
 
     ```bash
     scp hiveudf.py pigudf.py myuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-2. <span data-ttu-id="185fc-193">Kümeye bağlanmak için SSH kullanın.</span><span class="sxs-lookup"><span data-stu-id="185fc-193">Use SSH to connect to the cluster.</span></span>
+2. <span data-ttu-id="de75c-193">SSH tooconnect toohello küme kullanın.</span><span class="sxs-lookup"><span data-stu-id="de75c-193">Use SSH tooconnect toohello cluster.</span></span>
 
     ```bash
     ssh myuser@mycluster-ssh.azurehdinsight.net
     ```
 
-3. <span data-ttu-id="185fc-194">SSH oturumundan WASB depolama küme için daha önce karşıya python dosyalarını ekleyin.</span><span class="sxs-lookup"><span data-stu-id="185fc-194">From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.</span></span>
+3. <span data-ttu-id="de75c-194">Merhaba SSH oturumundan hello python dosyaları toohello WASB depolama hello küme için daha önce karşıya ekleyin.</span><span class="sxs-lookup"><span data-stu-id="de75c-194">From hello SSH session, add hello python files uploaded previously toohello WASB storage for hello cluster.</span></span>
 
     ```bash
     hdfs dfs -put hiveudf.py /hiveudf.py
     hdfs dfs -put pigudf.py /pigudf.py
     ```
 
-<span data-ttu-id="185fc-195">Dosyaları karşıya yükleme sonrasında, Hive veya Pig işlerini çalıştırmak için aşağıdaki adımları kullanın.</span><span class="sxs-lookup"><span data-stu-id="185fc-195">After uploading the files, use the following steps to run the Hive and Pig jobs.</span></span>
+<span data-ttu-id="de75c-195">Merhaba dosyalarını karşıya yükledikten sonra toorun hello Hive ve Pig işleri kullanım hello aşağıdaki adımları.</span><span class="sxs-lookup"><span data-stu-id="de75c-195">After uploading hello files, use hello following steps toorun hello Hive and Pig jobs.</span></span>
 
-#### <a name="use-the-hive-udf"></a><span data-ttu-id="185fc-196">UDF Hive kullanma</span><span class="sxs-lookup"><span data-stu-id="185fc-196">Use the Hive UDF</span></span>
+#### <a name="use-hello-hive-udf"></a><span data-ttu-id="de75c-196">Merhaba Hive UDF kullanın</span><span class="sxs-lookup"><span data-stu-id="de75c-196">Use hello Hive UDF</span></span>
 
-1. <span data-ttu-id="185fc-197">Kullanım `hive` hive kabuğunu başlatmak için komutu.</span><span class="sxs-lookup"><span data-stu-id="185fc-197">Use the `hive` command to start the hive shell.</span></span> <span data-ttu-id="185fc-198">Görmeniz gerekir bir `hive>` Kabuk yüklendikten sonra ister.</span><span class="sxs-lookup"><span data-stu-id="185fc-198">You should see a `hive>` prompt once the shell has loaded.</span></span>
+1. <span data-ttu-id="de75c-197">Kullanım hello `hive` toostart hello hive kabuğunu komutu.</span><span class="sxs-lookup"><span data-stu-id="de75c-197">Use hello `hive` command toostart hello hive shell.</span></span> <span data-ttu-id="de75c-198">Görmeniz gerekir bir `hive>` hello Kabuk yüklendikten sonra ister.</span><span class="sxs-lookup"><span data-stu-id="de75c-198">You should see a `hive>` prompt once hello shell has loaded.</span></span>
 
-2. <span data-ttu-id="185fc-199">Aşağıdaki sorgu girin `hive>` istemi:</span><span class="sxs-lookup"><span data-stu-id="185fc-199">Enter the following query at the `hive>` prompt:</span></span>
+2. <span data-ttu-id="de75c-199">Merhaba sorgusu aşağıdaki hello girin `hive>` istemi:</span><span class="sxs-lookup"><span data-stu-id="de75c-199">Enter hello following query at hello `hive>` prompt:</span></span>
 
    ```hive
    add file wasb:///hiveudf.py;
@@ -231,7 +231,7 @@ def create_structure(input):
    ORDER BY clientid LIMIT 50;
    ```
 
-3. <span data-ttu-id="185fc-200">Son satırı girdikten sonra iş başlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="185fc-200">After entering the last line, the job should start.</span></span> <span data-ttu-id="185fc-201">İş tamamlandığında, çıkış aşağıdaki örneğe benzer şekilde döndürür:</span><span class="sxs-lookup"><span data-stu-id="185fc-201">Once the job completes, it returns output similar to the following example:</span></span>
+3. <span data-ttu-id="de75c-200">Merhaba son satırı girdikten sonra hello iş başlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="de75c-200">After entering hello last line, hello job should start.</span></span> <span data-ttu-id="de75c-201">Merhaba işi tamamlandıktan sonra aşağıdaki örnek çıkış benzer toohello döndürür:</span><span class="sxs-lookup"><span data-stu-id="de75c-201">Once hello job completes, it returns output similar toohello following example:</span></span>
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -239,11 +239,11 @@ def create_structure(input):
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### <a name="use-the-pig-udf"></a><span data-ttu-id="185fc-202">UDF Pig kullanma</span><span class="sxs-lookup"><span data-stu-id="185fc-202">Use the Pig UDF</span></span>
+#### <a name="use-hello-pig-udf"></a><span data-ttu-id="de75c-202">Merhaba Pig UDF kullanın</span><span class="sxs-lookup"><span data-stu-id="de75c-202">Use hello Pig UDF</span></span>
 
-1. <span data-ttu-id="185fc-203">Kullanım `pig` komut kabuğu'nu başlatın.</span><span class="sxs-lookup"><span data-stu-id="185fc-203">Use the `pig` command to start the shell.</span></span> <span data-ttu-id="185fc-204">Gördüğünüz bir `grunt>` Kabuk yüklendikten sonra ister.</span><span class="sxs-lookup"><span data-stu-id="185fc-204">You see a `grunt>` prompt once the shell has loaded.</span></span>
+1. <span data-ttu-id="de75c-203">Kullanım hello `pig` toostart hello Kabuk komutu.</span><span class="sxs-lookup"><span data-stu-id="de75c-203">Use hello `pig` command toostart hello shell.</span></span> <span data-ttu-id="de75c-204">Gördüğünüz bir `grunt>` hello Kabuk yüklendikten sonra ister.</span><span class="sxs-lookup"><span data-stu-id="de75c-204">You see a `grunt>` prompt once hello shell has loaded.</span></span>
 
-2. <span data-ttu-id="185fc-205">Aşağıdaki deyimler de girin `grunt>` istemi:</span><span class="sxs-lookup"><span data-stu-id="185fc-205">Enter the following statements at the `grunt>` prompt:</span></span>
+2. <span data-ttu-id="de75c-205">Merhaba deyimlerini aşağıdaki hello girin `grunt>` istemi:</span><span class="sxs-lookup"><span data-stu-id="de75c-205">Enter hello following statements at hello `grunt>` prompt:</span></span>
 
    ```pig
    Register wasb:///pigudf.py using jython as myfuncs;
@@ -253,7 +253,7 @@ def create_structure(input):
    DUMP DETAILS;
    ```
 
-3. <span data-ttu-id="185fc-206">Aşağıdaki satırı girdikten sonra iş başlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="185fc-206">After entering the following line, the job should start.</span></span> <span data-ttu-id="185fc-207">İş tamamlandığında, çıkış benzer aşağıdaki veriler döndürür:</span><span class="sxs-lookup"><span data-stu-id="185fc-207">Once the job completes, it returns output similar to the following data:</span></span>
+3. <span data-ttu-id="de75c-206">Satır aşağıdaki hello girdikten sonra hello iş başlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="de75c-206">After entering hello following line, hello job should start.</span></span> <span data-ttu-id="de75c-207">Merhaba işi tamamlandığında, çıkış benzer toohello veri aşağıdaki döndürür:</span><span class="sxs-lookup"><span data-stu-id="de75c-207">Once hello job completes, it returns output similar toohello following data:</span></span>
 
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
         ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -261,21 +261,21 @@ def create_structure(input):
         ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-4. <span data-ttu-id="185fc-208">Kullanmak `quit` Grunt Kabuk çıkın ve ardından yerel dosya sisteminde pigudf.py dosyayı düzenlemek için aşağıdakileri kullanın:</span><span class="sxs-lookup"><span data-stu-id="185fc-208">Use `quit` to exit the Grunt shell, and then use the following to edit the pigudf.py file on the local file system:</span></span>
+4. <span data-ttu-id="de75c-208">Kullanmak `quit` tooexit Grunt Kabuk hello ve aşağıdaki tooedit hello pigudf.py dosyasına hello yerel dosya sisteminde hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="de75c-208">Use `quit` tooexit hello Grunt shell, and then use hello following tooedit hello pigudf.py file on hello local file system:</span></span>
 
     ```bash
     nano pigudf.py
     ```
 
-5. <span data-ttu-id="185fc-209">Bir kez Düzenleyicisi'nde aşağıdaki satırı kaldırarak açıklamadan çıkarın `#` karakter satırını başından itibaren:</span><span class="sxs-lookup"><span data-stu-id="185fc-209">Once in the editor, uncomment the following line by removing the `#` character from the beginning of the line:</span></span>
+5. <span data-ttu-id="de75c-209">Bir kez hello Düzenleyicisi'nde hello kaldırarak satır aşağıdaki hello açıklamadan çıkarın `#` hello satırının hello başından karakteri:</span><span class="sxs-lookup"><span data-stu-id="de75c-209">Once in hello editor, uncomment hello following line by removing hello `#` character from hello beginning of hello line:</span></span>
 
     ```bash
     #from pig_util import outputSchema
     ```
 
-    <span data-ttu-id="185fc-210">Değişikliği yaptıktan sonra düzenleyiciden çıkmak için Ctrl + X kullanın.</span><span class="sxs-lookup"><span data-stu-id="185fc-210">Once the change has been made, use Ctrl+X to exit the editor.</span></span> <span data-ttu-id="185fc-211">Y seçin ve ardından değişiklikleri kaydetmek için girin.</span><span class="sxs-lookup"><span data-stu-id="185fc-211">Select Y, and then enter to save the changes.</span></span>
+    <span data-ttu-id="de75c-210">Merhaba değişiklik yapıldıktan sonra Ctrl + X tooexit hello Düzenleyicisi'ni kullanın.</span><span class="sxs-lookup"><span data-stu-id="de75c-210">Once hello change has been made, use Ctrl+X tooexit hello editor.</span></span> <span data-ttu-id="de75c-211">Y seçin ve ardından toosave hello değişiklikleri girin.</span><span class="sxs-lookup"><span data-stu-id="de75c-211">Select Y, and then enter toosave hello changes.</span></span>
 
-6. <span data-ttu-id="185fc-212">Kullanım `pig` Kabuğu'nu yeniden başlatmak için komutu.</span><span class="sxs-lookup"><span data-stu-id="185fc-212">Use the `pig` command to start the shell again.</span></span> <span data-ttu-id="185fc-213">Konumundaki olduğunuzda `grunt>` isteminde, aşağıdaki C Python yorumlayıcı kullanarak Python komut dosyasını çalıştırmak için kullanın.</span><span class="sxs-lookup"><span data-stu-id="185fc-213">Once you are at the `grunt>` prompt, use the following to run the Python script using the C Python interpreter.</span></span>
+6. <span data-ttu-id="de75c-212">Kullanım hello `pig` toostart hello Kabuğu komutunu yeniden.</span><span class="sxs-lookup"><span data-stu-id="de75c-212">Use hello `pig` command toostart hello shell again.</span></span> <span data-ttu-id="de75c-213">Hello olduğunuzda `grunt>` isteminde, hello C Python yorumlayıcı kullanılarak toorun hello Python komut aşağıdaki hello kullanın.</span><span class="sxs-lookup"><span data-stu-id="de75c-213">Once you are at hello `grunt>` prompt, use hello following toorun hello Python script using hello C Python interpreter.</span></span>
 
    ```pig
    Register 'pigudf.py' using streaming_python as myfuncs;
@@ -285,17 +285,17 @@ def create_structure(input):
    DUMP DETAILS;
    ```
 
-    <span data-ttu-id="185fc-214">Bu iş tamamlandığında, ne zaman önceden Jython kullanarak betiği çalıştırdığınız aynı çıktı görmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="185fc-214">Once this job completes, you should see the same output as when you previously ran the script using Jython.</span></span>
+    <span data-ttu-id="de75c-214">Bu iş tamamlandığında, ne zaman, daha önce Jython kullanılarak hello komut çalıştırıldığı aynı çıktı hello görmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="de75c-214">Once this job completes, you should see hello same output as when you previously ran hello script using Jython.</span></span>
 
-### <a name="powershell-upload-the-files"></a><span data-ttu-id="185fc-215">PowerShell: dosyaları karşıya yükleme</span><span class="sxs-lookup"><span data-stu-id="185fc-215">PowerShell: Upload the files</span></span>
+### <a name="powershell-upload-hello-files"></a><span data-ttu-id="de75c-215">PowerShell: Karşıya yükleme hello dosyaları</span><span class="sxs-lookup"><span data-stu-id="de75c-215">PowerShell: Upload hello files</span></span>
 
-<span data-ttu-id="185fc-216">Hdınsight sunucusuna dosyaları karşıya yükleme için PowerShell kullanın.</span><span class="sxs-lookup"><span data-stu-id="185fc-216">You can use PowerShell to upload the files to the HDInsight server.</span></span> <span data-ttu-id="185fc-217">Python dosyaları karşıya yüklemek için aşağıdaki komut dosyasını kullanın:</span><span class="sxs-lookup"><span data-stu-id="185fc-217">Use the following script to upload the Python files:</span></span>
+<span data-ttu-id="de75c-216">PowerShell tooupload hello dosyaları toohello Hdınsight sunucusuna kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="de75c-216">You can use PowerShell tooupload hello files toohello HDInsight server.</span></span> <span data-ttu-id="de75c-217">Aşağıdaki komut dosyası tooupload hello Python dosyaları hello kullan:</span><span class="sxs-lookup"><span data-stu-id="de75c-217">Use hello following script tooupload hello Python files:</span></span>
 
 > [!IMPORTANT] 
-> <span data-ttu-id="185fc-218">Bu bölümdeki adımları Azure PowerShell kullanın.</span><span class="sxs-lookup"><span data-stu-id="185fc-218">The steps in this section use Azure PowerShell.</span></span> <span data-ttu-id="185fc-219">Azure PowerShell kullanma hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="185fc-219">For more information on using Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).</span></span>
+> <span data-ttu-id="de75c-218">Bu bölümdeki adımları Hello Azure PowerShell kullanın.</span><span class="sxs-lookup"><span data-stu-id="de75c-218">hello steps in this section use Azure PowerShell.</span></span> <span data-ttu-id="de75c-219">Azure PowerShell kullanma hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="de75c-219">For more information on using Azure PowerShell, see [How tooinstall and configure Azure PowerShell](/powershell/azure/overview).</span></span>
 
 ```powershell
-# Login to your Azure subscription
+# Login tooyour Azure subscription
 # Is there an active Azure subscription?
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
@@ -304,8 +304,8 @@ if(-not($sub))
 }
 
 # Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-# Change the path to match the file location on your system
+$clusterName = Read-Host -Prompt "Enter hello HDInsight cluster name"
+# Change hello path toomatch hello file location on your system
 $pathToStreamingFile = "C:\path\to\hiveudf.py"
 $pathToJythonFile = "C:\path\to\pigudf.py"
 
@@ -317,7 +317,7 @@ $storageAccountKey=(Get-AzureRmStorageAccountKey `
     -Name $storageAccountName `
 -ResourceGroupName $resourceGroup)[0].Value
 
-#Create a storage content and upload the file
+#Create a storage content and upload hello file
 $context = New-AzureStorageContext `
     -StorageAccountName $storageAccountName `
     -StorageAccountKey $storageAccountKey
@@ -335,22 +335,22 @@ Set-AzureStorageBlobContent `
     -Context $context
 ```
 > [!IMPORTANT]
-> <span data-ttu-id="185fc-220">Değişiklik `C:\path\to` geliştirme ortamınızı dosyalarda yoluna değeri.</span><span class="sxs-lookup"><span data-stu-id="185fc-220">Change the `C:\path\to` value to the path to the files on your development environment.</span></span>
+> <span data-ttu-id="de75c-220">Değişiklik hello `C:\path\to` toohello yolu toohello geliştirme ortamınızı dosyalarda değeri.</span><span class="sxs-lookup"><span data-stu-id="de75c-220">Change hello `C:\path\to` value toohello path toohello files on your development environment.</span></span>
 
-<span data-ttu-id="185fc-221">Bu komut dosyası Hdınsight kümenizle ilgili bilgileri alır sonra varsayılan depolama hesabı için anahtar ve hesap ayıklar ve kapsayıcı kök dizinine dosyaları yükler.</span><span class="sxs-lookup"><span data-stu-id="185fc-221">This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.</span></span>
+<span data-ttu-id="de75c-221">Bu betiği Hdınsight kümenizle ilgili bilgileri alır ve ardından hello hesabı ve anahtarı hello varsayılan depolama hesabı için ayıklar ve karşıya dosya toohello kök hello kapsayıcısının hello.</span><span class="sxs-lookup"><span data-stu-id="de75c-221">This script retrieves information for your HDInsight cluster, then extracts hello account and key for hello default storage account, and uploads hello files toohello root of hello container.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="185fc-222">Dosyaları karşıya yükleme ile ilgili daha fazla bilgi için bkz: [hdınsight'ta Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md) belge.</span><span class="sxs-lookup"><span data-stu-id="185fc-222">For more information on uploading files, see the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.</span></span>
+> <span data-ttu-id="de75c-222">Dosyaları karşıya yükleme ile ilgili daha fazla bilgi için bkz: hello [hdınsight'ta Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md) belge.</span><span class="sxs-lookup"><span data-stu-id="de75c-222">For more information on uploading files, see hello [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.</span></span>
 
-#### <a name="powershell-use-the-hive-udf"></a><span data-ttu-id="185fc-223">PowerShell: UDF Hive kullanma</span><span class="sxs-lookup"><span data-stu-id="185fc-223">PowerShell: Use the Hive UDF</span></span>
+#### <a name="powershell-use-hello-hive-udf"></a><span data-ttu-id="de75c-223">PowerShell: hello Hive UDF kullanın</span><span class="sxs-lookup"><span data-stu-id="de75c-223">PowerShell: Use hello Hive UDF</span></span>
 
-<span data-ttu-id="185fc-224">PowerShell uzaktan Hive sorguları çalıştırmak için de kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="185fc-224">PowerShell can also be used to remotely run Hive queries.</span></span> <span data-ttu-id="185fc-225">Kullanan bir Hive sorgusu çalıştırmak için aşağıdaki PowerShell betiğini kullanın **hiveudf.py** komut dosyası:</span><span class="sxs-lookup"><span data-stu-id="185fc-225">Use the following PowerShell script to run a Hive query that uses **hiveudf.py** script:</span></span>
+<span data-ttu-id="de75c-224">PowerShell çalıştırma kullanılan tooremotely Hive sorguları da olabilir.</span><span class="sxs-lookup"><span data-stu-id="de75c-224">PowerShell can also be used tooremotely run Hive queries.</span></span> <span data-ttu-id="de75c-225">PowerShell komut dosyası toorun kullanan bir Hive sorgusu aşağıdaki kullanım hello **hiveudf.py** komut dosyası:</span><span class="sxs-lookup"><span data-stu-id="de75c-225">Use hello following PowerShell script toorun a Hive query that uses **hiveudf.py** script:</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="185fc-226">Çalıştırmadan önce komut dosyası, Hdınsight kümeniz için HTTPs/Admin hesap bilgilerini ister.</span><span class="sxs-lookup"><span data-stu-id="185fc-226">Before running, the script prompts you for the HTTPs/Admin account information for your HDInsight cluster.</span></span>
+> <span data-ttu-id="de75c-226">Çalıştırmadan önce hello betik hello Hdınsight kümeniz için HTTPs/Admin hesap bilgilerini ister.</span><span class="sxs-lookup"><span data-stu-id="de75c-226">Before running, hello script prompts you for hello HTTPs/Admin account information for your HDInsight cluster.</span></span>
 
 ```powershell
-# Login to your Azure subscription
+# Login tooyour Azure subscription
 # Is there an active Azure subscription?
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
@@ -359,10 +359,10 @@ if(-not($sub))
 }
 
 # Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-$creds=Get-Credential -Message "Enter the login for the cluster"
+$clusterName = Read-Host -Prompt "Enter hello HDInsight cluster name"
+$creds=Get-Credential -Message "Enter hello login for hello cluster"
 
-# If using a Windows-based HDInsight cluster, change the USING statement to:
+# If using a Windows-based HDInsight cluster, change hello USING statement to:
 # "USING 'D:\Python27\python.exe hiveudf.py' AS " +
 $HiveQuery = "add file wasb:///hiveudf.py;" +
                 "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
@@ -378,25 +378,25 @@ $job = Start-AzureRmHDInsightJob `
     -ClusterName $clusterName `
     -JobDefinition $jobDefinition `
     -HttpCredential $creds
-Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
+Write-Host "Wait for hello Hive job toocomplete ..." -ForegroundColor Green
 Wait-AzureRmHDInsightJob `
     -JobId $job.JobId `
     -ClusterName $clusterName `
     -HttpCredential $creds
-# Uncomment the following to see stderr output
+# Uncomment hello following toosee stderr output
 # Get-AzureRmHDInsightJobOutput `
 #   -Clustername $clusterName `
 #   -JobId $job.JobId `
 #   -HttpCredential $creds `
 #   -DisplayOutputType StandardError
-Write-Host "Display the standard output ..." -ForegroundColor Green
+Write-Host "Display hello standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
     -Clustername $clusterName `
     -JobId $job.JobId `
     -HttpCredential $creds
 ```
 
-<span data-ttu-id="185fc-227">Çıkış için **Hive** işi aşağıdaki örneğe benzer görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="185fc-227">The output for the **Hive** job should appear similar to the following example:</span></span>
+<span data-ttu-id="de75c-227">Merhaba hello için çıktı **Hive** işi aşağıdaki örneğine benzer toohello görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="de75c-227">hello output for hello **Hive** job should appear similar toohello following example:</span></span>
 
     100041    RIM 9650    d476f3687700442549a83fac4560c51c
     100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -404,15 +404,15 @@ Get-AzureRmHDInsightJobOutput `
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### <a name="pig-jython"></a><span data-ttu-id="185fc-228">Pig (Jython)</span><span class="sxs-lookup"><span data-stu-id="185fc-228">Pig (Jython)</span></span>
+#### <a name="pig-jython"></a><span data-ttu-id="de75c-228">Pig (Jython)</span><span class="sxs-lookup"><span data-stu-id="de75c-228">Pig (Jython)</span></span>
 
-<span data-ttu-id="185fc-229">PowerShell, Pig Latin işlerini çalıştırmak için de kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="185fc-229">PowerShell can also be used to run Pig Latin jobs.</span></span> <span data-ttu-id="185fc-230">Kullanan bir Pig Latin işini çalıştırmak için **pigudf.py** komut dosyası, aşağıdaki PowerShell betiğini kullanın:</span><span class="sxs-lookup"><span data-stu-id="185fc-230">To run a Pig Latin job that uses the **pigudf.py** script, use the following PowerShell script:</span></span>
+<span data-ttu-id="de75c-229">PowerShell kullanılan toorun Pig Latin işleri de olabilir.</span><span class="sxs-lookup"><span data-stu-id="de75c-229">PowerShell can also be used toorun Pig Latin jobs.</span></span> <span data-ttu-id="de75c-230">toorun hello kullanan bir Pig Latin iş **pigudf.py** komut dosyası, PowerShell Betiği aşağıdaki hello kullanın:</span><span class="sxs-lookup"><span data-stu-id="de75c-230">toorun a Pig Latin job that uses hello **pigudf.py** script, use hello following PowerShell script:</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="185fc-231">Uzaktan PowerShell kullanarak işi gönderirken C Python yorumlayıcı kullanmak mümkün değil.</span><span class="sxs-lookup"><span data-stu-id="185fc-231">When remotely submitting a job using PowerShell, it is not possible to use C Python as the interpreter.</span></span>
+> <span data-ttu-id="de75c-231">PowerShell kullanarak işi uzaktan gönderirken, olası toouse C Python hello yorumlayıcı değil.</span><span class="sxs-lookup"><span data-stu-id="de75c-231">When remotely submitting a job using PowerShell, it is not possible toouse C Python as hello interpreter.</span></span>
 
 ```powershell
-# Login to your Azure subscription
+# Login tooyour Azure subscription
 # Is there an active Azure subscription?
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
@@ -421,8 +421,8 @@ if(-not($sub))
 }
 
 # Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-$creds=Get-Credential -Message "Enter the login for the cluster"
+$clusterName = Read-Host -Prompt "Enter hello HDInsight cluster name"
+$creds=Get-Credential -Message "Enter hello login for hello cluster"
 
 $PigQuery = "Register wasb:///pigudf.py using jython as myfuncs;" +
             "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
@@ -437,25 +437,25 @@ $job = Start-AzureRmHDInsightJob `
     -JobDefinition $jobDefinition `
     -HttpCredential $creds
 
-Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
+Write-Host "Wait for hello Pig job toocomplete ..." -ForegroundColor Green
 Wait-AzureRmHDInsightJob `
     -Job $job.JobId `
     -ClusterName $clusterName `
     -HttpCredential $creds
-# Uncomment the following to see stderr output
+# Uncomment hello following toosee stderr output
 # Get-AzureRmHDInsightJobOutput `
 #    -Clustername $clusterName `
 #    -JobId $job.JobId `
 #    -HttpCredential $creds `
 #    -DisplayOutputType StandardError
-Write-Host "Display the standard output ..." -ForegroundColor Green
+Write-Host "Display hello standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
     -Clustername $clusterName `
     -JobId $job.JobId `
     -HttpCredential $creds
 ```
 
-<span data-ttu-id="185fc-232">Çıkış için **Pig** işi aşağıdaki veri benzer görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="185fc-232">The output for the **Pig** job should appear similar to the following data:</span></span>
+<span data-ttu-id="de75c-232">Merhaba hello için çıktı **Pig** işi veri aşağıdaki benzer toohello görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="de75c-232">hello output for hello **Pig** job should appear similar toohello following data:</span></span>
 
     ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
     ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
@@ -463,17 +463,17 @@ Get-AzureRmHDInsightJobOutput `
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <span data-ttu-id="185fc-233"><a name="troubleshooting"></a>Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="185fc-233"><a name="troubleshooting"></a>Troubleshooting</span></span>
+## <span data-ttu-id="de75c-233"><a name="troubleshooting"></a>Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="de75c-233"><a name="troubleshooting"></a>Troubleshooting</span></span>
 
-### <a name="errors-when-running-jobs"></a><span data-ttu-id="185fc-234">İşlerini çalışırken hataları</span><span class="sxs-lookup"><span data-stu-id="185fc-234">Errors when running jobs</span></span>
+### <a name="errors-when-running-jobs"></a><span data-ttu-id="de75c-234">İşlerini çalışırken hataları</span><span class="sxs-lookup"><span data-stu-id="de75c-234">Errors when running jobs</span></span>
 
-<span data-ttu-id="185fc-235">Hive işi çalıştırırken, aşağıdakine benzer bir hata karşılaşabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="185fc-235">When running the hive job, you may encounter an error similar to the following text:</span></span>
+<span data-ttu-id="de75c-235">Merhaba hive işi çalıştırırken metnini izleyen bir hata benzer toohello karşılaşabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="de75c-235">When running hello hive job, you may encounter an error similar toohello following text:</span></span>
 
-    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing tooyour custom script. It may have crashed with an error.
 
-<span data-ttu-id="185fc-236">Bu sorunun nedeni Python dosyasındaki satır sonları.</span><span class="sxs-lookup"><span data-stu-id="185fc-236">This problem may be caused by the line endings in the Python file.</span></span> <span data-ttu-id="185fc-237">CRLF satır bitiş ancak Linux uygulamaları olarak genellikle birçok Windows düzenleyicileri varsayılan olarak LF bekler.</span><span class="sxs-lookup"><span data-stu-id="185fc-237">Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.</span></span>
+<span data-ttu-id="de75c-236">Bu sorunun nedeni hello satır sonları hello Python dosyasında.</span><span class="sxs-lookup"><span data-stu-id="de75c-236">This problem may be caused by hello line endings in hello Python file.</span></span> <span data-ttu-id="de75c-237">Çok sayıda Windows düzenleyicileri toousing CRLF varsayılan bitiş hello çizgi ancak Linux uygulamalar genellikle LF bekler.</span><span class="sxs-lookup"><span data-stu-id="de75c-237">Many Windows editors default toousing CRLF as hello line ending, but Linux applications usually expect LF.</span></span>
 
-<span data-ttu-id="185fc-238">Hdınsight için dosyayı karşıya yüklemeden önce CR karakterleri kaldırmak için aşağıdaki PowerShell ifadeleri kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="185fc-238">You can use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:</span></span>
+<span data-ttu-id="de75c-238">Merhaba dosya tooHDInsight karşıya yüklemeden önce aşağıdaki PowerShell deyimleri tooremove hello CR karakterleri hello kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="de75c-238">You can use hello following PowerShell statements tooremove hello CR characters before uploading hello file tooHDInsight:</span></span>
 
 ```powershell
 $original_file ='c:\path\to\hiveudf.py'
@@ -481,9 +481,9 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 [IO.File]::WriteAllText($original_file, $text)
 ```
 
-### <a name="powershell-scripts"></a><span data-ttu-id="185fc-239">PowerShell komut dosyaları</span><span class="sxs-lookup"><span data-stu-id="185fc-239">PowerShell scripts</span></span>
+### <a name="powershell-scripts"></a><span data-ttu-id="de75c-239">PowerShell komut dosyaları</span><span class="sxs-lookup"><span data-stu-id="de75c-239">PowerShell scripts</span></span>
 
-<span data-ttu-id="185fc-240">Örnekleri çalıştırmak için kullanılan örnek PowerShell komut dosyalarının her ikisi de işi için hata çıktısını görüntüler açıklamalı bir satır içerir.</span><span class="sxs-lookup"><span data-stu-id="185fc-240">Both of the example PowerShell scripts used to run the examples contain a commented line that displays error output for the job.</span></span> <span data-ttu-id="185fc-241">İş için beklenen çıktı görmüyorsanız, aşağıdaki satırı açıklamadan çıkarın ve hata bilgilerini ilgili bir sorunu gösterir, bkz.</span><span class="sxs-lookup"><span data-stu-id="185fc-241">If you are not seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.</span></span>
+<span data-ttu-id="de75c-240">Merhaba örnek PowerShell komut dosyalarını toorun hello örneklerde kullanılan her ikisi de hello işi için hata çıktısını görüntüler açıklamalı bir satır içerir.</span><span class="sxs-lookup"><span data-stu-id="de75c-240">Both of hello example PowerShell scripts used toorun hello examples contain a commented line that displays error output for hello job.</span></span> <span data-ttu-id="de75c-241">Merhaba beklenen çıktı hello işi için görüyorsanız değil, hello aşağıdaki satır ve hello hata bilgileri bir sorun olduğunu gösteriyor varsa bkz açıklamadan çıkarın.</span><span class="sxs-lookup"><span data-stu-id="de75c-241">If you are not seeing hello expected output for hello job, uncomment hello following line and see if hello error information indicates a problem.</span></span>
 
 ```powershell
 # Get-AzureRmHDInsightJobOutput `
@@ -493,19 +493,19 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
         -DisplayOutputType StandardError
 ```
 
-<span data-ttu-id="185fc-242">Ayrıca hata bilgilerini (STDERR) ve (STDOUT) iş sonucunu Hdınsight depolama alanınızın günlüğe kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="185fc-242">The error information (STDERR) and the result of the job (STDOUT) are also logged to your HDInsight storage.</span></span>
+<span data-ttu-id="de75c-242">Ayrıca Hello hata bilgileri (STDERR) ve hello işi (STDOUT) hello sonucunu oturum tooyour Hdınsight depolama değildir.</span><span class="sxs-lookup"><span data-stu-id="de75c-242">hello error information (STDERR) and hello result of hello job (STDOUT) are also logged tooyour HDInsight storage.</span></span>
 
-| <span data-ttu-id="185fc-243">Bu iş için...</span><span class="sxs-lookup"><span data-stu-id="185fc-243">For this job...</span></span> | <span data-ttu-id="185fc-244">Bu dosyalar blob kapsayıcısında bakın</span><span class="sxs-lookup"><span data-stu-id="185fc-244">Look at these files in the blob container</span></span> |
+| <span data-ttu-id="de75c-243">Bu iş için...</span><span class="sxs-lookup"><span data-stu-id="de75c-243">For this job...</span></span> | <span data-ttu-id="de75c-244">Bu dosyalar hello blob kapsayıcısında bakın</span><span class="sxs-lookup"><span data-stu-id="de75c-244">Look at these files in hello blob container</span></span> |
 | --- | --- |
-| <span data-ttu-id="185fc-245">Hive</span><span class="sxs-lookup"><span data-stu-id="185fc-245">Hive</span></span> |<span data-ttu-id="185fc-246">/ HivePython/stderr</span><span class="sxs-lookup"><span data-stu-id="185fc-246">/HivePython/stderr</span></span><p><span data-ttu-id="185fc-247">/ HivePython/stdout</span><span class="sxs-lookup"><span data-stu-id="185fc-247">/HivePython/stdout</span></span> |
-| <span data-ttu-id="185fc-248">Pig</span><span class="sxs-lookup"><span data-stu-id="185fc-248">Pig</span></span> |<span data-ttu-id="185fc-249">/ PigPython/stderr</span><span class="sxs-lookup"><span data-stu-id="185fc-249">/PigPython/stderr</span></span><p><span data-ttu-id="185fc-250">/ PigPython/stdout</span><span class="sxs-lookup"><span data-stu-id="185fc-250">/PigPython/stdout</span></span> |
+| <span data-ttu-id="de75c-245">Hive</span><span class="sxs-lookup"><span data-stu-id="de75c-245">Hive</span></span> |<span data-ttu-id="de75c-246">/ HivePython/stderr</span><span class="sxs-lookup"><span data-stu-id="de75c-246">/HivePython/stderr</span></span><p><span data-ttu-id="de75c-247">/ HivePython/stdout</span><span class="sxs-lookup"><span data-stu-id="de75c-247">/HivePython/stdout</span></span> |
+| <span data-ttu-id="de75c-248">Pig</span><span class="sxs-lookup"><span data-stu-id="de75c-248">Pig</span></span> |<span data-ttu-id="de75c-249">/ PigPython/stderr</span><span class="sxs-lookup"><span data-stu-id="de75c-249">/PigPython/stderr</span></span><p><span data-ttu-id="de75c-250">/ PigPython/stdout</span><span class="sxs-lookup"><span data-stu-id="de75c-250">/PigPython/stdout</span></span> |
 
-## <span data-ttu-id="185fc-251"><a name="next"></a>Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="185fc-251"><a name="next"></a>Next steps</span></span>
+## <span data-ttu-id="de75c-251"><a name="next"></a>Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="de75c-251"><a name="next"></a>Next steps</span></span>
 
-<span data-ttu-id="185fc-252">Varsayılan olarak sağlanmayan Python modüllerini yüklemek gerekirse bkz [bir modül Azure Hdınsight dağıtma](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).</span><span class="sxs-lookup"><span data-stu-id="185fc-252">If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).</span></span>
+<span data-ttu-id="de75c-252">Varsayılan olarak sağlanmayan tooload Python modülleri gerekirse bkz [nasıl toodeploy modülü tooAzure Hdınsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).</span><span class="sxs-lookup"><span data-stu-id="de75c-252">If you need tooload Python modules that aren't provided by default, see [How toodeploy a module tooAzure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).</span></span>
 
-<span data-ttu-id="185fc-253">Diğer yolları için Pig, Hive ve MapReduce kullanma hakkında bilgi edinmek için aşağıdaki belgelere bakın:</span><span class="sxs-lookup"><span data-stu-id="185fc-253">For other ways to use Pig, Hive, and to learn about using MapReduce, see the following documents:</span></span>
+<span data-ttu-id="de75c-253">Diğer yolları toouse Pig, Hive ve MapReduce kullanma hakkında toolearn için belgeler aşağıdaki hello bakın:</span><span class="sxs-lookup"><span data-stu-id="de75c-253">For other ways toouse Pig, Hive, and toolearn about using MapReduce, see hello following documents:</span></span>
 
-* [<span data-ttu-id="185fc-254">HDInsight ile Hive kullanma</span><span class="sxs-lookup"><span data-stu-id="185fc-254">Use Hive with HDInsight</span></span>](hdinsight-use-hive.md)
-* [<span data-ttu-id="185fc-255">HDInsight ile Pig kullanma</span><span class="sxs-lookup"><span data-stu-id="185fc-255">Use Pig with HDInsight</span></span>](hdinsight-use-pig.md)
-* [<span data-ttu-id="185fc-256">Hdınsight ile MapReduce kullanma</span><span class="sxs-lookup"><span data-stu-id="185fc-256">Use MapReduce with HDInsight</span></span>](hdinsight-use-mapreduce.md)
+* [<span data-ttu-id="de75c-254">HDInsight ile Hive kullanma</span><span class="sxs-lookup"><span data-stu-id="de75c-254">Use Hive with HDInsight</span></span>](hdinsight-use-hive.md)
+* [<span data-ttu-id="de75c-255">HDInsight ile Pig kullanma</span><span class="sxs-lookup"><span data-stu-id="de75c-255">Use Pig with HDInsight</span></span>](hdinsight-use-pig.md)
+* [<span data-ttu-id="de75c-256">Hdınsight ile MapReduce kullanma</span><span class="sxs-lookup"><span data-stu-id="de75c-256">Use MapReduce with HDInsight</span></span>](hdinsight-use-mapreduce.md)

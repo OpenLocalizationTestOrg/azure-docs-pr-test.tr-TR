@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Engagement - arka uç tümleştirme"
-description: "SharePoint'ten kampanyalar oluşturmak için SharePoint arka ucu ile Azure Mobile Engagement Bağlan"
+title: "aaaAzure Mobile Engagement - arka uç tümleştirme"
+description: "Bir SharePoint arka uç toocreate Kampanyalar SharePoint ile Azure Mobile Engagement Bağlan"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,32 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 89e1ef57db607d63c326a760b20260ad439f08b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-mobile-engagement---api-integration"></a><span data-ttu-id="d27a3-103">Azure Mobile Engagement - API tümleştirme</span><span class="sxs-lookup"><span data-stu-id="d27a3-103">Azure Mobile Engagement - API integration</span></span>
-<span data-ttu-id="d27a3-104">Otomatik bir pazarlama sisteminde, oluşturma ve pazarlama kampanyaları etkinleştirme de otomatik olarak gerçekleşir.</span><span class="sxs-lookup"><span data-stu-id="d27a3-104">In an automated marketing system, creating and activating the marketing campaigns also occur automatically.</span></span> <span data-ttu-id="d27a3-105">Bu amaçla - Azure Mobile Engagement API'lerini de kullanarak bu tür otomatik pazarlama kampanyaları oluşturma sağlar.</span><span class="sxs-lookup"><span data-stu-id="d27a3-105">For this purpose - Azure Mobile Engagement enables creating such automated marketing campaigns using APIs as well.</span></span> 
+# <a name="azure-mobile-engagement---api-integration"></a><span data-ttu-id="03a9f-103">Azure Mobile Engagement - API tümleştirme</span><span class="sxs-lookup"><span data-stu-id="03a9f-103">Azure Mobile Engagement - API integration</span></span>
+<span data-ttu-id="03a9f-104">Otomatik bir pazarlama sisteminde, oluşturma ve ayrıca pazarlama kampanyaları hello etkinleştirme otomatik olarak gerçekleşir.</span><span class="sxs-lookup"><span data-stu-id="03a9f-104">In an automated marketing system, creating and activating hello marketing campaigns also occur automatically.</span></span> <span data-ttu-id="03a9f-105">Bu amaçla - Azure Mobile Engagement API'lerini de kullanarak bu tür otomatik pazarlama kampanyaları oluşturma sağlar.</span><span class="sxs-lookup"><span data-stu-id="03a9f-105">For this purpose - Azure Mobile Engagement enables creating such automated marketing campaigns using APIs as well.</span></span> 
 
-<span data-ttu-id="d27a3-106">Genellikle müşteriler kendi pazarlama kampanyaları bir parçası olarak Duyurular/yoklamalar vb. oluşturmak için Mobile Engagement ön uç arabirimi kullanın.</span><span class="sxs-lookup"><span data-stu-id="d27a3-106">Typically customers use the Mobile Engagement front end interface to create announcements/polls etc as part of their marketing campaigns.</span></span> <span data-ttu-id="d27a3-107">Ancak pazarlama kampanyaları olgun dönüşürken, böylece tam otomatik bir işlem hattı, arka uç sistemlerden akan verilere dinamik olarak temel Mobile Engagement, kampanyalar oluşturan oluşturulabilir (örneğin, CRM sistem veya CMS sistemi SharePoint gibi) arka uç sistemlerindeki kilitli verilerden yararlanın gerek yoktur.</span><span class="sxs-lookup"><span data-stu-id="d27a3-107">However as the marketing campaigns become mature, there is a need to leverage the data locked in the backend systems (like any CRM system or CMS system like SharePoint) so that a fully automated pipeline can be created which creates campaigns in Mobile Engagement dynamically based on the data flowing in from the backend systems.</span></span> 
+<span data-ttu-id="03a9f-106">Genellikle müşteriler hello Mobile Engagement ön uç arabirimi toocreate Duyurular/yoklamalar vb. kendi pazarlama kampanyaları bir parçası olarak kullanın.</span><span class="sxs-lookup"><span data-stu-id="03a9f-106">Typically customers use hello Mobile Engagement front end interface toocreate announcements/polls etc as part of their marketing campaigns.</span></span> <span data-ttu-id="03a9f-107">Pazarlama kampanyaları olgun hale hello yoktur ancak gerek tooleverage hello veri kilitli hello arka uç sistemleri (örneğin, CRM sistem veya CMS sistemi SharePoint gibi), böylece Mobile'da Kampanyalar oluşturan tam otomatik bir işlem hattı oluşturulabilir Dinamik olarak hello arka uç sistemlerden akan hello verileri temel alan katılım.</span><span class="sxs-lookup"><span data-stu-id="03a9f-107">However as hello marketing campaigns become mature, there is a need tooleverage hello data locked in hello backend systems (like any CRM system or CMS system like SharePoint) so that a fully automated pipeline can be created which creates campaigns in Mobile Engagement dynamically based on hello data flowing in from hello backend systems.</span></span> 
 
 ![][5]
 
-<span data-ttu-id="d27a3-108">Bu öğretici burada bir SharePoint iş kullanıcı bir SharePoint listesi Pazarlama verilerle doldurur ve otomatik bir işlem listeden öğeler seçer ve bir pazarlama kampanyası SharePoint verileri oluşturmak için kullanılabilir REST API'lerini kullanarak Mobile Engagement sistemiyle bağlanır böyle bir senaryo geçer.</span><span class="sxs-lookup"><span data-stu-id="d27a3-108">This tutorial goes through such a scenario where a SharePoint business user populates a SharePoint list with marketing data and an automated process picks up items from the list and connects with the Mobile Engagement system using the available REST APIs to create a marketing campaign from the SharePoint data.</span></span> 
+<span data-ttu-id="03a9f-108">Bu öğretici gelecek burada bir SharePoint iş kullanıcı bir SharePoint listesi veri pazarlama doldurur ve otomatik bir işlem hello listeden öğeler seçer ve sistem Mobile Engagement hello kullanarak bağlanır böyle bir senaryo aracılığıyla kullanılabilir REST API'leri hello toocreate bir pazarlama kampanyası hello SharePoint verileri.</span><span class="sxs-lookup"><span data-stu-id="03a9f-108">This tutorial goes through such a scenario where a SharePoint business user populates a SharePoint list with marketing data and an automated process picks up items from hello list and connects with hello Mobile Engagement system using hello available REST APIs toocreate a marketing campaign from hello SharePoint data.</span></span> 
 
 > [!IMPORTANT]
-> <span data-ttu-id="d27a3-109">Genel olarak, iki unsur dayanan API'leri - kimlik doğrulama ve geçen parametreleri çağırma ayrıntıları gibi herhangi bir Mobile Engagement REST API'yi çağırmak nasıl anlamak için bu örnek bir başlangıç noktası olarak kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d27a3-109">In general, you can use this sample as a starting point for understanding how to call any Mobile Engagement REST API as it details the two key aspects of calling the APIs - authenticating and passing parameters.</span></span> 
+> <span data-ttu-id="03a9f-109">Genel olarak, nasıl toocall herhangi Mobile Engagement REST API şekilde hello API'leri - kimlik doğrulama ve geçen parametreleri arama hello iki unsur ayrıntıları anlamak için bu örnek bir başlangıç noktası olarak kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="03a9f-109">In general, you can use this sample as a starting point for understanding how toocall any Mobile Engagement REST API as it details hello two key aspects of calling hello APIs - authenticating and passing parameters.</span></span> 
 > 
 > 
 
-## <a name="sharepoint-integration"></a><span data-ttu-id="d27a3-110">SharePoint Tümleştirmesi</span><span class="sxs-lookup"><span data-stu-id="d27a3-110">SharePoint integration</span></span>
-1. <span data-ttu-id="d27a3-111">İşte örnek SharePoint listesi gibi görünüyor.</span><span class="sxs-lookup"><span data-stu-id="d27a3-111">Here is what the sample SharePoint list looks like.</span></span> <span data-ttu-id="d27a3-112">**Başlık**, **kategori**, **NotificationTitle**, **ileti** ve **URL** duyuru oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="d27a3-112">**Title**, **Category**, **NotificationTitle**, **Message** and **URL** are used for creating the announcement.</span></span> <span data-ttu-id="d27a3-113">Adlı bir sütun **IsProcessed** bir konsol programı biçiminde örnek otomasyon işlemi tarafından kullanılır.</span><span class="sxs-lookup"><span data-stu-id="d27a3-113">There is a column called **IsProcessed** which is used by the sample automation process in the form of a console program.</span></span> <span data-ttu-id="d27a3-114">Böylece, zamanlayabilirsiniz bir Azure Web işi bu konsolu program ya da çalışma olabilir veya SharePoint iş akışı oluşturma ve SharePoint listesine bir öğe eklendiğinde duyuruyu etkinleştirme programa doğrudan kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d27a3-114">You can either run this console program as an Azure WebJob so that you can schedule it or you can directly use the SharePoint workflow to program creating and activating the announcement when an item is inserted into the SharePoint list.</span></span> <span data-ttu-id="d27a3-115">Bu örnekte, öğeler arasında SharePoint listesi ve bunların her biri için Azure Mobile Engagement duyuru Oluştur gider ve son olarak işaretler konsol programı kullanıyoruz **IsProcessed** başarılı duyuru oluşturulması doğru olması için bayrak.</span><span class="sxs-lookup"><span data-stu-id="d27a3-115">In this sample we use the console program which goes through the items in the SharePoint list and create announcement in Azure Mobile Engagement for each of them and then finally marks the **IsProcessed** flag to be true on successful announcement creation.</span></span>
+## <a name="sharepoint-integration"></a><span data-ttu-id="03a9f-110">SharePoint Tümleştirmesi</span><span class="sxs-lookup"><span data-stu-id="03a9f-110">SharePoint integration</span></span>
+1. <span data-ttu-id="03a9f-111">Burada, hangi hello örnek SharePoint listesi benzer verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="03a9f-111">Here is what hello sample SharePoint list looks like.</span></span> <span data-ttu-id="03a9f-112">**Başlık**, **kategori**, **NotificationTitle**, **ileti** ve **URL** hello duyuru oluşturmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="03a9f-112">**Title**, **Category**, **NotificationTitle**, **Message** and **URL** are used for creating hello announcement.</span></span> <span data-ttu-id="03a9f-113">Adlı bir sütun **IsProcessed** bir konsol programı hello biçiminde hello örnek otomasyon işlemi tarafından kullanılıyor.</span><span class="sxs-lookup"><span data-stu-id="03a9f-113">There is a column called **IsProcessed** which is used by hello sample automation process in hello form of a console program.</span></span> <span data-ttu-id="03a9f-114">Böylece, zamanlayabilirsiniz veya hello SharePoint listesine bir öğe eklendiğinde, doğrudan hello SharePoint iş akışı tooprogram oluşturma ve etkinleştiren hello duyuru kullanabileceğiniz bir Azure Web işi ya da bu konsol programı çalıştırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="03a9f-114">You can either run this console program as an Azure WebJob so that you can schedule it or you can directly use hello SharePoint workflow tooprogram creating and activating hello announcement when an item is inserted into hello SharePoint list.</span></span> <span data-ttu-id="03a9f-115">Bu örnekte kullanırız hello öğeler arasında hello SharePoint listesi ve bunların her biri için Azure Mobile Engagement duyuru Oluştur geçer ve ardından son olarak işaretler hello hello konsol program **IsProcessed** bayrağı toobe true olarak başarılı Duyuru oluşturma.</span><span class="sxs-lookup"><span data-stu-id="03a9f-115">In this sample we use hello console program which goes through hello items in hello SharePoint list and create announcement in Azure Mobile Engagement for each of them and then finally marks hello **IsProcessed** flag toobe true on successful announcement creation.</span></span>
    
     ![][1]
-2. <span data-ttu-id="d27a3-116">Örnek koddan kullanıyoruz *çevrimiçi istemci nesne modelini kullanarak SharePoint uzaktan kimlik doğrulama* [burada](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) SharePoint listesi ile kimlik doğrulaması için.</span><span class="sxs-lookup"><span data-stu-id="d27a3-116">We are using the code from the sample *Remote Authentication in SharePoint Online Using the Client Object Model* [here](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) to authenticate with the SharePoint list.</span></span>
-3. <span data-ttu-id="d27a3-117">Kimlik doğrulaması yapıldıktan sonra Biz yeni oluşturulan tüm öğeleri bulmak için liste öğelerini döngü (olan **IsProcessed** = false).</span><span class="sxs-lookup"><span data-stu-id="d27a3-117">Once authenticated, we loop through the list items to find out any newly created items (which will have **IsProcessed** = false).</span></span> 
+2. <span data-ttu-id="03a9f-116">Merhaba örnek hello koddan kullanıyoruz *SharePoint Online'ı kullanmaya hello istemci nesne modelini de uzaktan kimlik doğrulama* [burada](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) tooauthenticate hello SharePoint listesi.</span><span class="sxs-lookup"><span data-stu-id="03a9f-116">We are using hello code from hello sample *Remote Authentication in SharePoint Online Using hello Client Object Model* [here](https://code.msdn.microsoft.com/Remote-Authentication-in-b7b6f43c) tooauthenticate with hello SharePoint list.</span></span>
+3. <span data-ttu-id="03a9f-117">Kimlik doğrulaması yapıldıktan sonra biz hello liste öğeleri toofind yeni oluşturulan tüm öğeleri döngü (olan **IsProcessed** = false).</span><span class="sxs-lookup"><span data-stu-id="03a9f-117">Once authenticated, we loop through hello list items toofind out any newly created items (which will have **IsProcessed** = false).</span></span> 
    
          static async void CreateCampaignFromSharepoint()
         {
@@ -52,12 +52,12 @@ ms.lasthandoff: 07/11/2017
                 query.ViewXml = "<View/>";
                 ListItemCollection items = list.GetItems(query);
    
-                // Load the SharePoint list
+                // Load hello SharePoint list
                 clientContext.Load(list);
                 clientContext.Load(items);
                 clientContext.ExecuteQuery();
    
-                // Loop through the list to go through all the items which are newly added
+                // Loop through hello list toogo through all hello items which are newly added
                 foreach (ListItem item in items)
                     if (item["IsProcessed"].ToString() != "Yes")
                     {
@@ -67,16 +67,16 @@ ms.lasthandoff: 07/11/2017
                         string category = item["Category"].ToString();
                         string actionURL = ((FieldUrlValue)item["URL"]).Url;
    
-                        // Send an HTTP request to create AzME campaign
+                        // Send an HTTP request toocreate AzME campaign
                         int campaignId = CreateAzMECampaign
                             (name, notificationTitle, notificationMessage, category, actionURL).Result;
    
                         if (campaignId != -1)
                         {
-                            // If creating campaign is successful then set this to true
+                            // If creating campaign is successful then set this tootrue
                             item["IsProcessed"] = "Yes";
    
-                            // Now try to activate the campaign also
+                            // Now try tooactivate hello campaign also
                             await ActivateAzMECampaign(campaignId);
                         }
                         else
@@ -89,9 +89,9 @@ ms.lasthandoff: 07/11/2017
             }
         }
 
-## <a name="mobile-engagement-integration"></a><span data-ttu-id="d27a3-118">Mobile Engagement tümleştirmesi</span><span class="sxs-lookup"><span data-stu-id="d27a3-118">Mobile Engagement integration</span></span>
-1. <span data-ttu-id="d27a3-119">Biz işleme - gerektiren bir öğe bulduktan sonra biz liste öğesi ve çağrı duyuru oluşturmak için gereken bilgileri ayıklamak `CreateAzMECampaign` oluşturun ve daha sonra `ActivateAzMECampaign` etkinleştirmek için.</span><span class="sxs-lookup"><span data-stu-id="d27a3-119">Once we find an item which requires processing - we extract the information required to create an announcement from the list item and call `CreateAzMECampaign` to create it and subsequently `ActivateAzMECampaign` to activate it.</span></span> <span data-ttu-id="d27a3-120">Aslında Mobile Engagement arka ucuna çağırma REST API çağrıları bunlar.</span><span class="sxs-lookup"><span data-stu-id="d27a3-120">These are essentially REST API calls calling to the Mobile Engagement backend.</span></span> 
-2. <span data-ttu-id="d27a3-121">Mobile Engagement REST API'leri gerektiren bir **temel kimlik doğrulama düzeni yetkilendirme HTTP üstbilgisi** oluşan `ApplicationId` ve `ApiKey` hangi Azure portalından alın.</span><span class="sxs-lookup"><span data-stu-id="d27a3-121">The Mobile Engagement REST APIs require a **Basic auth scheme authorization HTTP header** which is composed of the `ApplicationId` and the `ApiKey` which you get from the Azure portal.</span></span> <span data-ttu-id="d27a3-122">Anahtarından kullandığınızdan emin olun **API anahtarları** bölüm ve *değil* gelen **sdk anahtarları** bölümü.</span><span class="sxs-lookup"><span data-stu-id="d27a3-122">Make sure that you are using the Key from the **api keys** section and *not* from the **sdk keys** section.</span></span> 
+## <a name="mobile-engagement-integration"></a><span data-ttu-id="03a9f-118">Mobile Engagement tümleştirmesi</span><span class="sxs-lookup"><span data-stu-id="03a9f-118">Mobile Engagement integration</span></span>
+1. <span data-ttu-id="03a9f-119">Biz işleme gerektiren bir öğe bulunamadı - biz gerekli hello bilgi ayıklamak sonra toocreate duyuru hello gelen liste öğesi ve arama `CreateAzMECampaign` toocreate bunu ve arkasından `ActivateAzMECampaign` tooactivate onu.</span><span class="sxs-lookup"><span data-stu-id="03a9f-119">Once we find an item which requires processing - we extract hello information required toocreate an announcement from hello list item and call `CreateAzMECampaign` toocreate it and subsequently `ActivateAzMECampaign` tooactivate it.</span></span> <span data-ttu-id="03a9f-120">Bunlar aslında toohello Mobile Engagement arka çağırma REST API çağrıları aynıdır.</span><span class="sxs-lookup"><span data-stu-id="03a9f-120">These are essentially REST API calls calling toohello Mobile Engagement backend.</span></span> 
+2. <span data-ttu-id="03a9f-121">Merhaba Mobile Engagement REST API'leri gerektiren bir **temel kimlik doğrulama düzeni yetkilendirme HTTP üstbilgisi** Merhaba oluşan `ApplicationId` ve hello `ApiKey` hangi hello Azure portal ' alın.</span><span class="sxs-lookup"><span data-stu-id="03a9f-121">hello Mobile Engagement REST APIs require a **Basic auth scheme authorization HTTP header** which is composed of hello `ApplicationId` and hello `ApiKey` which you get from hello Azure portal.</span></span> <span data-ttu-id="03a9f-122">Başlangıç anahtarı hello gelen kullandığınızdan emin olun **API anahtarları** bölüm ve *değil* hello gelen **sdk anahtarları** bölümü.</span><span class="sxs-lookup"><span data-stu-id="03a9f-122">Make sure that you are using hello Key from hello **api keys** section and *not* from hello **sdk keys** section.</span></span> 
    
    ![][2]
    
@@ -107,7 +107,7 @@ ms.lasthandoff: 07/11/2017
            string returnValue = System.Convert.ToBase64String(toEncodeAsBytes);
            return returnValue;
        }  
-3. <span data-ttu-id="d27a3-123">Duyuru oluşturmak için tür kampanya - başvurmak [belgelerine](https://msdn.microsoft.com/library/azure/mt683750.aspx).</span><span class="sxs-lookup"><span data-stu-id="d27a3-123">For creating the announcement type campaign - refer to the [documentation](https://msdn.microsoft.com/library/azure/mt683750.aspx).</span></span> <span data-ttu-id="d27a3-124">Kampanya belirtiyorsanız emin olmanız gerekir `kind` olarak *duyuru* ve [yükü](https://msdn.microsoft.com/library/azure/mt683751.aspx) ve FormUrlEncodedContent geçirme.</span><span class="sxs-lookup"><span data-stu-id="d27a3-124">You need to make sure that you are specifying the campaign `kind` as *announcement* and the [payload](https://msdn.microsoft.com/library/azure/mt683751.aspx) and passing it as FormUrlEncodedContent.</span></span> 
+3. <span data-ttu-id="03a9f-123">Merhaba bildiri türü oluşturmak için kampanya - toohello bakın [belgelerine](https://msdn.microsoft.com/library/azure/mt683750.aspx).</span><span class="sxs-lookup"><span data-stu-id="03a9f-123">For creating hello announcement type campaign - refer toohello [documentation](https://msdn.microsoft.com/library/azure/mt683750.aspx).</span></span> <span data-ttu-id="03a9f-124">Merhaba kampanya belirtiyorsanız emin toomake gerek `kind` olarak *duyuru* ve hello [yükü](https://msdn.microsoft.com/library/azure/mt683751.aspx) ve FormUrlEncodedContent geçirme.</span><span class="sxs-lookup"><span data-stu-id="03a9f-124">You need toomake sure that you are specifying hello campaign `kind` as *announcement* and hello [payload](https://msdn.microsoft.com/library/azure/mt683751.aspx) and passing it as FormUrlEncodedContent.</span></span> 
    
         static async Task<int> CreateAzMECampaign(string campaignName, string notificationTitle, 
             string notificationMessage, string notificationCategory, string actionURL)
@@ -119,7 +119,7 @@ ms.lasthandoff: 07/11/2017
                 // Add Authorization Header
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", CreateAuthZHeader());
    
-                // Create the payload to send the content
+                // Create hello payload toosend hello content
                 // Reference -> https://msdn.microsoft.com/library/dn913749.aspx
                 string data =
                     @"{""name"":""" + campaignName + @"""," + 
@@ -135,13 +135,13 @@ ms.lasthandoff: 07/11/2017
                     new KeyValuePair<string, string>("data", data),
                 });
    
-                // Send the POST request
+                // Send hello POST request
                 var response = await client.PostAsync(url + createURIFragment, content);
                 var responseString = response.Content.ReadAsStringAsync().Result;
                 int campaignId = -1;
                 if (response.StatusCode.ToString() == "OK")
                 {
-                    // This is the campaign id
+                    // This is hello campaign id
                     campaignId = Convert.ToInt32(responseString);
                     Console.WriteLine("Campaign successfully created with id {0}", campaignId);
                 }
@@ -152,10 +152,10 @@ ms.lasthandoff: 07/11/2017
                 return campaignId;
             }
         }
-4. <span data-ttu-id="d27a3-125">Oluşturulan duyuru olduktan sonra aşağıdakine benzer Mobile Engagement portalında görürsünüz (unutmayın durumu Taslak ve etkinleştirildi = = yok)</span><span class="sxs-lookup"><span data-stu-id="d27a3-125">Once you have the announcement created, you will see something like the following on the Mobile Engagement portal (note that the State=Draft and Activated = N/A)</span></span>
+4. <span data-ttu-id="03a9f-125">Oluşturulan hello duyuru olduktan sonra hello Mobile Engagement portalında aşağıdaki hello gibi bir şey görürsünüz (Bu hello durumu Not taslak ve etkinleştirildi = = yok)</span><span class="sxs-lookup"><span data-stu-id="03a9f-125">Once you have hello announcement created, you will see something like hello following on hello Mobile Engagement portal (note that hello State=Draft and Activated = N/A)</span></span>
    
     ![][3]
-5. <span data-ttu-id="d27a3-126">`CreateAzMECampaign`Bir duyurunun kampanya oluşturur ve çağırana kimliğini döndürür.</span><span class="sxs-lookup"><span data-stu-id="d27a3-126">`CreateAzMECampaign` creates an announcement campaign and returns its Id to the caller.</span></span> <span data-ttu-id="d27a3-127">`ActivateAzMECampaign`Bu kimliği kampanyayı etkinleştirmek için parametre olarak gerektirir.</span><span class="sxs-lookup"><span data-stu-id="d27a3-127">`ActivateAzMECampaign` requires this Id as the parameter to activate the campaign.</span></span> 
+5. <span data-ttu-id="03a9f-126">`CreateAzMECampaign`Bir duyurunun kampanya oluşturur ve kendi kimliği toohello çağıran döndürür.</span><span class="sxs-lookup"><span data-stu-id="03a9f-126">`CreateAzMECampaign` creates an announcement campaign and returns its Id toohello caller.</span></span> <span data-ttu-id="03a9f-127">`ActivateAzMECampaign`Bu kimliği hello parametresi tooactivate hello kampanya gerektirir.</span><span class="sxs-lookup"><span data-stu-id="03a9f-127">`ActivateAzMECampaign` requires this Id as hello parameter tooactivate hello campaign.</span></span> 
    
         static async Task<bool> ActivateAzMECampaign(int campaignId)
         {
@@ -171,7 +171,7 @@ ms.lasthandoff: 07/11/2017
                     new KeyValuePair<string, string>("id", campaignId.ToString()),
                 });
    
-                // Send the POST request
+                // Send hello POST request
                 var response = await client.PostAsync(url + activateUriFragment, content);
                 var responseString = response.Content.ReadAsStringAsync().Result;
                 if (response.StatusCode.ToString() == "OK")
@@ -186,13 +186,13 @@ ms.lasthandoff: 07/11/2017
                 }
             }
         }
-6. <span data-ttu-id="d27a3-128">Etkinleştirilen duyuru olduktan sonra aşağıdakine benzer Mobile Engagement portalında görürsünüz:</span><span class="sxs-lookup"><span data-stu-id="d27a3-128">Once you have the announcement activated, you will see something like the following on the Mobile Engagement portal:</span></span>
+6. <span data-ttu-id="03a9f-128">Etkinleştirilen hello duyuru olduktan sonra hello aşağıdaki gibi bir şey hello Mobile Engagement portalında görürsünüz:</span><span class="sxs-lookup"><span data-stu-id="03a9f-128">Once you have hello announcement activated, you will see something like hello following on hello Mobile Engagement portal:</span></span>
    
     ![][4]
-7. <span data-ttu-id="d27a3-129">Kampanya etkinleştirilmiş almaz, kampanya ölçütü karşılayan tüm cihazlarda bildirimleri görmesini başlar.</span><span class="sxs-lookup"><span data-stu-id="d27a3-129">As soon as the campaign gets activated, any devices which satisfy the criterion on the campaign will start seeing notifications.</span></span> 
-8. <span data-ttu-id="d27a3-130">Liste öğesi IsProcessed ile işaretlenmiş göreceksiniz = false duyuru kampanya oluşturulduğunda True olarak ayarlandı.</span><span class="sxs-lookup"><span data-stu-id="d27a3-130">You will also notice that the list item marked with IsProcessed = false has been set to True once the announcement campaign is created.</span></span>  
+7. <span data-ttu-id="03a9f-129">Merhaba kampanya etkinleştirilmiş almaz, hello kampanyası hello ölçütü karşılayan tüm cihazlarda bildirimleri görmesini başlar.</span><span class="sxs-lookup"><span data-stu-id="03a9f-129">As soon as hello campaign gets activated, any devices which satisfy hello criterion on hello campaign will start seeing notifications.</span></span> 
+8. <span data-ttu-id="03a9f-130">Bu hello liste öğesi olarak işaretlenmiş göreceksiniz ile IsProcessed = false hello duyuru kampanya oluşturulduktan sonra tooTrue ayarlandı.</span><span class="sxs-lookup"><span data-stu-id="03a9f-130">You will also notice that hello list item marked with IsProcessed = false has been set tooTrue once hello announcement campaign is created.</span></span>  
 
-<span data-ttu-id="d27a3-131">Bu örnek, çoğunlukla gerekli özellikleri belirtme basit duyuru kampanya oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="d27a3-131">This sample created a simple announcement campaign specifying mostly the required properties.</span></span> <span data-ttu-id="d27a3-132">Bilgileri kullanarak portalından yapabilirsiniz kadar bu özelleştirebilirsiniz [burada](https://msdn.microsoft.com/library/azure/mt683751.aspx).</span><span class="sxs-lookup"><span data-stu-id="d27a3-132">You can customize this as much as you can from the portal by using the information [here](https://msdn.microsoft.com/library/azure/mt683751.aspx).</span></span> 
+<span data-ttu-id="03a9f-131">Bu örnek, çoğunlukla hello gerekli özellikleri belirtme basit duyuru kampanya oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="03a9f-131">This sample created a simple announcement campaign specifying mostly hello required properties.</span></span> <span data-ttu-id="03a9f-132">Merhaba bilgileri kullanarak hello portalından yapabilirsiniz kadar bu özelleştirebilirsiniz [burada](https://msdn.microsoft.com/library/azure/mt683751.aspx).</span><span class="sxs-lookup"><span data-stu-id="03a9f-132">You can customize this as much as you can from hello portal by using hello information [here](https://msdn.microsoft.com/library/azure/mt683751.aspx).</span></span> 
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-sample-backend-integration-sharepoint/sharepointlist.png

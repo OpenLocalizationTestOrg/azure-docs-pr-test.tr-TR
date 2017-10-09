@@ -1,0 +1,78 @@
+---
+title: "aaaSQL veritabanı uygulaması geliştirmeye genel bakış | Microsoft Docs"
+description: "Kullanılabilir bağlantı kitaplıkları ve tooSQL veritabanına bağlanan uygulamalar için en iyi uygulamalar hakkında bilgi edinin."
+services: sql-database
+documentationcenter: 
+author: stevestein
+manager: jhubbard
+editor: genemi
+ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
+ms.service: sql-database
+ms.custom: develop apps
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: sstein
+ms.openlocfilehash: 17f04db600828f90c42c750c9abdb92cfa4ca817
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="sql-database-application-development-overview"></a><span data-ttu-id="bb206-103">SQL veritabanı uygulaması geliştirmeye genel bakış</span><span class="sxs-lookup"><span data-stu-id="bb206-103">SQL Database application development overview</span></span>
+<span data-ttu-id="bb206-104">Bu makalede, geliştiricinin kod tooconnect tooAzure SQL veritabanı yazarken bilmeniz gereken hello temel konuları anlatılmaktadır.</span><span class="sxs-lookup"><span data-stu-id="bb206-104">This article walks through hello basic considerations that a developer should be aware of when writing code tooconnect tooAzure SQL Database.</span></span>
+
+> [!TIP]
+> <span data-ttu-id="bb206-105">Toocreate bir sunucu oluşturmak nasıl bir sunucu tabanlı güvenlik duvarı sunucusunun özelliklerini görüntüle, SQL Server Management Studio, sorgu hello ana veritabanını kullanarak bağlanmak, örnek bir veritabanı ve boş bir veritabanı oluşturmak, veritabanı özellikleri sorgu bir öğretici gösteren için bağlanmak SQL Server Management Studio ve sorgu hello örnek veritabanı kullanarak, bkz: [Öğreticisi almak](sql-database-get-started-portal.md).</span><span class="sxs-lookup"><span data-stu-id="bb206-105">For a tutorial showing you how toocreate a server, create a server-based firewall, view server properties, connect using SQL Server Management Studio, query hello master database, create a sample database and a blank database, query database properties, connect using SQL Server Management Studio, and query hello sample database, see [Get Started Tutorial](sql-database-get-started-portal.md).</span></span>
+>
+
+## <a name="language-and-platform"></a><span data-ttu-id="bb206-106">Dil ve platform</span><span class="sxs-lookup"><span data-stu-id="bb206-106">Language and platform</span></span>
+<span data-ttu-id="bb206-107">Çeşitli programlama dilleri ve platformları için kod örnekleri mevcuttur.</span><span class="sxs-lookup"><span data-stu-id="bb206-107">There are code samples available for various programming languages and platforms.</span></span> <span data-ttu-id="bb206-108">Bağlantılar toohello kod örnekleri konumunda bulabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="bb206-108">You can find links toohello code samples at:</span></span> 
+
+* <span data-ttu-id="bb206-109">Daha Fazla Bilgi: [SQL Veritabanı ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-109">More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)</span></span>
+
+## <a name="tools"></a><span data-ttu-id="bb206-110">Araçlar</span><span class="sxs-lookup"><span data-stu-id="bb206-110">Tools</span></span> 
+<span data-ttu-id="bb206-111">[Cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/) gibi açık kaynak araçlardan yararlanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="bb206-111">You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/).</span></span> <span data-ttu-id="bb206-112">Ayrıca, Azure SQL Veritabanı [Visual Studio](https://www.visualstudio.com/downloads/) ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) gibi Microsoft araçlarıyla birlikte çalışır.</span><span class="sxs-lookup"><span data-stu-id="bb206-112">Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/downloads/) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).</span></span>  <span data-ttu-id="bb206-113">Hello Azure Yönetim Portalı, PowerShell de kullanabilirsiniz ve REST API'leri yardımcı ek verimlilik elde.</span><span class="sxs-lookup"><span data-stu-id="bb206-113">You can also use hello Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.</span></span>
+
+## <a name="resource-limitations"></a><span data-ttu-id="bb206-114">Kaynak sınırlamaları</span><span class="sxs-lookup"><span data-stu-id="bb206-114">Resource limitations</span></span>
+<span data-ttu-id="bb206-115">Azure SQL veritabanı iki farklı mekanizmalarını kullanarak hello kaynakları kullanılabilir tooa veritabanı yönetir: kaynak İdaresi ve zorlama, sınırlar.</span><span class="sxs-lookup"><span data-stu-id="bb206-115">Azure SQL Database manages hello resources available tooa database using two different mechanisms: Resources Governance and Enforcement of Limits.</span></span>
+
+* <span data-ttu-id="bb206-116">Daha Fazla Bilgi: [Azure SQL Veritabanı kaynak limitleri](sql-database-resource-limits.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-116">More Information: [Azure SQL Database resource limits](sql-database-resource-limits.md)</span></span>
+
+## <a name="security"></a><span data-ttu-id="bb206-117">Güvenlik</span><span class="sxs-lookup"><span data-stu-id="bb206-117">Security</span></span>
+<span data-ttu-id="bb206-118">Azure SQL Veritabanı, bir SQL Veritabanında erişim sınırlama, veri koruma ve izleme etkinlikleri için kaynaklar sunar.</span><span class="sxs-lookup"><span data-stu-id="bb206-118">Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.</span></span>
+
+* <span data-ttu-id="bb206-119">Daha Fazla Bilgi: [SQL Veritabanınızı güvenli hale getirme](sql-database-security-overview.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-119">More Information: [Securing your SQL Database](sql-database-security-overview.md)</span></span>
+
+## <a name="authentication"></a><span data-ttu-id="bb206-120">Kimlik Doğrulaması</span><span class="sxs-lookup"><span data-stu-id="bb206-120">Authentication</span></span>
+* <span data-ttu-id="bb206-121">Azure SQL Veritabanı, SQL Server kimlik doğrulama kullanıcıları ve oturum açma bilgilerinin yanı sıra [Azure Active Directory kimlik doğrulama](sql-database-aad-authentication.md) kullanıcılarını ve oturum açma bilgilerini destekler.</span><span class="sxs-lookup"><span data-stu-id="bb206-121">Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.</span></span>
+* <span data-ttu-id="bb206-122">Toospecify varsayılanı toohello yerine belirli bir veritabanının gereksinim *ana* veritabanı.</span><span class="sxs-lookup"><span data-stu-id="bb206-122">You need toospecify a particular database, instead of defaulting toohello *master* database.</span></span>
+* <span data-ttu-id="bb206-123">Merhaba Transact-SQL kullanamazsınız **kullanım myDatabaseName;** SQL veritabanı tooswitch tooanother veritabanında deyimi.</span><span class="sxs-lookup"><span data-stu-id="bb206-123">You cannot use hello Transact-SQL **USE myDatabaseName;** statement on SQL Database tooswitch tooanother database.</span></span>
+* <span data-ttu-id="bb206-124">Daha fazla bilgi: [SQL Veritabanı güvenliği: Veritabanı erişim ve oturum açma güvenliğini yönetme](sql-database-manage-logins.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-124">More information: [SQL Database security: Manage database access and login security](sql-database-manage-logins.md)</span></span>
+
+## <a name="resiliency"></a><span data-ttu-id="bb206-125">Dayanıklılık</span><span class="sxs-lookup"><span data-stu-id="bb206-125">Resiliency</span></span>
+<span data-ttu-id="bb206-126">TooSQL veritabanına bağlanırken geçici bir hata ortaya çıktığında, kodunuzu hello çağrı yeniden denemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="bb206-126">When a transient error occurs while connecting tooSQL Database, your code should retry hello call.</span></span>  <span data-ttu-id="bb206-127">Öneririz yeniden deneme mantığı geri Çekilme mantığı kullanın, böylece değil doldurmaya SQL veritabanı ile birden çok istemci aynı anda yeniden deneniyor hello.</span><span class="sxs-lookup"><span data-stu-id="bb206-127">We recommend that retry logic use backoff logic, so that it does not overwhelm hello SQL Database with multiple clients retrying simultaneously.</span></span>
+
+* <span data-ttu-id="bb206-128">Kod örnekleri: hello dili için örnek gösteren kod örnekleri mantığı yeniden denemek için bkz: [SQL Database ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-128">Code samples:  For code samples that illustrate retry logic, see samples for hello language of your choice at: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)</span></span>
+* <span data-ttu-id="bb206-129">Daha fazla bilgi: [SQL Veritabanı istemci programları için hata iletileri](sql-database-develop-error-messages.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-129">More information: [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)</span></span>
+
+## <a name="managing-connections"></a><span data-ttu-id="bb206-130">Bağlantıları yönetme</span><span class="sxs-lookup"><span data-stu-id="bb206-130">Managing connections</span></span>
+* <span data-ttu-id="bb206-131">İstemci bağlantısı mantığında hello varsayılan zaman aşımı toobe 30 saniye geçersiz kılar.</span><span class="sxs-lookup"><span data-stu-id="bb206-131">In your client connection logic, override hello default timeout toobe 30 seconds.</span></span>  <span data-ttu-id="bb206-132">Merhaba varsayılan değeri 15 saniye için çok fazla bağımlı bağlantıları hello Internet.</span><span class="sxs-lookup"><span data-stu-id="bb206-132">hello default of 15 seconds is too short for connections that depend on hello internet.</span></span>
+* <span data-ttu-id="bb206-133">Kullanıyorsanız bir [bağlantı havuzu](http://msdn.microsoft.com/library/8xx3tyca.aspx), emin tooclose hello bağlantı hello programınızı etkin olarak kullandığı değil ve tooreuse hazırlama değil anlık getirin.</span><span class="sxs-lookup"><span data-stu-id="bb206-133">If you are using a [connection pool](http://msdn.microsoft.com/library/8xx3tyca.aspx), be sure tooclose hello connection hello instant your program is not actively using it, and is not preparing tooreuse it.</span></span>
+
+## <a name="network-considerations"></a><span data-ttu-id="bb206-134">Ağ konuları</span><span class="sxs-lookup"><span data-stu-id="bb206-134">Network considerations</span></span>
+* <span data-ttu-id="bb206-135">İstemci programınızı barındıran hello bilgisayarda hello güvenlik duvarı bağlantı noktası 1433 giden TCP iletişim kurmasına olanak tanıyan emin olun.</span><span class="sxs-lookup"><span data-stu-id="bb206-135">On hello computer that hosts your client program, ensure hello firewall allows outgoing TCP communication on port 1433.</span></span>  <span data-ttu-id="bb206-136">Daha fazla bilgi: [Azure SQL Veritabanı güvenlik duvarını yapılandırma](sql-database-configure-firewall-settings.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-136">More information: [Configure an Azure SQL Database firewall](sql-database-configure-firewall-settings.md)</span></span>
+* <span data-ttu-id="bb206-137">İstemciniz bir Azure sanal makine (VM) üzerinde çalışırken, istemci programınızı tooSQL veritabanı bağlanıyorsa, belirli bağlantı noktası aralıkları hello VM üzerinde açmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="bb206-137">If your client program connects tooSQL Database while your client runs on an Azure virtual machine (VM), you must open certain port ranges on hello VM.</span></span> <span data-ttu-id="bb206-138">Daha fazla bilgi: [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-138">More information: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)</span></span>
+* <span data-ttu-id="bb206-139">İstemci bağlantıları tooAzure SQL veritabanı bazen hello proxy atlayabilir ve doğrudan hello veritabanıyla etkileşim.</span><span class="sxs-lookup"><span data-stu-id="bb206-139">Client connections tooAzure SQL Database sometimes bypass hello proxy and interact directly with hello database.</span></span> <span data-ttu-id="bb206-140">1433 dışındaki bağlantı noktaları önemli hale gelmiştir.</span><span class="sxs-lookup"><span data-stu-id="bb206-140">Ports other than 1433 become important.</span></span> <span data-ttu-id="bb206-141">Daha fazla bilgi için [Azure SQL veritabanı bağlantısı mimarisi](sql-database-connectivity-architecture.md) ve [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).</span><span class="sxs-lookup"><span data-stu-id="bb206-141">For more information, [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md) and [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).</span></span>
+
+## <a name="data-sharding-with-elastic-scale"></a><span data-ttu-id="bb206-142">Esnek ölçeklendirme ile veri parçalama</span><span class="sxs-lookup"><span data-stu-id="bb206-142">Data sharding with elastic scale</span></span>
+<span data-ttu-id="bb206-143">Esnek ölçeklendirme (ve) ölçeklendirme hello işlemini basitleştirir.</span><span class="sxs-lookup"><span data-stu-id="bb206-143">Elastic Scale simplifies hello process of scaling out (and in).</span></span> 
+
+* [<span data-ttu-id="bb206-144">Azure SQL Veritabanı ile Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri</span><span class="sxs-lookup"><span data-stu-id="bb206-144">Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database</span></span>](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [<span data-ttu-id="bb206-145">Verilere bağımlı yönlendirme</span><span class="sxs-lookup"><span data-stu-id="bb206-145">Data dependent routing</span></span>](sql-database-elastic-scale-data-dependent-routing.md)
+* [<span data-ttu-id="bb206-146">Azure SQL Veritabanı Elastik Ölçeklendirmeyi Kullanmaya Başlama</span><span class="sxs-lookup"><span data-stu-id="bb206-146">Get Started with Azure SQL Database Elastic Scale Preview</span></span>](sql-database-elastic-scale-get-started.md)
+
+## <a name="next-steps"></a><span data-ttu-id="bb206-147">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="bb206-147">Next steps</span></span>
+<span data-ttu-id="bb206-148">Tüm hello keşfedin [SQL veritabanı özellikleri](sql-database-technical-overview.md)</span><span class="sxs-lookup"><span data-stu-id="bb206-148">Explore all hello [capabilities of SQL Database](sql-database-technical-overview.md)</span></span>

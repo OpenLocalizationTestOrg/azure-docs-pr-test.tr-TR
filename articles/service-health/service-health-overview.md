@@ -1,0 +1,62 @@
+---
+title: "aaaAzure hizmet durumu genel bakış | Microsoft Docs"
+description: "Geçerli ve gelecekteki Azure hizmeti sorunları ve Bakım Azure uygulamalarınızı nasıl etkilenir kişiselleştirilmiş bilgi."
+services: Resource health
+documentationcenter: 
+author: rboucher
+manager: 
+editor: 
+ms.assetid: 
+ms.service: service-health
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Supportability
+ms.date: 07/07/2017
+ms.author: robb
+ms.openlocfilehash: 2b536ee2f19757d4f2baf5529866c3d159a4670c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="azure-service-health"></a><span data-ttu-id="f2840-103">Azure Hizmet Durumu</span><span class="sxs-lookup"><span data-stu-id="f2840-103">Azure Service Health</span></span>
+<span data-ttu-id="f2840-104">Azure Hizmetleri sorunlarını hizmetlerinizi etkisi yüklediğinizde azure hizmet durumu zamanında ve kişiselleştirilmiş bilgileri sağlar.</span><span class="sxs-lookup"><span data-stu-id="f2840-104">Azure Service Health provides timely and personalized information when problems in Azure services impact your services.</span></span>  <span data-ttu-id="f2840-105">Ayrıca, gelecek planlı bakım için hazırlanmanıza yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="f2840-105">It also helps you prepare for upcoming planned maintenance.</span></span>
+
+## <a name="service-health-events"></a><span data-ttu-id="f2840-106">Hizmet sistem durumu olayları</span><span class="sxs-lookup"><span data-stu-id="f2840-106">Service Health Events</span></span>
+<span data-ttu-id="f2840-107">Hizmet durumu üç tür kaynaklarınızı etkileyebilir sistem durumu olayları izler:</span><span class="sxs-lookup"><span data-stu-id="f2840-107">Service Health tracks three types of health events that may impact your resources:</span></span>
+1. <span data-ttu-id="f2840-108">**Hizmet sorunları** -sorunlarını hello şimdi etkileyen Azure Hizmetleri.</span><span class="sxs-lookup"><span data-stu-id="f2840-108">**Service issues** - Problems in hello Azure services that affect you right now.</span></span> 
+2. <span data-ttu-id="f2840-109">**Planlı Bakım** -hizmetlerinizi hello gelecekteki içinde hello kullanılabilirliğini etkileyebilecek yaklaşan Bakımı.</span><span class="sxs-lookup"><span data-stu-id="f2840-109">**Planned maintenance** - Upcoming maintenance that can affect hello availability of your services in hello future.</span></span>  
+3. <span data-ttu-id="f2840-110">**Sistem durumu danışma** -dikkat etmeniz gereken Azure Hizmetleri değişiklikleri.</span><span class="sxs-lookup"><span data-stu-id="f2840-110">**Health advisories** - Changes in Azure services that require your attention.</span></span> <span data-ttu-id="f2840-111">Azure özellikleri kullanım dışı bırakılmıştır olduğunda veya bir kullanım kotası aşarsa örnek olarak verilebilir.</span><span class="sxs-lookup"><span data-stu-id="f2840-111">Examples include when Azure features are deprecated or if you exceed a usage quota.</span></span>
+
+    ![Hizmet sistem durumu olayları](./media/service-health-overview/azure-service-health-overview-7.png)
+
+## <a name="get-started-with-service-health"></a><span data-ttu-id="f2840-113">Hizmet durumu ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="f2840-113">Get started with Service Health</span></span>
+<span data-ttu-id="f2840-114">Hizmet durumu panonuz, select hello hizmet durumu toolaunch portal Panonuzda döşeme.</span><span class="sxs-lookup"><span data-stu-id="f2840-114">toolaunch your Service Health dashboard, select hello Service Health tile on your portal dashboard.</span></span> <span data-ttu-id="f2840-115">Merhaba döşeme daha önce kaldırdığınız veya özel Pano kullanıyorsanız, "Daha fazla Hizmetleri" hizmet sistem durumu hizmeti için arama (alt, sol Panonuzda).</span><span class="sxs-lookup"><span data-stu-id="f2840-115">If you have previously removed hello tile or you're using custom dashboard, search for Service Health service in "More services" (bottom left on your dashboard).</span></span>
+<span data-ttu-id="f2840-116">![Hizmet durumu ile çalışmaya başlama](./media/service-health-overview/azure-service-health-overview-1.png)</span><span class="sxs-lookup"><span data-stu-id="f2840-116">![Get started with Service Health](./media/service-health-overview/azure-service-health-overview-1.png)</span></span>
+
+## <a name="see-current-issues-which-impact-your-services"></a><span data-ttu-id="f2840-117">Hizmetlerinizin etkiler geçerli sorunları bakın</span><span class="sxs-lookup"><span data-stu-id="f2840-117">See current issues which impact your services</span></span>
+<span data-ttu-id="f2840-118">Merhaba **hizmet sorunları** görünüm kaynaklarınızı etkileyen Azure Hizmetleri'nde devam eden sorunları gösterir.</span><span class="sxs-lookup"><span data-stu-id="f2840-118">hello **Service issues** view shows any ongoing problems in Azure services that are impacting your resources.</span></span> <span data-ttu-id="f2840-119">Ne zaman hello sorunu başladı ve hangi Hizmetleri ve bölgeleri etkilenen anlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f2840-119">You can understand when hello issue began, and what services and regions are impacted.</span></span> <span data-ttu-id="f2840-120">Ayrıca hello en son güncelleştirme toounderstand ne okuyabilirsiniz Azure tooresolve hello sorunu yapılması.</span><span class="sxs-lookup"><span data-stu-id="f2840-120">You can also read hello most recent update toounderstand what Azure is doing tooresolve hello issue.</span></span> 
+<span data-ttu-id="f2840-121">![Hizmet sorunu yönetme](./media/service-health-overview/azure-service-health-overview-2.png)</span><span class="sxs-lookup"><span data-stu-id="f2840-121">![Manage service issue](./media/service-health-overview/azure-service-health-overview-2.png)</span></span>
+
+<span data-ttu-id="f2840-122">Merhaba seçin **olası etkisini** sekmesi toosee hello hello sorundan etkilenebilirsiniz sahip olduğunuz kaynakların belirli listesi.</span><span class="sxs-lookup"><span data-stu-id="f2840-122">Choose hello **Potential impact** tab toosee hello specific list of resources you own that might be impacted by hello issue.</span></span> <span data-ttu-id="f2840-123">Bu kaynaklar tooshare CSV listesi ekibinizle indirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f2840-123">You can  download a CSV list of these resources tooshare with your team.</span></span>
+<span data-ttu-id="f2840-124">![Hizmet sorunu - etkisi yönetme](./media/service-health-overview/azure-service-health-overview-4.png)</span><span class="sxs-lookup"><span data-stu-id="f2840-124">![Manage service issue - Impact](./media/service-health-overview/azure-service-health-overview-4.png)</span></span>
+
+## <a name="get-links-and-downloadable-explanations"></a><span data-ttu-id="f2840-125">Get bağlantılar ve indirilebilir açıklamalar</span><span class="sxs-lookup"><span data-stu-id="f2840-125">Get links and downloadable explanations</span></span> 
+<span data-ttu-id="f2840-126">Merhaba sorunu toouse için bir bağlantı sorunu yönetim sisteminiz elde edebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f2840-126">You can get a link for hello issue toouse in your problem management system.</span></span> <span data-ttu-id="f2840-127">PDF ve bazen CSV dosyaları tooshare erişim toohello Azure portal'ı yüklememiş kişilerle indirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f2840-127">You can download PDF and sometimes CSV files tooshare with people who don’t have access toohello Azure portal.</span></span>   
+![Hizmet sorunu - sorun yönetimi yönetme](./media/service-health-overview/azure-service-health-overview-3.png)
+
+## <a name="get-support-from-microsoft"></a><span data-ttu-id="f2840-129">Microsoft'tan destek alın</span><span class="sxs-lookup"><span data-stu-id="f2840-129">Get support from Microsoft</span></span>
+<span data-ttu-id="f2840-130">Hatta hello sorun çözümlendikten sonra kaynak hatalı bir duruma bırakılırsa desteğe başvurun.</span><span class="sxs-lookup"><span data-stu-id="f2840-130">Contact support if your resource is left in a bad state even after hello issue is resolved.</span></span>  <span data-ttu-id="f2840-131">Merhaba destek bağlantıları hello sayfasının sağ hello üzerinde kullanın.</span><span class="sxs-lookup"><span data-stu-id="f2840-131">Use hello support links on hello right of hello page.</span></span>  
+
+## <a name="pin-a-personalized-health-map-tooyour-dashboard"></a><span data-ttu-id="f2840-132">PIN kişiselleştirilmiş sistem durumu harita tooyour Panosu</span><span class="sxs-lookup"><span data-stu-id="f2840-132">Pin a personalized health map tooyour dashboard</span></span>
+<span data-ttu-id="f2840-133">Hizmet durumu tooshow, iş açısından kritik abonelikler, bölgeler ve kaynak türleri filtreleyin.</span><span class="sxs-lookup"><span data-stu-id="f2840-133">Filter Service Health tooshow your business-critical subscriptions, regions, and resource types.</span></span> <span data-ttu-id="f2840-134">Merhaba filtre ve PIN kişiselleştirilmiş sistem durumu world harita tooyour portal Pano kaydedin.</span><span class="sxs-lookup"><span data-stu-id="f2840-134">Save hello filter and pin a personalized health world map tooyour portal dashboard.</span></span> 
+<span data-ttu-id="f2840-135">![Filtre kişiselleştirilmiş sistem durumu harita](./media/service-health-overview/azure-service-health-overview-6a.png)
+![kişiselleştirilmiş sistem durumu harita sabitleyin](./media/service-health-overview/azure-service-health-overview-6b.png)</span><span class="sxs-lookup"><span data-stu-id="f2840-135">![Filter personalized health map](./media/service-health-overview/azure-service-health-overview-6a.png)
+![Pin a personalized health map](./media/service-health-overview/azure-service-health-overview-6b.png)</span></span>
+
+## <a name="configure-service-health-alerts"></a><span data-ttu-id="f2840-136">Hizmet durumu uyarıları yapılandırma</span><span class="sxs-lookup"><span data-stu-id="f2840-136">Configure Service Health alerts</span></span>
+<span data-ttu-id="f2840-137">İş açısından kritik kaynaklarınızı etkilenen zaman azure hizmet durumu ile Azure İzleyici tooalert, e-posta, metin iletileri ve Web kancası bildirimleri ile tümleştirir.</span><span class="sxs-lookup"><span data-stu-id="f2840-137">Azure Service Health integrates with Azure Monitor tooalert you via emails, text messages, and webhook notifications when your business-critical resources are impacted.</span></span> <span data-ttu-id="f2840-138">Merhaba uygun hizmet durumu olay için bir etkinlik günlüğü uyarı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="f2840-138">Set up an activity log alert for hello appropriate Service Health event.</span></span> <span data-ttu-id="f2840-139">Eylem grupları kullanarak kuruluşunuzdaki uygun kişilerin toohello uyarı yol.</span><span class="sxs-lookup"><span data-stu-id="f2840-139">Route that alert toohello appropriate people in your organization using Action Groups.</span></span> <span data-ttu-id="f2840-140">Daha fazla bilgi için bkz: [hizmet sistem durumu için uyarıları Yapılandır](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)</span><span class="sxs-lookup"><span data-stu-id="f2840-140">For more information, see [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)</span></span>
+
+# <a name="next-steps"></a><span data-ttu-id="f2840-141">Sonraki Adımlar</span><span class="sxs-lookup"><span data-stu-id="f2840-141">Next Steps</span></span>
+<span data-ttu-id="f2840-142">Sistem durumu sorunları, bildirim almak için uyarıları ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="f2840-142">Set up alerts so you are notified of health issues.</span></span> <span data-ttu-id="f2840-143">Daha fazla bilgi için bkz: [hizmet durumu uyarıları yapılandırmak](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).</span><span class="sxs-lookup"><span data-stu-id="f2840-143">For more information, see [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).</span></span> 

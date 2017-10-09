@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management'te özel önbelleğe alma"
-description: "Azure API Management'te anahtarı tarafından öğeleri önbelleğe öğrenin"
+title: "Azure API Management'te aaaCustom önbelleğe alma"
+description: "Azure API Management'te anahtarı tarafından nasıl toocache öğelerini öğrenin"
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f5d5f44e34fbcd122a10be0ca5b3001760c4c64d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 681380743c8c96af5d0a8e25948a8c0663e9fd35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="custom-caching-in-azure-api-management"></a><span data-ttu-id="ca1e3-103">Azure API Management'te özel önbelleğe alma</span><span class="sxs-lookup"><span data-stu-id="ca1e3-103">Custom caching in Azure API Management</span></span>
-<span data-ttu-id="ca1e3-104">Azure API Management hizmeti için yerleşik destek sahip [HTTP yanıt önbelleğe alma](api-management-howto-cache.md) kaynak URL anahtar olarak kullanma.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-104">Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key.</span></span> <span data-ttu-id="ca1e3-105">Anahtar kullanarak istek üstbilgileri tarafından değiştirilebilir `vary-by` özellikleri.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-105">The key can be modified by request headers using the `vary-by` properties.</span></span> <span data-ttu-id="ca1e3-106">Tüm HTTP yanıtlarını (diğer adıyla Beyanları) önbelleğe alma işlemi için yararlıdır, ancak bazen yalnızca önbellek temsili bir kısmı için yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-106">This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful to just cache a portion of a representation.</span></span> <span data-ttu-id="ca1e3-107">Yeni [önbellek arama değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) ve [önbellek deposu değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) ilkeleri, depolama ve ilke tanımları içindeki verileri rasgele parçalarını alma olanağı sağlar.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-107">The new [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions.</span></span> <span data-ttu-id="ca1e3-108">Bu özellik ayrıca değeri önceden sunulan ekler [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) İlkesi çünkü dış hizmetler yanıtlarının şimdi önbelleğe alabilir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-108">This ability also adds value to the previously introduced [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy because you can now cache responses from external services.</span></span>
+# <a name="custom-caching-in-azure-api-management"></a><span data-ttu-id="f392d-103">Azure API Management'te özel önbelleğe alma</span><span class="sxs-lookup"><span data-stu-id="f392d-103">Custom caching in Azure API Management</span></span>
+<span data-ttu-id="f392d-104">Azure API Management hizmeti için yerleşik destek sahip [HTTP yanıt önbelleğe alma](api-management-howto-cache.md) hello kaynak URL hello anahtar olarak kullanma.</span><span class="sxs-lookup"><span data-stu-id="f392d-104">Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using hello resource URL as hello key.</span></span> <span data-ttu-id="f392d-105">Merhaba anahtar hello kullanarak istek üstbilgileri tarafından değiştirilebilir `vary-by` özellikleri.</span><span class="sxs-lookup"><span data-stu-id="f392d-105">hello key can be modified by request headers using hello `vary-by` properties.</span></span> <span data-ttu-id="f392d-106">Tüm HTTP yanıtlarını (diğer adıyla Beyanları) önbelleğe alma işlemi için kullanışlıdır ancak bazen yararlı toojust önbellek temsili bir bölümü olabilir.</span><span class="sxs-lookup"><span data-stu-id="f392d-106">This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful toojust cache a portion of a representation.</span></span> <span data-ttu-id="f392d-107">Merhaba yeni [önbellek arama değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) ve [önbellek deposu değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) ilkeler ilke tanımları içindeki verileri toostore ve alma rasgele parçalarını hello olanağı sağlar.</span><span class="sxs-lookup"><span data-stu-id="f392d-107">hello new [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) policies provide hello ability toostore and retrieve arbitrary pieces of data from within policy definitions.</span></span> <span data-ttu-id="f392d-108">Bu yeteneği de daha önce eklenen değer toohello ekler [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) İlkesi çünkü dış hizmetler yanıtlarının şimdi önbelleğe alabilir.</span><span class="sxs-lookup"><span data-stu-id="f392d-108">This ability also adds value toohello previously introduced [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy because you can now cache responses from external services.</span></span>
 
-## <a name="architecture"></a><span data-ttu-id="ca1e3-109">Mimari</span><span class="sxs-lookup"><span data-stu-id="ca1e3-109">Architecture</span></span>
-<span data-ttu-id="ca1e3-110">En fazla ölçek gibi birden çok birimi hala aynı erişimi alırsınız verileri önbelleğe böylece API Management hizmeti Kiracı başına paylaşılan veri önbelleği kullanır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-110">API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you will still get access to the same cached data.</span></span> <span data-ttu-id="ca1e3-111">Ancak, bölgeli dağıtımı ile çalışırken, her bölge içinde bağımsız önbellekleri vardır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-111">However, when working with a multi-region deployment there are independent caches within each of the regions.</span></span> <span data-ttu-id="ca1e3-112">Bunun nedeni, önbelleğe yalnızca kaynak bilgileri parçasının olduğu bir veri deposu olarak davranmanız değil önemlidir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-112">Due to this, it is important to not treat the cache as a data store, where it is the only source of some piece of information.</span></span> <span data-ttu-id="ca1e3-113">Vermedi ve daha sonra bölgeli dağıtım yararlanmak karar, seyahat kullanıcılarla müşteriler bu önbelleğe alınmış verileri erişimlerini kaybedebilir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-113">If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.</span></span>
+## <a name="architecture"></a><span data-ttu-id="f392d-109">Mimari</span><span class="sxs-lookup"><span data-stu-id="f392d-109">Architecture</span></span>
+<span data-ttu-id="f392d-110">API Management hizmeti kullanan bir kiracı başına paylaşılan veri önbelleği toomultiple birimler ölçeklendirmenize göre erişim toohello hala alırsınız böylece aynı verileri önbelleğe.</span><span class="sxs-lookup"><span data-stu-id="f392d-110">API Management service uses a shared per-tenant data cache so that, as you scale up toomultiple units you will still get access toohello same cached data.</span></span> <span data-ttu-id="f392d-111">Ancak, bölgeli dağıtımı ile çalışırken, her hello bölgelerinin bağımsız önbellekleri vardır.</span><span class="sxs-lookup"><span data-stu-id="f392d-111">However, when working with a multi-region deployment there are independent caches within each of hello regions.</span></span> <span data-ttu-id="f392d-112">Son toothis, onu önemlidir toonot hello önbellek hello yalnızca kaynak bilgileri parçasının olduğu bir veri deposu olarak ele alın.</span><span class="sxs-lookup"><span data-stu-id="f392d-112">Due toothis, it is important toonot treat hello cache as a data store, where it is hello only source of some piece of information.</span></span> <span data-ttu-id="f392d-113">Vermedi ve daha sonra hello bölgeli dağıtım tootake avantajlarından karar, seyahat kullanıcılar müşterilerle erişim önbelleğe toothat veri kaybedebilir.</span><span class="sxs-lookup"><span data-stu-id="f392d-113">If you did, and later decided tootake advantage of hello multi-region deployment, then customers with users that travel may lose access toothat cached data.</span></span>
 
-## <a name="fragment-caching"></a><span data-ttu-id="ca1e3-114">Parça önbelleğe alma</span><span class="sxs-lookup"><span data-stu-id="ca1e3-114">Fragment caching</span></span>
-<span data-ttu-id="ca1e3-115">Burada verilen yanıtları belirlemek pahalıdır ve makul bir süre için henüz yeni kalan verileri kısmı içeren bazı durumlar vardır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-115">There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time.</span></span> <span data-ttu-id="ca1e3-116">Örnek olarak, Uçuş Rezervasyonları, uçuş durumu ile ilgili bilgi sağlayan bir uçak tarafından oluşturulmuş bir hizmeti kullanmayı düşünün. Kullanıcı airlines noktaları program üyesi ise, ayrıca bunların geçerli durumu ve toplanan mesafe ilgili bilgileri gerekir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-116">As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If the user is a member of the airlines points program, they would also have information relating to their current status and mileage accumulated.</span></span> <span data-ttu-id="ca1e3-117">Bu kullanıcı ile ilgili bilgiler farklı depolanabilir, ancak uçuş durumu ve ayırmaları hakkında döndürülen yanıtlar dahil istenebilir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-117">This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations.</span></span> <span data-ttu-id="ca1e3-118">Bu yapılabilir parça önbelleğe alma adlı bir işlem kullanılarak.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-118">This can be done using a process called fragment caching.</span></span> <span data-ttu-id="ca1e3-119">Birincil gösterimi kullanıcı ile ilgili bilgiler eklenecek nerede belirtmek için bir tür belirteci kullanarak kaynak sunucudan döndürülebilir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-119">The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted.</span></span> 
+## <a name="fragment-caching"></a><span data-ttu-id="f392d-114">Parça önbelleğe alma</span><span class="sxs-lookup"><span data-stu-id="f392d-114">Fragment caching</span></span>
+<span data-ttu-id="f392d-115">Burada verilen yanıtları pahalı toodetermine ve makul bir süre için henüz yeni kalan verileri kısmı içeren bazı durumlar vardır.</span><span class="sxs-lookup"><span data-stu-id="f392d-115">There are certain cases where responses being returned contain some portion of data that is expensive toodetermine and yet remains fresh for a reasonable amount of time.</span></span> <span data-ttu-id="f392d-116">Örnek olarak, Uçuş Rezervasyonları, uçuş durumu ile ilgili bilgi sağlayan bir uçak tarafından oluşturulmuş bir hizmeti kullanmayı düşünün. Merhaba kullanıcı hello airlines noktaları program üyesi ise, bunlar tootheir geçerli durumu ve toplanan mesafe ilgili bilgileri de gerekir.</span><span class="sxs-lookup"><span data-stu-id="f392d-116">As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If hello user is a member of hello airlines points program, they would also have information relating tootheir current status and mileage accumulated.</span></span> <span data-ttu-id="f392d-117">Bu kullanıcı ile ilgili bilgiler farklı depolanabilir, ancak uçuş durumu ve ayırmaları hakkında yanıtlarındaki döndürdüğü arzu tooinclude olabilir.</span><span class="sxs-lookup"><span data-stu-id="f392d-117">This user-related information might be stored in a different system, but it may be desirable tooinclude it in responses returned about flight status and reservations.</span></span> <span data-ttu-id="f392d-118">Bu yapılabilir parça önbelleğe alma adlı bir işlem kullanılarak.</span><span class="sxs-lookup"><span data-stu-id="f392d-118">This can be done using a process called fragment caching.</span></span> <span data-ttu-id="f392d-119">Merhaba birincil gösterimi hello kullanıcıyla ilişkili bilgileri eklenen toobe olduğu belirteci tooindicate çeşit kullanılarak hello kaynak sunucudan döndürülebilir.</span><span class="sxs-lookup"><span data-stu-id="f392d-119">hello primary representation can be returned from hello origin server using some kind of token tooindicate where hello user-related information is toobe inserted.</span></span> 
 
-<span data-ttu-id="ca1e3-120">Arka uç API'si aşağıdaki JSON yanıtı göz önünde bulundurun.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-120">Consider the following JSON response from a backend API.</span></span>
+<span data-ttu-id="f392d-120">Arka uç API yanıtından JSON aşağıdaki hello göz önünde bulundurun.</span><span class="sxs-lookup"><span data-stu-id="f392d-120">Consider hello following JSON response from a backend API.</span></span>
 
 ```json
 {
@@ -42,13 +42,13 @@ ms.lasthandoff: 07/11/2017
 }  
 ```
 
-<span data-ttu-id="ca1e3-121">Ve ikincil kaynakta `/userprofile/{userid}` olduğunu gibi görünüyor,</span><span class="sxs-lookup"><span data-stu-id="ca1e3-121">And secondary resource at `/userprofile/{userid}` that looks like,</span></span>
+<span data-ttu-id="f392d-121">Ve ikincil kaynakta `/userprofile/{userid}` olduğunu gibi görünüyor,</span><span class="sxs-lookup"><span data-stu-id="f392d-121">And secondary resource at `/userprofile/{userid}` that looks like,</span></span>
 
 ```json
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-<span data-ttu-id="ca1e3-122">Uygun kullanıcı bilgileri içerecek şekilde belirlemek için biz son kullanıcının kim olduğunu tanımlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-122">In order to determine the appropriate user information to include, we need to identify who the end user is.</span></span> <span data-ttu-id="ca1e3-123">Bu mekanizma bağımlı uygulamasıdır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-123">This mechanism is implementation dependent.</span></span> <span data-ttu-id="ca1e3-124">Örnek olarak, kullanıyorum `Subject` , talep bir `JWT` belirteci.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-124">As an example, I am using the `Subject` claim of a `JWT` token.</span></span> 
+<span data-ttu-id="f392d-122">Sipariş toodetermine hello uygun kullanıcı bilgileri tooinclude içinde hello son kullanıcıdan tooidentify gerekir.</span><span class="sxs-lookup"><span data-stu-id="f392d-122">In order toodetermine hello appropriate user information tooinclude, we need tooidentify who hello end user is.</span></span> <span data-ttu-id="f392d-123">Bu mekanizma bağımlı uygulamasıdır.</span><span class="sxs-lookup"><span data-stu-id="f392d-123">This mechanism is implementation dependent.</span></span> <span data-ttu-id="f392d-124">Örnek olarak, hello kullanıyorum `Subject` , talep bir `JWT` belirteci.</span><span class="sxs-lookup"><span data-stu-id="f392d-124">As an example, I am using hello `Subject` claim of a `JWT` token.</span></span> 
 
 ```xml
 <set-variable
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/11/2017
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-<span data-ttu-id="ca1e3-125">Bu depolarız `enduserid` daha sonra kullanmak için bir bağlam değişken değeri.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-125">We store this `enduserid` value in a context variable for later use.</span></span> <span data-ttu-id="ca1e3-126">Sonraki adım, önceki bir istek daha önce kullanıcı bilgileri alınır ve önbellekte depolanan varsa belirlemektir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-126">The next step is to determine if a previous request has already retrieved the user information and stored it in the cache.</span></span> <span data-ttu-id="ca1e3-127">Bunun için kullandığımız `cache-lookup-value` ilkesi.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-127">For this we use the `cache-lookup-value` policy.</span></span>
+<span data-ttu-id="f392d-125">Bu depolarız `enduserid` daha sonra kullanmak için bir bağlam değişken değeri.</span><span class="sxs-lookup"><span data-stu-id="f392d-125">We store this `enduserid` value in a context variable for later use.</span></span> <span data-ttu-id="f392d-126">önceki bir istek varsa zaten hello kullanıcı bilgileri alınır ve hello önbellekte depolanan hello sonraki toodetermine adımdır.</span><span class="sxs-lookup"><span data-stu-id="f392d-126">hello next step is toodetermine if a previous request has already retrieved hello user information and stored it in hello cache.</span></span> <span data-ttu-id="f392d-127">Merhaba bu için kullandığımız `cache-lookup-value` ilkesi.</span><span class="sxs-lookup"><span data-stu-id="f392d-127">For this we use hello `cache-lookup-value` policy.</span></span>
 
 ```xml
 <cache-lookup-value
@@ -64,17 +64,17 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-<span data-ttu-id="ca1e3-128">Anahtar değeri sonra Hayır karşılık gelen önbellek girişi yoksa `userprofile` bağlamının oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-128">If there is no entry in the cache that corresponds to the key value, then no `userprofile` context variable will be created.</span></span> <span data-ttu-id="ca1e3-129">Biz arama kullanma başarısını denetleyin `choose` kontrol akışı ilkesi.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-129">We check the success of the lookup using the `choose` control flow policy.</span></span>
+<span data-ttu-id="f392d-128">Toohello anahtar değeri ve ardından Hayır karşılık gelen hello önbelleğinde girişi yoksa `userprofile` bağlamının oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="f392d-128">If there is no entry in hello cache that corresponds toohello key value, then no `userprofile` context variable will be created.</span></span> <span data-ttu-id="f392d-129">Biz hello kullanarak hello araması hello başarısını denetleyin `choose` kontrol akışı ilkesi.</span><span class="sxs-lookup"><span data-stu-id="f392d-129">We check hello success of hello lookup using hello `choose` control flow policy.</span></span>
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-        <!-- If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
+        <!-- If hello userprofile context variable doesn’t exist, make an HTTP request tooretrieve it.  -->
     </when>
 </choose>
 ```
 
-<span data-ttu-id="ca1e3-130">Varsa `userprofile` bağlamının yoksa, ardından bunu almak için bir HTTP isteği yapmak zorunda kalacaklarını.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-130">If the `userprofile` context variable doesn’t exist, then we are going to have to make an HTTP request to retrieve it.</span></span>
+<span data-ttu-id="f392d-130">Merhaba, `userprofile` bağlamının yok ve devam eden toohave toomake bir HTTP isteği tooretrieve gerçekleştiriyoruz.</span><span class="sxs-lookup"><span data-stu-id="f392d-130">If hello `userprofile` context variable doesn’t exist, then we are going toohave toomake an HTTP request tooretrieve it.</span></span>
 
 ```xml
 <send-request
@@ -83,7 +83,7 @@ variable-name="userprofile" />
   timeout="10"
   ignore-error="true">
 
-  <!-- Build a URL that points to the profile for the current end-user -->
+  <!-- Build a URL that points toohello profile for hello current end-user -->
   <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),
       (string)context.Variables["enduserid"]).AbsoluteUri)
   </set-url>
@@ -91,7 +91,7 @@ variable-name="userprofile" />
 </send-request>
 ```
 
-<span data-ttu-id="ca1e3-131">Kullanırız `enduserid` kullanıcı profili kaynağı URL'si oluşturulamadı.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-131">We use the `enduserid` to construct the URL to the user profile resource.</span></span> <span data-ttu-id="ca1e3-132">Yanıt sahibiz sonra biz yanıt dışında gövde metni çekmek ve bir bağlam değişkende saklayın.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-132">Once we have the response, we can pull the body text out of the response and store it back into a context variable.</span></span>
+<span data-ttu-id="f392d-131">Merhaba kullanırız `enduserid` tooconstruct hello URL toohello kullanıcı profili kaynağı.</span><span class="sxs-lookup"><span data-stu-id="f392d-131">We use hello `enduserid` tooconstruct hello URL toohello user profile resource.</span></span> <span data-ttu-id="f392d-132">Biz hello yanıt olduktan sonra biz hello gövde metni hello yanıt dışında çekme ve bir bağlam değişkende saklayın.</span><span class="sxs-lookup"><span data-stu-id="f392d-132">Once we have hello response, we can pull hello body text out of hello response and store it back into a context variable.</span></span>
 
 ```xml
 <set-variable
@@ -99,7 +99,7 @@ variable-name="userprofile" />
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-<span data-ttu-id="ca1e3-133">Bize aynı kullanıcı başka bir istekte bulunduğunda bu HTTP isteği yeniden sağlamak zorunda önlemek için biz kullanıcı profili önbellekte saklayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-133">To avoid us having to make this HTTP request again, when the same user makes another request, we can store the user profile in the cache.</span></span>
+<span data-ttu-id="f392d-133">tooavoid bize hello aynı kullanıcı başka bir istekte bulunduğunda toomake bu HTTP isteği yeniden sahip, biz hello kullanıcı profili hello önbellekte saklayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f392d-133">tooavoid us having toomake this HTTP request again, when hello same user makes another request, we can store hello user profile in hello cache.</span></span>
 
 ```xml
 <cache-store-value
@@ -107,11 +107,11 @@ variable-name="userprofile" />
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-<span data-ttu-id="ca1e3-134">Biz başlangıçta ile almayı denedi tam aynı anahtarı kullanarak önbelleğinde değeri depolarız.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-134">We store the value in the cache using the exact same key that we originally attempted to retrieve it with.</span></span> <span data-ttu-id="ca1e3-135">Biz değeri depolamak üzere seçtiğiniz süre hakkında temel gereken genellikle bilgi değişikliklerini ve nasıl dayanıklı kullanıcılar için güncel bilgilerdir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-135">The duration that we choose to store the value should be based on how often the information changes and how tolerant users are to out of date information.</span></span> 
+<span data-ttu-id="f392d-134">Biz başlangıçta tooretrieve çalıştı hello tam aynı anahtarı kullanarak hello Önbelleği'nde hello değeri depolarız ile.</span><span class="sxs-lookup"><span data-stu-id="f392d-134">We store hello value in hello cache using hello exact same key that we originally attempted tooretrieve it with.</span></span> <span data-ttu-id="f392d-135">Merhaba toostore hello değeri seçeneğini belirledik süresi ne sıklıkta hello bilgi değişikliklerini ve nasıl dayanıklı kullanıcılar tarih bilgisi tooout olduğuna bağlı olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="f392d-135">hello duration that we choose toostore hello value should be based on how often hello information changes and how tolerant users are tooout of date information.</span></span> 
 
-<span data-ttu-id="ca1e3-136">Önbellekten hala olduğundan bir işlem dışı, ağ isteği ve potansiyel olarak milisaniye onlarca isteği eklemeye devam edebilirsiniz, hayata geçirmek önemlidir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-136">It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can still add tens of milliseconds to the request.</span></span> <span data-ttu-id="ca1e3-137">Kullanıcı profili bilgilerini sorgular veya toplama bilgilerinden birden fazla arka uç veritabanı gerek nedeniyle daha önemli ölçüde daha uzun sürer belirlerken avantajları gelir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-137">The benefits come when determining the user profile information takes significantly longer than that due to needing to do database queries or aggregate information from multiple back-ends.</span></span>
+<span data-ttu-id="f392d-136">Bu önemli toorealize hello önbellekten hala olduğundan bir işlem dışı, ağ isteği ve potansiyel olarak milisaniye toohello isteği onlarca eklemeye devam edebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f392d-136">It is important toorealize that retrieving from hello cache is still an out-of-process, network request and potentially can still add tens of milliseconds toohello request.</span></span> <span data-ttu-id="f392d-137">belirleme hello kullanıcı profili bilgilerini daha önemli ölçüde uzun son tooneeding toodo veritabanı sorguları veya birden fazla arka uç toplama bilgilerinden yönlendirdiğinde hello avantajları gelir.</span><span class="sxs-lookup"><span data-stu-id="f392d-137">hello benefits come when determining hello user profile information takes significantly longer than that due tooneeding toodo database queries or aggregate information from multiple back-ends.</span></span>
 
-<span data-ttu-id="ca1e3-138">Son işlem döndürülen yanıt bizim kullanıcı profili bilgilerle güncelleştirmek için adımdır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-138">The final step in the process is to update the returned response with our user profile information.</span></span>
+<span data-ttu-id="f392d-138">Merhaba son hello işleminde bizim kullanıcı profili bilgilerini içeren bir yanıt döndürdü tooupdate hello adımdır.</span><span class="sxs-lookup"><span data-stu-id="f392d-138">hello final step in hello process is tooupdate hello returned response with our user profile information.</span></span>
 
 ```xml
 <!-- Update response body with user profile-->
@@ -120,9 +120,9 @@ variable-name="userprofile" />
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-<span data-ttu-id="ca1e3-139">Tırnak işaretleri belirtecinin bir parçası içermesi Değiştir bile gerçekleşmezse, yanıt hala geçerli JSON zamanki seçtiniz.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-139">I chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response was still valid JSON.</span></span> <span data-ttu-id="ca1e3-140">Öncelikle daha kolay hata ayıklama yapmak için bu.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-140">This was primarily to make debugging easier.</span></span>
+<span data-ttu-id="f392d-139">Böylece hello Değiştir bile gerçekleşmezse, hello yanıt hala geçerli JSON zamanki tooinclude hello tırnak işaretleri hello belirtecinin bir parçası seçtiğim.</span><span class="sxs-lookup"><span data-stu-id="f392d-139">I chose tooinclude hello quotation marks as part of hello token so that even when hello replace doesn’t occur, hello response was still valid JSON.</span></span> <span data-ttu-id="f392d-140">Öncelikle daha kolay hata ayıklama toomake oluştu.</span><span class="sxs-lookup"><span data-stu-id="f392d-140">This was primarily toomake debugging easier.</span></span>
 
-<span data-ttu-id="ca1e3-141">Tüm adımları birleştirmek sonra sonuç aşağıdaki biri gibi görünen bir ilkedir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-141">Once you combine all these steps together, the end result is a policy that looks like the following one.</span></span>
+<span data-ttu-id="f392d-141">Tüm adımları birleştirmek sonra hello sonuç hello bir aşağıdaki gibi görünen bir ilkedir.</span><span class="sxs-lookup"><span data-stu-id="f392d-141">Once you combine all these steps together, hello end result is a policy that looks like hello following one.</span></span>
 
 ```xml
 <policies>
@@ -132,22 +132,22 @@ variable-name="userprofile" />
           name="enduserid"
           value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 
-        <!--Look for userprofile for this user in the cache -->
+        <!--Look for userprofile for this user in hello cache -->
         <cache-lookup-value
           key="@("userprofile-" + context.Variables["enduserid"])"
           variable-name="userprofile" />
 
-        <!-- If we don’t find it in the cache, make a request for it and store it -->
+        <!-- If we don’t find it in hello cache, make a request for it and store it -->
         <choose>
             <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-                <!-- Make HTTP request to get user profile -->
+                <!-- Make HTTP request tooget user profile -->
                 <send-request
                   mode="new"
                   response-variable-name="userprofileresponse"
                   timeout="10"
                   ignore-error="true">
 
-                   <!-- Build a URL that points to the profile for the current end-user -->
+                   <!-- Build a URL that points toohello profile for hello current end-user -->
                     <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
                     <set-method>GET</set-method>
                 </send-request>
@@ -176,22 +176,22 @@ variable-name="userprofile" />
 </policies>
 ```
 
-<span data-ttu-id="ca1e3-142">Önbelleğe alma bu yaklaşım, tek bir sayfa olarak işlenebilecek böylece burada HTML sunucu tarafında oluşur web siteleri, öncelikle kullanılır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-142">This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page.</span></span> <span data-ttu-id="ca1e3-143">Ancak, bu da yararlı olabilir burada istemcileri bulunulamaz istemci API'ları yan HTTP önbelleğe alma veya bu sorumluluğu istemcide değil yerleştirilecek istenen bir durumdur.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-143">However, it can also be useful in APIs where clients cannot do client side HTTP caching or it is desirable not to put that responsibility on the client.</span></span>
+<span data-ttu-id="f392d-142">Önbelleğe alma bu yaklaşım, tek bir sayfa olarak işlenebilecek böylece burada HTML hello sunucu tarafında oluşur web siteleri, öncelikle kullanılır.</span><span class="sxs-lookup"><span data-stu-id="f392d-142">This caching approach is primarily used in web sites where HTML is composed on hello server side so that it can be rendered as a single page.</span></span> <span data-ttu-id="f392d-143">Ancak, bu da yararlı olabilir burada istemcileri bulunulamaz istemci API'ları yan HTTP önbelleğe alma veya tercih edilir değil tooput bu sorumluluğu hello istemcide.</span><span class="sxs-lookup"><span data-stu-id="f392d-143">However, it can also be useful in APIs where clients cannot do client side HTTP caching or it is desirable not tooput that responsibility on hello client.</span></span>
 
-<span data-ttu-id="ca1e3-144">Parça önbelleğe alma bu aynı tür, arka uç web sunucularında sunucu önbelleği Redis kullanılarak yapılabilir, önbelleğe alınan parçaları birincil daha farklı arka uçları'ten gelen ancak API Management hizmeti kullanarak bu çalışmayı gerçekleştirmek için faydalıdır yanıtlar.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-144">This same kind of fragment caching can also be done on the backend web servers using a Redis caching server, however, using the API Management service to perform this work is useful when the cached fragments are coming from different back-ends than the primary responses.</span></span>
+<span data-ttu-id="f392d-144">Parça önbelleğe alma bu aynı tür, sunucu önbelleği Redis hello arka uç web sunucularında kullanılarak yapılabilir, önbelleğe alınmış hello parçaları hello'den farklı arka uçları'ten gelen ancak hello API Management hizmeti tooperform kullanarak bu iş kullanışlıdır Birincil yanıtlar.</span><span class="sxs-lookup"><span data-stu-id="f392d-144">This same kind of fragment caching can also be done on hello backend web servers using a Redis caching server, however, using hello API Management service tooperform this work is useful when hello cached fragments are coming from different back-ends than hello primary responses.</span></span>
 
-## <a name="transparent-versioning"></a><span data-ttu-id="ca1e3-145">Saydam sürüm oluşturma</span><span class="sxs-lookup"><span data-stu-id="ca1e3-145">Transparent versioning</span></span>
-<span data-ttu-id="ca1e3-146">Herhangi bir zamanda desteklenmesi için bir API birden çok farklı uygulama sürümlerini yaygın bir uygulamadır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-146">It is common practice for multiple different implementation versions of an API to be supported at any one time.</span></span> <span data-ttu-id="ca1e3-147">Bu belki de geliştirme, test, üretim, vb., gibi farklı ortamları desteklemek için veya daha yeni sürümüne geçirmek API Tüketiciler için zaman vermek için API eski sürümleri desteklemek için olabilir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-147">This is perhaps to support different environments, like dev, test, production, etc, or it may be to support older versions of the API to give time for API consumers to migrate to newer versions.</span></span> 
+## <a name="transparent-versioning"></a><span data-ttu-id="f392d-145">Saydam sürüm oluşturma</span><span class="sxs-lookup"><span data-stu-id="f392d-145">Transparent versioning</span></span>
+<span data-ttu-id="f392d-146">Desteklenen herhangi bir anda bir API toobe birden çok farklı uygulama sürümlerini yaygın bir uygulamadır.</span><span class="sxs-lookup"><span data-stu-id="f392d-146">It is common practice for multiple different implementation versions of an API toobe supported at any one time.</span></span> <span data-ttu-id="f392d-147">Bu belki de geliştirme, test, üretim, vb., gibi toosupport farklı ortamlar veya hello API toogive zaman API tüketicileri toomigrate toonewer sürümleri için eski sürümleri toosupport olabilir.</span><span class="sxs-lookup"><span data-stu-id="f392d-147">This is perhaps toosupport different environments, like dev, test, production, etc, or it may be toosupport older versions of hello API toogive time for API consumers toomigrate toonewer versions.</span></span> 
 
-<span data-ttu-id="ca1e3-148">Bu URL'lerden değiştirmek istemci geliştiriciler istemek yerine işleme bir yaklaşım `/v1/customers` için `/v2/customers` şu anda istedikleri kullanın ve uygun arka uç URL'si çağırmak için API'ın hangi sürümü tüketicinin profil verileri depolamak için.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-148">One approach to handling this instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL.</span></span> <span data-ttu-id="ca1e3-149">Belirli bir istemci için çağırmak için doğru arka uç URL'si belirlemek için bazı yapılandırma verileri sorgulamak gereklidir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-149">In order to determine the correct backend URL to call for a particular client, it is necessary to query some configuration data.</span></span> <span data-ttu-id="ca1e3-150">Bu yapılandırma verileri önbelleğe alarak biz yaşanan bu Arama yapmanın performans sorunları en aza indirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-150">By caching this configuration data, we can minimize the performance penalty of doing this lookup.</span></span>
+<span data-ttu-id="f392d-148">İstemci geliştiricilerin toochange hello URL'lerden gerektiren bu bunun yerine, bir yaklaşım toohandling `/v1/customers` çok`/v2/customers` toostore hello tüketicinin profil verileri de hello API'ın hangi sürümü bunlar şu anda toouse istiyor ve çağırın hello uygun değil arka uç URL'si.</span><span class="sxs-lookup"><span data-stu-id="f392d-148">One approach toohandling this instead of requiring client developers toochange hello URLs from `/v1/customers` too`/v2/customers` is toostore in hello consumer’s profile data which version of hello API they currently wish toouse and call hello appropriate backend URL.</span></span> <span data-ttu-id="f392d-149">İsteğe bağlı olarak belirli bir istemci için sipariş toodetermine hello doğru arka uç URL'si toocall içinde gerekli tooquery olan bazı yapılandırma verileri.</span><span class="sxs-lookup"><span data-stu-id="f392d-149">In order toodetermine hello correct backend URL toocall for a particular client, it is necessary tooquery some configuration data.</span></span> <span data-ttu-id="f392d-150">Bu yapılandırma verileri önbelleğe alarak Biz bu Arama yapmanın hello performans cezası en aza indirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f392d-150">By caching this configuration data, we can minimize hello performance penalty of doing this lookup.</span></span>
 
-<span data-ttu-id="ca1e3-151">İlk adım, istenen sürüm yapılandırmak için kullanılan tanımlayıcı belirlemektir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-151">The first step is to determine the identifier used to configure the desired version.</span></span> <span data-ttu-id="ca1e3-152">Bu örnekte, ürün abonelik anahtarı sürüme ilişkilendirilecek seçtiğim.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-152">In this example, I chose to associate the version to the product subscription key.</span></span> 
+<span data-ttu-id="f392d-151">Merhaba ilk adımı toodetermine hello tanımlayıcı tooconfigure hello istediğiniz sürümü kullanılır.</span><span class="sxs-lookup"><span data-stu-id="f392d-151">hello first step is toodetermine hello identifier used tooconfigure hello desired version.</span></span> <span data-ttu-id="f392d-152">Bu örnekte, t tooassociate hello sürüm toohello ürün abonelik anahtarı seçtiniz.</span><span class="sxs-lookup"><span data-stu-id="f392d-152">In this example, I chose tooassociate hello version toohello product subscription key.</span></span> 
 
 ```xml
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
 ```
 
-<span data-ttu-id="ca1e3-153">Biz sonra biz zaten istenen istemci sürümü aldıktan olmadığını görmek için önbellek araması yapın.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-153">We then do a cache lookup to see if we already have retrieved the desired client version.</span></span>
+<span data-ttu-id="f392d-153">Biz hello istenen istemci sürümü aldıktan, biz sonra bir önbellek arama toosee yapın.</span><span class="sxs-lookup"><span data-stu-id="f392d-153">We then do a cache lookup toosee if we already have retrieved hello desired client version.</span></span>
 
 ```xml
 <cache-lookup-value
@@ -199,14 +199,14 @@ key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
 ```
 
-<span data-ttu-id="ca1e3-154">Ardından biz biz bunu önbellekte bulamadı olmadığını denetleyin.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-154">Then we check to see if we did not find it in the cache.</span></span>
+<span data-ttu-id="f392d-154">Biz bunu hello önbelleğinde bulamadı olmadığını biz toosee denetleyin.</span><span class="sxs-lookup"><span data-stu-id="f392d-154">Then we check toosee if we did not find it in hello cache.</span></span>
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("clientversion"))">
 ```
 
-<span data-ttu-id="ca1e3-155">Git ve bunu alma sonra biz almadıysanız.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-155">If we didn’t then we go and retrieve it.</span></span>
+<span data-ttu-id="f392d-155">Git ve bunu alma sonra biz almadıysanız.</span><span class="sxs-lookup"><span data-stu-id="f392d-155">If we didn’t then we go and retrieve it.</span></span>
 
 ```xml
 <send-request
@@ -219,7 +219,7 @@ variable-name="clientversion" />
 </send-request>
 ```
 
-<span data-ttu-id="ca1e3-156">Yanıt gövdesi metni yanıttan ayıklayın.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-156">Extract the response body text from the response.</span></span>
+<span data-ttu-id="f392d-156">Merhaba yanıt gövdesi metni hello yanıttan ayıklayın.</span><span class="sxs-lookup"><span data-stu-id="f392d-156">Extract hello response body text from hello response.</span></span>
 
 ```xml
 <set-variable
@@ -227,7 +227,7 @@ variable-name="clientversion" />
       value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
 ```
 
-<span data-ttu-id="ca1e3-157">Gelecekte kullanım için önbelleğindeki depolar.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-157">Store it back in the cache for future use.</span></span>
+<span data-ttu-id="f392d-157">Gelecekte kullanım için hello önbelleğindeki geri depolar.</span><span class="sxs-lookup"><span data-stu-id="f392d-157">Store it back in hello cache for future use.</span></span>
 
 ```xml
 <cache-store-value
@@ -236,14 +236,14 @@ variable-name="clientversion" />
       duration="100000" />
 ```
 
-<span data-ttu-id="ca1e3-158">Ve son olarak istemci tarafından istenen hizmetin sürümünü seçmek için arka uç URL'si güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-158">And finally update the back-end URL to select the version of the service desired by the client.</span></span>
+<span data-ttu-id="f392d-158">Ve son olarak hello arka uç URL'si tooselect hello hello istemci tarafından istenen hello hizmetinin sürümünü güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="f392d-158">And finally update hello back-end URL tooselect hello version of hello service desired by hello client.</span></span>
 
 ```xml
 <set-backend-service
       base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
 ```
 
-<span data-ttu-id="ca1e3-159">Tamamen ilke aşağıdaki gibidir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-159">The completely policy is as follows.</span></span>
+<span data-ttu-id="f392d-159">Merhaba tamamen ilke aşağıdaki gibidir.</span><span class="sxs-lookup"><span data-stu-id="f392d-159">hello completely policy is as follows.</span></span>
 
 ```xml
 <inbound>
@@ -251,7 +251,7 @@ variable-name="clientversion" />
     <set-variable name="clientid" value="@(context.Subscription.Key)" />
     <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
 
-    <!-- If we don’t find it in the cache, make a request for it and store it -->
+    <!-- If we don’t find it in hello cache, make a request for it and store it -->
     <choose>
         <when condition="@(!context.Variables.ContainsKey("clientversion"))">
             <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
@@ -268,16 +268,16 @@ variable-name="clientversion" />
 </inbound>
 ```
 
-<span data-ttu-id="ca1e3-160">Saydam güncelleştirin ve istemcilerin yeniden dağıtmak zorunda kalmadan, hangi arka uç sürümü istemciler tarafından erişiliyor denetlemek API tüketicileri etkinleştirme birçok API sürüm oluşturma sorunları ele zarif bir çözümdür.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-160">Enabling API consumers to transparently control which backend version is being accessed by clients without having to update and redeploy clients is a elegant solution that addresses many API versioning concerns.</span></span>
+<span data-ttu-id="f392d-160">Hangi arka uç sürümü tooupdate ve yeniden dağıtın istemcileri gerek kalmadan istemciler tarafından erişiliyor API tüketicileri tootransparently denetimini etkinleştirme birçok API sürüm oluşturma sorunları ele zarif bir çözümdür.</span><span class="sxs-lookup"><span data-stu-id="f392d-160">Enabling API consumers tootransparently control which backend version is being accessed by clients without having tooupdate and redeploy clients is a elegant solution that addresses many API versioning concerns.</span></span>
 
-## <a name="tenant-isolation"></a><span data-ttu-id="ca1e3-161">Kiracı yalıtımı</span><span class="sxs-lookup"><span data-stu-id="ca1e3-161">Tenant Isolation</span></span>
-<span data-ttu-id="ca1e3-162">Daha büyük, çok kiracılı dağıtımlarda bazı şirketler, arka uç donanım ayrı dağıtımlarına kiracılar ayrı grupları oluşturun.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-162">In larger, multi-tenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware.</span></span> <span data-ttu-id="ca1e3-163">Bu arka uç üzerinde donanım sorundan etkilenen müşteriler sayısını en aza indirir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-163">This minimizes the number of customers who are impacted by a hardware issue on the backend.</span></span> <span data-ttu-id="ca1e3-164">Ayrıca, yeni yazılım sürümleri aşamada alınması sağlar.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-164">It also enables new software versions to be rolled out in stages.</span></span> <span data-ttu-id="ca1e3-165">İdeal olarak bu arka uç mimarisi API tüketicilere saydam olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-165">Ideally this backend architecture should be transparent to API consumers.</span></span> <span data-ttu-id="ca1e3-166">API anahtarı başına yapılandırma durumu kullanarak arka uç URL'si düzenleme aynı tekniği bağlı olduğu bu saydam sürüm benzer bir şekilde sağlanabilir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-166">This can be achieved in a similar way to transparent versioning because it is based on the same technique of manipulating the backend URL using configuration state per API key.</span></span>  
+## <a name="tenant-isolation"></a><span data-ttu-id="f392d-161">Kiracı yalıtımı</span><span class="sxs-lookup"><span data-stu-id="f392d-161">Tenant Isolation</span></span>
+<span data-ttu-id="f392d-162">Daha büyük, çok kiracılı dağıtımlarda bazı şirketler, arka uç donanım ayrı dağıtımlarına kiracılar ayrı grupları oluşturun.</span><span class="sxs-lookup"><span data-stu-id="f392d-162">In larger, multi-tenant deployments some companies create separate groups of tenants on distinct deployments of backend hardware.</span></span> <span data-ttu-id="f392d-163">Bu bir donanım sorunu hello arka uç tarafından etkilenen müşteriler hello sayısını en aza indirir.</span><span class="sxs-lookup"><span data-stu-id="f392d-163">This minimizes hello number of customers who are impacted by a hardware issue on hello backend.</span></span> <span data-ttu-id="f392d-164">Ayrıca, yeni yazılım sürümleri toobe aşamada alındı sağlar.</span><span class="sxs-lookup"><span data-stu-id="f392d-164">It also enables new software versions toobe rolled out in stages.</span></span> <span data-ttu-id="f392d-165">İdeal olarak bu arka uç mimarisi saydam tooAPI tüketicileri olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="f392d-165">Ideally this backend architecture should be transparent tooAPI consumers.</span></span> <span data-ttu-id="f392d-166">Merhaba üzerinde dayandığından bu benzer bir şekilde tootransparent sürüm oluşturma sağlanabilir API anahtarı başına yapılandırma durumu kullanarak hello arka uç URL'si düzenleme aynı tekniği.</span><span class="sxs-lookup"><span data-stu-id="f392d-166">This can be achieved in a similar way tootransparent versioning because it is based on hello same technique of manipulating hello backend URL using configuration state per API key.</span></span>  
 
-<span data-ttu-id="ca1e3-167">API her abonelik anahtarı için tercih edilen bir sürümünü döndürme yerine atanan donanım grubu için bir kiracı ilişkili tanımlayıcı döndürecektir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-167">Instead of returning a preferred version of the API for each subscription key, you would return an identifier that relates a tenant to the assigned hardware group.</span></span> <span data-ttu-id="ca1e3-168">Bu tanımlayıcı, uygun arka uç URL'si oluşturmak için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-168">That identifier can be used to construct the appropriate backend URL.</span></span>
+<span data-ttu-id="f392d-167">Merhaba API her abonelik anahtarı için tercih edilen bir sürümünü döndürme yerine bir kiracı atanan toohello donanım grubu ilişkili tanımlayıcı döndürecektir.</span><span class="sxs-lookup"><span data-stu-id="f392d-167">Instead of returning a preferred version of hello API for each subscription key, you would return an identifier that relates a tenant toohello assigned hardware group.</span></span> <span data-ttu-id="f392d-168">Bu tanımlayıcı, kullanılan tooconstruct hello uygun arka uç URL'si olabilir.</span><span class="sxs-lookup"><span data-stu-id="f392d-168">That identifier can be used tooconstruct hello appropriate backend URL.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="ca1e3-169">Özet</span><span class="sxs-lookup"><span data-stu-id="ca1e3-169">Summary</span></span>
-<span data-ttu-id="ca1e3-170">Her türlü veri depolamak için Azure API management önbellek kullanma özgürlüğü verimli bir gelen talep işlenen biçimini etkileyebilir yapılandırma verilerine erişim sağlar.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-170">The freedom to use the Azure API management cache for storing any kind of data enables efficient access to configuration data that can affect the way an inbound request is processed.</span></span> <span data-ttu-id="ca1e3-171">Ayrıca, bir arka API döndürülen yanıt genişletebilirsiniz veri parçaları depolamak için de kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-171">It can also be used to store data fragments that can augment responses, returned from a backend API.</span></span>
+## <a name="summary"></a><span data-ttu-id="f392d-169">Özet</span><span class="sxs-lookup"><span data-stu-id="f392d-169">Summary</span></span>
+<span data-ttu-id="f392d-170">Hello özgürlük toouse hello Azure API management önbellek her türlü veri depolamak için bir gelen talep işlenen hello biçimini etkileyebilir etkili erişim tooconfiguration veri sağlar.</span><span class="sxs-lookup"><span data-stu-id="f392d-170">hello freedom toouse hello Azure API management cache for storing any kind of data enables efficient access tooconfiguration data that can affect hello way an inbound request is processed.</span></span> <span data-ttu-id="f392d-171">Ayrıca, arka ucundan API döndürülen yanıt genişletebilirsiniz kullanılan toostore veri parçaları de olabilir.</span><span class="sxs-lookup"><span data-stu-id="f392d-171">It can also be used toostore data fragments that can augment responses, returned from a backend API.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="ca1e3-172">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="ca1e3-172">Next steps</span></span>
-<span data-ttu-id="ca1e3-173">Lütfen bize geri bildirim Disqus iş parçacığı için bu konuda bu ilkeler için etkinleştirdiğiniz diğer senaryolar varsa veya senaryoları varsa elde etmek ister misiniz verin ancak şu anda mümkün olan eşitleyerek değil.</span><span class="sxs-lookup"><span data-stu-id="ca1e3-173">Please give us your feedback in the Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like to achieve but do not feel are currently possible.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="f392d-172">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="f392d-172">Next steps</span></span>
+<span data-ttu-id="f392d-173">Bu ilkeler için etkinleştirdiğiniz, veya senaryoları varsa tooachieve istediğiniz ancak değil düşündüğünüz diğer senaryolar şu anda olası varsa lütfen bize Geri bildiriminizi hello Disqus iş parçacığı için bu konunun verin.</span><span class="sxs-lookup"><span data-stu-id="f392d-173">Please give us your feedback in hello Disqus thread for this topic if there are other scenarios that these policies have enabled for you, or if there are scenarios you would like tooachieve but do not feel are currently possible.</span></span>
 

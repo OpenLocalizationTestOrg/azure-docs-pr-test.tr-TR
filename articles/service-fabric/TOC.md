@@ -8,7 +8,7 @@
 # Öğreticiler
 ## .NET uygulaması dağıtma
 ### [1- .NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md)
-### [2- Uygulamayı dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+### [2 - hello uygulamasını dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3 - CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## Bir uygulamayı lift-and-shift ile taşıma
@@ -79,7 +79,7 @@
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](service-fabric-application-lifecycle.md)
-### [ImageStoreConnectionString ayarı](service-fabric-image-store-connection-string.md)
+### [Merhaba ImageStoreConnectionString ayarı](service-fabric-image-store-connection-string.md)
 ### Uygulama yükseltme
 #### [Genel Bakış](service-fabric-application-upgrade.md)
 #### [Yapılandırma](service-fabric-visualstudio-configure-upgrade.md)
@@ -121,7 +121,7 @@
 ### [Durum bilgisi olan Reliable Services özelliğinde tanılama](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
 
-# Nasıl Yapılır Kılavuzları
+# Nasıl tooGuides
 ## Geliştirme ortamınızı kurma
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
@@ -185,7 +185,7 @@
 #### [İletişim ayarlarını yapılandırma](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [ReliableDictionaryActorStateProvider’ı yapılandırma](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
-### [Maven’i desteklemek için eski Java Uygulamasını geçirme](service-fabric-migrate-old-javaapp-to-use-maven.md)
+### [Eski Java uygulaması toosupport Maven geçirme](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Güvenli iletişim için ters proxy ayarlarını yapılandırma](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -214,7 +214,7 @@
 
 ## Cloud Services’tan geçiş
 ### [Cloud Services ile Service Fabric karşılaştırması](service-fabric-cloud-services-migration-differences.md)
-### [Service Fabric’e geçme](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [TooService doku geçirme](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 ### [Önerilen uygulamalar](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Uygulama yaşam döngüsünü yönetme
@@ -239,7 +239,7 @@
 ##### [Test eylemlerini kullanma](service-fabric-testability-actions.md)
 ##### [İş yükleri sırasında](service-fabric-testability-workload-tests.md)
 ##### [Test senaryolarını kullanma](service-fabric-testability-scenarios.md)
-##### [Düğüm geçişi API’lerini kullanma](service-fabric-node-transition-apis.md)
+##### [Merhaba düğümü geçişi API'lerini kullanarak](service-fabric-node-transition-apis.md)
 #### [Uygulamanıza yük testi yapma](service-fabric-vso-load-test.md)
 
 ### Sürekli tümleştirme kurulumu
@@ -258,7 +258,7 @@
 #### [Yükseltme](service-fabric-cluster-upgrade.md)
 #### [Erişim denetimini ayarlama](service-fabric-cluster-security-roles.md)
 #### [Yapılandırma](service-fabric-cluster-fabric-settings.md)
-#### [Yük dengeleyicide bağlantı noktası açma](create-load-balancer-rule.md)
+#### [Merhaba yük dengeleyicisi bir bağlantı noktasını açın](create-load-balancer-rule.md)
 #### [Küme sertifikalarını yönetme](service-fabric-cluster-security-update-certs-azure.md)
 #### [Silme](service-fabric-cluster-delete.md)
 
@@ -269,14 +269,14 @@
 ##### [Şirket içi oluşturma](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Sertifikaları kullanarak güvenli hale getirme](service-fabric-windows-cluster-x509-security.md)  
 ##### [Windows güvenliğini kullanarak güvenli hale getirme](service-fabric-windows-cluster-windows-security.md)
-##### [Tek başına paketin içeriği](service-fabric-cluster-standalone-package-contents.md)
+##### [Merhaba tek başına paketinin içeriği](service-fabric-cluster-standalone-package-contents.md)
 #### [Ölçeklendirme](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Erişim denetimini ayarlama](service-fabric-cluster-security-roles.md)
 #### [Yapılandırma](service-fabric-cluster-manifest.md)
 #### [Yükseltme](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
-### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
+### [Tooa güvenli kümesine bağlanın](service-fabric-connect-to-secure-cluster.md)
 
 ### [Service Fabric CLI kullanarak bir kümeyi yönetme](service-fabric-cli.md)
 ### [Küme düğümleri yamalama](service-fabric-patch-orchestration-application.md)

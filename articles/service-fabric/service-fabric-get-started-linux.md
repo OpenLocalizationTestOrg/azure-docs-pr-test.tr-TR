@@ -1,6 +1,6 @@
 ---
-title: "Linux üzerinde geliştirme ortamınızı ayarlama | Microsoft Belgeleri"
-description: "Linux üzerinde çalışma zamanını ve SDK'yı yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra uygulama derlemek için hazır hale gelirsiniz."
+title: "Linux üzerinde geliştirme ortamınızı aaaSet | Microsoft Docs"
+description: "Merhaba çalışma zamanı ve SDK'sını yükleyin ve Linux üzerinde yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra hazır toobuild uygulamalar olur."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,197 +14,197 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/23/2017
 ms.author: subramar
-ms.openlocfilehash: 58c6bbbb16d7008e6b573cf8dbc8cf62da9789f5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9d82c2015f9e2c6fb55f2052c7cdb1e906c5deeb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="prepare-your-development-environment-on-linux"></a><span data-ttu-id="9ad03-104">Linux üzerinde geliştirme ortamınızı hazırlama</span><span class="sxs-lookup"><span data-stu-id="9ad03-104">Prepare your development environment on Linux</span></span>
+# <a name="prepare-your-development-environment-on-linux"></a><span data-ttu-id="90a22-104">Linux üzerinde geliştirme ortamınızı hazırlama</span><span class="sxs-lookup"><span data-stu-id="90a22-104">Prepare your development environment on Linux</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="9ad03-105">Windows</span><span class="sxs-lookup"><span data-stu-id="9ad03-105">Windows</span></span>](service-fabric-get-started.md)
-> * [<span data-ttu-id="9ad03-106">Linux</span><span class="sxs-lookup"><span data-stu-id="9ad03-106">Linux</span></span>](service-fabric-get-started-linux.md)
-> * [<span data-ttu-id="9ad03-107">OSX</span><span class="sxs-lookup"><span data-stu-id="9ad03-107">OSX</span></span>](service-fabric-get-started-mac.md)
+> * [<span data-ttu-id="90a22-105">Windows</span><span class="sxs-lookup"><span data-stu-id="90a22-105">Windows</span></span>](service-fabric-get-started.md)
+> * [<span data-ttu-id="90a22-106">Linux</span><span class="sxs-lookup"><span data-stu-id="90a22-106">Linux</span></span>](service-fabric-get-started-linux.md)
+> * [<span data-ttu-id="90a22-107">OSX</span><span class="sxs-lookup"><span data-stu-id="90a22-107">OSX</span></span>](service-fabric-get-started-mac.md)
 >
 >  
 
-<span data-ttu-id="9ad03-108">Linux geliştirme makinenizde [Azure Service Fabric uygulamaları](service-fabric-application-model.md) dağıtıp çalıştırmak için çalışma zamanını ve ortak SDK'yı yükleyin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-108">To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK.</span></span> <span data-ttu-id="9ad03-109">Ayrıca isteğe bağlı Java ve .NET Core SDK’larını yükleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-109">You can also install optional SDKs for Java and .NET Core.</span></span>
+<span data-ttu-id="90a22-108">toodeploy çalıştırıp [Azure Service Fabric uygulamaları](service-fabric-application-model.md) hello çalışma zamanı ve ortak SDK Linux geliştirme makinenize yükleyin.</span><span class="sxs-lookup"><span data-stu-id="90a22-108">toodeploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install hello runtime and common SDK.</span></span> <span data-ttu-id="90a22-109">Ayrıca isteğe bağlı Java ve .NET Core SDK’larını yükleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="90a22-109">You can also install optional SDKs for Java and .NET Core.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="9ad03-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="9ad03-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="90a22-110">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="90a22-110">Prerequisites</span></span>
 
-<span data-ttu-id="9ad03-111">Geliştirme için şu işletim sistemi sürümleri desteklenir:</span><span class="sxs-lookup"><span data-stu-id="9ad03-111">The following operating system versions are supported for development:</span></span>
+<span data-ttu-id="90a22-111">işletim sistemi sürümleri aşağıdaki hello geliştirme için desteklenir:</span><span class="sxs-lookup"><span data-stu-id="90a22-111">hello following operating system versions are supported for development:</span></span>
 
-* <span data-ttu-id="9ad03-112">Ubuntu 16.04 (`Xenial Xerus`)</span><span class="sxs-lookup"><span data-stu-id="9ad03-112">Ubuntu 16.04 (`Xenial Xerus`)</span></span>
+* <span data-ttu-id="90a22-112">Ubuntu 16.04 (`Xenial Xerus`)</span><span class="sxs-lookup"><span data-stu-id="90a22-112">Ubuntu 16.04 (`Xenial Xerus`)</span></span>
 
-## <a name="update-your-apt-sources"></a><span data-ttu-id="9ad03-113">APT kaynaklarınızı güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="9ad03-113">Update your APT sources</span></span>
-<span data-ttu-id="9ad03-114">SDK ve ilişkili çalışma zamanı paketini apt-get komut satırı aracıyla yüklemek için, öncelikle Advanced Packaging Tool (APT) kaynaklarınızı güncelleştirmelisiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-114">To install the SDK and the associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.</span></span>
+## <a name="update-your-apt-sources"></a><span data-ttu-id="90a22-113">APT kaynaklarınızı güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="90a22-113">Update your APT sources</span></span>
+<span data-ttu-id="90a22-114">tooinstall hello SDK ve hello ilişkili çalışma zamanı paketi üzerinden hello get apt komut satırı aracı, Gelişmiş paketleme Aracı (APT) kaynaklarınızı önce güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="90a22-114">tooinstall hello SDK and hello associated runtime package via hello apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.</span></span>
 
-1. <span data-ttu-id="9ad03-115">Bir terminal açın.</span><span class="sxs-lookup"><span data-stu-id="9ad03-115">Open a terminal.</span></span>
-2. <span data-ttu-id="9ad03-116">Service Fabric deponuzu kaynaklar listenize ekleyin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-116">Add the Service Fabric repo to your sources list.</span></span>
+1. <span data-ttu-id="90a22-115">Bir terminal açın.</span><span class="sxs-lookup"><span data-stu-id="90a22-115">Open a terminal.</span></span>
+2. <span data-ttu-id="90a22-116">Merhaba Service Fabric depodaki tooyour kaynakları listeye ekleyin.</span><span class="sxs-lookup"><span data-stu-id="90a22-116">Add hello Service Fabric repo tooyour sources list.</span></span>
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
-3. <span data-ttu-id="9ad03-117">`dotnet` deposunu kaynak listenize ekleyin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-117">Add the `dotnet` repo to your sources list.</span></span>
+3. <span data-ttu-id="90a22-117">Merhaba eklemek `dotnet` depodaki tooyour kaynakları listesi.</span><span class="sxs-lookup"><span data-stu-id="90a22-117">Add hello `dotnet` repo tooyour sources list.</span></span>
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-4. <span data-ttu-id="9ad03-118">Yeni Gnu Privacy Guard (GnuPG, veya GPG) anahtarını APT anahtarlığınıza ekleyin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-118">Add the new Gnu Privacy Guard (GnuPG, or GPG) key to your APT keyring.</span></span>
+4. <span data-ttu-id="90a22-118">Merhaba ekleme yeni Gnu gizlilik Guard (GnuPG veya GPG) tooyour APT keyring anahtar.</span><span class="sxs-lookup"><span data-stu-id="90a22-118">Add hello new Gnu Privacy Guard (GnuPG, or GPG) key tooyour APT keyring.</span></span>
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
-5. <span data-ttu-id="9ad03-119">Resmi Docker GPG anahtarını APT anahtarlığınıza ekleyin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-119">Add the official Docker GPG key to your APT keyring.</span></span>
+5. <span data-ttu-id="90a22-119">Merhaba resmi Docker GPG anahtar tooyour APT keyring ekleyin.</span><span class="sxs-lookup"><span data-stu-id="90a22-119">Add hello official Docker GPG key tooyour APT keyring.</span></span>
 
     ```bash
     sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. <span data-ttu-id="9ad03-120">Docker deposunu ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="9ad03-120">Set up the Docker repository.</span></span>
+6. <span data-ttu-id="90a22-120">Merhaba Docker deposu ayarlama.</span><span class="sxs-lookup"><span data-stu-id="90a22-120">Set up hello Docker repository.</span></span>
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. <span data-ttu-id="9ad03-121">Paket listelerinizi yeni eklenen depolara göre yenileyin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-121">Refresh your package lists based on the newly added repositories.</span></span>
+7. <span data-ttu-id="90a22-121">Paketinizi Yenile eklenen depoları hello üzerinde yeni göre listeler.</span><span class="sxs-lookup"><span data-stu-id="90a22-121">Refresh your package lists based on hello newly added repositories.</span></span>
 
     ```bash
     sudo apt-get update
     ```
 
-## <a name="install-and-set-up-the-sdk-for-local-cluster-setup"></a><span data-ttu-id="9ad03-122">Yerel küme kurulumu için SDK'yı yükleme ve ayarlama</span><span class="sxs-lookup"><span data-stu-id="9ad03-122">Install and set up the SDK for local cluster setup</span></span>
+## <a name="install-and-set-up-hello-sdk-for-local-cluster-setup"></a><span data-ttu-id="90a22-122">Yükleme ve hello SDK yerel Küme kurulumu için ayarlama</span><span class="sxs-lookup"><span data-stu-id="90a22-122">Install and set up hello SDK for local cluster setup</span></span>
 
-<span data-ttu-id="9ad03-123">Kaynaklarınızı güncelleştirdikten sonra SDK’yı yükleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-123">After you have updated your sources, you can install the SDK.</span></span> <span data-ttu-id="9ad03-124">Service Fabric SDK paketini yükleyin, yüklemeyi onaylayın ve lisans sözleşmesini kabul edin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-124">Install the Service Fabric SDK package, confirm the installation, and agree to the license agreement.</span></span>
+<span data-ttu-id="90a22-123">Kaynaklarınızın güncelleştirildikten sonra hello SDK yükleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="90a22-123">After you have updated your sources, you can install hello SDK.</span></span> <span data-ttu-id="90a22-124">Merhaba Service Fabric SDK paketini yükleyin, hello yükleme onaylayın ve toohello Lisans Sözleşmesi'ni kabul etmiş olursunuz.</span><span class="sxs-lookup"><span data-stu-id="90a22-124">Install hello Service Fabric SDK package, confirm hello installation, and agree toohello license agreement.</span></span>
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
 ```
 
 >   [!TIP]
->   <span data-ttu-id="9ad03-125">Aşağıdaki komutlar, Service Fabric paketlerine yönelik lisansı kabul etme işlemini otomatik hale getirir:</span><span class="sxs-lookup"><span data-stu-id="9ad03-125">The following commands automate accepting the license for Service Fabric packages:</span></span>
+>   <span data-ttu-id="90a22-125">Merhaba aşağıdaki komutları kabul hello lisans Service Fabric paketler için otomatikleştirin:</span><span class="sxs-lookup"><span data-stu-id="90a22-125">hello following commands automate accepting hello license for Service Fabric packages:</span></span>
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
 >   ```
 
-## <a name="set-up-a-local-cluster"></a><span data-ttu-id="9ad03-126">Yerel küme oluşturma</span><span class="sxs-lookup"><span data-stu-id="9ad03-126">Set up a local cluster</span></span>
-  <span data-ttu-id="9ad03-127">Yükleme başarılı olduysa, yerel bir kümeyi başlatabilmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="9ad03-127">If the installation is successful, you should be able to start a local cluster.</span></span>
+## <a name="set-up-a-local-cluster"></a><span data-ttu-id="90a22-126">Yerel küme oluşturma</span><span class="sxs-lookup"><span data-stu-id="90a22-126">Set up a local cluster</span></span>
+  <span data-ttu-id="90a22-127">Merhaba yükleme başarılı olursa, mümkün toostart yerel bir küme olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="90a22-127">If hello installation is successful, you should be able toostart a local cluster.</span></span>
 
-  1. <span data-ttu-id="9ad03-128">Küme kurulum betiğini çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="9ad03-128">Run the cluster setup script.</span></span>
+  1. <span data-ttu-id="90a22-128">Merhaba Küme kurulumu betiğini çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="90a22-128">Run hello cluster setup script.</span></span>
 
       ```bash
       sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
       ```
 
-  2. <span data-ttu-id="9ad03-129">Bir web tarayıcısı açın ve [Service Fabric Explorer](http://localhost:19080/Explorer) adresine gidin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-129">Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer).</span></span> <span data-ttu-id="9ad03-130">Küme başlatıldıysa Service Fabric Explorer panosunu görmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="9ad03-130">If the cluster has started, you should see the Service Fabric Explorer dashboard.</span></span>
+  2. <span data-ttu-id="90a22-129">Bir web tarayıcısı açın ve çok Git[Service Fabric Explorer](http://localhost:19080/Explorer).</span><span class="sxs-lookup"><span data-stu-id="90a22-129">Open a web browser and go too[Service Fabric Explorer](http://localhost:19080/Explorer).</span></span> <span data-ttu-id="90a22-130">Merhaba küme başlatılmış olup olmadığını hello Service Fabric Explorer Pano görmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="90a22-130">If hello cluster has started, you should see hello Service Fabric Explorer dashboard.</span></span>
 
       ![Linux üzerinde Service Fabric Explorer][sfx-linux]
 
-  <span data-ttu-id="9ad03-132">Bu noktada, önceden oluşturulmuş Service Fabric uygulama paketlerini ve yeni paketleri konuk kapsayıcılar veya konuk yürütülebilir öğelere göre dağıtabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-132">At this point, you can deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables.</span></span> <span data-ttu-id="9ad03-133">Java veya .NET Core SDK’larını kullanarak yeni hizmetler oluşturmak için aşağıdaki bölümlerde yer alan kurulum adımlarını izleyin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-133">To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.</span></span>
+  <span data-ttu-id="90a22-132">Bu noktada, önceden oluşturulmuş Service Fabric uygulama paketlerini ve yeni paketleri konuk kapsayıcılar veya konuk yürütülebilir öğelere göre dağıtabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="90a22-132">At this point, you can deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables.</span></span> <span data-ttu-id="90a22-133">Merhaba Java veya .NET Core SDK kullanarak toobuild yeni hizmetler, sonraki bölümlerde verilmiştir hello isteğe bağlı kurulum adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="90a22-133">toobuild new services by using hello Java or .NET Core SDKs, follow hello optional setup steps that are provided in subsequent sections.</span></span>
 
 
   > [!NOTE]
-  > <span data-ttu-id="9ad03-134">Tek başına kümeler Linux’da desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="9ad03-134">Standalone clusters aren't supported in Linux.</span></span> <span data-ttu-id="9ad03-135">Önizleme yalnızca tek kutu ve Azure Linux çok makineli kümeleri destekler.</span><span class="sxs-lookup"><span data-stu-id="9ad03-135">The preview supports only one-box and Azure Linux multi-machine clusters.</span></span>
+  > <span data-ttu-id="90a22-134">Tek başına kümeler Linux’da desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="90a22-134">Standalone clusters aren't supported in Linux.</span></span> <span data-ttu-id="90a22-135">Merhaba Önizleme destekler yalnızca bir kutusunu ve Azure Linux çoklu makine kümeleri.</span><span class="sxs-lookup"><span data-stu-id="90a22-135">hello preview supports only one-box and Azure Linux multi-machine clusters.</span></span>
   >
 
-## <a name="set-up-the-service-fabric-cli"></a><span data-ttu-id="9ad03-136">Service Fabric CLI’sını ayarlama</span><span class="sxs-lookup"><span data-stu-id="9ad03-136">Set up the Service Fabric CLI</span></span>
+## <a name="set-up-hello-service-fabric-cli"></a><span data-ttu-id="90a22-136">Service Fabric CLI Hello ayarlayın</span><span class="sxs-lookup"><span data-stu-id="90a22-136">Set up hello Service Fabric CLI</span></span>
 
-<span data-ttu-id="9ad03-137">[Service Fabric CLI](service-fabric-cli.md) kümeler ve uygulamalar da dahil olmak üzere Service Fabric varlıklarıyla etkileşime yönelik komutlar içerir.</span><span class="sxs-lookup"><span data-stu-id="9ad03-137">The [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities, including clusters and applications.</span></span> <span data-ttu-id="9ad03-138">Python tabanlı olduğundan aşağıdaki komutu kullanmadan önce python ve pip’in yüklü olduğundan emin olun:</span><span class="sxs-lookup"><span data-stu-id="9ad03-138">It is based on python, so be sure to have python and pip installed before you proceed with the following command:</span></span>
+<span data-ttu-id="90a22-137">Merhaba [Service Fabric CLI](service-fabric-cli.md) kümeleri ve uygulamalar dahil olmak üzere Service Fabric varlıkları ile etkileşim için komut yok.</span><span class="sxs-lookup"><span data-stu-id="90a22-137">hello [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities, including clusters and applications.</span></span> <span data-ttu-id="90a22-138">Python üzerinde dayanır, bu nedenle toohave python ve PIP komutu aşağıdaki hello ile devam etmeden önce yüklü olduğundan emin olun:</span><span class="sxs-lookup"><span data-stu-id="90a22-138">It is based on python, so be sure toohave python and pip installed before you proceed with hello following command:</span></span>
 
 ```bash
 pip install sfctl
 ```
 
-## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a><span data-ttu-id="9ad03-139">Kapsayıcılar ve konuk yürütülebilir dosyalar için oluşturucuları yükleme ve ayarlama</span><span class="sxs-lookup"><span data-stu-id="9ad03-139">Install and set up the generators for containers and guest-executables</span></span>
-<span data-ttu-id="9ad03-140">Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric uygulamaları oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar.</span><span class="sxs-lookup"><span data-stu-id="9ad03-140">Service Fabric provides scaffolding tools which will help you create a Service Fabric applications from terminal using Yeoman template generator.</span></span> <span data-ttu-id="9ad03-141">Lütfen makinenizde çalışan bir Service Fabric yeoman şablon oluşturucu olduğundan emin olmak için aşağıdaki adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-141">Please follow the steps below to ensure you have the Service Fabric yeoman template generator for working on your machine.</span></span>
+## <a name="install-and-set-up-hello-generators-for-containers-and-guest-executables"></a><span data-ttu-id="90a22-139">Yükleme ve hello oluşturucuları kapsayıcıları ve Konuk yürütülebilir dosyalar için ayarlama</span><span class="sxs-lookup"><span data-stu-id="90a22-139">Install and set up hello generators for containers and guest-executables</span></span>
+<span data-ttu-id="90a22-140">Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric uygulamaları oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar.</span><span class="sxs-lookup"><span data-stu-id="90a22-140">Service Fabric provides scaffolding tools which will help you create a Service Fabric applications from terminal using Yeoman template generator.</span></span> <span data-ttu-id="90a22-141">Lütfen makinenizde çalışmak için hello Service Fabric yeoman şablon oluşturucu sahip tooensure hello adımları izleyin.</span><span class="sxs-lookup"><span data-stu-id="90a22-141">Please follow hello steps below tooensure you have hello Service Fabric yeoman template generator for working on your machine.</span></span>
 
-1. <span data-ttu-id="9ad03-142">Makinenize nodejs ve NPM yükleme</span><span class="sxs-lookup"><span data-stu-id="9ad03-142">Install nodejs and NPM on your machine</span></span>
+1. <span data-ttu-id="90a22-142">Makinenize nodejs ve NPM yükleme</span><span class="sxs-lookup"><span data-stu-id="90a22-142">Install nodejs and NPM on your machine</span></span>
 
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
-2. <span data-ttu-id="9ad03-143">NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleme</span><span class="sxs-lookup"><span data-stu-id="9ad03-143">Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM</span></span>
+2. <span data-ttu-id="90a22-143">NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleme</span><span class="sxs-lookup"><span data-stu-id="90a22-143">Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM</span></span>
 
   ```bash
   sudo npm install -g yo
   ```
-3. <span data-ttu-id="9ad03-144">NPM’den Service Fabric Yeo kapsayıcı oluşturucusunu ve konuk yürütülebilir dosya oluşturucusunu yükleme</span><span class="sxs-lookup"><span data-stu-id="9ad03-144">Install the Service Fabric Yeo container generator and guest execuatble generator from NPM</span></span>
+3. <span data-ttu-id="90a22-144">Merhaba Service Fabric Yeo kapsayıcı oluşturucu ve Konuk execuatble Oluşturucu NPM yükleme</span><span class="sxs-lookup"><span data-stu-id="90a22-144">Install hello Service Fabric Yeo container generator and guest execuatble generator from NPM</span></span>
 
   ```bash
   sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
   sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
   ```
 
-<span data-ttu-id="9ad03-145">Yukarıdaki oluşturucuları yükledikten sonra, sırasıyla `yo azuresfguest` ve `yo azuresfcontainer` komutlarını çalıştırarak konuk yürütülebilir dosyası ya da kapsayıcı hizmetleriyle uygulama oluşturabilmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="9ad03-145">After you have installed the above generators, you should be able to create apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer` respectively.</span></span>
+<span data-ttu-id="90a22-145">Merhaba oluşturucuları yukarıda yükledikten sonra çalıştırarak Konuk çalıştırılabilir veya kapsayıcı Hizmetleri mümkün toocreate uygulamalarla olmalıdır `yo azuresfguest` veya `yo azuresfcontainer` sırasıyla.</span><span class="sxs-lookup"><span data-stu-id="90a22-145">After you have installed hello above generators, you should be able toocreate apps with guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer` respectively.</span></span>
 
-## <a name="install-the-necessary-java-artifacts-optional-if-you-want-to-use-the-java-programming-models"></a><span data-ttu-id="9ad03-146">Gereken Java yapıtlarını yükleme (Java programlama modellerini kullanmak istiyorsanız, isteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="9ad03-146">Install the necessary Java artifacts (optional, if you want to use the Java programming models)</span></span>
+## <a name="install-hello-necessary-java-artifacts-optional-if-you-want-toouse-hello-java-programming-models"></a><span data-ttu-id="90a22-146">Merhaba gerekli Java yapıları (isteğe bağlı, modelleri programlama toouse hello Java istiyorsanız) yükleyin</span><span class="sxs-lookup"><span data-stu-id="90a22-146">Install hello necessary Java artifacts (optional, if you want toouse hello Java programming models)</span></span>
 
-<span data-ttu-id="9ad03-147">Java kullanarak Service Fabric hizmetleri oluşturmak için, derleme görevlerini çalıştırırken kullanılan Gradle ile birlikte JDK 1.8’in de yüklü olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="9ad03-147">To build Service Fabric services using Java, ensure you have JDK 1.8 installed along with Gradle which is used for running build tasks.</span></span> <span data-ttu-id="9ad03-148">Aşağıdaki kod parçacığı Open JDK 1.8’i ve Gradle’ı birlikte yükler.</span><span class="sxs-lookup"><span data-stu-id="9ad03-148">The following snippet installs Open JDK 1.8 along with Gradle.</span></span> <span data-ttu-id="9ad03-149">Service Fabric Java kitaplıkları Maven’dan alınır.</span><span class="sxs-lookup"><span data-stu-id="9ad03-149">The Service Fabric Java libraries are pulled from Maven.</span></span>
+<span data-ttu-id="90a22-147">Java kullanarak toobuild Service Fabric Hizmetleri emin olun JDK derleme görevleri çalıştırmak için kullanılan Gradle ile birlikte yüklenen 1.8.</span><span class="sxs-lookup"><span data-stu-id="90a22-147">toobuild Service Fabric services using Java, ensure you have JDK 1.8 installed along with Gradle which is used for running build tasks.</span></span> <span data-ttu-id="90a22-148">Aşağıdaki kod parçacığında hello açık JDK 1.8 Gradle birlikte yükler.</span><span class="sxs-lookup"><span data-stu-id="90a22-148">hello following snippet installs Open JDK 1.8 along with Gradle.</span></span> <span data-ttu-id="90a22-149">Merhaba Service Fabric Java kitaplıkları Maven alınır.</span><span class="sxs-lookup"><span data-stu-id="90a22-149">hello Service Fabric Java libraries are pulled from Maven.</span></span>
 
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a><span data-ttu-id="9ad03-150">Eclipse Neon eklentisini yükleme (isteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="9ad03-150">Install the Eclipse Neon plug-in (optional)</span></span>
+## <a name="install-hello-eclipse-neon-plug-in-optional"></a><span data-ttu-id="90a22-150">Merhaba Eclipse Neon eklentisini yükleyin (isteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="90a22-150">Install hello Eclipse Neon plug-in (optional)</span></span>
 
-<span data-ttu-id="9ad03-151">Service Fabric için Eclipse eklentisini **Java Geliştiricileri için Eclipse IDE** içinden yükleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-151">You can install the Eclipse plug-in for Service Fabric from within the **Eclipse IDE for Java Developers**.</span></span> <span data-ttu-id="9ad03-152">Eclipse kullanarak, Service Fabric Java uygulamalarına ek olarak Service Fabric konuk yürütülebilir uygulamaları ve kapsayıcı uygulamaları oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-152">You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.</span></span>
+<span data-ttu-id="90a22-151">Hizmet yapıdan için hello içinde hello Eclipse eklenti yükleyebilirsiniz **Java geliştiricileri için Eclipse IDE**.</span><span class="sxs-lookup"><span data-stu-id="90a22-151">You can install hello Eclipse plug-in for Service Fabric from within hello **Eclipse IDE for Java Developers**.</span></span> <span data-ttu-id="90a22-152">Toplama tooService doku Java uygulamaları Eclipse toocreate Service Fabric Konuk yürütülebilir uygulamalar ve kapsayıcı uygulamaları kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="90a22-152">You can use Eclipse toocreate Service Fabric guest executable applications and container applications in addition tooService Fabric Java applications.</span></span>
 
-1. <span data-ttu-id="9ad03-153">Eclipse’te, en son Eclipse Neon ve en son Buildship sürümünün (1.0.17 veya üstü) yüklü olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="9ad03-153">In Eclipse, ensure that you have latest Eclipse Neon and the latest Buildship version (1.0.17 or later) installed.</span></span> <span data-ttu-id="9ad03-154">**Yardım** > **Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-154">You can check the versions of installed components by selecting **Help** > **Installation Details**.</span></span> <span data-ttu-id="9ad03-155">[Eclipse Buildship: Gradle için Eclipse eklentileri][buildship-update] bölümünde sağlanan yönergelerden yararlanarak Buildship’i güncelleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-155">You can update Buildship by using the instructions at [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].</span></span>
+1. <span data-ttu-id="90a22-153">Eclipse'te, en son Eclipse Neon olduğundan ve en son Buildship sürümü hello emin olun (1.0.17 veya sonraki bir sürümü) yüklü.</span><span class="sxs-lookup"><span data-stu-id="90a22-153">In Eclipse, ensure that you have latest Eclipse Neon and hello latest Buildship version (1.0.17 or later) installed.</span></span> <span data-ttu-id="90a22-154">Seçerek yüklü bileşenlerin hello sürümlerini kontrol edebilirsiniz **yardımcı** > **Yükleme ayrıntıları**.</span><span class="sxs-lookup"><span data-stu-id="90a22-154">You can check hello versions of installed components by selecting **Help** > **Installation Details**.</span></span> <span data-ttu-id="90a22-155">Merhaba yönergeleri kullanarak Buildship güncelleştirebilirsiniz [Eclipse Buildship: Eclipse için eklentilerini Gradle][buildship-update].</span><span class="sxs-lookup"><span data-stu-id="90a22-155">You can update Buildship by using hello instructions at [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].</span></span>
 
-2. <span data-ttu-id="9ad03-156">Service Fabric eklentisini yüklemek için **Yardım** > **Yeni Yazılım Yükle**’yi seçin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-156">To install the Service Fabric plug-in, select **Help** > **Install New Software**.</span></span>
+2. <span data-ttu-id="90a22-156">tooinstall hello Service Fabric eklentisini seçin **yardımcı** > **yeni yazılımı yükle**.</span><span class="sxs-lookup"><span data-stu-id="90a22-156">tooinstall hello Service Fabric plug-in, select **Help** > **Install New Software**.</span></span>
 
-3. <span data-ttu-id="9ad03-157">**Birlikte çalışın** kutusuna şunu yazın: **http://dl.microsoft.com/eclipse**.</span><span class="sxs-lookup"><span data-stu-id="9ad03-157">In the **Work with** box, type **http://dl.microsoft.com/eclipse**.</span></span>
+3. <span data-ttu-id="90a22-157">Merhaba, **çalışmak** kutusuna **http://dl.microsoft.com/eclipse**.</span><span class="sxs-lookup"><span data-stu-id="90a22-157">In hello **Work with** box, type **http://dl.microsoft.com/eclipse**.</span></span>
 
-4. <span data-ttu-id="9ad03-158">**Ekle**'ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9ad03-158">Click **Add**.</span></span>
+4. <span data-ttu-id="90a22-158">**Ekle**'ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="90a22-158">Click **Add**.</span></span>
 
-    ![Kullanılabilir Yazılım sayfası][sf-eclipse-plugin]
+    ![Merhaba kullanılabilir yazılım sayfası][sf-eclipse-plugin]
 
-5. <span data-ttu-id="9ad03-160">**ServiceFabric** eklentisini seçip **İleri**’ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9ad03-160">Select the **ServiceFabric** plug-in, and then click **Next**.</span></span>
+5. <span data-ttu-id="90a22-160">Select hello **ServiceFabric** eklentisi ve ardından **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="90a22-160">Select hello **ServiceFabric** plug-in, and then click **Next**.</span></span>
 
-6. <span data-ttu-id="9ad03-161">Yükleme adımlarını tamamlayın ve ardından son kullanıcı lisans sözleşmesini kabul edin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-161">Complete the installation steps, and then accept the end-user license agreement.</span></span>
+6. <span data-ttu-id="90a22-161">Merhaba yükleme adımlarını tamamlayın ve hello son kullanıcı lisans sözleşmesini kabul edin.</span><span class="sxs-lookup"><span data-stu-id="90a22-161">Complete hello installation steps, and then accept hello end-user license agreement.</span></span>
 
-<span data-ttu-id="9ad03-162">Service Fabric Eclipse eklentisi zaten yüklüyse, en yeni sürümü kullandığınızdan emin olun.</span><span class="sxs-lookup"><span data-stu-id="9ad03-162">If you already have the Service Fabric Eclipse plug-in installed, make sure that you have the latest version.</span></span> <span data-ttu-id="9ad03-163">**Yardım** > **Yükleme Ayrıntıları**’nı seçip ardından yüklü eklentiler listesinde Service Fabric araması yaparak kontrol edebilirsiniz. Daha yeni bir sürüm varsa, **Güncelleştir**’i seçin.</span><span class="sxs-lookup"><span data-stu-id="9ad03-163">You can check by selecting **Help** > **Installation Details** and then searching for Service Fabric in the list of installed plug-ins. If a newer version is available, select **Update**.</span></span>
+<span data-ttu-id="90a22-162">Hello Service Fabric yüklü Eclipse eklenti zaten varsa, hello en son sürümüne sahip olduğunuzdan emin olun.</span><span class="sxs-lookup"><span data-stu-id="90a22-162">If you already have hello Service Fabric Eclipse plug-in installed, make sure that you have hello latest version.</span></span> <span data-ttu-id="90a22-163">Seçerek kontrol **yardımcı** > **Yükleme ayrıntıları** ve ardından için Service Fabric hello listesinde arama yüklü eklentileri. Daha yeni bir sürüm varsa, **Güncelleştir**’i seçin.</span><span class="sxs-lookup"><span data-stu-id="90a22-163">You can check by selecting **Help** > **Installation Details** and then searching for Service Fabric in hello list of installed plug-ins. If a newer version is available, select **Update**.</span></span>
 
-<span data-ttu-id="9ad03-164">Daha fazla bilgi için bkz. [Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi](service-fabric-get-started-eclipse.md).</span><span class="sxs-lookup"><span data-stu-id="9ad03-164">For more information, see [Service Fabric plug-in for Eclipse Java application development](service-fabric-get-started-eclipse.md).</span></span>
+<span data-ttu-id="90a22-164">Daha fazla bilgi için bkz. [Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi](service-fabric-get-started-eclipse.md).</span><span class="sxs-lookup"><span data-stu-id="90a22-164">For more information, see [Service Fabric plug-in for Eclipse Java application development](service-fabric-get-started-eclipse.md).</span></span>
 
 
-## <a name="install-the-net-core-sdk-optional-if-you-want-to-use-the-net-core-programming-models"></a><span data-ttu-id="9ad03-165">.NET Core SDK’sını yükleme (.NET Core programlama modellerini kullanmak istiyorsanız, isteğe bağlıdır)</span><span class="sxs-lookup"><span data-stu-id="9ad03-165">Install the .NET Core SDK (optional, if you want to use the .NET Core programming models)</span></span>
-<span data-ttu-id="9ad03-166">.NET Core SDK’sı, .NET Core ile Service Fabric hizmetleri oluşturmak için gereken kitaplıkları ve şablonları sağlar.</span><span class="sxs-lookup"><span data-stu-id="9ad03-166">The .NET Core SDK provides the libraries and templates that are required to build Service Fabric services with .NET Core.</span></span> <span data-ttu-id="9ad03-167">.NET Core SDK paketini aşağıdakini çalıştırarak yükleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="9ad03-167">Install the .NET Core SDK package by running the following -</span></span>
+## <a name="install-hello-net-core-sdk-optional-if-you-want-toouse-hello-net-core-programming-models"></a><span data-ttu-id="90a22-165">Merhaba .NET Core SDK (isteğe bağlı, toouse hello .NET Core programlama modelleri istiyorsanız) yükleyin</span><span class="sxs-lookup"><span data-stu-id="90a22-165">Install hello .NET Core SDK (optional, if you want toouse hello .NET Core programming models)</span></span>
+<span data-ttu-id="90a22-166">Merhaba .NET Core SDK hello kitaplıkları ve gerekli toobuild Service Fabric .NET Core hizmetleriyle şablonlar sağlar.</span><span class="sxs-lookup"><span data-stu-id="90a22-166">hello .NET Core SDK provides hello libraries and templates that are required toobuild Service Fabric services with .NET Core.</span></span> <span data-ttu-id="90a22-167">Merhaba .NET Core SDK paketini çalışan hello aşağıdaki tarafından yükle-</span><span class="sxs-lookup"><span data-stu-id="90a22-167">Install hello .NET Core SDK package by running hello following -</span></span>
 
    ```bash
    sudo apt-get install servicefabricsdkcsharp
    ```
 
-## <a name="update-the-sdk-and-runtime"></a><span data-ttu-id="9ad03-168">SDK ve çalışma zamanını güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="9ad03-168">Update the SDK and runtime</span></span>
+## <a name="update-hello-sdk-and-runtime"></a><span data-ttu-id="90a22-168">Güncelleştirme hello SDK ve çalışma zamanı</span><span class="sxs-lookup"><span data-stu-id="90a22-168">Update hello SDK and runtime</span></span>
 
-<span data-ttu-id="9ad03-169">SDK ve çalışma zamanının son sürümüne güncelleştirmek için aşağıdaki komutları çalıştırın. (Tercih etmediğiniz SDK'ların seçimini kaldırın.):</span><span class="sxs-lookup"><span data-stu-id="9ad03-169">To update to the latest version of the SDK and runtime, run the following commands (deselect the SDKs that you don't want):</span></span>
+<span data-ttu-id="90a22-169">tooupdate toohello ve en son sürümünü hello SDK çalışma zamanı, hello aşağıdaki komutları çalıştırın (istemediğiniz hello SDK'ları seçimini kaldırın):</span><span class="sxs-lookup"><span data-stu-id="90a22-169">tooupdate toohello latest version of hello SDK and runtime, run hello following commands (deselect hello SDKs that you don't want):</span></span>
 
 ```bash
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 ```
-<span data-ttu-id="9ad03-170">Maven’dan alınan Java SDK'sı ikili dosyalarını güncelleştirmek için ``build.gradle`` dosyasında karşılık gelen ikili sürüm ayrıntılarını en son sürüme işaret edecek şekilde güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="9ad03-170">To update the Java SDK binaries from Maven, you need to update the version details of the corresponding binary in the ``build.gradle`` file to point to the latest version.</span></span> <span data-ttu-id="9ad03-171">Sürümü tam olarak nerede güncelleştirmeniz gerektiğini öğrenmek için [buradaki](https://github.com/Azure-Samples/service-fabric-java-getting-started) Service Fabric başlangıç örneklerindeki herhangi bir ``build.gradle`` dosyasına bakabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9ad03-171">To know exactly where you need to update the version, you can refer to any ``build.gradle`` file in Service Fabric getting-started samples [here](https://github.com/Azure-Samples/service-fabric-java-getting-started).</span></span>
+<span data-ttu-id="90a22-170">tooupdate hello Java SDK'sı ikili Maven gelen tooupdate hello sürüm hello karşılık gelen ikili hello ayrıntılarını ihtiyacınız ``build.gradle`` dosya toopoint toohello en son sürümü.</span><span class="sxs-lookup"><span data-stu-id="90a22-170">tooupdate hello Java SDK binaries from Maven, you need tooupdate hello version details of hello corresponding binary in hello ``build.gradle`` file toopoint toohello latest version.</span></span> <span data-ttu-id="90a22-171">tam olarak tooupdate hello sürüm, ihtiyaç duyacağınız tooknow tooany başvurabilir ``build.gradle`` Service Fabric başlama örnekleri dosyasında [burada](https://github.com/Azure-Samples/service-fabric-java-getting-started).</span><span class="sxs-lookup"><span data-stu-id="90a22-171">tooknow exactly where you need tooupdate hello version, you can refer tooany ``build.gradle`` file in Service Fabric getting-started samples [here](https://github.com/Azure-Samples/service-fabric-java-getting-started).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="9ad03-172">Paketlerin güncelleştirilmesi, yerel geliştirme kümenizin çalışmayı durdurmasına neden olabilir.</span><span class="sxs-lookup"><span data-stu-id="9ad03-172">Updating the packages might cause your local development cluster to stop running.</span></span> <span data-ttu-id="9ad03-173">Yükseltme sonrasında bu sayfadaki yönergeleri uygulayarak yerel kümenizi yeniden başlatın.</span><span class="sxs-lookup"><span data-stu-id="9ad03-173">Restart your local cluster after an upgrade by following the instructions on this page.</span></span>
+> <span data-ttu-id="90a22-172">Merhaba paketleri güncelleştiriliyor çalıştıran, yerel geliştirme küme toostop neden olabilir.</span><span class="sxs-lookup"><span data-stu-id="90a22-172">Updating hello packages might cause your local development cluster toostop running.</span></span> <span data-ttu-id="90a22-173">Yerel kümenizdeki, bu sayfada hello yönergeleri izleyerek bir yükseltmeden sonra yeniden başlatın.</span><span class="sxs-lookup"><span data-stu-id="90a22-173">Restart your local cluster after an upgrade by following hello instructions on this page.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="9ad03-174">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="9ad03-174">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="90a22-174">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="90a22-174">Next steps</span></span>
 
-* [<span data-ttu-id="9ad03-175">Linux üzerinde Yeoman kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma</span><span class="sxs-lookup"><span data-stu-id="9ad03-175">Create and deploy your first Service Fabric Java application on Linux by using Yeoman</span></span>](service-fabric-create-your-first-linux-application-with-java.md)
-* [<span data-ttu-id="9ad03-176">Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma</span><span class="sxs-lookup"><span data-stu-id="9ad03-176">Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse</span></span>](service-fabric-get-started-eclipse.md)
-* [<span data-ttu-id="9ad03-177">Linux üzerinde ilk CSharp uygulamanızı oluşturma</span><span class="sxs-lookup"><span data-stu-id="9ad03-177">Create your first CSharp application on Linux</span></span>](service-fabric-create-your-first-linux-application-with-csharp.md)
-* [<span data-ttu-id="9ad03-178">OSX üzerinde geliştirme ortamınızı hazırlama</span><span class="sxs-lookup"><span data-stu-id="9ad03-178">Prepare your development environment on OSX</span></span>](service-fabric-get-started-mac.md)
-* [<span data-ttu-id="9ad03-179">Uygulamalarınızı yönetmek için Service Fabric CLI'yı kullanma</span><span class="sxs-lookup"><span data-stu-id="9ad03-179">Use the Service Fabric CLI to manage your applications</span></span>](service-fabric-application-lifecycle-sfctl.md)
-* [<span data-ttu-id="9ad03-180">Service Fabric Windows/Linux farkları</span><span class="sxs-lookup"><span data-stu-id="9ad03-180">Service Fabric Windows/Linux differences</span></span>](service-fabric-linux-windows-differences.md)
-* [<span data-ttu-id="9ad03-181">Service Fabric CLI kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="9ad03-181">Get started with Service Fabric CLI</span></span>](service-fabric-cli.md)
+* [<span data-ttu-id="90a22-175">Linux üzerinde Yeoman kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma</span><span class="sxs-lookup"><span data-stu-id="90a22-175">Create and deploy your first Service Fabric Java application on Linux by using Yeoman</span></span>](service-fabric-create-your-first-linux-application-with-java.md)
+* [<span data-ttu-id="90a22-176">Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma</span><span class="sxs-lookup"><span data-stu-id="90a22-176">Create and deploy your first Service Fabric Java application on Linux by using Service Fabric Plugin for Eclipse</span></span>](service-fabric-get-started-eclipse.md)
+* [<span data-ttu-id="90a22-177">Linux üzerinde ilk CSharp uygulamanızı oluşturma</span><span class="sxs-lookup"><span data-stu-id="90a22-177">Create your first CSharp application on Linux</span></span>](service-fabric-create-your-first-linux-application-with-csharp.md)
+* [<span data-ttu-id="90a22-178">OSX üzerinde geliştirme ortamınızı hazırlama</span><span class="sxs-lookup"><span data-stu-id="90a22-178">Prepare your development environment on OSX</span></span>](service-fabric-get-started-mac.md)
+* [<span data-ttu-id="90a22-179">Merhaba Service Fabric CLI toomanage uygulamalarınızı kullanın</span><span class="sxs-lookup"><span data-stu-id="90a22-179">Use hello Service Fabric CLI toomanage your applications</span></span>](service-fabric-application-lifecycle-sfctl.md)
+* [<span data-ttu-id="90a22-180">Service Fabric Windows/Linux farkları</span><span class="sxs-lookup"><span data-stu-id="90a22-180">Service Fabric Windows/Linux differences</span></span>](service-fabric-linux-windows-differences.md)
+* [<span data-ttu-id="90a22-181">Service Fabric CLI kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="90a22-181">Get started with Service Fabric CLI</span></span>](service-fabric-cli.md)
 
 <!-- Links -->
 

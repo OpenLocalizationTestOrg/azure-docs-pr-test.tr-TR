@@ -1,6 +1,6 @@
 ---
-title: "Azure Java SDK'sını kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs"
-description: "Uygulama geliştirmek için Azure Data Lake Analytics Java SDK'yı kullanma"
+title: "Azure Java SDK'sını kullanarak Azure Data Lake Analytics aaaManage | Microsoft Docs"
+description: "Azure Data Lake Analytics Java SDK'yı toodevelop uygulamaları kullanın"
 services: data-lake-analytics
 documentationcenter: 
 author: matt1883
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
-ms.openlocfilehash: 8a0c1c7aab89f3bb62d0eb9f42e8ac65309d617e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 79e5fa1bacd5fd65072a1c3c480482a8e51d94b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a><span data-ttu-id="cadde-103">Java SDK'yı kullanarak Azure Data Lake Analytics'i yönetme</span><span class="sxs-lookup"><span data-stu-id="cadde-103">Manage  Azure Data Lake Analytics using Java SDK</span></span>
+# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a><span data-ttu-id="f69c8-103">Java SDK'yı kullanarak Azure Data Lake Analytics'i yönetme</span><span class="sxs-lookup"><span data-stu-id="f69c8-103">Manage  Azure Data Lake Analytics using Java SDK</span></span>
 
-<span data-ttu-id="cadde-104">Bu öğreticide, Azure Data Lake için ortak işlemleri gerçekleştiren bir Java konsol uygulaması geliştirin.</span><span class="sxs-lookup"><span data-stu-id="cadde-104">In this tutorial, you develop a Java console application that performs common operations for Azure Data Lake.</span></span>
+<span data-ttu-id="f69c8-104">Bu öğreticide, Azure Data Lake için ortak işlemleri gerçekleştiren bir Java konsol uygulaması geliştirin.</span><span class="sxs-lookup"><span data-stu-id="f69c8-104">In this tutorial, you develop a Java console application that performs common operations for Azure Data Lake.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="cadde-105">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="cadde-105">Prerequisites</span></span>
-* <span data-ttu-id="cadde-106">**Java Geliştirme Seti (JDK) 8** (Java Sürüm 1,8 kullanarak).</span><span class="sxs-lookup"><span data-stu-id="cadde-106">**Java Development Kit (JDK) 8** (using Java version 1.8).</span></span>
-* <span data-ttu-id="cadde-107">**Intellij** veya başka bir uygun Java geliştirme ortamı.</span><span class="sxs-lookup"><span data-stu-id="cadde-107">**IntelliJ** or another suitable Java development environment.</span></span> <span data-ttu-id="cadde-108">Bu belgedeki yönergeleri Intellij kullanılmıştır.</span><span class="sxs-lookup"><span data-stu-id="cadde-108">The instructions in this document use IntelliJ.</span></span>
-* <span data-ttu-id="cadde-109">Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın.</span><span class="sxs-lookup"><span data-stu-id="cadde-109">Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**.</span></span> <span data-ttu-id="cadde-110">AAD uygulamaları hakkında daha fazla bilgi ve istemci kimliği almaya ilişkin yönergeler için bkz. [Portal kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span><span class="sxs-lookup"><span data-stu-id="cadde-110">For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span></span> <span data-ttu-id="cadde-111">Yanıt URI ve anahtarınızı kullanılabilir Portalı'ndan uygulama oluşturulur ve oluşturulan anahtarı sahip olduğunda.</span><span class="sxs-lookup"><span data-stu-id="cadde-111">The Reply URI and Key is available from the portal once you have the application created and key generated.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="f69c8-105">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="f69c8-105">Prerequisites</span></span>
+* <span data-ttu-id="f69c8-106">**Java Geliştirme Seti (JDK) 8** (Java Sürüm 1,8 kullanarak).</span><span class="sxs-lookup"><span data-stu-id="f69c8-106">**Java Development Kit (JDK) 8** (using Java version 1.8).</span></span>
+* <span data-ttu-id="f69c8-107">**Intellij** veya başka bir uygun Java geliştirme ortamı.</span><span class="sxs-lookup"><span data-stu-id="f69c8-107">**IntelliJ** or another suitable Java development environment.</span></span> <span data-ttu-id="f69c8-108">Bu belgedeki Hello yönergeleri Intellij kullanın.</span><span class="sxs-lookup"><span data-stu-id="f69c8-108">hello instructions in this document use IntelliJ.</span></span>
+* <span data-ttu-id="f69c8-109">Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın.</span><span class="sxs-lookup"><span data-stu-id="f69c8-109">Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**.</span></span> <span data-ttu-id="f69c8-110">Nasıl AAD uygulamaları ve yönergeleri hakkında daha fazla bilgi için bir istemci kimliği tooget bkz [oluşturma Active Directory uygulaması ve hizmet sorumlusu portal kullanarak](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span><span class="sxs-lookup"><span data-stu-id="f69c8-110">For more information about AAD applications and instructions on how tooget a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span></span> <span data-ttu-id="f69c8-111">Merhaba yanıt URI ve anahtarınızı kullanılabilir hello portalından hello uygulama oluşturulur ve oluşturulan anahtarı sahip olduğunda.</span><span class="sxs-lookup"><span data-stu-id="f69c8-111">hello Reply URI and Key is available from hello portal once you have hello application created and key generated.</span></span>
 
-## <a name="authenticating-using-azure-active-directory"></a><span data-ttu-id="cadde-112">Azure Active Directory'yi kullanarak kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="cadde-112">Authenticating using Azure Active Directory</span></span>
+## <a name="authenticating-using-azure-active-directory"></a><span data-ttu-id="f69c8-112">Azure Active Directory'yi kullanarak kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="f69c8-112">Authenticating using Azure Active Directory</span></span>
 
-<span data-ttu-id="cadde-113">Aşağıdaki kod parçacığında sağlar kod için kod **etkileşimli olmayan** kimlik doğrulaması, burada uygulama kendi kimlik bilgilerini sağlar.</span><span class="sxs-lookup"><span data-stu-id="cadde-113">The code following snippet provides code for **non-interactive** authentication, where the application provides its own credentials.</span></span>
+<span data-ttu-id="f69c8-113">Aşağıdaki kod parçacığında sağlar kod için kod Hello **etkileşimli olmayan** kimlik doğrulaması, burada hello uygulama kendi kimlik bilgilerini sağlar.</span><span class="sxs-lookup"><span data-stu-id="f69c8-113">hello code following snippet provides code for **non-interactive** authentication, where hello application provides its own credentials.</span></span>
 
-## <a name="create-a-java-application"></a><span data-ttu-id="cadde-114">Java uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="cadde-114">Create a Java application</span></span>
-1. <span data-ttu-id="cadde-115">Intellij hizmetini açın ve kullanarak bir Java projesi oluşturma **komut satırı uygulaması** şablonu.</span><span class="sxs-lookup"><span data-stu-id="cadde-115">Open IntelliJ and create a Java project using the **Command-Line App** template.</span></span>
-2. <span data-ttu-id="cadde-116">Ekranınızın sol tarafında projeye sağ tıklayın ve **Add Framework Support (Framework Desteği Ekle)** seçeneğine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="cadde-116">Right-click on the project on the left-hand side of your screen and click **Add Framework Support**.</span></span> <span data-ttu-id="cadde-117">**Maven**'ı seçip **OK (Tamam)** seçeneğine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="cadde-117">Choose **Maven** and click **OK**.</span></span>
-3. <span data-ttu-id="cadde-118">Yeni oluşturulan **"pom.xml"** dosyasını açın ve **\</version>** etiketi ile **\</project>** etiketi arasına şu metin parçacığını ekleyin:</span><span class="sxs-lookup"><span data-stu-id="cadde-118">Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:</span></span>
+## <a name="create-a-java-application"></a><span data-ttu-id="f69c8-114">Java uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="f69c8-114">Create a Java application</span></span>
+1. <span data-ttu-id="f69c8-115">Intellij hizmetini açın ve hello kullanarak bir Java projesi oluşturma **komut satırı uygulaması** şablonu.</span><span class="sxs-lookup"><span data-stu-id="f69c8-115">Open IntelliJ and create a Java project using hello **Command-Line App** template.</span></span>
+2. <span data-ttu-id="f69c8-116">Ekranınızın sol taraftaki hello hello projeye sağ tıklatın ve **Framework desteği Ekle**.</span><span class="sxs-lookup"><span data-stu-id="f69c8-116">Right-click on hello project on hello left-hand side of your screen and click **Add Framework Support**.</span></span> <span data-ttu-id="f69c8-117">**Maven**'ı seçip **OK (Tamam)** seçeneğine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="f69c8-117">Choose **Maven** and click **OK**.</span></span>
+3. <span data-ttu-id="f69c8-118">Yeni oluşturulan açık hello **"pom.xml"** dosya ve metin parçacığını hello arasında aşağıdaki hello ekleyin  **\</VERSION >** etiketini ve hello  **\< /project >** etiketi:</span><span class="sxs-lookup"><span data-stu-id="f69c8-118">Open hello newly created **"pom.xml"** file and add hello following snippet of text between hello **\</version>** tag and hello **\</project>** tag:</span></span>
 
 ```
 <repositories>
@@ -89,9 +89,9 @@ ms.lasthandoff: 08/03/2017
 </dependencies>
 ```
 
-<span data-ttu-id="cadde-119">Git **Dosya > Ayarlar > Yapı > yürütme > Dağıtım**.</span><span class="sxs-lookup"><span data-stu-id="cadde-119">Go to **File > Settings > Build > Execution > Deployment**.</span></span> <span data-ttu-id="cadde-120">Seçin **derleme araçlarını > Maven > içeri aktarma**.</span><span class="sxs-lookup"><span data-stu-id="cadde-120">Select **Build Tools > Maven > Importing**.</span></span> <span data-ttu-id="cadde-121">Ardından denetleyin **Import Maven projeleri otomatik olarak**.</span><span class="sxs-lookup"><span data-stu-id="cadde-121">Then check **Import Maven projects automatically**.</span></span>
+<span data-ttu-id="f69c8-119">Çok Git**Dosya > Ayarlar > Yapı > yürütme > Dağıtım**.</span><span class="sxs-lookup"><span data-stu-id="f69c8-119">Go too**File > Settings > Build > Execution > Deployment**.</span></span> <span data-ttu-id="f69c8-120">Seçin **derleme araçlarını > Maven > içeri aktarma**.</span><span class="sxs-lookup"><span data-stu-id="f69c8-120">Select **Build Tools > Maven > Importing**.</span></span> <span data-ttu-id="f69c8-121">Ardından denetleyin **Import Maven projeleri otomatik olarak**.</span><span class="sxs-lookup"><span data-stu-id="f69c8-121">Then check **Import Maven projects automatically**.</span></span>
 
-<span data-ttu-id="cadde-122">Açık `Main.java` ve var olan kod bloğunu aşağıdaki kod parçacığıyla değiştirin:</span><span class="sxs-lookup"><span data-stu-id="cadde-122">Open `Main.java` and replace the existing code block with the following code snippet:</span></span>
+<span data-ttu-id="f69c8-122">Açık `Main.java` ve Değiştir hello hello ile var olan kod bloğunu aşağıdaki kod parçacığını:</span><span class="sxs-lookup"><span data-stu-id="f69c8-122">Open `Main.java` and replace hello existing code block with hello following code snippet:</span></span>
 
 ```
 package com.company;
@@ -175,10 +175,10 @@ public class Main {
         WaitForNewline("File created.", "Submitting a job.");
 
         // ----------------------------------------
-        // Submit a job to Data Lake Analytics
+        // Submit a job tooData Lake Analytics
         // ----------------------------------------
 
-string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();", "testJob";
+string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input too@\"/output1.csv\" USING Outputters.Csv();", "testJob";
         UUID jobId = SubmitJobByScript(script);
         WaitForNewline("Job submitted.", "Getting job status.");
 
@@ -201,21 +201,21 @@ string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extrac
 }
 ```
 
-<span data-ttu-id="cadde-123">Kod parçacığında çağrılan parametrelerin değerlerini belirtin:</span><span class="sxs-lookup"><span data-stu-id="cadde-123">Provide the values for parameters called out in the code snippet:</span></span>
+<span data-ttu-id="f69c8-123">Merhaba kod parçacığında çağrılan parametrelerin Hello değerlerini sağlayın:</span><span class="sxs-lookup"><span data-stu-id="f69c8-123">Provide hello values for parameters called out in hello code snippet:</span></span>
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`
 * `_resourceGroupName`
 
-<span data-ttu-id="cadde-124">Yer tutucularını değiştirin:</span><span class="sxs-lookup"><span data-stu-id="cadde-124">Replace the placeholders for:</span></span>
-* <span data-ttu-id="cadde-125">`CLIENT-ID`,</span><span class="sxs-lookup"><span data-stu-id="cadde-125">`CLIENT-ID`,</span></span>
-* <span data-ttu-id="cadde-126">`CLIENT-SECRET`,</span><span class="sxs-lookup"><span data-stu-id="cadde-126">`CLIENT-SECRET`,</span></span>
+<span data-ttu-id="f69c8-124">Merhaba yer tutucularını değiştirin:</span><span class="sxs-lookup"><span data-stu-id="f69c8-124">Replace hello placeholders for:</span></span>
+* <span data-ttu-id="f69c8-125">`CLIENT-ID`,</span><span class="sxs-lookup"><span data-stu-id="f69c8-125">`CLIENT-ID`,</span></span>
+* <span data-ttu-id="f69c8-126">`CLIENT-SECRET`,</span><span class="sxs-lookup"><span data-stu-id="f69c8-126">`CLIENT-SECRET`,</span></span>
 * `TENANT-ID`
 * `SUBSCRIPTION-ID`
 
-## <a name="helper-functions"></a><span data-ttu-id="cadde-127">Yardımcı işlevleri</span><span class="sxs-lookup"><span data-stu-id="cadde-127">Helper functions</span></span>
+## <a name="helper-functions"></a><span data-ttu-id="f69c8-127">Yardımcı işlevleri</span><span class="sxs-lookup"><span data-stu-id="f69c8-127">Helper functions</span></span>
 
-### <a name="setup-clients"></a><span data-ttu-id="cadde-128">Kurulum istemcileri</span><span class="sxs-lookup"><span data-stu-id="cadde-128">Setup clients</span></span>
+### <a name="setup-clients"></a><span data-ttu-id="f69c8-128">Kurulum istemcileri</span><span class="sxs-lookup"><span data-stu-id="f69c8-128">Setup clients</span></span>
 
 ```
 public static void SetupClients(ServiceClientCredentials creds)
@@ -231,7 +231,7 @@ public static void SetupClients(ServiceClientCredentials creds)
 ```
 
 
-### <a name="wait-for-input"></a><span data-ttu-id="cadde-129">Giriş bekle</span><span class="sxs-lookup"><span data-stu-id="cadde-129">Wait for input</span></span>
+### <a name="wait-for-input"></a><span data-ttu-id="f69c8-129">Giriş bekle</span><span class="sxs-lookup"><span data-stu-id="f69c8-129">Wait for input</span></span>
 
 ```
 public static void WaitForNewline(String reason, String nextAction)
@@ -239,7 +239,7 @@ public static void WaitForNewline(String reason, String nextAction)
     if (nextAction == null)
         nextAction = "";
 
-    System.out.println(reason + "\r\nPress ENTER to continue...");
+    System.out.println(reason + "\r\nPress ENTER toocontinue...");
     try{System.in.read();}
     catch(Exception e){}
 
@@ -250,7 +250,7 @@ public static void WaitForNewline(String reason, String nextAction)
 }
 ```
 
-### <a name="create-accounts"></a><span data-ttu-id="cadde-130">Hesapları oluşturma</span><span class="sxs-lookup"><span data-stu-id="cadde-130">Create accounts</span></span>
+### <a name="create-accounts"></a><span data-ttu-id="f69c8-130">Hesapları oluşturma</span><span class="sxs-lookup"><span data-stu-id="f69c8-130">Create accounts</span></span>
 
 ```
 public static void CreateAccounts() throws InterruptedException, CloudException, IOException 
@@ -284,7 +284,7 @@ public static void CreateAccounts() throws InterruptedException, CloudException,
 }
 ```
 
-### <a name="create-a-file"></a><span data-ttu-id="cadde-131">Bir dosya oluşturun</span><span class="sxs-lookup"><span data-stu-id="cadde-131">Create a file</span></span>
+### <a name="create-a-file"></a><span data-ttu-id="f69c8-131">Bir dosya oluşturun</span><span class="sxs-lookup"><span data-stu-id="f69c8-131">Create a file</span></span>
 
 ```
 public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException 
@@ -295,7 +295,7 @@ public static void CreateFile(String path, String contents, boolean force) throw
 }
 ```
 
-### <a name="delete-a-file"></a><span data-ttu-id="cadde-132">Dosya silme</span><span class="sxs-lookup"><span data-stu-id="cadde-132">Delete a file</span></span>
+### <a name="delete-a-file"></a><span data-ttu-id="f69c8-132">Dosya silme</span><span class="sxs-lookup"><span data-stu-id="f69c8-132">Delete a file</span></span>
 
 ```
 public static void DeleteFile(String filePath) throws IOException, CloudException 
@@ -304,7 +304,7 @@ public static void DeleteFile(String filePath) throws IOException, CloudExceptio
 }
 ```
 
-### <a name="download-a-file"></a><span data-ttu-id="cadde-133">Dosya indirme</span><span class="sxs-lookup"><span data-stu-id="cadde-133">Download a file</span></span>
+### <a name="download-a-file"></a><span data-ttu-id="f69c8-133">Dosya indirme</span><span class="sxs-lookup"><span data-stu-id="f69c8-133">Download a file</span></span>
 
 ```
 public static void DownloadFile(String srcPath, String destPath) throws IOException, CloudException 
@@ -336,7 +336,7 @@ public static void DownloadFile(String srcPath, String destPath) throws IOExcept
 }
 ```
 
-### <a name="submit-a-u-sql-job"></a><span data-ttu-id="cadde-134">U-SQL işi gönderme</span><span class="sxs-lookup"><span data-stu-id="cadde-134">Submit a U-SQL job</span></span>
+### <a name="submit-a-u-sql-job"></a><span data-ttu-id="f69c8-134">U-SQL işi gönderme</span><span class="sxs-lookup"><span data-stu-id="f69c8-134">Submit a U-SQL job</span></span>
 
 ```
 public static UUID SubmitJobByScript(String script, String jobName) throws IOException, CloudException 
@@ -367,7 +367,7 @@ public static JobResult WaitForJob(UUID jobId) throws IOException, CloudExceptio
 }
 ```
 
-### <a name="retrieve-job-status"></a><span data-ttu-id="cadde-135">İş durumunu alma</span><span class="sxs-lookup"><span data-stu-id="cadde-135">Retrieve job status</span></span>
+### <a name="retrieve-job-status"></a><span data-ttu-id="f69c8-135">İş durumunu alma</span><span class="sxs-lookup"><span data-stu-id="f69c8-135">Retrieve job status</span></span>
 
 ```
 public static String GetJobStatus(UUID jobId) throws IOException, CloudException 
@@ -377,8 +377,8 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="cadde-136">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="cadde-136">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="f69c8-136">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="f69c8-136">Next steps</span></span>
 
-* <span data-ttu-id="cadde-137">U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).</span><span class="sxs-lookup"><span data-stu-id="cadde-137">To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).</span></span>
-* <span data-ttu-id="cadde-138">Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).</span><span class="sxs-lookup"><span data-stu-id="cadde-138">For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).</span></span>
-* <span data-ttu-id="cadde-139">Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).</span><span class="sxs-lookup"><span data-stu-id="cadde-139">To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).</span></span>
+* <span data-ttu-id="f69c8-137">U-SQL, toolearn bkz [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md), ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).</span><span class="sxs-lookup"><span data-stu-id="f69c8-137">toolearn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).</span></span>
+* <span data-ttu-id="f69c8-138">Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).</span><span class="sxs-lookup"><span data-stu-id="f69c8-138">For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).</span></span>
+* <span data-ttu-id="f69c8-139">bir Data Lake Analytics özetini tooget bkz [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).</span><span class="sxs-lookup"><span data-stu-id="f69c8-139">tooget an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).</span></span>

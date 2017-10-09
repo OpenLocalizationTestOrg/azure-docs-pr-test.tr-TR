@@ -1,6 +1,6 @@
 ---
-title: "Azure'dan yük blob Azure veri ambarına | Microsoft Docs"
-description: "PolyBase verileri Azure blob depolama alanından SQL Data Warehouse'a veri yüklemek için nasıl kullanılacağını öğrenin. Birkaç tablolar Contoso perakende veri ambarı şemasına genel verileri yüklenemiyor."
+title: "Azure blob tooAzure veri ambarından aaaLoad | Microsoft Docs"
+description: "Toouse PolyBase tooload verileri Azure depolama SQL Data Warehouse'a nasıl blob öğrenin. Birkaç tablolar hello Contoso perakende veri ambarı şemasına genel verileri yüklenemiyor."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,50 +15,50 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 2859c1144f72fd685af89f83024df1409902ab0c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b4978ccefa4d55ff5c89fba84c5e705422ddbb7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a><span data-ttu-id="6c6d6-104">Azure blob depolama alanından SQL Data Warehouse'a (PolyBase) veri yükleme</span><span class="sxs-lookup"><span data-stu-id="6c6d6-104">Load data from Azure blob storage into SQL Data Warehouse (PolyBase)</span></span>
+# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a><span data-ttu-id="64555-104">Azure blob depolama alanından SQL Data Warehouse'a (PolyBase) veri yükleme</span><span class="sxs-lookup"><span data-stu-id="64555-104">Load data from Azure blob storage into SQL Data Warehouse (PolyBase)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="6c6d6-105">Data Factory</span><span class="sxs-lookup"><span data-stu-id="6c6d6-105">Data Factory</span></span>](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-> * [<span data-ttu-id="6c6d6-106">PolyBase</span><span class="sxs-lookup"><span data-stu-id="6c6d6-106">PolyBase</span></span>](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+> * [<span data-ttu-id="64555-105">Data Factory</span><span class="sxs-lookup"><span data-stu-id="64555-105">Data Factory</span></span>](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+> * [<span data-ttu-id="64555-106">PolyBase</span><span class="sxs-lookup"><span data-stu-id="64555-106">PolyBase</span></span>](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 > 
 > 
 
-<span data-ttu-id="6c6d6-107">Verileri Azure blob depolama alanından Azure SQL Data Warehouse'a veri yüklemek için PolyBase ve T-SQL komutlarını kullanın.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-107">Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse.</span></span> 
+<span data-ttu-id="64555-107">PolyBase ve T-SQL komutlarını tooload verileri Azure blob depolama alanından Azure SQL Data Warehouse'a kullanın.</span><span class="sxs-lookup"><span data-stu-id="64555-107">Use PolyBase and T-SQL commands tooload data from Azure blob storage into Azure SQL Data Warehouse.</span></span> 
 
-<span data-ttu-id="6c6d6-108">Basit tutmak için bu öğreticiyi iki tablo Contoso perakende veri ambarı şemasına ortak bir Azure Storage Blobundan yükler.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-108">To keep it simple, this tutorial loads two tables from a public Azure Storage Blob into the Contoso Retail Data Warehouse schema.</span></span> <span data-ttu-id="6c6d6-109">Tam veri kümesi yüklemek için örneği çalıştırmak [tam Contoso perakende veri ambarı yük] [ Load the full Contoso Retail Data Warehouse] Microsoft SQL Server örnekleri depodan.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-109">To load the full data set, run the example [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] from the Microsoft SQL Server Samples repository.</span></span>
+<span data-ttu-id="64555-108">tookeep basit, Bu öğretici iki tablo ortak bir Azure Storage Blobundan hello Contoso perakende veri ambarı şemasına yükler.</span><span class="sxs-lookup"><span data-stu-id="64555-108">tookeep it simple, this tutorial loads two tables from a public Azure Storage Blob into hello Contoso Retail Data Warehouse schema.</span></span> <span data-ttu-id="64555-109">tooload hello tam veri hello örneği çalıştırmak kümesi [yük hello tam Contoso perakende veri ambarı] [ Load hello full Contoso Retail Data Warehouse] hello Microsoft SQL Server örnekleri depodan.</span><span class="sxs-lookup"><span data-stu-id="64555-109">tooload hello full data set, run hello example [Load hello full Contoso Retail Data Warehouse][Load hello full Contoso Retail Data Warehouse] from hello Microsoft SQL Server Samples repository.</span></span>
 
-<span data-ttu-id="6c6d6-110">Bu öğreticide şunları yapacaksınız:</span><span class="sxs-lookup"><span data-stu-id="6c6d6-110">In this tutorial you will:</span></span>
+<span data-ttu-id="64555-110">Bu öğreticide şunları yapacaksınız:</span><span class="sxs-lookup"><span data-stu-id="64555-110">In this tutorial you will:</span></span>
 
-1. <span data-ttu-id="6c6d6-111">Azure blob depolama alanından yüklemek için PolyBase yapılandırın</span><span class="sxs-lookup"><span data-stu-id="6c6d6-111">Configure PolyBase to load from Azure blob storage</span></span>
-2. <span data-ttu-id="6c6d6-112">Veritabanınıza ortak veri yükleme</span><span class="sxs-lookup"><span data-stu-id="6c6d6-112">Load public data into your database</span></span>
-3. <span data-ttu-id="6c6d6-113">Yükleme tamamlandıktan sonra en iyi duruma getirme gerçekleştirin.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-113">Perform optimizations after the load is finished.</span></span>
+1. <span data-ttu-id="64555-111">PolyBase tooload Azure blob depolama biriminden yapılandırma</span><span class="sxs-lookup"><span data-stu-id="64555-111">Configure PolyBase tooload from Azure blob storage</span></span>
+2. <span data-ttu-id="64555-112">Veritabanınıza ortak veri yükleme</span><span class="sxs-lookup"><span data-stu-id="64555-112">Load public data into your database</span></span>
+3. <span data-ttu-id="64555-113">Merhaba yükleme tamamlandıktan sonra en iyi duruma getirme gerçekleştirin.</span><span class="sxs-lookup"><span data-stu-id="64555-113">Perform optimizations after hello load is finished.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="6c6d6-114">Başlamadan önce</span><span class="sxs-lookup"><span data-stu-id="6c6d6-114">Before you begin</span></span>
-<span data-ttu-id="6c6d6-115">Bu öğretici çalıştırmak için SQL Data Warehouse veritabanı zaten bir Azure hesabınızın olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-115">To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database.</span></span> <span data-ttu-id="6c6d6-116">Zaten yoksa, bkz: [SQL Data Warehouse oluşturma][Create a SQL Data Warehouse].</span><span class="sxs-lookup"><span data-stu-id="6c6d6-116">If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="64555-114">Başlamadan önce</span><span class="sxs-lookup"><span data-stu-id="64555-114">Before you begin</span></span>
+<span data-ttu-id="64555-115">toorun Bu öğreticide, bir SQL Data Warehouse veritabanı zaten olan bir Azure hesabınızın olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="64555-115">toorun this tutorial, you need an Azure account that already has a SQL Data Warehouse database.</span></span> <span data-ttu-id="64555-116">Zaten yoksa, bkz: [SQL Data Warehouse oluşturma][Create a SQL Data Warehouse].</span><span class="sxs-lookup"><span data-stu-id="64555-116">If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].</span></span>
 
-## <a name="1-configure-the-data-source"></a><span data-ttu-id="6c6d6-117">1. Veri kaynağını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="6c6d6-117">1. Configure the data source</span></span>
-<span data-ttu-id="6c6d6-118">PolyBase, dış veri özniteliklerini ve konumunu tanımlamak için T-SQL dış nesneleri kullanır.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-118">PolyBase uses T-SQL external objects to define the location and attributes of the external data.</span></span> <span data-ttu-id="6c6d6-119">Dış nesne tanımları SQL veri ambarında depolanır.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-119">The external object definitions are stored in SQL Data Warehouse.</span></span> <span data-ttu-id="6c6d6-120">Veri harici olarak depolanır.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-120">The data itself is stored externally.</span></span>
+## <a name="1-configure-hello-data-source"></a><span data-ttu-id="64555-117">1. Merhaba veri kaynağını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="64555-117">1. Configure hello data source</span></span>
+<span data-ttu-id="64555-118">PolyBase T-SQL dış nesneleri toodefine hello konumu ve hello dış veri özniteliklerini kullanır.</span><span class="sxs-lookup"><span data-stu-id="64555-118">PolyBase uses T-SQL external objects toodefine hello location and attributes of hello external data.</span></span> <span data-ttu-id="64555-119">Merhaba dış nesne tanımları SQL veri ambarında depolanır.</span><span class="sxs-lookup"><span data-stu-id="64555-119">hello external object definitions are stored in SQL Data Warehouse.</span></span> <span data-ttu-id="64555-120">Merhaba verilerin kendisini harici olarak depolanır.</span><span class="sxs-lookup"><span data-stu-id="64555-120">hello data itself is stored externally.</span></span>
 
-### <a name="11-create-a-credential"></a><span data-ttu-id="6c6d6-121">1.1.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-121">1.1.</span></span> <span data-ttu-id="6c6d6-122">Bir kimlik bilgisi oluşturma</span><span class="sxs-lookup"><span data-stu-id="6c6d6-122">Create a credential</span></span>
-<span data-ttu-id="6c6d6-123">**Bu adımı atlayın** Contoso ortak veri yüklüyorsanız.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-123">**Skip this step** if you are loading the Contoso public data.</span></span> <span data-ttu-id="6c6d6-124">Zaten herkes için erişilebilir olduğundan ortak verilere güvenli erişim gerekmez.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-124">You don't need secure access to the public data since it is already accessible to anyone.</span></span>
+### <a name="11-create-a-credential"></a><span data-ttu-id="64555-121">1.1.</span><span class="sxs-lookup"><span data-stu-id="64555-121">1.1.</span></span> <span data-ttu-id="64555-122">Bir kimlik bilgisi oluşturma</span><span class="sxs-lookup"><span data-stu-id="64555-122">Create a credential</span></span>
+<span data-ttu-id="64555-123">**Bu adımı atlayın** hello Contoso ortak veri yüklüyorsanız.</span><span class="sxs-lookup"><span data-stu-id="64555-123">**Skip this step** if you are loading hello Contoso public data.</span></span> <span data-ttu-id="64555-124">Erişilebilir tooanyone olduğundan güvenli erişim toohello ortak veri gerekmez.</span><span class="sxs-lookup"><span data-stu-id="64555-124">You don't need secure access toohello public data since it is already accessible tooanyone.</span></span>
 
-<span data-ttu-id="6c6d6-125">**Bu adımı atlamayın** kendi verileri yüklemek için bir şablon olarak Bu öğretici kullanıyorsanız.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-125">**Don't skip this step** if you are using this tutorial as a template for loading your own data.</span></span> <span data-ttu-id="6c6d6-126">Bir kimlik bilgisi verilere erişmek için veritabanı kapsamlı bir kimlik bilgisi oluşturmak için aşağıdaki komut dosyasını kullanın ve veri kaynağının konumunu tanımlarken kullanın.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-126">To access data through a credential, use the following script to create a database-scoped credential, and then use it when defining the location of the data source.</span></span>
+<span data-ttu-id="64555-125">**Bu adımı atlamayın** kendi verileri yüklemek için bir şablon olarak Bu öğretici kullanıyorsanız.</span><span class="sxs-lookup"><span data-stu-id="64555-125">**Don't skip this step** if you are using this tutorial as a template for loading your own data.</span></span> <span data-ttu-id="64555-126">kimlik bilgileri, aşağıdaki kullanım hello tooaccess verilerine toocreate veritabanı kapsamlı kimlik bilgisi komut dosyası ve hello hello veri kaynağının konumunu tanımlarken kullanın.</span><span class="sxs-lookup"><span data-stu-id="64555-126">tooaccess data through a credential, use hello following script toocreate a database-scoped credential, and then use it when defining hello location of hello data source.</span></span>
 
 ```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
--- Required to encrypt the credential secret in the next step.
+-- Required tooencrypt hello credential secret in hello next step.
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- IDENTITY: Provide any string, it is not used for authentication tooAzure storage.
 -- SECRET: Provide your Azure storage account key.
 
 
@@ -70,9 +70,9 @@ WITH
 
 
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
--- CREDENTIAL: Provide the credential created in the previous step.
+-- CREDENTIAL: Provide hello credential created in hello previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
@@ -82,10 +82,10 @@ WITH (
 );
 ```
 
-<span data-ttu-id="6c6d6-127">2. adıma atlayın.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-127">Skip to step 2.</span></span>
+<span data-ttu-id="64555-127">Toostep 2 atlayın.</span><span class="sxs-lookup"><span data-stu-id="64555-127">Skip toostep 2.</span></span>
 
-### <a name="12-create-the-external-data-source"></a><span data-ttu-id="6c6d6-128">1.2.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-128">1.2.</span></span> <span data-ttu-id="6c6d6-129">Dış veri kaynağı oluşturun</span><span class="sxs-lookup"><span data-stu-id="6c6d6-129">Create the external data source</span></span>
-<span data-ttu-id="6c6d6-130">Bu [dış veri kaynağı oluştur] [ CREATE EXTERNAL DATA SOURCE] veri ve veri türü konumunu depolamak için komutu.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-130">Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data.</span></span> 
+### <a name="12-create-hello-external-data-source"></a><span data-ttu-id="64555-128">1.2.</span><span class="sxs-lookup"><span data-stu-id="64555-128">1.2.</span></span> <span data-ttu-id="64555-129">Merhaba dış veri kaynağı oluşturun</span><span class="sxs-lookup"><span data-stu-id="64555-129">Create hello external data source</span></span>
+<span data-ttu-id="64555-130">Bu [dış veri kaynağı oluştur] [ CREATE EXTERNAL DATA SOURCE] komut toostore hello konumunu hello veri ve veri hello türü.</span><span class="sxs-lookup"><span data-stu-id="64555-130">Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command toostore hello location of hello data, and hello type of data.</span></span> 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -97,12 +97,12 @@ WITH
 ```
 
 > [!IMPORTANT]
-> <span data-ttu-id="6c6d6-131">Azure blob storage kapsayıcıları genel hale getirmek isterseniz verileri veri merkezi ayrıldığında veri sahibi olarak, veriler için çıkış ücretlerini ücretlendirilirsiniz olduğunu unutmayın.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-131">If you choose to make your azure blob storage containers public, remember that as the data owner you will be charged for data egress charges when data leaves the data center.</span></span> 
+> <span data-ttu-id="64555-131">Azure blob depolama kapsayıcıları ortak toomake seçerseniz, veri hello veri merkezi ayrıldığında hello veri sahibi olarak, veriler için çıkış ücretlerini ücretlendirilirsiniz olduğunu unutmayın.</span><span class="sxs-lookup"><span data-stu-id="64555-131">If you choose toomake your azure blob storage containers public, remember that as hello data owner you will be charged for data egress charges when data leaves hello data center.</span></span> 
 > 
 > 
 
-## <a name="2-configure-data-format"></a><span data-ttu-id="6c6d6-132">2. Veri biçimini yapılandırın</span><span class="sxs-lookup"><span data-stu-id="6c6d6-132">2. Configure data format</span></span>
-<span data-ttu-id="6c6d6-133">Verileri Azure blob depolama alanındaki metin dosyalarında depolanır ve her bir alan sınırlayıcı ile ayrılır.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-133">The data is stored in text files in Azure blob storage, and each field is separated with a delimiter.</span></span> <span data-ttu-id="6c6d6-134">Bu [oluşturmak dış dosya BİÇİMİNİ] [ CREATE EXTERNAL FILE FORMAT] metin dosyalarında verilerin biçimini belirtmek için komut.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-134">Run this [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] command to specify the format of the data in the text files.</span></span> <span data-ttu-id="6c6d6-135">Contoso veri sıkıştırılmamış ve kanal ayrılmış.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-135">The Contoso data is uncompressed and pipe delimited.</span></span>
+## <a name="2-configure-data-format"></a><span data-ttu-id="64555-132">2. Veri biçimini yapılandırın</span><span class="sxs-lookup"><span data-stu-id="64555-132">2. Configure data format</span></span>
+<span data-ttu-id="64555-133">Merhaba veriler Azure blob depolama alanındaki metin dosyalarında depolanır ve her bir alan sınırlayıcı ile ayrılır.</span><span class="sxs-lookup"><span data-stu-id="64555-133">hello data is stored in text files in Azure blob storage, and each field is separated with a delimiter.</span></span> <span data-ttu-id="64555-134">Bu [oluşturmak dış dosya BİÇİMİNİ] [ CREATE EXTERNAL FILE FORMAT] hello verilerin hello metin dosyalarında komutu toospecify hello biçimi.</span><span class="sxs-lookup"><span data-stu-id="64555-134">Run this [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] command toospecify hello format of hello data in hello text files.</span></span> <span data-ttu-id="64555-135">Merhaba Contoso veri sıkıştırılmamış ve kanal ayrılmış.</span><span class="sxs-lookup"><span data-stu-id="64555-135">hello Contoso data is uncompressed and pipe delimited.</span></span>
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -116,21 +116,21 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a><span data-ttu-id="6c6d6-136">3. Dış tabloları oluşturma</span><span class="sxs-lookup"><span data-stu-id="6c6d6-136">3. Create the external tables</span></span>
-<span data-ttu-id="6c6d6-137">Veri kaynağı ve dosya biçimi belirttiğiniz, dış tablo oluşturmak hazır olursunuz.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-137">Now that you have specified the data source and file format, you are ready to create the external tables.</span></span> 
+## <a name="3-create-hello-external-tables"></a><span data-ttu-id="64555-136">3. Merhaba dış tabloları oluşturma</span><span class="sxs-lookup"><span data-stu-id="64555-136">3. Create hello external tables</span></span>
+<span data-ttu-id="64555-137">Şimdi hello veri kaynağı ve dosya biçimi belirttiğiniz hazır toocreate hello dış tablolara demektir.</span><span class="sxs-lookup"><span data-stu-id="64555-137">Now that you have specified hello data source and file format, you are ready toocreate hello external tables.</span></span> 
 
-### <a name="31-create-a-schema-for-the-data"></a><span data-ttu-id="6c6d6-138">3.1.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-138">3.1.</span></span> <span data-ttu-id="6c6d6-139">Veriler için bir şema oluşturun.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-139">Create a schema for the data.</span></span>
-<span data-ttu-id="6c6d6-140">Contoso veri veritabanınızda depolamak için bir yer oluşturmak için bir şema oluşturun.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-140">To create a place to store the Contoso data in your database, create a schema.</span></span>
+### <a name="31-create-a-schema-for-hello-data"></a><span data-ttu-id="64555-138">3.1.</span><span class="sxs-lookup"><span data-stu-id="64555-138">3.1.</span></span> <span data-ttu-id="64555-139">Merhaba veri için bir şema oluşturun.</span><span class="sxs-lookup"><span data-stu-id="64555-139">Create a schema for hello data.</span></span>
+<span data-ttu-id="64555-140">toocreate yer toostore hello Contoso verileri, veritabanında bir şema oluşturun.</span><span class="sxs-lookup"><span data-stu-id="64555-140">toocreate a place toostore hello Contoso data in your database, create a schema.</span></span>
 
 ```sql
 CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="32-create-the-external-tables"></a><span data-ttu-id="6c6d6-141">3.2.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-141">3.2.</span></span> <span data-ttu-id="6c6d6-142">Harici tabloları oluşturun.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-142">Create the external tables.</span></span>
-<span data-ttu-id="6c6d6-143">DimProduct ve FactOnlineSales dış tablolar oluşturmak için bu komut dosyasını çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-143">Run this script to create the DimProduct and FactOnlineSales external tables.</span></span> <span data-ttu-id="6c6d6-144">Tüm biz burada yapmakta olduğunuz sütun adları ve veri türleri tanımlama ve konumunu ve Azure blob depolama dosyalarının biçimi bağlama.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-144">All we are doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files.</span></span> <span data-ttu-id="6c6d6-145">Tanımı SQL veri ambarı'nda depolanır ve verileri Azure depolama Blob hala.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-145">The definition is stored in SQL Data Warehouse and the data is still in the Azure Storage Blob.</span></span>
+### <a name="32-create-hello-external-tables"></a><span data-ttu-id="64555-141">3.2.</span><span class="sxs-lookup"><span data-stu-id="64555-141">3.2.</span></span> <span data-ttu-id="64555-142">Merhaba dış tablolar oluşturun.</span><span class="sxs-lookup"><span data-stu-id="64555-142">Create hello external tables.</span></span>
+<span data-ttu-id="64555-143">Bu komut dosyası toocreate hello DimProduct ve FactOnlineSales dış tablolara çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="64555-143">Run this script toocreate hello DimProduct and FactOnlineSales external tables.</span></span> <span data-ttu-id="64555-144">Tüm biz burada yapmakta olduğunuz sütun adları ve veri türleri tanımlama ve toohello konumu ve hello Azure blob depolama dosyalarının biçimi bağlama.</span><span class="sxs-lookup"><span data-stu-id="64555-144">All we are doing here is defining column names and data types, and binding them toohello location and format of hello Azure blob storage files.</span></span> <span data-ttu-id="64555-145">Merhaba tanımı SQL veri ambarı'nda depolanır ve hello veri hala hello Azure Storage Blobuna.</span><span class="sxs-lookup"><span data-stu-id="64555-145">hello definition is stored in SQL Data Warehouse and hello data is still in hello Azure Storage Blob.</span></span>
 
-<span data-ttu-id="6c6d6-146">**Konumu** parametresi Azure Storage Blobuna kök klasöründe bir klasördür.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-146">The  **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob.</span></span> <span data-ttu-id="6c6d6-147">Her tablo farklı bir klasöründe bulunur.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-147">Each table is in a different folder.</span></span>
+<span data-ttu-id="64555-146">Merhaba **konumu** hello klasörü hello Azure Storage Blobuna hello kök klasöründe bir parametredir.</span><span class="sxs-lookup"><span data-stu-id="64555-146">hello  **LOCATION** parameter is hello folder under hello root folder in hello Azure Storage Blob.</span></span> <span data-ttu-id="64555-147">Her tablo farklı bir klasöründe bulunur.</span><span class="sxs-lookup"><span data-stu-id="64555-147">Each table is in a different folder.</span></span>
 
 ```sql
 
@@ -215,23 +215,23 @@ WITH
 ;
 ```
 
-## <a name="4-load-the-data"></a><span data-ttu-id="6c6d6-148">4. Verileri yükleme</span><span class="sxs-lookup"><span data-stu-id="6c6d6-148">4. Load the data</span></span>
-<span data-ttu-id="6c6d6-149">Dış verilere erişmek için farklı yollar yoktur.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-149">There's different ways to access external data.</span></span>  <span data-ttu-id="6c6d6-150">Dış tablo verileri doğrudan sorgu, yeni veritabanı tablolarına verileri yüklemek veya var olan veritabanı tablolarında dış veri ekleyin.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-150">You can query data directly from the external table, load the data into new database tables, or add external data to existing database tables.</span></span>  
+## <a name="4-load-hello-data"></a><span data-ttu-id="64555-148">4. Merhaba veri yükleme</span><span class="sxs-lookup"><span data-stu-id="64555-148">4. Load hello data</span></span>
+<span data-ttu-id="64555-149">Farklı şekillerde tooaccess dış veri yoktur.</span><span class="sxs-lookup"><span data-stu-id="64555-149">There's different ways tooaccess external data.</span></span>  <span data-ttu-id="64555-150">Merhaba dış tablo verileri doğrudan sorgu, yeni veritabanı tablolarına hello verileri yüklemek veya dış veri tooexisting veritabanı tabloları ekleyin.</span><span class="sxs-lookup"><span data-stu-id="64555-150">You can query data directly from hello external table, load hello data into new database tables, or add external data tooexisting database tables.</span></span>  
 
-### <a name="41-create-a-new-schema"></a><span data-ttu-id="6c6d6-151">4.1.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-151">4.1.</span></span> <span data-ttu-id="6c6d6-152">Yeni bir şema oluşturun</span><span class="sxs-lookup"><span data-stu-id="6c6d6-152">Create a new schema</span></span>
-<span data-ttu-id="6c6d6-153">CTAS verileri içeren yeni bir tablo oluşturur.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-153">CTAS creates a new table that contains data.</span></span>  <span data-ttu-id="6c6d6-154">İlk olarak, contoso veri için bir şema oluşturun.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-154">First, create a schema for the contoso data.</span></span>
+### <a name="41-create-a-new-schema"></a><span data-ttu-id="64555-151">4.1.</span><span class="sxs-lookup"><span data-stu-id="64555-151">4.1.</span></span> <span data-ttu-id="64555-152">Yeni bir şema oluşturun</span><span class="sxs-lookup"><span data-stu-id="64555-152">Create a new schema</span></span>
+<span data-ttu-id="64555-153">CTAS verileri içeren yeni bir tablo oluşturur.</span><span class="sxs-lookup"><span data-stu-id="64555-153">CTAS creates a new table that contains data.</span></span>  <span data-ttu-id="64555-154">İlk olarak hello contoso veri için bir şema oluşturun.</span><span class="sxs-lookup"><span data-stu-id="64555-154">First, create a schema for hello contoso data.</span></span>
 
 ```sql
 CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-the-data-into-new-tables"></a><span data-ttu-id="6c6d6-155">4.2.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-155">4.2.</span></span> <span data-ttu-id="6c6d6-156">Yeni tablolara veri yükleme</span><span class="sxs-lookup"><span data-stu-id="6c6d6-156">Load the data into new tables</span></span>
-<span data-ttu-id="6c6d6-157">Azure blob depolama alanından verileri yüklemek ve veritabanınızın içinde bir tablodaki kaydetmek için kullanın [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-157">To load data from Azure blob storage and save it in a table inside of your database, use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement.</span></span> <span data-ttu-id="6c6d6-158">Yükleme CTAS ile oluşturduğunuz kesin türü belirtilmiş dış tablolara yararlanır. Verileri yeni tablolara yüklemek için kullanmayı [CTAS] [ CTAS] tablo başına deyimi.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-158">Loading with CTAS leverages the strongly typed external tables you have just created.To load the data into new tables, use one [CTAS][CTAS] statement per table.</span></span> 
+### <a name="42-load-hello-data-into-new-tables"></a><span data-ttu-id="64555-155">4.2.</span><span class="sxs-lookup"><span data-stu-id="64555-155">4.2.</span></span> <span data-ttu-id="64555-156">Yeni tablolara hello veri yükleme</span><span class="sxs-lookup"><span data-stu-id="64555-156">Load hello data into new tables</span></span>
+<span data-ttu-id="64555-157">tooload verileri Azure blob depolama ve veritabanınızı içinde bir tabloda, hello kullanmak [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi.</span><span class="sxs-lookup"><span data-stu-id="64555-157">tooload data from Azure blob storage and save it in a table inside of your database, use hello [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement.</span></span> <span data-ttu-id="64555-158">İle CTAS yüklenirken yararlanır hello kesinlikle yalnızca created.tooload hello yeni tablolar verisine sahip dış tablolara yazılan, kullanmayı [CTAS] [ CTAS] tablo başına deyimi.</span><span class="sxs-lookup"><span data-stu-id="64555-158">Loading with CTAS leverages hello strongly typed external tables you have just created.tooload hello data into new tables, use one [CTAS][CTAS] statement per table.</span></span> 
  
-<span data-ttu-id="6c6d6-159">CTAS yeni bir tablo oluşturur ve bir select deyimi sonuçları ile doldurur.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-159">CTAS creates a new table and populates it with the results of a select statement.</span></span> <span data-ttu-id="6c6d6-160">CTAS select deyimi sonuçları olarak aynı sütunları ve veri türleri için yeni tabloyu tanımlar.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-160">CTAS defines the new table to have the same columns and data types as the results of the select statement.</span></span> <span data-ttu-id="6c6d6-161">Dış bir tablodaki tüm sütunları seçin, yeni bir tablo sütunları ve dış tablosunda veri türlerini çoğaltmasını olacaktır.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-161">If you select all the columns from an external table, the new table will be a replica of the columns and data types in the external table.</span></span>
+<span data-ttu-id="64555-159">CTAS yeni bir tablo oluşturur ve bir select deyimi hello sonuçlarını ile doldurur.</span><span class="sxs-lookup"><span data-stu-id="64555-159">CTAS creates a new table and populates it with hello results of a select statement.</span></span> <span data-ttu-id="64555-160">CTAS tanımlar hello yeni tablo toohave hello hello sonuçlarını select deyimi gibi hello aynı sütun ve veri türleri.</span><span class="sxs-lookup"><span data-stu-id="64555-160">CTAS defines hello new table toohave hello same columns and data types as hello results of hello select statement.</span></span> <span data-ttu-id="64555-161">Bir dış tablodan tüm hello sütunları seçerseniz, hello yeni tablo hello dış tabloda hello sütunları ve veri türleri çoğaltmasını olacaktır.</span><span class="sxs-lookup"><span data-stu-id="64555-161">If you select all hello columns from an external table, hello new table will be a replica of hello columns and data types in hello external table.</span></span>
 
-<span data-ttu-id="6c6d6-162">Bu örnekte, boyut ve dağıtılmış tabloları karma gibi Olgu Tablosu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-162">In this example, we create both the dimension and the fact table as hash distributed tables.</span></span> 
+<span data-ttu-id="64555-162">Bu örnekte, hello boyut ve dağıtılmış tabloları karma gibi hello Olgu Tablosu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="64555-162">In this example, we create both hello dimension and hello fact table as hash distributed tables.</span></span> 
 
 ```sql
 SELECT GETDATE();
@@ -241,20 +241,20 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a><span data-ttu-id="6c6d6-163">4.3 yük ilerlemeyi</span><span class="sxs-lookup"><span data-stu-id="6c6d6-163">4.3 Track the load progress</span></span>
-<span data-ttu-id="6c6d6-164">Dinamik Yönetim görünümlerini (Dmv'leri) kullanarak yük ilerlemesini izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-164">You can track the progress of your load using dynamic management views (DMVs).</span></span> 
+### <a name="43-track-hello-load-progress"></a><span data-ttu-id="64555-163">4.3 izleme hello yükleme ilerlemesi</span><span class="sxs-lookup"><span data-stu-id="64555-163">4.3 Track hello load progress</span></span>
+<span data-ttu-id="64555-164">Dinamik Yönetim görünümlerini (Dmv'leri) kullanarak yük hello ilerlemesini izleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="64555-164">You can track hello progress of your load using dynamic management views (DMVs).</span></span> 
 
 ```sql
--- To see all requests
+-- toosee all requests
 SELECT * FROM sys.dm_pdw_exec_requests;
 
--- To see a particular request identified by its label
+-- toosee a particular request identified by its label
 SELECT * FROM sys.dm_pdw_exec_requests as r
 WHERE r.[label] = 'CTAS : Load [cso].[DimProduct]             '
       OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 ;
 
--- To track bytes and files
+-- tootrack bytes and files
 SELECT
     r.command,
     s.request_id,
@@ -277,10 +277,10 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a><span data-ttu-id="6c6d6-165">5. Columnstore sıkıştırma en iyi duruma getirme</span><span class="sxs-lookup"><span data-stu-id="6c6d6-165">5. Optimize columnstore compression</span></span>
-<span data-ttu-id="6c6d6-166">Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini tablo depolar.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-166">By default, SQL Data Warehouse stores the table as a clustered columnstore index.</span></span> <span data-ttu-id="6c6d6-167">Yükleme tamamlandıktan sonra bazı veriler satır columnstore sıkıştırılır değil.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-167">After a load completes, some of the data rows might not be compressed into the columnstore.</span></span>  <span data-ttu-id="6c6d6-168">Çeşitli nedenlerle oluşabilir neden yoktur.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-168">There's a variety of reasons why this can happen.</span></span> <span data-ttu-id="6c6d6-169">Daha fazla bilgi için bkz: [columnstore dizinleri yönetmek][manage columnstore indexes].</span><span class="sxs-lookup"><span data-stu-id="6c6d6-169">To learn more, see [manage columnstore indexes][manage columnstore indexes].</span></span>
+## <a name="5-optimize-columnstore-compression"></a><span data-ttu-id="64555-165">5. Columnstore sıkıştırma en iyi duruma getirme</span><span class="sxs-lookup"><span data-stu-id="64555-165">5. Optimize columnstore compression</span></span>
+<span data-ttu-id="64555-166">Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini hello tablo depolar.</span><span class="sxs-lookup"><span data-stu-id="64555-166">By default, SQL Data Warehouse stores hello table as a clustered columnstore index.</span></span> <span data-ttu-id="64555-167">Yükleme tamamlandıktan sonra bazı hello veri satır hello columnstore sıkıştırılır değil.</span><span class="sxs-lookup"><span data-stu-id="64555-167">After a load completes, some of hello data rows might not be compressed into hello columnstore.</span></span>  <span data-ttu-id="64555-168">Çeşitli nedenlerle oluşabilir neden yoktur.</span><span class="sxs-lookup"><span data-stu-id="64555-168">There's a variety of reasons why this can happen.</span></span> <span data-ttu-id="64555-169">toolearn daha, fazla [columnstore dizinleri yönetmek][manage columnstore indexes].</span><span class="sxs-lookup"><span data-stu-id="64555-169">toolearn more, see [manage columnstore indexes][manage columnstore indexes].</span></span>
 
-<span data-ttu-id="6c6d6-170">Sorgu performansı ve yük sonra columnstore sıkıştırma iyileştirmek için tüm satırların sıkıştırılacak columnstore dizinini zorlamak için tabloyu yeniden oluşturun.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-170">To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows.</span></span> 
+<span data-ttu-id="64555-170">toooptimize sorgu performansını ve columnstore sıkıştırma bir yükleme sonrasında, tüm hello satırları hello tablo tooforce hello columnstore dizini toocompress yeniden.</span><span class="sxs-lookup"><span data-stu-id="64555-170">toooptimize query performance and columnstore compression after a load, rebuild hello table tooforce hello columnstore index toocompress all hello rows.</span></span> 
 
 ```sql
 SELECT GETDATE();
@@ -290,14 +290,14 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-<span data-ttu-id="6c6d6-171">Columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinleri yönetmek] [ manage columnstore indexes] makalesi.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-171">For more information on maintaining columnstore indexes, see the [manage columnstore indexes][manage columnstore indexes] article.</span></span>
+<span data-ttu-id="64555-171">Merhaba columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinleri yönetmek] [ manage columnstore indexes] makalesi.</span><span class="sxs-lookup"><span data-stu-id="64555-171">For more information on maintaining columnstore indexes, see hello [manage columnstore indexes][manage columnstore indexes] article.</span></span>
 
-## <a name="6-optimize-statistics"></a><span data-ttu-id="6c6d6-172">6. İstatistikleri en iyi duruma getirme</span><span class="sxs-lookup"><span data-stu-id="6c6d6-172">6. Optimize statistics</span></span>
-<span data-ttu-id="6c6d6-173">Bir yük hemen sonra tek sütunlu istatistikler oluşturmak en iyisidir.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-173">It is best to create single-column statistics immediately after a load.</span></span> <span data-ttu-id="6c6d6-174">İstatistikleri için bazı seçeneğiniz vardır.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-174">There are some choices for statistics.</span></span> <span data-ttu-id="6c6d6-175">Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, tüm istatistikleri yeniden oluşturmak için uzun zaman alabilir.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-175">For example, if you create single-column statistics on every column it might take a long time to rebuild all the statistics.</span></span> <span data-ttu-id="6c6d6-176">Belirli sütunları sorgu koşullarında yapmayacağınız biliyorsanız, bu sütunlarda oluşturma istatistikleri atlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-176">If you know certain columns are not going to be in query predicates, you can skip creating statistics on those columns.</span></span>
+## <a name="6-optimize-statistics"></a><span data-ttu-id="64555-172">6. İstatistikleri en iyi duruma getirme</span><span class="sxs-lookup"><span data-stu-id="64555-172">6. Optimize statistics</span></span>
+<span data-ttu-id="64555-173">Bu, bir yük hemen sonra en iyi toocreate tek sütunlu İstatistikler olur.</span><span class="sxs-lookup"><span data-stu-id="64555-173">It is best toocreate single-column statistics immediately after a load.</span></span> <span data-ttu-id="64555-174">İstatistikleri için bazı seçeneğiniz vardır.</span><span class="sxs-lookup"><span data-stu-id="64555-174">There are some choices for statistics.</span></span> <span data-ttu-id="64555-175">Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, uzun süre toorebuild tüm hello istatistikleri alabilir.</span><span class="sxs-lookup"><span data-stu-id="64555-175">For example, if you create single-column statistics on every column it might take a long time toorebuild all hello statistics.</span></span> <span data-ttu-id="64555-176">Belirli sütunları toobe sorgu koşullarda yapmayacağınız biliyorsanız, bu sütunlarda oluşturma istatistikleri atlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="64555-176">If you know certain columns are not going toobe in query predicates, you can skip creating statistics on those columns.</span></span>
 
-<span data-ttu-id="6c6d6-177">Tek sütunlu istatistikler her tablonun her sütunu üzerinde oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri] [ statistics] makalesi.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-177">If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics][statistics] article.</span></span>
+<span data-ttu-id="64555-177">Her tablonun her sütunu toocreate tek sütunlu İstatistikler karar verirseniz, hello saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` hello içinde [istatistikleri] [ statistics] makalesi.</span><span class="sxs-lookup"><span data-stu-id="64555-177">If you decide toocreate single-column statistics on every column of every table, you can use hello stored procedure code sample `prc_sqldw_create_stats` in hello [statistics][statistics] article.</span></span>
 
-<span data-ttu-id="6c6d6-178">Aşağıdaki istatistikler oluşturmak için iyi bir başlangıç noktası örnektir.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-178">The following example is a good starting point for creating statistics.</span></span> <span data-ttu-id="6c6d6-179">Her sütunun Boyut tablosuna ve olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-179">It creates single-column statistics on each column in the dimension table, and on each joining column in the fact tables.</span></span> <span data-ttu-id="6c6d6-180">Her zaman tek veya birden çok sütun istatistikleri diğer olgu tablo sütunları daha sonra ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-180">You can always add single or multi-column statistics to other fact table columns later on.</span></span>
+<span data-ttu-id="64555-178">Aşağıdaki örnek hello istatistikleri oluşturmak için iyi bir başlangıç noktası ' dir.</span><span class="sxs-lookup"><span data-stu-id="64555-178">hello following example is a good starting point for creating statistics.</span></span> <span data-ttu-id="64555-179">Her sütunda hello Boyut tablosuna ve hello olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur.</span><span class="sxs-lookup"><span data-stu-id="64555-179">It creates single-column statistics on each column in hello dimension table, and on each joining column in hello fact tables.</span></span> <span data-ttu-id="64555-180">Daha sonra onları tek veya birden çok sütun istatistikleri tooother Olgu Tablosu sütunlarını ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="64555-180">You can always add single or multi-column statistics tooother fact table columns later on.</span></span>
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -341,10 +341,10 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## <a name="achievement-unlocked"></a><span data-ttu-id="6c6d6-181">Kilidi başarı!</span><span class="sxs-lookup"><span data-stu-id="6c6d6-181">Achievement unlocked!</span></span>
-<span data-ttu-id="6c6d6-182">Azure SQL Data Warehouse'a ortak veri başarıyla yüklemiş olduğunuz.</span><span class="sxs-lookup"><span data-stu-id="6c6d6-182">You have successfully loaded public data into Azure SQL Data Warehouse.</span></span> <span data-ttu-id="6c6d6-183">Harika iş!</span><span class="sxs-lookup"><span data-stu-id="6c6d6-183">Great job!</span></span>
+## <a name="achievement-unlocked"></a><span data-ttu-id="64555-181">Kilidi başarı!</span><span class="sxs-lookup"><span data-stu-id="64555-181">Achievement unlocked!</span></span>
+<span data-ttu-id="64555-182">Azure SQL Data Warehouse'a ortak veri başarıyla yüklemiş olduğunuz.</span><span class="sxs-lookup"><span data-stu-id="64555-182">You have successfully loaded public data into Azure SQL Data Warehouse.</span></span> <span data-ttu-id="64555-183">Harika iş!</span><span class="sxs-lookup"><span data-stu-id="64555-183">Great job!</span></span>
 
-<span data-ttu-id="6c6d6-184">Şimdi, aşağıdakiler gibi sorguları kullanarak tabloları sorgulama başlatabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="6c6d6-184">You can now start querying the tables using queries like the following:</span></span>
+<span data-ttu-id="64555-184">Şimdi hello aşağıdaki gibi sorguları kullanarak hello tabloları sorgulama başlatabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="64555-184">You can now start querying hello tables using queries like hello following:</span></span>
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -354,8 +354,8 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="6c6d6-185">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="6c6d6-185">Next steps</span></span>
-<span data-ttu-id="6c6d6-186">Tam Contoso perakende veri ambarı veri yüklemek için komut dosyasında daha fazla geliştirme ipuçları için bkz [SQL Data Warehouse geliştirmeye genel bakış][SQL Data Warehouse development overview].</span><span class="sxs-lookup"><span data-stu-id="6c6d6-186">To load the full Contoso Retail Data Warehouse data, use the script in For more development tips, see [SQL Data Warehouse development overview][SQL Data Warehouse development overview].</span></span>
+## <a name="next-steps"></a><span data-ttu-id="64555-185">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="64555-185">Next steps</span></span>
+<span data-ttu-id="64555-186">tooload hello tam Contoso perakende veri ambarı veri, hello komut dosyasında daha fazla geliştirme ipuçları için bkz [SQL Data Warehouse geliştirmeye genel bakış][SQL Data Warehouse development overview].</span><span class="sxs-lookup"><span data-stu-id="64555-186">tooload hello full Contoso Retail Data Warehouse data, use hello script in For more development tips, see [SQL Data Warehouse development overview][SQL Data Warehouse development overview].</span></span>
 
 <!--Image references-->
 
@@ -377,4 +377,4 @@ GROUP BY p.[BrandName]
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+[Load hello full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

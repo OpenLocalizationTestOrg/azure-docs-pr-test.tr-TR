@@ -10,8 +10,8 @@
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Özel bir etki alanı adı ekleme](add-custom-domain.md)
 ## [Şirket markası yapılandırma](customize-branding.md)
-## [Kullanıcıları Azure AD’ye ekleme](add-users-azure-active-directory.md)
-## [Kullanıcılara lisans atama](license-users-groups.md)
+## [Kullanıcıların tooAzure AD ekleyin](add-users-azure-active-directory.md)
+## [Lisansları toousers atayın](license-users-groups.md)
 ## [Self servis parola sıfırlamasını yapılandırma](active-directory-passwords-getting-started.md)
 
 
@@ -38,9 +38,9 @@
 
 ## Kullanıcıları yönetme
 ### [Grupları kullanarak lisansları atama](active-directory-licensing-whatis-azure-portal.md)
-#### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Lisansları tooa grubu atama](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
+#### [Tek tek lisanslı kullanıcı toogroup tabanlı lisanslama geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 ### [Diğer dizinlerden kullanıcıları ekleme (klasik portal)](active-directory-create-users-external.md)
@@ -60,15 +60,15 @@
 ### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
 ### [Grup üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
 ### [Grupları kullanarak lisansları atama](active-directory-licensing-whatis-azure-portal.md)
-#### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Lisansları tooa grubu atama](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
+#### [Tek tek lisanslı kullanıcı toogroup tabanlı lisanslama geçirme](active-directory-licensing-group-migration-azure-portal.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 ### [Office 365 gruplarının süre sonlarını ayarlama](active-directory-groups-lifecycle-azure-portal.md)
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
 ### [Adanmış grupları etkinleştirme](active-directory-accessmanagement-dedicated-groups.md)
-### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
+### [Grup erişim tooSaaS uygulamalar ekleme](active-directory-accessmanagement-group-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](active-directory-groups-restore-azure-portal.md)
 ### Grup ayarlarını yönetme
 #### [Azure portal](active-directory-groups-settings-azure-portal.md)
@@ -89,7 +89,7 @@
 ### Görevler
 #### [Adlandırılmış konumları yapılandırma](active-directory-named-locations.md)
 #### [Etkinlik raporlarını bulma](active-directory-reporting-migration.md)
-#### [Azure Active Directory Power BI İçerik Paketi’ni kullanma](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Hello Azure Active Directory Power BI içerik paketi kullanın](active-directory-reporting-power-bi-content-pack-how-to.md)
 ### Başvuru
 #### [Bekletme](active-directory-reporting-retention.md)
 #### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
@@ -131,7 +131,7 @@
 
 ## Cihazları yönetme
 ### [Giriş](device-management-introduction.md)
-### [Azure portalını kullanma](device-management-azure-portal.md)
+### [Hello Azure portalını kullanma](device-management-azure-portal.md)
 ### [SSS](device-management-faq.md)
 ### Görevler
 #### [Karma Azure AD alanına katılmış cihazları yapılandırma](device-management-hybrid-azuread-joined-devices-setup.md) 
@@ -188,7 +188,7 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
-#### Klasik portalı kullanın
+#### Merhaba Klasik portalını kullanın
 ##### [Bağlayıcı indirme](application-proxy-enable-classic-portal.md)
 ##### [Uygulamaları yayımlama](active-directory-application-proxy-publish.md)
 ##### [Bağlayıcı kullanma](active-directory-application-proxy-connectors.md)
@@ -202,7 +202,7 @@
 #### [Tüm uygulamalarımı görüntüleme](active-directory-coreapps-view-azure-portal.md)
 #### [Kullanıcı hesabı hazırlamayı yönetme](active-directory-enterprise-apps-manage-provisioning.md)
 
-### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
+### [Erişim tooapps yönetme](active-directory-managing-access-to-apps.md)
 #### [Self servis erişimi](active-directory-self-service-application-access.md)
 #### [SSO erişimi](active-directory-appssoaccess-whatis.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
@@ -253,7 +253,7 @@
 #### [Davetiye olmadan B2B kullanıcıları ekleme](active-directory-b2b-add-user-without-invite.md)
 #### [B2B için koşullu erişim](active-directory-b2b-mfa-instructions.md)
 #### [B2B paylaşım ilkeleri](active-directory-b2b-delegate-invitations.md)
-#### [Bir role B2B kullanıcısı ekleme](active-directory-b2b-add-guest-to-role.md)
+#### [B2B kullanıcı tooa rolü ekleme](active-directory-b2b-add-guest-to-role.md)
 #### [Dinamik gruplar ve B2B kullanıcıları](active-directory-b2b-dynamic-groups.md)
 #### [Denetim ve raporlar](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B ve Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
@@ -261,16 +261,16 @@
 #### [Geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
 #### [SSS](active-directory-b2b-faq.md)
 #### [B2B sorunlarını giderme](active-directory-b2b-troubleshooting.md)
-#### [B2B kullanıcısını anlama](active-directory-b2b-user-properties.md)
+#### [Merhaba B2B kullanıcı anlama](active-directory-b2b-user-properties.md)
 #### [B2B kullanıcı belirteci](active-directory-b2b-user-token.md)
 #### [Azure AD tümleşik uygulamaları için B2B](active-directory-b2b-configure-saas-apps.md)
 #### [B2B kullanıcı taleplerini eşleme](active-directory-b2b-claims-mapping.md)
-#### [B2B işbirliğini B2C ile karşılaştırma](active-directory-b2b-compare-b2c.md)
+#### [B2B işbirliği tooB2C karşılaştırma](active-directory-b2b-compare-b2c.md)
 #### [B2B desteği alma](active-directory-b2b-support.md)
 
 ### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](./connect/active-directory-aadconnect.md)
 
-## Kaynaklara temsilci erişimi
+## Temsilci erişim tooresources
 ### [Yönetici rolleri](active-directory-assign-admin-roles.md)
 #### [Yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
@@ -283,7 +283,7 @@
 #### [Özel roller](role-based-access-control-custom-roles.md)
 #### [İç ve dış kullanıcılar için özel roller atama](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Raporlama](role-based-access-control-access-change-history-report.md)
-#### Daha fazla rol yönetme yolu
+#### Daha fazla yol toomanage rolleri
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
@@ -299,7 +299,7 @@
 #### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
 #### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
 #### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
-#### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
+#### [Erişim tooconnected uygulamaları ayarlayın](active-directory-conditional-access-policy-connected-applications.md)
 #### [Düzeltme](active-directory-conditional-access-device-remediation.md)
 #### [SSS](active-directory-conditional-faqs.md)
 #### [Klasik portal](active-directory-conditional-access.md)

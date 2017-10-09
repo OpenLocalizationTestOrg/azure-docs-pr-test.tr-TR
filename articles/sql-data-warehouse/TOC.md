@@ -89,7 +89,7 @@
 ### Öğreticiler
 #### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 
-### Nasıl yapılır kılavuzları
+### Nasıl tooguides
 #### [Örnek veriler](sql-data-warehouse-load-sample-databases.md)
 #### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 #### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -106,7 +106,7 @@
 ### [Geçiş şeması](sql-data-warehouse-migrate-schema.md)
 ### [Geçiş kodu](sql-data-warehouse-migrate-code.md)
 ### [Geçiş verileri](sql-data-warehouse-migrate-data.md)
-### [Premium depolamaya geçiş](sql-data-warehouse-migrate-to-premium-storage.md)
+### [Toopremium depolama birimini geçirme](sql-data-warehouse-migrate-to-premium-storage.md)
 
 ## İşlemi yönetme
 

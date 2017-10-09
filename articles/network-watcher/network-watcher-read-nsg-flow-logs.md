@@ -1,6 +1,6 @@
 ---
-title: "Okuma NSG akış günlükleri | Microsoft Docs"
-description: "Bu makalede NSG akış günlükleri ayrıştırmak nasıl gösterir"
+title: "aaaRead NSG akış günlükleri | Microsoft Docs"
+description: "Bu makalede nasıl tooparse NSG akış günlükleri gösterir"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,69 +13,69 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 9bb48157b2b8e483e063058f761c3a8f531927f9
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b4f0f64639c7b2a6b4db50e54d15056bfd809e48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="read-nsg-flow-logs"></a><span data-ttu-id="977ed-103">Okuma NSG akış günlükleri</span><span class="sxs-lookup"><span data-stu-id="977ed-103">Read NSG flow logs</span></span>
+# <a name="read-nsg-flow-logs"></a><span data-ttu-id="c0305-103">Okuma NSG akış günlükleri</span><span class="sxs-lookup"><span data-stu-id="c0305-103">Read NSG flow logs</span></span>
 
-<span data-ttu-id="977ed-104">PowerShell ile NSG akış günlükleri girişleri okuma öğrenin.</span><span class="sxs-lookup"><span data-stu-id="977ed-104">Learn how to read NSG flow logs entries with PowerShell.</span></span>
+<span data-ttu-id="c0305-104">Tooread NSG akışı girişlerini PowerShell ile nasıl oturum öğrenin.</span><span class="sxs-lookup"><span data-stu-id="c0305-104">Learn how tooread NSG flow logs entries with PowerShell.</span></span>
 
-<span data-ttu-id="977ed-105">NSG akış günlükleri, bir depolama hesabında depolanır [blok blobları](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs).</span><span class="sxs-lookup"><span data-stu-id="977ed-105">NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs).</span></span> <span data-ttu-id="977ed-106">Blok blobları, daha küçük bloklarını yapılır.</span><span class="sxs-lookup"><span data-stu-id="977ed-106">Block blobs are made up of smaller blocks.</span></span> <span data-ttu-id="977ed-107">Her günlük saatte oluşturulan ayrı blok blob ' dir.</span><span class="sxs-lookup"><span data-stu-id="977ed-107">Each log is a separate block blob that is generated every hour.</span></span> <span data-ttu-id="977ed-108">Yeni günlükler saatte oluşturulan, günlükleri yeni girişlerle birkaç dakikada en son verilerle güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="977ed-108">New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data.</span></span> <span data-ttu-id="977ed-109">Bu makalede akış günlükleri okunmasına öğrenin.</span><span class="sxs-lookup"><span data-stu-id="977ed-109">In this article you learn how to read portions of the flow logs.</span></span>
+<span data-ttu-id="c0305-105">NSG akış günlükleri, bir depolama hesabında depolanır [blok blobları](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs).</span><span class="sxs-lookup"><span data-stu-id="c0305-105">NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs).</span></span> <span data-ttu-id="c0305-106">Blok blobları, daha küçük bloklarını yapılır.</span><span class="sxs-lookup"><span data-stu-id="c0305-106">Block blobs are made up of smaller blocks.</span></span> <span data-ttu-id="c0305-107">Her günlük saatte oluşturulan ayrı blok blob ' dir.</span><span class="sxs-lookup"><span data-stu-id="c0305-107">Each log is a separate block blob that is generated every hour.</span></span> <span data-ttu-id="c0305-108">Yeni günlükler saatte oluşturulan, hello günlükleri yeni girişlerle birkaç dakikada hello en son verilerle güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="c0305-108">New logs are generated every hour, hello logs are updated with new entries every few minutes with hello latest data.</span></span> <span data-ttu-id="c0305-109">Bu makalede hello tooread bölümlerini günlüklerini nasıl gerçekleştiğini öğrenin.</span><span class="sxs-lookup"><span data-stu-id="c0305-109">In this article you learn how tooread portions of hello flow logs.</span></span>
 
-## <a name="scenario"></a><span data-ttu-id="977ed-110">Senaryo</span><span class="sxs-lookup"><span data-stu-id="977ed-110">Scenario</span></span>
+## <a name="scenario"></a><span data-ttu-id="c0305-110">Senaryo</span><span class="sxs-lookup"><span data-stu-id="c0305-110">Scenario</span></span>
 
-<span data-ttu-id="977ed-111">Aşağıdaki senaryoda, bir depolama hesabında depolanan bir örnek akış günlüğü vardır.</span><span class="sxs-lookup"><span data-stu-id="977ed-111">In the following scenario, you have an example flow log that is stored in a storage account.</span></span> <span data-ttu-id="977ed-112">nasıl seçmeli olarak en son olayların NSG akış günlüklerine okuyabilirsiniz adım.</span><span class="sxs-lookup"><span data-stu-id="977ed-112">we step through how you can selectively read the latest events in NSG flow logs.</span></span> <span data-ttu-id="977ed-113">Bu makalede PowerShell kullanacağız, ancak makalesinde açıklanan kavramları programlama diline sınırlı değildir ve Azure depolama API'leri tarafından desteklenen tüm dillerde için geçerlidir</span><span class="sxs-lookup"><span data-stu-id="977ed-113">In this article we will use PowerShell, however, the concepts discussed in the article are not limited to the programming language and are applicable to all languages supported by the Azure Storage APIs</span></span>
+<span data-ttu-id="c0305-111">Senaryo aşağıdaki hello bir depolama hesabında depolanan bir örnek akış günlüğü vardır.</span><span class="sxs-lookup"><span data-stu-id="c0305-111">In hello following scenario, you have an example flow log that is stored in a storage account.</span></span> <span data-ttu-id="c0305-112">nasıl seçmeli olarak hello son olayları NSG akış günlüklerine okuyabilirsiniz adım.</span><span class="sxs-lookup"><span data-stu-id="c0305-112">we step through how you can selectively read hello latest events in NSG flow logs.</span></span> <span data-ttu-id="c0305-113">Bu makalede PowerShell kullanacağız, ancak hello makalesinde açıklanan hello kavramları sınırlı toohello programlama dili olup olmadığı ve Azure depolama API'leri hello tarafından desteklenen geçerli tooall diller</span><span class="sxs-lookup"><span data-stu-id="c0305-113">In this article we will use PowerShell, however, hello concepts discussed in hello article are not limited toohello programming language and are applicable tooall languages supported by hello Azure Storage APIs</span></span>
 
-## <a name="setup"></a><span data-ttu-id="977ed-114">Kurulum</span><span class="sxs-lookup"><span data-stu-id="977ed-114">Setup</span></span>
+## <a name="setup"></a><span data-ttu-id="c0305-114">Kurulum</span><span class="sxs-lookup"><span data-stu-id="c0305-114">Setup</span></span>
 
-<span data-ttu-id="977ed-115">Başlamadan önce ağ güvenlik grubu akış hesabınızda bir veya daha çok ağ güvenlik grupları etkin günlüğü olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="977ed-115">Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account.</span></span> <span data-ttu-id="977ed-116">Akış günlükleri ağ güvenliği etkinleştirme yönergeleri için aşağıdaki makaleye bakın: [akış günlüğü ağ güvenlik grupları için giriş](network-watcher-nsg-flow-logging-overview.md).</span><span class="sxs-lookup"><span data-stu-id="977ed-116">For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).</span></span>
+<span data-ttu-id="c0305-115">Başlamadan önce ağ güvenlik grubu akış hesabınızda bir veya daha çok ağ güvenlik grupları etkin günlüğü olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="c0305-115">Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account.</span></span> <span data-ttu-id="c0305-116">Akış günlükleri ağ güvenliği etkinleştirme yönergeleri için aşağıdaki makaleye bakın toohello bakın: [ağ güvenlik grupları için giriş tooflow günlüğü](network-watcher-nsg-flow-logging-overview.md).</span><span class="sxs-lookup"><span data-stu-id="c0305-116">For instructions on enabling Network Security flow logs, refer toohello following article: [Introduction tooflow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).</span></span>
 
-## <a name="retrieve-the-block-list"></a><span data-ttu-id="977ed-117">Engelleme listesi alma</span><span class="sxs-lookup"><span data-stu-id="977ed-117">Retrieve the block list</span></span>
+## <a name="retrieve-hello-block-list"></a><span data-ttu-id="c0305-117">Merhaba blok listesini alma</span><span class="sxs-lookup"><span data-stu-id="c0305-117">Retrieve hello block list</span></span>
 
-<span data-ttu-id="977ed-118">Aşağıdaki PowerShell NSG akış günlük blob sorgulamak ve blokları içinde listelemek için gerekli değişkenleri ayarlar [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok blobu.</span><span class="sxs-lookup"><span data-stu-id="977ed-118">The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) block blob.</span></span> <span data-ttu-id="977ed-119">Ortamınız için geçerli değerler içermesini komut dosyasını güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="977ed-119">Update the script to contain valid values for your environment.</span></span>
+<span data-ttu-id="c0305-118">tooquery hello NSG akış oturum hello içinde blob ve liste hello blok hello değişkenleri PowerShell ayarlar aşağıdaki hello [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok blobu.</span><span class="sxs-lookup"><span data-stu-id="c0305-118">hello following PowerShell sets up hello variables needed tooquery hello NSG flow log blob and list hello blocks within hello [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) block blob.</span></span> <span data-ttu-id="c0305-119">Merhaba betik toocontain ortamınız için geçerli değerler güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="c0305-119">Update hello script toocontain valid values for your environment.</span></span>
 
 ```powershell
-# The SubscriptionID to use
+# hello SubscriptionID toouse
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
 
-# Resource group that contains the Network Security Group
+# Resource group that contains hello Network Security Group
 $resourceGroupName = "<resourceGroupName>"
 
-# The name of the Network Security Group
+# hello name of hello Network Security Group
 $nsgName = "NSGName"
 
-# The storage account name that contains the NSG logs
+# hello storage account name that contains hello NSG logs
 $storageAccountName = "<storageAccountName>" 
 
-# The date and time for the log to be queried, logs are stored in hour intervals.
+# hello date and time for hello log toobe queried, logs are stored in hour intervals.
 [datetime]$logtime = "06/16/2017 20:00"
 
-# Retrieve the primary storage account key to access the NSG logs
+# Retrieve hello primary storage account key tooaccess hello NSG logs
 $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 
-# Setup a new storage context to be used to query the logs
+# Setup a new storage context toobe used tooquery hello logs
 $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Container name used by NSG flow logs
 $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-# Name of the blob that contains the NSG flow log
+# Name of hello blob that contains hello NSG flow log
 $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${nsgName}/y=$($logtime.Year)/m=$(($logtime).ToString("MM"))/d=$(($logtime).ToString("dd"))/h=$(($logtime).ToString("HH"))/m=00/PT1H.json"
 
-# Gets the storage blog
+# Gets hello storage blog
 $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-# Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
+# Gets hello block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from hello storage blob
 $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
-# Stores the block list in a variable from the block blob.
+# Stores hello block list in a variable from hello block blob.
 $blockList = $CloudBlockBlob.DownloadBlockList()
 ```
 
-<span data-ttu-id="977ed-120">`$blockList` Değişkeni blob içinde blokları listesini döndürür.</span><span class="sxs-lookup"><span data-stu-id="977ed-120">The `$blockList` variable returns a list of the blocks in the blob.</span></span> <span data-ttu-id="977ed-121">Her blok blobu en az iki blokları içerir.</span><span class="sxs-lookup"><span data-stu-id="977ed-121">Each block blob contains at least two blocks.</span></span>  <span data-ttu-id="977ed-122">İlk blok uzunluğuna sahip `21` bayt, bu bloğu json günlük açılan parantezler içerir.</span><span class="sxs-lookup"><span data-stu-id="977ed-122">The first block has a length of `21` bytes, this block contains the opening brackets of the json log.</span></span> <span data-ttu-id="977ed-123">Diğer blok kapanış köşeli ayraçlar ve uzunluğuna sahip `9` bayt sayısı.</span><span class="sxs-lookup"><span data-stu-id="977ed-123">The other block is the closing brackets and has a length of `9` bytes.</span></span>  <span data-ttu-id="977ed-124">Aşağıdaki örnek günlük gördüğünüz yedi girişleri, içinde her bir girişe olan içeriyor.</span><span class="sxs-lookup"><span data-stu-id="977ed-124">As you can see the following example log has seven entries in it, each being an individual entry.</span></span> <span data-ttu-id="977ed-125">Günlükteki tüm yeni girişler son blok önceki sonuna eklenir.</span><span class="sxs-lookup"><span data-stu-id="977ed-125">All new entries in the log are added to the end right before the final block.</span></span>
+<span data-ttu-id="c0305-120">Merhaba `$blockList` değişkeni hello blob hello blokları listesini döndürür.</span><span class="sxs-lookup"><span data-stu-id="c0305-120">hello `$blockList` variable returns a list of hello blocks in hello blob.</span></span> <span data-ttu-id="c0305-121">Her blok blobu en az iki blokları içerir.</span><span class="sxs-lookup"><span data-stu-id="c0305-121">Each block blob contains at least two blocks.</span></span>  <span data-ttu-id="c0305-122">Merhaba ilk Blok uzunluğu olan `21` bayt bu bloğu hello json günlüğünün köşeli açma hello içerir.</span><span class="sxs-lookup"><span data-stu-id="c0305-122">hello first block has a length of `21` bytes, this block contains hello opening brackets of hello json log.</span></span> <span data-ttu-id="c0305-123">Merhaba diğer blok hello kapanış köşeli ve uzunluğuna sahip `9` bayt sayısı.</span><span class="sxs-lookup"><span data-stu-id="c0305-123">hello other block is hello closing brackets and has a length of `9` bytes.</span></span>  <span data-ttu-id="c0305-124">Gördüğünüz gibi örnek günlük aşağıdaki hello yedi girişleri, içinde her bir girişe olan içeriyor.</span><span class="sxs-lookup"><span data-stu-id="c0305-124">As you can see hello following example log has seven entries in it, each being an individual entry.</span></span> <span data-ttu-id="c0305-125">Tüm yeni girişler hello günlüğüne toohello sona hello son blok hemen önce eklenir.</span><span class="sxs-lookup"><span data-stu-id="c0305-125">All new entries in hello log are added toohello end right before hello final block.</span></span>
 
 ```
 Name                                         Length Committed
@@ -91,45 +91,45 @@ Mzk1YzQwM2U0ZWY1ZDRhOWFlMTNhYjQ3OGVhYmUzNjk=   2675      True
 ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      9      True
 ```
 
-## <a name="read-the-block-blob"></a><span data-ttu-id="977ed-126">Blok blobu okuma</span><span class="sxs-lookup"><span data-stu-id="977ed-126">Read the block blob</span></span>
+## <a name="read-hello-block-blob"></a><span data-ttu-id="c0305-126">Okuma hello blok blobu</span><span class="sxs-lookup"><span data-stu-id="c0305-126">Read hello block blob</span></span>
 
-<span data-ttu-id="977ed-127">Sonraki okumak ihtiyacımız `$blocklist` verileri almak üzere değişken.</span><span class="sxs-lookup"><span data-stu-id="977ed-127">Next we need to read the `$blocklist` variable to retrieve the data.</span></span> <span data-ttu-id="977ed-128">Bu örnekte, biz engelleme yineleme her bloğundan bayt okuma ve bir dizi yazı.</span><span class="sxs-lookup"><span data-stu-id="977ed-128">In this example we iterate through the blocklist, read the bytes from each block and story them in an array.</span></span> <span data-ttu-id="977ed-129">Kullanırız [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) verileri almak üzere yöntemi.</span><span class="sxs-lookup"><span data-stu-id="977ed-129">We use the [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method to retrieve the data.</span></span>
+<span data-ttu-id="c0305-127">Tooread hello sonraki ihtiyacımız `$blocklist` değişken tooretrieve hello veri.</span><span class="sxs-lookup"><span data-stu-id="c0305-127">Next we need tooread hello `$blocklist` variable tooretrieve hello data.</span></span> <span data-ttu-id="c0305-128">Bu örnekte, biz hello engelleme yineleme her bloğundan hello bayt okuma ve bir dizi yazı.</span><span class="sxs-lookup"><span data-stu-id="c0305-128">In this example we iterate through hello blocklist, read hello bytes from each block and story them in an array.</span></span> <span data-ttu-id="c0305-129">Merhaba kullanırız [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) yöntemi tooretrieve hello veri.</span><span class="sxs-lookup"><span data-stu-id="c0305-129">We use hello [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method tooretrieve hello data.</span></span>
 
 ```powershell
-# Set the size of the byte array to the largest block
+# Set hello size of hello byte array toohello largest block
 $maxvalue = ($blocklist | measure Length -Maximum).Maximum
 
-# Create an array to store values in
+# Create an array toostore values in
 $valuearray = @()
 
-# Define the starting index to track the current block being read
+# Define hello starting index tootrack hello current block being read
 $index = 0
 
-# Loop through each block in the block list
+# Loop through each block in hello block list
 for($i=0; $i -lt $blocklist.count; $i++)
 {
 
-# Create a byte array object to story the bytes from the block
+# Create a byte array object toostory hello bytes from hello block
 $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
-# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
+# Download hello data into hello ByteArray, starting with hello current index, for hello number of bytes in hello current block. Index is increased by 3 when reading tooremove preceding comma.
 $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index+3,$($blockList[$i].Length-1)) | Out-Null
 
-# Increment the index by adding the current block length to the previous index
+# Increment hello index by adding hello current block length toohello previous index
 $index = $index + $blockList[$i].Length
 
-# Retrieve the string from the byte array
+# Retrieve hello string from hello byte array
 
 $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
 
-# Add the log entry to the value array
+# Add hello log entry toohello value array
 $valuearray += $value
 }
 ```
 
-<span data-ttu-id="977ed-130">Şimdi `$valuearray` dizi her bloğun dize değeri içerir.</span><span class="sxs-lookup"><span data-stu-id="977ed-130">Now the `$valuearray` array contains the string value of each block.</span></span> <span data-ttu-id="977ed-131">Giriş doğrulamak için ikinci son değeri diziden çalıştırarak alın `$valuearray[$valuearray.Length-2]`.</span><span class="sxs-lookup"><span data-stu-id="977ed-131">To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`.</span></span> <span data-ttu-id="977ed-132">Yalnızca kapanış ayracı son değerdir istemezsiniz.</span><span class="sxs-lookup"><span data-stu-id="977ed-132">We do not want the last value is just the closing bracket.</span></span>
+<span data-ttu-id="c0305-130">Şimdi hello `$valuearray` dizi blokların hello dize değerini içeriyor.</span><span class="sxs-lookup"><span data-stu-id="c0305-130">Now hello `$valuearray` array contains hello string value of each block.</span></span> <span data-ttu-id="c0305-131">tooverify hello girdisi, get hello ikinci toohello son değer çalıştırarak hello dizisinden `$valuearray[$valuearray.Length-2]`.</span><span class="sxs-lookup"><span data-stu-id="c0305-131">tooverify hello entry, get hello second toohello last value from hello array by running `$valuearray[$valuearray.Length-2]`.</span></span> <span data-ttu-id="c0305-132">Merhaba son yalnızca hello kapanış ayracı değerdir istemezsiniz.</span><span class="sxs-lookup"><span data-stu-id="c0305-132">We do not want hello last value is just hello closing bracket.</span></span>
 
-<span data-ttu-id="977ed-133">Bu değer sonuçları aşağıdaki örnekte gösterilir:</span><span class="sxs-lookup"><span data-stu-id="977ed-133">The results of this value are shown in the following example:</span></span>
+<span data-ttu-id="c0305-133">Bu değer Hello sonuçları aşağıdaki örneğine hello gösterilir:</span><span class="sxs-lookup"><span data-stu-id="c0305-133">hello results of this value are shown in hello following example:</span></span>
 
 ```json
         {
@@ -151,11 +151,11 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
         }
 ```
 
-<span data-ttu-id="977ed-134">Bu senaryo, tüm günlük ayrıştırma NSG akış günlüklerine girişleri okuma nasıl örneğidir.</span><span class="sxs-lookup"><span data-stu-id="977ed-134">This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log.</span></span> <span data-ttu-id="977ed-135">Blok Kimliğini kullanarak veya blok blob içinde depolanan blokları uzunluğu izleme yazıldığı şekilde günlüğünde yeni girişleri okuyabilir.</span><span class="sxs-lookup"><span data-stu-id="977ed-135">You can read new entries in the log as they are written by using the block ID or by tracking the length of blocks stored in the block blob.</span></span> <span data-ttu-id="977ed-136">Bu, yalnızca yeni girişleri okumanızı sağlar.</span><span class="sxs-lookup"><span data-stu-id="977ed-136">This allows you to read only the new entries.</span></span>
+<span data-ttu-id="c0305-134">Bu senaryo tooparse hello tüm günlük gerek kalmadan tooread girişleri NSG günlüklerini nasıl gerçekleştiğini bir örnektir.</span><span class="sxs-lookup"><span data-stu-id="c0305-134">This scenario is an example of how tooread entries in NSG flow logs without having tooparse hello entire log.</span></span> <span data-ttu-id="c0305-135">Merhaba blok Kimliğini kullanarak veya hello blok blobu depolanan blokları hello uzunluğu izleme yazıldığı şekilde hello günlüğünde yeni girişleri okuyabilir.</span><span class="sxs-lookup"><span data-stu-id="c0305-135">You can read new entries in hello log as they are written by using hello block ID or by tracking hello length of blocks stored in hello block blob.</span></span> <span data-ttu-id="c0305-136">Bu, yeni girişler yalnızca hello tooread sağlar.</span><span class="sxs-lookup"><span data-stu-id="c0305-136">This allows you tooread only hello new entries.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="977ed-137">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="977ed-137">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="c0305-137">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="c0305-137">Next steps</span></span>
 
-<span data-ttu-id="977ed-138">Ziyaret [açık kaynaklı Araçları'nı kullanarak Azure Ağ İzleyicisi NSG akış günlükleri görselleştirmek](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) NSG akış günlükleri görüntülemek için diğer yolları hakkında daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="977ed-138">Visit [visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) to learn more about other ways to view NSG flow logs.</span></span>
+<span data-ttu-id="c0305-138">Ziyaret [açık kaynaklı Araçları'nı kullanarak Azure Ağ İzleyicisi NSG akış günlükleri görselleştirmek](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) toolearn diğer yolları tooview NSG hakkında daha fazla akış günlükleri.</span><span class="sxs-lookup"><span data-stu-id="c0305-138">Visit [visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) toolearn more about other ways tooview NSG flow logs.</span></span>
 
-<span data-ttu-id="977ed-139">Ziyaret depolama BLOB'ları hakkında daha fazla bilgi edinmek için: [Azure işlevleri Blob Depolama bağlamaları](../azure-functions/functions-bindings-storage-blob.md)</span><span class="sxs-lookup"><span data-stu-id="977ed-139">To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)</span></span>
+<span data-ttu-id="c0305-139">toolearn depolama BLOB'ları hakkında daha fazla ziyaret edin: [Azure işlevleri Blob Depolama bağlamaları](../azure-functions/functions-bindings-storage-blob.md)</span><span class="sxs-lookup"><span data-stu-id="c0305-139">toolearn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)</span></span>
